@@ -12,6 +12,8 @@ readme = "README.md"
 [project.scripts]
 sanskript = "sanskript.cli:main"
 
+[project.optional-dependencies]
+canon = ["pypdf>=5"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
-

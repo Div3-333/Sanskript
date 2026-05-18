@@ -66,6 +66,10 @@ Sanskript should use Sanskrit's combinatoric richness as a feature lattice, not 
 
 See [feature-lattice.md](feature-lattice.md).
 
+## Canon Coverage
+
+The supplied PDFs are indexed in [grammar-canon.md](grammar-canon.md). New features should cite the relevant canon topic or sutra range before they graduate from experimental status.
+
 ## Word Order
 
 Because the prototype uses morphology, these two sentences compile to the same assignment:

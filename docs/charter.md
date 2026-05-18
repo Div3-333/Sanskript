@@ -42,6 +42,12 @@ Each public language feature should eventually have:
 
 Until a construction is reviewed, it belongs to the experimental layer, not the polished language.
 
+## Grammar Canon
+
+The PDFs in `sources/` are the project's local grammar canon. Their extracted coverage ledger is generated into `data/grammar_canon.json` and summarized in `docs/grammar-canon.md`.
+
+The final language must either implement every indexed topic and sutra-derived requirement or explicitly document why a topic is outside the executable subset. Until then, Sanskript is a progressing experiment, not a completed Sanskrit programming language.
+
 ## Purity Versus Practicality
 
 The final user-facing language should favor Sanskrit integrity. The implementation may use normal compiler machinery internally: tokens, AST nodes, bytecode, tests, and intermediate representations. The magic belongs at the source-language boundary.
@@ -57,4 +63,3 @@ The first milestone is not a large standard library. It is a truthful compiler n
 3. Execute simple state changes.
 4. Report grammatical failures clearly.
 5. Keep every accepted construction small enough to review.
-
