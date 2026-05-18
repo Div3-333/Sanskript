@@ -247,18 +247,21 @@ def apply_ekashesha(analyses: list[Analysis]) -> Analysis | None:
         remainder = next((a for a in analyses if a.lemma == "śvaśura"), analyses[0])
         return _update_number(remainder, len(analyses))
 
-    # Rule 1.2.67: Masculine remains over feminine
-    masculine = [a for a in analyses if a.gender == "masculine" or a.gender == "MASCULINE"]
-    # Handle both string and Enum if needed, but better to be consistent.
-    # Looking at grammar.py, Gender is an Enum.
+    # Rule 1.2.73: grāmya-paśu-saṃgheṣu ataruṇeṣu strī.
+    animal_lemmas = {"go", "avi", "aja", "paśu", "aśva", "uṣṭra"}
+    feminine_animals = [a for a in analyses if _has_gender(a, Gender.FEMININE) and a.lemma in animal_lemmas]
+    if feminine_animals and all(a.lemma in animal_lemmas for a in analyses):
+        return _update_number(feminine_animals[0], len(analyses))
 
-    feminine = [a for a in analyses if a.gender == "feminine" or a.gender == "FEMININE"]
+    # Rule 1.2.67: Masculine remains over feminine
+    masculine = [a for a in analyses if _has_gender(a, Gender.MASCULINE)]
+    feminine = [a for a in analyses if _has_gender(a, Gender.FEMININE)]
     if masculine and feminine:
         remainder = masculine[0]
         return _update_number(remainder, len(analyses))
 
     # Rule 1.2.69: Neuter remains over non-neuter
-    neuter = [a for a in analyses if a.gender == "neuter" or a.gender == "NEUTER"]
+    neuter = [a for a in analyses if _has_gender(a, Gender.NEUTER)]
     if neuter and (masculine or feminine):
         remainder = neuter[0]
         return _update_number(remainder, len(analyses))
@@ -277,3 +280,7 @@ def _update_number(analysis: Analysis, count: int) -> Analysis:
         new_number = GrammaticalNumber.PLURAL
 
     return Analysis(**{**analysis.__dict__, "number": new_number})
+
+
+def _has_gender(analysis: Analysis, gender: Gender) -> bool:
+    return analysis.gender in {gender, gender.value, gender.name}

@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import TYPE_CHECKING
+from typing import Iterable, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .grammar import Analysis
@@ -236,10 +236,8 @@ def best_substitute(target: str, candidates: Iterable[str]) -> str:
         if not c_sound:
             continue
 
-        # Calculate similarity score
-        # Places can be compound.
-        t_places = set(t_sound.place.split("-") if "-" in t_sound.place else [t_sound.place])
-        c_places = set(c_sound.place.split("-") if "-" in c_sound.place else [c_sound.place])
+        t_places = _place_parts(t_sound.place)
+        c_places = _place_parts(c_sound.place)
 
         # Intersection of places (higher is better)
         place_match = len(t_places & c_places)
@@ -259,6 +257,16 @@ def best_substitute(target: str, candidates: Iterable[str]) -> str:
             best = cand
 
     return best if best else next(iter(candidates))
+
+
+def _place_parts(place: ArticulationPlace | None) -> set[str]:
+    if place is None:
+        return set()
+    return set(place.value.split("-"))
+
+
+def _enum_value(value: object) -> object:
+    return getattr(value, "value", value)
 
 
 def sounds_between(start: str, marker: str, use_first_occurrence: bool = False) -> tuple[str, ...]:
@@ -385,6 +393,16 @@ def is_savarna(left: str, right: str) -> bool:
     return l_sound.place == r_sound.place and l_sound.effort == r_sound.effort
 
 
+def savarna_class(symbol: str) -> tuple[str, ...]:
+    """
+    1.1.69 aṇudit savarṇasya cāpratyayaḥ.
+    Return the known sound inventory members that are savarṇa with `symbol`.
+    """
+    if symbol not in SOUNDS:
+        return ()
+    return tuple(candidate for candidate in SOUNDS if is_savarna(symbol, candidate))
+
+
 def is_pragrhya(token: Analysis | str) -> bool:
     """
     1.1.11 īdūded-dvivacanam pragṛhyam
@@ -406,18 +424,18 @@ def is_pragrhya(token: Analysis | str) -> bool:
         return False
 
     # Morphological checks
-    if hasattr(token, "number") and token.number == "dual":
+    if hasattr(token, "number") and _enum_value(token.number) == "dual":
         if token.surface.endswith(("ī", "ū", "e")):  # 1.1.11
             return True
 
     if hasattr(token, "lemma") and token.lemma == "adas" and token.surface.endswith(("mī", "mū")):  # 1.1.12
         return True
 
-    if hasattr(token, "pos") and token.pos == "indeclinable":
+    if hasattr(token, "pos") and _enum_value(token.pos) == "indeclinable":
         if token.surface in {"e", "o", "i", "u", "ū"}:  # 1.1.14-1.1.18
             return True
 
-    if hasattr(token, "case") and token.case == "locative" and token.surface.endswith(("ī", "ū")):  # 1.1.19
+    if hasattr(token, "case") and _enum_value(token.case) == "locative" and token.surface.endswith(("ī", "ū")):  # 1.1.19
         return True
 
     return False
@@ -428,11 +446,12 @@ def is_ti(word: str) -> str:
     1.1.64 acyantyādi ṭi
     The last vowel and any following consonants in a word are called ṭi.
     """
-    vowels = [i for i, char in enumerate(word) if is_vowel(char)]
-    if not vowels:
+    sounds = tokenize_sounds(word)
+    vowel_positions = [index for index, sound in enumerate(sounds) if is_vowel(sound)]
+    if not vowel_positions:
         return word
-    last_vowel_idx = vowels[-1]
-    return word[last_vowel_idx:]
+    last_vowel_idx = vowel_positions[-1]
+    return "".join(sounds[last_vowel_idx:])
 
 
 def is_upadha(word: str) -> str | None:
@@ -455,6 +474,41 @@ def is_aprkta(token: Analysis) -> bool:
     # Let's check if the surface is a single sound and it's a suffix.
     sounds = tokenize_sounds(token.surface)
     return len(sounds) == 1
+
+
+def first_vowel(word: str) -> str | None:
+    for sound in tokenize_sounds(word):
+        if is_vowel(sound):
+            return sound
+    return None
+
+
+def is_vrddha_word(word: str, eastern_name: bool = False, tyadadi: bool = False) -> bool:
+    """
+    1.1.73-1.1.75 vṛddha-saṃjñā.
+    Context switches keep tyadādi and eastern e/o names explicit rather than
+    smuggling them into ordinary sound classification.
+    """
+    if tyadadi:
+        return True
+    vowel = first_vowel(word)
+    if vowel is None:
+        return False
+    if is_vrddhi(vowel):
+        return True
+    return eastern_name and vowel in {"e", "o"}
+
+
+def hrasva_substitute_for_ec(symbol: str) -> str:
+    """
+    1.1.48 eca iṅ hrasvādeśe.
+    Short replacements for ec vowels use the i/u channel.
+    """
+    mapping = {"e": "i", "ai": "i", "o": "u", "au": "u"}
+    try:
+        return mapping[symbol]
+    except KeyError as exc:
+        raise ValueError(f"hrasva replacement under 1.1.48 requires an ec vowel: {symbol!r}") from exc
 
 
 def tokenize_sounds(word: str) -> list[str]:
@@ -487,5 +541,5 @@ def is_simple_vowel_savarna(left: str, right: str) -> bool:
 def sounds_by_place(place: ArticulationPlace) -> tuple[str, ...]:
     return tuple(
         symbol for symbol, sound in SOUNDS.items()
-        if place.value in sound.place.value
+        if sound.place is not None and place.value in sound.place.value
     )

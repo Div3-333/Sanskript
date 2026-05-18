@@ -13,6 +13,7 @@ class DocumentationTests(unittest.TestCase):
 
         self.assertIn("Write programs as grammatical Sanskrit", html)
         self.assertIn("assets/grammar-tablet.png", html)
+        self.assertIn("first half of Adhyāya 1", html)
         self.assertGreater(artwork.stat().st_size, 10_000)
 
 

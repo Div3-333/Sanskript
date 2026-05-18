@@ -95,7 +95,7 @@ META_RULES: tuple[MetaRule, ...] = (
     MetaRule("1.2.4", RuleBehavior.TECHNICAL_MARKER, "sārvadhātukam-apit", "sārvadhātuka suffixes without p are ṅit"),
     MetaRule("1.2.5", RuleBehavior.TECHNICAL_MARKER, "asaṃyogāl-liṭ kit", "liṭ after a root not ending in a cluster is kit"),
     MetaRule("1.2.7", RuleBehavior.TECHNICAL_MARKER, "mṛḍa-mṛda-guḍa-kuṣa-kliśa-vada-vasaḥ ktvā", "ktvā after these roots is kit"),
-    MetaRule("1.2.18", RuleBehavior.PROHIBITION, "na kti-vici-kṛmi-chadi-caratibhyo'ñ-ṇit", "ktvā is not ṅit/kit after certain roots"),
+    MetaRule("1.2.18", RuleBehavior.PROHIBITION, "na ktvā seṭ", "seṭ ktvā blocks kit behavior in the controlled derivation context"),
     MetaRule("1.2", RuleBehavior.TECHNICAL_MARKER, "it-marker discipline", "tracks markers that guide derivation and then disappear"),
     MetaRule("1.2", RuleBehavior.OPTIONALITY, "vā-option", "marks grammatically licensed alternatives without treating them as parser hacks"),
     MetaRule("1.2", RuleBehavior.PROHIBITION, "blocking conditions", "records when a later operation is grammatically unavailable"),

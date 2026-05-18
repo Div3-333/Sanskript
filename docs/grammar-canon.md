@@ -23,9 +23,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Total obligations: `4172`
 - Topic obligations: `191`
 - Sutra obligations: `3981`
-- Implemented: `3`
-- Partial: `197`
-- Batch partial: `3972`
+- Implemented: `148`
+- Partial: `191`
+- Batch partial: `3833`
 - Pending design: `0`
 
 ## Aṣṭādhyāyī Sutra Index
@@ -273,8 +273,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 ## Current Implemented Slice
 
-The current interpreter implements only a tiny slice of the canon:
+The current interpreter implements a controlled executable slice and a complete first-half Adhyāya 1 rule workpack:
 
+- all sutras from `1.1.1` through `1.2.73` as typed rule records with implementation hooks and tests;
 - finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;
 - karman, karaṇa, and adhikaraṇa role recovery from controlled forms;
 - small cardinal numerals 0 through 10 in object and instrumental roles;

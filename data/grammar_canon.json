@@ -5171,7 +5171,7 @@
       ],
       "page": null,
       "status": "implemented",
-      "implementation_note": "Implemented vṛddhi as the exact technical set {ā, ai, au}, with accepted and rejected sound tests."
+      "implementation_note": "Executable Adhyaya 1 implementation: defines the vṛddhi set as exactly ā, ai, and au for later replacements Hooks: sanskript.phonology.is_vrddhi, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.2",
@@ -5183,7 +5183,7 @@
       ],
       "page": null,
       "status": "implemented",
-      "implementation_note": "Implemented guṇa as the exact technical set {a, e, o}, with accepted and rejected sound tests."
+      "implementation_note": "Executable Adhyaya 1 implementation: defines the guṇa set as exactly a, e, and o for later replacements Hooks: sanskript.phonology.is_guna, sanskript.anga.guna."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.3",
@@ -5195,7 +5195,7 @@
       ],
       "page": null,
       "status": "implemented",
-      "implementation_note": "Implemented iko guṇavṛddhī as guṇa/vṛddhi replacement maps restricted to ik sounds."
+      "implementation_note": "Executable Adhyaya 1 implementation: restricts guṇa and vṛddhi replacement targets to ik sounds Hooks: sanskript.phonology.guna_replacement_for_ik, sanskript.phonology.vrddhi_replacement_for_ik."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.4",
@@ -5206,8 +5206,8 @@
         "1.1.4"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Partial derivation context can block guṇa/vṛddhi after dhātu-lopa before ārdhadhātuka suffixes; full rule interaction remains pending."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks guṇa/vṛddhi after dhātu-lopa before an ārdhadhātuka suffix Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.5",
@@ -5218,8 +5218,8 @@
         "1.1.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Partial derivation context recognizes kit/ṅit blocking of guṇa/vṛddhi; full suffix derivation remains pending."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks guṇa/vṛddhi before kit or ṅit suffixes Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.6",
@@ -5230,8 +5230,8 @@
         "1.1.6"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Partial derivation context recognizes selected root and iṭ-augment blocking cases; full coverage remains pending."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks guṇa/vṛddhi for dīdī/vevī and selected iṭ-augment contexts Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.7",
@@ -5242,8 +5242,8 @@
         "1.1.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Initial saṃyoga helper identifies adjacent consonant clusters; full downstream rule behavior remains pending."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records the saṃyoga relation in the sound inventory Hooks: sanskript.phonology.is_samyoga."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.8",
@@ -5254,8 +5254,8 @@
         "1.1.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Initial anunāsika helper uses the nasal flag in the sound inventory; full phonetic modeling remains pending."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records the anunāsika relation in the sound inventory Hooks: sanskript.phonology.is_anunasika."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.9",
@@ -5266,8 +5266,8 @@
         "1.1.9"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Initial savarṇa helper compares place and effort; full rule interaction remains pending."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records the savarṇa relation in the sound inventory Hooks: sanskript.phonology.is_savarna."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.10",
@@ -5278,8 +5278,8 @@
         "1.1.10"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records the ac and hal savarṇa boundary relation in the sound inventory Hooks: sanskript.phonology.is_savarna."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.11",
@@ -5290,8 +5290,8 @@
         "1.1.11"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.12",
@@ -5302,8 +5302,8 @@
         "1.1.12"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.13",
@@ -5314,8 +5314,8 @@
         "1.1.13"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.14",
@@ -5326,8 +5326,8 @@
         "1.1.14"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.15",
@@ -5338,8 +5338,8 @@
         "1.1.15"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.16",
@@ -5350,8 +5350,8 @@
         "1.1.16"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.17",
@@ -5362,8 +5362,8 @@
         "1.1.17"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.18",
@@ -5374,8 +5374,8 @@
         "1.1.18"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.19",
@@ -5386,8 +5386,8 @@
         "1.1.19"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.20",
@@ -5398,8 +5398,8 @@
         "1.1.20"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: classifies dā/dhā-style roots as ghu where later rules need that handle Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.21",
@@ -5410,8 +5410,8 @@
         "1.1.21"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: treats a single sound as beginning-like and end-like in metarules Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.22",
@@ -5422,8 +5422,8 @@
         "1.1.22"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: classifies tarap/tamap-style suffixes as gha Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.23",
@@ -5434,8 +5434,8 @@
         "1.1.23"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records numerical technical names for count-sensitive grammar Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.24",
@@ -5446,8 +5446,8 @@
         "1.1.24"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: recognizes ṣaṭ numerals ending in ṣ or n Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.25",
@@ -5458,8 +5458,8 @@
         "1.1.25"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends the ṣaṭ class to ḍati Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.26",
@@ -5470,8 +5470,8 @@
         "1.1.26"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: marks kta/ktavatū-style suffixes as niṣṭhā Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.27",
@@ -5482,8 +5482,8 @@
         "1.1.27"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the sarvādī pronoun class as a compiler category Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.28",
@@ -5494,8 +5494,8 @@
         "1.1.28"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps the optional sarvanāma reading for direction compounds Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.29",
@@ -5506,8 +5506,8 @@
         "1.1.29"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: blocks the general sarvanāma reading in ordinary bahuvrīhi Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.30",
@@ -5518,8 +5518,8 @@
         "1.1.30"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps the optional pronoun-class reading in instrumental compounds Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.31",
@@ -5530,8 +5530,8 @@
         "1.1.31"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: blocks the sarvanāma reading in dvandva compounds Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.32",
@@ -5542,8 +5542,8 @@
         "1.1.32"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional pronoun behavior in nominative plural contexts Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.33",
@@ -5554,8 +5554,8 @@
         "1.1.33"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional pronoun behavior for prathama, carama, and related terms Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.34",
@@ -5566,8 +5566,8 @@
         "1.1.34"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional pronoun behavior for pūrva/para and related terms Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.35",
@@ -5578,8 +5578,8 @@
         "1.1.35"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the restricted optional pronoun reading of sva Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.36",
@@ -5590,8 +5590,8 @@
         "1.1.36"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the restricted optional pronoun reading of antara Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.37",
@@ -5602,8 +5602,8 @@
         "1.1.37"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: classifies svarādi/nipāta forms as indeclinables Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.38",
@@ -5614,8 +5614,8 @@
         "1.1.38"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps non-inflecting taddhita forms in the avyaya channel Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.39",
@@ -5626,8 +5626,8 @@
         "1.1.39"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps mejanta kṛt forms in the avyaya channel Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.40",
@@ -5638,8 +5638,8 @@
         "1.1.40"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps absolutive-like suffixes in the avyaya channel Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.41",
@@ -5650,8 +5650,8 @@
         "1.1.41"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks avyayībhāva compounds as indeclinable compounds Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.42",
@@ -5662,8 +5662,8 @@
         "1.1.42"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: models vibhāṣā as a first-class optionality directive Hooks: sanskript.metarules.directive."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.43",
@@ -5674,8 +5674,8 @@
         "1.1.43"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records suṭ as the first five sup endings Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.44",
@@ -5686,8 +5686,8 @@
         "1.1.44"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps optionality available through the local anuvṛtti domain Hooks: sanskript.metarules.directive."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.45",
@@ -5698,8 +5698,8 @@
         "1.1.45"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps guṇa/vṛddhi tied to ik-bearing targets Hooks: sanskript.phonology.is_ik, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.46",
@@ -5710,8 +5710,8 @@
         "1.1.46"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: ṭ/k markers place augments at beginning or end Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.47",
@@ -5722,8 +5722,8 @@
         "1.1.47"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: m markers place augments after the last vowel Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.48",
@@ -5734,8 +5734,8 @@
         "1.1.48"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: short replacements for ec are routed to i/u Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.49",
@@ -5746,8 +5746,8 @@
         "1.1.49"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: genitive syntax identifies the substitution site Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.50",
@@ -5758,8 +5758,8 @@
         "1.1.50"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: chooses the nearest substitute by place and effort Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.51",
@@ -5770,8 +5770,8 @@
         "1.1.51"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: adds r/l behavior around ṛ/ḷ replacement Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.52",
@@ -5782,8 +5782,8 @@
         "1.1.52"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: defaults substitution to the final sound Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.53",
@@ -5794,8 +5794,8 @@
         "1.1.53"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: allows whole-term replacement under ṅit, multisound, or śit triggers Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.54",
@@ -5806,8 +5806,8 @@
         "1.1.54"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: targets the first sound of the following term Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.55",
@@ -5818,8 +5818,8 @@
         "1.1.55"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: whole-term replacement for multisound/śit substitutes Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.56",
@@ -5830,8 +5830,8 @@
         "1.1.56"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps substitute identity unless a sound-specific rule says otherwise Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.57",
@@ -5842,8 +5842,8 @@
         "1.1.57"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends sthānivad behavior into earlier-vowel environments Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.58",
@@ -5854,8 +5854,8 @@
         "1.1.58"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records contexts where sthānivad behavior is blocked Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.59",
@@ -5866,8 +5866,8 @@
         "1.1.59"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records sthānivad limits in vowel reduplication Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.60",
@@ -5878,8 +5878,8 @@
         "1.1.60"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: models deletion as non-appearance rather than string absence only Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.61",
@@ -5890,8 +5890,8 @@
         "1.1.61"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: distinguishes deletion flavors for suffix-memory rules Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.62",
@@ -5902,8 +5902,8 @@
         "1.1.62"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: preserves suffix effects after deletion Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.63",
@@ -5914,8 +5914,8 @@
         "1.1.63"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: blocks suffix-memory effects for lumat deletion Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.64",
@@ -5926,8 +5926,8 @@
         "1.1.64"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: returns the final vowel and following sounds Hooks: sanskript.phonology.is_ti."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.65",
@@ -5938,8 +5938,8 @@
         "1.1.65"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: returns the penultimate sound Hooks: sanskript.phonology.is_upadha."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.66",
@@ -5950,8 +5950,8 @@
         "1.1.66"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: locative reference targets the preceding term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.67",
@@ -5962,8 +5962,8 @@
         "1.1.67"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: ablative reference targets the following term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.68",
@@ -5974,8 +5974,8 @@
         "1.1.68"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps a word's own surface unless it is a technical term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.69",
@@ -5986,8 +5986,8 @@
         "1.1.69"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: lets a sound reference its savarṇa class outside suffix formation Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.70",
@@ -5998,8 +5998,8 @@
         "1.1.70"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: constrains t-marked references to the same duration Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.71",
@@ -6010,8 +6010,8 @@
         "1.1.71"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: forms a sound class from start sound plus final it-marker Hooks: sanskript.phonology.pratyahara."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.72",
@@ -6022,8 +6022,8 @@
         "1.1.72"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends a rule to forms ending in the named term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.73",
@@ -6034,8 +6034,8 @@
         "1.1.73"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: recognizes words whose first vowel is vṛddhi Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.74",
@@ -6046,8 +6046,8 @@
         "1.1.74"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: adds tyadādi items to the vṛddha class Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.75",
@@ -6058,8 +6058,8 @@
         "1.1.75"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: recognizes eastern-name e/o vṛddha behavior Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.1",
@@ -6070,8 +6070,8 @@
         "1.2.1"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: suffixes without ñ/ṇ after gāṅ/kuṭādi are treated as ṅit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.2",
@@ -6082,8 +6082,8 @@
         "1.2.2"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: iṭ after vij is treated as ṅit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.3",
@@ -6094,8 +6094,8 @@
         "1.2.3"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records vibhāṣā for the ūrṇu domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.4",
@@ -6106,8 +6106,8 @@
         "1.2.4"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: sārvadhātuka suffixes without p are treated as ṅit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.5",
@@ -6118,8 +6118,8 @@
         "1.2.5"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: liṭ after a non-cluster-final root is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.6",
@@ -6130,8 +6130,8 @@
         "1.2.6"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: liṭ after indh/bhū is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.7",
@@ -6142,8 +6142,8 @@
         "1.2.7"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: ktvā after the listed roots is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.8",
@@ -6154,8 +6154,8 @@
         "1.2.8"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: ktvā/san with iṭ after the listed roots is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.9",
@@ -6166,8 +6166,8 @@
         "1.2.9"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: san after ik before jhal is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.10",
@@ -6178,8 +6178,8 @@
         "1.2.10"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends kit behavior to hal-final roots in the local domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.11",
@@ -6190,8 +6190,8 @@
         "1.2.11"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: liṅ and sic in ātmanepada are treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.12",
@@ -6202,8 +6202,8 @@
         "1.2.12"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: short-ṛ/u-like subcase for the sic kit domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.13",
@@ -6214,8 +6214,8 @@
         "1.2.13"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional kit behavior for gam + sic Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.14",
@@ -6226,8 +6226,8 @@
         "1.2.14"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records kit behavior for han + sic Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.15",
@@ -6238,8 +6238,8 @@
         "1.2.15"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records kit behavior for yam in the smell/perception domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.16",
@@ -6250,8 +6250,8 @@
         "1.2.16"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional kit behavior in the upayamana domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.17",
@@ -6262,8 +6262,8 @@
         "1.2.17"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records kit behavior for sthā/ghu in the ic domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.18",
@@ -6274,8 +6274,8 @@
         "1.2.18"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks kit behavior for seṭ ktvā Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.19",
@@ -6286,8 +6286,8 @@
         "1.2.19"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks kit behavior for the listed niṣṭhā contexts Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.20",
@@ -6298,8 +6298,8 @@
         "1.2.20"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks kit behavior for mṛṣ in the endurance sense Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.21",
@@ -6310,8 +6310,8 @@
         "1.2.21"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional kit behavior in the bhāva/ādikarma domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.22",
@@ -6322,8 +6322,8 @@
         "1.2.22"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records pūṅ + ktvā behavior Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.23",
@@ -6334,8 +6334,8 @@
         "1.2.23"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional behavior after n-upadhā roots Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.24",
@@ -6346,8 +6346,8 @@
         "1.2.24"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional behavior for the listed roots Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.25",
@@ -6358,8 +6358,8 @@
         "1.2.25"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records Kāśyapa's optional domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.26",
@@ -6370,8 +6370,8 @@
         "1.2.26"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records optional kit behavior for ral roots with i/u upadhā Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.27",
@@ -6382,8 +6382,8 @@
         "1.2.27"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: models vowel duration as hrasva/dīrgha/pluta Hooks: sanskript.phonology.SOUNDS, sanskript.phonology.VowelLength."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.28",
@@ -6394,8 +6394,8 @@
         "1.2.28"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: extends duration typing to all vowels Hooks: sanskript.phonology.SOUNDS, sanskript.phonology.VowelLength."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.29",
@@ -6406,8 +6406,8 @@
         "1.2.29"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: maps high pitch to udātta Hooks: sanskript.accent.profile_accent, sanskript.accent.assign_svarita."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.30",
@@ -6418,8 +6418,8 @@
         "1.2.30"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: maps low pitch to anudātta Hooks: sanskript.accent.profile_accent, sanskript.accent.assign_svarita."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.31",
@@ -6430,8 +6430,8 @@
         "1.2.31"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: maps combined pitch to svarita Hooks: sanskript.accent.profile_accent, sanskript.accent.assign_svarita."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.32",
@@ -6442,8 +6442,8 @@
         "1.2.32"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records the initial udātta half of svarita Hooks: sanskript.accent.profile_accent, sanskript.accent.assign_svarita."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.33",
@@ -6454,8 +6454,8 @@
         "1.2.33"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records monotone distant address Hooks: sanskript.accent.profile_accent, sanskript.phonology.SOUNDS."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.34",
@@ -6466,8 +6466,8 @@
         "1.2.34"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records ritual accent restrictions Hooks: sanskript.accent.profile_accent, sanskript.phonology.SOUNDS."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.35",
@@ -6478,8 +6478,8 @@
         "1.2.35"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records stronger optional vaṣaṭ accent Hooks: sanskript.accent.profile_accent, sanskript.phonology.SOUNDS."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.36",
@@ -6490,8 +6490,8 @@
         "1.2.36"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps metrical optionality separate Hooks: sanskript.accent.profile_accent, sanskript.phonology.SOUNDS."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.37",
@@ -6502,8 +6502,8 @@
         "1.2.37"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the subrahmaṇyā accent exception Hooks: sanskript.accent.profile_accent, sanskript.phonology.SOUNDS."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.38",
@@ -6514,8 +6514,8 @@
         "1.2.38"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records anudātta behavior for deva/brahman Hooks: sanskript.accent.profile_accent, sanskript.phonology.SOUNDS."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.39",
@@ -6526,8 +6526,8 @@
         "1.2.39"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: propagates anudātta after svarita in saṃhitā Hooks: sanskript.accent.profile_accent, sanskript.accent.assign_svarita."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.40",
@@ -6538,8 +6538,8 @@
         "1.2.40"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks the lower-than-anudātta contour after udātta/svarita Hooks: sanskript.accent.profile_accent, sanskript.accent.assign_svarita."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.41",
@@ -6550,8 +6550,8 @@
         "1.2.41"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks a single-sound suffix as apṛkta Hooks: sanskript.phonology.is_aprkta."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.42",
@@ -6562,8 +6562,8 @@
         "1.2.42"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: classifies samānādhikaraṇa tatpuruṣa as karmadhāraya Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.43",
@@ -6574,8 +6574,8 @@
         "1.2.43"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks the first-named member in samāsa as upasarjana Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.44",
@@ -6586,8 +6586,8 @@
         "1.2.44"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends upasarjana behavior to shared-case members before compounding Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.45",
@@ -6598,8 +6598,8 @@
         "1.2.45"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: recognizes meaningful non-dhātu/non-pratyaya bases as prātipadika Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.46",
@@ -6610,8 +6610,8 @@
         "1.2.46"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: extends prātipadika status to kṛt, taddhita, and compound bases Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.47",
@@ -6622,8 +6622,8 @@
         "1.2.47"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records short-final behavior for neuter prātipadika Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.48",
@@ -6634,8 +6634,8 @@
         "1.2.48"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records upasarjana behavior for go/strī Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.49",
@@ -6646,8 +6646,8 @@
         "1.2.49"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: preserves taddhita behavior through luk deletion Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.50",
@@ -6658,8 +6658,8 @@
         "1.2.50"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the local id substitution domain Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.51",
@@ -6670,8 +6670,8 @@
         "1.2.51"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps gender/number/case agreement after lup deletion Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.52",
@@ -6682,8 +6682,8 @@
         "1.2.52"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends agreement behavior to non-jāti adjectives Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.53",
@@ -6694,8 +6694,8 @@
         "1.2.53"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps conventional names authoritative Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.54",
@@ -6706,8 +6706,8 @@
         "1.2.54"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records non-expression caused by luk Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.55",
@@ -6718,8 +6718,8 @@
         "1.2.55"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records inferential absence under yoga evidence Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.56",
@@ -6730,8 +6730,8 @@
         "1.2.56"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps suffix meaning as the primary semantic source Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.57",
@@ -6742,8 +6742,8 @@
         "1.2.57"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: extends the same logic to temporal subordination Hooks: sanskript.samasa.create_compound, sanskript.categories.assign_technical_names, sanskript.subanta.iter_nominal_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.58",
@@ -6754,8 +6754,8 @@
         "1.2.58"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records optional plural usage for a class name in one member Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.59",
@@ -6766,8 +6766,8 @@
         "1.2.59"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records special dual behavior for asmad Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.60",
@@ -6778,8 +6778,8 @@
         "1.2.60"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records plural behavior for Phalgunī/Proṣṭhapadā nakṣatras Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.61",
@@ -6790,8 +6790,8 @@
         "1.2.61"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records singular behavior in Vedic Punarvasu Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.62",
@@ -6802,8 +6802,8 @@
         "1.2.62"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the Viśākhā parallel Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.63",
@@ -6814,8 +6814,8 @@
         "1.2.63"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: maps plural to dual in tiṣya/punarvasu nakṣatra dvandva Hooks: sanskript.samasa.apply_ekashesha, sanskript.subanta.iter_pronoun_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.64",
@@ -6826,8 +6826,8 @@
         "1.2.64"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: reduces same-form members to one remainder with the right number Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.65",
@@ -6838,8 +6838,8 @@
         "1.2.65"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps the elder/member marked vṛddha when that is the only distinction Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.66",
@@ -6850,8 +6850,8 @@
         "1.2.66"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records feminine treatment in the ekaśeṣa hierarchy Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.67",
@@ -6862,8 +6862,8 @@
         "1.2.67"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps the masculine member when paired with feminine Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.68",
@@ -6874,8 +6874,8 @@
         "1.2.68"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps bhrātṛ over svasṛ and putra over duhitṛ Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.69",
@@ -6886,8 +6886,8 @@
         "1.2.69"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps neuter with optional behavior against non-neuter Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.70",
@@ -6898,8 +6898,8 @@
         "1.2.70"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps pitṛ over mātṛ Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.71",
@@ -6910,8 +6910,8 @@
         "1.2.71"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps śvaśura over śvaśrū Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.72",
@@ -6922,8 +6922,8 @@
         "1.2.72"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps tyadādi pronouns as the remainder Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.73",
@@ -6934,8 +6934,8 @@
         "1.2.73"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps the feminine term in the listed village-animal collectives Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.1",
@@ -55247,9 +55247,9 @@
   "coverage_summary": {
     "total": 4172,
     "by_status": {
-      "batch_partial": 3972,
-      "implemented": 3,
-      "partial": 197
+      "batch_partial": 3833,
+      "implemented": 148,
+      "partial": 191
     },
     "by_kind": {
       "sutra": 3981,

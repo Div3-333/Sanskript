@@ -155,6 +155,7 @@
     <main>
       <nav aria-label="Reference sections">
         <a href="#run">Run</a>
+        <a href="#adhyaya-one">Adhyāya 1</a>
         <a href="#programs">Programs</a>
         <a href="#sentences">Sentences</a>
         <a href="#cases">Cases</a>
@@ -176,6 +177,30 @@
           <h2>Run</h2>
           <pre>$env:PYTHONPATH='src'; python -m sanskript examples\prathama.ssk</pre>
           <p>Source files use UTF-8 text and the extension <code>.ssk</code>.</p>
+        </section>
+
+        <section id="adhyaya-one">
+          <h2>Adhyāya 1 Workpack</h2>
+          <p>The first large implemented grammar workpack is the whole first half of Adhyāya 1: <code>1.1.1</code> through <code>1.2.73</code>. Each sutra is represented as a code-level rule object with an implementation hook, a compiler effect, and a testable example.</p>
+          <table>
+            <tr><th>Range</th><th>Compiler surface</th><th>Use while coding</th></tr>
+            <tr><td><code>1.1.1-3</code></td><td>vṛddhi, guṇa, ik replacement</td><td>Use strengthening only where the sound class allows it.</td></tr>
+            <tr><td><code>1.1.4-6</code></td><td>guṇa/vṛddhi blocking</td><td>kit, ṅit, iṭ, and dhātu-lopa contexts can preserve the original vowel.</td></tr>
+            <tr><td><code>1.1.7-10</code></td><td>saṃyoga, anunāsika, savarṇa</td><td>Sound relations are predicates, not string guesses.</td></tr>
+            <tr><td><code>1.1.11-19</code></td><td>pragṛhya</td><td>Some forms explicitly resist ordinary sandhi.</td></tr>
+            <tr><td><code>1.1.46-63</code></td><td>substitution and lopa metarules</td><td>Replacement scope, closest substitute, and suffix memory are tracked separately.</td></tr>
+            <tr><td><code>1.1.64-75</code></td><td>ṭi, upadhā, pratyāhāra, vṛddha</td><td>Use named sound spans instead of positional string slicing.</td></tr>
+            <tr><td><code>1.2.1-26</code></td><td>kit/ṅit decisions</td><td>Suffix markers are derivational controls that can block later strengthening.</td></tr>
+            <tr><td><code>1.2.27-41</code></td><td>duration, accent, apṛkta</td><td>Vowel length and pitch labels are explicit metadata.</td></tr>
+            <tr><td><code>1.2.42-63</code></td><td>samāsa, prātipadika, lopa agreement</td><td>Compound and nominal-base rules feed the noun layer.</td></tr>
+            <tr><td><code>1.2.64-73</code></td><td>ekaśeṣa</td><td>Multiple terms can collapse to a single grammatical remainder with updated number.</td></tr>
+          </table>
+          <pre>from sanskript.adhyaya1 import rule_for
+rule_for("1.1.71").compiler_effect
+# forms a sound class from start sound plus final it-marker</pre>
+          <div class="callout">
+            <p>Executable sutras expose direct helpers such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, and <code>apply_ekashesha</code>. Formal semantic sutras are still implemented as typed rule records so the canon can track Paninian force before every downstream compiler use exists.</p>
+          </div>
         </section>
 
         <section id="programs">

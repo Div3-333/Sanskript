@@ -15,6 +15,8 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from sanskript.adhyaya1 import implementation_note_for as adhyaya1_implementation_note_for
+from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
 from sanskript.canon_topics import treatment_for
 
 SOURCES_DIR = ROOT / "sources"
@@ -204,20 +206,12 @@ TOPIC_IMPLEMENTATION_NOTES = {
 }
 
 
-PARTIAL_SUTRA_IDS = {
-    "1.1.4": "Partial derivation context can block guṇa/vṛddhi after dhātu-lopa before ārdhadhātuka suffixes; full rule interaction remains pending.",
-    "1.1.5": "Partial derivation context recognizes kit/ṅit blocking of guṇa/vṛddhi; full suffix derivation remains pending.",
-    "1.1.6": "Partial derivation context recognizes selected root and iṭ-augment blocking cases; full coverage remains pending.",
-    "1.1.7": "Initial saṃyoga helper identifies adjacent consonant clusters; full downstream rule behavior remains pending.",
-    "1.1.8": "Initial anunāsika helper uses the nasal flag in the sound inventory; full phonetic modeling remains pending.",
-    "1.1.9": "Initial savarṇa helper compares place and effort; full rule interaction remains pending.",
-}
+PARTIAL_SUTRA_IDS: dict[str, str] = {}
 
 
 IMPLEMENTED_SUTRA_IDS = {
-    "1.1.1": "Implemented vṛddhi as the exact technical set {ā, ai, au}, with accepted and rejected sound tests.",
-    "1.1.2": "Implemented guṇa as the exact technical set {a, e, o}, with accepted and rejected sound tests.",
-    "1.1.3": "Implemented iko guṇavṛddhī as guṇa/vṛddhi replacement maps restricted to ik sounds.",
+    sutra_id: adhyaya1_implementation_note_for(sutra_id)
+    for sutra_id in sorted(adhyaya1_implemented_sutra_ids())
 }
 
 
@@ -504,8 +498,9 @@ def render_markdown(canon: dict[str, Any]) -> str:
         [
             "## Current Implemented Slice",
             "",
-            "The current interpreter implements only a tiny slice of the canon:",
+            "The current interpreter implements a controlled executable slice and a complete first-half Adhyāya 1 rule workpack:",
             "",
+            "- all sutras from `1.1.1` through `1.2.73` as typed rule records with implementation hooks and tests;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",
