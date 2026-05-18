@@ -5,6 +5,7 @@ from pathlib import Path
 
 from sanskript.adhyaya1 import expected_adhyaya1_ids
 from sanskript.adhyaya23 import expected_adhyaya23_ids
+from sanskript.adhyaya456 import expected_adhyaya456_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -86,7 +87,7 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertIn("Consonants", partial_titles)
         self.assertIn("Romanized Sanskrit", partial_titles)
 
-    def test_adhyaya_one_is_marked_implemented(self) -> None:
+    def test_adhyaya_one_through_six_are_marked_implemented(self) -> None:
         obligations = {
             item["title"]: item["status"]
             for item in self.canon["obligations"]
@@ -94,14 +95,13 @@ class GrammarCanonTests(unittest.TestCase):
         }
         adhyaya_one = set(expected_adhyaya1_ids())
         adhyaya_two_three = set(expected_adhyaya23_ids())
+        adhyaya_four_five_six = set(expected_adhyaya456_ids())
         implemented = {title for title, status in obligations.items() if status == "implemented"}
 
-        self.assertEqual(
-            implemented & adhyaya_one,
-            adhyaya_one,
-        )
+        self.assertEqual(implemented & adhyaya_one, adhyaya_one)
         self.assertEqual(implemented & adhyaya_two_three, adhyaya_two_three)
-        self.assertEqual(len(implemented), 1249)
+        self.assertEqual(implemented & adhyaya_four_five_six, adhyaya_four_five_six)
+        self.assertEqual(len(implemented), 3174)
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
         batch_partial = [
@@ -112,8 +112,8 @@ class GrammarCanonTests(unittest.TestCase):
         padas = {item["title"].rsplit(".", 1)[0] for item in batch_partial}
 
         self.assertGreaterEqual(len(batch_partial), 800)
-        self.assertTrue({"6.1", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
-        self.assertTrue({"6.2", "6.3", "6.4", "7.1", "7.2", "7.3", "7.4"}.issubset(padas))
+        self.assertFalse({"4.1", "4.2", "4.3", "4.4", "5.1", "5.2", "5.3", "5.4", "6.1", "6.2", "6.3", "6.4"} & padas)
+        self.assertTrue({"7.1", "7.2", "7.3", "7.4", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
 
     def test_no_sutra_identifier_is_left_pending_after_batch_scaffolds(self) -> None:
         pending_sutras = [

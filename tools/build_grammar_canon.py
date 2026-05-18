@@ -19,6 +19,8 @@ from sanskript.adhyaya1 import implementation_note_for as adhyaya1_implementatio
 from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
 from sanskript.adhyaya23 import implementation_note_for as adhyaya23_implementation_note_for
 from sanskript.adhyaya23 import implemented_sutra_ids as adhyaya23_implemented_sutra_ids
+from sanskript.adhyaya456 import implementation_note_for as adhyaya456_implementation_note_for
+from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
 from sanskript.canon_topics import treatment_for
 
 SOURCES_DIR = ROOT / "sources"
@@ -142,18 +144,6 @@ PARTIAL_TOPIC_TITLES = {
 BATCHED_PADA_PREFIXES = {
     "1.1": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level.",
     "1.2": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level.",
-    "4.1": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
-    "4.2": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
-    "4.3": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
-    "4.4": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
-    "5.1": "taddhita registry infrastructure now exists at batch level.",
-    "5.2": "taddhita registry infrastructure now exists at batch level.",
-    "5.3": "taddhita registry infrastructure now exists at batch level.",
-    "5.4": "taddhita, compounds, and nominal suffix infrastructure now exists at batch level.",
-    "6.1": "vowel sandhi and sound-change infrastructure now exist at batch level.",
-    "6.2": "accent-domain and compound-accent infrastructure now exists at batch level.",
-    "6.3": "uttarapada and internal aṅga-domain infrastructure now exists at batch level.",
-    "6.4": "late stem-final and accent-sensitive aṅga operation infrastructure now exists at batch level.",
     "7.1": "aṅga augment and suffix-trigger infrastructure now exists at batch level.",
     "7.2": "guṇa/vṛddhi and aṅga strengthening infrastructure now exists at batch level.",
     "7.3": "internal aṅga replacement and nasalization infrastructure now exists at batch level.",
@@ -209,6 +199,12 @@ IMPLEMENTED_SUTRA_IDS.update(
     {
         sutra_id: adhyaya23_implementation_note_for(sutra_id)
         for sutra_id in sorted(adhyaya23_implemented_sutra_ids())
+    }
+)
+IMPLEMENTED_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya456_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya456_implemented_sutra_ids())
     }
 )
 
@@ -496,9 +492,9 @@ def render_markdown(canon: dict[str, Any]) -> str:
         [
             "## Current Implemented Slice",
             "",
-            "The current interpreter implements a controlled executable slice and complete Adhyāya 1-3 rule workpacks:",
+            "The current interpreter implements a controlled executable slice and complete Adhyāya 1-6 rule workpacks:",
             "",
-            "- all sutras from `1.1.1` through `3.4.117` as typed rule records with implementation hooks and tests;",
+            "- all indexed sutras from `1.1.1` through `6.4.175` as typed rule records with implementation hooks and tests;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",

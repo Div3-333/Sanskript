@@ -29,13 +29,14 @@ Initial support now lives in `src/sanskript/phonology.py`.
 Batch status:
 
 - `1.1` is implemented as part of the full Adhyāya 1 registry.
-- `6.1`, `6.2`, `6.3`, `6.4`, `7.1`, `7.2`, `7.3`, `7.4`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
-- This means their sound/sandhi subsystem exists, but individual sutras are still not considered complete.
+- `6.1`, `6.2`, `6.3`, and `6.4` are implemented as part of the full Adhyāya 4-6 registry.
+- `7.1`, `7.2`, `7.3`, `7.4`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
+- This means their sound/sandhi subsystem exists, but individual sutras in those later pādas are still not considered complete.
 - Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, first-pass vowel/visarga sandhi, accent profiles, and aṅga-operation scaffolds.
 
 Implemented slice:
 
-- Adhyāya 1 through 3 are implemented as sutra-by-sutra registries with executable hooks where the current compiler can apply them.
+- Adhyāya 1 through 6 are implemented as sutra-by-sutra registries with executable hooks where the current compiler can apply them.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -92,8 +93,8 @@ Initial support now lives in `src/sanskript/derivation.py`.
 
 Batch status:
 
-- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` are now marked `batch_partial`.
-- Current support is a controlled registry of kṛt and taddhita examples, not full derivation.
+- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` are implemented as part of the Adhyāya 4-6 registry.
+- Current executable support includes controlled taddhita examples for descent, possession, and degree; other sutras in these pādas are represented as formal semantic compiler records until deeper derivation behavior is added.
 
 ## Phase 5: Compounds And Sentences
 
@@ -119,7 +120,7 @@ Batch status:
 - `1.2` and `1.3` are implemented as part of the full Adhyāya 1 registry.
 - `8.1` is now marked `batch_partial`.
 - Current support includes a controlled avyaya registry, standard upasarga registry, sentence classification, subject-verb agreement checks, and metarule records for optionality, technical markers, domain carry, and late sentence-edge operations.
-- Later non-Adhyāya 1-3 ranges here are still scaffolds that need individual completion work.
+- Later non-Adhyāya 1-6 ranges here are still scaffolds that need individual completion work.
 
 ## Phase 6: Full Aṣṭādhyāyī Sweep
 
@@ -132,5 +133,6 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
+- Adhyāya 1 through 6 have sutra-specific implemented records and tests.
 - Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
 - The next phase is full implementation: replacing partial and batch-partial scaffolds with sutra/topic-specific implemented behavior and tests.
