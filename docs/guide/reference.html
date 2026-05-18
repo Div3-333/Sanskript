@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sanskript Reference</title>
+    <style>
+      :root {
+        --ink: #182533;
+        --indigo: #203447;
+        --madder: #a43c33;
+        --leaf: #2f6b5f;
+        --paper: #f4efe1;
+        --paper-bright: #fffaf0;
+        --line: #c9b98d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      header {
+        padding: 42px max(24px, calc((100vw - 1160px) / 2));
+        background: var(--indigo);
+        color: var(--paper-bright);
+        border-bottom: 8px solid var(--madder);
+      }
+
+      header a {
+        color: #f4d38b;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin: 12px 0;
+        font-size: clamp(2.4rem, 5vw, 4.6rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 24px;
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 30px 0 80px;
+      }
+
+      nav {
+        position: sticky;
+        top: 16px;
+        align-self: start;
+        padding: 16px;
+        background: var(--paper-bright);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      nav a {
+        display: block;
+        padding: 7px 0;
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid #e7dcc0;
+      }
+
+      section {
+        margin-bottom: 24px;
+        padding: 22px;
+        background: var(--paper-bright);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.8rem;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 20px 0 8px;
+        color: var(--madder);
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #e7dcc0;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--indigo);
+        color: var(--paper-bright);
+      }
+
+      code,
+      pre {
+        font-family: "Cascadia Code", Consolas, monospace;
+      }
+
+      pre {
+        overflow-x: auto;
+        padding: 16px;
+        color: #fff6dd;
+        background: #15212e;
+        border-left: 5px solid var(--leaf);
+        border-radius: 8px;
+      }
+
+      .callout {
+        padding: 14px;
+        background: #eadfbd;
+        border-left: 5px solid var(--madder);
+        border-radius: 8px;
+      }
+
+      @media (max-width: 900px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">Beginner guide</a>
+      <h1>Sanskript Reference</h1>
+      <p>Atomic notes for writing the current controlled language.</p>
+    </header>
+    <main>
+      <nav aria-label="Reference sections">
+        <a href="#run">Run</a>
+        <a href="#programs">Programs</a>
+        <a href="#sentences">Sentences</a>
+        <a href="#cases">Cases</a>
+        <a href="#nouns">Nouns</a>
+        <a href="#verbs">Verbs</a>
+        <a href="#numbers">Numbers</a>
+        <a href="#pronouns">Pronouns</a>
+        <a href="#scripts">Scripts</a>
+        <a href="#sandhi">Sandhi</a>
+        <a href="#limits">Limits</a>
+      </nav>
+      <div>
+        <section id="run">
+          <h2>Run</h2>
+          <pre>$env:PYTHONPATH='src'; python -m sanskript examples\prathama.ssk</pre>
+          <p>Source files use UTF-8 text and the extension <code>.ssk</code>.</p>
+        </section>
+
+        <section id="programs">
+          <h2>Programs</h2>
+          <p>A program is a sequence of Sanskrit sentences. Each sentence ends with <code>.</code> or <code>।</code>.</p>
+          <pre>gaṇakaḥ pañca phale nidadhāti.
+gaṇakaḥ phalaṃ dvābhyāṃ vardhayati.
+gaṇakaḥ phalaṃ darśayati.</pre>
+        </section>
+
+        <section id="sentences">
+          <h2>Sentences</h2>
+          <p>Each executable sentence currently has one finite verb and the participants required by that verb frame.</p>
+          <table>
+            <tr><th>Frame</th><th>Required roles</th><th>Effect</th></tr>
+            <tr><td><code>nidadhāti</code></td><td>karman + adhikaraṇa</td><td>store a value in a location</td></tr>
+            <tr><td><code>vardhayati</code></td><td>karman + karaṇa</td><td>increase a stored value</td></tr>
+            <tr><td><code>nyūnayati</code></td><td>karman + karaṇa</td><td>decrease a stored value</td></tr>
+            <tr><td><code>darśayati</code></td><td>karman</td><td>display a value</td></tr>
+          </table>
+        </section>
+
+        <section id="cases">
+          <h2>Cases</h2>
+          <table>
+            <tr><th>Case</th><th>Kāraka role</th><th>Compiler meaning</th></tr>
+            <tr><td>Nominative</td><td>kartṛ</td><td>agent</td></tr>
+            <tr><td>Accusative</td><td>karman</td><td>value or target</td></tr>
+            <tr><td>Instrumental</td><td>karaṇa</td><td>tool or amount</td></tr>
+            <tr><td>Dative</td><td>sampradāna</td><td>future destination role</td></tr>
+            <tr><td>Ablative</td><td>apādāna</td><td>future source role</td></tr>
+            <tr><td>Genitive</td><td>relation</td><td>future ownership/module role</td></tr>
+            <tr><td>Locative</td><td>adhikaraṇa</td><td>storage or scope</td></tr>
+            <tr><td>Vocative</td><td>address</td><td>future interactive address role</td></tr>
+          </table>
+        </section>
+
+        <section id="nouns">
+          <h2>Nouns</h2>
+          <p>The current subanta engine generates selected a-stem masculine, a-stem neuter, and ā-stem feminine forms.</p>
+          <pre>devaḥ, devam, devena, devāya, devāt, devasya, deve
+phala, phalaṃ, phalena, phalāt, phalasya, phale, phalāni
+latā, latām, latayā, latāyai, latāyāḥ, latāyām</pre>
+        </section>
+
+        <section id="verbs">
+          <h2>Verbs</h2>
+          <p>The tiṅanta engine currently models present, command, and potential forms for selected stems.</p>
+          <table>
+            <tr><th>lakāra</th><th>Sense</th><th>Example</th></tr>
+            <tr><td>laṭ</td><td>present</td><td><code>bhavati</code></td></tr>
+            <tr><td>loṭ</td><td>command</td><td><code>bhavatu</code></td></tr>
+            <tr><td>vidhiliṅ</td><td>potential</td><td><code>bhavet</code></td></tr>
+          </table>
+          <p>Both parasmaipada and ātmanepada are represented in morphology, but only selected forms are executable today.</p>
+        </section>
+
+        <section id="numbers">
+          <h2>Numbers</h2>
+          <p>Small cardinal numerals from 0 through 10 are registered in object and instrumental roles.</p>
+          <pre>pañca phale nidadhāti.
+phalaṃ dvābhyāṃ vardhayati.</pre>
+        </section>
+
+        <section id="pronouns">
+          <h2>Pronouns</h2>
+          <p>Basic first, second, and third person forms are recognized by morphology.</p>
+          <pre>aham, āvām, vayam
+tvam, yuvām, yūyam
+saḥ, tat, tam, tena</pre>
+        </section>
+
+        <section id="scripts">
+          <h2>Scripts</h2>
+          <p>IAST is the canonical development input. The transliteration module supports current-form IAST and Devanagari conversion.</p>
+          <pre>gaṇakaḥ -> गणकः
+phalaṃ -> फलं
+nyūnayati -> न्यूनयति</pre>
+        </section>
+
+        <section id="sandhi">
+          <h2>Sandhi</h2>
+          <p>First-pass sandhi support covers selected vowel and visarga joins.</p>
+          <pre>deva + atra -> devātra
+deva + iti -> deveti
+rāmaḥ + atra -> rāmotra</pre>
+        </section>
+
+        <section id="limits">
+          <h2>Limits</h2>
+          <div class="callout">
+            <p>The current language is not full Sanskrit yet. The canon gate blocks release until all obligations are fully implemented.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

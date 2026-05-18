@@ -24,9 +24,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Topic obligations: `191`
 - Sutra obligations: `3981`
 - Implemented: `0`
-- Partial: `34`
-- Batch partial: `967`
-- Pending design: `3171`
+- Partial: `43`
+- Batch partial: `1598`
+- Pending design: `2531`
 
 ## Aṣṭādhyāyī Sutra Index
 
@@ -105,16 +105,16 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 63` hal sandhi — `pending_design`
   - `p. 69` ṣatva and ṇatva — `pending_design`
   - `p. 73` Review — `pending_design`
-- `p. 77` tiṅanta — `pending_design`
+- `p. 77` tiṅanta — `partial`
   - `p. 78` Introduction — `pending_design`
-  - `p. 82` dhātu — `pending_design`
-  - `p. 90` lakāra — `pending_design`
-  - `p. 97` tiṅ-pratyāhāra — `pending_design`
-  - `p. 103` parasmaipada and ātmanepada — `pending_design`
-  - `p. 108` tiṅ-siddhi — `pending_design`
-  - `p. 112` vikaraṇa — `pending_design`
-  - `p. 119` guṇa — `pending_design`
-  - `p. 126` prakriyā — `pending_design`
+  - `p. 82` dhātu — `partial`
+  - `p. 90` lakāra — `partial`
+  - `p. 97` tiṅ-pratyāhāra — `partial`
+  - `p. 103` parasmaipada and ātmanepada — `partial`
+  - `p. 108` tiṅ-siddhi — `partial`
+  - `p. 112` vikaraṇa — `partial`
+  - `p. 119` guṇa — `partial`
+  - `p. 126` prakriyā — `partial`
   - `p. 135` Review — `pending_design`
 - `p. 136` subanta — `partial`
   - `p. 137` Introduction — `pending_design`

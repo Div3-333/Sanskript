@@ -221,6 +221,22 @@
         color: var(--muted);
       }
 
+      .link-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+
+      .doc-link {
+        display: inline-block;
+        padding: 10px 12px;
+        color: var(--paper-bright);
+        background: var(--indigo);
+        border-radius: 8px;
+        text-decoration: none;
+      }
+
       @media (max-width: 860px) {
         .hero {
           min-height: 76vh;
@@ -361,6 +377,9 @@ gaṇakaḥ phalaṃ darśayati.</pre>
               Sanskript is expanding in batches. A canon item marked <code>batch_partial</code> has subsystem support, but it is not yet complete sutra-by-sutra.
               Accepted source is still a controlled subset, because beautiful grammar beats fake breadth.
             </p>
+            <div class="link-row">
+              <a class="doc-link" href="reference.html">Open the granular reference</a>
+            </div>
           </article>
         </div>
       </section>

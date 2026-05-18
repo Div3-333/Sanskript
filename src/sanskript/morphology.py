@@ -13,6 +13,7 @@ from .grammar import (
     PartOfSpeech,
 )
 from .subanta import iter_nominal_analyses, iter_pronoun_analyses
+from .tinanta import iter_tinanta_analyses
 
 
 TOKEN_RE = re.compile(r"[\w\u0900-\u097fāīūṛṝḷḹṅñṭḍṇśṣṃḥĀĪŪṚṜḶḸṄÑṬḌṆŚṢṂḤ]+", re.UNICODE)
@@ -33,6 +34,9 @@ def build_lexicon() -> dict[str, Analysis]:
 
     for analysis in iter_pronoun_analyses():
         store_preferred_analysis(lexicon, analysis)
+
+    for analysis in iter_tinanta_analyses():
+        lexicon[analysis.surface] = analysis
 
     for stem in CONTROLLED_NOUNS:
         for form in stem.forms:
