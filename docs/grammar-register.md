@@ -156,3 +156,5 @@ decrease pada by 3
 ## Notes
 
 This register currently relies on small, explicit forms rather than full derivation. That is the sober path for now: the compiler should accept fewer forms correctly before it accepts many forms carelessly.
+
+The supporting sound layer now includes first-pass pratyāhāra, transliteration, and sandhi modules. These are infrastructure, not yet a license to accept arbitrary Sanskrit source.

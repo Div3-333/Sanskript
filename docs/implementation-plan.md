@@ -26,6 +26,12 @@ Targets:
 
 Initial support now lives in `src/sanskript/phonology.py`.
 
+Batch status:
+
+- `1.1`, `6.1`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
+- This means their sound/sandhi subsystem exists, but individual sutras are still not considered complete.
+- Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, and first-pass vowel/visarga sandhi.
+
 ## Phase 2: Subanta And Kāraka
 
 Targets:

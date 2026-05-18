@@ -34,6 +34,8 @@ SOURCE_LABELS = {
 
 
 PARTIAL_TOPIC_TITLES = {
+    "Consonant sandhi between words",
+    "Consonant sandhi within a word",
     "Basic vowels",
     "Compound vowels",
     "Consonants",
@@ -42,9 +44,21 @@ PARTIAL_TOPIC_TITLES = {
     "Semivowels",
     "Short and long vowels",
     "The Shiva Sutras",
+    "The sandhi system",
     "The sound system",
+    "Vowel sandhi",
     "Vowels",
+    "visarga sandhi",
     "savarṇa sounds",
+}
+
+
+BATCHED_PADA_PREFIXES = {
+    "1.1": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level.",
+    "6.1": "vowel sandhi and sound-change infrastructure now exist at batch level.",
+    "8.2": "consonant/visarga sandhi infrastructure now exists at batch level.",
+    "8.3": "visarga and sibilant sandhi infrastructure now exists at batch level.",
+    "8.4": "late sound-change infrastructure now exists at batch level.",
 }
 
 
@@ -87,6 +101,7 @@ def main() -> int:
                 "canon_indexed": "Indexed from a source PDF and accepted as part of the language-design canon.",
                 "implemented": "Implemented in code and covered by tests.",
                 "partial": "Some compiler support exists, but the topic is not fully implemented.",
+                "batch_partial": "A whole sutra cluster is supported by a subsystem scaffold, but individual sutras are not complete.",
                 "pending_design": "Not yet implemented; must be addressed before the language can be considered complete.",
             },
         },
@@ -157,7 +172,7 @@ def build_obligations(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
             )
 
         for sutra_id in source.get("sutra_index", {}).get("ids", []):
-            status = "partial" if sutra_id in PARTIAL_SUTRA_IDS else "pending_design"
+            status = sutra_status(sutra_id)
             obligations.append(
                 {
                     "id": f"sutra:{source['id']}:{sutra_id}",
@@ -167,10 +182,7 @@ def build_obligations(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "path": [sutra_id],
                     "page": None,
                     "status": status,
-                    "implementation_note": PARTIAL_SUTRA_IDS.get(
-                        sutra_id,
-                        "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet.",
-                    ),
+                    "implementation_note": sutra_note(sutra_id, status),
                 }
             )
 
@@ -191,6 +203,23 @@ def implementation_note(status: str, title: str) -> str:
     if status == "partial":
         return f"Initial phonology support covers part of this topic: {title}."
     return "Indexed from the source outline; not implemented yet."
+
+
+def sutra_status(sutra_id: str) -> str:
+    if sutra_id in PARTIAL_SUTRA_IDS:
+        return "partial"
+    if sutra_id.rsplit(".", 1)[0] in BATCHED_PADA_PREFIXES:
+        return "batch_partial"
+    return "pending_design"
+
+
+def sutra_note(sutra_id: str, status: str) -> str:
+    if sutra_id in PARTIAL_SUTRA_IDS:
+        return PARTIAL_SUTRA_IDS[sutra_id]
+    pada = sutra_id.rsplit(".", 1)[0]
+    if status == "batch_partial":
+        return BATCHED_PADA_PREFIXES[pada]
+    return "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
 
 
 def slugify(value: str) -> str:
@@ -274,6 +303,7 @@ def render_markdown(canon: dict[str, Any]) -> str:
             f"- Sutra obligations: `{summary['by_kind'].get('sutra', 0)}`",
             f"- Implemented: `{summary['by_status'].get('implemented', 0)}`",
             f"- Partial: `{summary['by_status'].get('partial', 0)}`",
+            f"- Batch partial: `{summary['by_status'].get('batch_partial', 0)}`",
             f"- Pending design: `{summary['by_status'].get('pending_design', 0)}`",
         ]
     )

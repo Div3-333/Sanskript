@@ -59,6 +59,8 @@ The morphology-to-semantics plan lives at [docs/feature-lattice.md](docs/feature
 The PDF-derived grammar canon lives at [docs/grammar-canon.md](docs/grammar-canon.md).
 The canon implementation roadmap lives at [docs/implementation-plan.md](docs/implementation-plan.md).
 
+Current grammar infrastructure includes phonology, transliteration, and first-pass sandhi modules. The canon ledger distinguishes `partial` from `batch_partial` so broad subsystem progress does not masquerade as complete sutra-by-sutra implementation.
+
 ## Development Checks
 
 ```powershell

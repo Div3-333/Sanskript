@@ -24,8 +24,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Topic obligations: `191`
 - Sutra obligations: `3981`
 - Implemented: `0`
-- Partial: `15`
-- Pending design: `4157`
+- Partial: `20`
+- Batch partial: `590`
+- Pending design: `3562`
 
 ## Aṣṭādhyāyī Sutra Index
 
@@ -178,11 +179,11 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 111` Other sounds — `partial`
   - `p. 113` Modern pronunciation — `pending_design`
 - `p. 115` Sandhi — `pending_design`
-  - `p. 116` The sandhi system — `pending_design`
-  - `p. 118` Vowel sandhi — `pending_design`
-  - `p. 124` visarga sandhi — `pending_design`
-  - `p. 130` Consonant sandhi between words — `pending_design`
-  - `p. 138` Consonant sandhi within a word — `pending_design`
+  - `p. 116` The sandhi system — `partial`
+  - `p. 118` Vowel sandhi — `partial`
+  - `p. 124` visarga sandhi — `partial`
+  - `p. 130` Consonant sandhi between words — `partial`
+  - `p. 138` Consonant sandhi within a word — `partial`
 - `p. 142` Nominals 1: Normal stems — `pending_design`
   - `p. 143` The nominal system — `pending_design`
   - `p. 151` Basic nominal endings — `pending_design`

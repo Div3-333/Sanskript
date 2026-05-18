@@ -83,6 +83,17 @@ class GrammarCanonTests(unittest.TestCase):
 
         self.assertEqual(partial_sutras, {"1.1.1", "1.1.2", "1.1.9"})
 
+    def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
+        batch_partial = [
+            item
+            for item in self.canon["obligations"]
+            if item["kind"] == "sutra" and item["status"] == "batch_partial"
+        ]
+        padas = {item["title"].rsplit(".", 1)[0] for item in batch_partial}
+
+        self.assertGreaterEqual(len(batch_partial), 500)
+        self.assertEqual(padas, {"1.1", "6.1", "8.2", "8.3", "8.4"})
+
 
 if __name__ == "__main__":
     unittest.main()
