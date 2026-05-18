@@ -24,9 +24,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Topic obligations: `191`
 - Sutra obligations: `3981`
 - Implemented: `0`
-- Partial: `20`
-- Batch partial: `590`
-- Pending design: `3562`
+- Partial: `34`
+- Batch partial: `967`
+- Pending design: `3171`
 
 ## Aṣṭādhyāyī Sutra Index
 
@@ -116,13 +116,13 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 119` guṇa — `pending_design`
   - `p. 126` prakriyā — `pending_design`
   - `p. 135` Review — `pending_design`
-- `p. 136` subanta — `pending_design`
+- `p. 136` subanta — `partial`
   - `p. 137` Introduction — `pending_design`
-  - `p. 140` prātipadika — `pending_design`
-  - `p. 142` sup-pratyāhāra — `pending_design`
-  - `p. 145` kāraka — `pending_design`
-  - `p. 151` vibhakti — `pending_design`
-  - `p. 156` Forms of nau — `pending_design`
+  - `p. 140` prātipadika — `partial`
+  - `p. 142` sup-pratyāhāra — `partial`
+  - `p. 145` kāraka — `partial`
+  - `p. 151` vibhakti — `partial`
+  - `p. 156` Forms of nau — `partial`
   - `p. 158` avyaya — `pending_design`
   - `p. 161` Review — `pending_design`
 - `p. 162` kṛt — `pending_design`
@@ -165,7 +165,7 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 47` Syllables — `pending_design`
   - `p. 51` Sandhi — `pending_design`
   - `p. 58` Sentences — `pending_design`
-  - `p. 62` Nominals — `pending_design`
+  - `p. 62` Nominals — `partial`
   - `p. 70` Verbs — `pending_design`
   - `p. 78` Uninflected words — `pending_design`
   - `p. 82` Prefixes — `pending_design`
@@ -184,20 +184,20 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 124` visarga sandhi — `partial`
   - `p. 130` Consonant sandhi between words — `partial`
   - `p. 138` Consonant sandhi within a word — `partial`
-- `p. 142` Nominals 1: Normal stems — `pending_design`
+- `p. 142` Nominals 1: Normal stems — `partial`
   - `p. 143` The nominal system — `pending_design`
-  - `p. 151` Basic nominal endings — `pending_design`
-  - `p. 157` -a stems — `pending_design`
-  - `p. 161` -ā, -ī, and -ū stems — `pending_design`
+  - `p. 151` Basic nominal endings — `partial`
+  - `p. 157` -a stems — `partial`
+  - `p. 161` -ā, -ī, and -ū stems — `partial`
   - `p. 166` -i and -u stems — `pending_design`
   - `p. 175` -ṛ stems — `pending_design`
   - `p. 182` -ai, -o, and -au stems — `pending_design`
   - `p. 186` Consonant stems — `pending_design`
-- `p. 200` Nominals 2: Pronouns and numbers — `pending_design`
-  - `p. 201` asmad and yuṣmad — `pending_design`
+- `p. 200` Nominals 2: Pronouns and numbers — `partial`
+  - `p. 201` asmad and yuṣmad — `partial`
   - `p. 205` tad, etad, idam, and adas — `pending_design`
   - `p. 213` kim and yad — `pending_design`
-  - `p. 221` Pronominal adjectives — `pending_design`
+  - `p. 221` Pronominal adjectives — `partial`
   - `p. 223` Number words — `pending_design`
 - `p. 238` Verbs 1: Special tense-moods — `pending_design`
   - `p. 239` Special tense-moods — `pending_design`

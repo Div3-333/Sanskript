@@ -34,6 +34,8 @@ Batch status:
 
 ## Phase 2: Subanta And Kāraka
 
+Status: in progress.
+
 Targets:
 
 - Prātipadika model.
@@ -41,6 +43,13 @@ Targets:
 - All eight cases and three numbers.
 - Kāraka role interpretation.
 - Pronouns and numerals.
+
+Initial support now lives in `src/sanskript/subanta.py` and `src/sanskript/karaka.py`.
+
+Batch status:
+
+- `1.4`, `2.1`, `2.2`, `2.3`, and `2.4` are now marked `batch_partial`.
+- Current support includes sup technical endings, generated a-stem masculine/neuter forms, generated ā-stem feminine forms, first/second/third person pronoun forms, and case-to-kāraka explanations.
 
 ## Phase 3: Tiṅanta
 

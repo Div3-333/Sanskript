@@ -158,3 +158,5 @@ decrease pada by 3
 This register currently relies on small, explicit forms rather than full derivation. That is the sober path for now: the compiler should accept fewer forms correctly before it accepts many forms carelessly.
 
 The supporting sound layer now includes first-pass pratyāhāra, transliteration, and sandhi modules. These are infrastructure, not yet a license to accept arbitrary Sanskrit source.
+
+The supporting nominal layer now includes generated subanta forms for selected stems, sup technical endings, basic pronouns, and kāraka explanations. Ambiguous generated forms currently prefer executable object readings when a single analysis is required; full ambiguity resolution belongs to the future parser.

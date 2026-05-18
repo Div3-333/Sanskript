@@ -12,6 +12,7 @@ from .grammar import (
     Analysis,
     PartOfSpeech,
 )
+from .subanta import iter_nominal_analyses, iter_pronoun_analyses
 
 
 TOKEN_RE = re.compile(r"[\w\u0900-\u097fāīūṛṝḷḹṅñṭḍṇśṣṃḥĀĪŪṚṜḶḸṄÑṬḌṆŚṢṂḤ]+", re.UNICODE)
@@ -26,6 +27,12 @@ def normalize(text: str) -> str:
 
 def build_lexicon() -> dict[str, Analysis]:
     lexicon: dict[str, Analysis] = {}
+
+    for analysis in iter_nominal_analyses():
+        store_preferred_analysis(lexicon, analysis)
+
+    for analysis in iter_pronoun_analyses():
+        store_preferred_analysis(lexicon, analysis)
 
     for stem in CONTROLLED_NOUNS:
         for form in stem.forms:
@@ -63,6 +70,28 @@ def build_lexicon() -> dict[str, Analysis]:
         )
 
     return lexicon
+
+
+def store_preferred_analysis(lexicon: dict[str, Analysis], analysis: Analysis) -> None:
+    existing = lexicon.get(analysis.surface)
+    if existing is None or case_priority(analysis) > case_priority(existing):
+        lexicon[analysis.surface] = analysis
+
+
+def case_priority(analysis: Analysis) -> int:
+    if analysis.case is None:
+        return 0
+    priority = {
+        "vocative": 1,
+        "nominative": 2,
+        "genitive": 3,
+        "locative": 4,
+        "dative": 5,
+        "ablative": 6,
+        "instrumental": 7,
+        "accusative": 8,
+    }
+    return priority[analysis.case.value]
 
 
 LEXICON = build_lexicon()

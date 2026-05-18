@@ -91,8 +91,9 @@ class GrammarCanonTests(unittest.TestCase):
         ]
         padas = {item["title"].rsplit(".", 1)[0] for item in batch_partial}
 
-        self.assertGreaterEqual(len(batch_partial), 500)
-        self.assertEqual(padas, {"1.1", "6.1", "8.2", "8.3", "8.4"})
+        self.assertGreaterEqual(len(batch_partial), 900)
+        self.assertTrue({"1.1", "6.1", "8.2", "8.3", "8.4"}.issubset(padas))
+        self.assertTrue({"1.4", "2.1", "2.2", "2.3", "2.4"}.issubset(padas))
 
 
 if __name__ == "__main__":

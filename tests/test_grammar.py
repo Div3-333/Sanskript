@@ -42,6 +42,8 @@ class GrammarRegisterTests(unittest.TestCase):
         self.assertEqual(lexicon["darśayati"].lemma, "dṛś")
         self.assertEqual(lexicon["nyūnayati"].lemma, "nyūnaya")
         self.assertEqual(lexicon["nyūnayati"].lakara, Lakara.LAT)
+        self.assertEqual(lexicon["phalāni"].lemma, "phala")
+        self.assertEqual(lexicon["deveṣu"].case, Case.LOCATIVE)
 
     def test_current_verb_frames_are_finite_present_third_singular(self) -> None:
         for frame in VERB_FRAMES.values():

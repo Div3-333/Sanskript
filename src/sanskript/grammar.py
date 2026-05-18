@@ -39,6 +39,7 @@ class Role(str, Enum):
 class PartOfSpeech(str, Enum):
     NOUN = "noun"
     NUMERAL = "numeral"
+    PRONOUN = "pronoun"
     VERB = "verb"
 
 
