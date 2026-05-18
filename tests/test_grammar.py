@@ -1,10 +1,34 @@
 import unittest
 
-from sanskript.grammar import CONSTRUCTIONS, NUMERAL_FORMS, VERB_FRAMES, Case
+from sanskript.grammar import (
+    CONSTRUCTIONS,
+    NUMERAL_FORMS,
+    VERB_FRAMES,
+    Case,
+    GrammaticalNumber,
+    Lakara,
+    Pada,
+    Person,
+)
 from sanskript.morphology import analyze_token, build_lexicon
 
 
 class GrammarRegisterTests(unittest.TestCase):
+    def test_nominal_case_axis_tracks_eight_cases(self) -> None:
+        self.assertEqual(
+            {case.value for case in Case},
+            {
+                "nominative",
+                "accusative",
+                "instrumental",
+                "dative",
+                "ablative",
+                "genitive",
+                "locative",
+                "vocative",
+            },
+        )
+
     def test_every_verb_frame_has_a_registered_construction(self) -> None:
         for frame in VERB_FRAMES.values():
             self.assertIn(frame.construction_id, CONSTRUCTIONS)
@@ -16,6 +40,15 @@ class GrammarRegisterTests(unittest.TestCase):
         self.assertEqual(lexicon["mūlye"].case, Case.LOCATIVE)
         self.assertEqual(lexicon["tribhiḥ"].value, 3)
         self.assertEqual(lexicon["darśayati"].lemma, "dṛś")
+        self.assertEqual(lexicon["nyūnayati"].lemma, "nyūnaya")
+        self.assertEqual(lexicon["nyūnayati"].lakara, Lakara.LAT)
+
+    def test_current_verb_frames_are_finite_present_third_singular(self) -> None:
+        for frame in VERB_FRAMES.values():
+            self.assertEqual(frame.lakara, Lakara.LAT)
+            self.assertEqual(frame.person, Person.THIRD)
+            self.assertEqual(frame.number, GrammaticalNumber.SINGULAR)
+            self.assertEqual(frame.pada, Pada.PARASMAIPADA)
 
     def test_small_numerals_cover_object_and_instrumental_roles(self) -> None:
         by_case = {
@@ -34,4 +67,3 @@ class GrammarRegisterTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

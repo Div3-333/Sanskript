@@ -24,6 +24,15 @@ class InterpreterTests(unittest.TestCase):
 
         self.assertEqual(run(source), ["7"])
 
+    def test_decrease_with_instrumental_amount(self) -> None:
+        source = """
+        gaṇakaḥ daśa pade nidadhāti.
+        gaṇakaḥ padaṃ tribhiḥ nyūnayati.
+        gaṇakaḥ padaṃ darśayati.
+        """
+
+        self.assertEqual(run(source), ["7"])
+
     def test_word_order_uses_roles_not_positions(self) -> None:
         source = """
         phale gaṇakaḥ pañca nidadhāti.

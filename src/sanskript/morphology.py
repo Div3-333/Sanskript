@@ -34,7 +34,7 @@ def build_lexicon() -> dict[str, Analysis]:
                 lemma=stem.lemma,
                 pos=PartOfSpeech.NOUN,
                 case=form.case,
-                role=CASE_TO_ROLE[form.case],
+                role=CASE_TO_ROLE.get(form.case),
                 gender=stem.gender,
                 number=form.number,
             )
@@ -56,6 +56,10 @@ def build_lexicon() -> dict[str, Analysis]:
             surface=frame.surface,
             lemma=frame.lemma,
             pos=PartOfSpeech.VERB,
+            number=frame.number,
+            person=frame.person,
+            pada=frame.pada,
+            lakara=frame.lakara,
         )
 
     return lexicon

@@ -37,6 +37,7 @@ Current prototype frames:
 | `nidadhāti` | places | karma + adhikaraṇa | assign value to a named location |
 | `vardhayati` | increases | karma + karaṇa | increment a stored value |
 | `darśayati` | shows | karma | display a value |
+| `nyūnayati` | lessens | karma + karaṇa | decrement a stored value |
 
 The compiler recovers these roles from analyzed word forms. The current subset is declared in [grammar-register.md](grammar-register.md). Some core examples:
 
@@ -58,6 +59,12 @@ The current prototype uses ordinary Sanskrit nouns as storage names. For example
 - `phalaṃ` marks the result as the object of an action.
 
 The language should avoid arbitrary variable sigils. If the source code needs a new name, the preferred path is a grammatical Sanskrit noun or compound.
+
+## Morphological Feature Lattice
+
+Sanskript should use Sanskrit's combinatoric richness as a feature lattice, not as an arbitrary opcode table. Case, number, gender, person, lakāra, pada, and prayoga should each carry computational meaning only where Sanskrit gives us a defensible semantic basis.
+
+See [feature-lattice.md](feature-lattice.md).
 
 ## Word Order
 

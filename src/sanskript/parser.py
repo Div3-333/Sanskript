@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Iterable
 
-from .ast import Assign, Display, Increase, Literal, Reference, Statement, Value
+from .ast import Assign, Decrease, Display, Increase, Literal, Reference, Statement, Value
 from .errors import ParseError
 from .grammar import VERB_FRAMES, Analysis, PartOfSpeech, Role
 from .morphology import analyze_sentence, split_sentences
@@ -38,6 +38,12 @@ def parse_sentence(sentence: str) -> Statement:
 
     if verb.surface == "vardhayati":
         return Increase(
+            target=_single(roles, Role.KARMAN).lemma,
+            amount=_value_from(_single(roles, Role.KARANA)),
+        )
+
+    if verb.surface == "nyūnayati":
+        return Decrease(
             target=_single(roles, Role.KARMAN).lemma,
             amount=_value_from(_single(roles, Role.KARANA)),
         )

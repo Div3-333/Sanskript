@@ -131,7 +131,28 @@ Computational meaning:
 print phala
 ```
 
+## VF-004: Instrumental Decrease With `nyūnayati`
+
+Status: `experimental`
+
+Shape:
+
+```text
+kartṛ? karman karaṇa nyūnayati.
+```
+
+Example:
+
+```text
+gaṇakaḥ padaṃ tribhiḥ nyūnayati.
+```
+
+Computational meaning:
+
+```text
+decrease pada by 3
+```
+
 ## Notes
 
 This register currently relies on small, explicit forms rather than full derivation. That is the sober path for now: the compiler should accept fewer forms correctly before it accepts many forms carelessly.
-

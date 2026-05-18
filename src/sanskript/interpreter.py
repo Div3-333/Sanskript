@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .ast import Assign, Display, Increase, Literal, Reference, Statement, Value
+from .ast import Assign, Decrease, Display, Increase, Literal, Reference, Statement, Value
 from .errors import RuntimeSanskriptError
 from .parser import parse_program
 
@@ -32,6 +32,13 @@ class Interpreter:
             self.environment[statement.target] = current + self.evaluate(statement.amount)
             return
 
+        if isinstance(statement, Decrease):
+            current = self.environment.get(statement.target)
+            if current is None:
+                raise RuntimeSanskriptError(f"Nothing has been placed in {statement.target!r} yet")
+            self.environment[statement.target] = current - self.evaluate(statement.amount)
+            return
+
         if isinstance(statement, Display):
             self.output.append(str(self.evaluate(statement.value)))
             return
@@ -49,4 +56,3 @@ class Interpreter:
                 raise RuntimeSanskriptError(f"Unknown stored value: {value.name!r}") from exc
 
         raise RuntimeSanskriptError(f"Unknown value: {value!r}")
-

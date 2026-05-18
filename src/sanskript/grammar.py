@@ -8,11 +8,16 @@ class Case(str, Enum):
     NOMINATIVE = "nominative"
     ACCUSATIVE = "accusative"
     INSTRUMENTAL = "instrumental"
+    DATIVE = "dative"
+    ABLATIVE = "ablative"
+    GENITIVE = "genitive"
     LOCATIVE = "locative"
+    VOCATIVE = "vocative"
 
 
 class Gender(str, Enum):
     MASCULINE = "masculine"
+    FEMININE = "feminine"
     NEUTER = "neuter"
 
 
@@ -26,6 +31,8 @@ class Role(str, Enum):
     KARTR = "kartṛ"
     KARMAN = "karman"
     KARANA = "karaṇa"
+    SAMPRADANA = "sampradāna"
+    APADANA = "apādāna"
     ADHIKARANA = "adhikaraṇa"
 
 
@@ -35,10 +42,37 @@ class PartOfSpeech(str, Enum):
     VERB = "verb"
 
 
+class Person(str, Enum):
+    FIRST = "first"
+    SECOND = "second"
+    THIRD = "third"
+
+
+class Pada(str, Enum):
+    PARASMAIPADA = "parasmaipada"
+    ATMANEPADA = "ātmanepada"
+
+
+class Lakara(str, Enum):
+    LAT = "laṭ"
+    LAN = "laṅ"
+    LIT = "liṭ"
+    LUN = "luṅ"
+    LRT = "lṛṭ"
+    LUT = "luṭ"
+    LOT = "loṭ"
+    VIDHILING = "vidhiliṅ"
+    ASHIRLING = "āśīrliṅ"
+    LRN = "lṛṅ"
+    LET = "leṭ"
+
+
 CASE_TO_ROLE = {
     Case.NOMINATIVE: Role.KARTR,
     Case.ACCUSATIVE: Role.KARMAN,
     Case.INSTRUMENTAL: Role.KARANA,
+    Case.DATIVE: Role.SAMPRADANA,
+    Case.ABLATIVE: Role.APADANA,
     Case.LOCATIVE: Role.ADHIKARANA,
 }
 
@@ -52,6 +86,9 @@ class Analysis:
     role: Role | None = None
     gender: Gender | None = None
     number: GrammaticalNumber | None = None
+    person: Person | None = None
+    pada: Pada | None = None
+    lakara: Lakara | None = None
     value: int | None = None
 
 
@@ -87,6 +124,10 @@ class VerbFrame:
     gloss: str
     required_roles: frozenset[Role]
     construction_id: str
+    person: Person
+    number: GrammaticalNumber
+    lakara: Lakara
+    pada: Pada
 
 
 @dataclass(frozen=True)
@@ -175,6 +216,10 @@ VERB_FRAMES: dict[str, VerbFrame] = {
         gloss="places, puts down",
         required_roles=frozenset({Role.KARMAN, Role.ADHIKARANA}),
         construction_id="VF-001",
+        person=Person.THIRD,
+        number=GrammaticalNumber.SINGULAR,
+        lakara=Lakara.LAT,
+        pada=Pada.PARASMAIPADA,
     ),
     "vardhayati": VerbFrame(
         surface="vardhayati",
@@ -182,6 +227,10 @@ VERB_FRAMES: dict[str, VerbFrame] = {
         gloss="increases, augments",
         required_roles=frozenset({Role.KARMAN, Role.KARANA}),
         construction_id="VF-002",
+        person=Person.THIRD,
+        number=GrammaticalNumber.SINGULAR,
+        lakara=Lakara.LAT,
+        pada=Pada.PARASMAIPADA,
     ),
     "darśayati": VerbFrame(
         surface="darśayati",
@@ -189,6 +238,21 @@ VERB_FRAMES: dict[str, VerbFrame] = {
         gloss="shows, displays",
         required_roles=frozenset({Role.KARMAN}),
         construction_id="VF-003",
+        person=Person.THIRD,
+        number=GrammaticalNumber.SINGULAR,
+        lakara=Lakara.LAT,
+        pada=Pada.PARASMAIPADA,
+    ),
+    "nyūnayati": VerbFrame(
+        surface="nyūnayati",
+        lemma="nyūnaya",
+        gloss="lessens, diminishes",
+        required_roles=frozenset({Role.KARMAN, Role.KARANA}),
+        construction_id="VF-004",
+        person=Person.THIRD,
+        number=GrammaticalNumber.SINGULAR,
+        lakara=Lakara.LAT,
+        pada=Pada.PARASMAIPADA,
     ),
 }
 
@@ -223,5 +287,11 @@ CONSTRUCTIONS: dict[str, Construction] = {
         name="object display with darśayati",
         status="experimental",
         description="A karman value is shown as program output.",
+    ),
+    "VF-004": Construction(
+        id="VF-004",
+        name="instrumental decrease with nyūnayati",
+        status="experimental",
+        description="A karman stored value is decreased by a karaṇa amount.",
     ),
 }

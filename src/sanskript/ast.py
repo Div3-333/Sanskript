@@ -30,9 +30,14 @@ class Increase:
 
 
 @dataclass(frozen=True)
+class Decrease:
+    target: str
+    amount: Value
+
+
+@dataclass(frozen=True)
 class Display:
     value: Value
 
 
-Statement = Union[Assign, Increase, Display]
-
+Statement = Union[Assign, Increase, Decrease, Display]

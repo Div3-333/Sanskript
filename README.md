@@ -55,6 +55,7 @@ This is not yet the final language. It is the first executable scaffold for a st
 
 See [docs/charter.md](docs/charter.md) and [docs/language-design.md](docs/language-design.md).
 The controlled grammar register lives at [docs/grammar-register.md](docs/grammar-register.md).
+The morphology-to-semantics plan lives at [docs/feature-lattice.md](docs/feature-lattice.md).
 
 ## Development Checks
 
