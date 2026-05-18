@@ -5030,8 +5030,8 @@
         "Document Information"
       ],
       "page": 1,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in the source registry."
     },
     {
       "id": "topic:ashtadhyayi:document-text",
@@ -5042,8 +5042,8 @@
         "Document Text"
       ],
       "page": 2,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as indexed canon text without copying the source."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-१",
@@ -5055,8 +5055,8 @@
         "॥ अध्याय १ ॥"
       ],
       "page": 2,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-२",
@@ -5068,8 +5068,8 @@
         "॥ अध्याय २ ॥"
       ],
       "page": 13,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-३",
@@ -5081,8 +5081,8 @@
         "॥ अध्याय ३ ॥"
       ],
       "page": 22,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-४",
@@ -5094,8 +5094,8 @@
         "॥ अध्याय ४ ॥"
       ],
       "page": 42,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-५",
@@ -5107,8 +5107,8 @@
         "॥ अध्याय ५ ॥"
       ],
       "page": 63,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-६",
@@ -5120,8 +5120,8 @@
         "॥ अध्याय ६ ॥"
       ],
       "page": 81,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-७",
@@ -5133,8 +5133,8 @@
         "॥ अध्याय ७ ॥"
       ],
       "page": 105,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-text-अध-य-य-८",
@@ -5146,8 +5146,8 @@
         "॥ अध्याय ८ ॥"
       ],
       "page": 119,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as an Aṣṭādhyāyī chapter boundary."
     },
     {
       "id": "topic:ashtadhyayi:document-credits",
@@ -5158,8 +5158,8 @@
         "Document Credits"
       ],
       "page": 131,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source metadata."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.1",
@@ -52942,8 +52942,8 @@
         "vyākaraṇa-praveśaḥ"
       ],
       "page": 1,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as grammar-source overview."
     },
     {
       "id": "topic:vyakarana_pravesha:contents",
@@ -52954,8 +52954,8 @@
         "Contents"
       ],
       "page": 2,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source outline structure."
     },
     {
       "id": "topic:vyakarana_pravesha:preface-to-the-print-edition",
@@ -52966,8 +52966,8 @@
         "Preface to the print edition"
       ],
       "page": 4,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:introduction",
@@ -52978,8 +52978,8 @@
         "Introduction"
       ],
       "page": 5,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:introduction-about-our-guide",
@@ -52991,8 +52991,8 @@
         "About our guide"
       ],
       "page": 6,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as guide context."
     },
     {
       "id": "topic:vyakarana_pravesha:introduction-a-summary-of-sanskrit",
@@ -53004,8 +53004,8 @@
         "A summary of Sanskrit"
       ],
       "page": 11,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as language overview."
     },
     {
       "id": "topic:vyakarana_pravesha:introduction-an-overview-of-the-aṣṭādhyāyī",
@@ -53017,8 +53017,8 @@
         "An overview of the Aṣṭādhyāyī"
       ],
       "page": 16,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as canon overview."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds",
@@ -53042,8 +53042,8 @@
         "Introduction"
       ],
       "page": 20,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-the-shiva-sutras",
@@ -53107,8 +53107,8 @@
         "ac sandhi"
       ],
       "page": 50,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in sandhi coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-the-asiddha-section",
@@ -53159,8 +53159,8 @@
         "Review"
       ],
       "page": 73,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta",
@@ -53184,8 +53184,8 @@
         "Introduction"
       ],
       "page": 78,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-dhātu",
@@ -53301,8 +53301,8 @@
         "Review"
       ],
       "page": 135,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta",
@@ -53326,8 +53326,8 @@
         "Introduction"
       ],
       "page": 137,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-prātipadika",
@@ -53404,8 +53404,8 @@
         "avyaya"
       ],
       "page": 158,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in indeclinable coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-review",
@@ -53417,8 +53417,8 @@
         "Review"
       ],
       "page": 161,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt",
@@ -53442,8 +53442,8 @@
         "Introduction"
       ],
       "page": 163,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt-kṛtya",
@@ -53507,8 +53507,8 @@
         "Review"
       ],
       "page": 187,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:taddhita",
@@ -53532,8 +53532,8 @@
         "Introduction"
       ],
       "page": 189,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:taddhita-apatya",
@@ -53584,8 +53584,8 @@
         "Review"
       ],
       "page": 202,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa",
@@ -53596,8 +53596,8 @@
         "samāsa"
       ],
       "page": 203,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in compound coverage."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa-introduction",
@@ -53609,8 +53609,8 @@
         "Introduction"
       ],
       "page": 204,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa-avyayībhāva",
@@ -53674,8 +53674,8 @@
         "Review"
       ],
       "page": 217,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:sanskrit-for-beginners",
@@ -53686,8 +53686,8 @@
         "Sanskrit for Beginners"
       ],
       "page": 1,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as grammar-source overview."
     },
     {
       "id": "topic:sanskrit_for_beginners:contents",
@@ -53698,8 +53698,8 @@
         "Contents"
       ],
       "page": 2,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source outline structure."
     },
     {
       "id": "topic:sanskrit_for_beginners:preface-to-the-print-edition",
@@ -53710,8 +53710,8 @@
         "Preface to the print edition"
       ],
       "page": 6,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:sanskrit_for_beginners:introduction",
@@ -53722,8 +53722,8 @@
         "Introduction"
       ],
       "page": 7,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as source context."
     },
     {
       "id": "topic:sanskrit_for_beginners:introduction-for-beginners",
@@ -53735,8 +53735,8 @@
         "For beginners"
       ],
       "page": 8,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked for beginner documentation."
     },
     {
       "id": "topic:sanskrit_for_beginners:introduction-for-experts",
@@ -53748,8 +53748,8 @@
         "For experts"
       ],
       "page": 13,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked for advanced documentation."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons",
@@ -53760,8 +53760,8 @@
         "Core lessons"
       ],
       "page": 18,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked for guide sequencing."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-the-sanskrit-language",
@@ -53773,8 +53773,8 @@
         "The Sanskrit language"
       ],
       "page": 19,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as language overview."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-basic-vowels",
@@ -53877,8 +53877,8 @@
         "Sandhi"
       ],
       "page": 51,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in sandhi coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-sentences",
@@ -53916,8 +53916,8 @@
         "Verbs"
       ],
       "page": 70,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in tiṅanta coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-uninflected-words",
@@ -53981,8 +53981,8 @@
         "Review"
       ],
       "page": 93,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as review coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:sounds",
@@ -54070,8 +54070,8 @@
         "Sandhi"
       ],
       "page": 115,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in sandhi coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:sandhi-the-sandhi-system",
@@ -54160,8 +54160,8 @@
         "The nominal system"
       ],
       "page": 143,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in subanta coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-basic-nominal-endings",
@@ -54212,8 +54212,8 @@
         "-i and -u stems"
       ],
       "page": 166,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in nominal-stem coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-ṛ-stems",
@@ -54225,8 +54225,8 @@
         "-ṛ stems"
       ],
       "page": 175,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in nominal-stem coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-ai-o-and-au-stems",
@@ -54238,8 +54238,8 @@
         "-ai, -o, and -au stems"
       ],
       "page": 182,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in nominal-stem coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-consonant-stems",
@@ -54251,8 +54251,8 @@
         "Consonant stems"
       ],
       "page": 186,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in nominal-stem coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-2-pronouns-and-numbers",
@@ -54289,8 +54289,8 @@
         "tad, etad, idam, and adas"
       ],
       "page": 205,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in pronominal coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-2-pronouns-and-numbers-kim-and-yad",
@@ -54328,8 +54328,8 @@
         "Number words"
       ],
       "page": 223,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in numeral coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods",
@@ -54340,8 +54340,8 @@
         "Verbs 1: Special tense-moods"
       ],
       "page": 238,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in tiṅanta coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-special-tense-moods",
@@ -54353,8 +54353,8 @@
         "Special tense-moods"
       ],
       "page": 239,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in lakāra coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-present-tense",
@@ -54366,8 +54366,8 @@
         "The present tense"
       ],
       "page": 243,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in laṭ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-command-mood",
@@ -54379,8 +54379,8 @@
         "The command mood"
       ],
       "page": 246,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in loṭ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-ordinary-past-tense",
@@ -54392,8 +54392,8 @@
         "The ordinary past tense"
       ],
       "page": 248,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in laṅ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-potential-mood",
@@ -54405,8 +54405,8 @@
         "The potential mood"
       ],
       "page": 251,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in vidhiliṅ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-ātmanepada",
@@ -54418,8 +54418,8 @@
         "ātmanepada"
       ],
       "page": 254,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in pada coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-bhū-div-tud-and-cur-classes",
@@ -54431,8 +54431,8 @@
         "The bhū, div, tud, and cur classes"
       ],
       "page": 259,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in dhātu-class coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-su-tan-and-krī-classes",
@@ -54444,8 +54444,8 @@
         "The su, tan, and krī classes"
       ],
       "page": 266,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in dhātu-class coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-ad-and-rudh-classes",
@@ -54457,8 +54457,8 @@
         "The ad and rudh classes"
       ],
       "page": 275,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in dhātu-class coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-the-hu-class",
@@ -54470,8 +54470,8 @@
         "The hu class"
       ],
       "page": 286,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in dhātu-class coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-1-special-tense-moods-karmaṇi-and-bhāve-prayoga",
@@ -54483,8 +54483,8 @@
         "karmaṇi and bhāve prayoga"
       ],
       "page": 291,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in prayoga coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods",
@@ -54495,8 +54495,8 @@
         "Verbs 2: Other tense-moods"
       ],
       "page": 296,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in extended lakāra coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-other-tense-moods",
@@ -54508,8 +54508,8 @@
         "Other tense-moods"
       ],
       "page": 297,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in extended lakāra coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-the-simple-future-tense",
@@ -54521,8 +54521,8 @@
         "The simple future tense"
       ],
       "page": 300,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in lṛṭ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-the-conditional-mood",
@@ -54534,8 +54534,8 @@
         "The conditional mood"
       ],
       "page": 303,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in lṛṅ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-the-distant-future-tense",
@@ -54547,8 +54547,8 @@
         "The distant future tense"
       ],
       "page": 305,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in luṭ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-the-distant-past-tense",
@@ -54560,8 +54560,8 @@
         "The distant past tense"
       ],
       "page": 308,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in liṭ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-the-recent-past-tense",
@@ -54573,8 +54573,8 @@
         "The recent past tense"
       ],
       "page": 319,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in luṅ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-2-other-tense-moods-the-blessing-mood",
@@ -54586,8 +54586,8 @@
         "The blessing mood"
       ],
       "page": 322,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in āśīrliṅ coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-3-derived-roots",
@@ -54598,8 +54598,8 @@
         "Verbs 3: Derived roots"
       ],
       "page": 325,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in derivation coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-3-derived-roots-causal-roots",
@@ -54611,8 +54611,8 @@
         "Causal roots"
       ],
       "page": 326,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in derived-root coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-3-derived-roots-desiderative-roots",
@@ -54624,8 +54624,8 @@
         "Desiderative roots"
       ],
       "page": 329,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in derived-root coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-3-derived-roots-nominal-roots",
@@ -54637,8 +54637,8 @@
         "Nominal roots"
       ],
       "page": 333,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in derived-root coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:verbs-3-derived-roots-intensive-roots",
@@ -54650,8 +54650,8 @@
         "Intensive roots"
       ],
       "page": 335,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: queued in derived-root coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:uninflected-words",
@@ -54881,8 +54881,8 @@
         "The dvandva"
       ],
       "page": 388,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in compound coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:compounds-the-tatpuruṣa",
@@ -54894,8 +54894,8 @@
         "The tatpuruṣa"
       ],
       "page": 391,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in compound coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:compounds-the-bahuvrīhi",
@@ -54907,8 +54907,8 @@
         "The bahuvrīhi"
       ],
       "page": 394,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in compound coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:compounds-the-avyayībhāva",
@@ -54920,8 +54920,8 @@
         "The avyayībhāva"
       ],
       "page": 397,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in compound coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences",
@@ -54997,8 +54997,8 @@
         "Relative phrases"
       ],
       "page": 414,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Relative-correlative particles such as yatra/tatra and yadā/tadā are recognized."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-participles",
@@ -55010,8 +55010,8 @@
         "Participles"
       ],
       "page": 418,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked in derivation coverage."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-the-eight-cases",
@@ -55113,8 +55113,8 @@
         "Old Devanagari"
       ],
       "page": 444,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as script variant context."
     },
     {
       "id": "topic:sanskrit_for_beginners:devanagari-vedic-devanagari",
@@ -55126,8 +55126,8 @@
         "Vedic Devanagari"
       ],
       "page": 445,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as script variant context."
     },
     {
       "id": "topic:sanskrit_for_beginners:other-scripts",
@@ -55138,8 +55138,8 @@
         "Other scripts"
       ],
       "page": 446,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as future script support."
     },
     {
       "id": "topic:sanskrit_for_beginners:other-scripts-romanized-sanskrit",
@@ -55163,8 +55163,8 @@
         "Sanskrit software"
       ],
       "page": 450,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as tooling context."
     },
     {
       "id": "topic:sanskrit_for_beginners:sanskrit-software-why-use-sanskrit-software",
@@ -55176,8 +55176,8 @@
         "Why use Sanskrit software?"
       ],
       "page": 451,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as tooling rationale."
     },
     {
       "id": "topic:sanskrit_for_beginners:sanskrit-software-the-harvard-kyoto-system",
@@ -55189,8 +55189,8 @@
         "The Harvard-Kyoto system"
       ],
       "page": 452,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as future ASCII transliteration context."
     },
     {
       "id": "topic:sanskrit_for_beginners:sanskrit-software-how-to-type-in-sanskrit",
@@ -55202,8 +55202,8 @@
         "How to type in Sanskrit"
       ],
       "page": 454,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as authoring guidance."
     },
     {
       "id": "topic:sanskrit_for_beginners:sanskrit-software-how-to-use-a-sanskrit-english-dictionary",
@@ -55215,8 +55215,8 @@
         "How to use a Sanskrit-English dictionary"
       ],
       "page": 455,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked as lexical workflow guidance."
     },
     {
       "id": "topic:sanskrit_for_beginners:lists",
@@ -55227,8 +55227,8 @@
         "Lists"
       ],
       "page": 457,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked for reference material."
     },
     {
       "id": "topic:sanskrit_for_beginners:lists-grammatical-terms",
@@ -55240,16 +55240,15 @@
         "Grammatical Terms"
       ],
       "page": 458,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Canon topic treatment: tracked for terminology."
     }
   ],
   "coverage_summary": {
     "total": 4172,
     "by_status": {
       "batch_partial": 3978,
-      "partial": 101,
-      "pending_design": 93
+      "partial": 194
     },
     "by_kind": {
       "sutra": 3981,

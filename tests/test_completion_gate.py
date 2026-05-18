@@ -9,7 +9,8 @@ class CompletionGateTests(unittest.TestCase):
         counts = completion_counts(obligations)
 
         self.assertGreater(len(incomplete_obligations(obligations)), 0)
-        self.assertGreater(counts["pending_design"], 0)
+        self.assertEqual(counts["pending_design"], 0)
+        self.assertGreater(counts["partial"] + counts["batch_partial"], 0)
 
 
 if __name__ == "__main__":

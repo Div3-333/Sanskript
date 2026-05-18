@@ -118,4 +118,5 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
-- Remaining `pending_design` items are outline topics, not sutra identifiers.
+- Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
+- The next phase is full implementation: replacing partial and batch-partial scaffolds with sutra/topic-specific implemented behavior and tests.

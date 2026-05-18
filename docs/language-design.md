@@ -70,6 +70,8 @@ See [feature-lattice.md](feature-lattice.md).
 
 The supplied PDFs are indexed in [grammar-canon.md](grammar-canon.md). New features should cite the relevant canon topic or sutra range before they graduate from experimental status.
 
+Non-executable outline material, such as source metadata, prefaces, reviews, and script/tooling chapters, is tracked in `canon_topics.py`. These entries are partial canon treatments, not release-complete implementations.
+
 ## Word Order
 
 Because the prototype uses morphology, these two sentences compile to the same assignment:

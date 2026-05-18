@@ -106,6 +106,11 @@ class GrammarCanonTests(unittest.TestCase):
 
         self.assertEqual(pending_sutras, [])
 
+    def test_no_canon_item_is_left_without_partial_treatment(self) -> None:
+        pending = [item for item in self.canon["obligations"] if item["status"] == "pending_design"]
+
+        self.assertEqual(pending, [])
+
 
 if __name__ == "__main__":
     unittest.main()

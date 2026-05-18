@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import sys
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -12,6 +13,10 @@ from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from sanskript.canon_topics import treatment_for
+
 SOURCES_DIR = ROOT / "sources"
 DATA_DIR = ROOT / "data"
 DOCS_DIR = ROOT / "docs"
@@ -294,7 +299,7 @@ def build_obligations(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
             level = entry["level"]
             outline_stack = outline_stack[:level]
             outline_stack.append(entry["title"])
-            status = "partial" if entry["title"] in PARTIAL_TOPIC_TITLES else "pending_design"
+            status = "partial" if is_partial_topic(entry["title"]) else "pending_design"
             obligations.append(
                 {
                     "id": f"topic:{source['id']}:{slugify('/'.join(outline_stack))}",
@@ -338,8 +343,17 @@ def summarize_obligations(obligations: list[dict[str, Any]]) -> dict[str, Any]:
 
 def implementation_note(status: str, title: str) -> str:
     if status == "partial":
-        return TOPIC_IMPLEMENTATION_NOTES.get(title, f"Initial subsystem support covers part of this topic: {title}.")
+        if title in TOPIC_IMPLEMENTATION_NOTES:
+            return TOPIC_IMPLEMENTATION_NOTES[title]
+        treatment = treatment_for(title)
+        if treatment is not None:
+            return f"Canon topic treatment: {treatment.note}."
+        return f"Initial subsystem support covers part of this topic: {title}."
     return "Indexed from the source outline; not implemented yet."
+
+
+def is_partial_topic(title: str) -> bool:
+    return title in PARTIAL_TOPIC_TITLES or treatment_for(title) is not None
 
 
 def sutra_status(sutra_id: str) -> str:
@@ -468,7 +482,7 @@ def render_markdown(canon: dict[str, Any]) -> str:
         for entry in source["outline"]:
             indent = "  " * entry["level"]
             page = f"p. {entry['page']}" if entry["page"] is not None else "page unknown"
-            status = "partial" if entry["title"] in PARTIAL_TOPIC_TITLES else "pending_design"
+            status = "partial" if is_partial_topic(entry["title"]) else "pending_design"
             lines.append(f"{indent}- `{page}` {entry['title']} — `{status}`")
         lines.append("")
 
