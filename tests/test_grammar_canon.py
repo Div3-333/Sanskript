@@ -54,6 +54,35 @@ class GrammarCanonTests(unittest.TestCase):
 
         self.assertIn("does not copy full PDF text", policy["copyright_boundary"])
 
+    def test_every_indexed_item_has_an_obligation(self) -> None:
+        obligations = self.canon["obligations"]
+        topic_count = sum(len(source["outline"]) for source in self.sources.values())
+        sutra_count = len(self.sources["ashtadhyayi"]["sutra_index"]["ids"])
+
+        self.assertEqual(len(obligations), topic_count + sutra_count)
+        self.assertEqual(self.canon["coverage_summary"]["total"], len(obligations))
+
+    def test_sound_topics_are_marked_partial_after_phonology_work(self) -> None:
+        partial_titles = {
+            item["title"]
+            for item in self.canon["obligations"]
+            if item["status"] == "partial"
+        }
+
+        self.assertIn("The Shiva Sutras", partial_titles)
+        self.assertIn("Vowels", partial_titles)
+        self.assertIn("Consonants", partial_titles)
+        self.assertIn("Romanized Sanskrit", partial_titles)
+
+    def test_first_sound_sutras_are_marked_partial_not_complete(self) -> None:
+        partial_sutras = {
+            item["title"]
+            for item in self.canon["obligations"]
+            if item["kind"] == "sutra" and item["status"] == "partial"
+        }
+
+        self.assertEqual(partial_sutras, {"1.1.1", "1.1.2", "1.1.9"})
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -57,6 +57,7 @@ See [docs/charter.md](docs/charter.md) and [docs/language-design.md](docs/langua
 The controlled grammar register lives at [docs/grammar-register.md](docs/grammar-register.md).
 The morphology-to-semantics plan lives at [docs/feature-lattice.md](docs/feature-lattice.md).
 The PDF-derived grammar canon lives at [docs/grammar-canon.md](docs/grammar-canon.md).
+The canon implementation roadmap lives at [docs/implementation-plan.md](docs/implementation-plan.md).
 
 ## Development Checks
 

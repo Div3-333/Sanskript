@@ -18,6 +18,15 @@ This file is the project contract for the user's requirement that Sanskript use 
 | vyākaraṇa-praveśaḥ | 217 | 209240 | 58 | `91661c418222...` |
 | Sanskrit for Beginners | 462 | 337373 | 122 | `1f25e354487c...` |
 
+## Coverage Summary
+
+- Total obligations: `4172`
+- Topic obligations: `191`
+- Sutra obligations: `3981`
+- Implemented: `0`
+- Partial: `15`
+- Pending design: `4157`
+
 ## Aṣṭādhyāyī Sutra Index
 
 - Sutra identifiers indexed: `3981`
@@ -86,8 +95,8 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 16` An overview of the Aṣṭādhyāyī — `pending_design`
 - `p. 19` Sounds — `pending_design`
   - `p. 20` Introduction — `pending_design`
-  - `p. 26` The Shiva Sutras — `pending_design`
-  - `p. 31` savarṇa sounds — `pending_design`
+  - `p. 26` The Shiva Sutras — `partial`
+  - `p. 31` savarṇa sounds — `partial`
   - `p. 38` it letters — `pending_design`
   - `p. 44` vidhi rules — `pending_design`
   - `p. 50` ac sandhi — `pending_design`
@@ -146,11 +155,11 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 13` For experts — `pending_design`
 - `p. 18` Core lessons — `pending_design`
   - `p. 19` The Sanskrit language — `pending_design`
-  - `p. 21` Basic vowels — `pending_design`
-  - `p. 25` Short and long vowels — `pending_design`
-  - `p. 29` Semivowels — `pending_design`
-  - `p. 31` Compound vowels — `pending_design`
-  - `p. 36` Consonants — `pending_design`
+  - `p. 21` Basic vowels — `partial`
+  - `p. 25` Short and long vowels — `partial`
+  - `p. 29` Semivowels — `partial`
+  - `p. 31` Compound vowels — `partial`
+  - `p. 36` Consonants — `partial`
   - `p. 43` anusvāra and visarga — `pending_design`
   - `p. 47` Syllables — `pending_design`
   - `p. 51` Sandhi — `pending_design`
@@ -163,10 +172,10 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 90` Compounds — `pending_design`
   - `p. 93` Review — `pending_design`
 - `p. 100` Sounds — `pending_design`
-  - `p. 101` The sound system — `pending_design`
-  - `p. 102` Vowels — `pending_design`
-  - `p. 107` Consonants — `pending_design`
-  - `p. 111` Other sounds — `pending_design`
+  - `p. 101` The sound system — `partial`
+  - `p. 102` Vowels — `partial`
+  - `p. 107` Consonants — `partial`
+  - `p. 111` Other sounds — `partial`
   - `p. 113` Modern pronunciation — `pending_design`
 - `p. 115` Sandhi — `pending_design`
   - `p. 116` The sandhi system — `pending_design`
@@ -252,7 +261,7 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 444` Old Devanagari — `pending_design`
   - `p. 445` Vedic Devanagari — `pending_design`
 - `p. 446` Other scripts — `pending_design`
-  - `p. 447` Romanized Sanskrit — `pending_design`
+  - `p. 447` Romanized Sanskrit — `partial`
 - `p. 450` Sanskrit software — `pending_design`
   - `p. 451` Why use Sanskrit software? — `pending_design`
   - `p. 452` The Harvard-Kyoto system — `pending_design`

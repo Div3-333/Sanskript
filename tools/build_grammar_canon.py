@@ -33,6 +33,28 @@ SOURCE_LABELS = {
 }
 
 
+PARTIAL_TOPIC_TITLES = {
+    "Basic vowels",
+    "Compound vowels",
+    "Consonants",
+    "Other sounds",
+    "Romanized Sanskrit",
+    "Semivowels",
+    "Short and long vowels",
+    "The Shiva Sutras",
+    "The sound system",
+    "Vowels",
+    "savarṇa sounds",
+}
+
+
+PARTIAL_SUTRA_IDS = {
+    "1.1.1": "Initial vṛddhi sound classifier implemented; full rule interaction is pending.",
+    "1.1.2": "Initial guṇa sound classifier implemented; full rule interaction is pending.",
+    "1.1.9": "Conservative savarṇa helper implemented for vowel length pairs; full articulation-effort model is pending.",
+}
+
+
 DEVANAGARI_DIGITS = {0x966 + i: ord(str(i)) for i in range(10)}
 SUTRA_ID_RE = re.compile(r"(?<!\d)([1-8]\.[1-4]\.\d{1,3})(?!\d)")
 
@@ -64,11 +86,14 @@ def main() -> int:
             "coverage_statuses": {
                 "canon_indexed": "Indexed from a source PDF and accepted as part of the language-design canon.",
                 "implemented": "Implemented in code and covered by tests.",
+                "partial": "Some compiler support exists, but the topic is not fully implemented.",
                 "pending_design": "Not yet implemented; must be addressed before the language can be considered complete.",
             },
         },
         "sources": sources,
     }
+    canon["obligations"] = build_obligations(sources)
+    canon["coverage_summary"] = summarize_obligations(canon["obligations"])
 
     CANON_JSON.write_text(json.dumps(canon, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     CANON_MD.write_text(render_markdown(canon), encoding="utf-8")
@@ -107,6 +132,70 @@ def analyze_source(pdf_path: Path, source_id: str) -> dict[str, Any]:
         }
 
     return source
+
+
+def build_obligations(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    obligations: list[dict[str, Any]] = []
+    for source in sources:
+        outline_stack: list[str] = []
+        for entry in source["outline"]:
+            level = entry["level"]
+            outline_stack = outline_stack[:level]
+            outline_stack.append(entry["title"])
+            status = "partial" if entry["title"] in PARTIAL_TOPIC_TITLES else "pending_design"
+            obligations.append(
+                {
+                    "id": f"topic:{source['id']}:{slugify('/'.join(outline_stack))}",
+                    "kind": "topic",
+                    "source": source["id"],
+                    "title": entry["title"],
+                    "path": outline_stack.copy(),
+                    "page": entry["page"],
+                    "status": status,
+                    "implementation_note": implementation_note(status, entry["title"]),
+                }
+            )
+
+        for sutra_id in source.get("sutra_index", {}).get("ids", []):
+            status = "partial" if sutra_id in PARTIAL_SUTRA_IDS else "pending_design"
+            obligations.append(
+                {
+                    "id": f"sutra:{source['id']}:{sutra_id}",
+                    "kind": "sutra",
+                    "source": source["id"],
+                    "title": sutra_id,
+                    "path": [sutra_id],
+                    "page": None,
+                    "status": status,
+                    "implementation_note": PARTIAL_SUTRA_IDS.get(
+                        sutra_id,
+                        "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet.",
+                    ),
+                }
+            )
+
+    return obligations
+
+
+def summarize_obligations(obligations: list[dict[str, Any]]) -> dict[str, Any]:
+    by_status = Counter(item["status"] for item in obligations)
+    by_kind = Counter(item["kind"] for item in obligations)
+    return {
+        "total": len(obligations),
+        "by_status": dict(sorted(by_status.items())),
+        "by_kind": dict(sorted(by_kind.items())),
+    }
+
+
+def implementation_note(status: str, title: str) -> str:
+    if status == "partial":
+        return f"Initial phonology support covers part of this topic: {title}."
+    return "Indexed from the source outline; not implemented yet."
+
+
+def slugify(value: str) -> str:
+    parts = re.findall(r"[\w]+", value.lower(), flags=re.UNICODE)
+    return "-".join(parts) if parts else "untitled"
 
 
 def outline_entries(reader: PdfReader) -> list[OutlineEntry]:
@@ -174,6 +263,21 @@ def render_markdown(canon: dict[str, Any]) -> str:
             f"{indexed_items} | `{source['sha256'][:12]}...` |"
         )
 
+    summary = canon["coverage_summary"]
+    lines.extend(
+        [
+            "",
+            "## Coverage Summary",
+            "",
+            f"- Total obligations: `{summary['total']}`",
+            f"- Topic obligations: `{summary['by_kind'].get('topic', 0)}`",
+            f"- Sutra obligations: `{summary['by_kind'].get('sutra', 0)}`",
+            f"- Implemented: `{summary['by_status'].get('implemented', 0)}`",
+            f"- Partial: `{summary['by_status'].get('partial', 0)}`",
+            f"- Pending design: `{summary['by_status'].get('pending_design', 0)}`",
+        ]
+    )
+
     lines.extend(["", "## Aṣṭādhyāyī Sutra Index", ""])
     ashtadhyayi = next((source for source in canon["sources"] if source["id"] == "ashtadhyayi"), None)
     if ashtadhyayi:
@@ -197,7 +301,8 @@ def render_markdown(canon: dict[str, Any]) -> str:
         for entry in source["outline"]:
             indent = "  " * entry["level"]
             page = f"p. {entry['page']}" if entry["page"] is not None else "page unknown"
-            lines.append(f"{indent}- `{page}` {entry['title']} — `pending_design`")
+            status = "partial" if entry["title"] in PARTIAL_TOPIC_TITLES else "pending_design"
+            lines.append(f"{indent}- `{page}` {entry['title']} — `{status}`")
         lines.append("")
 
     lines.extend(
