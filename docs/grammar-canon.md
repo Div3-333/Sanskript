@@ -24,9 +24,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Topic obligations: `191`
 - Sutra obligations: `3981`
 - Implemented: `0`
-- Partial: `43`
-- Batch partial: `1598`
-- Pending design: `2531`
+- Partial: `69`
+- Batch partial: `2787`
+- Pending design: `1316`
 
 ## Aṣṭādhyāyī Sutra Index
 
@@ -125,25 +125,25 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 156` Forms of nau — `partial`
   - `p. 158` avyaya — `pending_design`
   - `p. 161` Review — `pending_design`
-- `p. 162` kṛt — `pending_design`
+- `p. 162` kṛt — `partial`
   - `p. 163` Introduction — `pending_design`
-  - `p. 169` kṛtya — `pending_design`
-  - `p. 174` ghañ — `pending_design`
-  - `p. 177` kta — `pending_design`
-  - `p. 182` śatṛ and śānac — `pending_design`
+  - `p. 169` kṛtya — `partial`
+  - `p. 174` ghañ — `partial`
+  - `p. 177` kta — `partial`
+  - `p. 182` śatṛ and śānac — `partial`
   - `p. 187` Review — `pending_design`
-- `p. 188` taddhita — `pending_design`
+- `p. 188` taddhita — `partial`
   - `p. 189` Introduction — `pending_design`
-  - `p. 194` apatya — `pending_design`
-  - `p. 197` atiśāyana — `pending_design`
-  - `p. 200` matu̐p — `pending_design`
+  - `p. 194` apatya — `partial`
+  - `p. 197` atiśāyana — `partial`
+  - `p. 200` matu̐p — `partial`
   - `p. 202` Review — `pending_design`
 - `p. 203` samāsa — `pending_design`
   - `p. 204` Introduction — `pending_design`
-  - `p. 207` avyayībhāva — `pending_design`
-  - `p. 210` tatpuruṣa — `pending_design`
-  - `p. 214` bahuvrīhi — `pending_design`
-  - `p. 216` dvandva — `pending_design`
+  - `p. 207` avyayībhāva — `partial`
+  - `p. 210` tatpuruṣa — `partial`
+  - `p. 214` bahuvrīhi — `partial`
+  - `p. 216` dvandva — `partial`
   - `p. 217` Review — `pending_design`
 
 ### Sanskrit for Beginners
@@ -169,8 +169,8 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 70` Verbs — `pending_design`
   - `p. 78` Uninflected words — `pending_design`
   - `p. 82` Prefixes — `pending_design`
-  - `p. 86` Suffixes — `pending_design`
-  - `p. 90` Compounds — `pending_design`
+  - `p. 86` Suffixes — `partial`
+  - `p. 90` Compounds — `partial`
   - `p. 93` Review — `pending_design`
 - `p. 100` Sounds — `pending_design`
   - `p. 101` The sound system — `partial`
@@ -230,17 +230,17 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 346` Other prefixes — `pending_design`
   - `p. 349` ca, vā, and others — `pending_design`
   - `p. 353` Adverbs — `pending_design`
-- `p. 354` Suffixes — `pending_design`
-  - `p. 355` The suffix system — `pending_design`
-  - `p. 358` -tvā and -ya — `pending_design`
-  - `p. 363` -ta and -tavat — `pending_design`
-  - `p. 365` -tum — `pending_design`
-  - `p. 368` -tavya, -anīya, and -ya — `pending_design`
-  - `p. 371` -at, -āna, and -vas — `pending_design`
-  - `p. 375` Other root suffixes — `pending_design`
-  - `p. 379` Nominal suffixes — `pending_design`
-- `p. 383` Compounds — `pending_design`
-  - `p. 384` The compound system — `pending_design`
+- `p. 354` Suffixes — `partial`
+  - `p. 355` The suffix system — `partial`
+  - `p. 358` -tvā and -ya — `partial`
+  - `p. 363` -ta and -tavat — `partial`
+  - `p. 365` -tum — `partial`
+  - `p. 368` -tavya, -anīya, and -ya — `partial`
+  - `p. 371` -at, -āna, and -vas — `partial`
+  - `p. 375` Other root suffixes — `partial`
+  - `p. 379` Nominal suffixes — `partial`
+- `p. 383` Compounds — `partial`
+  - `p. 384` The compound system — `partial`
   - `p. 388` The dvandva — `pending_design`
   - `p. 391` The tatpuruṣa — `pending_design`
   - `p. 394` The bahuvrīhi — `pending_design`

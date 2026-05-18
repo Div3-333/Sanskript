@@ -64,6 +64,8 @@ Targets:
 
 ## Phase 4: Derivation
 
+Status: in progress.
+
 Targets:
 
 - Kṛt.
@@ -71,7 +73,16 @@ Targets:
 - Derived roots: causative, desiderative, nominal, intensive.
 - Participles.
 
+Initial support now lives in `src/sanskript/derivation.py`.
+
+Batch status:
+
+- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` are now marked `batch_partial`.
+- Current support is a controlled registry of kṛt and taddhita examples, not full derivation.
+
 ## Phase 5: Compounds And Sentences
+
+Status: in progress.
 
 Targets:
 
@@ -83,6 +94,8 @@ Targets:
 - Verbless sentences.
 - Questions.
 - Relative phrases.
+
+Initial compound support now lives in `src/sanskript/samasa.py`.
 
 ## Phase 6: Full Aṣṭādhyāyī Sweep
 
