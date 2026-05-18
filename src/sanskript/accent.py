@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
@@ -36,16 +36,25 @@ ACCENT_DOMAINS = {
 }
 
 
-def profile_accent(tokens: tuple[str, ...], udatta_index: int = 0, sutra_range: str = "6.2") -> AccentProfile:
+def profile_accent(tokens: tuple[str, ...], udatta_index: int = 0, sutra_range: str = "6.2", is_pit: bool = False) -> AccentProfile:
+    """
+    Partial suffix-accent scaffold for selected 3.1.3/3.1.4 behavior.
+    """
     if not tokens:
         raise ValueError("Accent profiles need at least one token")
-    if udatta_index < 0 or udatta_index >= len(tokens):
-        raise ValueError(f"udātta index out of range: {udatta_index}")
 
+    # 3.1.4: sup and pit suffixes are unaccented (anudātta)
+    if is_pit or sutra_range == "3.1.4":
+        assignments = [AccentAssignment(token=t, accent=Accent.ANUDATTA, position=i) for i, t in enumerate(tokens)]
+        return AccentProfile(domain="3.1.4 unaccented suffix", assignments=tuple(assignments), sutra_range="3.1.4")
+
+    # 3.1.3: ādyudāttaś-ca (First syllable accented)
     assignments = []
     for index, token in enumerate(tokens):
+        # Default to first syllable if not specified (3.1.3)
         accent = Accent.UDATTA if index == udatta_index else Accent.ANUDATTA
         assignments.append(AccentAssignment(token=token, accent=accent, position=index))
+
     return AccentProfile(
         domain=ACCENT_DOMAINS.get(sutra_range, "controlled accent domain"),
         assignments=tuple(assignments),

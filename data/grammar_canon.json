@@ -5170,8 +5170,8 @@
         "1.1.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Initial vṛddhi sound classifier implemented; full rule interaction is pending."
+      "status": "implemented",
+      "implementation_note": "Implemented vṛddhi as the exact technical set {ā, ai, au}, with accepted and rejected sound tests."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.2",
@@ -5182,8 +5182,8 @@
         "1.1.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Initial guṇa sound classifier implemented; full rule interaction is pending."
+      "status": "implemented",
+      "implementation_note": "Implemented guṇa as the exact technical set {a, e, o}, with accepted and rejected sound tests."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.3",
@@ -5194,8 +5194,8 @@
         "1.1.3"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "implemented",
+      "implementation_note": "Implemented iko guṇavṛddhī as guṇa/vṛddhi replacement maps restricted to ik sounds."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.4",
@@ -5206,8 +5206,8 @@
         "1.1.4"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "partial",
+      "implementation_note": "Partial derivation context can block guṇa/vṛddhi after dhātu-lopa before ārdhadhātuka suffixes; full rule interaction remains pending."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.5",
@@ -5218,8 +5218,8 @@
         "1.1.5"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "partial",
+      "implementation_note": "Partial derivation context recognizes kit/ṅit blocking of guṇa/vṛddhi; full suffix derivation remains pending."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.6",
@@ -5230,8 +5230,8 @@
         "1.1.6"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "partial",
+      "implementation_note": "Partial derivation context recognizes selected root and iṭ-augment blocking cases; full coverage remains pending."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.7",
@@ -5242,8 +5242,8 @@
         "1.1.7"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "partial",
+      "implementation_note": "Initial saṃyoga helper identifies adjacent consonant clusters; full downstream rule behavior remains pending."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.8",
@@ -5254,8 +5254,8 @@
         "1.1.8"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level."
+      "status": "partial",
+      "implementation_note": "Initial anunāsika helper uses the nasal flag in the sound inventory; full phonetic modeling remains pending."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.9",
@@ -5267,7 +5267,7 @@
       ],
       "page": null,
       "status": "partial",
-      "implementation_note": "Conservative savarṇa helper implemented for vowel length pairs; full articulation-effort model is pending."
+      "implementation_note": "Initial savarṇa helper compares place and effort; full rule interaction remains pending."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.10",
@@ -55247,8 +55247,9 @@
   "coverage_summary": {
     "total": 4172,
     "by_status": {
-      "batch_partial": 3978,
-      "partial": 194
+      "batch_partial": 3972,
+      "implemented": 3,
+      "partial": 197
     },
     "by_kind": {
       "sutra": 3981,

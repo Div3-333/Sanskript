@@ -205,9 +205,19 @@ TOPIC_IMPLEMENTATION_NOTES = {
 
 
 PARTIAL_SUTRA_IDS = {
-    "1.1.1": "Initial vṛddhi sound classifier implemented; full rule interaction is pending.",
-    "1.1.2": "Initial guṇa sound classifier implemented; full rule interaction is pending.",
-    "1.1.9": "Conservative savarṇa helper implemented for vowel length pairs; full articulation-effort model is pending.",
+    "1.1.4": "Partial derivation context can block guṇa/vṛddhi after dhātu-lopa before ārdhadhātuka suffixes; full rule interaction remains pending.",
+    "1.1.5": "Partial derivation context recognizes kit/ṅit blocking of guṇa/vṛddhi; full suffix derivation remains pending.",
+    "1.1.6": "Partial derivation context recognizes selected root and iṭ-augment blocking cases; full coverage remains pending.",
+    "1.1.7": "Initial saṃyoga helper identifies adjacent consonant clusters; full downstream rule behavior remains pending.",
+    "1.1.8": "Initial anunāsika helper uses the nasal flag in the sound inventory; full phonetic modeling remains pending.",
+    "1.1.9": "Initial savarṇa helper compares place and effort; full rule interaction remains pending.",
+}
+
+
+IMPLEMENTED_SUTRA_IDS = {
+    "1.1.1": "Implemented vṛddhi as the exact technical set {ā, ai, au}, with accepted and rejected sound tests.",
+    "1.1.2": "Implemented guṇa as the exact technical set {a, e, o}, with accepted and rejected sound tests.",
+    "1.1.3": "Implemented iko guṇavṛddhī as guṇa/vṛddhi replacement maps restricted to ik sounds.",
 }
 
 
@@ -357,6 +367,8 @@ def is_partial_topic(title: str) -> bool:
 
 
 def sutra_status(sutra_id: str) -> str:
+    if sutra_id in IMPLEMENTED_SUTRA_IDS:
+        return "implemented"
     if sutra_id in PARTIAL_SUTRA_IDS:
         return "partial"
     if sutra_id.rsplit(".", 1)[0] in BATCHED_PADA_PREFIXES:
@@ -365,6 +377,8 @@ def sutra_status(sutra_id: str) -> str:
 
 
 def sutra_note(sutra_id: str, status: str) -> str:
+    if status == "implemented":
+        return IMPLEMENTED_SUTRA_IDS[sutra_id]
     if sutra_id in PARTIAL_SUTRA_IDS:
         return PARTIAL_SUTRA_IDS[sutra_id]
     pada = sutra_id.rsplit(".", 1)[0]

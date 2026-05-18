@@ -54,7 +54,7 @@ class SubantaTests(unittest.TestCase):
     def test_karaka_case_explanations(self) -> None:
         self.assertEqual(role_for_case(Case.DATIVE), Role.SAMPRADANA)
         self.assertEqual(explain_case(Case.ABLATIVE).role, Role.APADANA)
-        self.assertIn("module", explain_case(Case.GENITIVE).compiler_use)
+        self.assertIn("possession", explain_case(Case.GENITIVE).compiler_use)
 
 
 if __name__ == "__main__":

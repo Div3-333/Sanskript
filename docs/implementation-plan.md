@@ -32,6 +32,13 @@ Batch status:
 - This means their sound/sandhi subsystem exists, but individual sutras are still not considered complete.
 - Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, first-pass vowel/visarga sandhi, accent profiles, and aṅga-operation scaffolds.
 
+Implemented slice:
+
+- `1.1.1` is implemented as the exact vṛddhi set: `ā`, `ai`, `au`.
+- `1.1.2` is implemented as the exact guṇa set: `a`, `e`, `o`.
+- `1.1.3` is implemented as guṇa/vṛddhi replacement maps restricted to ik sounds.
+- Later sutras in `1.1` remain partial or batch-partial until they receive sutra-specific behavior, accepted examples, rejected examples, and canon tests.
+
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
 ## Phase 2: Subanta And Kāraka

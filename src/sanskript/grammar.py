@@ -94,6 +94,28 @@ CASE_TO_ROLE = {
 }
 
 
+class Samjna(str, Enum):
+    GHU = "ghu"
+    GHA = "gha"
+    SAMKHYA = "saṃkhyā"
+    SAT = "ṣaṭ"
+    NISTHA = "niṣṭhā"
+    SARVANAMA = "sarvanāma"
+    NADII = "nadī"
+    GHI = "ghī"
+    BHA = "bha"
+    PADA = "pada"
+    ANGA = "aṅga"
+    LAGHU = "laghu"
+    GURU = "guru"
+    PRATIPADIKA = "prātipadika"
+    AVYAYA = "avyaya"
+    NIPATA = "nipāta"
+    UPASARGA = "upasarga"
+    GATI = "gati"
+    KARMAPRAVACANIIYA = "karmapravacanīya"
+
+
 @dataclass(frozen=True)
 class Analysis:
     surface: str
@@ -108,6 +130,7 @@ class Analysis:
     lakara: Lakara | None = None
     indeclinable_kind: IndeclinableKind | None = None
     value: int | None = None
+    samjnas: frozenset[Samjna] = frozenset()
 
 
 @dataclass(frozen=True)

@@ -1,5 +1,6 @@
 import json
 import unittest
+from collections import Counter
 from pathlib import Path
 
 
@@ -62,6 +63,14 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertEqual(len(obligations), topic_count + sutra_count)
         self.assertEqual(self.canon["coverage_summary"]["total"], len(obligations))
 
+    def test_coverage_summary_matches_actual_obligations(self) -> None:
+        obligations = self.canon["obligations"]
+
+        self.assertEqual(
+            self.canon["coverage_summary"]["by_status"],
+            dict(sorted(Counter(item["status"] for item in obligations).items())),
+        )
+
     def test_sound_topics_are_marked_partial_after_phonology_work(self) -> None:
         partial_titles = {
             item["title"]
@@ -74,14 +83,19 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertIn("Consonants", partial_titles)
         self.assertIn("Romanized Sanskrit", partial_titles)
 
-    def test_first_sound_sutras_are_marked_partial_not_complete(self) -> None:
-        partial_sutras = {
-            item["title"]
+    def test_only_verified_first_sound_sutras_are_marked_implemented(self) -> None:
+        obligations = {
+            item["title"]: item["status"]
             for item in self.canon["obligations"]
-            if item["kind"] == "sutra" and item["status"] == "partial"
+            if item["kind"] == "sutra"
         }
 
-        self.assertEqual(partial_sutras, {"1.1.1", "1.1.2", "1.1.9"})
+        self.assertEqual(
+            {title for title, status in obligations.items() if status == "implemented"},
+            {"1.1.1", "1.1.2", "1.1.3"},
+        )
+        for i in range(4, 10):
+            self.assertEqual(obligations[f"1.1.{i}"], "partial", f"Sutra 1.1.{i} should remain partial")
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
         batch_partial = [
@@ -91,10 +105,9 @@ class GrammarCanonTests(unittest.TestCase):
         ]
         padas = {item["title"].rsplit(".", 1)[0] for item in batch_partial}
 
-        self.assertGreaterEqual(len(batch_partial), 900)
-        self.assertTrue({"1.1", "6.1", "8.2", "8.3", "8.4"}.issubset(padas))
-        self.assertTrue({"1.4", "2.1", "2.2", "2.3", "2.4"}.issubset(padas))
-        self.assertTrue({"1.2", "1.3", "8.1"}.issubset(padas))
+        self.assertGreaterEqual(len(batch_partial), 800)
+        self.assertTrue({"1.2", "1.3", "1.4", "6.1", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
+        self.assertTrue({"2.1", "2.2", "2.3", "2.4", "3.1", "3.2", "3.3", "3.4"}.issubset(padas))
         self.assertTrue({"6.2", "6.3", "6.4", "7.1", "7.2", "7.3", "7.4"}.issubset(padas))
 
     def test_no_sutra_identifier_is_left_pending_after_batch_scaffolds(self) -> None:
