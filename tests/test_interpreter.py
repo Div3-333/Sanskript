@@ -42,6 +42,15 @@ class InterpreterTests(unittest.TestCase):
 
         self.assertEqual(run(source), ["7"])
 
+    def test_sentence_particles_do_not_hide_case_roles(self) -> None:
+        source = """
+        gaṇakaḥ pañca phale nidadhāti ca.
+        gaṇakaḥ phalaṃ dvābhyāṃ vardhayati eva.
+        gaṇakaḥ phalaṃ darśayati.
+        """
+
+        self.assertEqual(run(source), ["7"])
+
     def test_missing_required_role_is_reported(self) -> None:
         with self.assertRaisesRegex(ParseError, "adhikaraṇa"):
             parse_program("gaṇakaḥ pañca nidadhāti.")

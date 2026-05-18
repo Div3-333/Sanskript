@@ -52,6 +52,8 @@ PARTIAL_TOPIC_TITLES = {
     "Compound vowels",
     "Compounds",
     "Consonants",
+    "Agreement",
+    "Adverbs",
     "Derived roots",
     "dvandva",
     "Forms of nau",
@@ -66,19 +68,30 @@ PARTIAL_TOPIC_TITLES = {
     "Nominals 2: Pronouns and numbers",
     "Other sounds",
     "Other root suffixes",
+    "Other prefixes",
+    "Prefixes",
     "Pronominal adjectives",
+    "Questions",
     "Romanized Sanskrit",
     "Semivowels",
+    "Sentence structure",
+    "Sentences",
     "Short and long vowels",
     "The Shiva Sutras",
+    "The eight cases",
     "The sandhi system",
     "The sound system",
     "The compound system",
     "The suffix system",
+    "Types of uninflected words",
+    "Uninflected words",
+    "Verbless sentences",
     "tatpuruṣa",
     "taddhita",
     "Vowel sandhi",
     "Vowels",
+    "The upasarga",
+    "ca, vā, and others",
     "dhātu",
     "guṇa",
     "asmad and yuṣmad",
@@ -98,11 +111,19 @@ PARTIAL_TOPIC_TITLES = {
     "savarṇa sounds",
     "śatṛ and śānac",
     "Suffixes",
+    "it letters",
+    "vidhi rules",
+    "The asiddha section",
+    "hal sandhi",
+    "ṣatva and ṇatva",
+    "kim and yad",
 }
 
 
 BATCHED_PADA_PREFIXES = {
     "1.1": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level.",
+    "1.2": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level.",
+    "1.3": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level.",
     "1.4": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level.",
     "2.1": "compound and nominal-relation infrastructure now exists at batch level.",
     "2.2": "compound and nominal-relation infrastructure now exists at batch level.",
@@ -121,9 +142,33 @@ BATCHED_PADA_PREFIXES = {
     "5.3": "taddhita registry infrastructure now exists at batch level.",
     "5.4": "taddhita, compounds, and nominal suffix infrastructure now exists at batch level.",
     "6.1": "vowel sandhi and sound-change infrastructure now exist at batch level.",
+    "8.1": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level.",
     "8.2": "consonant/visarga sandhi infrastructure now exists at batch level.",
     "8.3": "visarga and sibilant sandhi infrastructure now exists at batch level.",
     "8.4": "late sound-change infrastructure now exists at batch level.",
+}
+
+
+TOPIC_IMPLEMENTATION_NOTES = {
+    "Uninflected words": "Initial avyaya registry covers particles, adverbs, and prefix-like indeclinables.",
+    "Types of uninflected words": "Initial avyaya registry distinguishes conjunction, alternative, emphasis, negation, question, relative, correlative, prefix, adverb, quotative, and sequencer uses.",
+    "The upasarga": "Initial upasarga registry covers the standard controlled verbal prefixes.",
+    "Other prefixes": "Prefix-like indeclinables are tracked as non-inflecting forms.",
+    "ca, vā, and others": "Core discourse particles are recognized by morphology and sentence profiling.",
+    "Adverbs": "Initial adverbial avyayas such as atra, tatra, tadā, and punaḥ are registered.",
+    "Sentences": "Initial sentence profiler classifies statements, questions, relative clauses, coordinated clauses, and verbless profiles.",
+    "Sentence structure": "Sentence profiles now expose finite verbs, participants, and particles.",
+    "Agreement": "Initial subject-finite-verb agreement checks compare person and number.",
+    "Verbless sentences": "Sentences without a finite verb receive an explicit syntactic profile.",
+    "Questions": "Question particles such as kim, katham, and kadā are recognized.",
+    "Relative phrases": "Relative-correlative particles such as yatra/tatra and yadā/tadā are recognized.",
+    "The eight cases": "The existing subanta/kāraka layer maps cases into compiler roles.",
+    "it letters": "Metarule scaffolding tracks technical markers as derivational controls.",
+    "vidhi rules": "Metarule scaffolding records rule behavior such as substitution, optionality, prohibition, and override.",
+    "The asiddha section": "Late-operation scaffolding separates sentence-edge and word-formation domains.",
+    "hal sandhi": "Existing consonant sandhi infrastructure covers this topic at batch level.",
+    "ṣatva and ṇatva": "Late sound-change infrastructure tracks this topic at batch level.",
+    "kim and yad": "Question and relative forms are recognized in the syntax/avyaya layer.",
 }
 
 
@@ -266,7 +311,7 @@ def summarize_obligations(obligations: list[dict[str, Any]]) -> dict[str, Any]:
 
 def implementation_note(status: str, title: str) -> str:
     if status == "partial":
-        return f"Initial phonology support covers part of this topic: {title}."
+        return TOPIC_IMPLEMENTATION_NOTES.get(title, f"Initial subsystem support covers part of this topic: {title}.")
     return "Indexed from the source outline; not implemented yet."
 
 

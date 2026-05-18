@@ -41,6 +41,22 @@ class PartOfSpeech(str, Enum):
     NUMERAL = "numeral"
     PRONOUN = "pronoun"
     VERB = "verb"
+    INDECLINABLE = "indeclinable"
+
+
+class IndeclinableKind(str, Enum):
+    CONJUNCTION = "conjunction"
+    ALTERNATIVE = "alternative"
+    EMPHASIS = "emphasis"
+    NEGATION = "negation"
+    PROHIBITIVE = "prohibitive"
+    QUESTION = "question"
+    RELATIVE = "relative"
+    CORRELATIVE = "correlative"
+    PREFIX = "prefix"
+    ADVERB = "adverb"
+    QUOTATIVE = "quotative"
+    SEQUENCER = "sequencer"
 
 
 class Person(str, Enum):
@@ -90,6 +106,7 @@ class Analysis:
     person: Person | None = None
     pada: Pada | None = None
     lakara: Lakara | None = None
+    indeclinable_kind: IndeclinableKind | None = None
     value: int | None = None
 
 

@@ -12,6 +12,7 @@ from .grammar import (
     Analysis,
     PartOfSpeech,
 )
+from .avyaya import iter_avyaya_analyses
 from .subanta import iter_nominal_analyses, iter_pronoun_analyses
 from .tinanta import iter_tinanta_analyses
 
@@ -28,6 +29,9 @@ def normalize(text: str) -> str:
 
 def build_lexicon() -> dict[str, Analysis]:
     lexicon: dict[str, Analysis] = {}
+
+    for analysis in iter_avyaya_analyses():
+        lexicon[analysis.surface] = analysis
 
     for analysis in iter_nominal_analyses():
         store_preferred_analysis(lexicon, analysis)
@@ -103,7 +107,7 @@ LEXICON = build_lexicon()
 
 def split_sentences(text: str) -> list[str]:
     normalized = normalize(text)
-    return [part.strip() for part in normalized.split(".") if part.strip()]
+    return [part.strip() for part in re.split(r"[.?]+", normalized) if part.strip()]
 
 
 def tokenize(sentence: str) -> list[str]:

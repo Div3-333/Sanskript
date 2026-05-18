@@ -6070,8 +6070,8 @@
         "1.2.1"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.2",
@@ -6082,8 +6082,8 @@
         "1.2.2"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.3",
@@ -6094,8 +6094,8 @@
         "1.2.3"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.4",
@@ -6106,8 +6106,8 @@
         "1.2.4"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.5",
@@ -6118,8 +6118,8 @@
         "1.2.5"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.6",
@@ -6130,8 +6130,8 @@
         "1.2.6"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.7",
@@ -6142,8 +6142,8 @@
         "1.2.7"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.8",
@@ -6154,8 +6154,8 @@
         "1.2.8"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.9",
@@ -6166,8 +6166,8 @@
         "1.2.9"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.10",
@@ -6178,8 +6178,8 @@
         "1.2.10"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.11",
@@ -6190,8 +6190,8 @@
         "1.2.11"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.12",
@@ -6202,8 +6202,8 @@
         "1.2.12"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.13",
@@ -6214,8 +6214,8 @@
         "1.2.13"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.14",
@@ -6226,8 +6226,8 @@
         "1.2.14"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.15",
@@ -6238,8 +6238,8 @@
         "1.2.15"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.16",
@@ -6250,8 +6250,8 @@
         "1.2.16"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.17",
@@ -6262,8 +6262,8 @@
         "1.2.17"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.18",
@@ -6274,8 +6274,8 @@
         "1.2.18"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.19",
@@ -6286,8 +6286,8 @@
         "1.2.19"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.20",
@@ -6298,8 +6298,8 @@
         "1.2.20"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.21",
@@ -6310,8 +6310,8 @@
         "1.2.21"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.22",
@@ -6322,8 +6322,8 @@
         "1.2.22"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.23",
@@ -6334,8 +6334,8 @@
         "1.2.23"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.24",
@@ -6346,8 +6346,8 @@
         "1.2.24"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.25",
@@ -6358,8 +6358,8 @@
         "1.2.25"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.26",
@@ -6370,8 +6370,8 @@
         "1.2.26"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.27",
@@ -6382,8 +6382,8 @@
         "1.2.27"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.28",
@@ -6394,8 +6394,8 @@
         "1.2.28"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.29",
@@ -6406,8 +6406,8 @@
         "1.2.29"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.30",
@@ -6418,8 +6418,8 @@
         "1.2.30"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.31",
@@ -6430,8 +6430,8 @@
         "1.2.31"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.32",
@@ -6442,8 +6442,8 @@
         "1.2.32"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.33",
@@ -6454,8 +6454,8 @@
         "1.2.33"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.34",
@@ -6466,8 +6466,8 @@
         "1.2.34"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.35",
@@ -6478,8 +6478,8 @@
         "1.2.35"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.36",
@@ -6490,8 +6490,8 @@
         "1.2.36"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.37",
@@ -6502,8 +6502,8 @@
         "1.2.37"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.38",
@@ -6514,8 +6514,8 @@
         "1.2.38"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.39",
@@ -6526,8 +6526,8 @@
         "1.2.39"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.40",
@@ -6538,8 +6538,8 @@
         "1.2.40"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.41",
@@ -6550,8 +6550,8 @@
         "1.2.41"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.42",
@@ -6562,8 +6562,8 @@
         "1.2.42"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.43",
@@ -6574,8 +6574,8 @@
         "1.2.43"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.44",
@@ -6586,8 +6586,8 @@
         "1.2.44"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.45",
@@ -6598,8 +6598,8 @@
         "1.2.45"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.46",
@@ -6610,8 +6610,8 @@
         "1.2.46"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.47",
@@ -6622,8 +6622,8 @@
         "1.2.47"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.48",
@@ -6634,8 +6634,8 @@
         "1.2.48"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.49",
@@ -6646,8 +6646,8 @@
         "1.2.49"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.50",
@@ -6658,8 +6658,8 @@
         "1.2.50"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.51",
@@ -6670,8 +6670,8 @@
         "1.2.51"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.52",
@@ -6682,8 +6682,8 @@
         "1.2.52"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.53",
@@ -6694,8 +6694,8 @@
         "1.2.53"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.54",
@@ -6706,8 +6706,8 @@
         "1.2.54"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.55",
@@ -6718,8 +6718,8 @@
         "1.2.55"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.56",
@@ -6730,8 +6730,8 @@
         "1.2.56"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.57",
@@ -6742,8 +6742,8 @@
         "1.2.57"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.58",
@@ -6754,8 +6754,8 @@
         "1.2.58"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.59",
@@ -6766,8 +6766,8 @@
         "1.2.59"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.60",
@@ -6778,8 +6778,8 @@
         "1.2.60"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.61",
@@ -6790,8 +6790,8 @@
         "1.2.61"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.62",
@@ -6802,8 +6802,8 @@
         "1.2.62"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.63",
@@ -6814,8 +6814,8 @@
         "1.2.63"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.64",
@@ -6826,8 +6826,8 @@
         "1.2.64"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.65",
@@ -6838,8 +6838,8 @@
         "1.2.65"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.66",
@@ -6850,8 +6850,8 @@
         "1.2.66"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.67",
@@ -6862,8 +6862,8 @@
         "1.2.67"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.68",
@@ -6874,8 +6874,8 @@
         "1.2.68"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.69",
@@ -6886,8 +6886,8 @@
         "1.2.69"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.70",
@@ -6898,8 +6898,8 @@
         "1.2.70"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.71",
@@ -6910,8 +6910,8 @@
         "1.2.71"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.72",
@@ -6922,8 +6922,8 @@
         "1.2.72"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.73",
@@ -6934,8 +6934,8 @@
         "1.2.73"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.1",
@@ -6946,8 +6946,8 @@
         "1.3.1"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.2",
@@ -6958,8 +6958,8 @@
         "1.3.2"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.3",
@@ -6970,8 +6970,8 @@
         "1.3.3"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.4",
@@ -6982,8 +6982,8 @@
         "1.3.4"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.5",
@@ -6994,8 +6994,8 @@
         "1.3.5"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.6",
@@ -7006,8 +7006,8 @@
         "1.3.6"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.7",
@@ -7018,8 +7018,8 @@
         "1.3.7"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.8",
@@ -7030,8 +7030,8 @@
         "1.3.8"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.9",
@@ -7042,8 +7042,8 @@
         "1.3.9"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.10",
@@ -7054,8 +7054,8 @@
         "1.3.10"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.11",
@@ -7066,8 +7066,8 @@
         "1.3.11"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.12",
@@ -7078,8 +7078,8 @@
         "1.3.12"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.13",
@@ -7090,8 +7090,8 @@
         "1.3.13"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.14",
@@ -7102,8 +7102,8 @@
         "1.3.14"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.15",
@@ -7114,8 +7114,8 @@
         "1.3.15"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.16",
@@ -7126,8 +7126,8 @@
         "1.3.16"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.17",
@@ -7138,8 +7138,8 @@
         "1.3.17"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.18",
@@ -7150,8 +7150,8 @@
         "1.3.18"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.19",
@@ -7162,8 +7162,8 @@
         "1.3.19"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.20",
@@ -7174,8 +7174,8 @@
         "1.3.20"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.21",
@@ -7186,8 +7186,8 @@
         "1.3.21"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.22",
@@ -7198,8 +7198,8 @@
         "1.3.22"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.23",
@@ -7210,8 +7210,8 @@
         "1.3.23"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.24",
@@ -7222,8 +7222,8 @@
         "1.3.24"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.25",
@@ -7234,8 +7234,8 @@
         "1.3.25"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.26",
@@ -7246,8 +7246,8 @@
         "1.3.26"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.27",
@@ -7258,8 +7258,8 @@
         "1.3.27"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.28",
@@ -7270,8 +7270,8 @@
         "1.3.28"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.29",
@@ -7282,8 +7282,8 @@
         "1.3.29"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.30",
@@ -7294,8 +7294,8 @@
         "1.3.30"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.31",
@@ -7306,8 +7306,8 @@
         "1.3.31"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.32",
@@ -7318,8 +7318,8 @@
         "1.3.32"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.33",
@@ -7330,8 +7330,8 @@
         "1.3.33"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.34",
@@ -7342,8 +7342,8 @@
         "1.3.34"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.35",
@@ -7354,8 +7354,8 @@
         "1.3.35"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.36",
@@ -7366,8 +7366,8 @@
         "1.3.36"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.37",
@@ -7378,8 +7378,8 @@
         "1.3.37"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.38",
@@ -7390,8 +7390,8 @@
         "1.3.38"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.39",
@@ -7402,8 +7402,8 @@
         "1.3.39"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.40",
@@ -7414,8 +7414,8 @@
         "1.3.40"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.41",
@@ -7426,8 +7426,8 @@
         "1.3.41"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.42",
@@ -7438,8 +7438,8 @@
         "1.3.42"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.43",
@@ -7450,8 +7450,8 @@
         "1.3.43"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.44",
@@ -7462,8 +7462,8 @@
         "1.3.44"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.45",
@@ -7474,8 +7474,8 @@
         "1.3.45"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.46",
@@ -7486,8 +7486,8 @@
         "1.3.46"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.47",
@@ -7498,8 +7498,8 @@
         "1.3.47"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.48",
@@ -7510,8 +7510,8 @@
         "1.3.48"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.49",
@@ -7522,8 +7522,8 @@
         "1.3.49"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.50",
@@ -7534,8 +7534,8 @@
         "1.3.50"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.51",
@@ -7546,8 +7546,8 @@
         "1.3.51"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.52",
@@ -7558,8 +7558,8 @@
         "1.3.52"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.53",
@@ -7570,8 +7570,8 @@
         "1.3.53"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.54",
@@ -7582,8 +7582,8 @@
         "1.3.54"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.55",
@@ -7594,8 +7594,8 @@
         "1.3.55"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.56",
@@ -7606,8 +7606,8 @@
         "1.3.56"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.57",
@@ -7618,8 +7618,8 @@
         "1.3.57"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.58",
@@ -7630,8 +7630,8 @@
         "1.3.58"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.59",
@@ -7642,8 +7642,8 @@
         "1.3.59"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.60",
@@ -7654,8 +7654,8 @@
         "1.3.60"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.61",
@@ -7666,8 +7666,8 @@
         "1.3.61"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.62",
@@ -7678,8 +7678,8 @@
         "1.3.62"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.63",
@@ -7690,8 +7690,8 @@
         "1.3.63"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.64",
@@ -7702,8 +7702,8 @@
         "1.3.64"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.65",
@@ -7714,8 +7714,8 @@
         "1.3.65"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.66",
@@ -7726,8 +7726,8 @@
         "1.3.66"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.67",
@@ -7738,8 +7738,8 @@
         "1.3.67"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.68",
@@ -7750,8 +7750,8 @@
         "1.3.68"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.69",
@@ -7762,8 +7762,8 @@
         "1.3.69"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.70",
@@ -7774,8 +7774,8 @@
         "1.3.70"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.71",
@@ -7786,8 +7786,8 @@
         "1.3.71"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.72",
@@ -7798,8 +7798,8 @@
         "1.3.72"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.73",
@@ -7810,8 +7810,8 @@
         "1.3.73"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.74",
@@ -7822,8 +7822,8 @@
         "1.3.74"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.75",
@@ -7834,8 +7834,8 @@
         "1.3.75"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.76",
@@ -7846,8 +7846,8 @@
         "1.3.76"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.77",
@@ -7858,8 +7858,8 @@
         "1.3.77"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.78",
@@ -7870,8 +7870,8 @@
         "1.3.78"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.79",
@@ -7882,8 +7882,8 @@
         "1.3.79"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.80",
@@ -7894,8 +7894,8 @@
         "1.3.80"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.81",
@@ -7906,8 +7906,8 @@
         "1.3.81"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.82",
@@ -7918,8 +7918,8 @@
         "1.3.82"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.83",
@@ -7930,8 +7930,8 @@
         "1.3.83"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.84",
@@ -7942,8 +7942,8 @@
         "1.3.84"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.85",
@@ -7954,8 +7954,8 @@
         "1.3.85"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.86",
@@ -7966,8 +7966,8 @@
         "1.3.86"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.87",
@@ -7978,8 +7978,8 @@
         "1.3.87"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.88",
@@ -7990,8 +7990,8 @@
         "1.3.88"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.89",
@@ -8002,8 +8002,8 @@
         "1.3.89"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.90",
@@ -8014,8 +8014,8 @@
         "1.3.90"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.91",
@@ -8026,8 +8026,8 @@
         "1.3.91"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.92",
@@ -8038,8 +8038,8 @@
         "1.3.92"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.93",
@@ -8050,8 +8050,8 @@
         "1.3.93"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.1",
@@ -48514,8 +48514,8 @@
         "8.1.1"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.2",
@@ -48526,8 +48526,8 @@
         "8.1.2"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.3",
@@ -48538,8 +48538,8 @@
         "8.1.3"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.4",
@@ -48550,8 +48550,8 @@
         "8.1.4"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.5",
@@ -48562,8 +48562,8 @@
         "8.1.5"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.6",
@@ -48574,8 +48574,8 @@
         "8.1.6"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.7",
@@ -48586,8 +48586,8 @@
         "8.1.7"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.8",
@@ -48598,8 +48598,8 @@
         "8.1.8"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.9",
@@ -48610,8 +48610,8 @@
         "8.1.9"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.10",
@@ -48622,8 +48622,8 @@
         "8.1.10"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.11",
@@ -48634,8 +48634,8 @@
         "8.1.11"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.12",
@@ -48646,8 +48646,8 @@
         "8.1.12"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.13",
@@ -48658,8 +48658,8 @@
         "8.1.13"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.14",
@@ -48670,8 +48670,8 @@
         "8.1.14"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.15",
@@ -48682,8 +48682,8 @@
         "8.1.15"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.16",
@@ -48694,8 +48694,8 @@
         "8.1.16"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.17",
@@ -48706,8 +48706,8 @@
         "8.1.17"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.18",
@@ -48718,8 +48718,8 @@
         "8.1.18"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.19",
@@ -48730,8 +48730,8 @@
         "8.1.19"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.20",
@@ -48742,8 +48742,8 @@
         "8.1.20"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.21",
@@ -48754,8 +48754,8 @@
         "8.1.21"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.22",
@@ -48766,8 +48766,8 @@
         "8.1.22"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.23",
@@ -48778,8 +48778,8 @@
         "8.1.23"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.24",
@@ -48790,8 +48790,8 @@
         "8.1.24"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.25",
@@ -48802,8 +48802,8 @@
         "8.1.25"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.26",
@@ -48814,8 +48814,8 @@
         "8.1.26"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.27",
@@ -48826,8 +48826,8 @@
         "8.1.27"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.28",
@@ -48838,8 +48838,8 @@
         "8.1.28"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.29",
@@ -48850,8 +48850,8 @@
         "8.1.29"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.30",
@@ -48862,8 +48862,8 @@
         "8.1.30"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.31",
@@ -48874,8 +48874,8 @@
         "8.1.31"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.32",
@@ -48886,8 +48886,8 @@
         "8.1.32"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.33",
@@ -48898,8 +48898,8 @@
         "8.1.33"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.34",
@@ -48910,8 +48910,8 @@
         "8.1.34"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.35",
@@ -48922,8 +48922,8 @@
         "8.1.35"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.36",
@@ -48934,8 +48934,8 @@
         "8.1.36"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.37",
@@ -48946,8 +48946,8 @@
         "8.1.37"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.38",
@@ -48958,8 +48958,8 @@
         "8.1.38"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.39",
@@ -48970,8 +48970,8 @@
         "8.1.39"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.40",
@@ -48982,8 +48982,8 @@
         "8.1.40"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.41",
@@ -48994,8 +48994,8 @@
         "8.1.41"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.42",
@@ -49006,8 +49006,8 @@
         "8.1.42"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.43",
@@ -49018,8 +49018,8 @@
         "8.1.43"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.44",
@@ -49030,8 +49030,8 @@
         "8.1.44"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.45",
@@ -49042,8 +49042,8 @@
         "8.1.45"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.46",
@@ -49054,8 +49054,8 @@
         "8.1.46"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.47",
@@ -49066,8 +49066,8 @@
         "8.1.47"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.48",
@@ -49078,8 +49078,8 @@
         "8.1.48"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.49",
@@ -49090,8 +49090,8 @@
         "8.1.49"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.50",
@@ -49102,8 +49102,8 @@
         "8.1.50"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.51",
@@ -49114,8 +49114,8 @@
         "8.1.51"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.52",
@@ -49126,8 +49126,8 @@
         "8.1.52"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.53",
@@ -49138,8 +49138,8 @@
         "8.1.53"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.54",
@@ -49150,8 +49150,8 @@
         "8.1.54"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.55",
@@ -49162,8 +49162,8 @@
         "8.1.55"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.56",
@@ -49174,8 +49174,8 @@
         "8.1.56"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.57",
@@ -49186,8 +49186,8 @@
         "8.1.57"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.58",
@@ -49198,8 +49198,8 @@
         "8.1.58"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.59",
@@ -49210,8 +49210,8 @@
         "8.1.59"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.60",
@@ -49222,8 +49222,8 @@
         "8.1.60"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.61",
@@ -49234,8 +49234,8 @@
         "8.1.61"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.62",
@@ -49246,8 +49246,8 @@
         "8.1.62"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.63",
@@ -49258,8 +49258,8 @@
         "8.1.63"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.64",
@@ -49270,8 +49270,8 @@
         "8.1.64"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.65",
@@ -49282,8 +49282,8 @@
         "8.1.65"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.66",
@@ -49294,8 +49294,8 @@
         "8.1.66"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.67",
@@ -49306,8 +49306,8 @@
         "8.1.67"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.68",
@@ -49318,8 +49318,8 @@
         "8.1.68"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.69",
@@ -49330,8 +49330,8 @@
         "8.1.69"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.70",
@@ -49342,8 +49342,8 @@
         "8.1.70"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.71",
@@ -49354,8 +49354,8 @@
         "8.1.71"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.72",
@@ -49366,8 +49366,8 @@
         "8.1.72"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.73",
@@ -49378,8 +49378,8 @@
         "8.1.73"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.1.74",
@@ -49390,8 +49390,8 @@
         "8.1.74"
       ],
       "page": null,
-      "status": "pending_design",
-      "implementation_note": "Indexed as an Aṣṭādhyāyī requirement; not individually implemented yet."
+      "status": "batch_partial",
+      "implementation_note": "sentence-edge, discourse-particle, and clause-operation infrastructure now exists at batch level."
     },
     {
       "id": "sutra:ashtadhyayi:8.2.1",
@@ -53056,7 +53056,7 @@
       ],
       "page": 26,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: The Shiva Sutras."
+      "implementation_note": "Initial subsystem support covers part of this topic: The Shiva Sutras."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-savarṇa-sounds",
@@ -53069,7 +53069,7 @@
       ],
       "page": 31,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: savarṇa sounds."
+      "implementation_note": "Initial subsystem support covers part of this topic: savarṇa sounds."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-it-letters",
@@ -53081,8 +53081,8 @@
         "it letters"
       ],
       "page": 38,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Metarule scaffolding tracks technical markers as derivational controls."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-vidhi-rules",
@@ -53094,8 +53094,8 @@
         "vidhi rules"
       ],
       "page": 44,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Metarule scaffolding records rule behavior such as substitution, optionality, prohibition, and override."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-ac-sandhi",
@@ -53120,8 +53120,8 @@
         "The asiddha section"
       ],
       "page": 58,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Late-operation scaffolding separates sentence-edge and word-formation domains."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-hal-sandhi",
@@ -53133,8 +53133,8 @@
         "hal sandhi"
       ],
       "page": 63,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Existing consonant sandhi infrastructure covers this topic at batch level."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-ṣatva-and-ṇatva",
@@ -53146,8 +53146,8 @@
         "ṣatva and ṇatva"
       ],
       "page": 69,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Late sound-change infrastructure tracks this topic at batch level."
     },
     {
       "id": "topic:vyakarana_pravesha:sounds-review",
@@ -53172,7 +53172,7 @@
       ],
       "page": 77,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: tiṅanta."
+      "implementation_note": "Initial subsystem support covers part of this topic: tiṅanta."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-introduction",
@@ -53198,7 +53198,7 @@
       ],
       "page": 82,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: dhātu."
+      "implementation_note": "Initial subsystem support covers part of this topic: dhātu."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-lakāra",
@@ -53211,7 +53211,7 @@
       ],
       "page": 90,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: lakāra."
+      "implementation_note": "Initial subsystem support covers part of this topic: lakāra."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-tiṅ-pratyāhāra",
@@ -53224,7 +53224,7 @@
       ],
       "page": 97,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: tiṅ-pratyāhāra."
+      "implementation_note": "Initial subsystem support covers part of this topic: tiṅ-pratyāhāra."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-parasmaipada-and-ātmanepada",
@@ -53237,7 +53237,7 @@
       ],
       "page": 103,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: parasmaipada and ātmanepada."
+      "implementation_note": "Initial subsystem support covers part of this topic: parasmaipada and ātmanepada."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-tiṅ-siddhi",
@@ -53250,7 +53250,7 @@
       ],
       "page": 108,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: tiṅ-siddhi."
+      "implementation_note": "Initial subsystem support covers part of this topic: tiṅ-siddhi."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-vikaraṇa",
@@ -53263,7 +53263,7 @@
       ],
       "page": 112,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: vikaraṇa."
+      "implementation_note": "Initial subsystem support covers part of this topic: vikaraṇa."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-guṇa",
@@ -53276,7 +53276,7 @@
       ],
       "page": 119,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: guṇa."
+      "implementation_note": "Initial subsystem support covers part of this topic: guṇa."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-prakriyā",
@@ -53289,7 +53289,7 @@
       ],
       "page": 126,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: prakriyā."
+      "implementation_note": "Initial subsystem support covers part of this topic: prakriyā."
     },
     {
       "id": "topic:vyakarana_pravesha:tiṅanta-review",
@@ -53314,7 +53314,7 @@
       ],
       "page": 136,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: subanta."
+      "implementation_note": "Initial subsystem support covers part of this topic: subanta."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-introduction",
@@ -53340,7 +53340,7 @@
       ],
       "page": 140,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: prātipadika."
+      "implementation_note": "Initial subsystem support covers part of this topic: prātipadika."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-sup-pratyāhāra",
@@ -53353,7 +53353,7 @@
       ],
       "page": 142,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: sup-pratyāhāra."
+      "implementation_note": "Initial subsystem support covers part of this topic: sup-pratyāhāra."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-kāraka",
@@ -53366,7 +53366,7 @@
       ],
       "page": 145,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: kāraka."
+      "implementation_note": "Initial subsystem support covers part of this topic: kāraka."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-vibhakti",
@@ -53379,7 +53379,7 @@
       ],
       "page": 151,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: vibhakti."
+      "implementation_note": "Initial subsystem support covers part of this topic: vibhakti."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-forms-of-nau",
@@ -53392,7 +53392,7 @@
       ],
       "page": 156,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Forms of nau."
+      "implementation_note": "Initial subsystem support covers part of this topic: Forms of nau."
     },
     {
       "id": "topic:vyakarana_pravesha:subanta-avyaya",
@@ -53430,7 +53430,7 @@
       ],
       "page": 162,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: kṛt."
+      "implementation_note": "Initial subsystem support covers part of this topic: kṛt."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt-introduction",
@@ -53456,7 +53456,7 @@
       ],
       "page": 169,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: kṛtya."
+      "implementation_note": "Initial subsystem support covers part of this topic: kṛtya."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt-ghañ",
@@ -53469,7 +53469,7 @@
       ],
       "page": 174,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: ghañ."
+      "implementation_note": "Initial subsystem support covers part of this topic: ghañ."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt-kta",
@@ -53482,7 +53482,7 @@
       ],
       "page": 177,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: kta."
+      "implementation_note": "Initial subsystem support covers part of this topic: kta."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt-śatṛ-and-śānac",
@@ -53495,7 +53495,7 @@
       ],
       "page": 182,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: śatṛ and śānac."
+      "implementation_note": "Initial subsystem support covers part of this topic: śatṛ and śānac."
     },
     {
       "id": "topic:vyakarana_pravesha:kṛt-review",
@@ -53520,7 +53520,7 @@
       ],
       "page": 188,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: taddhita."
+      "implementation_note": "Initial subsystem support covers part of this topic: taddhita."
     },
     {
       "id": "topic:vyakarana_pravesha:taddhita-introduction",
@@ -53546,7 +53546,7 @@
       ],
       "page": 194,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: apatya."
+      "implementation_note": "Initial subsystem support covers part of this topic: apatya."
     },
     {
       "id": "topic:vyakarana_pravesha:taddhita-atiśāyana",
@@ -53559,7 +53559,7 @@
       ],
       "page": 197,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: atiśāyana."
+      "implementation_note": "Initial subsystem support covers part of this topic: atiśāyana."
     },
     {
       "id": "topic:vyakarana_pravesha:taddhita-matu-p",
@@ -53572,7 +53572,7 @@
       ],
       "page": 200,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: matu̐p."
+      "implementation_note": "Initial subsystem support covers part of this topic: matu̐p."
     },
     {
       "id": "topic:vyakarana_pravesha:taddhita-review",
@@ -53623,7 +53623,7 @@
       ],
       "page": 207,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: avyayībhāva."
+      "implementation_note": "Initial subsystem support covers part of this topic: avyayībhāva."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa-tatpuruṣa",
@@ -53636,7 +53636,7 @@
       ],
       "page": 210,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: tatpuruṣa."
+      "implementation_note": "Initial subsystem support covers part of this topic: tatpuruṣa."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa-bahuvrīhi",
@@ -53649,7 +53649,7 @@
       ],
       "page": 214,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: bahuvrīhi."
+      "implementation_note": "Initial subsystem support covers part of this topic: bahuvrīhi."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa-dvandva",
@@ -53662,7 +53662,7 @@
       ],
       "page": 216,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: dvandva."
+      "implementation_note": "Initial subsystem support covers part of this topic: dvandva."
     },
     {
       "id": "topic:vyakarana_pravesha:samāsa-review",
@@ -53787,7 +53787,7 @@
       ],
       "page": 21,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Basic vowels."
+      "implementation_note": "Initial subsystem support covers part of this topic: Basic vowels."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-short-and-long-vowels",
@@ -53800,7 +53800,7 @@
       ],
       "page": 25,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Short and long vowels."
+      "implementation_note": "Initial subsystem support covers part of this topic: Short and long vowels."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-semivowels",
@@ -53813,7 +53813,7 @@
       ],
       "page": 29,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Semivowels."
+      "implementation_note": "Initial subsystem support covers part of this topic: Semivowels."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-compound-vowels",
@@ -53826,7 +53826,7 @@
       ],
       "page": 31,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Compound vowels."
+      "implementation_note": "Initial subsystem support covers part of this topic: Compound vowels."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-consonants",
@@ -53839,7 +53839,7 @@
       ],
       "page": 36,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Consonants."
+      "implementation_note": "Initial subsystem support covers part of this topic: Consonants."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-anusvāra-and-visarga",
@@ -53890,8 +53890,8 @@
         "Sentences"
       ],
       "page": 58,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial sentence profiler classifies statements, questions, relative clauses, coordinated clauses, and verbless profiles."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-nominals",
@@ -53904,7 +53904,7 @@
       ],
       "page": 62,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Nominals."
+      "implementation_note": "Initial subsystem support covers part of this topic: Nominals."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-verbs",
@@ -53929,8 +53929,8 @@
         "Uninflected words"
       ],
       "page": 78,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial avyaya registry covers particles, adverbs, and prefix-like indeclinables."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-prefixes",
@@ -53942,8 +53942,8 @@
         "Prefixes"
       ],
       "page": 82,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial subsystem support covers part of this topic: Prefixes."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-suffixes",
@@ -53956,7 +53956,7 @@
       ],
       "page": 86,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Suffixes."
+      "implementation_note": "Initial subsystem support covers part of this topic: Suffixes."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-compounds",
@@ -53969,7 +53969,7 @@
       ],
       "page": 90,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Compounds."
+      "implementation_note": "Initial subsystem support covers part of this topic: Compounds."
     },
     {
       "id": "topic:sanskrit_for_beginners:core-lessons-review",
@@ -54007,7 +54007,7 @@
       ],
       "page": 101,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: The sound system."
+      "implementation_note": "Initial subsystem support covers part of this topic: The sound system."
     },
     {
       "id": "topic:sanskrit_for_beginners:sounds-vowels",
@@ -54020,7 +54020,7 @@
       ],
       "page": 102,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Vowels."
+      "implementation_note": "Initial subsystem support covers part of this topic: Vowels."
     },
     {
       "id": "topic:sanskrit_for_beginners:sounds-consonants",
@@ -54033,7 +54033,7 @@
       ],
       "page": 107,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Consonants."
+      "implementation_note": "Initial subsystem support covers part of this topic: Consonants."
     },
     {
       "id": "topic:sanskrit_for_beginners:sounds-other-sounds",
@@ -54046,7 +54046,7 @@
       ],
       "page": 111,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Other sounds."
+      "implementation_note": "Initial subsystem support covers part of this topic: Other sounds."
     },
     {
       "id": "topic:sanskrit_for_beginners:sounds-modern-pronunciation",
@@ -54084,7 +54084,7 @@
       ],
       "page": 116,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: The sandhi system."
+      "implementation_note": "Initial subsystem support covers part of this topic: The sandhi system."
     },
     {
       "id": "topic:sanskrit_for_beginners:sandhi-vowel-sandhi",
@@ -54097,7 +54097,7 @@
       ],
       "page": 118,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Vowel sandhi."
+      "implementation_note": "Initial subsystem support covers part of this topic: Vowel sandhi."
     },
     {
       "id": "topic:sanskrit_for_beginners:sandhi-visarga-sandhi",
@@ -54110,7 +54110,7 @@
       ],
       "page": 124,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: visarga sandhi."
+      "implementation_note": "Initial subsystem support covers part of this topic: visarga sandhi."
     },
     {
       "id": "topic:sanskrit_for_beginners:sandhi-consonant-sandhi-between-words",
@@ -54123,7 +54123,7 @@
       ],
       "page": 130,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Consonant sandhi between words."
+      "implementation_note": "Initial subsystem support covers part of this topic: Consonant sandhi between words."
     },
     {
       "id": "topic:sanskrit_for_beginners:sandhi-consonant-sandhi-within-a-word",
@@ -54136,7 +54136,7 @@
       ],
       "page": 138,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Consonant sandhi within a word."
+      "implementation_note": "Initial subsystem support covers part of this topic: Consonant sandhi within a word."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems",
@@ -54148,7 +54148,7 @@
       ],
       "page": 142,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Nominals 1: Normal stems."
+      "implementation_note": "Initial subsystem support covers part of this topic: Nominals 1: Normal stems."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-the-nominal-system",
@@ -54174,7 +54174,7 @@
       ],
       "page": 151,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Basic nominal endings."
+      "implementation_note": "Initial subsystem support covers part of this topic: Basic nominal endings."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-a-stems",
@@ -54187,7 +54187,7 @@
       ],
       "page": 157,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -a stems."
+      "implementation_note": "Initial subsystem support covers part of this topic: -a stems."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-ā-ī-and-ū-stems",
@@ -54200,7 +54200,7 @@
       ],
       "page": 161,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -ā, -ī, and -ū stems."
+      "implementation_note": "Initial subsystem support covers part of this topic: -ā, -ī, and -ū stems."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-1-normal-stems-i-and-u-stems",
@@ -54264,7 +54264,7 @@
       ],
       "page": 200,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Nominals 2: Pronouns and numbers."
+      "implementation_note": "Initial subsystem support covers part of this topic: Nominals 2: Pronouns and numbers."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-2-pronouns-and-numbers-asmad-and-yuṣmad",
@@ -54277,7 +54277,7 @@
       ],
       "page": 201,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: asmad and yuṣmad."
+      "implementation_note": "Initial subsystem support covers part of this topic: asmad and yuṣmad."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-2-pronouns-and-numbers-tad-etad-idam-and-adas",
@@ -54302,8 +54302,8 @@
         "kim and yad"
       ],
       "page": 213,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Question and relative forms are recognized in the syntax/avyaya layer."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-2-pronouns-and-numbers-pronominal-adjectives",
@@ -54316,7 +54316,7 @@
       ],
       "page": 221,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Pronominal adjectives."
+      "implementation_note": "Initial subsystem support covers part of this topic: Pronominal adjectives."
     },
     {
       "id": "topic:sanskrit_for_beginners:nominals-2-pronouns-and-numbers-number-words",
@@ -54662,8 +54662,8 @@
         "Uninflected words"
       ],
       "page": 338,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial avyaya registry covers particles, adverbs, and prefix-like indeclinables."
     },
     {
       "id": "topic:sanskrit_for_beginners:uninflected-words-types-of-uninflected-words",
@@ -54675,8 +54675,8 @@
         "Types of uninflected words"
       ],
       "page": 339,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial avyaya registry distinguishes conjunction, alternative, emphasis, negation, question, relative, correlative, prefix, adverb, quotative, and sequencer uses."
     },
     {
       "id": "topic:sanskrit_for_beginners:uninflected-words-the-upasarga",
@@ -54688,8 +54688,8 @@
         "The upasarga"
       ],
       "page": 341,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial upasarga registry covers the standard controlled verbal prefixes."
     },
     {
       "id": "topic:sanskrit_for_beginners:uninflected-words-other-prefixes",
@@ -54701,8 +54701,8 @@
         "Other prefixes"
       ],
       "page": 346,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Prefix-like indeclinables are tracked as non-inflecting forms."
     },
     {
       "id": "topic:sanskrit_for_beginners:uninflected-words-ca-vā-and-others",
@@ -54714,8 +54714,8 @@
         "ca, vā, and others"
       ],
       "page": 349,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Core discourse particles are recognized by morphology and sentence profiling."
     },
     {
       "id": "topic:sanskrit_for_beginners:uninflected-words-adverbs",
@@ -54727,8 +54727,8 @@
         "Adverbs"
       ],
       "page": 353,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial adverbial avyayas such as atra, tatra, tadā, and punaḥ are registered."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes",
@@ -54740,7 +54740,7 @@
       ],
       "page": 354,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Suffixes."
+      "implementation_note": "Initial subsystem support covers part of this topic: Suffixes."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-the-suffix-system",
@@ -54753,7 +54753,7 @@
       ],
       "page": 355,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: The suffix system."
+      "implementation_note": "Initial subsystem support covers part of this topic: The suffix system."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-tvā-and-ya",
@@ -54766,7 +54766,7 @@
       ],
       "page": 358,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -tvā and -ya."
+      "implementation_note": "Initial subsystem support covers part of this topic: -tvā and -ya."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-ta-and-tavat",
@@ -54779,7 +54779,7 @@
       ],
       "page": 363,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -ta and -tavat."
+      "implementation_note": "Initial subsystem support covers part of this topic: -ta and -tavat."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-tum",
@@ -54792,7 +54792,7 @@
       ],
       "page": 365,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -tum."
+      "implementation_note": "Initial subsystem support covers part of this topic: -tum."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-tavya-anīya-and-ya",
@@ -54805,7 +54805,7 @@
       ],
       "page": 368,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -tavya, -anīya, and -ya."
+      "implementation_note": "Initial subsystem support covers part of this topic: -tavya, -anīya, and -ya."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-at-āna-and-vas",
@@ -54818,7 +54818,7 @@
       ],
       "page": 371,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: -at, -āna, and -vas."
+      "implementation_note": "Initial subsystem support covers part of this topic: -at, -āna, and -vas."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-other-root-suffixes",
@@ -54831,7 +54831,7 @@
       ],
       "page": 375,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Other root suffixes."
+      "implementation_note": "Initial subsystem support covers part of this topic: Other root suffixes."
     },
     {
       "id": "topic:sanskrit_for_beginners:suffixes-nominal-suffixes",
@@ -54844,7 +54844,7 @@
       ],
       "page": 379,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Nominal suffixes."
+      "implementation_note": "Initial subsystem support covers part of this topic: Nominal suffixes."
     },
     {
       "id": "topic:sanskrit_for_beginners:compounds",
@@ -54856,7 +54856,7 @@
       ],
       "page": 383,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Compounds."
+      "implementation_note": "Initial subsystem support covers part of this topic: Compounds."
     },
     {
       "id": "topic:sanskrit_for_beginners:compounds-the-compound-system",
@@ -54869,7 +54869,7 @@
       ],
       "page": 384,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: The compound system."
+      "implementation_note": "Initial subsystem support covers part of this topic: The compound system."
     },
     {
       "id": "topic:sanskrit_for_beginners:compounds-the-dvandva",
@@ -54932,8 +54932,8 @@
         "Sentences"
       ],
       "page": 398,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial sentence profiler classifies statements, questions, relative clauses, coordinated clauses, and verbless profiles."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-sentence-structure",
@@ -54945,8 +54945,8 @@
         "Sentence structure"
       ],
       "page": 399,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Sentence profiles now expose finite verbs, participants, and particles."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-agreement",
@@ -54958,8 +54958,8 @@
         "Agreement"
       ],
       "page": 402,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Initial subject-finite-verb agreement checks compare person and number."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-verbless-sentences",
@@ -54971,8 +54971,8 @@
         "Verbless sentences"
       ],
       "page": 407,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Sentences without a finite verb receive an explicit syntactic profile."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-questions",
@@ -54984,8 +54984,8 @@
         "Questions"
       ],
       "page": 409,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "Question particles such as kim, katham, and kadā are recognized."
     },
     {
       "id": "topic:sanskrit_for_beginners:sentences-relative-phrases",
@@ -55023,8 +55023,8 @@
         "The eight cases"
       ],
       "page": 422,
-      "status": "pending_design",
-      "implementation_note": "Indexed from the source outline; not implemented yet."
+      "status": "partial",
+      "implementation_note": "The existing subanta/kāraka layer maps cases into compiler roles."
     },
     {
       "id": "topic:sanskrit_for_beginners:devanagari",
@@ -55152,7 +55152,7 @@
       ],
       "page": 447,
       "status": "partial",
-      "implementation_note": "Initial phonology support covers part of this topic: Romanized Sanskrit."
+      "implementation_note": "Initial subsystem support covers part of this topic: Romanized Sanskrit."
     },
     {
       "id": "topic:sanskrit_for_beginners:sanskrit-software",
@@ -55247,9 +55247,9 @@
   "coverage_summary": {
     "total": 4172,
     "by_status": {
-      "batch_partial": 2787,
-      "partial": 69,
-      "pending_design": 1316
+      "batch_partial": 3027,
+      "partial": 90,
+      "pending_design": 1055
     },
     "by_kind": {
       "sutra": 3981,

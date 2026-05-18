@@ -94,8 +94,16 @@ Targets:
 - Verbless sentences.
 - Questions.
 - Relative phrases.
+- Avyaya and upasarga.
+- Paninian metarule scaffolding for optionality, technical markers, and sentence-edge operations.
 
-Initial compound support now lives in `src/sanskript/samasa.py`.
+Initial compound support now lives in `src/sanskript/samasa.py`. Initial sentence and indeclinable support now lives in `src/sanskript/syntax.py` and `src/sanskript/avyaya.py`.
+
+Batch status:
+
+- `1.2`, `1.3`, and `8.1` are now marked `batch_partial`.
+- Current support includes a controlled avyaya registry, standard upasarga registry, sentence classification, subject-verb agreement checks, and metarule records for optionality, technical markers, domain carry, and late sentence-edge operations.
+- This is not a full sutra-by-sutra implementation yet; it is the batch scaffold needed before individual completion work.
 
 ## Phase 6: Full Aṣṭādhyāyī Sweep
 

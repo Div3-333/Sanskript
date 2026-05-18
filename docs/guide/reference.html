@@ -162,10 +162,12 @@
         <a href="#verbs">Verbs</a>
         <a href="#numbers">Numbers</a>
         <a href="#pronouns">Pronouns</a>
+        <a href="#indeclinables">Indeclinables</a>
         <a href="#scripts">Scripts</a>
         <a href="#sandhi">Sandhi</a>
         <a href="#derivation">Derivation</a>
         <a href="#compounds">Compounds</a>
+        <a href="#syntax">Syntax</a>
         <a href="#limits">Limits</a>
       </nav>
       <div>
@@ -193,6 +195,7 @@ gaṇakaḥ phalaṃ darśayati.</pre>
             <tr><td><code>nyūnayati</code></td><td>karman + karaṇa</td><td>decrease a stored value</td></tr>
             <tr><td><code>darśayati</code></td><td>karman</td><td>display a value</td></tr>
           </table>
+          <p>The sentence profiler also recognizes questions, relative phrases, coordinated clauses, and verbless profiles as grammar objects.</p>
         </section>
 
         <section id="cases">
@@ -245,6 +248,23 @@ tvam, yuvām, yūyam
 saḥ, tat, tam, tena</pre>
         </section>
 
+        <section id="indeclinables">
+          <h2>Indeclinables</h2>
+          <p>Avyaya forms do not carry case endings. They modify clause force, alternatives, sequence, negation, and relative/question structure.</p>
+          <table>
+            <tr><th>Kind</th><th>Forms</th><th>Compiler role</th></tr>
+            <tr><td>Conjunction</td><td><code>ca</code></td><td>coordination</td></tr>
+            <tr><td>Alternative</td><td><code>vā</code></td><td>branch or choice marker</td></tr>
+            <tr><td>Emphasis</td><td><code>api</code>, <code>eva</code></td><td>inclusive or exact-force marker</td></tr>
+            <tr><td>Negation</td><td><code>na</code>, <code>mā</code></td><td>assertion or command negation marker</td></tr>
+            <tr><td>Question</td><td><code>kim</code>, <code>katham</code>, <code>kadā</code></td><td>interrogative sentence profile</td></tr>
+            <tr><td>Relative</td><td><code>yatra</code>, <code>yadā</code></td><td>relative phrase profile</td></tr>
+            <tr><td>Correlative</td><td><code>tatra</code>, <code>tadā</code></td><td>paired relative answer</td></tr>
+          </table>
+          <h3>Upasarga</h3>
+          <p>The controlled prefix registry includes <code>pra</code>, <code>parā</code>, <code>apa</code>, <code>sam</code>, <code>anu</code>, <code>ava</code>, <code>nis</code>, <code>dus</code>, <code>vi</code>, <code>ā</code>, <code>ni</code>, <code>adhi</code>, <code>ati</code>, <code>su</code>, <code>ud</code>, <code>abhi</code>, <code>prati</code>, <code>pari</code>, and <code>upa</code>.</p>
+        </section>
+
         <section id="scripts">
           <h2>Scripts</h2>
           <p>IAST is the canonical development input. The transliteration module supports current-form IAST and Devanagari conversion.</p>
@@ -284,6 +304,20 @@ rāmaḥ + atra -> rāmotra</pre>
             <tr><td>bahuvrīhi</td><td><code>pītāmbaraḥ</code></td><td>one whose garment is yellow</td></tr>
             <tr><td>dvandva</td><td><code>rāmalakṣmaṇau</code></td><td>Rāma and Lakṣmaṇa</td></tr>
           </table>
+        </section>
+
+        <section id="syntax">
+          <h2>Syntax Profiles</h2>
+          <p>The syntax layer classifies analyzed sentences without relying on word order as hidden syntax.</p>
+          <table>
+            <tr><th>Profile</th><th>Trigger</th><th>Example</th></tr>
+            <tr><td>Statement</td><td>finite verb with required participants</td><td><code>gaṇakaḥ pañca phale nidadhāti.</code></td></tr>
+            <tr><td>Question</td><td>question avyaya</td><td><code>kim gaṇakaḥ phalaṃ darśayati?</code></td></tr>
+            <tr><td>Relative</td><td>relative avyaya</td><td><code>yatra ... tatra ...</code></td></tr>
+            <tr><td>Coordinated</td><td><code>ca</code> or <code>vā</code></td><td><code>nidadhāti ca</code></td></tr>
+            <tr><td>Verbless</td><td>no finite verb</td><td>tracked for future nominal predicates</td></tr>
+          </table>
+          <p>Agreement checks currently compare one explicit subject with one finite verb for person and number.</p>
         </section>
 
         <section id="limits">

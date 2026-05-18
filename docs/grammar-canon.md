@@ -24,9 +24,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Topic obligations: `191`
 - Sutra obligations: `3981`
 - Implemented: `0`
-- Partial: `69`
-- Batch partial: `2787`
-- Pending design: `1316`
+- Partial: `90`
+- Batch partial: `3027`
+- Pending design: `1055`
 
 ## Aṣṭādhyāyī Sutra Index
 
@@ -98,12 +98,12 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 20` Introduction — `pending_design`
   - `p. 26` The Shiva Sutras — `partial`
   - `p. 31` savarṇa sounds — `partial`
-  - `p. 38` it letters — `pending_design`
-  - `p. 44` vidhi rules — `pending_design`
+  - `p. 38` it letters — `partial`
+  - `p. 44` vidhi rules — `partial`
   - `p. 50` ac sandhi — `pending_design`
-  - `p. 58` The asiddha section — `pending_design`
-  - `p. 63` hal sandhi — `pending_design`
-  - `p. 69` ṣatva and ṇatva — `pending_design`
+  - `p. 58` The asiddha section — `partial`
+  - `p. 63` hal sandhi — `partial`
+  - `p. 69` ṣatva and ṇatva — `partial`
   - `p. 73` Review — `pending_design`
 - `p. 77` tiṅanta — `partial`
   - `p. 78` Introduction — `pending_design`
@@ -164,11 +164,11 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 43` anusvāra and visarga — `pending_design`
   - `p. 47` Syllables — `pending_design`
   - `p. 51` Sandhi — `pending_design`
-  - `p. 58` Sentences — `pending_design`
+  - `p. 58` Sentences — `partial`
   - `p. 62` Nominals — `partial`
   - `p. 70` Verbs — `pending_design`
-  - `p. 78` Uninflected words — `pending_design`
-  - `p. 82` Prefixes — `pending_design`
+  - `p. 78` Uninflected words — `partial`
+  - `p. 82` Prefixes — `partial`
   - `p. 86` Suffixes — `partial`
   - `p. 90` Compounds — `partial`
   - `p. 93` Review — `pending_design`
@@ -196,7 +196,7 @@ This file is the project contract for the user's requirement that Sanskript use 
 - `p. 200` Nominals 2: Pronouns and numbers — `partial`
   - `p. 201` asmad and yuṣmad — `partial`
   - `p. 205` tad, etad, idam, and adas — `pending_design`
-  - `p. 213` kim and yad — `pending_design`
+  - `p. 213` kim and yad — `partial`
   - `p. 221` Pronominal adjectives — `partial`
   - `p. 223` Number words — `pending_design`
 - `p. 238` Verbs 1: Special tense-moods — `pending_design`
@@ -224,12 +224,12 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 329` Desiderative roots — `pending_design`
   - `p. 333` Nominal roots — `pending_design`
   - `p. 335` Intensive roots — `pending_design`
-- `p. 338` Uninflected words — `pending_design`
-  - `p. 339` Types of uninflected words — `pending_design`
-  - `p. 341` The upasarga — `pending_design`
-  - `p. 346` Other prefixes — `pending_design`
-  - `p. 349` ca, vā, and others — `pending_design`
-  - `p. 353` Adverbs — `pending_design`
+- `p. 338` Uninflected words — `partial`
+  - `p. 339` Types of uninflected words — `partial`
+  - `p. 341` The upasarga — `partial`
+  - `p. 346` Other prefixes — `partial`
+  - `p. 349` ca, vā, and others — `partial`
+  - `p. 353` Adverbs — `partial`
 - `p. 354` Suffixes — `partial`
   - `p. 355` The suffix system — `partial`
   - `p. 358` -tvā and -ya — `partial`
@@ -245,14 +245,14 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 391` The tatpuruṣa — `pending_design`
   - `p. 394` The bahuvrīhi — `pending_design`
   - `p. 397` The avyayībhāva — `pending_design`
-- `p. 398` Sentences — `pending_design`
-  - `p. 399` Sentence structure — `pending_design`
-  - `p. 402` Agreement — `pending_design`
-  - `p. 407` Verbless sentences — `pending_design`
-  - `p. 409` Questions — `pending_design`
+- `p. 398` Sentences — `partial`
+  - `p. 399` Sentence structure — `partial`
+  - `p. 402` Agreement — `partial`
+  - `p. 407` Verbless sentences — `partial`
+  - `p. 409` Questions — `partial`
   - `p. 414` Relative phrases — `pending_design`
   - `p. 418` Participles — `pending_design`
-  - `p. 422` The eight cases — `pending_design`
+  - `p. 422` The eight cases — `partial`
 - `p. 429` Devanagari — `pending_design`
   - `p. 430` How Devanagari works — `pending_design`
   - `p. 433` Vowels and consonants — `pending_design`
