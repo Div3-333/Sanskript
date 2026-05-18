@@ -23,8 +23,8 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Total obligations: `4172`
 - Topic obligations: `191`
 - Sutra obligations: `3981`
-- Implemented: `3174`
-- Partial: `191`
+- Implemented: `351`
+- Partial: `3014`
 - Batch partial: `807`
 - Pending design: `0`
 
@@ -273,9 +273,11 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 ## Current Implemented Slice
 
-The current interpreter implements a controlled executable slice and complete Adhyāya 1-6 rule workpacks:
+The current interpreter implements a controlled executable slice and a complete Adhyāya 1 rule workpack. Adhyāya 2-6 are indexed as repair registries, but no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion:
 
-- all indexed sutras from `1.1.1` through `6.4.175` as typed rule records with implementation hooks and tests;
+- all sutras from `1.1.1` through `1.4.110` as typed rule records with implementation hooks and tests;
+- selected Adhyāya 2-6 records have executable anchors for compounds, case, tiṅanta, taddhita, sandhi, accent, and aṅga behavior, but still remain `partial`;
+- all generated Adhyāya 2-6 records are marked `partial` until they receive exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests;
 - finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;
 - karman, karaṇa, and adhikaraṇa role recovery from controlled forms;
 - small cardinal numerals 0 through 10 in object and instrumental roles;

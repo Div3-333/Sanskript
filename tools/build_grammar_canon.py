@@ -19,8 +19,12 @@ from sanskript.adhyaya1 import implementation_note_for as adhyaya1_implementatio
 from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
 from sanskript.adhyaya23 import implementation_note_for as adhyaya23_implementation_note_for
 from sanskript.adhyaya23 import implemented_sutra_ids as adhyaya23_implemented_sutra_ids
+from sanskript.adhyaya23 import partial_implementation_note_for as adhyaya23_partial_implementation_note_for
+from sanskript.adhyaya23 import partial_sutra_ids as adhyaya23_partial_sutra_ids
 from sanskript.adhyaya456 import implementation_note_for as adhyaya456_implementation_note_for
 from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
+from sanskript.adhyaya456 import partial_implementation_note_for as adhyaya456_partial_implementation_note_for
+from sanskript.adhyaya456 import partial_sutra_ids as adhyaya456_partial_sutra_ids
 from sanskript.canon_topics import treatment_for
 
 SOURCES_DIR = ROOT / "sources"
@@ -189,6 +193,18 @@ TOPIC_IMPLEMENTATION_NOTES = {
 
 
 PARTIAL_SUTRA_IDS: dict[str, str] = {}
+PARTIAL_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya23_partial_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya23_partial_sutra_ids())
+    }
+)
+PARTIAL_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya456_partial_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya456_partial_sutra_ids())
+    }
+)
 
 
 IMPLEMENTED_SUTRA_IDS = {
@@ -492,9 +508,11 @@ def render_markdown(canon: dict[str, Any]) -> str:
         [
             "## Current Implemented Slice",
             "",
-            "The current interpreter implements a controlled executable slice and complete Adhyāya 1-6 rule workpacks:",
+            "The current interpreter implements a controlled executable slice and a complete Adhyāya 1 rule workpack. Adhyāya 2-6 are indexed as repair registries, but no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion:",
             "",
-            "- all indexed sutras from `1.1.1` through `6.4.175` as typed rule records with implementation hooks and tests;",
+            "- all sutras from `1.1.1` through `1.4.110` as typed rule records with implementation hooks and tests;",
+            "- selected Adhyāya 2-6 records have executable anchors for compounds, case, tiṅanta, taddhita, sandhi, accent, and aṅga behavior, but still remain `partial`;",
+            "- all generated Adhyāya 2-6 records are marked `partial` until they receive exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",

@@ -181,7 +181,7 @@
 
         <section id="canon-workpacks">
           <h2>Canon Workpacks</h2>
-          <p>The first large implemented grammar workpacks now cover Adhyāya 1 through 6: indexed sutras from <code>1.1.1</code> through <code>6.4.175</code>. Each sutra is represented as a code-level rule object with an implementation hook, a compiler effect, and a testable example.</p>
+          <p>The first fully implemented grammar workpack covers Adhyāya 1. Adhyāya 2 through 6 are now repair-tracked: executable anchors and generated scaffold entries are marked partial until each sutra receives exact text, inherited domain, conditions, exceptions, examples, counterexamples, and tests.</p>
           <table>
             <tr><th>Range</th><th>Compiler surface</th><th>Use while coding</th></tr>
             <tr><td><code>1.1.1-3</code></td><td>vṛddhi, guṇa, ik replacement</td><td>Use strengthening only where the sound class allows it.</td></tr>
@@ -212,7 +212,7 @@
 rule_for("1.1.71").compiler_effect
 # forms a sound class from start sound plus final it-marker</pre>
           <div class="callout">
-            <p>Executable sutras expose direct helpers such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, <code>create_compound</code>, <code>derive</code>, <code>get_lakara_for_time</code>, <code>tin_ending</code>, <code>join_words</code>, <code>profile_accent</code>, and <code>apply_anga_operation</code>. Formal semantic sutras are still implemented as typed rule records so the canon can track Paninian force before every downstream compiler use exists.</p>
+            <p>Executable sutras expose direct helpers such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, <code>create_compound</code>, <code>derive</code>, <code>get_lakara_for_time</code>, <code>tin_ending</code>, <code>join_words</code>, <code>profile_accent</code>, and <code>apply_anga_operation</code>. Scaffolded semantic records are partial until they are replaced by atomic Paninian sutra implementations.</p>
           </div>
         </section>
 
@@ -325,9 +325,9 @@ rāmaḥ + atra -> rāmotra</pre>
           <p>The accent layer records udātta, anudātta, svarita, and pracaya assignments as metadata for sutra-level derivation.</p>
           <table>
             <tr><th>Range</th><th>Compiler substrate</th><th>Current use</th></tr>
-            <tr><td><code>6.2</code></td><td>implemented compound and pada accent records</td><td>accent profiles</td></tr>
-            <tr><td><code>6.3</code></td><td>implemented uttarapada and internal-domain records</td><td>second-member scope records</td></tr>
-            <tr><td><code>6.4</code></td><td>implemented late stem-final operation records</td><td>final lengthening and lopa records</td></tr>
+            <tr><td><code>6.2</code></td><td>repair-tracked compound and pada accent records</td><td>accent profiles</td></tr>
+            <tr><td><code>6.3</code></td><td>repair-tracked uttarapada and internal-domain records</td><td>second-member scope records</td></tr>
+            <tr><td><code>6.4</code></td><td>repair-tracked late stem-final operation records</td><td>final lengthening and lopa records</td></tr>
             <tr><td><code>7.1</code></td><td>augment behavior</td><td>nasal augment records</td></tr>
             <tr><td><code>7.2</code></td><td>strengthening behavior</td><td>guṇa and vṛddhi replacements</td></tr>
             <tr><td><code>7.3</code></td><td>internal aṅga replacement</td><td>guṇa and nasalization records</td></tr>

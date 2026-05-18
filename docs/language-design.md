@@ -98,7 +98,7 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 ## Metarules
 
-The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 through 6 are now represented sutra by sutra in implementation registries, while later metarule-heavy ranges such as `8.1` still need individual completion notes and tests before release completeness.
+The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 is represented as a completed sutra-by-sutra implementation registry. Adhyāya 2 through 6 are now repair-tracked registries: generated scaffolds are partial until exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests are attached.
 
 ## Future Safety Tiers
 
@@ -117,7 +117,7 @@ The remaining sound-form sutra ranges are now represented by two explicit substr
 - `accent.py` records udātta, anudātta, svarita, and pracaya as metadata over token domains.
 - `anga.py` records controlled stem operations such as guṇa, vṛddhi, final lengthening, lopa, augment, nasalization, and retroflexion.
 
-This gives `6.2` through `6.4` sutra-specific implemented records and gives `7.1` through `7.4` a real implementation surface while keeping the truth layer honest: the later ranges are batch-partial, not complete.
+This gives `6.2` through `7.4` a real implementation surface while keeping the truth layer honest: scaffolded ranges are partial or batch-partial until each sutra receives atomic treatment.
 
 ## Sandhi
 

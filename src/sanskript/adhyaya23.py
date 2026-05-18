@@ -19,8 +19,10 @@ class RuleKind(str, Enum):
 
 
 class ImplementationMode(str, Enum):
-    EXECUTABLE = "executable"
-    SEMANTIC = "semantic"
+    EXECUTABLE = "executable_anchor"
+    SEMANTIC = "semantic_scaffold"
+    ATOMIC_EXECUTABLE = "atomic_executable"
+    ATOMIC_FORMAL = "atomic_formal"
 
 
 @dataclass(frozen=True)
@@ -43,7 +45,7 @@ class SutraRule:
 
     @property
     def implemented(self) -> bool:
-        return bool(self.hooks) and bool(self.examples)
+        return self.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL} and bool(self.hooks) and bool(self.examples)
 
 
 PADA_COUNTS = {
@@ -92,11 +94,26 @@ def implemented_sutra_ids() -> frozenset[str]:
     return frozenset(sutra_id for sutra_id, rule in ADHYAYA23_RULES.items() if rule.implemented)
 
 
+def partial_sutra_ids() -> frozenset[str]:
+    return frozenset(sutra_id for sutra_id, rule in ADHYAYA23_RULES.items() if not rule.implemented)
+
+
 def implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
-    mode = "Executable" if rule.mode == ImplementationMode.EXECUTABLE else "Formal semantic"
+    mode = "Atomic executable" if rule.mode == ImplementationMode.ATOMIC_EXECUTABLE else "Atomic formal"
     hooks = ", ".join(rule.hooks)
     return f"{mode} Adhyaya 2/3 implementation: {rule.compiler_effect} Hooks: {hooks}."
+
+
+def partial_implementation_note_for(sutra_id: str) -> str:
+    rule = rule_for(sutra_id)
+    hooks = ", ".join(rule.hooks)
+    prefix = "Executable anchor only" if rule.mode == ImplementationMode.EXECUTABLE else "Semantic scaffold only"
+    return (
+        f"{prefix}, not a complete atomic sutra implementation: "
+        f"{rule.compiler_effect} Required before completion: exact sutra text, inherited domain, "
+        f"conditions, exceptions, positive examples, rejected examples, and tests. Hooks: {hooks}."
+    )
 
 
 def _example(tag: str, output: str, note: str) -> tuple[RuleExample, ...]:

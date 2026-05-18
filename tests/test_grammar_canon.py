@@ -5,7 +5,11 @@ from pathlib import Path
 
 from sanskript.adhyaya1 import expected_adhyaya1_ids
 from sanskript.adhyaya23 import expected_adhyaya23_ids
+from sanskript.adhyaya23 import implemented_sutra_ids as adhyaya23_implemented_sutra_ids
+from sanskript.adhyaya23 import partial_sutra_ids as adhyaya23_partial_sutra_ids
 from sanskript.adhyaya456 import expected_adhyaya456_ids
+from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
+from sanskript.adhyaya456 import partial_sutra_ids as adhyaya456_partial_sutra_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,21 +91,26 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertIn("Consonants", partial_titles)
         self.assertIn("Romanized Sanskrit", partial_titles)
 
-    def test_adhyaya_one_through_six_are_marked_implemented(self) -> None:
+    def test_only_atomic_sutras_are_marked_implemented(self) -> None:
         obligations = {
             item["title"]: item["status"]
             for item in self.canon["obligations"]
             if item["kind"] == "sutra"
         }
         adhyaya_one = set(expected_adhyaya1_ids())
-        adhyaya_two_three = set(expected_adhyaya23_ids())
-        adhyaya_four_five_six = set(expected_adhyaya456_ids())
+        adhyaya_two_three_implemented = set(adhyaya23_implemented_sutra_ids())
+        adhyaya_four_five_six_implemented = set(adhyaya456_implemented_sutra_ids())
+        adhyaya_two_three_partial = set(adhyaya23_partial_sutra_ids())
+        adhyaya_four_five_six_partial = set(adhyaya456_partial_sutra_ids())
         implemented = {title for title, status in obligations.items() if status == "implemented"}
+        partial = {title for title, status in obligations.items() if status == "partial"}
 
         self.assertEqual(implemented & adhyaya_one, adhyaya_one)
-        self.assertEqual(implemented & adhyaya_two_three, adhyaya_two_three)
-        self.assertEqual(implemented & adhyaya_four_five_six, adhyaya_four_five_six)
-        self.assertEqual(len(implemented), 3174)
+        self.assertEqual(implemented & set(expected_adhyaya23_ids()), adhyaya_two_three_implemented)
+        self.assertEqual(implemented & set(expected_adhyaya456_ids()), adhyaya_four_five_six_implemented)
+        self.assertEqual(partial & set(expected_adhyaya23_ids()), adhyaya_two_three_partial)
+        self.assertEqual(partial & set(expected_adhyaya456_ids()), adhyaya_four_five_six_partial)
+        self.assertEqual(len(implemented), 351)
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
         batch_partial = [
