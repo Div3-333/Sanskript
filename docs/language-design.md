@@ -38,7 +38,7 @@ Current prototype frames:
 | `vardhayati` | increases | karma + karaṇa | increment a stored value |
 | `darśayati` | shows | karma | display a value |
 
-The compiler recovers these roles from analyzed word forms. In the current tiny subset:
+The compiler recovers these roles from analyzed word forms. The current subset is declared in [grammar-register.md](grammar-register.md). Some core examples:
 
 | Role | Prototype marker | Example | Meaning |
 | --- | --- | --- | --- |
@@ -99,4 +99,3 @@ Bad:
 ```text
 Syntax error near token 3.
 ```
-

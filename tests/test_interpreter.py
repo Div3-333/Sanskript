@@ -15,6 +15,15 @@ class InterpreterTests(unittest.TestCase):
 
         self.assertEqual(run(source), ["7"])
 
+    def test_other_registered_storage_noun_and_numerals(self) -> None:
+        source = """
+        gaṇakaḥ trīṇi mūlye nidadhāti.
+        gaṇakaḥ mūlyaṃ caturbhiḥ vardhayati.
+        gaṇakaḥ mūlyaṃ darśayati.
+        """
+
+        self.assertEqual(run(source), ["7"])
+
     def test_word_order_uses_roles_not_positions(self) -> None:
         source = """
         phale gaṇakaḥ pañca nidadhāti.
@@ -31,4 +40,3 @@ class InterpreterTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,24 +1,11 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 from typing import Iterable
 
 from .ast import Assign, Display, Increase, Literal, Reference, Statement, Value
 from .errors import ParseError
-from .morphology import Analysis, PartOfSpeech, Role, analyze_sentence, split_sentences
-
-
-@dataclass(frozen=True)
-class VerbFrame:
-    verb: str
-    required_roles: frozenset[Role]
-
-
-VERB_FRAMES = {
-    "nidadhāti": VerbFrame("nidadhāti", frozenset({Role.KARMAN, Role.ADHIKARANA})),
-    "vardhayati": VerbFrame("vardhayati", frozenset({Role.KARMAN, Role.KARANA})),
-    "darśayati": VerbFrame("darśayati", frozenset({Role.KARMAN})),
-}
+from .grammar import VERB_FRAMES, Analysis, PartOfSpeech, Role
+from .morphology import analyze_sentence, split_sentences
 
 
 def parse_program(source: str) -> list[Statement]:
@@ -81,4 +68,3 @@ def _value_from(item: Analysis) -> Value:
     if item.value is not None:
         return Literal(item.value)
     return Reference(item.lemma)
-

@@ -54,6 +54,7 @@ This is not yet the final language. It is the first executable scaffold for a st
 - Every accepted construction should eventually carry a grammar note and review status.
 
 See [docs/charter.md](docs/charter.md) and [docs/language-design.md](docs/language-design.md).
+The controlled grammar register lives at [docs/grammar-register.md](docs/grammar-register.md).
 
 ## Development Checks
 

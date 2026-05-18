@@ -28,6 +28,15 @@ Useful starting point:
 
 - https://www.learnsanskrit.org/guide/verbs-1/the-present-tense/
 
+## Numerals
+
+Small cardinal numerals are irregular enough that Sanskript registers their accepted surface forms explicitly. Learn Sanskrit Online notes that Sanskrit numerals are irregular, and its usage notes show case forms such as `caturbhiḥ` for the instrumental. Other reference tables also list forms such as `ekena`, `dvābhyām`, `tribhiḥ`, `caturbhiḥ`, and `pañcabhiḥ`.
+
+Useful starting points:
+
+- https://learnsanskrit.org/ends/numbers/use/
+- https://oursanskrit.com/sanskrit-grammar-reference/numerals/
+
 ## Computational Sandhi
 
 Sandhi must eventually become a first-class compiler component. Rama and Lakshmanan's 2009 paper frames euphonic conjunctions as an early computational requirement for Sanskrit processing.
@@ -35,4 +44,3 @@ Sandhi must eventually become a first-class compiler component. Rama and Lakshma
 Useful starting point:
 
 - https://arxiv.org/abs/0911.0894
-
