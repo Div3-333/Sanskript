@@ -28,9 +28,11 @@ Initial support now lives in `src/sanskript/phonology.py`.
 
 Batch status:
 
-- `1.1`, `6.1`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
+- `1.1`, `6.1`, `6.2`, `6.3`, `6.4`, `7.1`, `7.2`, `7.3`, `7.4`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
 - This means their sound/sandhi subsystem exists, but individual sutras are still not considered complete.
-- Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, and first-pass vowel/visarga sandhi.
+- Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, first-pass vowel/visarga sandhi, accent profiles, and aṅga-operation scaffolds.
+
+Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
 ## Phase 2: Subanta And Kāraka
 
@@ -112,3 +114,8 @@ Targets:
 - Every indexed sutra receives a specific implementation note.
 - Sutras that are not executable compiler behavior receive explicit design treatment.
 - The canon ledger has no `pending_design` obligations.
+
+Sutra batch status:
+
+- Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
+- Remaining `pending_design` items are outline topics, not sutra identifiers.

@@ -98,6 +98,15 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. This currently supports batch coverage for `1.2`, `1.3`, and `8.1`; individual sutras still need completion notes and tests before release completeness.
 
+## Accent And Aṅga
+
+The remaining sound-form sutra ranges are now represented by two explicit substrates:
+
+- `accent.py` records udātta, anudātta, svarita, and pracaya as metadata over token domains.
+- `anga.py` records controlled stem operations such as guṇa, vṛddhi, final lengthening, lopa, augment, nasalization, and retroflexion.
+
+This gives `6.2` through `7.4` a real implementation surface while keeping the truth layer honest: the ranges are batch-partial, not complete.
+
 ## Sandhi
 
 Sandhi is currently normalized lightly, not fully enforced. The language should eventually support stricter modes:

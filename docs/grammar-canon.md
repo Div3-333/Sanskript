@@ -24,9 +24,9 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Topic obligations: `191`
 - Sutra obligations: `3981`
 - Implemented: `0`
-- Partial: `90`
-- Batch partial: `3027`
-- Pending design: `1055`
+- Partial: `101`
+- Batch partial: `3978`
+- Pending design: `93`
 
 ## Aṣṭādhyāyī Sutra Index
 
@@ -94,7 +94,7 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 6` About our guide — `pending_design`
   - `p. 11` A summary of Sanskrit — `pending_design`
   - `p. 16` An overview of the Aṣṭādhyāyī — `pending_design`
-- `p. 19` Sounds — `pending_design`
+- `p. 19` Sounds — `partial`
   - `p. 20` Introduction — `pending_design`
   - `p. 26` The Shiva Sutras — `partial`
   - `p. 31` savarṇa sounds — `partial`
@@ -161,8 +161,8 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 29` Semivowels — `partial`
   - `p. 31` Compound vowels — `partial`
   - `p. 36` Consonants — `partial`
-  - `p. 43` anusvāra and visarga — `pending_design`
-  - `p. 47` Syllables — `pending_design`
+  - `p. 43` anusvāra and visarga — `partial`
+  - `p. 47` Syllables — `partial`
   - `p. 51` Sandhi — `pending_design`
   - `p. 58` Sentences — `partial`
   - `p. 62` Nominals — `partial`
@@ -172,12 +172,12 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 86` Suffixes — `partial`
   - `p. 90` Compounds — `partial`
   - `p. 93` Review — `pending_design`
-- `p. 100` Sounds — `pending_design`
+- `p. 100` Sounds — `partial`
   - `p. 101` The sound system — `partial`
   - `p. 102` Vowels — `partial`
   - `p. 107` Consonants — `partial`
   - `p. 111` Other sounds — `partial`
-  - `p. 113` Modern pronunciation — `pending_design`
+  - `p. 113` Modern pronunciation — `partial`
 - `p. 115` Sandhi — `pending_design`
   - `p. 116` The sandhi system — `partial`
   - `p. 118` Vowel sandhi — `partial`
@@ -253,12 +253,12 @@ This file is the project contract for the user's requirement that Sanskript use 
   - `p. 414` Relative phrases — `pending_design`
   - `p. 418` Participles — `pending_design`
   - `p. 422` The eight cases — `partial`
-- `p. 429` Devanagari — `pending_design`
-  - `p. 430` How Devanagari works — `pending_design`
-  - `p. 433` Vowels and consonants — `pending_design`
-  - `p. 436` Vowel marks — `pending_design`
-  - `p. 438` Consonant clusters — `pending_design`
-  - `p. 442` Numerals and punctuation — `pending_design`
+- `p. 429` Devanagari — `partial`
+  - `p. 430` How Devanagari works — `partial`
+  - `p. 433` Vowels and consonants — `partial`
+  - `p. 436` Vowel marks — `partial`
+  - `p. 438` Consonant clusters — `partial`
+  - `p. 442` Numerals and punctuation — `partial`
   - `p. 444` Old Devanagari — `pending_design`
   - `p. 445` Vedic Devanagari — `pending_design`
 - `p. 446` Other scripts — `pending_design`

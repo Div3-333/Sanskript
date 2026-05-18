@@ -95,6 +95,16 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertTrue({"1.1", "6.1", "8.2", "8.3", "8.4"}.issubset(padas))
         self.assertTrue({"1.4", "2.1", "2.2", "2.3", "2.4"}.issubset(padas))
         self.assertTrue({"1.2", "1.3", "8.1"}.issubset(padas))
+        self.assertTrue({"6.2", "6.3", "6.4", "7.1", "7.2", "7.3", "7.4"}.issubset(padas))
+
+    def test_no_sutra_identifier_is_left_pending_after_batch_scaffolds(self) -> None:
+        pending_sutras = [
+            item
+            for item in self.canon["obligations"]
+            if item["kind"] == "sutra" and item["status"] == "pending_design"
+        ]
+
+        self.assertEqual(pending_sutras, [])
 
 
 if __name__ == "__main__":
