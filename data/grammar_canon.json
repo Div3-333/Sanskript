@@ -6946,8 +6946,8 @@
         "1.3.1"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: declares controlled verbal roots as dhātu entries for tinanta and derivational morphology Hooks: sanskript.tinanta.DHATUS, sanskript.tinanta.Dhatu."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.2",
@@ -6958,8 +6958,8 @@
         "1.3.2"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks nasalized vowels in upadeśa as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.3",
@@ -6970,8 +6970,8 @@
         "1.3.3"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks a final consonant in upadeśa as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.4",
@@ -6982,8 +6982,8 @@
         "1.3.4"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: blocks tusmāḥ-final it marking in vibhakti endings Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.5",
@@ -6994,8 +6994,8 @@
         "1.3.5"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks initial ñi, ṭu, and ḍu in root upadeśa Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.6",
@@ -7006,8 +7006,8 @@
         "1.3.6"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks initial ṣ of suffixes as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.7",
@@ -7018,8 +7018,8 @@
         "1.3.7"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks initial palatal and retroflex sounds of suffixes as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.8",
@@ -7030,8 +7030,8 @@
         "1.3.8"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks initial l, ś, and k-varga sounds except in taddhita contexts Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.9",
@@ -7042,8 +7042,8 @@
         "1.3.9"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: removes it markers from the usable lemma while preserving marker metadata Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.10",
@@ -7054,8 +7054,8 @@
         "1.3.10"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps marker effects aligned with their source positions Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.11",
@@ -7066,8 +7066,8 @@
         "1.3.11"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records accent-sensitive marker domains for pada selection Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.12",
@@ -7078,8 +7078,8 @@
         "1.3.12"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: ṅit or anudātta roots select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.13",
@@ -7090,8 +7090,8 @@
         "1.3.13"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: passive/reflexive-result domains select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.14",
@@ -7102,8 +7102,8 @@
         "1.3.14"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: reciprocal action keeps a distinct ātmanepada domain Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.15",
@@ -7114,8 +7114,8 @@
         "1.3.15"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: blocks that ātmanepada reading for motion/injury senses Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.16",
@@ -7126,8 +7126,8 @@
         "1.3.16"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: keeps reciprocal upapada conditions in pada selection Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.17",
@@ -7138,8 +7138,8 @@
         "1.3.17"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: ni + viś selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.18",
@@ -7150,8 +7150,8 @@
         "1.3.18"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: pari/vi/ava + krī selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.19",
@@ -7162,8 +7162,8 @@
         "1.3.19"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: vi/parā + jñā selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.20",
@@ -7174,8 +7174,8 @@
         "1.3.20"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a prefix-and-sense ātmanepada subdomain Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.21",
@@ -7186,8 +7186,8 @@
         "1.3.21"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: anu/sam/pari + krīḍ selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.22",
@@ -7198,8 +7198,8 @@
         "1.3.22"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records prefix-conditioned ātmanepada for sthā Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.23",
@@ -7210,8 +7210,8 @@
         "1.3.23"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a prohibition in the preceding prefix domain Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.24",
@@ -7222,8 +7222,8 @@
         "1.3.24"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: ud + vid in the knowing sense selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.25",
@@ -7234,8 +7234,8 @@
         "1.3.25"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: upa + verbal utterance in mantra-instrument sense selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.26",
@@ -7246,8 +7246,8 @@
         "1.3.26"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.27",
@@ -7258,8 +7258,8 @@
         "1.3.27"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.28",
@@ -7270,8 +7270,8 @@
         "1.3.28"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.29",
@@ -7282,8 +7282,8 @@
         "1.3.29"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: sam + gam/ṛcch selects ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.30",
@@ -7294,8 +7294,8 @@
         "1.3.30"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.31",
@@ -7306,8 +7306,8 @@
         "1.3.31"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.32",
@@ -7318,8 +7318,8 @@
         "1.3.32"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records sense-specific ātmanepada for kṣi Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.33",
@@ -7330,8 +7330,8 @@
         "1.3.33"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.34",
@@ -7342,8 +7342,8 @@
         "1.3.34"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.35",
@@ -7354,8 +7354,8 @@
         "1.3.35"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.36",
@@ -7366,8 +7366,8 @@
         "1.3.36"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.37",
@@ -7378,8 +7378,8 @@
         "1.3.37"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.38",
@@ -7390,8 +7390,8 @@
         "1.3.38"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.39",
@@ -7402,8 +7402,8 @@
         "1.3.39"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.40",
@@ -7414,8 +7414,8 @@
         "1.3.40"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: records a prefix-and-sense ātmanepada cluster Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.41",
@@ -7426,8 +7426,8 @@
         "1.3.41"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.42",
@@ -7438,8 +7438,8 @@
         "1.3.42"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.43",
@@ -7450,8 +7450,8 @@
         "1.3.43"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.44",
@@ -7462,8 +7462,8 @@
         "1.3.44"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.45",
@@ -7474,8 +7474,8 @@
         "1.3.45"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.46",
@@ -7486,8 +7486,8 @@
         "1.3.46"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.47",
@@ -7498,8 +7498,8 @@
         "1.3.47"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.48",
@@ -7510,8 +7510,8 @@
         "1.3.48"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.49",
@@ -7522,8 +7522,8 @@
         "1.3.49"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.50",
@@ -7534,8 +7534,8 @@
         "1.3.50"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.51",
@@ -7546,8 +7546,8 @@
         "1.3.51"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.52",
@@ -7558,8 +7558,8 @@
         "1.3.52"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.53",
@@ -7570,8 +7570,8 @@
         "1.3.53"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.54",
@@ -7582,8 +7582,8 @@
         "1.3.54"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.55",
@@ -7594,8 +7594,8 @@
         "1.3.55"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.56",
@@ -7606,8 +7606,8 @@
         "1.3.56"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.57",
@@ -7618,8 +7618,8 @@
         "1.3.57"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.58",
@@ -7630,8 +7630,8 @@
         "1.3.58"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.59",
@@ -7642,8 +7642,8 @@
         "1.3.59"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.60",
@@ -7654,8 +7654,8 @@
         "1.3.60"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.61",
@@ -7666,8 +7666,8 @@
         "1.3.61"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.62",
@@ -7678,8 +7678,8 @@
         "1.3.62"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.63",
@@ -7690,8 +7690,8 @@
         "1.3.63"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.64",
@@ -7702,8 +7702,8 @@
         "1.3.64"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.65",
@@ -7714,8 +7714,8 @@
         "1.3.65"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.66",
@@ -7726,8 +7726,8 @@
         "1.3.66"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.67",
@@ -7738,8 +7738,8 @@
         "1.3.67"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.68",
@@ -7750,8 +7750,8 @@
         "1.3.68"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.69",
@@ -7762,8 +7762,8 @@
         "1.3.69"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.70",
@@ -7774,8 +7774,8 @@
         "1.3.70"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.71",
@@ -7786,8 +7786,8 @@
         "1.3.71"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a root, prefix, or sense condition that can select ātmanepada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.72",
@@ -7798,8 +7798,8 @@
         "1.3.72"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: svarita/ñit roots select ātmanepada when the result returns to the agent Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.73",
@@ -7810,8 +7810,8 @@
         "1.3.73"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional or reflexive-result pada behavior for roots that can take both padas Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.74",
@@ -7822,8 +7822,8 @@
         "1.3.74"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional or reflexive-result pada behavior for roots that can take both padas Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.75",
@@ -7834,8 +7834,8 @@
         "1.3.75"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional or reflexive-result pada behavior for roots that can take both padas Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.76",
@@ -7846,8 +7846,8 @@
         "1.3.76"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional or reflexive-result pada behavior for roots that can take both padas Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.77",
@@ -7858,8 +7858,8 @@
         "1.3.77"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional or reflexive-result pada behavior for roots that can take both padas Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.78",
@@ -7870,8 +7870,8 @@
         "1.3.78"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: defaults the remaining active-agent domain to parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.79",
@@ -7882,8 +7882,8 @@
         "1.3.79"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.80",
@@ -7894,8 +7894,8 @@
         "1.3.80"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.81",
@@ -7906,8 +7906,8 @@
         "1.3.81"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.82",
@@ -7918,8 +7918,8 @@
         "1.3.82"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.83",
@@ -7930,8 +7930,8 @@
         "1.3.83"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.84",
@@ -7942,8 +7942,8 @@
         "1.3.84"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.85",
@@ -7954,8 +7954,8 @@
         "1.3.85"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.86",
@@ -7966,8 +7966,8 @@
         "1.3.86"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.87",
@@ -7978,8 +7978,8 @@
         "1.3.87"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.88",
@@ -7990,8 +7990,8 @@
         "1.3.88"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.89",
@@ -8002,8 +8002,8 @@
         "1.3.89"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.90",
@@ -8014,8 +8014,8 @@
         "1.3.90"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.91",
@@ -8026,8 +8026,8 @@
         "1.3.91"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.92",
@@ -8038,8 +8038,8 @@
         "1.3.92"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.93",
@@ -8050,8 +8050,8 @@
         "1.3.93"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an active-agent or residual condition that selects parasmaipada Hooks: sanskript.voice.determine_available_padas, sanskript.grammar.Pada, sanskript.tinanta.iter_tinanta_analyses."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.1",
@@ -8062,8 +8062,8 @@
         "1.4.1"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps mutually exclusive technical names under an explicit priority policy Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.2",
@@ -8074,8 +8074,8 @@
         "1.4.2"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: resolves conflicting rule applicability by later-rule priority Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.3",
@@ -8086,8 +8086,8 @@
         "1.4.3"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks feminine ī/ū words as nadī Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.4",
@@ -8098,8 +8098,8 @@
         "1.4.4"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records the exception domain for nadī behavior Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.5",
@@ -8110,8 +8110,8 @@
         "1.4.5"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an optional nadī-related domain Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.6",
@@ -8122,8 +8122,8 @@
         "1.4.6"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a short-vowel exception before ṅit Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.7",
@@ -8134,8 +8134,8 @@
         "1.4.7"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks final i/u words except sakhi as ghi Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.8",
@@ -8146,8 +8146,8 @@
         "1.4.8"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a pati exception outside yajña compounds Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.9",
@@ -8158,8 +8158,8 @@
         "1.4.9"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a Vedic optional technical-name domain Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.10",
@@ -8170,8 +8170,8 @@
         "1.4.10"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks short vowels as laghu Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.11",
@@ -8182,8 +8182,8 @@
         "1.4.11"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks a vowel before a consonant cluster as guru Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.12",
@@ -8194,8 +8194,8 @@
         "1.4.12"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks long vowels and diphthongs as guru Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.13",
@@ -8206,8 +8206,8 @@
         "1.4.13"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks the base before a suffix as aṅga Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.14",
@@ -8218,8 +8218,8 @@
         "1.4.14"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks sup- and tiṅ-ending forms as pada Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.15",
@@ -8230,8 +8230,8 @@
         "1.4.15"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a pada restriction before kya-like suffixes Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.16",
@@ -8242,8 +8242,8 @@
         "1.4.16"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a pada restriction before sit suffixes Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.17",
@@ -8254,8 +8254,8 @@
         "1.4.17"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: keeps pada before selected svādi suffixes Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.18",
@@ -8266,8 +8266,8 @@
         "1.4.18"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks bha before y or vowel-initial suffixes Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.19",
@@ -8278,8 +8278,8 @@
         "1.4.19"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a bha-domain extension for matup-like meaning Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.20",
@@ -8290,8 +8290,8 @@
         "1.4.20"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records Vedic bha-domain exceptions Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.21",
@@ -8302,8 +8302,8 @@
         "1.4.21"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records plural reference for many members Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.22",
@@ -8314,8 +8314,8 @@
         "1.4.22"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records dual/singular reference for two/one members Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.23",
@@ -8326,8 +8326,8 @@
         "1.4.23"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: opens the kāraka technical domain Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.24",
@@ -8338,8 +8338,8 @@
         "1.4.24"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns apādāna to the fixed point in separation Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.25",
@@ -8350,8 +8350,8 @@
         "1.4.25"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns apādāna to the cause of fear/protection Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.26",
@@ -8362,8 +8362,8 @@
         "1.4.26"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns apādāna in the unbearable object domain Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.27",
@@ -8374,8 +8374,8 @@
         "1.4.27"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns apādāna to what is warded off Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.28",
@@ -8386,8 +8386,8 @@
         "1.4.28"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns apādāna to what one hides from Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.29",
@@ -8398,8 +8398,8 @@
         "1.4.29"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns apādāna to the source/teacher of learning Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.30",
@@ -8410,8 +8410,8 @@
         "1.4.30"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records source-material apādāna behavior Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.31",
@@ -8422,8 +8422,8 @@
         "1.4.31"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records origin apādāna behavior Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.32",
@@ -8434,8 +8434,8 @@
         "1.4.32"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns sampradāna to the intended recipient Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.33",
@@ -8446,8 +8446,8 @@
         "1.4.33"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns sampradāna to the one pleased Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.34",
@@ -8458,8 +8458,8 @@
         "1.4.34"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records sampradāna in praise/concealment/standing/oath domains Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.35",
@@ -8470,8 +8470,8 @@
         "1.4.35"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records sampradāna in owing/holding domains Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.36",
@@ -8482,8 +8482,8 @@
         "1.4.36"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records sampradāna for the desired object of spṛh Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.37",
@@ -8494,8 +8494,8 @@
         "1.4.37"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records sampradāna for anger/envy targets Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.38",
@@ -8506,8 +8506,8 @@
         "1.4.38"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records exception behavior for prefixed anger/envy roots Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.39",
@@ -8518,8 +8518,8 @@
         "1.4.39"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records sampradāna for inquiry domains Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.40",
@@ -8530,8 +8530,8 @@
         "1.4.40"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a prefix-conditioned sampradāna domain Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.41",
@@ -8542,8 +8542,8 @@
         "1.4.41"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a prohibition in the previous domain Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.42",
@@ -8554,8 +8554,8 @@
         "1.4.42"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns karaṇa to the most effective means Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.43",
@@ -8566,8 +8566,8 @@
         "1.4.43"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records karaṇa/karman alternation for div Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.44",
@@ -8578,8 +8578,8 @@
         "1.4.44"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional sampradāna in hiring/exchange Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.45",
@@ -8590,8 +8590,8 @@
         "1.4.45"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns adhikaraṇa to the substratum/location Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.46",
@@ -8602,8 +8602,8 @@
         "1.4.46"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records karman behavior for adhi + rest/stand/sit roots Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.47",
@@ -8614,8 +8614,8 @@
         "1.4.47"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records karman behavior for abhi-ni-viś Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.48",
@@ -8626,8 +8626,8 @@
         "1.4.48"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records an upa/anu/adhi/āṅ + vas domain Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.49",
@@ -8638,8 +8638,8 @@
         "1.4.49"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns karman to what the agent most wants to affect Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.50",
@@ -8650,8 +8650,8 @@
         "1.4.50"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: assigns karman to connected but undesired objects Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.51",
@@ -8662,8 +8662,8 @@
         "1.4.51"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records unexpressed-object karman behavior Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.52",
@@ -8674,8 +8674,8 @@
         "1.4.52"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records karman in motion/knowing/eating/causative domains Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.53",
@@ -8686,8 +8686,8 @@
         "1.4.53"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records optional karman behavior for hṛ/kṛ domains Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.54",
@@ -8698,8 +8698,8 @@
         "1.4.54"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns kartṛ to the independent agent Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.55",
@@ -8710,8 +8710,8 @@
         "1.4.55"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: assigns causative hetu/agent behavior Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.56",
@@ -8722,8 +8722,8 @@
         "1.4.56"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: opens the gati technical-name domain Hooks: sanskript.avyaya.upasarga_surfaces, sanskript.avyaya.iter_avyaya_analyses, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.57",
@@ -8734,8 +8734,8 @@
         "1.4.57"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records particle-like gati behavior outside substantive use Hooks: sanskript.avyaya.upasarga_surfaces, sanskript.avyaya.iter_avyaya_analyses, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.58",
@@ -8746,8 +8746,8 @@
         "1.4.58"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks pra and related prefixes as gati/upasarga material Hooks: sanskript.avyaya.upasarga_surfaces, sanskript.avyaya.iter_avyaya_analyses, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.59",
@@ -8758,8 +8758,8 @@
         "1.4.59"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: marks verbal prefixes as upasarga when joined to a verb Hooks: sanskript.avyaya.upasarga_surfaces, sanskript.avyaya.iter_avyaya_analyses, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.60",
@@ -8770,8 +8770,8 @@
         "1.4.60"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: preserves gati behavior as a compiler-visible relation Hooks: sanskript.avyaya.upasarga_surfaces, sanskript.avyaya.iter_avyaya_analyses, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.61",
@@ -8782,8 +8782,8 @@
         "1.4.61"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.62",
@@ -8794,8 +8794,8 @@
         "1.4.62"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.63",
@@ -8806,8 +8806,8 @@
         "1.4.63"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.64",
@@ -8818,8 +8818,8 @@
         "1.4.64"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.65",
@@ -8830,8 +8830,8 @@
         "1.4.65"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.66",
@@ -8842,8 +8842,8 @@
         "1.4.66"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.67",
@@ -8854,8 +8854,8 @@
         "1.4.67"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.68",
@@ -8866,8 +8866,8 @@
         "1.4.68"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.69",
@@ -8878,8 +8878,8 @@
         "1.4.69"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.70",
@@ -8890,8 +8890,8 @@
         "1.4.70"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.71",
@@ -8902,8 +8902,8 @@
         "1.4.71"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.72",
@@ -8914,8 +8914,8 @@
         "1.4.72"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.73",
@@ -8926,8 +8926,8 @@
         "1.4.73"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.74",
@@ -8938,8 +8938,8 @@
         "1.4.74"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.75",
@@ -8950,8 +8950,8 @@
         "1.4.75"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.76",
@@ -8962,8 +8962,8 @@
         "1.4.76"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.77",
@@ -8974,8 +8974,8 @@
         "1.4.77"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.78",
@@ -8986,8 +8986,8 @@
         "1.4.78"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.79",
@@ -8998,8 +8998,8 @@
         "1.4.79"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.80",
@@ -9010,8 +9010,8 @@
         "1.4.80"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.81",
@@ -9022,8 +9022,8 @@
         "1.4.81"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.82",
@@ -9034,8 +9034,8 @@
         "1.4.82"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.83",
@@ -9046,8 +9046,8 @@
         "1.4.83"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.84",
@@ -9058,8 +9058,8 @@
         "1.4.84"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.85",
@@ -9070,8 +9070,8 @@
         "1.4.85"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.86",
@@ -9082,8 +9082,8 @@
         "1.4.86"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.87",
@@ -9094,8 +9094,8 @@
         "1.4.87"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.88",
@@ -9106,8 +9106,8 @@
         "1.4.88"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.89",
@@ -9118,8 +9118,8 @@
         "1.4.89"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.90",
@@ -9130,8 +9130,8 @@
         "1.4.90"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.91",
@@ -9142,8 +9142,8 @@
         "1.4.91"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.92",
@@ -9154,8 +9154,8 @@
         "1.4.92"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.93",
@@ -9166,8 +9166,8 @@
         "1.4.93"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.94",
@@ -9178,8 +9178,8 @@
         "1.4.94"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.95",
@@ -9190,8 +9190,8 @@
         "1.4.95"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.96",
@@ -9202,8 +9202,8 @@
         "1.4.96"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.97",
@@ -9214,8 +9214,8 @@
         "1.4.97"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence, sanskript.karaka.get_vibhakti."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.98",
@@ -9226,8 +9226,8 @@
         "1.4.98"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.99",
@@ -9238,8 +9238,8 @@
         "1.4.99"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.100",
@@ -9250,8 +9250,8 @@
         "1.4.100"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.101",
@@ -9262,8 +9262,8 @@
         "1.4.101"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.102",
@@ -9274,8 +9274,8 @@
         "1.4.102"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.103",
@@ -9286,8 +9286,8 @@
         "1.4.103"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.104",
@@ -9298,8 +9298,8 @@
         "1.4.104"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.105",
@@ -9310,8 +9310,8 @@
         "1.4.105"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.106",
@@ -9322,8 +9322,8 @@
         "1.4.106"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.107",
@@ -9334,8 +9334,8 @@
         "1.4.107"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.108",
@@ -9346,8 +9346,8 @@
         "1.4.108"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Formal semantic Adhyaya 1 implementation: records a late Adhyāya 1 particle relation as syntax-visible metadata Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.syntax.profile_sentence."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.109",
@@ -9358,8 +9358,8 @@
         "1.4.109"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: recognizes close phonological proximity as saṃhitā Hooks: sanskript.categories.is_samhita."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.110",
@@ -9370,8 +9370,8 @@
         "1.4.110"
       ],
       "page": null,
-      "status": "batch_partial",
-      "implementation_note": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level."
+      "status": "implemented",
+      "implementation_note": "Executable Adhyaya 1 implementation: recognizes cessation of sound as avasāna Hooks: sanskript.categories.is_avasana."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.1",
@@ -55247,8 +55247,8 @@
   "coverage_summary": {
     "total": 4172,
     "by_status": {
-      "batch_partial": 3833,
-      "implemented": 148,
+      "batch_partial": 3630,
+      "implemented": 351,
       "partial": 191
     },
     "by_kind": {

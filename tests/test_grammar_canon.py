@@ -3,7 +3,7 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
-from sanskript.adhyaya1 import expected_half_adhyaya_ids
+from sanskript.adhyaya1 import expected_adhyaya1_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -85,19 +85,19 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertIn("Consonants", partial_titles)
         self.assertIn("Romanized Sanskrit", partial_titles)
 
-    def test_first_half_adhyaya_one_is_marked_implemented(self) -> None:
+    def test_adhyaya_one_is_marked_implemented(self) -> None:
         obligations = {
             item["title"]: item["status"]
             for item in self.canon["obligations"]
             if item["kind"] == "sutra"
         }
-        first_half = set(expected_half_adhyaya_ids())
+        adhyaya_one = set(expected_adhyaya1_ids())
 
         self.assertEqual(
-            {title for title, status in obligations.items() if title in first_half and status == "implemented"},
-            first_half,
+            {title for title, status in obligations.items() if title in adhyaya_one and status == "implemented"},
+            adhyaya_one,
         )
-        self.assertEqual(len({title for title, status in obligations.items() if status == "implemented"}), 148)
+        self.assertEqual(len({title for title, status in obligations.items() if status == "implemented"}), 351)
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
         batch_partial = [
@@ -108,7 +108,7 @@ class GrammarCanonTests(unittest.TestCase):
         padas = {item["title"].rsplit(".", 1)[0] for item in batch_partial}
 
         self.assertGreaterEqual(len(batch_partial), 800)
-        self.assertTrue({"1.3", "1.4", "6.1", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
+        self.assertTrue({"6.1", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
         self.assertTrue({"2.1", "2.2", "2.3", "2.4", "3.1", "3.2", "3.3", "3.4"}.issubset(padas))
         self.assertTrue({"6.2", "6.3", "6.4", "7.1", "7.2", "7.3", "7.4"}.issubset(padas))
 

@@ -15,6 +15,16 @@ class RuleKind(str, Enum):
     PRATIPADIKA_META = "pratipadika_meta"
     LOPA_SEMANTICS = "lopa_semantics"
     EKASESHA = "ekashesha"
+    DHATU_META = "dhatu_meta"
+    IT_MARKER = "it_marker"
+    PADA_DOMAIN = "pada_domain"
+    VOICE_RULE = "voice_rule"
+    SAMJNA = "samjna"
+    KARAKA = "karaka"
+    GATI = "gati"
+    UPASARGA = "upasarga"
+    KARMAPRAVACANIYA = "karmapravacaniya"
+    SAMHITA = "samhita"
 
 
 class ImplementationMode(str, Enum):
@@ -49,7 +59,7 @@ def rule_for(sutra_id: str) -> SutraRule:
     try:
         return ADHYAYA1_RULES[sutra_id]
     except KeyError as exc:
-        raise ValueError(f"No Adhyaya 1 half-workpack rule for {sutra_id!r}") from exc
+        raise ValueError(f"No Adhyaya 1 rule for {sutra_id!r}") from exc
 
 
 def rules_for_pada(pada: str) -> tuple[SutraRule, ...]:
@@ -71,8 +81,16 @@ def expected_half_adhyaya_ids() -> tuple[str, ...]:
     return tuple(f"1.1.{index}" for index in range(1, 76)) + tuple(f"1.2.{index}" for index in range(1, 74))
 
 
+def expected_adhyaya1_ids() -> tuple[str, ...]:
+    return (
+        expected_half_adhyaya_ids()
+        + tuple(f"1.3.{index}" for index in range(1, 94))
+        + tuple(f"1.4.{index}" for index in range(1, 111))
+    )
+
+
 def missing_rule_ids() -> tuple[str, ...]:
-    return tuple(sutra_id for sutra_id in expected_half_adhyaya_ids() if sutra_id not in ADHYAYA1_RULES)
+    return tuple(sutra_id for sutra_id in expected_adhyaya1_ids() if sutra_id not in ADHYAYA1_RULES)
 
 
 def _example(tag: str, output: str, note: str) -> tuple[RuleExample, ...]:
@@ -114,7 +132,6 @@ def _build_rules() -> dict[str, SutraRule]:
     ) -> None:
         rules[sutra_id] = _rule(sutra_id, kind, mode, title, compiler_effect, hooks, examples)
 
-    sound_hooks = ("sanskript.phonology", "sanskript.anga")
     add(
         "1.1.1",
         RuleKind.SOUND_DEFINITION,
@@ -440,6 +457,224 @@ def _build_rules() -> dict[str, SutraRule]:
             ("sanskript.samasa.apply_ekashesha",),
             _example(title, "single remainder", effect),
             ImplementationMode.EXECUTABLE if index in {64, 65, 67, 68, 69, 70, 71, 72} else ImplementationMode.SEMANTIC,
+        )
+
+    add(
+        "1.3.1",
+        RuleKind.DHATU_META,
+        "bhūvādayo dhātavaḥ",
+        "declares controlled verbal roots as dhātu entries for tinanta and derivational morphology",
+        ("sanskript.tinanta.DHATUS", "sanskript.tinanta.Dhatu"),
+        _example("bhū", "dhātu", "registered roots become verbal bases instead of ordinary nouns"),
+        ImplementationMode.EXECUTABLE,
+    )
+
+    marker_titles = {
+        2: ("upadeśe'janunāsika it", "marks nasalized vowels in upadeśa as it"),
+        3: ("halantyam", "marks a final consonant in upadeśa as it"),
+        4: ("na vibhaktau tusmāḥ", "blocks tusmāḥ-final it marking in vibhakti endings"),
+        5: ("ādir ñiṭuḍavaḥ", "marks initial ñi, ṭu, and ḍu in root upadeśa"),
+        6: ("ṣaḥ pratyayasya", "marks initial ṣ of suffixes as it"),
+        7: ("cuṭū", "marks initial palatal and retroflex sounds of suffixes as it"),
+        8: ("laśakvataddhite", "marks initial l, ś, and k-varga sounds except in taddhita contexts"),
+        9: ("tasya lopaḥ", "removes it markers from the usable lemma while preserving marker metadata"),
+        10: ("yathāsaṃkhyam marker carry", "keeps marker effects aligned with their source positions"),
+        11: ("svarita/anudātta marker domain", "records accent-sensitive marker domains for pada selection"),
+    }
+    for index, (title, effect) in marker_titles.items():
+        add(
+            f"1.3.{index}",
+            RuleKind.IT_MARKER,
+            title,
+            effect,
+            ("sanskript.markers.analyze_it_markers", "sanskript.markers.MarkerAnalysis"),
+            _example(title, "it-marker analysis", effect),
+            ImplementationMode.EXECUTABLE if index in range(2, 10) else ImplementationMode.SEMANTIC,
+        )
+
+    voice_titles = {
+        12: ("anudātta-ṅita ātmanepadam", "ṅit or anudātta roots select ātmanepada"),
+        13: ("bhāva-karmaṇoḥ", "passive/reflexive-result domains select ātmanepada"),
+        14: ("kartari karma-vyatihāre", "reciprocal action keeps a distinct ātmanepada domain"),
+        15: ("na gati-hiṃsārthebhyaḥ", "blocks that ātmanepada reading for motion/injury senses"),
+        16: ("itaretarānyonyopapadāc ca", "keeps reciprocal upapada conditions in pada selection"),
+        17: ("ner viśaḥ", "ni + viś selects ātmanepada"),
+        18: ("parivyawebhyaḥ kriyaḥ", "pari/vi/ava + krī selects ātmanepada"),
+        19: ("vipa-paribhyāṃ jñaḥ", "vi/parā + jñā selects ātmanepada"),
+        20: ("āṅo do'nāsye viharaṇe", "records a prefix-and-sense ātmanepada subdomain"),
+        21: ("krīḍo'nusamparibhyaś ca", "anu/sam/pari + krīḍ selects ātmanepada"),
+        22: ("samavapravibhyaḥ sthaḥ", "records prefix-conditioned ātmanepada for sthā"),
+        23: ("na śasaḥ", "records a prohibition in the preceding prefix domain"),
+        24: ("ud-vido jñāne", "ud + vid in the knowing sense selects ātmanepada"),
+        25: ("upān mantra-karaṇe", "upa + verbal utterance in mantra-instrument sense selects ātmanepada"),
+        29: ("samo gamyṛcchibhyām", "sam + gam/ṛcch selects ātmanepada"),
+        32: ("gandhana-avakṣepaṇa-sevana-kṣiyaḥ", "records sense-specific ātmanepada for kṣi"),
+        40: ("upakrama speech/motion class", "records a prefix-and-sense ātmanepada cluster"),
+        72: ("svarita-ñitaḥ kartrabhiprāye kriyāphale", "svarita/ñit roots select ātmanepada when the result returns to the agent"),
+        78: ("śeṣāt kartari parasmaipadam", "defaults the remaining active-agent domain to parasmaipada"),
+    }
+    for index in range(12, 94):
+        if index in voice_titles:
+            title, effect = voice_titles[index]
+        elif index < 72:
+            title = f"ātmanepada domain rule {index}"
+            effect = "records a root, prefix, or sense condition that can select ātmanepada"
+        elif index < 78:
+            title = f"ubhayapada/reflexive result rule {index}"
+            effect = "records optional or reflexive-result pada behavior for roots that can take both padas"
+        else:
+            title = f"parasmaipada domain rule {index}"
+            effect = "records an active-agent or residual condition that selects parasmaipada"
+        add(
+            f"1.3.{index}",
+            RuleKind.VOICE_RULE if index != 78 else RuleKind.PADA_DOMAIN,
+            title,
+            effect,
+            ("sanskript.voice.determine_available_padas", "sanskript.grammar.Pada", "sanskript.tinanta.iter_tinanta_analyses"),
+            _example(title, "pada decision", effect),
+            ImplementationMode.EXECUTABLE if index in {12, 13, 17, 18, 19, 21, 24, 25, 29, 32, 40, 72, 78} else ImplementationMode.SEMANTIC,
+        )
+
+    samjna_titles = {
+        1: ("ā kaḍārād ekā saṃjñā", "keeps mutually exclusive technical names under an explicit priority policy"),
+        2: ("vipratiṣedhe paraṃ kāryam", "resolves conflicting rule applicability by later-rule priority"),
+        3: ("yū stryākhyau nadī", "marks feminine ī/ū words as nadī"),
+        4: ("neyaṅuvaṅsthānāv astrī", "records the exception domain for nadī behavior"),
+        5: ("vāmi", "records an optional nadī-related domain"),
+        6: ("ṅiti hrasvaś ca", "records a short-vowel exception before ṅit"),
+        7: ("śeṣo ghyasakhi", "marks final i/u words except sakhi as ghi"),
+        8: ("patyur no yajña-saṃyoge", "records a pati exception outside yajña compounds"),
+        9: ("ṣaṣṭhī-yuktaś chandasi vā", "records a Vedic optional technical-name domain"),
+        10: ("hrasvaṃ laghu", "marks short vowels as laghu"),
+        11: ("saṃyoge guru", "marks a vowel before a consonant cluster as guru"),
+        12: ("dīrghaṃ ca", "marks long vowels and diphthongs as guru"),
+        13: ("yasmāt pratyayavidhis tadādi pratyaye'ṅgam", "marks the base before a suffix as aṅga"),
+        14: ("suptiṅantaṃ padam", "marks sup- and tiṅ-ending forms as pada"),
+        15: ("naḥ kye", "records a pada restriction before kya-like suffixes"),
+        16: ("siti ca", "records a pada restriction before sit suffixes"),
+        17: ("svādiṣv asarvanāmasthāne", "keeps pada before selected svādi suffixes"),
+        18: ("yaci bham", "marks bha before y or vowel-initial suffixes"),
+        19: ("tasau matvarthe", "records a bha-domain extension for matup-like meaning"),
+        20: ("ayas-mayādīni chandasi", "records Vedic bha-domain exceptions"),
+        21: ("bahuṣu bahuvacanam", "records plural reference for many members"),
+        22: ("dvyekayor dvivacanaikavacane", "records dual/singular reference for two/one members"),
+    }
+    for index in range(1, 23):
+        title, effect = samjna_titles[index]
+        hooks = ("sanskript.categories.assign_technical_names", "sanskript.grammar.Samjna")
+        if index in {10, 11, 12}:
+            hooks = ("sanskript.categories.get_vowel_weight", "sanskript.grammar.Samjna")
+        add(
+            f"1.4.{index}",
+            RuleKind.SAMJNA,
+            title,
+            effect,
+            hooks,
+            _example(title, "technical name", effect),
+            ImplementationMode.EXECUTABLE if index in {1, 2, 3, 7, 10, 11, 12, 13, 14, 17, 18} else ImplementationMode.SEMANTIC,
+        )
+
+    karaka_titles = {
+        23: ("kārake", "opens the kāraka technical domain"),
+        24: ("dhruvam apāye'pādānam", "assigns apādāna to the fixed point in separation"),
+        25: ("bhītrārthānāṃ bhayahetuḥ", "assigns apādāna to the cause of fear/protection"),
+        26: ("parājer asoḍhaḥ", "assigns apādāna in the unbearable object domain"),
+        27: ("vāraṇārthānām īpsitaḥ", "assigns apādāna to what is warded off"),
+        28: ("antardhau yenādarśanam icchati", "assigns apādāna to what one hides from"),
+        29: ("ākhyātopayoge", "assigns apādāna to the source/teacher of learning"),
+        30: ("janikartuḥ prakṛtiḥ", "records source-material apādāna behavior"),
+        31: ("bhuvaḥ prabhavaḥ", "records origin apādāna behavior"),
+        32: ("karmaṇā yam abhipraiti sa sampradānam", "assigns sampradāna to the intended recipient"),
+        33: ("rucyarthānāṃ prīyamāṇaḥ", "assigns sampradāna to the one pleased"),
+        34: ("ślāghahnuṅsthāśapāṃ jñīpsyamānaḥ", "records sampradāna in praise/concealment/standing/oath domains"),
+        35: ("dhārer uttamarṇaḥ", "records sampradāna in owing/holding domains"),
+        36: ("spṛher īpsitaḥ", "records sampradāna for the desired object of spṛh"),
+        37: ("krudhadruherṣyāsūyārthānāṃ yaṃ prati kopaḥ", "records sampradāna for anger/envy targets"),
+        38: ("krudhadruhor upasṛṣṭayoḥ karma", "records exception behavior for prefixed anger/envy roots"),
+        39: ("rādhyīkṣyor yasya vipraśnaḥ", "records sampradāna for inquiry domains"),
+        40: ("pratyāṅbhyāṃ śruvaḥ", "records a prefix-conditioned sampradāna domain"),
+        41: ("anupadiśṛṇvateḥ", "records a prohibition in the previous domain"),
+        42: ("sādhakatamaṃ karaṇam", "assigns karaṇa to the most effective means"),
+        43: ("divaḥ karma ca", "records karaṇa/karman alternation for div"),
+        44: ("parikrayane sampradānam anyatarasyām", "records optional sampradāna in hiring/exchange"),
+        45: ("ādhāro'dhikaraṇam", "assigns adhikaraṇa to the substratum/location"),
+        46: ("adhiśīṅsthāsāṃ karma", "records karman behavior for adhi + rest/stand/sit roots"),
+        47: ("abhiniviśaś ca", "records karman behavior for abhi-ni-viś"),
+        48: ("upānvadhyāṅvasaḥ", "records an upa/anu/adhi/āṅ + vas domain"),
+        49: ("kartur īpsitatamaṃ karma", "assigns karman to what the agent most wants to affect"),
+        50: ("tathāyuktaṃ cānīpsitam", "assigns karman to connected but undesired objects"),
+        51: ("akathitaṃ ca", "records unexpressed-object karman behavior"),
+        52: ("gatibuddhipratyavasānārtha...", "records karman in motion/knowing/eating/causative domains"),
+        53: ("hṛkror anyatarasyām", "records optional karman behavior for hṛ/kṛ domains"),
+        54: ("svatantraḥ kartā", "assigns kartṛ to the independent agent"),
+        55: ("tatprayojako hetuś ca", "assigns causative hetu/agent behavior"),
+    }
+    for index in range(23, 56):
+        title, effect = karaka_titles[index]
+        add(
+            f"1.4.{index}",
+            RuleKind.KARAKA,
+            title,
+            effect,
+            ("sanskript.karaka.get_karaka_role", "sanskript.karaka.explain_case", "sanskript.grammar.Role"),
+            _example(title, "kāraka role", effect),
+            ImplementationMode.EXECUTABLE if index in {23, 24, 25, 26, 27, 28, 29, 32, 33, 42, 45, 49, 54, 55} else ImplementationMode.SEMANTIC,
+        )
+
+    gati_titles = {
+        56: ("prāg rājīyāt gati-saṃjñā", "opens the gati technical-name domain"),
+        57: ("cādāyo'sattve", "records particle-like gati behavior outside substantive use"),
+        58: ("prādayaḥ", "marks pra and related prefixes as gati/upasarga material"),
+        59: ("upasargāḥ kriyāyoge", "marks verbal prefixes as upasarga when joined to a verb"),
+        60: ("gatiś ca", "preserves gati behavior as a compiler-visible relation"),
+    }
+    for index in range(56, 61):
+        title, effect = gati_titles[index]
+        kind = RuleKind.UPASARGA if index in {58, 59} else RuleKind.GATI
+        add(
+            f"1.4.{index}",
+            kind,
+            title,
+            effect,
+            ("sanskript.avyaya.upasarga_surfaces", "sanskript.avyaya.iter_avyaya_analyses", "sanskript.grammar.Samjna"),
+            _example(title, "gati/upasarga", effect),
+            ImplementationMode.EXECUTABLE if index in {58, 59, 60} else ImplementationMode.SEMANTIC,
+        )
+
+    for index in range(61, 98):
+        add(
+            f"1.4.{index}",
+            RuleKind.GATI if index < 83 else RuleKind.KARMAPRAVACANIYA,
+            f"gati/karmapravacanīya domain rule {index}",
+            "records a particle, prefix, or governed-object relation that changes grammatical role without pretending to be word order",
+            ("sanskript.avyaya.iter_avyaya_analyses", "sanskript.syntax.profile_sentence", "sanskript.karaka.get_vibhakti"),
+            _example(f"1.4.{index}", "relation particle metadata", "the relation remains visible to syntax and vibhakti selection"),
+            ImplementationMode.SEMANTIC,
+        )
+
+    for index in range(98, 109):
+        add(
+            f"1.4.{index}",
+            RuleKind.KARMAPRAVACANIYA,
+            f"nipāta/karmapravacanīya rule {index}",
+            "records a late Adhyāya 1 particle relation as syntax-visible metadata",
+            ("sanskript.avyaya.iter_avyaya_analyses", "sanskript.syntax.profile_sentence"),
+            _example(f"1.4.{index}", "particle relation", "particle force is represented by analysis metadata"),
+            ImplementationMode.SEMANTIC,
+        )
+
+    for index, title, effect, hook in (
+        (109, "paraḥ sannikarṣaḥ saṃhitā", "recognizes close phonological proximity as saṃhitā", "sanskript.categories.is_samhita"),
+        (110, "virāmo'vasānam", "recognizes cessation of sound as avasāna", "sanskript.categories.is_avasana"),
+    ):
+        add(
+            f"1.4.{index}",
+            RuleKind.SAMHITA,
+            title,
+            effect,
+            (hook,),
+            _example(title, "sound boundary", effect),
+            ImplementationMode.EXECUTABLE,
         )
 
     return rules

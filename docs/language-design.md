@@ -98,7 +98,7 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 ## Metarules
 
-The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. This currently supports batch coverage for `1.2`, `1.3`, and `8.1`; individual sutras still need completion notes and tests before release completeness.
+The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 is now represented sutra by sutra in the implementation registry, while later metarule-heavy ranges such as `8.1` still need individual completion notes and tests before release completeness.
 
 ## Accent And Aṅga
 

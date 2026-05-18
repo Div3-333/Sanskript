@@ -4,6 +4,7 @@ from pathlib import Path
 
 from sanskript.adhyaya1 import (
     ADHYAYA1_RULES,
+    expected_adhyaya1_ids,
     expected_half_adhyaya_ids,
     implementation_note_for,
     implemented_sutra_ids,
@@ -11,7 +12,10 @@ from sanskript.adhyaya1 import (
     rules_for_pada,
 )
 from sanskript.anga import DerivationContext, Suffix, guna
-from sanskript.grammar import Analysis, Case, Gender, GrammaticalNumber, PartOfSpeech
+from sanskript.categories import assign_technical_names, get_vowel_weight, is_avasana, is_samhita
+from sanskript.grammar import Analysis, Case, Gender, GrammaticalNumber, Pada, PartOfSpeech, Role, Samjna
+from sanskript.karaka import explain_case, get_karaka_role
+from sanskript.markers import analyze_it_markers
 from sanskript.phonology import (
     best_substitute,
     hrasva_substitute_for_ec,
@@ -23,18 +27,22 @@ from sanskript.phonology import (
     savarna_class,
 )
 from sanskript.samasa import apply_ekashesha
+from sanskript.voice import determine_available_padas
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class AdhyayaOneRegistryTests(unittest.TestCase):
-    def test_registry_covers_first_half_adhyaya_one(self) -> None:
+    def test_registry_covers_all_of_adhyaya_one(self) -> None:
         self.assertEqual(len(expected_half_adhyaya_ids()), 148)
+        self.assertEqual(len(expected_adhyaya1_ids()), 351)
         self.assertEqual(missing_rule_ids(), ())
         self.assertEqual(len(rules_for_pada("1.1")), 75)
         self.assertEqual(len(rules_for_pada("1.2")), 73)
-        self.assertEqual(implemented_sutra_ids(), frozenset(expected_half_adhyaya_ids()))
+        self.assertEqual(len(rules_for_pada("1.3")), 93)
+        self.assertEqual(len(rules_for_pada("1.4")), 110)
+        self.assertEqual(implemented_sutra_ids(), frozenset(expected_adhyaya1_ids()))
 
     def test_every_rule_has_evidence(self) -> None:
         for sutra_id, rule in ADHYAYA1_RULES.items():
@@ -44,15 +52,15 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
                 self.assertTrue(rule.compiler_effect)
                 self.assertIn("Hooks:", implementation_note_for(sutra_id))
 
-    def test_local_canon_marks_the_half_adhyaya_as_implemented(self) -> None:
+    def test_local_canon_marks_adhyaya_one_as_implemented(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))
         statuses = {
             item["title"]: item["status"]
             for item in canon["obligations"]
-            if item["kind"] == "sutra" and item["title"] in expected_half_adhyaya_ids()
+            if item["kind"] == "sutra" and item["title"] in expected_adhyaya1_ids()
         }
 
-        self.assertEqual(len(statuses), 148)
+        self.assertEqual(len(statuses), 351)
         self.assertEqual(set(statuses.values()), {"implemented"})
 
 
@@ -104,6 +112,27 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertEqual(father_remainder.lemma, "pitṛ")
         self.assertEqual(father_remainder.number, GrammaticalNumber.DUAL)
         self.assertEqual(apply_ekashesha([bull, cow]).gender, Gender.FEMININE)
+
+    def test_it_marker_and_pada_rules_are_executable(self) -> None:
+        self.assertEqual(analyze_it_markers("bhū~").markers, frozenset({"ū"}))
+        self.assertEqual(analyze_it_markers("pac").lemma, "pa")
+        self.assertEqual(analyze_it_markers("tas", kind="vibhakti").markers, frozenset())
+        self.assertEqual(determine_available_padas(frozenset({"ṅ"})), {Pada.ATMANEPADA})
+        self.assertEqual(determine_available_padas(frozenset({"ñ"}), has_reflexive_result=True), {Pada.ATMANEPADA})
+        self.assertEqual(determine_available_padas(frozenset()), {Pada.PARASMAIPADA})
+
+    def test_samjna_and_karaka_rules_are_executable(self) -> None:
+        feminine_i = Analysis("nadī", "nadī", PartOfSpeech.NOUN, gender=Gender.FEMININE)
+        neuter_locative = Analysis("phale", "phala", PartOfSpeech.NOUN, case=Case.LOCATIVE)
+
+        self.assertIn(Samjna.NADII, assign_technical_names(feminine_i).samjnas)
+        self.assertIn(Samjna.ANGA, assign_technical_names(neuter_locative, suffix_surface="am").samjnas)
+        self.assertEqual(get_vowel_weight("artha", 0), Samjna.GURU)
+        self.assertEqual(get_karaka_role("bhī", "cause_of_fear"), Role.APADANA)
+        self.assertEqual(get_karaka_role("ruc", "pleased_one"), Role.SAMPRADANA)
+        self.assertEqual(explain_case(Case.INSTRUMENTAL).role, Role.KARANA)
+        self.assertTrue(is_samhita("bhavati"))
+        self.assertTrue(is_avasana("bhavati", 6))
 
 
 if __name__ == "__main__":

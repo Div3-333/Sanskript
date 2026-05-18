@@ -140,8 +140,6 @@ PARTIAL_TOPIC_TITLES = {
 BATCHED_PADA_PREFIXES = {
     "1.1": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level.",
     "1.2": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level.",
-    "1.3": "pada, voice-domain, anuvṛtti, and verbal-domain infrastructure now exists at batch level.",
-    "1.4": "kāraka, saṃjñā, and nominal role infrastructure now exist at batch level.",
     "2.1": "compound and nominal-relation infrastructure now exists at batch level.",
     "2.2": "compound and nominal-relation infrastructure now exists at batch level.",
     "2.3": "vibhakti/kāraka infrastructure now exists at batch level.",
@@ -500,7 +498,7 @@ def render_markdown(canon: dict[str, Any]) -> str:
             "",
             "The current interpreter implements a controlled executable slice and a complete first-half Adhyāya 1 rule workpack:",
             "",
-            "- all sutras from `1.1.1` through `1.2.73` as typed rule records with implementation hooks and tests;",
+            "- all sutras from `1.1.1` through `1.4.110` as typed rule records with implementation hooks and tests;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",

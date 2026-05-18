@@ -57,7 +57,8 @@ Initial support now lives in `src/sanskript/subanta.py` and `src/sanskript/karak
 
 Batch status:
 
-- `1.4`, `2.1`, `2.2`, `2.3`, and `2.4` are now marked `batch_partial`.
+- `1.4` is implemented as part of the full Adhyāya 1 registry.
+- `2.1`, `2.2`, `2.3`, and `2.4` are now marked `batch_partial`.
 - Current support includes sup technical endings, generated a-stem masculine/neuter forms, generated ā-stem feminine forms, first/second/third person pronoun forms, and case-to-kāraka explanations.
 
 ## Phase 3: Tiṅanta
@@ -110,9 +111,10 @@ Initial compound support now lives in `src/sanskript/samasa.py`. Initial sentenc
 
 Batch status:
 
-- `1.2`, `1.3`, and `8.1` are now marked `batch_partial`.
+- `1.2` and `1.3` are implemented as part of the full Adhyāya 1 registry.
+- `8.1` is now marked `batch_partial`.
 - Current support includes a controlled avyaya registry, standard upasarga registry, sentence classification, subject-verb agreement checks, and metarule records for optionality, technical markers, domain carry, and late sentence-edge operations.
-- This is not a full sutra-by-sutra implementation yet; it is the batch scaffold needed before individual completion work.
+- Non-Adhyāya 1 ranges here are still scaffolds that need individual completion work.
 
 ## Phase 6: Full Aṣṭādhyāyī Sweep
 
