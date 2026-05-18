@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from sanskript.adhyaya1 import implementation_note_for as adhyaya1_implementation_note_for
 from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
+from sanskript.adhyaya23 import implementation_note_for as adhyaya23_implementation_note_for
+from sanskript.adhyaya23 import implemented_sutra_ids as adhyaya23_implemented_sutra_ids
 from sanskript.canon_topics import treatment_for
 
 SOURCES_DIR = ROOT / "sources"
@@ -140,14 +142,6 @@ PARTIAL_TOPIC_TITLES = {
 BATCHED_PADA_PREFIXES = {
     "1.1": "sound definitions and technical terms are now handled by the phonology/pratyāhāra subsystem at batch level.",
     "1.2": "metarule, it-marker, optionality, and substitution-control infrastructure now exists at batch level.",
-    "2.1": "compound and nominal-relation infrastructure now exists at batch level.",
-    "2.2": "compound and nominal-relation infrastructure now exists at batch level.",
-    "2.3": "vibhakti/kāraka infrastructure now exists at batch level.",
-    "2.4": "subanta and inflectional infrastructure now exists at batch level.",
-    "3.1": "tiṅanta, dhātu, lakāra, and pratyaya infrastructure now exists at batch level.",
-    "3.2": "verbal/participial derivation infrastructure now exists at batch level.",
-    "3.3": "verbal suffix infrastructure now exists at batch level.",
-    "3.4": "tiṅ, lakāra, and voice/person-number infrastructure now exists at batch level.",
     "4.1": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
     "4.2": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
     "4.3": "kṛt/taddhita and derivational registry infrastructure now exists at batch level.",
@@ -211,6 +205,12 @@ IMPLEMENTED_SUTRA_IDS = {
     sutra_id: adhyaya1_implementation_note_for(sutra_id)
     for sutra_id in sorted(adhyaya1_implemented_sutra_ids())
 }
+IMPLEMENTED_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya23_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya23_implemented_sutra_ids())
+    }
+)
 
 
 DEVANAGARI_DIGITS = {0x966 + i: ord(str(i)) for i in range(10)}
@@ -496,9 +496,9 @@ def render_markdown(canon: dict[str, Any]) -> str:
         [
             "## Current Implemented Slice",
             "",
-            "The current interpreter implements a controlled executable slice and a complete first-half Adhyāya 1 rule workpack:",
+            "The current interpreter implements a controlled executable slice and complete Adhyāya 1-3 rule workpacks:",
             "",
-            "- all sutras from `1.1.1` through `1.4.110` as typed rule records with implementation hooks and tests;",
+            "- all sutras from `1.1.1` through `3.4.117` as typed rule records with implementation hooks and tests;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",

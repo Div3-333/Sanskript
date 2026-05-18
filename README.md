@@ -61,7 +61,7 @@ The canon implementation roadmap lives at [docs/implementation-plan.md](docs/imp
 The visual beginner guide lives at [docs/guide/index.html](docs/guide/index.html).
 The granular reference guide lives at [docs/guide/reference.html](docs/guide/reference.html).
 
-Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a sutra-by-sutra implementation registry for all of Adhyāya 1: `1.1.1` through `1.4.110`. The canon ledger distinguishes `implemented`, `partial`, and `batch_partial` so broad subsystem progress does not masquerade as complete sutra-by-sutra implementation.
+Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a sutra-by-sutra implementation registry for Adhyāya 1 through 3: `1.1.1` through `3.4.117`. The canon ledger distinguishes `implemented`, `partial`, and `batch_partial` so broad subsystem progress does not masquerade as complete sutra-by-sutra implementation.
 
 ## Development Checks
 

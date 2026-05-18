@@ -4,6 +4,7 @@ from collections import Counter
 from pathlib import Path
 
 from sanskript.adhyaya1 import expected_adhyaya1_ids
+from sanskript.adhyaya23 import expected_adhyaya23_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,12 +93,15 @@ class GrammarCanonTests(unittest.TestCase):
             if item["kind"] == "sutra"
         }
         adhyaya_one = set(expected_adhyaya1_ids())
+        adhyaya_two_three = set(expected_adhyaya23_ids())
+        implemented = {title for title, status in obligations.items() if status == "implemented"}
 
         self.assertEqual(
-            {title for title, status in obligations.items() if title in adhyaya_one and status == "implemented"},
+            implemented & adhyaya_one,
             adhyaya_one,
         )
-        self.assertEqual(len({title for title, status in obligations.items() if status == "implemented"}), 351)
+        self.assertEqual(implemented & adhyaya_two_three, adhyaya_two_three)
+        self.assertEqual(len(implemented), 1249)
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
         batch_partial = [
@@ -109,7 +113,6 @@ class GrammarCanonTests(unittest.TestCase):
 
         self.assertGreaterEqual(len(batch_partial), 800)
         self.assertTrue({"6.1", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
-        self.assertTrue({"2.1", "2.2", "2.3", "2.4", "3.1", "3.2", "3.3", "3.4"}.issubset(padas))
         self.assertTrue({"6.2", "6.3", "6.4", "7.1", "7.2", "7.3", "7.4"}.issubset(padas))
 
     def test_no_sutra_identifier_is_left_pending_after_batch_scaffolds(self) -> None:

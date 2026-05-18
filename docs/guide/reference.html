@@ -155,7 +155,7 @@
     <main>
       <nav aria-label="Reference sections">
         <a href="#run">Run</a>
-        <a href="#adhyaya-one">Adhyāya 1</a>
+        <a href="#canon-workpacks">Canon Workpacks</a>
         <a href="#programs">Programs</a>
         <a href="#sentences">Sentences</a>
         <a href="#cases">Cases</a>
@@ -179,9 +179,9 @@
           <p>Source files use UTF-8 text and the extension <code>.ssk</code>.</p>
         </section>
 
-        <section id="adhyaya-one">
-          <h2>Adhyāya 1 Workpack</h2>
-          <p>The first large implemented grammar workpack is all of Adhyāya 1: <code>1.1.1</code> through <code>1.4.110</code>. Each sutra is represented as a code-level rule object with an implementation hook, a compiler effect, and a testable example.</p>
+        <section id="canon-workpacks">
+          <h2>Canon Workpacks</h2>
+          <p>The first large implemented grammar workpacks now cover Adhyāya 1 through 3: <code>1.1.1</code> through <code>3.4.117</code>. Each sutra is represented as a code-level rule object with an implementation hook, a compiler effect, and a testable example.</p>
           <table>
             <tr><th>Range</th><th>Compiler surface</th><th>Use while coding</th></tr>
             <tr><td><code>1.1.1-3</code></td><td>vṛddhi, guṇa, ik replacement</td><td>Use strengthening only where the sound class allows it.</td></tr>
@@ -198,12 +198,17 @@
             <tr><td><code>1.4.1-22</code></td><td>saṃjñā and word status</td><td>Technical names such as nadī, ghi, aṅga, pada, bha, laghu, and guru are explicit.</td></tr>
             <tr><td><code>1.4.23-55</code></td><td>kāraka</td><td>Case meaning flows through apādāna, sampradāna, karaṇa, adhikaraṇa, karman, and kartṛ roles.</td></tr>
             <tr><td><code>1.4.56-110</code></td><td>gati, upasarga, particles, saṃhitā</td><td>Prefix and particle force remains syntax-visible instead of becoming string decoration.</td></tr>
+            <tr><td><code>2.1-2.2</code></td><td>samāsa</td><td>Avyayībhāva, tatpuruṣa, karmadhāraya, bahuvrīhi, dvigu, and dvandva have typed compound semantics.</td></tr>
+            <tr><td><code>2.3-2.4</code></td><td>vibhakti, subanta, lopa</td><td>Case choice, post-compound gender/number, root substitution, and suffix deletion remain explicit.</td></tr>
+            <tr><td><code>3.1</code></td><td>dhātu derivation and vikaraṇa</td><td>Sanādi roots, causatives, intensives, denominatives, and present-stem markers are modeled.</td></tr>
+            <tr><td><code>3.2-3.3</code></td><td>kṛt and lakāra</td><td>Nominal derivation and tense/mood selection are connected to root semantics.</td></tr>
+            <tr><td><code>3.4</code></td><td>tiṅ and suffix classes</td><td>Person-number endings, parasmaipada/ātmanepada behavior, sārvadhātuka, and ārdhadhātuka classes are tracked.</td></tr>
           </table>
           <pre>from sanskript.adhyaya1 import rule_for
 rule_for("1.1.71").compiler_effect
 # forms a sound class from start sound plus final it-marker</pre>
           <div class="callout">
-            <p>Executable sutras expose direct helpers such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, and <code>apply_ekashesha</code>. Formal semantic sutras are still implemented as typed rule records so the canon can track Paninian force before every downstream compiler use exists.</p>
+            <p>Executable sutras expose direct helpers such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, <code>create_compound</code>, <code>derive</code>, <code>get_lakara_for_time</code>, and <code>tin_ending</code>. Formal semantic sutras are still implemented as typed rule records so the canon can track Paninian force before every downstream compiler use exists.</p>
           </div>
         </section>
 

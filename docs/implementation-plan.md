@@ -28,16 +28,14 @@ Initial support now lives in `src/sanskript/phonology.py`.
 
 Batch status:
 
-- `1.1`, `6.1`, `6.2`, `6.3`, `6.4`, `7.1`, `7.2`, `7.3`, `7.4`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
+- `1.1` is implemented as part of the full Adhyāya 1 registry.
+- `6.1`, `6.2`, `6.3`, `6.4`, `7.1`, `7.2`, `7.3`, `7.4`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
 - This means their sound/sandhi subsystem exists, but individual sutras are still not considered complete.
 - Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, first-pass vowel/visarga sandhi, accent profiles, and aṅga-operation scaffolds.
 
 Implemented slice:
 
-- `1.1.1` is implemented as the exact vṛddhi set: `ā`, `ai`, `au`.
-- `1.1.2` is implemented as the exact guṇa set: `a`, `e`, `o`.
-- `1.1.3` is implemented as guṇa/vṛddhi replacement maps restricted to ik sounds.
-- Later sutras in `1.1` remain partial or batch-partial until they receive sutra-specific behavior, accepted examples, rejected examples, and canon tests.
+- Adhyāya 1 through 3 are implemented as sutra-by-sutra registries with executable hooks where the current compiler can apply them.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -58,10 +56,12 @@ Initial support now lives in `src/sanskript/subanta.py` and `src/sanskript/karak
 Batch status:
 
 - `1.4` is implemented as part of the full Adhyāya 1 registry.
-- `2.1`, `2.2`, `2.3`, and `2.4` are now marked `batch_partial`.
+- `2.1`, `2.2`, `2.3`, and `2.4` are implemented as part of the Adhyāya 2/3 registry.
 - Current support includes sup technical endings, generated a-stem masculine/neuter forms, generated ā-stem feminine forms, first/second/third person pronoun forms, and case-to-kāraka explanations.
 
 ## Phase 3: Tiṅanta
+
+Status: in progress.
 
 Targets:
 
@@ -71,6 +71,11 @@ Targets:
 - Parasmaipada and ātmanepada.
 - Vikaraṇa and guṇa.
 - Prayoga: kartari, karmaṇi, bhāve.
+
+Batch status:
+
+- `3.1`, `3.2`, `3.3`, and `3.4` are implemented as part of the Adhyāya 2/3 registry.
+- Current support includes dhātu records, sanādi derived roots, vikaraṇa selection, lakāra time/mood mapping, tiṅ endings, and controlled kṛt derivation.
 
 ## Phase 4: Derivation
 
@@ -114,7 +119,7 @@ Batch status:
 - `1.2` and `1.3` are implemented as part of the full Adhyāya 1 registry.
 - `8.1` is now marked `batch_partial`.
 - Current support includes a controlled avyaya registry, standard upasarga registry, sentence classification, subject-verb agreement checks, and metarule records for optionality, technical markers, domain carry, and late sentence-edge operations.
-- Non-Adhyāya 1 ranges here are still scaffolds that need individual completion work.
+- Later non-Adhyāya 1-3 ranges here are still scaffolds that need individual completion work.
 
 ## Phase 6: Full Aṣṭādhyāyī Sweep
 

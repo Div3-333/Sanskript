@@ -98,7 +98,17 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 ## Metarules
 
-The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 is now represented sutra by sutra in the implementation registry, while later metarule-heavy ranges such as `8.1` still need individual completion notes and tests before release completeness.
+The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 through 3 are now represented sutra by sutra in implementation registries, while later metarule-heavy ranges such as `8.1` still need individual completion notes and tests before release completeness.
+
+## Future Safety Tiers
+
+The planned memory model can use Sanskrit grammar as the safety surface rather than a borrowed systems-language syntax. A possible split:
+
+- `surakṣita` Sanskript: high-level, fully checked ownership, lifetimes, effects, and memory regions.
+- `rakṣita` Sanskript: explicit manual control like Rust/C, with checked declarations for ownership transfer, borrowing, mutation, and release.
+- `arakṣita` Sanskript: raw machine-facing operations for pointers, address arithmetic, layout, and unchecked calls.
+
+The grammar gives useful handles: genitive for ownership, dative for transfer/recipient, instrumental for pointer-like tools, locative for memory regions, ablative for release/source, and moods/prohibitions for unsafe permission boundaries.
 
 ## Accent And Aṅga
 
