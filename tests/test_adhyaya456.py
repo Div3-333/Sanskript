@@ -26,20 +26,22 @@ class AdhyayaFourFiveSixRegistryTests(unittest.TestCase):
     def test_registry_covers_adhyaya_four_five_and_six(self) -> None:
         self.assertEqual(len(expected_adhyaya456_ids()), 1925)
         self.assertEqual(missing_rule_ids(), ())
-        self.assertEqual(implemented_sutra_ids(), frozenset())
-        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya456_ids()))
+        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya456_ids()) - implemented_sutra_ids())
         self.assertEqual(implemented_sutra_ids() | partial_sutra_ids(), frozenset(expected_adhyaya456_ids()))
         for pada, count in PADA_COUNTS.items():
             self.assertEqual(len(rules_for_pada(pada)), count)
 
-    def test_rules_remain_partial_until_real_handlers_exist(self) -> None:
+    def test_only_rules_with_real_handlers_are_implemented(self) -> None:
         for sutra_id, rule in ADHYAYA456_RULES.items():
             with self.subTest(sutra_id=sutra_id):
-                self.assertFalse(rule.implemented)
-                self.assertNotEqual(rule.mode, ImplementationMode.DISCRETE)
                 self.assertTrue(rule.title)
                 self.assertTrue(rule.compiler_effect)
                 self.assertTrue(rule.examples)
+                if rule.implemented:
+                    self.assertEqual(rule.mode, ImplementationMode.DISCRETE)
+                    self.assertTrue(rule.atomic)
+                else:
+                    self.assertNotEqual(rule.mode, ImplementationMode.DISCRETE)
 
     def test_local_canon_marks_adhyaya_four_five_and_six_as_partial(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))

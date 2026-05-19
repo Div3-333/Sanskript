@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
-from .sutra_logic import has_discrete_sutra_logic
+from .sutra_logic import atomic_evidence_for, has_discrete_sutra_logic
 
 class RuleKind(str, Enum):
     TADDHITA = "taddhita"
@@ -209,6 +209,18 @@ def _build_rules() -> dict[str, SutraRule]:
         conditions: tuple[str, ...] = ()
         exceptions: tuple[str, ...] = ()
         counterexamples: tuple[RuleExample, ...] = ()
+        if has_discrete_sutra_logic(sutra_id):
+            evidence = atomic_evidence_for(sutra_id)
+            mode = ImplementationMode.DISCRETE
+            sutra_text_devanagari = str(evidence["sutra_text_devanagari"])
+            sutra_text_iast = str(evidence["sutra_text_iast"])
+            source = str(evidence["source"])
+            anuvritti = tuple(evidence["anuvritti"])
+            conditions = tuple(evidence["conditions"])
+            exceptions = tuple(evidence["exceptions"])
+            counterexamples = (
+                RuleExample(sutra_id, str(evidence["negative_example"]), "rejected by the sutra-specific predicate"),
+            )
         rules[sutra_id] = SutraRule(
             id=sutra_id,
             pada=pada,

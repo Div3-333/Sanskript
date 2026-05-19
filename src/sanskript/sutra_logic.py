@@ -8,7 +8,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-from .anga import DerivationContext, Suffix, guna, vrddhi
+from .anga import DerivationContext, Suffix, guna, operations_for_range, vrddhi
 from .avyaya import is_avyaya_suffix, is_controlled_avyaya, upasarga_surfaces
 from .categories import (
     assign_technical_names,
@@ -25,8 +25,10 @@ from .categories import (
     is_sarvanamasthana_suffix,
     is_shat_numeral,
 )
-from .grammar import Analysis, Case, Gender, GrammaticalNumber, Pada, PartOfSpeech, Role, Samjna
-from .karaka import get_karaka_role
+from .accent import Accent, profile_accent
+from .derivation import KrtSuffix, TaddhitaSuffix, derive
+from .grammar import Analysis, Case, Gender, GrammaticalNumber, Lakara, Pada, PartOfSpeech, Person, Role, Samjna
+from .karaka import get_karaka_role, get_vibhakti
 from .markers import analyze_it_markers
 from .metarules import (
     augment_boundary,
@@ -59,7 +61,24 @@ from .phonology import (
     tapara_matches_duration,
     vrddhi_replacement_for_ik,
 )
-from .samasa import SamasaType, create_compound
+from .samasa import SamasaSense, SamasaType, create_compound, is_samartha
+from .sandhi import join_words
+from .subanta import decline_aa_feminine
+from .tinanta import (
+    Dhatu,
+    DhatuType,
+    TimeContext,
+    TinEnding,
+    apply_luk_elision,
+    create_derived_dhatu,
+    get_lakara_for_time,
+    get_substituted_dhatu,
+    get_vikarana,
+    is_ardhadhatuka,
+    is_sarvadhatuka,
+    join_stem_ending,
+    tin_ending,
+)
 from .transliteration import devanagari_to_iast
 from .voice import determine_available_padas
 
@@ -261,6 +280,31 @@ def _compound_members(kind: str) -> list[Analysis]:
     ]
 
 
+def _compound_from_case(case: Case) -> list[Analysis]:
+    return [
+        _analysis("deva", "deva", PartOfSpeech.NOUN, case=case, gender=Gender.MASCULINE),
+        _analysis("purusah", "purusa", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.MASCULINE),
+    ]
+
+
+def _numeral_compound() -> list[Analysis]:
+    return [
+        Analysis("panca", "pancan", PartOfSpeech.NUMERAL, case=Case.ACCUSATIVE, value=5),
+        _analysis("phalani", "phala", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.NEUTER),
+    ]
+
+
+def _dvandva_members() -> list[Analysis]:
+    return [
+        _analysis("ramah", "rama", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.MASCULINE),
+        _analysis("sita", "sita", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.FEMININE),
+    ]
+
+
+def _basic_dhatu(lemma: str = "bhū", stem: str = "bhava", pada: Pada = Pada.PARASMAIPADA) -> Dhatu:
+    return Dhatu(lemma, stem, pada, "test root")
+
+
 def _add(
     registry: dict[str, DiscreteSutraLogic],
     sutra_id: str,
@@ -418,6 +462,127 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
         _ctx("1.3.78", markers=frozenset({"ṅ"}), lemma="", prefixes=(), reflexive=False),
         "pada:parasmaipada",
     )
+
+    _add(registry, "2.1.1", SutraOperator.PARIBHASHA, "requires samartha relation for pada-vidhi", lambda c: is_samartha(list(c.get("members", ()))), _ctx("2.1.1", members=tuple(_compound_members("tatpurusha"))), _ctx("2.1.1", members=()), "domain:samartha")
+    _add(registry, "2.1.4", SutraOperator.VIDHI, "compounds co-present sup-marked members", lambda c: create_compound(list(c.get("members", ()))).type != SamasaType.KEVALA, _ctx("2.1.4", members=tuple(_compound_from_case(Case.GENITIVE))), _ctx("2.1.4", members=()), "domain:samasa")
+    _add(registry, "2.1.5", SutraOperator.SAMJNA, "classifies indeclinable-first compounds as avyayibhava", lambda c: create_compound(list(c.get("members", ()))).type == SamasaType.AVYAYIBHAVA, _ctx("2.1.5", members=tuple(_compound_members("avyayibhava"))), _ctx("2.1.5", members=tuple(_compound_members("tatpurusha"))), "samasa:avyayibhava")
+    _add(registry, "2.1.6", SutraOperator.VIDHI, "assigns samipa-style sense to upa avyayibhava", lambda c: create_compound(list(c.get("members", ()))).sense == SamasaSense.SAMIPA, _ctx("2.1.6", members=tuple(_compound_members("avyayibhava"))), _ctx("2.1.6", members=tuple(_compound_members("tatpurusha"))), "sense:samipa")
+    _add(registry, "2.1.22", SutraOperator.SAMJNA, "classifies case-governed compounds as tatpurusha", lambda c: create_compound(list(c.get("members", ()))).type == SamasaType.TATPURUSHA, _ctx("2.1.22", members=tuple(_compound_from_case(Case.GENITIVE))), _ctx("2.1.22", members=tuple(_compound_members("avyayibhava"))), "samasa:tatpurusha")
+    for sutra_id, case, sense in (
+        ("2.1.24", Case.ACCUSATIVE, SamasaSense.DVIT_TAT),
+        ("2.1.30", Case.INSTRUMENTAL, SamasaSense.TRT_TAT),
+        ("2.1.36", Case.LOCATIVE, SamasaSense.SAP_TAT),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"assigns {sense.value} tatpurusha sense", lambda c, expected=sense: create_compound(list(c.get("members", ()))).sense == expected, _ctx(sutra_id, members=tuple(_compound_from_case(case))), _ctx(sutra_id, members=tuple(_compound_from_case(Case.GENITIVE))), f"sense:{sense.value}")
+    _add(registry, "2.1.57", SutraOperator.VIBHASHA, "classifies same-case qualifier compounds as karmadharaya", lambda c: create_compound(list(c.get("members", ()))).type == SamasaType.KARMADHARAYA, _ctx("2.1.57", members=(_analysis("sita", "sita", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.FEMININE), _analysis("lata", "lata", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.FEMININE))), _ctx("2.1.57", members=tuple(_compound_from_case(Case.GENITIVE))), "samasa:karmadharaya")
+    _add(registry, "2.2.29", SutraOperator.SAMJNA, "classifies same-case coordinate compounds as dvandva", lambda c: create_compound(list(c.get("members", ()))).type == SamasaType.DVANDVA, _ctx("2.2.29", members=tuple(_dvandva_members())), _ctx("2.2.29", members=tuple(_compound_from_case(Case.GENITIVE))), "samasa:dvandva")
+    _add(registry, "2.2.30", SutraOperator.PARIBHASHA, "keeps the first member before the final member in compound surface", lambda c: create_compound(list(c.get("members", ()))).surface.startswith(str(c.get("first_lemma"))), _ctx("2.2.30", members=tuple(_compound_from_case(Case.GENITIVE)), first_lemma="deva"), _ctx("2.2.30", members=tuple(_compound_from_case(Case.GENITIVE)), first_lemma="purusa"), "meta:upasarjana-order")
+    _add(registry, "2.3.1", SutraOperator.VIDHI, "uses nominative when a role is already expressed", lambda c: get_vibhakti(is_already_expressed=bool(c.get("expressed"))) == c.get("case"), _ctx("2.3.1", expressed=True, case=Case.NOMINATIVE), _ctx("2.3.1", expressed=False, case=Case.NOMINATIVE), "vibhakti:nominative")
+    for sutra_id, role, case in (
+        ("2.3.2", Role.KARMAN, Case.ACCUSATIVE),
+        ("2.3.13", Role.KARTR, Case.INSTRUMENTAL),
+        ("2.3.14", Role.KARANA, Case.INSTRUMENTAL),
+        ("2.3.28", Role.APADANA, Case.ABLATIVE),
+        ("2.3.36", Role.SAMPRADANA, Case.DATIVE),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"selects {case.value} for {role.value}", lambda c, expected=case: get_vibhakti(c.get("role")) == expected, _ctx(sutra_id, role=role), _ctx(sutra_id, role=None), f"vibhakti:{case.value}")
+    for sutra_id, companion, case in (
+        ("2.3.5", "antarā", Case.ACCUSATIVE),
+        ("2.3.16", "namas", Case.DATIVE),
+        ("2.3.19", "saha", Case.INSTRUMENTAL),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"selects {case.value} with upapada {companion}", lambda c, expected=case: get_vibhakti(companion_lemma=str(c.get("companion"))) == expected, _ctx(sutra_id, companion=companion), _ctx(sutra_id, companion="anya"), f"vibhakti:{case.value}")
+    for sutra_id, semantic, case in (
+        ("2.3.20", "defective_limb", Case.INSTRUMENTAL),
+        ("2.3.23", "cause", Case.INSTRUMENTAL),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"selects {case.value} in semantic context {semantic}", lambda c, expected=case: get_vibhakti(semantic_context=str(c.get("semantic"))) == expected, _ctx(sutra_id, semantic=semantic), _ctx(sutra_id, semantic="other"), f"vibhakti:{case.value}")
+    _add(registry, "2.3.50", SutraOperator.VIDHI, "falls back to genitive for residual relation", lambda c: get_vibhakti(role=c.get("role")) == Case.GENITIVE, _ctx("2.3.50", role=None), _ctx("2.3.50", role=Role.KARMAN), "vibhakti:genitive")
+    _add(registry, "2.4.1", SutraOperator.VIDHI, "marks dvigu compounds singular", lambda c: create_compound(list(c.get("members", ()))).result_analysis.number == GrammaticalNumber.SINGULAR, _ctx("2.4.1", members=tuple(_numeral_compound())), _ctx("2.4.1", members=tuple(_dvandva_members())), "number:singular")
+    _add(registry, "2.4.17", SutraOperator.VIDHI, "marks avyayibhava result as avyaya", lambda c: Samjna.AVYAYA in create_compound(list(c.get("members", ()))).result_analysis.samjnas, _ctx("2.4.17", members=tuple(_compound_members("avyayibhava"))), _ctx("2.4.17", members=tuple(_compound_from_case(Case.GENITIVE))), "samjna:avyaya")
+    _add(registry, "2.4.18", SutraOperator.VIDHI, "marks avyayibhava result neuter singular", lambda c: (lambda a: a.gender == Gender.NEUTER and a.number == GrammaticalNumber.SINGULAR)(create_compound(list(c.get("members", ()))).result_analysis), _ctx("2.4.18", members=tuple(_compound_members("avyayibhava"))), _ctx("2.4.18", members=tuple(_dvandva_members())), "gender:neuter", "number:singular")
+    _add(registry, "2.4.26", SutraOperator.PARIBHASHA, "uses the final member for dvandva/tatpurusha gender", lambda c: create_compound(list(c.get("members", ()))).result_analysis.gender == c.get("gender"), _ctx("2.4.26", members=tuple(_compound_from_case(Case.GENITIVE)), gender=Gender.MASCULINE), _ctx("2.4.26", members=tuple(_compound_from_case(Case.GENITIVE)), gender=Gender.FEMININE), "meta:final-gender")
+    for sutra_id, lemma, lakara, output in (
+        ("2.4.36", "ad", Lakara.LRT, "jagdh"),
+        ("2.4.37", "han", Lakara.ASHIRLING, "vadh"),
+        ("2.4.42", "han", Lakara.LUN, "vadh"),
+        ("2.4.45", "i", Lakara.LUN, "gā"),
+        ("2.4.47", "cakṣ", Lakara.LAT, "khyā"),
+        ("2.4.48", "i", Lakara.ASHIRLING, "gā"),
+        ("2.4.52", "as", Lakara.LRT, "bhū"),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"substitutes root {output} for {lemma}", lambda c, source=lemma, expected=output: str(c.get("lemma")) == source and get_substituted_dhatu(_basic_dhatu(str(c.get("lemma")), str(c.get("lemma"))), c.get("lakara")).lemma == expected, _ctx(sutra_id, lemma=lemma, lakara=lakara), _ctx(sutra_id, lemma="bhū", lakara=lakara), f"dhatu:{output}")
+    _add(registry, "2.4.71", SutraOperator.VIDHI, "elides internal sup endings inside compounds", lambda c: create_compound(list(c.get("members", ()))).surface == c.get("surface"), _ctx("2.4.71", members=tuple(_compound_from_case(Case.GENITIVE)), surface="devapurusah"), _ctx("2.4.71", members=tuple(_compound_from_case(Case.GENITIVE)), surface="devasya purusah"), "operation:sup-lopa")
+    _add(registry, "2.4.72", SutraOperator.VIDHI, "applies luk elision for controlled adadi roots", lambda c: apply_luk_elision(_basic_dhatu(str(c.get("lemma")), str(c.get("lemma"))), TinEnding(Lakara.LAT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ti")), _ctx("2.4.72", lemma="ad"), _ctx("2.4.72", lemma="bhū"), "operation:luk")
+
+    for sutra_id, dhatu_type, expected in (
+        ("3.1.5", DhatuType.DESIDERATIVE, "san"),
+        ("3.1.8", DhatuType.DENOMINATIVE, "kyac"),
+        ("3.1.22", DhatuType.INTENSIVE, "yaṅ"),
+        ("3.1.25", DhatuType.CAUSATIVE, "ṇic"),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"creates {expected} derived dhatu", lambda c, label=expected, kind=dhatu_type: c.get("kind") == label and create_derived_dhatu(_basic_dhatu(), kind).type == kind, _ctx(sutra_id, kind=expected), _ctx(sutra_id, kind="basic"), f"dhatu-type:{expected}")
+    for sutra_id, varga, vik in (
+        ("3.1.68", 1, "a"), ("3.1.69", 4, "ya"), ("3.1.73", 5, "nu"), ("3.1.77", 6, "a"),
+        ("3.1.78", 7, "na"), ("3.1.79", 8, "u"), ("3.1.81", 9, "nā"),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"selects vikarana {vik} for class {varga}", lambda c, source=varga, expected=vik: int(c.get("varga")) == source and get_vikarana(int(c.get("varga"))) == expected, _ctx(sutra_id, varga=varga), _ctx(sutra_id, varga=0), f"vikarana:{vik}")
+    for sutra_id, source, suffix, surface in (
+        ("3.1.91", "bhū", KrtSuffix.KTVA, "bhūtvā"),
+        ("3.1.93", "bhū", KrtSuffix.TUMUN, "bhavitum"),
+        ("3.2.1", "kṛ", KrtSuffix.AN, "kāra"),
+        ("3.2.3", "dā", KrtSuffix.KA, "da"),
+        ("3.2.16", "car", KrtSuffix.TA, "cara"),
+        ("3.2.102", "dṛś", KrtSuffix.KTA, "dṛṣṭa"),
+        ("3.2.135", "kṛ", KrtSuffix.NVUL, "kāraka"),
+        ("3.3.18", "bhū", KrtSuffix.GHAN, "bhāva"),
+        ("3.3.94", "kṛ", KrtSuffix.KTIN, "kṛti"),
+        ("3.3.115", "bhū", KrtSuffix.LYUT, "bhavana"),
+        ("3.3.121", "ram", KrtSuffix.GHA, "rama"),
+        ("3.4.69", "pac", KrtSuffix.SATR, "pacat"),
+        ("3.4.71", "bhū", KrtSuffix.KVASU, "babhūvas"),
+        ("3.4.72", "pac", KrtSuffix.KANAC, "pecāna"),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"derives {surface} with {suffix.value}", lambda c, expected=surface: derive(str(c.get("source")), c.get("suffix")).surface == expected, _ctx(sutra_id, source=source, suffix=suffix), _ctx(sutra_id, source="bhū", suffix=KrtSuffix.KA), f"derived:{surface}")
+    for sutra_id, time, lakara in (
+        ("3.2.110", TimeContext.PAST, Lakara.LUN),
+        ("3.2.111", TimeContext.PAST_BEFORE_TODAY, Lakara.LAN),
+        ("3.3.15", TimeContext.FUTURE, Lakara.LRT),
+        ("3.3.33", TimeContext.FUTURE_AFTER_TODAY, Lakara.LUT),
+        ("3.3.139", TimeContext.CONDITIONAL, Lakara.LRN),
+        ("3.3.161", TimeContext.POTENTIAL, Lakara.VIDHILING),
+        ("3.3.162", TimeContext.IMPERATIVE, Lakara.LOT),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"selects lakara {lakara.value} for {time.value}", lambda c, source=time, expected=lakara: c.get("time") == source and get_lakara_for_time(c.get("time")) == expected, _ctx(sutra_id, time=time), _ctx(sutra_id, time=TimeContext.PRESENT), f"lakara:{lakara.value}")
+    _add(registry, "3.2.123", SutraOperator.VIDHI, "selects lat for present time", lambda c: c.get("time") == TimeContext.PRESENT and get_lakara_for_time(c.get("time")) == Lakara.LAT, _ctx("3.2.123", time=TimeContext.PRESENT), _ctx("3.2.123", time=TimeContext.PAST), "lakara:lat")
+    _add(registry, "3.4.79", SutraOperator.VIDHI, "changes atmanepada ta to te in selected lakaras", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LAT, Pada.ATMANEPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ta")) == c.get("surface"), _ctx("3.4.79", stem="labha", surface="labhate"), _ctx("3.4.79", stem="labha", surface="labhata"), "ending:te")
+    _add(registry, "3.4.80", SutraOperator.VIDHI, "changes thas to se in atmanepada", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LAT, Pada.ATMANEPADA, Person.SECOND, GrammaticalNumber.SINGULAR, "thās")) == c.get("surface"), _ctx("3.4.80", stem="labha", surface="labhase"), _ctx("3.4.80", stem="labha", surface="labhathās"), "ending:se")
+    _add(registry, "3.4.86", SutraOperator.VIDHI, "changes lot ti to tu", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LOT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ti")) == c.get("surface"), _ctx("3.4.86", stem="bhava", surface="bhavatu"), _ctx("3.4.86", stem="bhava", surface="bhavati"), "ending:tu")
+    _add(registry, "3.4.87", SutraOperator.VIDHI, "changes lot si to hi unless later elided", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LOT, Pada.PARASMAIPADA, Person.SECOND, GrammaticalNumber.SINGULAR, "si")) == c.get("surface"), _ctx("3.4.87", stem="bhū", surface="bhūhi"), _ctx("3.4.87", stem="bhū", surface="bhūsi"), "ending:hi")
+    _add(registry, "3.4.88", SutraOperator.VIDHI, "elides hi after an a-final stem", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LOT, Pada.PARASMAIPADA, Person.SECOND, GrammaticalNumber.SINGULAR, "si")) == c.get("surface"), _ctx("3.4.88", stem="bhava", surface="bhava"), _ctx("3.4.88", stem="bhava", surface="bhavahi"), "operation:hi-lopa")
+    _add(registry, "3.4.92", SutraOperator.VIDHI, "adds a augment for first-person lot", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LOT, Pada.PARASMAIPADA, Person.FIRST, GrammaticalNumber.SINGULAR, "mi")) == c.get("surface"), _ctx("3.4.92", stem="bhava", surface="bhavāni"), _ctx("3.4.92", stem="bhava", surface="bhavami"), "augment:ā")
+    _add(registry, "3.4.100", SutraOperator.VIDHI, "elides final i in nit lakara endings", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.VIDHILING, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ti")) == c.get("surface"), _ctx("3.4.100", stem="bhava", surface="bhavet"), _ctx("3.4.100", stem="bhava", surface="bhaveti"), "operation:i-lopa")
+    _add(registry, "3.4.101", SutraOperator.VIDHI, "substitutes tam for thas in lot/nit endings", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.LOT, Pada.PARASMAIPADA, Person.SECOND, GrammaticalNumber.DUAL, "thaḥ")) == c.get("surface"), _ctx("3.4.101", stem="bhava", surface="bhavatam"), _ctx("3.4.101", stem="bhava", surface="bhavathaḥ"), "ending:tam")
+    _add(registry, "3.4.108", SutraOperator.VIDHI, "substitutes jus for jhi/nti in vidhiling", lambda c: join_stem_ending(str(c.get("stem")), TinEnding(Lakara.VIDHILING, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.PLURAL, "nti")) == c.get("surface"), _ctx("3.4.108", stem="bhava", surface="bhavejus"), _ctx("3.4.108", stem="bhava", surface="bhaventi"), "ending:jus")
+    _add(registry, "3.4.113", SutraOperator.SAMJNA, "marks selected lakaras as sarvadhatuka", lambda c: is_sarvadhatuka(c.get("lakara")), _ctx("3.4.113", lakara=Lakara.LAT), _ctx("3.4.113", lakara=Lakara.LRT), "samjna:sarvadhatuka")
+    _add(registry, "3.4.114", SutraOperator.SAMJNA, "marks remaining lakaras as ardhadhatuka", lambda c: is_ardhadhatuka(c.get("lakara")), _ctx("3.4.114", lakara=Lakara.LRT), _ctx("3.4.114", lakara=Lakara.LAT), "samjna:ardhadhatuka")
+    _add(registry, "3.4.115", SutraOperator.SAMJNA, "marks lit as ardhadhatuka", lambda c: is_ardhadhatuka(c.get("lakara")), _ctx("3.4.115", lakara=Lakara.LIT), _ctx("3.4.115", lakara=Lakara.LAT), "samjna:ardhadhatuka")
+
+    _add(registry, "4.1.2", SutraOperator.VIDHI, "derives controlled aa-stem feminine forms", lambda c: decline_aa_feminine(str(c.get("lemma")))[(Case.NOMINATIVE, GrammaticalNumber.SINGULAR)] == c.get("surface"), _ctx("4.1.2", lemma="latā", surface="latā"), _ctx("4.1.2", lemma="latā", surface="lata"), "suffix:tap")
+    _add(registry, "4.1.92", SutraOperator.VIDHI, "derives apatya descendant taddhita", lambda c: derive(str(c.get("source")), TaddhitaSuffix.APATYA).surface == c.get("surface"), _ctx("4.1.92", source="upagu", surface="aupagava"), _ctx("4.1.92", source="bala", surface="balavān"), "taddhita:apatya")
+    _add(registry, "5.2.94", SutraOperator.VIDHI, "derives possession adjectives with matup", lambda c: derive(str(c.get("source")), TaddhitaSuffix.MATUP).surface == c.get("surface"), _ctx("5.2.94", source="bala", surface="balavān"), _ctx("5.2.94", source="upagu", surface="aupagava"), "taddhita:matup")
+    _add(registry, "5.3.55", SutraOperator.VIDHI, "derives degree forms with atishayana", lambda c: derive(str(c.get("source")), TaddhitaSuffix.ATISHAYANA).surface == c.get("surface"), _ctx("5.3.55", source="laghu", surface="laghiṣṭha"), _ctx("5.3.55", source="bala", surface="balavān"), "taddhita:atishayana")
+    for sutra_id, left, right, rule in (
+        ("6.1.78", "hare", "atra", "ayavāyāva"),
+        ("6.1.87", "deva", "iti", "guṇa"),
+        ("6.1.88", "deva", "eva", "vṛddhi"),
+        ("6.1.101", "deva", "atra", "savarṇa-dīrgha"),
+    ):
+        _add(registry, sutra_id, SutraOperator.VIDHI, f"applies {rule} sandhi", lambda c, expected=rule: join_words(str(c.get("left")), str(c.get("right"))).rule == expected, _ctx(sutra_id, left=left, right=right), _ctx(sutra_id, left="deva", right="gacchati"), f"sandhi:{rule}")
+    _add(registry, "6.2.1", SutraOperator.ADHIKARA, "opens compound accent handling", lambda c: profile_accent(tuple(c.get("tokens", ())), int(c.get("udatta_index", 0)), "6.2").primary.accent == Accent.UDATTA, _ctx("6.2.1", tokens=("rāja", "puruṣa"), udatta_index=1), _ctx("6.2.1", tokens=(), udatta_index=0), "accent:udatta")
+    _add(registry, "6.3.1", SutraOperator.ADHIKARA, "opens uttarapada operation handling", lambda c: bool([op for op in operations_for_range(str(c.get("range"))) if op.name == "uttarapada-domain"]), _ctx("6.3.1", range="6.3"), _ctx("6.3.1", range="6.2"), "domain:uttarapada")
+    _add(registry, "6.4.1", SutraOperator.ADHIKARA, "opens anga operation handling", lambda c: any(op.name == "final-a-lengthening" for op in operations_for_range(str(c.get("range")))), _ctx("6.4.1", range="6.4"), _ctx("6.4.1", range="6.2"), "domain:anga")
+    _add(registry, "6.4.2", SutraOperator.VIDHI, "recognizes consonant-sensitive anga conditions", lambda c: is_consonant(str(c.get("sound"))), _ctx("6.4.2", sound="k"), _ctx("6.4.2", sound="a"), "condition:hal")
 
     return registry
 

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 
 from .adhyaya2_atomic import ADHYAYA2_ATOMIC_SUTRAS, AtomicSutraSpec
-from .sutra_logic import has_discrete_sutra_logic
+from .sutra_logic import atomic_evidence_for, has_discrete_sutra_logic
 
 
 class RuleKind(str, Enum):
@@ -177,6 +177,18 @@ def _rule(
     exceptions: tuple[str, ...] = (),
     counterexamples: tuple[RuleExample, ...] = (),
 ) -> SutraRule:
+    if has_discrete_sutra_logic(sutra_id):
+        evidence = atomic_evidence_for(sutra_id)
+        mode = ImplementationMode.DISCRETE
+        sutra_text_devanagari = str(evidence["sutra_text_devanagari"])
+        sutra_text_iast = str(evidence["sutra_text_iast"])
+        source = str(evidence["source"])
+        anuvritti = tuple(evidence["anuvritti"])
+        conditions = tuple(evidence["conditions"]) + tuple(conditions)
+        exceptions = tuple(evidence["exceptions"]) + tuple(exceptions)
+        counterexamples = counterexamples or (
+            RuleExample(sutra_id, str(evidence["negative_example"]), "rejected by the sutra-specific predicate"),
+        )
     return SutraRule(
         id=sutra_id,
         pada=sutra_id.rsplit(".", 1)[0],

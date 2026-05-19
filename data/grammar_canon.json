@@ -9382,8 +9382,8 @@
         "2.1.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the samarthya paribhasha domain: Samarthaḥ padavidhiḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: samarthaḥ padavidhiḥ. vidhi formal rule in the samarthya paribhasha domain: Samarthaḥ padavidhiḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.2",
@@ -9418,8 +9418,8 @@
         "2.1.4"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the co-presence of sup-marked members domain: Saha supā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: saha supā. vidhi formal rule in the co-presence of sup-marked members domain: Saha supā. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.5",
@@ -9430,8 +9430,8 @@
         "2.1.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Avyayībhāvaḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: avyayībhāvaḥ. vidhi formal rule in the avyayibhava samasa domain: Avyayībhāvaḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.6",
@@ -9442,8 +9442,8 @@
         "2.1.6"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Avyayaṁ vibhaktisamīpasamṛddhivyṛddhyarthābhāvātyayāsampratiśabdaprādurbhāvapaścādyathā''nupūrvyayaugapadyasādṛśyasampattisākalyāntavacaneṣu. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: avyayaṃ vibhaktisamīpasamṛddhivyṛddhyarthābhāvātyayāsampratiśabdaprādurbhāvapaścādyathāऽऽnupūrvyayaugapadyasādṛśyasampattisākalyāntavacaneṣu. vidhi formal rule in the avyayibhava samasa domain: Avyayaṁ vibhaktisamīpasamṛddhivyṛddhyarthābhāvātyayāsampratiśabdaprādurbhāvapaścādyathā''nupūrvyayaugapadyasādṛśyasampattisākalyāntavacaneṣu. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.7",
@@ -9634,8 +9634,8 @@
         "2.1.22"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the tatpurusha naming rule domain: Tatpuruṣaḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tatpuruṣaḥ. vidhi formal rule in the tatpurusha naming rule domain: Tatpuruṣaḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.23",
@@ -9658,8 +9658,8 @@
         "2.1.24"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the case-relation tatpurusha domain: Dvitīyā śritātītapatitagatātyastaprāptāpannaiḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dvitīyā śritātītapatitagatātyastaprāptāpannaiḥ. vidhi formal rule in the case-relation tatpurusha domain: Dvitīyā śritātītapatitagatātyastaprāptāpannaiḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.25",
@@ -9730,8 +9730,8 @@
         "2.1.30"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the case-relation tatpurusha domain: Tṛtīyā tatkṛtārthena guṇavacanena. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tṛtīyā tatkṛtārthena guṇavacanena. vidhi formal rule in the case-relation tatpurusha domain: Tṛtīyā tatkṛtārthena guṇavacanena. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.31",
@@ -9802,8 +9802,8 @@
         "2.1.36"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the case-relation tatpurusha domain: Caturthī tadarthārthabalihitasukharakṣitaiḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: caturthī tadarthārthabalihitasukharakṣitaiḥ. vidhi formal rule in the case-relation tatpurusha domain: Caturthī tadarthārthabalihitasukharakṣitaiḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.37",
@@ -10054,8 +10054,8 @@
         "2.1.57"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: variable-attested formal rule in the karmadharaya and descriptive tatpurusha domain: Viśeṣaṇaṁ viśeṣyeṇa bahulam. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: viśeṣaṇaṃ viśeṣyeṇa bahulam‌. variable-attested formal rule in the karmadharaya and descriptive tatpurusha domain: Viśeṣaṇaṁ viśeṣyeṇa bahulam. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.58",
@@ -10582,8 +10582,8 @@
         "2.2.29"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the dvandva, upasarjana, and ordering domain: Cārthe dvandvaḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.classify_compound, sanskript.samasa.create_compound, sanskript.samasa.SamasaType."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: cārthe dvaṃdvaḥ. vidhi formal rule in the dvandva, upasarjana, and ordering domain: Cārthe dvandvaḥ. Hooks: sanskript.samasa.classify_compound, sanskript.samasa.create_compound, sanskript.samasa.SamasaType."
     },
     {
       "id": "sutra:ashtadhyayi:2.2.30",
@@ -10594,8 +10594,8 @@
         "2.2.30"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the dvandva, upasarjana, and ordering domain: Upasarjanaṁ pūrvam. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.classify_compound, sanskript.samasa.create_compound, sanskript.samasa.SamasaType."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: upasarjanaṃ pūrvam‌. vidhi formal rule in the dvandva, upasarjana, and ordering domain: Upasarjanaṁ pūrvam. Hooks: sanskript.samasa.classify_compound, sanskript.samasa.create_compound, sanskript.samasa.SamasaType."
     },
     {
       "id": "sutra:ashtadhyayi:2.2.31",
@@ -10702,8 +10702,8 @@
         "2.3.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Anabhihite. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: anabhihite. vidhi formal rule in the vibhakti assignment under anabhihite domain: Anabhihite. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.2",
@@ -10714,8 +10714,8 @@
         "2.3.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Karmaṇi dvitīyā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: karmaṇi dvitīyā. vidhi formal rule in the vibhakti assignment under anabhihite domain: Karmaṇi dvitīyā. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.3",
@@ -10750,8 +10750,8 @@
         "2.3.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Kālādhvanoratyantasaṁyoge. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: kālādhvanoratyantasaṃyoge. vidhi formal rule in the vibhakti assignment under anabhihite domain: Kālādhvanoratyantasaṁyoge. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.6",
@@ -10846,8 +10846,8 @@
         "2.3.13"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Caturthī sampradāne. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: caturthī sampradāne. vidhi formal rule in the vibhakti assignment under anabhihite domain: Caturthī sampradāne. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.14",
@@ -10858,8 +10858,8 @@
         "2.3.14"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Kriyārthopapadasya ca karmaṇi sthāninaḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: kriyārthopapadasya ca karmaṇi sthāninaḥ. vidhi formal rule in the vibhakti assignment under anabhihite domain: Kriyārthopapadasya ca karmaṇi sthāninaḥ. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.15",
@@ -10882,8 +10882,8 @@
         "2.3.16"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: prohibition formal rule in the vibhakti assignment under anabhihite domain: Namaḥsvastisvāhāsvadhālaṁvaṣaḍyogācca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: namaḥsvastisvāhāsvadhālaṃvaṣaḍyogācca. prohibition formal rule in the vibhakti assignment under anabhihite domain: Namaḥsvastisvāhāsvadhālaṁvaṣaḍyogācca. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.17",
@@ -10918,8 +10918,8 @@
         "2.3.19"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Sahayukte'pradhāne. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: sahayukteऽpradhāne. vidhi formal rule in the vibhakti assignment under anabhihite domain: Sahayukte'pradhāne. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.20",
@@ -10930,8 +10930,8 @@
         "2.3.20"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Yenāṅgavikāraḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: yenāṅgavikāraḥ. vidhi formal rule in the vibhakti assignment under anabhihite domain: Yenāṅgavikāraḥ. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.21",
@@ -10966,8 +10966,8 @@
         "2.3.23"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Hetau. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: hetau. vidhi formal rule in the vibhakti assignment under anabhihite domain: Hetau. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.24",
@@ -11026,8 +11026,8 @@
         "2.3.28"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Apādāne pañcamī. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: apādāne pañcamī. vidhi formal rule in the vibhakti assignment under anabhihite domain: Apādāne pañcamī. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.29",
@@ -11122,8 +11122,8 @@
         "2.3.36"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Saptamyadhikaraṇe ca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: saptamyadhikaraṇe ca. vidhi formal rule in the vibhakti assignment under anabhihite domain: Saptamyadhikaraṇe ca. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.37",
@@ -11290,8 +11290,8 @@
         "2.3.50"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Ṣaṣṭhī śeṣe. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ṣaṣṭhī śeṣe. vidhi formal rule in the vibhakti assignment under anabhihite domain: Ṣaṣṭhī śeṣe. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.51",
@@ -11578,8 +11578,8 @@
         "2.4.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Dvigurekavacanam. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dvigurekavacanam‌. vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Dvigurekavacanam. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.2",
@@ -11770,8 +11770,8 @@
         "2.4.17"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Sa napuṁsakam. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: sa napuṃsakam‌. vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Sa napuṁsakam. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.18",
@@ -11782,8 +11782,8 @@
         "2.4.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Avyayībhāvaśca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: avyayībhāvaśca. vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Avyayībhāvaśca. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.19",
@@ -11878,8 +11878,8 @@
         "2.4.26"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Paravalliṅgaṁ dvandvatatpuruṣayoḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: paravalliṅgaṃ dvandvatatpuruṣayoḥ. vidhi formal rule in the post-compound number, gender, and retained-member behavior domain: Paravalliṅgaṁ dvandvatatpuruṣayoḥ. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.28",
@@ -11986,8 +11986,8 @@
         "2.4.36"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Ado jagdhirlyapti kiti. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ado jagdhirlyapti kiti. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Ado jagdhirlyapti kiti. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.37",
@@ -11998,8 +11998,8 @@
         "2.4.37"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Luṅsanorghasḷ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: luṅsanorghasḷ. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Luṅsanorghasḷ. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.38",
@@ -12058,8 +12058,8 @@
         "2.4.42"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Hano vadha liṅi. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: hano vadha liṅi. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Hano vadha liṅi. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.43",
@@ -12094,8 +12094,8 @@
         "2.4.45"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Iṇo gā luṅi. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: iṇo gā luṅi. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Iṇo gā luṅi. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.46",
@@ -12118,8 +12118,8 @@
         "2.4.47"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Sani ca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: sani ca. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Sani ca. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.48",
@@ -12130,8 +12130,8 @@
         "2.4.48"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Iṅaśca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: iṅaśca. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Iṅaśca. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.49",
@@ -12178,8 +12178,8 @@
         "2.4.52"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Asterbhūḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: asterbhūḥ. vidhi formal rule in the ardhadhatuka and lakara-conditioned root substitution domain: Asterbhūḥ. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.53",
@@ -12406,8 +12406,8 @@
         "2.4.71"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the sup, ting, vikarana, and chandas elision behavior domain: Supo dhātuprātipadikayoḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: supo dhātuprātipadikayoḥ. vidhi formal rule in the sup, ting, vikarana, and chandas elision behavior domain: Supo dhātuprātipadikayoḥ. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.72",
@@ -12418,8 +12418,8 @@
         "2.4.72"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the sup, ting, vikarana, and chandas elision behavior domain: Adiprabhṛtibhyaḥ śapaḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: adiprabhṛtibhyaḥ śapaḥ. vidhi formal rule in the sup, ting, vikarana, and chandas elision behavior domain: Adiprabhṛtibhyaḥ śapaḥ. Hooks: sanskript.samasa.create_compound, sanskript.tinanta.get_substituted_dhatu, sanskript.tinanta.apply_luk_elision."
     },
     {
       "id": "sutra:ashtadhyayi:2.4.73",
@@ -12634,8 +12634,8 @@
         "3.1.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: creates desiderative roots with san Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: guptijkidbhyaḥ san. creates desiderative roots with san Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.6",
@@ -12670,8 +12670,8 @@
         "3.1.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: creates denominative roots with kyac Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: supa ātmanaḥ kyac. creates denominative roots with kyac Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.9",
@@ -12838,8 +12838,8 @@
         "3.1.22"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: creates intensive roots with yaṅ Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dhātorekāco halādeḥ kriyāsamabhihāre yaṅ. creates intensive roots with yaṅ Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.23",
@@ -12874,8 +12874,8 @@
         "3.1.25"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: creates causative/curādi stems with ṇic Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: satyāpapāśarūpavīṇātūlaślokasenālomatvacavarmavarṇacūrṇacurādibhyo ṇic. creates causative/curādi stems with ṇic Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.26",
@@ -13390,8 +13390,8 @@
         "3.1.68"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses śap/a as the class-1 present stem-former Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: kartari śap‌. uses śap/a as the class-1 present stem-former Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.69",
@@ -13402,8 +13402,8 @@
         "3.1.69"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses śyan/ya for class-4 roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: divādibhyaḥ śyan. uses śyan/ya for class-4 roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.70",
@@ -13450,8 +13450,8 @@
         "3.1.73"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses śnu/nu for class-5 roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: svādibhyaḥ śnuḥ. uses śnu/nu for class-5 roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.74",
@@ -13498,8 +13498,8 @@
         "3.1.77"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses śa/a for class-6 roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tudādibhyaḥ śaḥ. uses śa/a for class-6 roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.78",
@@ -13510,8 +13510,8 @@
         "3.1.78"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses śnam/na for class-7 roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: rudhādibhyaḥ śnam. uses śnam/na for class-7 roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.79",
@@ -13522,8 +13522,8 @@
         "3.1.79"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses u for class-8 roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tanādikṛñbhya uḥ. uses u for class-8 roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.80",
@@ -13546,8 +13546,8 @@
         "3.1.81"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: uses śnā/nā for class-9 roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: kryādibhyaḥ śnā. uses śnā/nā for class-9 roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.82",
@@ -13666,8 +13666,8 @@
         "3.1.91"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: applies kṛt suffixes to verbal roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dhātoḥ. applies kṛt suffixes to verbal roots Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.92",
@@ -13690,8 +13690,8 @@
         "3.1.93"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: classifies non-tiṅ suffixes after roots as kṛt Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: kṛdatiṅ. classifies non-tiṅ suffixes after roots as kṛt Hooks: sanskript.tinanta.create_derived_dhatu, sanskript.tinanta.get_vikarana, sanskript.derivation.derive."
     },
     {
       "id": "sutra:ashtadhyayi:3.1.94",
@@ -14386,8 +14386,8 @@
         "3.2.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives controlled aṇ forms in object relation Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: karmaṇyaṇ. derives controlled aṇ forms in object relation Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.2",
@@ -14410,8 +14410,8 @@
         "3.2.3"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives ka after ā-final roots without upasarga Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ātoऽnupasarge kaḥ. derives ka after ā-final roots without upasarga Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.4",
@@ -14566,8 +14566,8 @@
         "3.2.16"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives ṭa/ta-class forms in motion/action domains Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: careṣṭaḥ. derives ṭa/ta-class forms in motion/action domains Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.17",
@@ -15598,8 +15598,8 @@
         "3.2.102"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: introduces kta/ktavatū participial forms Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: niṣṭhā. introduces kta/ktavatū participial forms Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.103",
@@ -15694,8 +15694,8 @@
         "3.2.110"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects luṅ for past event reference Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: luṅ. selects luṅ for past event reference Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.111",
@@ -15706,8 +15706,8 @@
         "3.2.111"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects laṅ for non-today past Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: anadyatane laṅ. selects laṅ for non-today past Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.112",
@@ -15850,8 +15850,8 @@
         "3.2.123"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects laṭ for present time Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: vartamāne laṭ. selects laṭ for present time Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.124",
@@ -15994,8 +15994,8 @@
         "3.2.135"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives agent/instrument nouns with ṇvul and tṛc Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tṛn. derives agent/instrument nouns with ṇvul and tṛc Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.derivation.KrtSuffix."
     },
     {
       "id": "sutra:ashtadhyayi:3.2.136",
@@ -16810,8 +16810,8 @@
         "3.3.15"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects lṛṭ for future reference Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: anadyatane luṭ. selects lṛṭ for future reference Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.16",
@@ -16846,8 +16846,8 @@
         "3.3.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives bhāva/abstract nouns with ghañ Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: bhāve. derives bhāva/abstract nouns with ghañ Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.19",
@@ -17026,8 +17026,8 @@
         "3.3.33"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects luṭ for non-today future Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: prathane vāvaśabde. selects luṭ for non-today future Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.34",
@@ -17758,8 +17758,8 @@
         "3.3.94"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives feminine abstract/action nouns with ktin Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: striyāṃ ktin. derives feminine abstract/action nouns with ktin Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.95",
@@ -18010,8 +18010,8 @@
         "3.3.115"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives action nouns with lyuṭ Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: lyuṭ ca. derives action nouns with lyuṭ Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.116",
@@ -18082,8 +18082,8 @@
         "3.3.121"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives gha-class forms after consonant-final roots Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: halaśca. derives gha-class forms after consonant-final roots Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.122",
@@ -18298,8 +18298,8 @@
         "3.3.139"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects lṛṅ for counterfactual/conditional semantics Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: liṅ‌nimitte lṛṅ kriyāऽtipattau. selects lṛṅ for counterfactual/conditional semantics Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.140",
@@ -18562,8 +18562,8 @@
         "3.3.161"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects potential liṅ for injunction/request domains Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: vidhiniman‍traṇāman‍traṇādhīṣ‍ṭasaṃpraś‍naprārthaneṣu liṅ. selects potential liṅ for injunction/request domains Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.162",
@@ -18574,8 +18574,8 @@
         "3.3.162"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: selects loṭ for command semantics Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: loṭ ca. selects loṭ for command semantics Hooks: sanskript.derivation.derive, sanskript.tinanta.get_lakara_for_time, sanskript.tinanta.TimeContext."
     },
     {
       "id": "sutra:ashtadhyayi:3.3.163",
@@ -19570,8 +19570,8 @@
         "3.4.69"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps voice/prayoga domains attached to tiṅ morphology Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: laḥ karmaṇi ca bhāve cākarmakebhyaḥ.. keeps voice/prayoga domains attached to tiṅ morphology Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.70",
@@ -19594,8 +19594,8 @@
         "3.4.71"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records person-number ending replacement and voice-sensitive tiṅ behavior Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: adikarmaṇi ktaḥ kartari ca. records person-number ending replacement and voice-sensitive tiṅ behavior Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.72",
@@ -19606,8 +19606,8 @@
         "3.4.72"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records person-number ending replacement and voice-sensitive tiṅ behavior Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: gatyarthākarmakaśliṣaśīṅsthāऽऽsavasajanaruhajīryatibhyaśca. records person-number ending replacement and voice-sensitive tiṅ behavior Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.73",
@@ -19690,8 +19690,8 @@
         "3.4.79"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: maps ātmanepada endings through e-like replacements Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ṭita ātmanepadānāṃ ṭere. maps ātmanepada endings through e-like replacements Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.80",
@@ -19702,8 +19702,8 @@
         "3.4.80"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: maps ātmanepada thās to se Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: thāsasse. maps ātmanepada thās to se Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.81",
@@ -19774,8 +19774,8 @@
         "3.4.86"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: maps loṭ third-person i endings to u Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: eruḥ. maps loṭ third-person i endings to u Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.87",
@@ -19786,8 +19786,8 @@
         "3.4.87"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: maps loṭ second singular si to hi Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: serhyapicca. maps loṭ second singular si to hi Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.88",
@@ -19798,8 +19798,8 @@
         "3.4.88"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: elides hi after a-final stems Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: vā chandasi. elides hi after a-final stems Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.89",
@@ -19846,8 +19846,8 @@
         "3.4.92"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: adds ā to first-person loṭ forms Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: āḍuttamasya picca. adds ā to first-person loṭ forms Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.93",
@@ -19942,8 +19942,8 @@
         "3.4.100"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: elides final i in ṅit lakāra endings Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: itaśca. elides final i in ṅit lakāra endings Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.101",
@@ -19954,8 +19954,8 @@
         "3.4.101"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: maps selected tiṅ endings in ṅit/loṭ domains Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tasthasthamipāṃ tāṃtaṃtāmaḥ. maps selected tiṅ endings in ṅit/loṭ domains Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.102",
@@ -20038,8 +20038,8 @@
         "3.4.108"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: maps jhi/nti to jus in vidhiliṅ Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: jherjus. maps jhi/nti to jus in vidhiliṅ Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.109",
@@ -20098,8 +20098,8 @@
         "3.4.113"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: classifies tiṅ/śit suffixes as sārvadhātuka Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tiṅśitsārvadhātukam. classifies tiṅ/śit suffixes as sārvadhātuka Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.114",
@@ -20110,8 +20110,8 @@
         "3.4.114"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: classifies the remaining suffixes as ārdhadhātuka Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ārddhadhātukaṃ śeṣaḥ. classifies the remaining suffixes as ārdhadhātuka Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.115",
@@ -20122,8 +20122,8 @@
         "3.4.115"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: classifies liṭ as ārdhadhātuka Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: liṭ ca. classifies liṭ as ārdhadhātuka Hooks: sanskript.tinanta.tin_ending, sanskript.tinanta.join_stem_ending, sanskript.tinanta.is_sarvadhatuka, sanskript.tinanta.is_ardhadhatuka."
     },
     {
       "id": "sutra:ashtadhyayi:3.4.116",
@@ -20170,8 +20170,8 @@
         "4.1.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records ṭāp-like feminine derivation for a-stem bases Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.subanta.decline_aa_feminine."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: svaujasamauṭchaṣṭābhyāmbhisṅebhyāmbhyasṅasibhyāmbhyasṅasosāmṅyossup‌. records ṭāp-like feminine derivation for a-stem bases Hooks: sanskript.subanta.decline_aa_feminine."
     },
     {
       "id": "sutra:ashtadhyayi:4.1.3",
@@ -21250,8 +21250,8 @@
         "4.1.92"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives patronymic/descendant taddhita forms Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.derivation.TaddhitaSuffix.APATYA."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: tasyāpatyam. derives patronymic/descendant taddhita forms Hooks: sanskript.derivation.derive, sanskript.derivation.TaddhitaSuffix.APATYA."
     },
     {
       "id": "sutra:ashtadhyayi:4.1.93",
@@ -30514,8 +30514,8 @@
         "5.2.94"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives possession adjectives with matup Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.derivation.TaddhitaSuffix.MATUP."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: tadasyāstyasminniti matup‌. derives possession adjectives with matup Hooks: sanskript.derivation.derive, sanskript.derivation.TaddhitaSuffix.MATUP."
     },
     {
       "id": "sutra:ashtadhyayi:5.2.95",
@@ -31726,8 +31726,8 @@
         "5.3.55"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: derives superlative/comparison forms Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.derivation.derive, sanskript.derivation.TaddhitaSuffix.ATISHAYANA."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: atiśāyane tamabiṣṭhanau. derives superlative/comparison forms Hooks: sanskript.derivation.derive, sanskript.derivation.TaddhitaSuffix.ATISHAYANA."
     },
     {
       "id": "sutra:ashtadhyayi:5.3.56",
@@ -35350,8 +35350,8 @@
         "6.1.78"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: applies ay/av/āy/āv-style replacement for ec vowels Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.sandhi.join_words."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: ecoऽyavāyāvaḥ. applies ay/av/āy/āv-style replacement for ec vowels Hooks: sanskript.sandhi.join_words."
     },
     {
       "id": "sutra:ashtadhyayi:6.1.79",
@@ -35458,8 +35458,8 @@
         "6.1.87"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: applies guṇa sandhi after a/ā Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.sandhi.join_words."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: ādguṇaḥ. applies guṇa sandhi after a/ā Hooks: sanskript.sandhi.join_words."
     },
     {
       "id": "sutra:ashtadhyayi:6.1.88",
@@ -35470,8 +35470,8 @@
         "6.1.88"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: applies vṛddhi sandhi before ec vowels Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.sandhi.join_words."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: vṛddhireci. applies vṛddhi sandhi before ec vowels Hooks: sanskript.sandhi.join_words."
     },
     {
       "id": "sutra:ashtadhyayi:6.1.89",
@@ -35626,8 +35626,8 @@
         "6.1.101"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: applies savarṇa-dīrgha vowel sandhi Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.sandhi.join_words."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: akaḥ savarṇe dīrghaḥ. applies savarṇa-dīrgha vowel sandhi Hooks: sanskript.sandhi.join_words."
     },
     {
       "id": "sutra:ashtadhyayi:6.1.102",
@@ -37102,8 +37102,8 @@
         "6.2.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: opens compound accent handling Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.accent.profile_accent."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: bahuvrīhau prakṛtyā pūrvapadam. opens compound accent handling Hooks: sanskript.accent.profile_accent."
     },
     {
       "id": "sutra:ashtadhyayi:6.2.2",
@@ -39490,8 +39490,8 @@
         "6.3.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: opens uttarapada/internal compound operation handling Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.operations_for_range, sanskript.samasa.create_compound."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: aluguttarapade. opens uttarapada/internal compound operation handling Hooks: sanskript.anga.operations_for_range, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:6.3.2",
@@ -41158,8 +41158,8 @@
         "6.4.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: opens the aṅga operation domain Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.operations_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: aṅgasya. opens the aṅga operation domain Hooks: sanskript.anga.operations_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:6.4.2",
@@ -41170,8 +41170,8 @@
         "6.4.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records consonant-sensitive aṅga operation conditions Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_consonant, sanskript.anga.apply_anga_operation."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 4/5/6 implementation: halaḥ. records consonant-sensitive aṅga operation conditions Hooks: sanskript.phonology.is_consonant, sanskript.anga.apply_anga_operation."
     },
     {
       "id": "sutra:ashtadhyayi:6.4.3",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 93,
-      "partial": 3272
+      "implemented": 186,
+      "partial": 3179
     },
     "by_kind": {
       "sutra": 3981,
