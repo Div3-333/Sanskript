@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
+from .adhyaya2_atomic import ADHYAYA2_ATOMIC_SUTRAS, AtomicSutraSpec
+
 
 class RuleKind(str, Enum):
     SAMASA_DOMAIN = "samasa_domain"
@@ -42,10 +44,32 @@ class SutraRule:
     compiler_effect: str
     hooks: tuple[str, ...]
     examples: tuple[RuleExample, ...]
+    sutra_text_devanagari: str = ""
+    sutra_text_iast: str = ""
+    source: str = ""
+    anuvritti: tuple[str, ...] = ()
+    conditions: tuple[str, ...] = ()
+    exceptions: tuple[str, ...] = ()
+    counterexamples: tuple[RuleExample, ...] = ()
 
     @property
     def implemented(self) -> bool:
-        return self.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL} and bool(self.hooks) and bool(self.examples)
+        return self.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL} and self.atomic
+
+    @property
+    def atomic(self) -> bool:
+        return all(
+            (
+                self.sutra_text_devanagari,
+                self.sutra_text_iast,
+                self.source,
+                self.anuvritti,
+                self.conditions,
+                self.examples,
+                self.counterexamples,
+                self.hooks,
+            )
+        )
 
 
 PADA_COUNTS = {
@@ -102,7 +126,7 @@ def implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
     mode = "Atomic executable" if rule.mode == ImplementationMode.ATOMIC_EXECUTABLE else "Atomic formal"
     hooks = ", ".join(rule.hooks)
-    return f"{mode} Adhyaya 2/3 implementation: {rule.compiler_effect} Hooks: {hooks}."
+    return f"{mode} Adhyaya 2/3 implementation: {rule.sutra_text_iast}. {rule.compiler_effect} Hooks: {hooks}."
 
 
 def partial_implementation_note_for(sutra_id: str) -> str:
@@ -128,6 +152,13 @@ def _rule(
     compiler_effect: str,
     hooks: tuple[str, ...],
     examples: tuple[RuleExample, ...],
+    sutra_text_devanagari: str = "",
+    sutra_text_iast: str = "",
+    source: str = "",
+    anuvritti: tuple[str, ...] = (),
+    conditions: tuple[str, ...] = (),
+    exceptions: tuple[str, ...] = (),
+    counterexamples: tuple[RuleExample, ...] = (),
 ) -> SutraRule:
     return SutraRule(
         id=sutra_id,
@@ -138,6 +169,33 @@ def _rule(
         compiler_effect=compiler_effect,
         hooks=hooks,
         examples=examples,
+        sutra_text_devanagari=sutra_text_devanagari,
+        sutra_text_iast=sutra_text_iast,
+        source=source,
+        anuvritti=anuvritti,
+        conditions=conditions,
+        exceptions=exceptions,
+        counterexamples=counterexamples,
+    )
+
+
+def _atomic_rule(base: SutraRule, spec: AtomicSutraSpec) -> SutraRule:
+    mode = ImplementationMode.ATOMIC_EXECUTABLE if base.mode == ImplementationMode.EXECUTABLE else ImplementationMode.ATOMIC_FORMAL
+    return _rule(
+        spec.id,
+        base.kind,
+        mode,
+        f"{spec.id} {spec.iast}",
+        spec.operation,
+        base.hooks,
+        (RuleExample(spec.id, spec.positive_example, spec.operation),),
+        sutra_text_devanagari=spec.devanagari,
+        sutra_text_iast=spec.iast,
+        source=spec.source,
+        anuvritti=spec.anuvritti,
+        conditions=spec.conditions,
+        exceptions=spec.exceptions,
+        counterexamples=(RuleExample(spec.id, spec.negative_example, "rejected counterexample for the atomic sutra condition"),),
     )
 
 
@@ -471,6 +529,9 @@ def _build_rules() -> dict[str, SutraRule]:
             _example(title, "tiṅ/kṛt behavior", effect),
             mode,
         )
+
+    for sutra_id, spec in ADHYAYA2_ATOMIC_SUTRAS.items():
+        rules[sutra_id] = _atomic_rule(rules[sutra_id], spec)
 
     return rules
 

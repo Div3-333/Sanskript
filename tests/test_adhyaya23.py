@@ -2,6 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
+from sanskript.adhyaya2_atomic import ADHYAYA2_ATOMIC_SUTRAS
 from sanskript.adhyaya23 import (
     ADHYAYA23_RULES,
     ImplementationMode,
@@ -41,11 +42,27 @@ class AdhyayaTwoThreeRegistryTests(unittest.TestCase):
     def test_registry_covers_adhyaya_two_and_three(self) -> None:
         self.assertEqual(len(expected_adhyaya23_ids()), 898)
         self.assertEqual(missing_rule_ids(), ())
-        self.assertEqual(len(implemented_sutra_ids()), 0)
-        self.assertEqual(len(partial_sutra_ids()), 898)
+        self.assertEqual(len(implemented_sutra_ids()), 267)
+        self.assertEqual(len(partial_sutra_ids()), 631)
         self.assertEqual(implemented_sutra_ids() | partial_sutra_ids(), frozenset(expected_adhyaya23_ids()))
         for pada, count in PADA_COUNTS.items():
             self.assertEqual(len(rules_for_pada(pada)), count)
+
+    def test_adhyaya_two_rules_are_atomic(self) -> None:
+        self.assertEqual(set(ADHYAYA2_ATOMIC_SUTRAS), {sid for sid in expected_adhyaya23_ids() if sid.startswith("2.")})
+        for sutra_id in ADHYAYA2_ATOMIC_SUTRAS:
+            rule = ADHYAYA23_RULES[sutra_id]
+            with self.subTest(sutra_id=sutra_id):
+                self.assertTrue(rule.implemented)
+                self.assertTrue(rule.atomic)
+                self.assertIn(rule.mode, {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL})
+                self.assertTrue(rule.sutra_text_devanagari)
+                self.assertTrue(rule.sutra_text_iast)
+                self.assertTrue(rule.source)
+                self.assertTrue(rule.anuvritti)
+                self.assertTrue(rule.conditions)
+                self.assertTrue(rule.counterexamples)
+                self.assertNotIn(" rule ", rule.title)
 
     def test_scaffolded_rules_do_not_count_as_implemented(self) -> None:
         for sutra_id, rule in ADHYAYA23_RULES.items():

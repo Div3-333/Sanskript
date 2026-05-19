@@ -98,7 +98,7 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 ## Metarules
 
-The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 is represented as a completed sutra-by-sutra implementation registry. Adhyāya 2 through 6 are now repair-tracked registries: generated scaffolds are partial until exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests are attached.
+The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. Adhyāya 1 and 2 are represented as completed atomic sutra-by-sutra implementation registries. Adhyāya 3 through 6 are repair-tracked registries: generated scaffolds are partial until exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests are attached.
 
 ## Future Safety Tiers
 

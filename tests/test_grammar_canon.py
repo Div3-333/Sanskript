@@ -110,7 +110,8 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertEqual(implemented & set(expected_adhyaya456_ids()), adhyaya_four_five_six_implemented)
         self.assertEqual(partial & set(expected_adhyaya23_ids()), adhyaya_two_three_partial)
         self.assertEqual(partial & set(expected_adhyaya456_ids()), adhyaya_four_five_six_partial)
-        self.assertEqual(len(implemented), 351)
+        expected_implemented_count = len(adhyaya_one) + len(adhyaya_two_three_implemented) + len(adhyaya_four_five_six_implemented)
+        self.assertEqual(len(implemented), expected_implemented_count)
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
         batch_partial = [

@@ -36,7 +36,7 @@ Batch status:
 
 Implemented slice:
 
-- Adhyāya 1 is implemented as a sutra-by-sutra registry. Adhyāya 2 through 6 are indexed as repair-tracked registries; no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion.
+- Adhyāya 1 and 2 are implemented as atomic sutra-by-sutra registries. Adhyāya 3 through 6 are indexed as repair-tracked registries; no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -57,7 +57,7 @@ Initial support now lives in `src/sanskript/subanta.py` and `src/sanskript/karak
 Batch status:
 
 - `1.4` is implemented as part of the full Adhyāya 1 registry.
-- `2.1`, `2.2`, `2.3`, and `2.4` are repair-tracked in the Adhyāya 2/3 registry; executable anchors remain partial until they receive atomic Paninian completion.
+- `2.1`, `2.2`, `2.3`, and `2.4` are complete atomic Adhyāya 2 records with exact source text, inherited domain, conditions, examples, counterexamples, and tests.
 - Current support includes sup technical endings, generated a-stem masculine/neuter forms, generated ā-stem feminine forms, first/second/third person pronoun forms, and case-to-kāraka explanations.
 
 ## Phase 3: Tiṅanta
@@ -133,6 +133,6 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
-- Adhyāya 1 has sutra-specific implemented records and tests. Adhyāya 2 through 6 must be upgraded from partial scaffolds into atomic implemented records before they can be called complete.
+- Adhyāya 1 and 2 have sutra-specific implemented records and tests. Adhyāya 3 through 6 must be upgraded from partial scaffolds into atomic implemented records before they can be called complete.
 - Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
 - The next phase is full implementation: replacing partial and batch-partial scaffolds with sutra/topic-specific implemented behavior and tests.
