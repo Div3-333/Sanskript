@@ -2,6 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
+from sanskript.avyaya import is_avyaya_suffix, is_controlled_avyaya
 from sanskript.adhyaya1 import (
     ADHYAYA1_RULES,
     ImplementationMode,
@@ -25,11 +26,13 @@ from sanskript.categories import (
     is_samhita,
     is_sankhya_term,
     is_sarvanama_stem,
+    is_sarvanamasthana_suffix,
     is_shat_numeral,
 )
 from sanskript.grammar import Analysis, Case, Gender, GrammaticalNumber, Pada, PartOfSpeech, Role, Samjna
 from sanskript.karaka import explain_case, get_karaka_role
 from sanskript.markers import analyze_it_markers
+from sanskript.metarules import is_vibhasha_expression
 from sanskript.phonology import (
     best_substitute,
     hrasva_substitute_for_ec,
@@ -41,7 +44,7 @@ from sanskript.phonology import (
     is_vrddha_word,
     savarna_class,
 )
-from sanskript.samasa import apply_ekashesha
+from sanskript.samasa import SamasaType, apply_ekashesha, create_compound
 from sanskript.voice import determine_available_padas
 
 
@@ -54,6 +57,12 @@ DISCRETE_ADHYAYA1_IDS = frozenset(
         "1.1.15",
         "1.1.19",
         *(f"1.1.{index}" for index in range(20, 28)),
+        "1.1.37",
+        "1.1.40",
+        "1.1.41",
+        "1.1.42",
+        "1.1.43",
+        "1.1.44",
     ]
 )
 
@@ -176,6 +185,36 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertTrue(is_sarvanama_stem("sarva"))
         self.assertTrue(is_sarvanama_stem("yad"))
         self.assertFalse(is_sarvanama_stem("deva"))
+
+    def test_discrete_avyaya_and_sarvanamasthana_sutras_have_behavior(self) -> None:
+        self.assertTrue(is_controlled_avyaya("ca"))
+        self.assertTrue(is_controlled_avyaya("pra"))
+        self.assertFalse(is_controlled_avyaya("deva"))
+
+        self.assertTrue(is_avyaya_suffix("ktvā"))
+        self.assertTrue(is_avyaya_suffix("tosun"))
+        self.assertFalse(is_avyaya_suffix("kta"))
+
+        upa = Analysis("upa", "upa", PartOfSpeech.INDECLINABLE)
+        grama = Analysis("grāmam", "grāma", PartOfSpeech.NOUN, case=Case.ACCUSATIVE, gender=Gender.MASCULINE)
+        avyayibhava = create_compound([upa, grama])
+        tatpurusha = create_compound([
+            Analysis("devasya", "deva", PartOfSpeech.NOUN, case=Case.GENITIVE, gender=Gender.MASCULINE),
+            Analysis("puruṣaḥ", "puruṣa", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.MASCULINE),
+        ])
+
+        self.assertEqual(avyayibhava.type, SamasaType.AVYAYIBHAVA)
+        self.assertIn(Samjna.AVYAYA, avyayibhava.result_analysis.samjnas)
+        self.assertNotEqual(tatpurusha.type, SamasaType.AVYAYIBHAVA)
+
+        self.assertTrue(is_sarvanamasthana_suffix("śi"))
+        self.assertTrue(is_sarvanamasthana_suffix("su", Gender.MASCULINE))
+        self.assertFalse(is_sarvanamasthana_suffix("su", Gender.NEUTER))
+        self.assertFalse(is_sarvanamasthana_suffix("kta", Gender.MASCULINE))
+
+        self.assertTrue(is_vibhasha_expression("na vā"))
+        self.assertTrue(is_vibhasha_expression("na veti vibhāṣā"))
+        self.assertFalse(is_vibhasha_expression("nityam"))
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))

@@ -398,6 +398,66 @@ DISCRETE_SUTRA_EVIDENCE: dict[str, dict[str, object]] = {
         "counterexamples": _example("deva", "not sarvanāma", "deva is not part of the sarvādi list."),
         "reviewer_notes": ("Behavior is executable through categories.is_sarvanama_stem.",),
     },
+    "1.1.37": {
+        "sutra_text_devanagari": "स्वरादिनिपातमव्ययम्",
+        "sutra_text_iast": "svarādinipātam avyayam",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("Controlled svarādi and nipāta forms receive avyaya-saṃjñā.",),
+        "exceptions": ("Ordinary nominal stems are not avyaya by this rule.",),
+        "counterexamples": _example("deva", "not avyaya", "A regular nominal stem is outside the controlled avyaya registry."),
+        "reviewer_notes": ("Behavior is executable through avyaya.is_controlled_avyaya and iter_avyaya_analyses.",),
+    },
+    "1.1.40": {
+        "sutra_text_devanagari": "क्त्वातोसुन्कसुनः",
+        "sutra_text_iast": "ktvātosunkasunaḥ",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("avyaya-saṃjñā from 1.1.37",),
+        "conditions": ("The ktvā, tosun, and kasun suffixes produce avyaya behavior.",),
+        "exceptions": ("Other suffixes do not receive avyaya-saṃjñā by this rule.",),
+        "counterexamples": _example("kta", "not avyaya by 1.1.40", "kta is handled elsewhere and is not one of ktvā/tosun/kasun."),
+        "reviewer_notes": ("Behavior is executable through avyaya.is_avyaya_suffix.",),
+    },
+    "1.1.41": {
+        "sutra_text_devanagari": "अव्ययीभावश्च",
+        "sutra_text_iast": "avyayībhāvaś ca",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("avyaya-saṃjñā from 1.1.37",),
+        "conditions": ("Avyayībhāva compounds receive avyaya behavior.",),
+        "exceptions": ("Other compound types are not licensed by this rule.",),
+        "counterexamples": _example("tatpuruṣa", "not avyayībhāva", "A tatpuruṣa compound is outside this avyaya extension."),
+        "reviewer_notes": ("Behavior is executable through samasa.create_compound result samjñā for avyayībhāva.",),
+    },
+    "1.1.42": {
+        "sutra_text_devanagari": "शि सर्वनामस्थानम्",
+        "sutra_text_iast": "śi sarvanāmasthānam",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("The śi suffix receives sarvanāmasthāna-saṃjñā.",),
+        "exceptions": ("Unlisted suffixes do not receive sarvanāmasthāna-saṃjñā by this rule.",),
+        "counterexamples": _example("kta", "not sarvanāmasthāna", "kta is not śi."),
+        "reviewer_notes": ("Behavior is executable through categories.is_sarvanamasthana_suffix.",),
+    },
+    "1.1.43": {
+        "sutra_text_devanagari": "सुडनपुंसकस्य",
+        "sutra_text_iast": "suḍ anapuṃsakasya",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("sarvanāmasthāna from 1.1.42",),
+        "conditions": ("The controlled suṭ endings receive sarvanāmasthāna-saṃjñā outside neuter contexts.",),
+        "exceptions": ("Neuter context blocks this suṭ extension.",),
+        "counterexamples": _example("su + neuter", "not sarvanāmasthāna by 1.1.43", "The anapuṃsaka condition excludes neuter."),
+        "reviewer_notes": ("Behavior is executable through categories.is_sarvanamasthana_suffix with gender.",),
+    },
+    "1.1.44": {
+        "sutra_text_devanagari": "न वेति विभाषा",
+        "sutra_text_iast": "na veti vibhāṣā",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("metarule domain",),
+        "conditions": ("na/vā-style wording marks a grammatically optional operation.",),
+        "exceptions": ("Non-optional directive wording is not vibhāṣā.",),
+        "counterexamples": _example("nityam", "not vibhāṣā", "A mandatory expression is not optional by this rule."),
+        "reviewer_notes": ("Behavior is executable through metarules.is_vibhasha_expression and optional directives.",),
+    },
 }
 
 
@@ -527,17 +587,19 @@ def _build_rules() -> dict[str, SutraRule]:
         39: ("kṛt avyaya", "keeps mejanta kṛt forms in the avyaya channel"),
         40: ("ktvā/tosun/kasun avyaya", "keeps absolutive-like suffixes in the avyaya channel"),
         41: ("avyayībhāva", "marks avyayībhāva compounds as indeclinable compounds"),
-        42: ("vibhāṣā", "models vibhāṣā as a first-class optionality directive"),
-        43: ("suṭ", "records suṭ as the first five sup endings"),
-        44: ("vibhāṣā repetition", "keeps optionality available through the local anuvṛtti domain"),
+        42: ("śi sarvanāmasthānam", "marks śi as a sarvanāmasthāna suffix"),
+        43: ("suḍ anapuṃsakasya", "marks the suṭ endings as sarvanāmasthāna outside neuter contexts"),
+        44: ("na veti vibhāṣā", "models vibhāṣā as a first-class optionality directive"),
         45: ("ik replacement target", "keeps guṇa/vṛddhi tied to ik-bearing targets"),
     }
     for index, (title, effect) in technical_1_1.items():
         hooks = ("sanskript.avyaya", "sanskript.categories", "sanskript.metarules.rules_for_range")
         if index in {37, 38, 39, 40, 41}:
-            hooks = ("sanskript.avyaya.iter_avyaya_analyses", "sanskript.samasa.create_compound")
-        if index in {42, 44}:
-            hooks = ("sanskript.metarules.directive",)
+            hooks = ("sanskript.avyaya.iter_avyaya_analyses", "sanskript.avyaya.is_avyaya_suffix", "sanskript.samasa.create_compound")
+        if index in {42, 43}:
+            hooks = ("sanskript.categories.is_sarvanamasthana_suffix",)
+        if index == 44:
+            hooks = ("sanskript.metarules.directive", "sanskript.metarules.is_vibhasha_expression")
         if index == 45:
             hooks = ("sanskript.phonology.is_ik", "sanskript.anga.guna", "sanskript.anga.vrddhi")
         add(

@@ -5602,8 +5602,8 @@
         "1.1.37"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: classifies svarādi/nipāta forms as indeclinables Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: classifies svarādi/nipāta forms as indeclinables Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.38",
@@ -5615,7 +5615,7 @@
       ],
       "page": null,
       "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps non-inflecting taddhita forms in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
+      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps non-inflecting taddhita forms in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.39",
@@ -5627,7 +5627,7 @@
       ],
       "page": null,
       "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps mejanta kṛt forms in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
+      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps mejanta kṛt forms in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.40",
@@ -5638,8 +5638,8 @@
         "1.1.40"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps absolutive-like suffixes in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps absolutive-like suffixes in the avyaya channel Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.41",
@@ -5650,8 +5650,8 @@
         "1.1.41"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks avyayībhāva compounds as indeclinable compounds Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.samasa.create_compound."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks avyayībhāva compounds as indeclinable compounds Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.42",
@@ -5662,8 +5662,8 @@
         "1.1.42"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: models vibhāṣā as a first-class optionality directive Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.metarules.directive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks śi as a sarvanāmasthāna suffix Hooks: sanskript.categories.is_sarvanamasthana_suffix."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.43",
@@ -5674,8 +5674,8 @@
         "1.1.43"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records suṭ as the first five sup endings Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks the suṭ endings as sarvanāmasthāna outside neuter contexts Hooks: sanskript.categories.is_sarvanamasthana_suffix."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.44",
@@ -5686,8 +5686,8 @@
         "1.1.44"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps optionality available through the local anuvṛtti domain Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.metarules.directive."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: models vibhāṣā as a first-class optionality directive Hooks: sanskript.metarules.directive, sanskript.metarules.is_vibhasha_expression."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.45",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 22,
-      "partial": 3343
+      "implemented": 28,
+      "partial": 3337
     },
     "by_kind": {
       "sutra": 3981,

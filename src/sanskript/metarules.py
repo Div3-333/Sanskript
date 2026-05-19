@@ -121,3 +121,9 @@ def directive(input_form: str, output_form: str, behavior: RuleBehavior, optiona
         if rule.behavior == behavior:
             return CanonDirective(input_form=input_form, output_form=output_form, rule=rule, optional=optional)
     raise ValueError(f"No metarule registered for {behavior.value!r}")
+
+
+def is_vibhasha_expression(text: str) -> bool:
+    """1.1.44 na veti vibhāṣā: na/vā-style wording marks grammatical optionality."""
+    normalized = " ".join(text.strip().split())
+    return normalized in {"na vā", "vā", "vibhāṣā", "na veti vibhāṣā"}

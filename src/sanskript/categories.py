@@ -7,6 +7,7 @@ GHA_SUFFIXES = frozenset({"tarap", "tamap"})
 SANKHYA_TERMS = frozenset({"bahu", "gaṇa", "vatu", "ḍati"})
 SHAT_NUMERALS = frozenset({"ṣaṣ", "pañcan", "saptan", "aṣṭan", "navan", "daśan"})
 NISTHA_SUFFIXES = frozenset({"kta", "ktavatū"})
+SUT_ENDINGS = frozenset({"su", "au", "jas", "am", "auṭ"})
 SARVANAMA_STEMS = frozenset(
     {
         "sarva",
@@ -64,6 +65,15 @@ def is_nistha_suffix(suffix: str) -> bool:
 def is_sarvanama_stem(stem: str) -> bool:
     """1.1.27 sarvādīni sarvanāmāni."""
     return stem in SARVANAMA_STEMS
+
+
+def is_sarvanamasthana_suffix(suffix: str, gender: Gender | None = None) -> bool:
+    """1.1.42 śi sarvanāmasthānam; 1.1.43 suḍ anapuṃsakasya."""
+    if suffix == "śi":
+        return True
+    if suffix in SUT_ENDINGS:
+        return gender is None or gender != Gender.NEUTER
+    return False
 
 
 def assign_technical_names(analysis: Analysis, suffix_surface: str | None = None) -> Analysis:

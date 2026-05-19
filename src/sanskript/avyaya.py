@@ -35,6 +35,9 @@ AVYAYA_FORMS: tuple[Avyaya, ...] = (
 )
 
 
+AVYAYA_SUFFIXES = frozenset({"ktvā", "tosun", "kasun"})
+
+
 UPASARGAS: tuple[Avyaya, ...] = (
     Avyaya("pra", "pra", IndeclinableKind.PREFIX, "forth", "forward or intensifying verbal prefix"),
     Avyaya("parā", "parā", IndeclinableKind.PREFIX, "away", "awayward verbal prefix"),
@@ -56,6 +59,14 @@ UPASARGAS: tuple[Avyaya, ...] = (
     Avyaya("pari", "pari", IndeclinableKind.PREFIX, "around", "surrounding verbal prefix"),
     Avyaya("upa", "upa", IndeclinableKind.PREFIX, "near", "approaching or subordinate prefix"),
 )
+
+
+def is_controlled_avyaya(surface: str) -> bool:
+    return any(form.surface == surface for form in AVYAYA_FORMS + UPASARGAS)
+
+
+def is_avyaya_suffix(suffix: str) -> bool:
+    return suffix in AVYAYA_SUFFIXES
 
 
 def iter_avyaya_analyses() -> tuple[Analysis, ...]:
