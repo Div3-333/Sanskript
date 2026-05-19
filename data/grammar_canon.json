@@ -8086,8 +8086,8 @@
         "1.4.3"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks feminine ī/ū words as nadī Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks feminine ī/ū words as nadī Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.4",
@@ -8134,8 +8134,8 @@
         "1.4.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks final i/u words except sakhi as ghi Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks final i/u words except sakhi as ghi Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.8",
@@ -8170,8 +8170,8 @@
         "1.4.10"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks short vowels as laghu Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks short vowels as laghu Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.11",
@@ -8182,8 +8182,8 @@
         "1.4.11"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks a vowel before a consonant cluster as guru Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks a vowel before a consonant cluster as guru Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.12",
@@ -8194,8 +8194,8 @@
         "1.4.12"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks long vowels and diphthongs as guru Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks long vowels and diphthongs as guru Hooks: sanskript.categories.get_vowel_weight, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.13",
@@ -8206,8 +8206,8 @@
         "1.4.13"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks the base before a suffix as aṅga Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks the base before a suffix as aṅga Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.14",
@@ -8218,8 +8218,8 @@
         "1.4.14"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks sup- and tiṅ-ending forms as pada Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks sup- and tiṅ-ending forms as pada Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.15",
@@ -8266,8 +8266,8 @@
         "1.4.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks bha before y or vowel-initial suffixes Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks bha before y or vowel-initial suffixes Hooks: sanskript.categories.assign_technical_names, sanskript.grammar.Samjna."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.19",
@@ -9358,8 +9358,8 @@
         "1.4.109"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: recognizes close phonological proximity as saṃhitā Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.is_samhita."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: recognizes close phonological proximity as saṃhitā Hooks: sanskript.categories.is_samhita."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.110",
@@ -9370,8 +9370,8 @@
         "1.4.110"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: recognizes cessation of sound as avasāna Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.categories.is_avasana."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: recognizes cessation of sound as avasāna Hooks: sanskript.categories.is_avasana."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.1",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 54,
-      "partial": 3311
+      "implemented": 64,
+      "partial": 3301
     },
     "by_kind": {
       "sutra": 3981,

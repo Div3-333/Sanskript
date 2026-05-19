@@ -86,6 +86,16 @@ DISCRETE_ADHYAYA1_IDS = frozenset(
         "1.1.74",
         "1.1.75",
         *(f"1.3.{index}" for index in range(2, 10)),
+        "1.4.3",
+        "1.4.7",
+        "1.4.10",
+        "1.4.11",
+        "1.4.12",
+        "1.4.13",
+        "1.4.14",
+        "1.4.18",
+        "1.4.109",
+        "1.4.110",
     ]
 )
 
@@ -317,6 +327,34 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertEqual(analyze_it_markers("pa").markers, frozenset())
         self.assertEqual(analyze_it_markers("ka").markers, frozenset({"k"}))
         self.assertEqual(analyze_it_markers("ka", is_taddhita=True).markers, frozenset())
+
+    def test_discrete_samjna_and_boundary_sutras_have_behavior(self) -> None:
+        feminine_i = Analysis("nadī", "nadī", PartOfSpeech.NOUN, gender=Gender.FEMININE)
+        masculine_i = Analysis("hari", "hari", PartOfSpeech.NOUN, gender=Gender.MASCULINE)
+        sakhi = Analysis("sakhi", "sakhi", PartOfSpeech.NOUN, gender=Gender.MASCULINE)
+        nominative = Analysis("devaḥ", "deva", PartOfSpeech.NOUN, case=Case.NOMINATIVE, gender=Gender.MASCULINE)
+        bare = Analysis("deva", "deva", PartOfSpeech.NOUN, gender=Gender.MASCULINE)
+
+        self.assertIn(Samjna.NADII, assign_technical_names(feminine_i).samjnas)
+        self.assertNotIn(Samjna.NADII, assign_technical_names(masculine_i).samjnas)
+        self.assertIn(Samjna.GHI, assign_technical_names(masculine_i).samjnas)
+        self.assertNotIn(Samjna.GHI, assign_technical_names(sakhi).samjnas)
+
+        self.assertEqual(get_vowel_weight("pa", 1), Samjna.LAGHU)
+        self.assertEqual(get_vowel_weight("artha", 0), Samjna.GURU)
+        self.assertEqual(get_vowel_weight("e", 0), Samjna.GURU)
+
+        self.assertIn(Samjna.ANGA, assign_technical_names(bare, suffix_surface="am").samjnas)
+        self.assertNotIn(Samjna.ANGA, assign_technical_names(bare).samjnas)
+        self.assertIn(Samjna.PADA, assign_technical_names(nominative).samjnas)
+        self.assertNotIn(Samjna.PADA, assign_technical_names(bare).samjnas)
+        self.assertIn(Samjna.BHA, assign_technical_names(nominative, suffix_surface="ya").samjnas)
+        self.assertNotIn(Samjna.BHA, assign_technical_names(nominative, suffix_surface="ta").samjnas)
+
+        self.assertTrue(is_samhita("bhavati"))
+        self.assertFalse(is_samhita(""))
+        self.assertTrue(is_avasana("bhavati", 6))
+        self.assertFalse(is_avasana("bhavati", 1))
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))
