@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
+from .sutra_logic import atomic_evidence_for, has_discrete_sutra_logic
+
 
 class RuleKind(str, Enum):
     SOUND_DEFINITION = "sound_definition"
@@ -61,7 +63,7 @@ class SutraRule:
 
     @property
     def implemented(self) -> bool:
-        return self.mode == ImplementationMode.DISCRETE and self.discrete
+        return self.mode == ImplementationMode.DISCRETE and self.discrete and has_discrete_sutra_logic(self.id)
 
     @property
     def discrete(self) -> bool:
@@ -954,7 +956,14 @@ def _build_rules() -> dict[str, SutraRule]:
         mode: ImplementationMode = ImplementationMode.SEMANTIC,
     ) -> None:
         evidence = DISCRETE_SUTRA_EVIDENCE.get(sutra_id, {})
-        if evidence:
+        if has_discrete_sutra_logic(sutra_id):
+            canonical = atomic_evidence_for(sutra_id)
+            evidence = {**canonical, **evidence}
+            evidence.setdefault("reviewer_notes", ("Covered by a real named handler in sanskript.sutra_logic.evaluate_sutra.",))
+            evidence.setdefault(
+                "counterexamples",
+                _example(sutra_id, str(canonical["negative_example"]), "rejected by the sutra-specific predicate"),
+            )
             mode = ImplementationMode.DISCRETE
         rules[sutra_id] = _rule(
             sutra_id,

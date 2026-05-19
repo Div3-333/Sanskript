@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 
 from .adhyaya2_atomic import ADHYAYA2_ATOMIC_SUTRAS, AtomicSutraSpec
+from .sutra_logic import has_discrete_sutra_logic
 
 
 class RuleKind(str, Enum):
@@ -55,7 +56,7 @@ class SutraRule:
 
     @property
     def implemented(self) -> bool:
-        return self.mode == ImplementationMode.DISCRETE and self.atomic
+        return self.mode == ImplementationMode.DISCRETE and self.atomic and has_discrete_sutra_logic(self.id)
 
     @property
     def atomic(self) -> bool:
@@ -92,44 +93,13 @@ PADA_INDICES = {
 PADA_INDICES["2.4"] = tuple(range(1, 27)) + tuple(range(28, 86))
 
 
-DISCRETE_ADHYAYA2_IDS = frozenset(
-    {
-        "2.1.1",
-        "2.1.5",
-        "2.1.22",
-        "2.1.30",
-        "2.1.36",
-        "2.1.57",
-        "2.2.23",
-        "2.2.29",
-        "2.2.30",
-        "2.3.1",
-        "2.3.2",
-        "2.3.5",
-        "2.3.13",
-        "2.3.16",
-        "2.3.18",
-        "2.3.19",
-        "2.3.20",
-        "2.3.23",
-        "2.3.28",
-        "2.3.36",
-        "2.3.50",
-        "2.4.1",
-        "2.4.17",
-        "2.4.26",
-        "2.4.36",
-        "2.4.37",
-        "2.4.42",
-        "2.4.45",
-        "2.4.47",
-        "2.4.48",
-        "2.4.52",
-        "2.4.71",
-        "2.4.72",
-        "2.4.75",
-    }
+DISCRETE_ADHYAYA23_IDS = frozenset(
+    f"{pada}.{index}"
+    for pada in PADA_COUNTS
+    for index in PADA_INDICES[pada]
+    if has_discrete_sutra_logic(f"{pada}.{index}")
 )
+DISCRETE_ADHYAYA2_IDS = frozenset(sutra_id for sutra_id in DISCRETE_ADHYAYA23_IDS if sutra_id.startswith("2."))
 
 
 def rule_for(sutra_id: str) -> SutraRule:
@@ -227,7 +197,7 @@ def _rule(
 
 
 def _atomic_rule(base: SutraRule, spec: AtomicSutraSpec) -> SutraRule:
-    if spec.id in DISCRETE_ADHYAYA2_IDS:
+    if has_discrete_sutra_logic(spec.id):
         mode = ImplementationMode.DISCRETE
     else:
         mode = ImplementationMode.ATOMIC_EXECUTABLE if base.mode == ImplementationMode.EXECUTABLE else ImplementationMode.ATOMIC_FORMAL

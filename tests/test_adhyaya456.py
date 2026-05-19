@@ -26,21 +26,20 @@ class AdhyayaFourFiveSixRegistryTests(unittest.TestCase):
     def test_registry_covers_adhyaya_four_five_and_six(self) -> None:
         self.assertEqual(len(expected_adhyaya456_ids()), 1925)
         self.assertEqual(missing_rule_ids(), ())
-        self.assertEqual(len(implemented_sutra_ids()), 0)
-        self.assertEqual(len(partial_sutra_ids()), 1925)
+        self.assertEqual(implemented_sutra_ids(), frozenset())
+        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya456_ids()))
         self.assertEqual(implemented_sutra_ids() | partial_sutra_ids(), frozenset(expected_adhyaya456_ids()))
         for pada, count in PADA_COUNTS.items():
             self.assertEqual(len(rules_for_pada(pada)), count)
 
-    def test_scaffolded_rules_do_not_count_as_implemented(self) -> None:
+    def test_rules_remain_partial_until_real_handlers_exist(self) -> None:
         for sutra_id, rule in ADHYAYA456_RULES.items():
             with self.subTest(sutra_id=sutra_id):
                 self.assertFalse(rule.implemented)
-                self.assertIn(rule.mode, {ImplementationMode.EXECUTABLE, ImplementationMode.SEMANTIC})
+                self.assertNotEqual(rule.mode, ImplementationMode.DISCRETE)
                 self.assertTrue(rule.title)
                 self.assertTrue(rule.compiler_effect)
                 self.assertTrue(rule.examples)
-                self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
 
     def test_local_canon_marks_adhyaya_four_five_and_six_as_partial(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))

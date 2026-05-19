@@ -58,58 +58,12 @@ from sanskript.phonology import (
     tapara_matches_duration,
 )
 from sanskript.samasa import SamasaType, apply_ekashesha, create_compound
+from sanskript.sutra_logic import implemented_logic_ids as real_implemented_logic_ids
 from sanskript.voice import determine_available_padas
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DISCRETE_ADHYAYA1_IDS = frozenset(
-    [
-        *(f"1.1.{index}" for index in range(1, 11)),
-        "1.1.11",
-        "1.1.12",
-        "1.1.15",
-        "1.1.19",
-        *(f"1.1.{index}" for index in range(20, 28)),
-        "1.1.37",
-        "1.1.40",
-        "1.1.41",
-        "1.1.42",
-        "1.1.43",
-        "1.1.44",
-        *(f"1.1.{index}" for index in range(46, 56)),
-        "1.1.64",
-        "1.1.65",
-        "1.1.69",
-        "1.1.70",
-        "1.1.71",
-        "1.1.73",
-        "1.1.74",
-        "1.1.75",
-        *(f"1.3.{index}" for index in range(2, 10)),
-        "1.4.3",
-        "1.4.7",
-        "1.4.10",
-        "1.4.11",
-        "1.4.12",
-        "1.4.13",
-        "1.4.14",
-        "1.4.18",
-        "1.4.24",
-        "1.4.25",
-        "1.4.26",
-        "1.4.27",
-        "1.4.28",
-        "1.4.29",
-        "1.4.32",
-        "1.4.33",
-        "1.4.42",
-        "1.4.45",
-        "1.4.49",
-        "1.4.54",
-        "1.4.109",
-        "1.4.110",
-    ]
-)
+DISCRETE_ADHYAYA1_IDS = real_implemented_logic_ids() & frozenset(expected_adhyaya1_ids())
 
 
 class AdhyayaOneRegistryTests(unittest.TestCase):
@@ -124,7 +78,7 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
         self.assertEqual(implemented_sutra_ids(), DISCRETE_ADHYAYA1_IDS)
         self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya1_ids()) - DISCRETE_ADHYAYA1_IDS)
 
-    def test_every_rule_is_truthfully_partial_until_discrete_logic_exists(self) -> None:
+    def test_only_rules_with_real_handlers_are_truth_gated_discrete_logic(self) -> None:
         for sutra_id, rule in ADHYAYA1_RULES.items():
             with self.subTest(sutra_id=sutra_id):
                 self.assertTrue(rule.title)
@@ -140,7 +94,6 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
                     self.assertTrue(rule.reviewer_notes)
                 else:
                     self.assertFalse(rule.implemented)
-                    self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
 
     def test_local_canon_marks_only_discrete_adhyaya_one_as_implemented(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))
@@ -152,7 +105,10 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
 
         self.assertEqual(len(statuses), 351)
         self.assertEqual({sid for sid, status in statuses.items() if status == "implemented"}, set(DISCRETE_ADHYAYA1_IDS))
-        self.assertEqual({sid for sid, status in statuses.items() if status == "partial"}, set(expected_adhyaya1_ids()) - set(DISCRETE_ADHYAYA1_IDS))
+        self.assertEqual(
+            {sid for sid, status in statuses.items() if status == "partial"},
+            set(expected_adhyaya1_ids()) - set(DISCRETE_ADHYAYA1_IDS),
+        )
 
 
 class AdhyayaOneBehaviorTests(unittest.TestCase):

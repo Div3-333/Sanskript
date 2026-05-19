@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
+from .sutra_logic import has_discrete_sutra_logic
+
 class RuleKind(str, Enum):
     TADDHITA = "taddhita"
     FEMININE_SUFFIX = "feminine_suffix"
@@ -50,7 +52,7 @@ class SutraRule:
 
     @property
     def implemented(self) -> bool:
-        return self.mode == ImplementationMode.DISCRETE and self.atomic
+        return self.mode == ImplementationMode.DISCRETE and self.atomic and has_discrete_sutra_logic(self.id)
 
     @property
     def atomic(self) -> bool:
@@ -200,6 +202,13 @@ def _build_rules() -> dict[str, SutraRule]:
             title = f"{base_title} {index}"
             output = kind.value
             mode = ImplementationMode.SEMANTIC
+        sutra_text_devanagari = ""
+        sutra_text_iast = ""
+        source = ""
+        anuvritti: tuple[str, ...] = ()
+        conditions: tuple[str, ...] = ()
+        exceptions: tuple[str, ...] = ()
+        counterexamples: tuple[RuleExample, ...] = ()
         rules[sutra_id] = SutraRule(
             id=sutra_id,
             pada=pada,
@@ -209,6 +218,13 @@ def _build_rules() -> dict[str, SutraRule]:
             compiler_effect=effect,
             hooks=hooks,
             examples=_example(title, output, effect),
+            sutra_text_devanagari=sutra_text_devanagari,
+            sutra_text_iast=sutra_text_iast,
+            source=source,
+            anuvritti=anuvritti,
+            conditions=conditions,
+            exceptions=exceptions,
+            counterexamples=counterexamples,
         )
     return rules
 

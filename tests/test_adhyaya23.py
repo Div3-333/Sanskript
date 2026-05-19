@@ -5,7 +5,7 @@ from pathlib import Path
 from sanskript.adhyaya2_atomic import ADHYAYA2_ATOMIC_SUTRAS
 from sanskript.adhyaya23 import (
     ADHYAYA23_RULES,
-    DISCRETE_ADHYAYA2_IDS,
+    DISCRETE_ADHYAYA23_IDS,
     ImplementationMode,
     PADA_COUNTS,
     expected_adhyaya23_ids,
@@ -42,13 +42,14 @@ class AdhyayaTwoThreeRegistryTests(unittest.TestCase):
     def test_registry_covers_adhyaya_two_and_three(self) -> None:
         self.assertEqual(len(expected_adhyaya23_ids()), 898)
         self.assertEqual(missing_rule_ids(), ())
-        self.assertEqual(implemented_sutra_ids(), DISCRETE_ADHYAYA2_IDS)
-        self.assertEqual(len(partial_sutra_ids()), 898 - len(DISCRETE_ADHYAYA2_IDS))
+        self.assertEqual(implemented_sutra_ids(), DISCRETE_ADHYAYA23_IDS)
+        self.assertEqual(DISCRETE_ADHYAYA23_IDS, frozenset())
+        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya23_ids()))
         self.assertEqual(implemented_sutra_ids() | partial_sutra_ids(), frozenset(expected_adhyaya23_ids()))
         for pada, count in PADA_COUNTS.items():
             self.assertEqual(len(rules_for_pada(pada)), count)
 
-    def test_adhyaya_two_metadata_counts_only_when_discrete_behavior_exists(self) -> None:
+    def test_adhyaya_two_atomic_metadata_is_not_counted_as_discrete_behavior(self) -> None:
         self.assertEqual(set(ADHYAYA2_ATOMIC_SUTRAS), {sid for sid in expected_adhyaya23_ids() if sid.startswith("2.")})
         for sutra_id in ADHYAYA2_ATOMIC_SUTRAS:
             rule = ADHYAYA23_RULES[sutra_id]
@@ -61,24 +62,16 @@ class AdhyayaTwoThreeRegistryTests(unittest.TestCase):
                 self.assertTrue(rule.conditions)
                 self.assertTrue(rule.counterexamples)
                 self.assertNotIn(" rule ", rule.title)
-                if sutra_id in DISCRETE_ADHYAYA2_IDS:
-                    self.assertTrue(rule.implemented)
-                    self.assertEqual(rule.mode, ImplementationMode.DISCRETE)
-                else:
-                    self.assertFalse(rule.implemented)
-                    self.assertIn(rule.mode, {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL})
-                    self.assertIn("Atomic metadata only", partial_implementation_note_for(sutra_id))
+                self.assertFalse(rule.implemented)
+                self.assertNotEqual(rule.mode, ImplementationMode.DISCRETE)
 
-    def test_scaffolded_rules_do_not_count_as_implemented(self) -> None:
+    def test_all_rules_remain_partial_until_real_handlers_exist(self) -> None:
         for sutra_id, rule in ADHYAYA23_RULES.items():
             with self.subTest(sutra_id=sutra_id):
                 self.assertTrue(rule.title)
                 self.assertTrue(rule.compiler_effect)
-                if sutra_id in DISCRETE_ADHYAYA2_IDS:
-                    self.assertTrue(rule.implemented)
-                else:
-                    self.assertFalse(rule.implemented)
-                    self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
+                self.assertNotIn(sutra_id, DISCRETE_ADHYAYA23_IDS)
+                self.assertFalse(rule.implemented)
 
     def test_local_canon_marks_adhyaya_two_and_three_as_partial(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))
