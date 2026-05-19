@@ -34,7 +34,9 @@ from sanskript.voice import determine_available_padas
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DISCRETE_ADHYAYA1_IDS = frozenset(f"1.1.{index}" for index in range(1, 11))
+DISCRETE_ADHYAYA1_IDS = frozenset(
+    [*(f"1.1.{index}" for index in range(1, 11)), "1.1.11", "1.1.12", "1.1.15", "1.1.19"]
+)
 
 
 class AdhyayaOneRegistryTests(unittest.TestCase):
@@ -106,6 +108,23 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertTrue(is_savarna("a", "ā"))
         self.assertFalse(is_savarna("i", "u"))
         self.assertFalse(is_savarna("a", "k"))
+
+    def test_discrete_pragrhya_sutras_have_positive_and_negative_behavior(self) -> None:
+        dual_pragrhya = Analysis("devī", "deva", PartOfSpeech.NOUN, number=GrammaticalNumber.DUAL)
+        singular_i_final = Analysis("nadī", "nadī", PartOfSpeech.NOUN, number=GrammaticalNumber.SINGULAR)
+        adas_pragrhya = Analysis("amī", "adas", PartOfSpeech.PRONOUN)
+        non_adas_mi = Analysis("amī", "anya", PartOfSpeech.PRONOUN)
+        locative_pragrhya = Analysis("nadī", "nadī", PartOfSpeech.NOUN, case=Case.LOCATIVE)
+        nominative_i_final = Analysis("nadī", "nadī", PartOfSpeech.NOUN, case=Case.NOMINATIVE)
+
+        self.assertTrue(is_pragrhya(dual_pragrhya))
+        self.assertFalse(is_pragrhya(singular_i_final))
+        self.assertTrue(is_pragrhya(adas_pragrhya))
+        self.assertFalse(is_pragrhya(non_adas_mi))
+        self.assertTrue(is_pragrhya("o"))
+        self.assertFalse(is_pragrhya("a"))
+        self.assertTrue(is_pragrhya(locative_pragrhya))
+        self.assertFalse(is_pragrhya(nominative_i_final))
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))

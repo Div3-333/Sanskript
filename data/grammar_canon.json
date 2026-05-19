@@ -5290,8 +5290,8 @@
         "1.1.11"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.12",
@@ -5302,8 +5302,8 @@
         "1.1.12"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.13",
@@ -5338,8 +5338,8 @@
         "1.1.15"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.16",
@@ -5386,8 +5386,8 @@
         "1.1.19"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.20",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 10,
-      "partial": 3355
+      "implemented": 14,
+      "partial": 3351
     },
     "by_kind": {
       "sutra": 3981,
