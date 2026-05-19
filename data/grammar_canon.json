@@ -8338,8 +8338,8 @@
         "1.4.24"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns apādāna to the fixed point in separation Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns apādāna to the fixed point in separation Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.25",
@@ -8350,8 +8350,8 @@
         "1.4.25"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns apādāna to the cause of fear/protection Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns apādāna to the cause of fear/protection Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.26",
@@ -8362,8 +8362,8 @@
         "1.4.26"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns apādāna in the unbearable object domain Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns apādāna in the unbearable object domain Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.27",
@@ -8374,8 +8374,8 @@
         "1.4.27"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns apādāna to what is warded off Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns apādāna to what is warded off Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.28",
@@ -8386,8 +8386,8 @@
         "1.4.28"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns apādāna to what one hides from Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns apādāna to what one hides from Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.29",
@@ -8398,8 +8398,8 @@
         "1.4.29"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns apādāna to the source/teacher of learning Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns apādāna to the source/teacher of learning Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.30",
@@ -8434,8 +8434,8 @@
         "1.4.32"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns sampradāna to the intended recipient Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns sampradāna to the intended recipient Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.33",
@@ -8446,8 +8446,8 @@
         "1.4.33"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns sampradāna to the one pleased Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns sampradāna to the one pleased Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.34",
@@ -8554,8 +8554,8 @@
         "1.4.42"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns karaṇa to the most effective means Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns karaṇa to the most effective means Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.43",
@@ -8590,8 +8590,8 @@
         "1.4.45"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns adhikaraṇa to the substratum/location Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns adhikaraṇa to the substratum/location Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.46",
@@ -8638,8 +8638,8 @@
         "1.4.49"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns karman to what the agent most wants to affect Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns karman to what the agent most wants to affect Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.50",
@@ -8698,8 +8698,8 @@
         "1.4.54"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: assigns kartṛ to the independent agent Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: assigns kartṛ to the independent agent Hooks: sanskript.karaka.get_karaka_role, sanskript.karaka.explain_case, sanskript.grammar.Role."
     },
     {
       "id": "sutra:ashtadhyayi:1.4.55",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 64,
-      "partial": 3301
+      "implemented": 76,
+      "partial": 3289
     },
     "by_kind": {
       "sutra": 3981,

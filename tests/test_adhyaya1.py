@@ -94,6 +94,18 @@ DISCRETE_ADHYAYA1_IDS = frozenset(
         "1.4.13",
         "1.4.14",
         "1.4.18",
+        "1.4.24",
+        "1.4.25",
+        "1.4.26",
+        "1.4.27",
+        "1.4.28",
+        "1.4.29",
+        "1.4.32",
+        "1.4.33",
+        "1.4.42",
+        "1.4.45",
+        "1.4.49",
+        "1.4.54",
         "1.4.109",
         "1.4.110",
     ]
@@ -355,6 +367,25 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertFalse(is_samhita(""))
         self.assertTrue(is_avasana("bhavati", 6))
         self.assertFalse(is_avasana("bhavati", 1))
+
+    def test_discrete_karaka_sutras_have_behavior(self) -> None:
+        self.assertEqual(get_karaka_role("", "separation_point"), Role.APADANA)
+        self.assertNotEqual(get_karaka_role("", "ordinary_location"), Role.APADANA)
+        self.assertEqual(get_karaka_role("bhī", "cause_of_fear"), Role.APADANA)
+        self.assertIsNone(get_karaka_role("ruc", "cause_of_fear"))
+        self.assertEqual(get_karaka_role("parā-ji", "unbearable"), Role.APADANA)
+        self.assertIsNone(get_karaka_role("ji", "unbearable"))
+        self.assertEqual(get_karaka_role("", "warded_off_object"), Role.APADANA)
+        self.assertEqual(get_karaka_role("", "hidden_from"), Role.APADANA)
+        self.assertEqual(get_karaka_role("", "teacher"), Role.APADANA)
+
+        self.assertEqual(get_karaka_role("", "intended_recipient"), Role.SAMPRADANA)
+        self.assertEqual(get_karaka_role("ruc", "pleased_one"), Role.SAMPRADANA)
+        self.assertIsNone(get_karaka_role("bhū", "pleased_one"))
+        self.assertEqual(get_karaka_role("", "most_effective_means"), Role.KARANA)
+        self.assertEqual(get_karaka_role("", "substratum"), Role.ADHIKARANA)
+        self.assertEqual(get_karaka_role("", "most_desired"), Role.KARMAN)
+        self.assertEqual(get_karaka_role("", "independent_agent"), Role.KARTR)
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))

@@ -77,6 +77,10 @@ def get_karaka_role(verb_lemma: str, semantic_role_context: str) -> Role | None:
     if semantic_role_context in {"most_desired", "ipsitatama"}:
         return Role.KARMAN
 
+    # 1.4.54: svatantraḥ kartā
+    if semantic_role_context == "independent_agent":
+        return Role.KARTR
+
     return None
 
 
