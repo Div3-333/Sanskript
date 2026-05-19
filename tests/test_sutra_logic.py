@@ -18,6 +18,9 @@ EXPECTED_REAL_LOGIC_IDS = frozenset(
     1.1.37 1.1.40 1.1.41 1.1.42 1.1.43 1.1.44 1.1.46 1.1.47 1.1.48 1.1.49
     1.1.50 1.1.51 1.1.52 1.1.53 1.1.54 1.1.55 1.1.64 1.1.65 1.1.69 1.1.70
     1.1.71 1.1.73 1.1.74 1.1.75
+    1.2.1 1.2.2 1.2.4 1.2.5 1.2.6 1.2.7 1.2.8 1.2.9 1.2.11 1.2.12 1.2.13
+    1.2.14 1.2.15 1.2.17 1.2.18 1.2.19 1.2.20 1.2.26 1.2.41 1.2.64 1.2.65
+    1.2.67 1.2.68 1.2.69 1.2.70 1.2.71 1.2.72 1.2.73
     1.3.2 1.3.3 1.3.4 1.3.5 1.3.6 1.3.7 1.3.8 1.3.9 1.3.12 1.3.13
     1.3.17 1.3.18 1.3.19 1.3.21 1.3.24 1.3.25 1.3.29 1.3.32 1.3.40 1.3.72 1.3.78
     1.4.3 1.4.7 1.4.10 1.4.11 1.4.12 1.4.13 1.4.14 1.4.17 1.4.18 1.4.24
@@ -47,7 +50,7 @@ class SutraLogicTests(unittest.TestCase):
 
     def test_truth_gate_is_not_the_old_generated_adhyaya_one_to_six_metric(self) -> None:
         self.assertEqual(implemented_logic_ids(), EXPECTED_REAL_LOGIC_IDS)
-        self.assertEqual(len(implemented_logic_ids()), 186)
+        self.assertEqual(len(implemented_logic_ids()), 214)
         self.assertTrue(has_discrete_sutra_logic("2.1.1"))
         self.assertFalse(has_discrete_sutra_logic("4.1.1"))
 

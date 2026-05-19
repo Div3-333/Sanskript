@@ -38,7 +38,7 @@ Batch status:
 
 Truth-gated slice:
 
-- The current real-handler gate contributes 186 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
+- The current real-handler gate contributes 214 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -135,6 +135,6 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
-- 186 sutras have real-handler executable implementations; the rest remain partial or batch-partial.
+- 214 sutras have real-handler executable implementations; the rest remain partial or batch-partial.
 - Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
 - The next phase is adding real handlers sutra by sutra and upgrading Adhyaya 2-8 from partial or batch-partial to individual sutra implementations.

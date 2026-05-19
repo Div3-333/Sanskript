@@ -61,7 +61,7 @@ The canon implementation roadmap lives at [docs/implementation-plan.md](docs/imp
 The visual beginner guide lives at [docs/guide/index.html](docs/guide/index.html).
 The granular reference guide lives at [docs/guide/reference.html](docs/guide/reference.html).
 
-Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a strict real-handler truth gate for sutras. The canon currently marks 186 sutras as `implemented`; the old generated 3174 count has been rejected because metadata profiles are not the same as discrete Paninian executable logic.
+Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a strict real-handler truth gate for sutras. The canon currently marks 214 sutras as `implemented`; the old generated 3174 count has been rejected because metadata profiles are not the same as discrete Paninian executable logic.
 
 ## Development Checks
 

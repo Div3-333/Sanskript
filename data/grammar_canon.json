@@ -6070,8 +6070,8 @@
         "1.2.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: suffixes without ñ/ṇ after gāṅ/kuṭādi are treated as ṅit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: suffixes without ñ/ṇ after gāṅ/kuṭādi are treated as ṅit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.2",
@@ -6082,8 +6082,8 @@
         "1.2.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: iṭ after vij is treated as ṅit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: iṭ after vij is treated as ṅit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.3",
@@ -6106,8 +6106,8 @@
         "1.2.4"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: sārvadhātuka suffixes without p are treated as ṅit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: sārvadhātuka suffixes without p are treated as ṅit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.5",
@@ -6118,8 +6118,8 @@
         "1.2.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: liṭ after a non-cluster-final root is treated as kit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: liṭ after a non-cluster-final root is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.6",
@@ -6130,8 +6130,8 @@
         "1.2.6"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: liṭ after indh/bhū is treated as kit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: liṭ after indh/bhū is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.7",
@@ -6142,8 +6142,8 @@
         "1.2.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: ktvā after the listed roots is treated as kit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: ktvā after the listed roots is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.8",
@@ -6154,8 +6154,8 @@
         "1.2.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: ktvā/san with iṭ after the listed roots is treated as kit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: ktvā/san with iṭ after the listed roots is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.9",
@@ -6166,8 +6166,8 @@
         "1.2.9"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: san after ik before jhal is treated as kit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: san after ik before jhal is treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.10",
@@ -6190,8 +6190,8 @@
         "1.2.11"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: liṅ and sic in ātmanepada are treated as kit Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: liṅ and sic in ātmanepada are treated as kit Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.12",
@@ -6202,8 +6202,8 @@
         "1.2.12"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: short-ṛ/u-like subcase for the sic kit domain Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: short-ṛ/u-like subcase for the sic kit domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.13",
@@ -6214,8 +6214,8 @@
         "1.2.13"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records optional kit behavior for gam + sic Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records optional kit behavior for gam + sic Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.14",
@@ -6226,8 +6226,8 @@
         "1.2.14"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records kit behavior for han + sic Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records kit behavior for han + sic Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.15",
@@ -6238,8 +6238,8 @@
         "1.2.15"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records kit behavior for yam in the smell/perception domain Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records kit behavior for yam in the smell/perception domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.16",
@@ -6262,8 +6262,8 @@
         "1.2.17"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records kit behavior for sthā/ghu in the ic domain Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records kit behavior for sthā/ghu in the ic domain Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.18",
@@ -6274,8 +6274,8 @@
         "1.2.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks kit behavior for seṭ ktvā Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks kit behavior for seṭ ktvā Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.19",
@@ -6286,8 +6286,8 @@
         "1.2.19"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks kit behavior for the listed niṣṭhā contexts Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks kit behavior for the listed niṣṭhā contexts Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.20",
@@ -6298,8 +6298,8 @@
         "1.2.20"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks kit behavior for mṛṣ in the endurance sense Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks kit behavior for mṛṣ in the endurance sense Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.21",
@@ -6370,8 +6370,8 @@
         "1.2.26"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records optional kit behavior for ral roots with i/u upadhā Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records optional kit behavior for ral roots with i/u upadhā Hooks: sanskript.anga.DerivationContext.get_is_kit, sanskript.anga.DerivationContext.get_is_ngit."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.27",
@@ -6550,8 +6550,8 @@
         "1.2.41"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks a single-sound suffix as apṛkta Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_aprkta."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks a single-sound suffix as apṛkta Hooks: sanskript.phonology.is_aprkta."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.42",
@@ -6826,8 +6826,8 @@
         "1.2.64"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: reduces same-form members to one remainder with the right number Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: reduces same-form members to one remainder with the right number Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.65",
@@ -6838,8 +6838,8 @@
         "1.2.65"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps the elder/member marked vṛddha when that is the only distinction Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps the elder/member marked vṛddha when that is the only distinction Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.66",
@@ -6862,8 +6862,8 @@
         "1.2.67"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps the masculine member when paired with feminine Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps the masculine member when paired with feminine Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.68",
@@ -6874,8 +6874,8 @@
         "1.2.68"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps bhrātṛ over svasṛ and putra over duhitṛ Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps bhrātṛ over svasṛ and putra over duhitṛ Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.69",
@@ -6886,8 +6886,8 @@
         "1.2.69"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps neuter with optional behavior against non-neuter Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps neuter with optional behavior against non-neuter Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.70",
@@ -6898,8 +6898,8 @@
         "1.2.70"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps pitṛ over mātṛ Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps pitṛ over mātṛ Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.71",
@@ -6910,8 +6910,8 @@
         "1.2.71"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps śvaśura over śvaśrū Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps śvaśura over śvaśrū Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.72",
@@ -6922,8 +6922,8 @@
         "1.2.72"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps tyadādi pronouns as the remainder Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps tyadādi pronouns as the remainder Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.73",
@@ -6934,8 +6934,8 @@
         "1.2.73"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps the feminine term in the listed village-animal collectives Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.apply_ekashesha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps the feminine term in the listed village-animal collectives Hooks: sanskript.samasa.apply_ekashesha."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.1",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 186,
-      "partial": 3179
+      "implemented": 214,
+      "partial": 3151
     },
     "by_kind": {
       "sutra": 3981,
