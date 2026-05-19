@@ -9454,8 +9454,8 @@
         "2.1.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Yathā'sādṛye. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: yathāऽsādṛye. vidhi formal rule in the avyayibhava samasa domain: Yathā'sādṛye. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.8",
@@ -9466,8 +9466,8 @@
         "2.1.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Yāvadavadhāraṇe. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: yāvadavadhāraṇe. vidhi formal rule in the avyayibhava samasa domain: Yāvadavadhāraṇe. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.9",
@@ -9478,8 +9478,8 @@
         "2.1.9"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Suppratinā mātrā'rthe. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: suppratinā mātrāऽrthe. vidhi formal rule in the avyayibhava samasa domain: Suppratinā mātrā'rthe. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.10",
@@ -9490,8 +9490,8 @@
         "2.1.10"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Akṣaśalākāsaṅkhyāḥ pariṇā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: akṣaśalākāsaṃkhyāḥ pariṇā. vidhi formal rule in the avyayibhava samasa domain: Akṣaśalākāsaṅkhyāḥ pariṇā. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.11",
@@ -9502,8 +9502,8 @@
         "2.1.11"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: optional formal rule in the avyayibhava samasa domain: Vibhāṣā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: vibhāṣā. optional formal rule in the avyayibhava samasa domain: Vibhāṣā. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.12",
@@ -9514,8 +9514,8 @@
         "2.1.12"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Apaparibahirañcavaḥ pañcamyā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: apaparibahirañcavaḥ pañcamyā. vidhi formal rule in the avyayibhava samasa domain: Apaparibahirañcavaḥ pañcamyā. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.13",
@@ -9526,8 +9526,8 @@
         "2.1.13"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Āṅ maryādā'bhividhyoḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: āṅ maryādāऽbhividhyoḥ. vidhi formal rule in the avyayibhava samasa domain: Āṅ maryādā'bhividhyoḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.14",
@@ -9538,8 +9538,8 @@
         "2.1.14"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Lakṣaṇenābhipratī ābhimukhye. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: lakṣaṇenābhipratī ābhimukhye. vidhi formal rule in the avyayibhava samasa domain: Lakṣaṇenābhipratī ābhimukhye. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.15",
@@ -9550,8 +9550,8 @@
         "2.1.15"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Anuryatsamayā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: anuryatsamayā. vidhi formal rule in the avyayibhava samasa domain: Anuryatsamayā. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.16",
@@ -9562,8 +9562,8 @@
         "2.1.16"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Yasya cāyāmaḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: yasya cāyāmaḥ. vidhi formal rule in the avyayibhava samasa domain: Yasya cāyāmaḥ. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.17",
@@ -9574,8 +9574,8 @@
         "2.1.17"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Tiṣṭhadguprabhṛtīni ca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tiṣṭhadguprabhṛtīni ca. vidhi formal rule in the avyayibhava samasa domain: Tiṣṭhadguprabhṛtīni ca. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.18",
@@ -9586,8 +9586,8 @@
         "2.1.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: optional formal rule in the avyayibhava samasa domain: Pāre madhye ṣaṣṭhyā vā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: pāre madhye ṣaṣṭhyā vā. optional formal rule in the avyayibhava samasa domain: Pāre madhye ṣaṣṭhyā vā. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.19",
@@ -9598,8 +9598,8 @@
         "2.1.19"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Saṅkhyā vaṁśyena. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: saṃkhyā vaṃśyena. vidhi formal rule in the avyayibhava samasa domain: Saṅkhyā vaṁśyena. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.20",
@@ -9610,8 +9610,8 @@
         "2.1.20"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: prohibition formal rule in the avyayibhava samasa domain: Nadībhiśca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: nadībhiśca. prohibition formal rule in the avyayibhava samasa domain: Nadībhiśca. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.21",
@@ -9622,8 +9622,8 @@
         "2.1.21"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the avyayibhava samasa domain: Anyapadārthe ca sañjñāyām. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: anyapadārthe ca saṃjñāyām‌. vidhi formal rule in the avyayibhava samasa domain: Anyapadārthe ca sañjñāyām. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.22",
@@ -9646,8 +9646,8 @@
         "2.1.23"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the dvigu within tatpurusha domain: Dviguśca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dviguśca. vidhi formal rule in the dvigu within tatpurusha domain: Dviguśca. Hooks: sanskript.samasa.is_samartha, sanskript.samasa.create_compound, sanskript.samasa.SamasaSense."
     },
     {
       "id": "sutra:ashtadhyayi:2.1.24",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 214,
-      "partial": 3151
+      "implemented": 230,
+      "partial": 3135
     },
     "by_kind": {
       "sutra": 3981,

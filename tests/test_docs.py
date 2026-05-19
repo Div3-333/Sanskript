@@ -13,7 +13,7 @@ class DocumentationTests(unittest.TestCase):
 
         self.assertIn("Write programs as grammatical Sanskrit", html)
         self.assertIn("assets/grammar-tablet.png", html)
-        self.assertIn("The current canon marks 214 sutras implemented through real named handlers", html)
+        self.assertIn("The current canon marks 230 sutras implemented through real named handlers", html)
         self.assertGreater(artwork.stat().st_size, 10_000)
 
 

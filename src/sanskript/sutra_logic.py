@@ -289,6 +289,29 @@ def _compound_from_case(case: Case) -> list[Analysis]:
     ]
 
 
+def _avyayibhava_members(indeclinable: str, second: str = "grama", case: Case = Case.ACCUSATIVE) -> list[Analysis]:
+    return [
+        Analysis(indeclinable, indeclinable, PartOfSpeech.INDECLINABLE),
+        _analysis(second, second, PartOfSpeech.NOUN, case=case, gender=Gender.MASCULINE),
+    ]
+
+
+def _compound_pair(
+    left: str,
+    right: str,
+    *,
+    left_case: Case | None = None,
+    right_case: Case | None = Case.NOMINATIVE,
+    left_pos: PartOfSpeech = PartOfSpeech.NOUN,
+    right_pos: PartOfSpeech = PartOfSpeech.NOUN,
+    left_value: int | None = None,
+) -> list[Analysis]:
+    return [
+        Analysis(left, left, left_pos, case=left_case, gender=Gender.MASCULINE, value=left_value),
+        Analysis(right, right, right_pos, case=right_case, gender=Gender.MASCULINE),
+    ]
+
+
 def _numeral_compound() -> list[Analysis]:
     return [
         Analysis("panca", "pancan", PartOfSpeech.NUMERAL, case=Case.ACCUSATIVE, value=5),
@@ -531,8 +554,58 @@ def sutra_2_1_5(c) -> bool:
 def sutra_2_1_6(c) -> bool:
     return create_compound(list(c.get("members", ()))).sense == SamasaSense.SAMIPA
 
+def sutra_2_1_7(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.YATHA
+
+def sutra_2_1_8(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.AVADHARANA
+
+def sutra_2_1_9(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.MATRA
+
+def sutra_2_1_10(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.PARINA
+
+def sutra_2_1_11(c) -> bool:
+    return bool(c.get("optional")) and create_compound(list(c.get("members", ()))).type == SamasaType.AVYAYIBHAVA
+
+def sutra_2_1_12(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.PANCAMI_AVYAYIBHAVA
+
+def sutra_2_1_13(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.MARYADA_ABHIVIDHI
+
+def sutra_2_1_14(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.ABHIMUKHYA
+
+def sutra_2_1_15(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.ANU_SAMAYA
+
+def sutra_2_1_16(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.AYAMA
+
+def sutra_2_1_17(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.LEXICAL_AVYAYIBHAVA
+
+def sutra_2_1_18(c) -> bool:
+    compound = create_compound(list(c.get("members", ())))
+    return compound.is_optional and compound.sense == SamasaSense.SHASH_TAT
+
+def sutra_2_1_19(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.VAMSHYA
+
+def sutra_2_1_20(c) -> bool:
+    return create_compound(list(c.get("members", ()))).sense == SamasaSense.NADI
+
+def sutra_2_1_21(c) -> bool:
+    compound = create_compound(list(c.get("members", ())), forced_type=SamasaType.BAHUVRIHI)
+    return bool(c.get("proper_name")) and compound.type == SamasaType.BAHUVRIHI
+
 def sutra_2_1_22(c) -> bool:
     return create_compound(list(c.get("members", ()))).type == SamasaType.TATPURUSHA
+
+def sutra_2_1_23(c) -> bool:
+    return create_compound(list(c.get("members", ()))).type == SamasaType.DVIGU
 
 def sutra_2_1_57(c) -> bool:
     return create_compound(list(c.get("members", ()))).type == SamasaType.KARMADHARAYA
@@ -1195,7 +1268,23 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     _add(registry, "2.1.4", SutraOperator.VIDHI, "compounds co-present sup-marked members", sutra_2_1_4, _ctx("2.1.4", members=tuple(_compound_from_case(Case.GENITIVE))), _ctx("2.1.4", members=()), "domain:samasa")
     _add(registry, "2.1.5", SutraOperator.SAMJNA, "classifies indeclinable-first compounds as avyayibhava", sutra_2_1_5, _ctx("2.1.5", members=tuple(_compound_members("avyayibhava"))), _ctx("2.1.5", members=tuple(_compound_members("tatpurusha"))), "samasa:avyayibhava")
     _add(registry, "2.1.6", SutraOperator.VIDHI, "assigns samipa-style sense to upa avyayibhava", sutra_2_1_6, _ctx("2.1.6", members=tuple(_compound_members("avyayibhava"))), _ctx("2.1.6", members=tuple(_compound_members("tatpurusha"))), "sense:samipa")
+    _add(registry, "2.1.7", SutraOperator.VIDHI, "assigns yatha similarity sense in avyayibhava", sutra_2_1_7, _ctx("2.1.7", members=tuple(_avyayibhava_members("yathā"))), _ctx("2.1.7", members=tuple(_compound_members("tatpurusha"))), "sense:yatha")
+    _add(registry, "2.1.8", SutraOperator.VIDHI, "assigns yavat limitation sense in avyayibhava", sutra_2_1_8, _ctx("2.1.8", members=tuple(_avyayibhava_members("yāvat"))), _ctx("2.1.8", members=tuple(_avyayibhava_members("yathā"))), "sense:avadharana")
+    _add(registry, "2.1.9", SutraOperator.VIDHI, "assigns supprati measure sense in avyayibhava", sutra_2_1_9, _ctx("2.1.9", members=tuple(_avyayibhava_members("supprati"))), _ctx("2.1.9", members=tuple(_avyayibhava_members("yāvat"))), "sense:matra")
+    _add(registry, "2.1.10", SutraOperator.VIDHI, "assigns pariṇa sense to aksha/shalaka number compounds", sutra_2_1_10, _ctx("2.1.10", members=tuple(_avyayibhava_members("akṣa", "pariṇā"))), _ctx("2.1.10", members=tuple(_avyayibhava_members("akṣa"))), "sense:parina")
+    _add(registry, "2.1.11", SutraOperator.VIBHASHA, "marks controlled avyayibhava compounding as optional", sutra_2_1_11, _ctx("2.1.11", members=tuple(_avyayibhava_members("yathā")), optional=True), _ctx("2.1.11", members=tuple(_avyayibhava_members("yathā")), optional=False), "operator:vibhasha")
+    _add(registry, "2.1.12", SutraOperator.VIDHI, "assigns panchami-governed apa/pari/bahir avyayibhava sense", sutra_2_1_12, _ctx("2.1.12", members=tuple(_avyayibhava_members("apa", "grāma", Case.ABLATIVE))), _ctx("2.1.12", members=tuple(_avyayibhava_members("apa", "grāma", Case.ACCUSATIVE))), "sense:panchami")
+    _add(registry, "2.1.13", SutraOperator.VIDHI, "assigns maryada/abhividhi sense to aang compounds", sutra_2_1_13, _ctx("2.1.13", members=tuple(_avyayibhava_members("āṅ"))), _ctx("2.1.13", members=tuple(_avyayibhava_members("upa"))), "sense:maryada-abhividhi")
+    _add(registry, "2.1.14", SutraOperator.VIDHI, "assigns abhimukhya sense to abhi/prati compounds", sutra_2_1_14, _ctx("2.1.14", members=tuple(_avyayibhava_members("abhi"))), _ctx("2.1.14", members=tuple(_avyayibhava_members("āṅ"))), "sense:abhimukhya")
+    _add(registry, "2.1.15", SutraOperator.VIDHI, "assigns anu-samaya sense to anu compounds", sutra_2_1_15, _ctx("2.1.15", members=tuple(_avyayibhava_members("anu"))), _ctx("2.1.15", members=tuple(_avyayibhava_members("abhi"))), "sense:anu-samaya")
+    _add(registry, "2.1.16", SutraOperator.VIDHI, "assigns ayama sense to yasya-ayama compounds", sutra_2_1_16, _ctx("2.1.16", members=tuple(_avyayibhava_members("yasya", "āyāma"))), _ctx("2.1.16", members=tuple(_avyayibhava_members("yasya"))), "sense:ayama")
+    _add(registry, "2.1.17", SutraOperator.VIDHI, "recognizes tishthadgu lexical avyayibhava compounds", sutra_2_1_17, _ctx("2.1.17", members=tuple(_avyayibhava_members("tiṣṭhadgu"))), _ctx("2.1.17", members=tuple(_avyayibhava_members("anu"))), "sense:lexical-avyayibhava")
+    _add(registry, "2.1.18", SutraOperator.VIBHASHA, "makes para/madhya genitive tatpurusha compounding optional", sutra_2_1_18, _ctx("2.1.18", members=tuple(_compound_pair("pāra", "grāma", left_case=Case.GENITIVE))), _ctx("2.1.18", members=tuple(_compound_from_case(Case.GENITIVE))), "operator:vibhasha")
+    _add(registry, "2.1.19", SutraOperator.VIDHI, "compounds numerals with vamshya lineage terms", sutra_2_1_19, _ctx("2.1.19", members=tuple(_compound_pair("tri", "vaṃśya", left_pos=PartOfSpeech.NUMERAL, left_value=3))), _ctx("2.1.19", members=tuple(_compound_pair("tri", "purusa", left_pos=PartOfSpeech.NUMERAL, left_value=3))), "sense:vamshya")
+    _add(registry, "2.1.20", SutraOperator.VIDHI, "compounds controlled river names", sutra_2_1_20, _ctx("2.1.20", members=tuple(_compound_pair("gaṅgā", "yamunā"))), _ctx("2.1.20", members=tuple(_compound_pair("gaṅgā", "purusa"))), "sense:nadi")
+    _add(registry, "2.1.21", SutraOperator.VIDHI, "licenses anyapadartha bahuvrihi compounds in naming", sutra_2_1_21, _ctx("2.1.21", members=tuple(_compound_pair("pīta", "ambara")), proper_name=True), _ctx("2.1.21", members=tuple(_compound_pair("pīta", "ambara")), proper_name=False), "samasa:bahuvrihi")
     _add(registry, "2.1.22", SutraOperator.SAMJNA, "classifies case-governed compounds as tatpurusha", sutra_2_1_22, _ctx("2.1.22", members=tuple(_compound_from_case(Case.GENITIVE))), _ctx("2.1.22", members=tuple(_compound_members("avyayibhava"))), "samasa:tatpurusha")
+    _add(registry, "2.1.23", SutraOperator.SAMJNA, "classifies numeral-first tatpurusha compounds as dvigu", sutra_2_1_23, _ctx("2.1.23", members=tuple(_numeral_compound())), _ctx("2.1.23", members=tuple(_compound_from_case(Case.GENITIVE))), "samasa:dvigu")
     for sutra_id, case, sense in (
         ("2.1.24", Case.ACCUSATIVE, SamasaSense.DVIT_TAT),
         ("2.1.30", Case.INSTRUMENTAL, SamasaSense.TRT_TAT),

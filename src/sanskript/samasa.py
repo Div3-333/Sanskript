@@ -18,6 +18,17 @@ class SamasaSense(str, Enum):
     SAMRDDHI = "samṛddhi"
     ARTHABHAVA = "arthābhāva"
     YATHA = "yathā"
+    AVADHARANA = "avadhāraṇa"
+    MATRA = "mātrā"
+    PARINA = "pariṇā"
+    PANCAMI_AVYAYIBHAVA = "pañcamī-avyayībhāva"
+    MARYADA_ABHIVIDHI = "maryādā-abhividhi"
+    ABHIMUKHYA = "ābhimukhya"
+    ANU_SAMAYA = "anu-samaya"
+    AYAMA = "āyāma"
+    LEXICAL_AVYAYIBHAVA = "lexical-avyayībhāva"
+    VAMSHYA = "vaṃśya"
+    NADI = "nadī"
     UPAMANA = "upamāna"
     SHASH_TAT = "ṣaṣṭhī-tatpuruṣa"
     DVIT_TAT = "dvitīyā-tatpuruṣa"
@@ -98,9 +109,20 @@ def create_compound(members: list[Analysis], forced_type: SamasaType | None = No
     # 2.1.5: avyayaṃ vibhakti...
     if members[0].pos == PartOfSpeech.INDECLINABLE:
         samasa_type = SamasaType.AVYAYIBHAVA
-        if members[0].lemma == "upa": sense = SamasaSense.SAMIPA
-        elif members[0].lemma == "yathā": sense = SamasaSense.YATHA
-        elif members[0].lemma == "nir": sense = SamasaSense.ARTHABHAVA
+        first = members[0].lemma
+        second = members[1].lemma if len(members) > 1 else ""
+        if first == "upa": sense = SamasaSense.SAMIPA
+        elif first == "yathā": sense = SamasaSense.YATHA
+        elif first == "yāvat": sense = SamasaSense.AVADHARANA
+        elif first == "supprati": sense = SamasaSense.MATRA
+        elif first in {"akṣa", "śalākā", "saṃkhyā"} and second == "pariṇā": sense = SamasaSense.PARINA
+        elif first in {"apa", "pari", "bahir", "añc"} and members[1].case == Case.ABLATIVE: sense = SamasaSense.PANCAMI_AVYAYIBHAVA
+        elif first == "āṅ": sense = SamasaSense.MARYADA_ABHIVIDHI
+        elif first in {"abhi", "prati"}: sense = SamasaSense.ABHIMUKHYA
+        elif first == "anu": sense = SamasaSense.ANU_SAMAYA
+        elif first == "yasya" and second == "āyāma": sense = SamasaSense.AYAMA
+        elif first in {"tiṣṭhadgu", "prabhṛti"}: sense = SamasaSense.LEXICAL_AVYAYIBHAVA
+        elif first == "nir": sense = SamasaSense.ARTHABHAVA
 
     # 2.1.22: tatpuruṣaḥ
     if not forced_type and samasa_type == SamasaType.KEVALA:
@@ -129,6 +151,12 @@ def create_compound(members: list[Analysis], forced_type: SamasaType | None = No
 
          if is_numeral and samasa_type == SamasaType.TATPURUSHA:
               samasa_type = SamasaType.DVIGU
+         if is_numeral and m1 and m1.lemma == "vaṃśya":
+              samasa_type = SamasaType.TATPURUSHA
+              sense = SamasaSense.VAMSHYA
+         if m1 and m0.lemma in {"gaṅgā", "yamunā", "sarasvatī"} and m1.lemma in {"gaṅgā", "yamunā", "sarasvatī"}:
+              samasa_type = SamasaType.TATPURUSHA
+              sense = SamasaSense.NADI
          if m1 and m0.case == m1.case and m0.gender == m1.gender:
               if samasa_type != SamasaType.DVIGU:
                    samasa_type = SamasaType.KARMADHARAYA
