@@ -511,6 +511,18 @@ def hrasva_substitute_for_ec(symbol: str) -> str:
         raise ValueError(f"hrasva replacement under 1.1.48 requires an ec vowel: {symbol!r}") from exc
 
 
+def rapara_substitute_for_ur(symbol: str, replacement: str) -> str:
+    """
+    1.1.51 uraṇ raparaḥ.
+    When ṛ/ṝ/ḷ take an a/ā-type substitute, r/l is placed after it.
+    """
+    if symbol in {"ṛ", "ṝ"} and replacement in {"a", "ā"}:
+        return f"{replacement}r"
+    if symbol == "ḷ" and replacement in {"a", "ā"}:
+        return f"{replacement}l"
+    return replacement
+
+
 def tokenize_sounds(word: str) -> list[str]:
     # Robust sound tokenizer using the SOUNDS registry
     sounds: list[str] = []

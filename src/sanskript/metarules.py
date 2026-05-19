@@ -3,6 +3,8 @@
 from dataclasses import dataclass
 from enum import Enum
 
+from .phonology import is_vowel, tokenize_sounds
+
 
 class RuleBehavior(str, Enum):
     TECHNICAL_MARKER = "technical_marker"
@@ -127,3 +129,44 @@ def is_vibhasha_expression(text: str) -> bool:
     """1.1.44 na veti vibhāṣā: na/vā-style wording marks grammatical optionality."""
     normalized = " ".join(text.strip().split())
     return normalized in {"na vā", "vā", "vibhāṣā", "na veti vibhāṣā"}
+
+
+def augment_boundary(marker: str) -> str | None:
+    """1.1.46 ādyantau ṭakitau: ṭit augments are initial; kit augments are final."""
+    if marker == "ṭ":
+        return "initial"
+    if marker == "k":
+        return "final"
+    return None
+
+
+def mid_augment_index(base: str) -> int | None:
+    """1.1.47 mid aco'ntyāt paraḥ: mit augments follow the last vowel."""
+    sounds = tokenize_sounds(base)
+    for index in range(len(sounds) - 1, -1, -1):
+        if is_vowel(sounds[index]):
+            return index + 1
+    return None
+
+
+def genitive_marks_substitution_site(case_name: str) -> bool:
+    """1.1.49 ṣaṣṭhī sthāneyogā."""
+    return case_name in {"ṣaṣṭhī", "genitive"}
+
+
+def default_final_substitution_index(term: str) -> int | None:
+    """1.1.52 alo'ntyasya: by default, substitution targets the final sound."""
+    sounds = tokenize_sounds(term)
+    if not sounds:
+        return None
+    return len(sounds) - 1
+
+
+def following_initial_substitution_index(term: str) -> int | None:
+    """1.1.54 ādeḥ parasya: when the following term is targeted, its first sound is used."""
+    return 0 if tokenize_sounds(term) else None
+
+
+def whole_term_replacement_applies(substitute: str, marker: str = "") -> bool:
+    """1.1.53 ṅic ca and 1.1.55 anekāl śit sarvasya."""
+    return marker in {"ṅ", "ś"} or len(tokenize_sounds(substitute)) > 1

@@ -5710,8 +5710,8 @@
         "1.1.46"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: ṭ/k markers place augments at beginning or end Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: ṭ/k markers place augments at beginning or end Hooks: sanskript.metarules.augment_boundary."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.47",
@@ -5722,8 +5722,8 @@
         "1.1.47"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: m markers place augments after the last vowel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: m markers place augments after the last vowel Hooks: sanskript.metarules.mid_augment_index."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.48",
@@ -5734,8 +5734,8 @@
         "1.1.48"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: short replacements for ec are routed to i/u Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: short replacements for ec are routed to i/u Hooks: sanskript.phonology.hrasva_substitute_for_ec."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.49",
@@ -5746,8 +5746,8 @@
         "1.1.49"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: genitive syntax identifies the substitution site Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: genitive syntax identifies the substitution site Hooks: sanskript.metarules.genitive_marks_substitution_site."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.50",
@@ -5758,8 +5758,8 @@
         "1.1.50"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: chooses the nearest substitute by place and effort Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: chooses the nearest substitute by place and effort Hooks: sanskript.phonology.best_substitute."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.51",
@@ -5770,8 +5770,8 @@
         "1.1.51"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: adds r/l behavior around ṛ/ḷ replacement Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: adds r/l behavior around ṛ/ḷ replacement Hooks: sanskript.phonology.rapara_substitute_for_ur."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.52",
@@ -5782,8 +5782,8 @@
         "1.1.52"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: defaults substitution to the final sound Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: defaults substitution to the final sound Hooks: sanskript.metarules.default_final_substitution_index."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.53",
@@ -5794,8 +5794,8 @@
         "1.1.53"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: allows whole-term replacement under ṅit, multisound, or śit triggers Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: allows whole-term replacement under a ṅit substitute Hooks: sanskript.metarules.whole_term_replacement_applies."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.54",
@@ -5806,8 +5806,8 @@
         "1.1.54"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: targets the first sound of the following term Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: targets the first sound of the following term Hooks: sanskript.metarules.following_initial_substitution_index."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.55",
@@ -5818,8 +5818,8 @@
         "1.1.55"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: whole-term replacement for multisound/śit substitutes Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: whole-term replacement for multisound/śit substitutes Hooks: sanskript.metarules.whole_term_replacement_applies."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.56",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 28,
-      "partial": 3337
+      "implemented": 38,
+      "partial": 3327
     },
     "by_kind": {
       "sutra": 3981,

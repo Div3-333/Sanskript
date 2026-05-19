@@ -32,12 +32,21 @@ from sanskript.categories import (
 from sanskript.grammar import Analysis, Case, Gender, GrammaticalNumber, Pada, PartOfSpeech, Role, Samjna
 from sanskript.karaka import explain_case, get_karaka_role
 from sanskript.markers import analyze_it_markers
-from sanskript.metarules import is_vibhasha_expression
+from sanskript.metarules import (
+    augment_boundary,
+    default_final_substitution_index,
+    following_initial_substitution_index,
+    genitive_marks_substitution_site,
+    is_vibhasha_expression,
+    mid_augment_index,
+    whole_term_replacement_applies,
+)
 from sanskript.phonology import (
     best_substitute,
     hrasva_substitute_for_ec,
     is_anunasika,
     is_pragrhya,
+    rapara_substitute_for_ur,
     is_savarna,
     is_samyoga,
     is_ti,
@@ -63,6 +72,7 @@ DISCRETE_ADHYAYA1_IDS = frozenset(
         "1.1.42",
         "1.1.43",
         "1.1.44",
+        *(f"1.1.{index}" for index in range(46, 56)),
     ]
 )
 
@@ -215,6 +225,35 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertTrue(is_vibhasha_expression("na vā"))
         self.assertTrue(is_vibhasha_expression("na veti vibhāṣā"))
         self.assertFalse(is_vibhasha_expression("nityam"))
+
+    def test_discrete_substitution_metasutras_have_behavior(self) -> None:
+        self.assertEqual(augment_boundary("ṭ"), "initial")
+        self.assertEqual(augment_boundary("k"), "final")
+        self.assertIsNone(augment_boundary("m"))
+
+        self.assertEqual(mid_augment_index("bhavati"), 6)
+        self.assertIsNone(mid_augment_index("krt"))
+
+        self.assertEqual(hrasva_substitute_for_ec("e"), "i")
+        self.assertEqual(hrasva_substitute_for_ec("au"), "u")
+        with self.assertRaisesRegex(ValueError, "ec vowel"):
+            hrasva_substitute_for_ec("a")
+
+        self.assertTrue(genitive_marks_substitution_site("ṣaṣṭhī"))
+        self.assertFalse(genitive_marks_substitution_site("saptamī"))
+        self.assertEqual(best_substitute("i", ["a", "e", "o"]), "e")
+        self.assertEqual(rapara_substitute_for_ur("ṛ", "a"), "ar")
+        self.assertEqual(rapara_substitute_for_ur("ḷ", "ā"), "āl")
+        self.assertEqual(rapara_substitute_for_ur("i", "a"), "a")
+
+        self.assertEqual(default_final_substitution_index("agni"), 3)
+        self.assertIsNone(default_final_substitution_index(""))
+        self.assertEqual(following_initial_substitution_index("agni"), 0)
+        self.assertIsNone(following_initial_substitution_index(""))
+        self.assertTrue(whole_term_replacement_applies("ab"))
+        self.assertTrue(whole_term_replacement_applies("a", marker="ṅ"))
+        self.assertTrue(whole_term_replacement_applies("a", marker="ś"))
+        self.assertFalse(whole_term_replacement_applies("a"))
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))
