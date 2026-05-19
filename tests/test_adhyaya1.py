@@ -46,12 +46,16 @@ from sanskript.phonology import (
     hrasva_substitute_for_ec,
     is_anunasika,
     is_pragrhya,
-    rapara_substitute_for_ur,
     is_savarna,
     is_samyoga,
     is_ti,
+    is_upadha,
     is_vrddha_word,
+    pratyahara,
+    rapara_substitute_for_ur,
     savarna_class,
+    savarna_reference,
+    tapara_matches_duration,
 )
 from sanskript.samasa import SamasaType, apply_ekashesha, create_compound
 from sanskript.voice import determine_available_padas
@@ -73,6 +77,14 @@ DISCRETE_ADHYAYA1_IDS = frozenset(
         "1.1.43",
         "1.1.44",
         *(f"1.1.{index}" for index in range(46, 56)),
+        "1.1.64",
+        "1.1.65",
+        "1.1.69",
+        "1.1.70",
+        "1.1.71",
+        "1.1.73",
+        "1.1.74",
+        "1.1.75",
     ]
 )
 
@@ -254,6 +266,29 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertTrue(whole_term_replacement_applies("a", marker="ṅ"))
         self.assertTrue(whole_term_replacement_applies("a", marker="ś"))
         self.assertFalse(whole_term_replacement_applies("a"))
+
+    def test_discrete_tail_sound_reference_sutras_have_behavior(self) -> None:
+        self.assertEqual(is_ti("bhavati"), "i")
+        self.assertEqual(is_ti("krt"), "krt")
+        self.assertEqual(is_upadha("agni"), "n")
+        self.assertIsNone(is_upadha("a"))
+
+        self.assertIn("ā", savarna_reference("a"))
+        self.assertEqual(savarna_reference("a", is_pratyaya=True), ())
+        self.assertIn("ā", savarna_class("a"))
+        self.assertTrue(tapara_matches_duration("a", "i"))
+        self.assertFalse(tapara_matches_duration("a", "ā"))
+
+        self.assertEqual(pratyahara("ac"), ("a", "i", "u", "ṛ", "ḷ", "e", "o", "ai", "au"))
+        with self.assertRaisesRegex(ValueError, "Invalid pratyāhāra"):
+            pratyahara("zz")
+
+        self.assertTrue(is_vrddha_word("āgama"))
+        self.assertFalse(is_vrddha_word("agni"))
+        self.assertTrue(is_vrddha_word("tad", tyadadi=True))
+        self.assertFalse(is_vrddha_word("tad"))
+        self.assertTrue(is_vrddha_word("ekadeśa", eastern_name=True))
+        self.assertFalse(is_vrddha_word("ekadeśa"))
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))

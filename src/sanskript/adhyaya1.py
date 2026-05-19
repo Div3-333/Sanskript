@@ -558,6 +558,86 @@ DISCRETE_SUTRA_EVIDENCE: dict[str, dict[str, object]] = {
         "counterexamples": _example("a without marker", "not whole term", "Single unmarked replacement uses the default target."),
         "reviewer_notes": ("Behavior is executable through metarules.whole_term_replacement_applies.",),
     },
+    "1.1.64": {
+        "sutra_text_devanagari": "अचोऽन्त्यादि टि",
+        "sutra_text_iast": "aco'ntyādi ṭi",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("ṭi is the final vowel and any following sounds of a term.",),
+        "exceptions": ("A term without a vowel returns the whole controlled remainder rather than a vowel-starting ṭi.",),
+        "counterexamples": _example("krt", "no vowel-starting ṭi", "No ac sound is present."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_ti.",),
+    },
+    "1.1.65": {
+        "sutra_text_devanagari": "अलोऽन्त्यात्पूर्व उपधा",
+        "sutra_text_iast": "alo'ntyāt pūrva upadhā",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("upadhā is the sound immediately before the final sound.",),
+        "exceptions": ("A one-sound term has no upadhā.",),
+        "counterexamples": _example("a", "no upadhā", "There is no sound before the final sound."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_upadha.",),
+    },
+    "1.1.69": {
+        "sutra_text_devanagari": "अणुदित्सवर्णस्य चाप्रत्ययः",
+        "sutra_text_iast": "aṇudit savarṇasya cāpratyayaḥ",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("savarṇa from 1.1.9",),
+        "conditions": ("A sound reference can include its savarṇa class outside pratyaya formation.",),
+        "exceptions": ("The pratyaya condition blocks this savarṇa expansion.",),
+        "counterexamples": _example("a as pratyaya", "no savarṇa expansion", "The apratyaya condition is violated."),
+        "reviewer_notes": ("Behavior is executable through phonology.savarna_reference.",),
+    },
+    "1.1.70": {
+        "sutra_text_devanagari": "तपरस्तत्कालस्य",
+        "sutra_text_iast": "taparas tatkālasya",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("sound-reference metarule domain",),
+        "conditions": ("A t-marked sound refers only to candidates of the same duration.",),
+        "exceptions": ("Different vowel duration fails this match.",),
+        "counterexamples": _example("a/ā", "different duration", "Short a and long ā do not share duration."),
+        "reviewer_notes": ("Behavior is executable through phonology.tapara_matches_duration.",),
+    },
+    "1.1.71": {
+        "sutra_text_devanagari": "आदिरन्त्येन सहेता",
+        "sutra_text_iast": "ādir antyena sahetā",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("pratyāhāra metarule domain",),
+        "conditions": ("A pratyāhāra is formed from an initial sound and a final it-marker.",),
+        "exceptions": ("Unknown start sounds or impossible marker spans are rejected.",),
+        "counterexamples": _example("zz", "invalid pratyāhāra", "The start sound is not in the Śiva-sūtra inventory."),
+        "reviewer_notes": ("Behavior is executable through phonology.pratyahara.",),
+    },
+    "1.1.73": {
+        "sutra_text_devanagari": "वृद्धिर्यस्याचामादिस्तद् वृद्धम्",
+        "sutra_text_iast": "vṛddhir yasyācām ādis tad vṛddham",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("vṛddha-saṃjñā domain",),
+        "conditions": ("A word whose first vowel is vṛddhi receives vṛddha-saṃjñā.",),
+        "exceptions": ("A word whose first vowel is not vṛddhi is not vṛddha by this rule.",),
+        "counterexamples": _example("agni", "not vṛddha", "The first vowel is a, not vṛddhi."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_vrddha_word.",),
+    },
+    "1.1.74": {
+        "sutra_text_devanagari": "त्यदादीनि च",
+        "sutra_text_iast": "tyadādīni ca",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("vṛddha-saṃjñā from 1.1.73",),
+        "conditions": ("tyadādi items can receive vṛddha-saṃjñā.",),
+        "exceptions": ("Non-tyadādi words still require the 1.1.73 first-vowel condition.",),
+        "counterexamples": _example("agni without tyadādi", "not vṛddha", "No vṛddhi first vowel or tyadādi flag is present."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_vrddha_word with tyadadi=True.",),
+    },
+    "1.1.75": {
+        "sutra_text_devanagari": "एङ् प्राचां देशे",
+        "sutra_text_iast": "eṅ prācāṃ deśe",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("vṛddha-saṃjñā from 1.1.73",),
+        "conditions": ("Eastern place names beginning with e/o receive vṛddha-saṃjñā.",),
+        "exceptions": ("Without the eastern-name condition, e/o initial words do not use this extension.",),
+        "counterexamples": _example("ekadeśa without eastern flag", "not vṛddha", "The regional condition is absent."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_vrddha_word with eastern_name=True.",),
+    },
 }
 
 
@@ -781,7 +861,11 @@ def _build_rules() -> dict[str, SutraRule]:
         elif index == 71:
             hooks = ("sanskript.phonology.pratyahara",)
             mode = ImplementationMode.EXECUTABLE
-        elif index in {69, 70, 73, 74, 75}:
+        elif index == 69:
+            hooks = ("sanskript.phonology.savarna_reference",)
+        elif index == 70:
+            hooks = ("sanskript.phonology.tapara_matches_duration",)
+        elif index in {73, 74, 75}:
             hooks = ("sanskript.phonology.savarna_class", "sanskript.phonology.is_vrddha_word")
         add(
             f"1.1.{index}",

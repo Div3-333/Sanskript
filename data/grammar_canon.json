@@ -5926,8 +5926,8 @@
         "1.1.64"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: returns the final vowel and following sounds Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_ti."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: returns the final vowel and following sounds Hooks: sanskript.phonology.is_ti."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.65",
@@ -5938,8 +5938,8 @@
         "1.1.65"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: returns the penultimate sound Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_upadha."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: returns the penultimate sound Hooks: sanskript.phonology.is_upadha."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.66",
@@ -5986,8 +5986,8 @@
         "1.1.69"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: lets a sound reference its savarṇa class outside suffix formation Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: lets a sound reference its savarṇa class outside suffix formation Hooks: sanskript.phonology.savarna_reference."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.70",
@@ -5998,8 +5998,8 @@
         "1.1.70"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: constrains t-marked references to the same duration Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: constrains t-marked references to the same duration Hooks: sanskript.phonology.tapara_matches_duration."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.71",
@@ -6010,8 +6010,8 @@
         "1.1.71"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: forms a sound class from start sound plus final it-marker Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.pratyahara."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: forms a sound class from start sound plus final it-marker Hooks: sanskript.phonology.pratyahara."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.72",
@@ -6034,8 +6034,8 @@
         "1.1.73"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: recognizes words whose first vowel is vṛddhi Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: recognizes words whose first vowel is vṛddhi Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.74",
@@ -6046,8 +6046,8 @@
         "1.1.74"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: adds tyadādi items to the vṛddha class Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: adds tyadādi items to the vṛddha class Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.75",
@@ -6058,8 +6058,8 @@
         "1.1.75"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: recognizes eastern-name e/o vṛddha behavior Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: recognizes eastern-name e/o vṛddha behavior Hooks: sanskript.phonology.savarna_class, sanskript.phonology.is_vrddha_word."
     },
     {
       "id": "sutra:ashtadhyayi:1.2.1",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 38,
-      "partial": 3327
+      "implemented": 46,
+      "partial": 3319
     },
     "by_kind": {
       "sutra": 3981,

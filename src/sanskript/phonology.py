@@ -403,6 +403,22 @@ def savarna_class(symbol: str) -> tuple[str, ...]:
     return tuple(candidate for candidate in SOUNDS if is_savarna(symbol, candidate))
 
 
+def savarna_reference(symbol: str, is_pratyaya: bool = False) -> tuple[str, ...]:
+    """1.1.69 aṇudit savarṇasya cāpratyayaḥ with the apratyaya condition explicit."""
+    if is_pratyaya:
+        return ()
+    return savarna_class(symbol)
+
+
+def tapara_matches_duration(symbol: str, candidate: str) -> bool:
+    """1.1.70 taparas tatkālasya: a t-marked sound refers only to the same duration."""
+    left = SOUNDS.get(symbol)
+    right = SOUNDS.get(candidate)
+    if not left or not right:
+        return False
+    return left.length == right.length
+
+
 def is_pragrhya(token: Analysis | str) -> bool:
     """
     1.1.11 īdūded-dvivacanam pragṛhyam

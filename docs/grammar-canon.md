@@ -23,8 +23,8 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Total obligations: `4172`
 - Topic obligations: `191`
 - Sutra obligations: `3981`
-- Implemented: `38`
-- Partial: `3327`
+- Implemented: `46`
+- Partial: `3319`
 - Batch partial: `807`
 - Pending design: `0`
 
