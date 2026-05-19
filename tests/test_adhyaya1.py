@@ -85,6 +85,7 @@ DISCRETE_ADHYAYA1_IDS = frozenset(
         "1.1.73",
         "1.1.74",
         "1.1.75",
+        *(f"1.3.{index}" for index in range(2, 10)),
     ]
 )
 
@@ -289,6 +290,33 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertFalse(is_vrddha_word("tad"))
         self.assertTrue(is_vrddha_word("ekadeśa", eastern_name=True))
         self.assertFalse(is_vrddha_word("ekadeśa"))
+
+    def test_discrete_it_marker_sutras_have_behavior(self) -> None:
+        nasal_vowel = analyze_it_markers("bhū~")
+        self.assertEqual(nasal_vowel.markers, frozenset({"ū"}))
+        self.assertEqual(nasal_vowel.lemma, "bh")
+        self.assertEqual(analyze_it_markers("bhū").markers, frozenset())
+
+        final_hal = analyze_it_markers("pac")
+        self.assertEqual(final_hal.markers, frozenset({"c"}))
+        self.assertEqual(final_hal.lemma, "pa")
+        self.assertEqual(analyze_it_markers("bhū").lemma, "bhū")
+
+        self.assertEqual(analyze_it_markers("tas", kind="vibhakti").markers, frozenset())
+        self.assertEqual(analyze_it_markers("tas", kind="vibhakti").lemma, "tas")
+        self.assertEqual(analyze_it_markers("tas", kind="suffix").markers, frozenset({"s"}))
+
+        root_marker = analyze_it_markers("ñibhū", kind="root")
+        self.assertEqual(root_marker.markers, frozenset({"ñi"}))
+        self.assertEqual(root_marker.lemma, "bhū")
+        self.assertNotIn("ñi", analyze_it_markers("ñibhū", kind="suffix").markers)
+
+        self.assertEqual(analyze_it_markers("ṣa").markers, frozenset({"ṣ"}))
+        self.assertEqual(analyze_it_markers("ṣa", kind="root").markers, frozenset())
+        self.assertEqual(analyze_it_markers("ci").markers, frozenset({"c"}))
+        self.assertEqual(analyze_it_markers("pa").markers, frozenset())
+        self.assertEqual(analyze_it_markers("ka").markers, frozenset({"k"}))
+        self.assertEqual(analyze_it_markers("ka", is_taddhita=True).markers, frozenset())
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))

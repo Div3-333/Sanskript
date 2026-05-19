@@ -6958,8 +6958,8 @@
         "1.3.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks nasalized vowels in upadeśa as it Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks nasalized vowels in upadeśa as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.3",
@@ -6970,8 +6970,8 @@
         "1.3.3"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks a final consonant in upadeśa as it Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks a final consonant in upadeśa as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.4",
@@ -6982,8 +6982,8 @@
         "1.3.4"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks tusmāḥ-final it marking in vibhakti endings Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks tusmāḥ-final it marking in vibhakti endings Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.5",
@@ -6994,8 +6994,8 @@
         "1.3.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks initial ñi, ṭu, and ḍu in root upadeśa Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks initial ñi, ṭu, and ḍu in root upadeśa Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.6",
@@ -7006,8 +7006,8 @@
         "1.3.6"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks initial ṣ of suffixes as it Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks initial ṣ of suffixes as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.7",
@@ -7018,8 +7018,8 @@
         "1.3.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks initial palatal and retroflex sounds of suffixes as it Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks initial palatal and retroflex sounds of suffixes as it Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.8",
@@ -7030,8 +7030,8 @@
         "1.3.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks initial l, ś, and k-varga sounds except in taddhita contexts Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks initial l, ś, and k-varga sounds except in taddhita contexts Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.9",
@@ -7042,8 +7042,8 @@
         "1.3.9"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: removes it markers from the usable lemma while preserving marker metadata Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: removes it markers from the usable lemma while preserving marker metadata Hooks: sanskript.markers.analyze_it_markers, sanskript.markers.MarkerAnalysis."
     },
     {
       "id": "sutra:ashtadhyayi:1.3.10",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 46,
-      "partial": 3319
+      "implemented": 54,
+      "partial": 3311
     },
     "by_kind": {
       "sutra": 3981,
