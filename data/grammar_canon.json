@@ -5398,8 +5398,8 @@
         "1.1.20"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: classifies dā/dhā-style roots as ghu where later rules need that handle Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: classifies dā/dhā-style roots as ghu where later rules need that handle Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.21",
@@ -5410,8 +5410,8 @@
         "1.1.21"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: treats a single sound as beginning-like and end-like in metarules Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: treats a single sound as beginning-like and end-like in metarules Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.22",
@@ -5422,8 +5422,8 @@
         "1.1.22"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: classifies tarap/tamap-style suffixes as gha Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: classifies tarap/tamap-style suffixes as gha Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.23",
@@ -5434,8 +5434,8 @@
         "1.1.23"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records numerical technical names for count-sensitive grammar Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records numerical technical names for count-sensitive grammar Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.24",
@@ -5446,8 +5446,8 @@
         "1.1.24"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: recognizes ṣaṭ numerals ending in ṣ or n Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: recognizes ṣaṭ numerals ending in ṣ or n Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.25",
@@ -5458,8 +5458,8 @@
         "1.1.25"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: extends the ṣaṭ class to ḍati Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: extends the ṣaṭ class to ḍati Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.26",
@@ -5470,8 +5470,8 @@
         "1.1.26"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: marks kta/ktavatū-style suffixes as niṣṭhā Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks kta/ktavatū-style suffixes as niṣṭhā Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.27",
@@ -5482,8 +5482,8 @@
         "1.1.27"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records the sarvādī pronoun class as a compiler category Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the sarvādī pronoun class as a compiler category Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.28",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 14,
-      "partial": 3351
+      "implemented": 22,
+      "partial": 3343
     },
     "by_kind": {
       "sutra": 3981,

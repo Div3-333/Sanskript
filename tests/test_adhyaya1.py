@@ -14,7 +14,19 @@ from sanskript.adhyaya1 import (
     rules_for_pada,
 )
 from sanskript.anga import DerivationContext, Suffix, guna, vrddhi
-from sanskript.categories import assign_technical_names, get_vowel_weight, is_avasana, is_samhita
+from sanskript.categories import (
+    assign_technical_names,
+    get_vowel_weight,
+    has_single_sound_boundary,
+    is_avasana,
+    is_gha_suffix,
+    is_ghu_root,
+    is_nistha_suffix,
+    is_samhita,
+    is_sankhya_term,
+    is_sarvanama_stem,
+    is_shat_numeral,
+)
 from sanskript.grammar import Analysis, Case, Gender, GrammaticalNumber, Pada, PartOfSpeech, Role, Samjna
 from sanskript.karaka import explain_case, get_karaka_role
 from sanskript.markers import analyze_it_markers
@@ -35,7 +47,14 @@ from sanskript.voice import determine_available_padas
 
 ROOT = Path(__file__).resolve().parents[1]
 DISCRETE_ADHYAYA1_IDS = frozenset(
-    [*(f"1.1.{index}" for index in range(1, 11)), "1.1.11", "1.1.12", "1.1.15", "1.1.19"]
+    [
+        *(f"1.1.{index}" for index in range(1, 11)),
+        "1.1.11",
+        "1.1.12",
+        "1.1.15",
+        "1.1.19",
+        *(f"1.1.{index}" for index in range(20, 28)),
+    ]
 )
 
 
@@ -125,6 +144,38 @@ class AdhyayaOneBehaviorTests(unittest.TestCase):
         self.assertFalse(is_pragrhya("a"))
         self.assertTrue(is_pragrhya(locative_pragrhya))
         self.assertFalse(is_pragrhya(nominative_i_final))
+
+    def test_discrete_technical_name_sutras_have_positive_and_negative_behavior(self) -> None:
+        self.assertTrue(is_ghu_root("dā"))
+        self.assertTrue(is_ghu_root("dhā"))
+        self.assertFalse(is_ghu_root("dāp"))
+        self.assertFalse(is_ghu_root("bhū"))
+
+        self.assertTrue(has_single_sound_boundary("a"))
+        self.assertTrue(has_single_sound_boundary("ai"))
+        self.assertFalse(has_single_sound_boundary("agni"))
+
+        self.assertTrue(is_gha_suffix("tarap"))
+        self.assertTrue(is_gha_suffix("tamap"))
+        self.assertFalse(is_gha_suffix("kta"))
+
+        self.assertTrue(is_sankhya_term("bahu"))
+        self.assertTrue(is_sankhya_term("ḍati"))
+        self.assertFalse(is_sankhya_term("deva"))
+
+        self.assertTrue(is_shat_numeral("ṣaṣ"))
+        self.assertTrue(is_shat_numeral("pañcan"))
+        self.assertTrue(is_shat_numeral("ḍati"))
+        self.assertFalse(is_shat_numeral("rājan"))
+        self.assertFalse(is_shat_numeral("vatu"))
+
+        self.assertTrue(is_nistha_suffix("kta"))
+        self.assertTrue(is_nistha_suffix("ktavatū"))
+        self.assertFalse(is_nistha_suffix("lyuṭ"))
+
+        self.assertTrue(is_sarvanama_stem("sarva"))
+        self.assertTrue(is_sarvanama_stem("yad"))
+        self.assertFalse(is_sarvanama_stem("deva"))
 
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))

@@ -1,6 +1,71 @@
 ﻿from .grammar import Samjna, Gender, Analysis, PartOfSpeech
 from .phonology import tokenize_sounds, is_vowel, is_consonant, SOUNDS, VowelLength
 
+GHU_ROOTS = frozenset({"dā", "dhā"})
+GHU_EXCLUSIONS = frozenset({"dāp", "daip"})
+GHA_SUFFIXES = frozenset({"tarap", "tamap"})
+SANKHYA_TERMS = frozenset({"bahu", "gaṇa", "vatu", "ḍati"})
+SHAT_NUMERALS = frozenset({"ṣaṣ", "pañcan", "saptan", "aṣṭan", "navan", "daśan"})
+NISTHA_SUFFIXES = frozenset({"kta", "ktavatū"})
+SARVANAMA_STEMS = frozenset(
+    {
+        "sarva",
+        "viśva",
+        "ubha",
+        "ubhaya",
+        "anya",
+        "anyatara",
+        "itara",
+        "tad",
+        "yad",
+        "etad",
+        "idam",
+        "adas",
+        "eka",
+        "dvi",
+        "yūṣmad",
+        "asmad",
+        "bhavat",
+        "kim",
+    }
+)
+
+
+def is_ghu_root(lemma: str) -> bool:
+    """1.1.20 dādhā ghvadāp: dā/dhā roots receive ghu-saṃjñā, excluding dāp/daip."""
+    return lemma in GHU_ROOTS and lemma not in GHU_EXCLUSIONS
+
+
+def has_single_sound_boundary(term: str) -> bool:
+    """1.1.21 ādyantavad ekasmin: a single sound is treated as both beginning and end."""
+    return len(tokenize_sounds(term)) == 1
+
+
+def is_gha_suffix(suffix: str) -> bool:
+    """1.1.22 taraptamapau ghaḥ."""
+    return suffix in GHA_SUFFIXES
+
+
+def is_sankhya_term(term: str) -> bool:
+    """1.1.23 bahugaṇavatuḍati saṃkhyā."""
+    return term in SANKHYA_TERMS
+
+
+def is_shat_numeral(term: str) -> bool:
+    """1.1.24 ṣṇāntā ṣaṭ, with 1.1.25 ḍati ca handled by the controlled term set."""
+    return term in SHAT_NUMERALS or term == "ḍati"
+
+
+def is_nistha_suffix(suffix: str) -> bool:
+    """1.1.26 ktaktavatū niṣṭhā."""
+    return suffix in NISTHA_SUFFIXES
+
+
+def is_sarvanama_stem(stem: str) -> bool:
+    """1.1.27 sarvādīni sarvanāmāni."""
+    return stem in SARVANAMA_STEMS
+
+
 def assign_technical_names(analysis: Analysis, suffix_surface: str | None = None) -> Analysis:
     """
     Partial saṃjñā scaffold for selected 1.4 rules.
