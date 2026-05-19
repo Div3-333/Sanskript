@@ -4,6 +4,7 @@ from pathlib import Path
 
 from sanskript.adhyaya1 import (
     ADHYAYA1_RULES,
+    ImplementationMode,
     expected_adhyaya1_ids,
     expected_half_adhyaya_ids,
     implemented_sutra_ids,
@@ -12,7 +13,7 @@ from sanskript.adhyaya1 import (
     partial_sutra_ids,
     rules_for_pada,
 )
-from sanskript.anga import DerivationContext, Suffix, guna
+from sanskript.anga import DerivationContext, Suffix, guna, vrddhi
 from sanskript.categories import assign_technical_names, get_vowel_weight, is_avasana, is_samhita
 from sanskript.grammar import Analysis, Case, Gender, GrammaticalNumber, Pada, PartOfSpeech, Role, Samjna
 from sanskript.karaka import explain_case, get_karaka_role
@@ -22,6 +23,7 @@ from sanskript.phonology import (
     hrasva_substitute_for_ec,
     is_anunasika,
     is_pragrhya,
+    is_savarna,
     is_samyoga,
     is_ti,
     is_vrddha_word,
@@ -32,6 +34,7 @@ from sanskript.voice import determine_available_padas
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DISCRETE_ADHYAYA1_IDS = frozenset(f"1.1.{index}" for index in range(1, 11))
 
 
 class AdhyayaOneRegistryTests(unittest.TestCase):
@@ -43,18 +46,28 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
         self.assertEqual(len(rules_for_pada("1.2")), 73)
         self.assertEqual(len(rules_for_pada("1.3")), 93)
         self.assertEqual(len(rules_for_pada("1.4")), 110)
-        self.assertEqual(implemented_sutra_ids(), frozenset())
-        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya1_ids()))
+        self.assertEqual(implemented_sutra_ids(), DISCRETE_ADHYAYA1_IDS)
+        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya1_ids()) - DISCRETE_ADHYAYA1_IDS)
 
     def test_every_rule_is_truthfully_partial_until_discrete_logic_exists(self) -> None:
         for sutra_id, rule in ADHYAYA1_RULES.items():
             with self.subTest(sutra_id=sutra_id):
-                self.assertFalse(rule.implemented)
                 self.assertTrue(rule.title)
                 self.assertTrue(rule.compiler_effect)
-                self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
+                if sutra_id in DISCRETE_ADHYAYA1_IDS:
+                    self.assertTrue(rule.implemented)
+                    self.assertEqual(rule.mode, ImplementationMode.DISCRETE)
+                    self.assertTrue(rule.discrete)
+                    self.assertTrue(rule.sutra_text_devanagari)
+                    self.assertTrue(rule.sutra_text_iast)
+                    self.assertTrue(rule.conditions)
+                    self.assertTrue(rule.counterexamples)
+                    self.assertTrue(rule.reviewer_notes)
+                else:
+                    self.assertFalse(rule.implemented)
+                    self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
 
-    def test_local_canon_marks_adhyaya_one_as_partial(self) -> None:
+    def test_local_canon_marks_only_discrete_adhyaya_one_as_implemented(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))
         statuses = {
             item["title"]: item["status"]
@@ -63,10 +76,37 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
         }
 
         self.assertEqual(len(statuses), 351)
-        self.assertEqual(set(statuses.values()), {"partial"})
+        self.assertEqual({sid for sid, status in statuses.items() if status == "implemented"}, set(DISCRETE_ADHYAYA1_IDS))
+        self.assertEqual({sid for sid, status in statuses.items() if status == "partial"}, set(expected_adhyaya1_ids()) - set(DISCRETE_ADHYAYA1_IDS))
 
 
 class AdhyayaOneBehaviorTests(unittest.TestCase):
+    def test_discrete_first_ten_sutras_have_positive_and_negative_behavior(self) -> None:
+        dhatu_lopa = DerivationContext(suffix=Suffix("ta", is_ardhadhatuka=True), has_dhatu_lopa=True)
+        ordinary_ardhadhatuka = DerivationContext(suffix=Suffix("ta", is_ardhadhatuka=True))
+        kit_suffix = DerivationContext(suffix=Suffix("ta", markers=frozenset({"k"})))
+        ngit_suffix = DerivationContext(suffix=Suffix("ta", markers=frozenset({"ṅ"})))
+        listed_root = DerivationContext(root_lemma="dīdī", suffix=Suffix("ta"))
+
+        self.assertEqual(guna("i", dhatu_lopa), "i")
+        self.assertEqual(vrddhi("i", dhatu_lopa), "i")
+        self.assertEqual(guna("i", ordinary_ardhadhatuka), "e")
+
+        self.assertEqual(guna("i", kit_suffix), "i")
+        self.assertEqual(guna("i", ngit_suffix), "i")
+        self.assertEqual(guna("i", DerivationContext(suffix=Suffix("ta"))), "e")
+
+        self.assertEqual(guna("i", listed_root), "i")
+        self.assertEqual(guna("i", DerivationContext(root_lemma="bhū", suffix=Suffix("ta"))), "e")
+
+        self.assertTrue(is_samyoga(["k", "t"]))
+        self.assertFalse(is_samyoga(["k", "a"]))
+        self.assertTrue(is_anunasika("ṅ"))
+        self.assertFalse(is_anunasika("k"))
+        self.assertTrue(is_savarna("a", "ā"))
+        self.assertFalse(is_savarna("i", "u"))
+        self.assertFalse(is_savarna("a", "k"))
+
     def test_sound_definitions_and_substitution_metarules_are_executable(self) -> None:
         self.assertTrue(is_samyoga(["k", "t"]))
         self.assertFalse(is_samyoga(["k", "a"]))

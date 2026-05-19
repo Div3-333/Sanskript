@@ -5170,8 +5170,8 @@
         "1.1.1"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: defines the vṛddhi set as exactly ā, ai, and au for later replacements Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_vrddhi, sanskript.anga.vrddhi."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: defines the vṛddhi set as exactly ā, ai, and au for later replacements Hooks: sanskript.phonology.is_vrddhi, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.2",
@@ -5182,8 +5182,8 @@
         "1.1.2"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: defines the guṇa set as exactly a, e, and o for later replacements Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_guna, sanskript.anga.guna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: defines the guṇa set as exactly a, e, and o for later replacements Hooks: sanskript.phonology.is_guna, sanskript.anga.guna."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.3",
@@ -5194,8 +5194,8 @@
         "1.1.3"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: restricts guṇa and vṛddhi replacement targets to ik sounds Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.guna_replacement_for_ik, sanskript.phonology.vrddhi_replacement_for_ik."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: restricts guṇa and vṛddhi replacement targets to ik sounds Hooks: sanskript.phonology.guna_replacement_for_ik, sanskript.phonology.vrddhi_replacement_for_ik."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.4",
@@ -5206,8 +5206,8 @@
         "1.1.4"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks guṇa/vṛddhi after dhātu-lopa before an ārdhadhātuka suffix Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks guṇa/vṛddhi after dhātu-lopa before an ārdhadhātuka suffix Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.5",
@@ -5218,8 +5218,8 @@
         "1.1.5"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks guṇa/vṛddhi before kit or ṅit suffixes Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks guṇa/vṛddhi before kit or ṅit suffixes Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.6",
@@ -5230,8 +5230,8 @@
         "1.1.6"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: blocks guṇa/vṛddhi for dīdī/vevī and selected iṭ-augment contexts Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks guṇa/vṛddhi for dīdī/vevī and selected iṭ-augment contexts Hooks: sanskript.anga.DerivationContext, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.7",
@@ -5242,8 +5242,8 @@
         "1.1.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records the saṃyoga relation in the sound inventory Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_samyoga."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the saṃyoga relation in the sound inventory Hooks: sanskript.phonology.is_samyoga."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.8",
@@ -5254,8 +5254,8 @@
         "1.1.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records the anunāsika relation in the sound inventory Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_anunasika."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the anunāsika relation in the sound inventory Hooks: sanskript.phonology.is_anunasika."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.9",
@@ -5266,8 +5266,8 @@
         "1.1.9"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records the savarṇa relation in the sound inventory Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_savarna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the savarṇa relation in the sound inventory Hooks: sanskript.phonology.is_savarna."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.10",
@@ -5278,8 +5278,8 @@
         "1.1.10"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: records the ac and hal savarṇa boundary relation in the sound inventory Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_savarna."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the ac and hal savarṇa boundary relation in the sound inventory Hooks: sanskript.phonology.is_savarna."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.11",
@@ -55248,7 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "partial": 3365
+      "implemented": 10,
+      "partial": 3355
     },
     "by_kind": {
       "sutra": 3981,

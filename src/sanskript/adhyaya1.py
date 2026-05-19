@@ -50,11 +50,34 @@ class SutraRule:
     compiler_effect: str
     hooks: tuple[str, ...]
     examples: tuple[RuleExample, ...]
+    sutra_text_devanagari: str = ""
+    sutra_text_iast: str = ""
+    source: str = ""
+    anuvritti: tuple[str, ...] = ()
+    conditions: tuple[str, ...] = ()
+    exceptions: tuple[str, ...] = ()
+    counterexamples: tuple[RuleExample, ...] = ()
+    reviewer_notes: tuple[str, ...] = ()
 
     @property
     def implemented(self) -> bool:
-        return self.mode == ImplementationMode.DISCRETE
+        return self.mode == ImplementationMode.DISCRETE and self.discrete
 
+    @property
+    def discrete(self) -> bool:
+        return all(
+            (
+                self.sutra_text_devanagari,
+                self.sutra_text_iast,
+                self.source,
+                self.anuvritti,
+                self.conditions,
+                self.examples,
+                self.counterexamples,
+                self.hooks,
+                self.reviewer_notes,
+            )
+        )
 
 def rule_for(sutra_id: str) -> SutraRule:
     try:
@@ -122,6 +145,14 @@ def _rule(
     compiler_effect: str,
     hooks: tuple[str, ...],
     examples: tuple[RuleExample, ...],
+    sutra_text_devanagari: str = "",
+    sutra_text_iast: str = "",
+    source: str = "",
+    anuvritti: tuple[str, ...] = (),
+    conditions: tuple[str, ...] = (),
+    exceptions: tuple[str, ...] = (),
+    counterexamples: tuple[RuleExample, ...] = (),
+    reviewer_notes: tuple[str, ...] = (),
 ) -> SutraRule:
     return SutraRule(
         id=sutra_id,
@@ -132,7 +163,122 @@ def _rule(
         compiler_effect=compiler_effect,
         hooks=hooks,
         examples=examples,
+        sutra_text_devanagari=sutra_text_devanagari,
+        sutra_text_iast=sutra_text_iast,
+        source=source,
+        anuvritti=anuvritti,
+        conditions=conditions,
+        exceptions=exceptions,
+        counterexamples=counterexamples,
+        reviewer_notes=reviewer_notes,
     )
+
+
+PANINI_SOURCE = "https://sanskritlibrary.org/grammatical/data/panini.html"
+
+
+DISCRETE_SUTRA_EVIDENCE: dict[str, dict[str, object]] = {
+    "1.1.1": {
+        "sutra_text_devanagari": "वृद्धिरादैच्",
+        "sutra_text_iast": "vṛddhir ādaiC",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("The term vṛddhi denotes exactly ā, ai, and au.",),
+        "exceptions": ("No sound outside ā/ai/au receives vṛddhi-saṃjñā by this rule.",),
+        "counterexamples": _example("e", "not vṛddhi", "e is rejected because it belongs to guṇa, not vṛddhi."),
+        "reviewer_notes": ("Behavior is executable through VRDDHI_SOUNDS and is_vrddhi with positive and negative tests.",),
+    },
+    "1.1.2": {
+        "sutra_text_devanagari": "अदेङ् गुणः",
+        "sutra_text_iast": "adeṅ guṇaḥ",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("The term guṇa denotes exactly a, e, and o.",),
+        "exceptions": ("No sound outside a/e/o receives guṇa-saṃjñā by this rule.",),
+        "counterexamples": _example("ai", "not guṇa", "ai is rejected because it belongs to vṛddhi, not guṇa."),
+        "reviewer_notes": ("Behavior is executable through GUNA_SOUNDS and is_guna with positive and negative tests.",),
+    },
+    "1.1.3": {
+        "sutra_text_devanagari": "इको गुणवृद्धी",
+        "sutra_text_iast": "iko guṇavṛddhī",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("guṇa and vṛddhi from 1.1.1-1.1.2",),
+        "conditions": ("Guṇa and vṛddhi replacement targets are limited to ik sounds.",),
+        "exceptions": ("Non-ik sounds cannot enter the guṇa/vṛddhi replacement table.",),
+        "counterexamples": _example("a", "not an ik replacement target", "a raises a rule-specific replacement error."),
+        "reviewer_notes": ("Behavior is executable through is_ik, guna_replacement_for_ik, and vrddhi_replacement_for_ik.",),
+    },
+    "1.1.4": {
+        "sutra_text_devanagari": "न धातुलोप आर्धधातुके",
+        "sutra_text_iast": "na dhātulopa ārdhadhātuke",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("guṇa-vṛddhi replacement domain from 1.1.3",),
+        "conditions": ("A dhātu-lopa context before an ārdhadhātuka suffix blocks guṇa/vṛddhi.",),
+        "exceptions": ("Without dhātu-lopa, the ordinary ik replacement path remains available.",),
+        "counterexamples": _example("i + ārdhadhātuka without dhātu-lopa", "e", "guṇa is allowed when the blocking condition is absent."),
+        "reviewer_notes": ("Behavior is executable in anga.guna and anga.vrddhi via DerivationContext.has_dhatu_lopa.",),
+    },
+    "1.1.5": {
+        "sutra_text_devanagari": "क्ङिति च",
+        "sutra_text_iast": "kṅiti ca",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("guṇa-vṛddhi replacement domain from 1.1.3",),
+        "conditions": ("A kit or ṅit suffix blocks guṇa/vṛddhi.",),
+        "exceptions": ("Suffixes not treated as kit or ṅit do not trigger this block.",),
+        "counterexamples": _example("i + non-kit/non-ṅit suffix", "e", "guṇa is allowed when the k/ṅ marker condition is absent."),
+        "reviewer_notes": ("Behavior is executable in DerivationContext.get_is_kit/get_is_ngit and anga.guna/vrddhi.",),
+    },
+    "1.1.6": {
+        "sutra_text_devanagari": "दीधीवेवीटाम्",
+        "sutra_text_iast": "dīdhīvevīṭām",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("guṇa-vṛddhi replacement domain from 1.1.3",),
+        "conditions": ("The listed dīdhī/vevī roots and controlled iṭ-augment contexts block guṇa/vṛddhi.",),
+        "exceptions": ("The ktvā iṭ context is handled separately and does not use this broad iṭ block.",),
+        "counterexamples": _example("bhū + ordinary suffix", "guṇa allowed", "ordinary roots do not trigger the listed-root block."),
+        "reviewer_notes": ("Behavior is executable in anga.guna and anga.vrddhi through root_lemma and is_it_augment.",),
+    },
+    "1.1.7": {
+        "sutra_text_devanagari": "हलोनन्तराः संयोगः",
+        "sutra_text_iast": "halo'nantarāḥ saṃyogaḥ",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("Two or more adjacent hal sounds with no intervening vowel receive saṃyoga-saṃjñā.",),
+        "exceptions": ("Any intervening ac sound prevents saṃyoga.",),
+        "counterexamples": _example("k+a", "not saṃyoga", "A vowel between or among sounds breaks the hal-only adjacency."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_samyoga with accepted and rejected sound lists.",),
+    },
+    "1.1.8": {
+        "sutra_text_devanagari": "मुखनासिकावचनोऽनुनासिकः",
+        "sutra_text_iast": "mukhanāsikāvacano'nunāsikaḥ",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("A sound marked with nasal articulation receives anunāsika-saṃjñā.",),
+        "exceptions": ("Non-nasal sounds do not receive anunāsika-saṃjñā.",),
+        "counterexamples": _example("k", "not anunāsika", "k is oral and not nasal in the sound inventory."),
+        "reviewer_notes": ("Behavior is executable through Sound.nasal and phonology.is_anunasika.",),
+    },
+    "1.1.9": {
+        "sutra_text_devanagari": "तुल्यास्यप्रयत्नं सवर्णम्",
+        "sutra_text_iast": "tulyāsyaprayatnaṃ savarṇam",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("saṃjñā domain",),
+        "conditions": ("Sounds with matching articulation place and effort inside the same ac/hal class are savarṇa.",),
+        "exceptions": ("A later prohibition keeps ac and hal from becoming savarṇa with each other.",),
+        "counterexamples": _example("i/u", "not savarṇa", "Different articulation places reject savarṇa-saṃjñā."),
+        "reviewer_notes": ("Behavior is executable through phonology.is_savarna and savarna_class.",),
+    },
+    "1.1.10": {
+        "sutra_text_devanagari": "नाज्झलौ",
+        "sutra_text_iast": "nājjhalau",
+        "source": PANINI_SOURCE,
+        "anuvritti": ("savarṇa from 1.1.9",),
+        "conditions": ("An ac sound and a hal sound are not mutually savarṇa.",),
+        "exceptions": ("Same-class savarṇa relations, such as a/ā, remain governed by 1.1.9.",),
+        "counterexamples": _example("a/ā", "savarṇa", "The prohibition is not applied to two ac sounds."),
+        "reviewer_notes": ("Behavior is executable through the vowel/consonant class check inside phonology.is_savarna.",),
+    },
+}
 
 
 def _build_rules() -> dict[str, SutraRule]:
@@ -147,7 +293,26 @@ def _build_rules() -> dict[str, SutraRule]:
         examples: tuple[RuleExample, ...],
         mode: ImplementationMode = ImplementationMode.SEMANTIC,
     ) -> None:
-        rules[sutra_id] = _rule(sutra_id, kind, mode, title, compiler_effect, hooks, examples)
+        evidence = DISCRETE_SUTRA_EVIDENCE.get(sutra_id, {})
+        if evidence:
+            mode = ImplementationMode.DISCRETE
+        rules[sutra_id] = _rule(
+            sutra_id,
+            kind,
+            mode,
+            title,
+            compiler_effect,
+            hooks,
+            examples,
+            sutra_text_devanagari=str(evidence.get("sutra_text_devanagari", "")),
+            sutra_text_iast=str(evidence.get("sutra_text_iast", "")),
+            source=str(evidence.get("source", "")),
+            anuvritti=tuple(evidence.get("anuvritti", ())),
+            conditions=tuple(evidence.get("conditions", ())),
+            exceptions=tuple(evidence.get("exceptions", ())),
+            counterexamples=tuple(evidence.get("counterexamples", ())),
+            reviewer_notes=tuple(evidence.get("reviewer_notes", ())),
+        )
 
     add(
         "1.1.1",
