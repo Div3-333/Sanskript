@@ -25,6 +25,64 @@ KARAKA_EXPLANATIONS = {
 }
 
 
+CASE_PRIORITY = (
+    Case.NOMINATIVE,
+    Case.ACCUSATIVE,
+    Case.INSTRUMENTAL,
+    Case.DATIVE,
+    Case.ABLATIVE,
+    Case.GENITIVE,
+    Case.LOCATIVE,
+    Case.VOCATIVE,
+)
+
+
+UPAPADA_CASES: dict[str, frozenset[Case]] = {
+    "antarā": frozenset({Case.ACCUSATIVE}),
+    "antareṇa": frozenset({Case.ACCUSATIVE}),
+    "namas": frozenset({Case.DATIVE}),
+    "svasti": frozenset({Case.DATIVE}),
+    "svāhā": frozenset({Case.DATIVE}),
+    "svadhā": frozenset({Case.DATIVE}),
+    "alam": frozenset({Case.DATIVE}),
+    "vaṣaṭ": frozenset({Case.DATIVE}),
+    "saha": frozenset({Case.INSTRUMENTAL}),
+    "anu": frozenset({Case.ACCUSATIVE}),
+    "apa": frozenset({Case.ABLATIVE}),
+    "pari": frozenset({Case.ABLATIVE}),
+    "prati": frozenset({Case.ABLATIVE}),
+    "anya": frozenset({Case.ABLATIVE}),
+    "atas": frozenset({Case.GENITIVE}),
+    "enapā": frozenset({Case.ACCUSATIVE}),
+    "pṛthak": frozenset({Case.INSTRUMENTAL}),
+    "vinā": frozenset({Case.INSTRUMENTAL}),
+    "nānā": frozenset({Case.INSTRUMENTAL}),
+    "dūra": frozenset({Case.ACCUSATIVE, Case.GENITIVE}),
+    "antika": frozenset({Case.ACCUSATIVE, Case.GENITIVE}),
+}
+
+
+SEMANTIC_CONTEXT_CASES: dict[str, frozenset[Case]] = {
+    "defective_limb": frozenset({Case.INSTRUMENTAL}),
+    "cause": frozenset({Case.INSTRUMENTAL}),
+    "vedic_hu": frozenset({Case.INSTRUMENTAL}),
+    "apavarga": frozenset({Case.INSTRUMENTAL}),
+    "between_karakas": frozenset({Case.LOCATIVE, Case.ABLATIVE}),
+    "excess_reference": frozenset({Case.LOCATIVE}),
+    "motion_goal": frozenset({Case.ACCUSATIVE, Case.DATIVE}),
+    "tumun_purpose": frozenset({Case.DATIVE}),
+    "disrespect_inanimate_manyate": frozenset({Case.ACCUSATIVE}),
+    "agent_or_instrument": frozenset({Case.INSTRUMENTAL}),
+    "characteristic_mark": frozenset({Case.INSTRUMENTAL}),
+    "name_object": frozenset({Case.ACCUSATIVE}),
+    "debt_without_agent": frozenset({Case.ABLATIVE}),
+    "quality_relation": frozenset({Case.GENITIVE}),
+    "cause_genitive": frozenset({Case.GENITIVE}),
+    "pronoun_instrumental": frozenset({Case.INSTRUMENTAL}),
+    "stock_measure": frozenset({Case.INSTRUMENTAL}),
+}
+
+
 def role_for_case(case: Case) -> Role | None:
     return CASE_TO_ROLE.get(case)
 
@@ -84,7 +142,12 @@ def get_karaka_role(verb_lemma: str, semantic_role_context: str) -> Role | None:
     return None
 
 
-def get_vibhakti(role: Role | None = None, companion_lemma: str | None = None, is_already_expressed: bool = False, semantic_context: str | None = None) -> Case:
+def get_allowed_vibhaktis(
+    role: Role | None = None,
+    companion_lemma: str | None = None,
+    is_already_expressed: bool = False,
+    semantic_context: str | None = None,
+) -> frozenset[Case]:
     """
     Partial vibhakti assignment scaffold for selected 2.3 contexts.
 
@@ -93,7 +156,7 @@ def get_vibhakti(role: Role | None = None, companion_lemma: str | None = None, i
     """
     # 2.3.1: anabhihite
     if is_already_expressed:
-        return Case.NOMINATIVE
+        return frozenset({Case.NOMINATIVE})
 
     # Karaka Vibhaktis (Primary)
     karaka_case = None
@@ -103,32 +166,21 @@ def get_vibhakti(role: Role | None = None, companion_lemma: str | None = None, i
     elif role == Role.APADANA: karaka_case = Case.ABLATIVE
     elif role == Role.ADHIKARANA: karaka_case = Case.LOCATIVE
 
-    # Upapada Vibhaktis (Secondary)
-    upapada_case = None
-
-    # 2.3.5: antarāntareṇa yuktē (Accusative)
-    if companion_lemma in {"antarā", "antareṇa"}:
-        upapada_case = Case.ACCUSATIVE
-
-    # 2.3.16: namaḥ-svasti... (Dative)
-    elif companion_lemma in {"namas", "svasti", "svāhā", "svadhā", "alam", "vaṣaṭ"}:
-        upapada_case = Case.DATIVE
-
-    # 2.3.19: saha-yukte (Instrumental)
-    elif companion_lemma == "saha":
-        upapada_case = Case.INSTRUMENTAL
-
-    # 2.3.20: yenāṅga-vikāraḥ (Instrumental for defective limbs)
-    if semantic_context == "defective_limb":
-        upapada_case = Case.INSTRUMENTAL
-
-    # 2.3.23: hētau (Instrumental for cause/reason)
-    if semantic_context == "cause":
-        upapada_case = Case.INSTRUMENTAL
+    upapada_cases = UPAPADA_CASES.get(str(companion_lemma), frozenset()) if companion_lemma else frozenset()
+    semantic_cases = SEMANTIC_CONTEXT_CASES.get(str(semantic_context), frozenset()) if semantic_context else frozenset()
 
     # Precedence Rule: Karaka > Upapada
     # Example: namaskurmo devān (namas + kṛ). Devān is Karman, so Accusative overrides Dative.
-    return karaka_case if karaka_case else (upapada_case if upapada_case else Case.GENITIVE)
+    if karaka_case:
+        return frozenset({karaka_case})
+    if upapada_cases or semantic_cases:
+        return upapada_cases | semantic_cases
+    return frozenset({Case.GENITIVE})
+
+
+def get_vibhakti(role: Role | None = None, companion_lemma: str | None = None, is_already_expressed: bool = False, semantic_context: str | None = None) -> Case:
+    allowed = get_allowed_vibhaktis(role, companion_lemma, is_already_expressed, semantic_context)
+    return next(case for case in CASE_PRIORITY if case in allowed)
 
 
 def explain_case(case: Case) -> KarakaExplanation:

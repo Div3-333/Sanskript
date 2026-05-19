@@ -10726,8 +10726,8 @@
         "2.3.3"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Tṛtīyā ca hośchandasi. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tṛtīyā ca hośchandasi. vidhi formal rule in the vibhakti assignment under anabhihite domain: Tṛtīyā ca hośchandasi. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.4",
@@ -10738,8 +10738,8 @@
         "2.3.4"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Antarā'ntareṇa yukte. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: antarāऽntareṇa yukte. vidhi formal rule in the vibhakti assignment under anabhihite domain: Antarā'ntareṇa yukte. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.5",
@@ -10762,8 +10762,8 @@
         "2.3.6"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Apavarge tṛtīyā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: apavarge tṛtīyā. vidhi formal rule in the vibhakti assignment under anabhihite domain: Apavarge tṛtīyā. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.7",
@@ -10774,8 +10774,8 @@
         "2.3.7"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Saptamīpañcamyau kārakamadhye. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: saptamīpañcamyau kārakamadhye. vidhi formal rule in the vibhakti assignment under anabhihite domain: Saptamīpañcamyau kārakamadhye. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.8",
@@ -10786,8 +10786,8 @@
         "2.3.8"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Karmapravacanīyayukte dvitīyā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: karmapravacanīyayukte dvitīyā. vidhi formal rule in the vibhakti assignment under anabhihite domain: Karmapravacanīyayukte dvitīyā. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.9",
@@ -10798,8 +10798,8 @@
         "2.3.9"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Yasmādadhikaṁ yasya ceśvaravacanaṁ tatra saptamī. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: yasmādadhikaṃ yasya ceśvaravacanaṃ tatra saptamī. vidhi formal rule in the vibhakti assignment under anabhihite domain: Yasmādadhikaṁ yasya ceśvaravacanaṁ tatra saptamī. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.10",
@@ -10810,8 +10810,8 @@
         "2.3.10"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Pañcamī apāṅparibhiḥ. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: pañcamī apāṅparibhiḥ. vidhi formal rule in the vibhakti assignment under anabhihite domain: Pañcamī apāṅparibhiḥ. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.11",
@@ -10822,8 +10822,8 @@
         "2.3.11"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Pratinidhipratidāne ca yasmāt. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: pratinidhipratidāne ca yasmāt‌. vidhi formal rule in the vibhakti assignment under anabhihite domain: Pratinidhipratidāne ca yasmāt. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.12",
@@ -10834,8 +10834,8 @@
         "2.3.12"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Gatyarthakarmaṇi dvitīyācaturthyau ceṣṭāyāmanadhvani. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: gatyarthakarmaṇi dvitīyācaturthyau ceṣṭāyāmanadhvani. vidhi formal rule in the vibhakti assignment under anabhihite domain: Gatyarthakarmaṇi dvitīyācaturthyau ceṣṭāyāmanadhvani. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.13",
@@ -10870,8 +10870,8 @@
         "2.3.15"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Tumarthācca bhāvavacanāt. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: tumarthācca bhāvavacanāt‌. vidhi formal rule in the vibhakti assignment under anabhihite domain: Tumarthācca bhāvavacanāt. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.16",
@@ -10894,8 +10894,8 @@
         "2.3.17"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Manyakarmaṇyanādare vibhāṣā'prāṇiṣu. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: manyakarmaṇyanādare vibhāṣāऽprāṇiṣu. vidhi formal rule in the vibhakti assignment under anabhihite domain: Manyakarmaṇyanādare vibhāṣā'prāṇiṣu. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.18",
@@ -10906,8 +10906,8 @@
         "2.3.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Kartṛkaraṇayostṛtīyā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: kartṛkaraṇayostṛtīyā. vidhi formal rule in the vibhakti assignment under anabhihite domain: Kartṛkaraṇayostṛtīyā. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.19",
@@ -10942,8 +10942,8 @@
         "2.3.21"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Itthambhūtalakṣaṇe. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: itthaṃbhūtalakṣaṇe. vidhi formal rule in the vibhakti assignment under anabhihite domain: Itthambhūtalakṣaṇe. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.22",
@@ -10954,8 +10954,8 @@
         "2.3.22"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Sañjño'nyatarasyāṁ karmaṇi. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: saṃjñoऽnyatarasyāṃ karmaṇi. vidhi formal rule in the vibhakti assignment under anabhihite domain: Sañjño'nyatarasyāṁ karmaṇi. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.23",
@@ -10978,8 +10978,8 @@
         "2.3.24"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Akartaryṛṇe pañcamī. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: akartaryṛṇe pañcamī. vidhi formal rule in the vibhakti assignment under anabhihite domain: Akartaryṛṇe pañcamī. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.25",
@@ -10990,8 +10990,8 @@
         "2.3.25"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: optional formal rule in the vibhakti assignment under anabhihite domain: Vibhāṣā guṇe'striyām. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: vibhāṣā guṇeऽstriyām‌. optional formal rule in the vibhakti assignment under anabhihite domain: Vibhāṣā guṇe'striyām. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.26",
@@ -11002,8 +11002,8 @@
         "2.3.26"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Ṣaṣṭhī hetuprayoge. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ṣaṣṭhī hetuprayoge. vidhi formal rule in the vibhakti assignment under anabhihite domain: Ṣaṣṭhī hetuprayoge. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.27",
@@ -11014,8 +11014,8 @@
         "2.3.27"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Sarvanāmnastṛtīyā ca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: sarvanāmnastṛtīyā ca. vidhi formal rule in the vibhakti assignment under anabhihite domain: Sarvanāmnastṛtīyā ca. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.28",
@@ -11038,8 +11038,8 @@
         "2.3.29"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Anyārāditararttedikśabdāñcūttarapadājāhiyukte. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: anyārāditararttedik‌śabdāñcūttarapadājāhiyukte. vidhi formal rule in the vibhakti assignment under anabhihite domain: Anyārāditararttedikśabdāñcūttarapadājāhiyukte. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.30",
@@ -11050,8 +11050,8 @@
         "2.3.30"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Ṣaṣṭhyatasarthapratyayena. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: ṣaṣṭhyatasarthapratyayena. vidhi formal rule in the vibhakti assignment under anabhihite domain: Ṣaṣṭhyatasarthapratyayena. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.31",
@@ -11062,8 +11062,8 @@
         "2.3.31"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Enapā dvitīyā. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: enapā dvitīyā. vidhi formal rule in the vibhakti assignment under anabhihite domain: Enapā dvitīyā. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.32",
@@ -11074,8 +11074,8 @@
         "2.3.32"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Pṛthagvinānānābhistṛtīyā'nyatarasyām. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: pṛthagvinānānābhistṛtīyāऽnyatarasyām‌. vidhi formal rule in the vibhakti assignment under anabhihite domain: Pṛthagvinānānābhistṛtīyā'nyatarasyām. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.33",
@@ -11086,8 +11086,8 @@
         "2.3.33"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Karaṇe ca stokālpakṛcchrakatipayasyāsattvavacanasya. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: karaṇe ca stokālpakṛcchrakatipayasyāsattvavacanasya. vidhi formal rule in the vibhakti assignment under anabhihite domain: Karaṇe ca stokālpakṛcchrakatipayasyāsattvavacanasya. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.34",
@@ -11098,8 +11098,8 @@
         "2.3.34"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Dūrāntikārthaiḥ ṣaṣṭhyanyatarasyām. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dūrāntikārthaiḥ ṣaṣṭhyanyatarasyām‌. vidhi formal rule in the vibhakti assignment under anabhihite domain: Dūrāntikārthaiḥ ṣaṣṭhyanyatarasyām. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.35",
@@ -11110,8 +11110,8 @@
         "2.3.35"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Atomic metadata only, not a complete discrete Paninian sutra implementation: vidhi formal rule in the vibhakti assignment under anabhihite domain: Dūrāntikārthebhyo dvitīyā ca. Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 2/3 implementation: dūrāntikārthebhyo dvitīyā ca. vidhi formal rule in the vibhakti assignment under anabhihite domain: Dūrāntikārthebhyo dvitīyā ca. Hooks: sanskript.karaka.get_vibhakti, sanskript.karaka.role_for_case, sanskript.grammar.Case."
     },
     {
       "id": "sutra:ashtadhyayi:2.3.36",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 230,
-      "partial": 3135
+      "implemented": 255,
+      "partial": 3110
     },
     "by_kind": {
       "sutra": 3981,

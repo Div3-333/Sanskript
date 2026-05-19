@@ -515,7 +515,7 @@ def render_markdown(canon: dict[str, Any]) -> str:
             "",
             "The current interpreter now uses a strict real-handler truth gate. A sutra is marked `implemented` only when it has exact source text, inherited domain data, conditions, positive behavior, negative behavior, and a named executable handler that calls the grammar engine instead of a generated metadata profile:",
             "",
-            "- 230 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;",
+            "- 255 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;",
             "- the previous generated Adhyaya 1-6 profile is deliberately rejected as a completion metric;",
             "- Adhyaya 2 through 8 ranges remain partial or batch-partial until their individual sutra logic is upgraded;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",

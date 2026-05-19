@@ -29,7 +29,7 @@ from .categories import (
 from .accent import Accent, profile_accent
 from .derivation import KrtSuffix, TaddhitaSuffix, derive
 from .grammar import Analysis, Case, Gender, GrammaticalNumber, Lakara, Pada, PartOfSpeech, Person, Role, Samjna
-from .karaka import get_karaka_role, get_vibhakti
+from .karaka import get_allowed_vibhaktis, get_karaka_role, get_vibhakti
 from .markers import analyze_it_markers
 from .metarules import (
     augment_boundary,
@@ -618,6 +618,95 @@ def sutra_2_2_30(c) -> bool:
 
 def sutra_2_3_1(c) -> bool:
     return get_vibhakti(is_already_expressed=bool(c.get("expressed"))) == c.get("case")
+
+def _vibhakti_allows(c, case: Case) -> bool:
+    companion = c.get("companion")
+    semantic = c.get("semantic")
+    return case in get_allowed_vibhaktis(
+        role=c.get("role"),
+        companion_lemma=str(companion) if companion is not None else None,
+        is_already_expressed=bool(c.get("expressed")),
+        semantic_context=str(semantic) if semantic is not None else None,
+    )
+
+def _vibhakti_context_case_allowed(c) -> bool:
+    case = c.get("case")
+    return isinstance(case, Case) and _vibhakti_allows(c, case)
+
+def sutra_2_3_3(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_4(c) -> bool:
+    return _vibhakti_allows(c, Case.ACCUSATIVE)
+
+def sutra_2_3_6(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_7(c) -> bool:
+    return _vibhakti_context_case_allowed(c)
+
+def sutra_2_3_8(c) -> bool:
+    return _vibhakti_allows(c, Case.ACCUSATIVE)
+
+def sutra_2_3_9(c) -> bool:
+    return _vibhakti_allows(c, Case.LOCATIVE)
+
+def sutra_2_3_10(c) -> bool:
+    return _vibhakti_allows(c, Case.ABLATIVE)
+
+def sutra_2_3_11(c) -> bool:
+    return _vibhakti_allows(c, Case.ABLATIVE)
+
+def sutra_2_3_12(c) -> bool:
+    return _vibhakti_context_case_allowed(c)
+
+def sutra_2_3_15(c) -> bool:
+    return _vibhakti_allows(c, Case.DATIVE)
+
+def sutra_2_3_17(c) -> bool:
+    return _vibhakti_allows(c, Case.ACCUSATIVE)
+
+def sutra_2_3_18(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_21(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_22(c) -> bool:
+    return _vibhakti_allows(c, Case.ACCUSATIVE)
+
+def sutra_2_3_24(c) -> bool:
+    return _vibhakti_allows(c, Case.ABLATIVE)
+
+def sutra_2_3_25(c) -> bool:
+    return _vibhakti_allows(c, Case.GENITIVE)
+
+def sutra_2_3_26(c) -> bool:
+    return _vibhakti_allows(c, Case.GENITIVE)
+
+def sutra_2_3_27(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_29(c) -> bool:
+    return _vibhakti_allows(c, Case.ABLATIVE)
+
+def sutra_2_3_30(c) -> bool:
+    return _vibhakti_allows(c, Case.GENITIVE)
+
+def sutra_2_3_31(c) -> bool:
+    return _vibhakti_allows(c, Case.ACCUSATIVE)
+
+def sutra_2_3_32(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_33(c) -> bool:
+    return _vibhakti_allows(c, Case.INSTRUMENTAL)
+
+def sutra_2_3_34(c) -> bool:
+    return _vibhakti_context_case_allowed(c)
+
+def sutra_2_3_35(c) -> bool:
+    return _vibhakti_context_case_allowed(c)
 
 def sutra_2_3_50(c) -> bool:
     return get_vibhakti(role=c.get("role")) == Case.GENITIVE
@@ -1295,6 +1384,31 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     _add(registry, "2.2.29", SutraOperator.SAMJNA, "classifies same-case coordinate compounds as dvandva", sutra_2_2_29, _ctx("2.2.29", members=tuple(_dvandva_members())), _ctx("2.2.29", members=tuple(_compound_from_case(Case.GENITIVE))), "samasa:dvandva")
     _add(registry, "2.2.30", SutraOperator.PARIBHASHA, "keeps the first member before the final member in compound surface", sutra_2_2_30, _ctx("2.2.30", members=tuple(_compound_from_case(Case.GENITIVE)), first_lemma="deva"), _ctx("2.2.30", members=tuple(_compound_from_case(Case.GENITIVE)), first_lemma="purusa"), "meta:upasarjana-order")
     _add(registry, "2.3.1", SutraOperator.VIDHI, "uses nominative when a role is already expressed", sutra_2_3_1, _ctx("2.3.1", expressed=True, case=Case.NOMINATIVE), _ctx("2.3.1", expressed=False, case=Case.NOMINATIVE), "vibhakti:nominative")
+    _add(registry, "2.3.3", SutraOperator.VIDHI, "selects instrumental in controlled Vedic hu contexts", sutra_2_3_3, _ctx("2.3.3", semantic="vedic_hu"), _ctx("2.3.3", semantic="other"), "vibhakti:instrumental")
+    _add(registry, "2.3.4", SutraOperator.VIDHI, "selects accusative with antara/antarena", sutra_2_3_4, _ctx("2.3.4", companion="antarā"), _ctx("2.3.4", companion="saha"), "vibhakti:accusative")
+    _add(registry, "2.3.6", SutraOperator.VIDHI, "selects instrumental in apavarga contexts", sutra_2_3_6, _ctx("2.3.6", semantic="apavarga"), _ctx("2.3.6", semantic="other"), "vibhakti:instrumental")
+    _add(registry, "2.3.7", SutraOperator.VIBHASHA, "allows locative or ablative between karakas", sutra_2_3_7, _ctx("2.3.7", semantic="between_karakas", case=Case.LOCATIVE), _ctx("2.3.7", semantic="between_karakas", case=Case.ACCUSATIVE), "vibhakti:locative", "vibhakti:ablative")
+    _add(registry, "2.3.8", SutraOperator.VIDHI, "selects accusative with karmapravacaniya connection", sutra_2_3_8, _ctx("2.3.8", companion="anu"), _ctx("2.3.8", companion="saha"), "vibhakti:accusative")
+    _add(registry, "2.3.9", SutraOperator.VIDHI, "selects locative for excess or lordship reference", sutra_2_3_9, _ctx("2.3.9", semantic="excess_reference"), _ctx("2.3.9", semantic="other"), "vibhakti:locative")
+    _add(registry, "2.3.10", SutraOperator.VIDHI, "selects ablative with apa/pari", sutra_2_3_10, _ctx("2.3.10", companion="apa"), _ctx("2.3.10", companion="saha"), "vibhakti:ablative")
+    _add(registry, "2.3.11", SutraOperator.VIDHI, "selects ablative in representative/exchange prati contexts", sutra_2_3_11, _ctx("2.3.11", companion="prati"), _ctx("2.3.11", companion="antarā"), "vibhakti:ablative")
+    _add(registry, "2.3.12", SutraOperator.VIBHASHA, "allows accusative or dative for motion-goal karman", sutra_2_3_12, _ctx("2.3.12", semantic="motion_goal", case=Case.DATIVE), _ctx("2.3.12", semantic="motion_goal", case=Case.GENITIVE), "vibhakti:accusative", "vibhakti:dative")
+    _add(registry, "2.3.15", SutraOperator.VIDHI, "selects dative for tumun-purpose nominal action", sutra_2_3_15, _ctx("2.3.15", semantic="tumun_purpose"), _ctx("2.3.15", semantic="cause"), "vibhakti:dative")
+    _add(registry, "2.3.17", SutraOperator.VIBHASHA, "allows accusative for inanimate manyate object in disrespect", sutra_2_3_17, _ctx("2.3.17", semantic="disrespect_inanimate_manyate"), _ctx("2.3.17", semantic="other"), "vibhakti:accusative")
+    _add(registry, "2.3.18", SutraOperator.VIDHI, "selects instrumental for agent or instrument", sutra_2_3_18, _ctx("2.3.18", semantic="agent_or_instrument"), _ctx("2.3.18", semantic="motion_goal"), "vibhakti:instrumental")
+    _add(registry, "2.3.21", SutraOperator.VIDHI, "selects instrumental for characteristic marks", sutra_2_3_21, _ctx("2.3.21", semantic="characteristic_mark"), _ctx("2.3.21", semantic="other"), "vibhakti:instrumental")
+    _add(registry, "2.3.22", SutraOperator.VIBHASHA, "allows accusative in naming-object contexts", sutra_2_3_22, _ctx("2.3.22", semantic="name_object"), _ctx("2.3.22", semantic="other"), "vibhakti:accusative")
+    _add(registry, "2.3.24", SutraOperator.VIDHI, "selects ablative for non-agent debt contexts", sutra_2_3_24, _ctx("2.3.24", semantic="debt_without_agent"), _ctx("2.3.24", semantic="cause_genitive"), "vibhakti:ablative")
+    _add(registry, "2.3.25", SutraOperator.VIBHASHA, "allows genitive in quality relation contexts", sutra_2_3_25, _ctx("2.3.25", semantic="quality_relation"), _ctx("2.3.25", semantic="agent_or_instrument"), "vibhakti:genitive")
+    _add(registry, "2.3.26", SutraOperator.VIDHI, "selects genitive in hetu-prayoga contexts", sutra_2_3_26, _ctx("2.3.26", semantic="cause_genitive"), _ctx("2.3.26", semantic="cause"), "vibhakti:genitive")
+    _add(registry, "2.3.27", SutraOperator.VIBHASHA, "allows instrumental with pronouns", sutra_2_3_27, _ctx("2.3.27", semantic="pronoun_instrumental"), _ctx("2.3.27", semantic="other"), "vibhakti:instrumental")
+    _add(registry, "2.3.29", SutraOperator.VIDHI, "selects ablative with anya and related terms", sutra_2_3_29, _ctx("2.3.29", companion="anya"), _ctx("2.3.29", companion="antarā"), "vibhakti:ablative")
+    _add(registry, "2.3.30", SutraOperator.VIDHI, "selects genitive with atasartha suffix use", sutra_2_3_30, _ctx("2.3.30", companion="atas"), _ctx("2.3.30", companion="saha"), "vibhakti:genitive")
+    _add(registry, "2.3.31", SutraOperator.VIDHI, "selects accusative with enapa", sutra_2_3_31, _ctx("2.3.31", companion="enapā"), _ctx("2.3.31", companion="atas"), "vibhakti:accusative")
+    _add(registry, "2.3.32", SutraOperator.VIBHASHA, "allows instrumental with prthak/vina/nana", sutra_2_3_32, _ctx("2.3.32", companion="vinā"), _ctx("2.3.32", companion="atas"), "vibhakti:instrumental")
+    _add(registry, "2.3.33", SutraOperator.VIDHI, "selects instrumental for stock/small-measure expressions", sutra_2_3_33, _ctx("2.3.33", semantic="stock_measure"), _ctx("2.3.33", semantic="quality_relation"), "vibhakti:instrumental")
+    _add(registry, "2.3.34", SutraOperator.VIBHASHA, "allows genitive with distance and nearness terms", sutra_2_3_34, _ctx("2.3.34", companion="dūra", case=Case.GENITIVE), _ctx("2.3.34", companion="dūra", case=Case.LOCATIVE), "vibhakti:genitive")
+    _add(registry, "2.3.35", SutraOperator.VIBHASHA, "allows accusative with distance and nearness terms", sutra_2_3_35, _ctx("2.3.35", companion="dūra", case=Case.ACCUSATIVE), _ctx("2.3.35", companion="dūra", case=Case.LOCATIVE), "vibhakti:accusative")
     for sutra_id, role, case in (
         ("2.3.2", Role.KARMAN, Case.ACCUSATIVE),
         ("2.3.13", Role.KARTR, Case.INSTRUMENTAL),
