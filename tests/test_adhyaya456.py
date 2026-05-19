@@ -8,7 +8,6 @@ from sanskript.adhyaya456 import (
     ImplementationMode,
     PADA_COUNTS,
     expected_adhyaya456_ids,
-    implementation_note_for,
     implemented_sutra_ids,
     missing_rule_ids,
     partial_implementation_note_for,
@@ -36,17 +35,14 @@ class AdhyayaFourFiveSixRegistryTests(unittest.TestCase):
     def test_scaffolded_rules_do_not_count_as_implemented(self) -> None:
         for sutra_id, rule in ADHYAYA456_RULES.items():
             with self.subTest(sutra_id=sutra_id):
+                self.assertFalse(rule.implemented)
+                self.assertIn(rule.mode, {ImplementationMode.EXECUTABLE, ImplementationMode.SEMANTIC})
                 self.assertTrue(rule.title)
                 self.assertTrue(rule.compiler_effect)
                 self.assertTrue(rule.examples)
-                if not rule.implemented:
-                    self.assertIn(rule.mode, {ImplementationMode.EXECUTABLE, ImplementationMode.SEMANTIC})
-                    self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
-                else:
-                    self.assertTrue(rule.implemented)
-                    self.assertIn("Hooks:", implementation_note_for(sutra_id))
+                self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
 
-    def test_local_canon_marks_only_atomic_adhyaya_four_five_and_six_as_implemented(self) -> None:
+    def test_local_canon_marks_adhyaya_four_five_and_six_as_partial(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))
         statuses = {
             item["title"]: item["status"]

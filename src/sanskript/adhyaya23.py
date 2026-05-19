@@ -25,6 +25,7 @@ class ImplementationMode(str, Enum):
     SEMANTIC = "semantic_scaffold"
     ATOMIC_EXECUTABLE = "atomic_executable"
     ATOMIC_FORMAL = "atomic_formal"
+    DISCRETE = "discrete_executable"
 
 
 @dataclass(frozen=True)
@@ -54,7 +55,7 @@ class SutraRule:
 
     @property
     def implemented(self) -> bool:
-        return self.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL} and self.atomic
+        return self.mode == ImplementationMode.DISCRETE and self.atomic
 
     @property
     def atomic(self) -> bool:
@@ -124,7 +125,7 @@ def partial_sutra_ids() -> frozenset[str]:
 
 def implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
-    mode = "Atomic executable" if rule.mode == ImplementationMode.ATOMIC_EXECUTABLE else "Atomic formal"
+    mode = "Discrete executable" if rule.mode == ImplementationMode.DISCRETE else "Partial"
     hooks = ", ".join(rule.hooks)
     return f"{mode} Adhyaya 2/3 implementation: {rule.sutra_text_iast}. {rule.compiler_effect} Hooks: {hooks}."
 
@@ -132,11 +133,17 @@ def implementation_note_for(sutra_id: str) -> str:
 def partial_implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
     hooks = ", ".join(rule.hooks)
-    prefix = "Executable anchor only" if rule.mode == ImplementationMode.EXECUTABLE else "Semantic scaffold only"
+    if rule.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL}:
+        prefix = "Atomic metadata only"
+    elif rule.mode == ImplementationMode.EXECUTABLE:
+        prefix = "Executable anchor only"
+    else:
+        prefix = "Semantic scaffold only"
     return (
-        f"{prefix}, not a complete atomic sutra implementation: "
+        f"{prefix}, not a complete discrete Paninian sutra implementation: "
         f"{rule.compiler_effect} Required before completion: exact sutra text, inherited domain, "
-        f"conditions, exceptions, positive examples, rejected examples, and tests. Hooks: {hooks}."
+        f"conditions, exceptions, rule-specific executable logic, positive behavioral tests, "
+        f"negative behavioral tests, and reviewer notes. Hooks: {hooks}."
     )
 
 
@@ -532,7 +539,6 @@ def _build_rules() -> dict[str, SutraRule]:
 
     for sutra_id, spec in ADHYAYA2_ATOMIC_SUTRAS.items():
         rules[sutra_id] = _atomic_rule(rules[sutra_id], spec)
-
     return rules
 
 

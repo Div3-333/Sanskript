@@ -6,9 +6,10 @@ from sanskript.adhyaya1 import (
     ADHYAYA1_RULES,
     expected_adhyaya1_ids,
     expected_half_adhyaya_ids,
-    implementation_note_for,
     implemented_sutra_ids,
     missing_rule_ids,
+    partial_implementation_note_for,
+    partial_sutra_ids,
     rules_for_pada,
 )
 from sanskript.anga import DerivationContext, Suffix, guna
@@ -42,17 +43,18 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
         self.assertEqual(len(rules_for_pada("1.2")), 73)
         self.assertEqual(len(rules_for_pada("1.3")), 93)
         self.assertEqual(len(rules_for_pada("1.4")), 110)
-        self.assertEqual(implemented_sutra_ids(), frozenset(expected_adhyaya1_ids()))
+        self.assertEqual(implemented_sutra_ids(), frozenset())
+        self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya1_ids()))
 
-    def test_every_rule_has_evidence(self) -> None:
+    def test_every_rule_is_truthfully_partial_until_discrete_logic_exists(self) -> None:
         for sutra_id, rule in ADHYAYA1_RULES.items():
             with self.subTest(sutra_id=sutra_id):
-                self.assertTrue(rule.implemented)
+                self.assertFalse(rule.implemented)
                 self.assertTrue(rule.title)
                 self.assertTrue(rule.compiler_effect)
-                self.assertIn("Hooks:", implementation_note_for(sutra_id))
+                self.assertIn("Required before completion", partial_implementation_note_for(sutra_id))
 
-    def test_local_canon_marks_adhyaya_one_as_implemented(self) -> None:
+    def test_local_canon_marks_adhyaya_one_as_partial(self) -> None:
         canon = json.loads((ROOT / "data" / "grammar_canon.json").read_text(encoding="utf-8"))
         statuses = {
             item["title"]: item["status"]
@@ -61,7 +63,7 @@ class AdhyayaOneRegistryTests(unittest.TestCase):
         }
 
         self.assertEqual(len(statuses), 351)
-        self.assertEqual(set(statuses.values()), {"implemented"})
+        self.assertEqual(set(statuses.values()), {"partial"})
 
 
 class AdhyayaOneBehaviorTests(unittest.TestCase):

@@ -150,7 +150,7 @@
     <header>
       <a href="index.html">Beginner guide</a>
       <h1>Sanskript Reference</h1>
-      <p>Atomic notes for writing the current controlled language.</p>
+      <p>Truth-gated notes for writing the current controlled language.</p>
     </header>
     <main>
       <nav aria-label="Reference sections">
@@ -181,7 +181,7 @@
 
         <section id="canon-workpacks">
           <h2>Canon Workpacks</h2>
-          <p>The first fully implemented grammar workpacks cover Adhyāya 1 and Adhyāya 2. Adhyāya 3 through 6 remain repair-tracked: executable anchors and generated scaffold entries are marked partial until each sutra receives exact text, inherited domain, conditions, exceptions, examples, counterexamples, and tests.</p>
+          <p>Adhyāya 1 through Adhyāya 6 are tracked as partial workpacks. Each sutra remains partial until it has exact text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, and negative behavioral tests.</p>
           <table>
             <tr><th>Range</th><th>Compiler surface</th><th>Use while coding</th></tr>
             <tr><td><code>1.1.1-3</code></td><td>vṛddhi, guṇa, ik replacement</td><td>Use strengthening only where the sound class allows it.</td></tr>
@@ -212,7 +212,7 @@
 rule_for("1.1.71").compiler_effect
 # forms a sound class from start sound plus final it-marker</pre>
           <div class="callout">
-            <p>Executable sutras expose direct helpers such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, <code>create_compound</code>, <code>derive</code>, <code>get_lakara_for_time</code>, <code>tin_ending</code>, <code>join_words</code>, <code>profile_accent</code>, and <code>apply_anga_operation</code>. Scaffolded semantic records are partial until they are replaced by atomic Paninian sutra implementations.</p>
+            <p>Helper anchors expose direct functions such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, <code>create_compound</code>, <code>derive</code>, <code>get_lakara_for_time</code>, <code>tin_ending</code>, <code>join_words</code>, <code>profile_accent</code>, and <code>apply_anga_operation</code>. These anchors remain partial until they are replaced by discrete Paninian sutra implementations.</p>
           </div>
         </section>
 
@@ -325,9 +325,9 @@ rāmaḥ + atra -> rāmotra</pre>
           <p>The accent layer records udātta, anudātta, svarita, and pracaya assignments as metadata for sutra-level derivation.</p>
           <table>
             <tr><th>Range</th><th>Compiler substrate</th><th>Current use</th></tr>
-            <tr><td><code>6.2</code></td><td>repair-tracked compound and pada accent records</td><td>accent profiles</td></tr>
-            <tr><td><code>6.3</code></td><td>repair-tracked uttarapada and internal-domain records</td><td>second-member scope records</td></tr>
-            <tr><td><code>6.4</code></td><td>repair-tracked late stem-final operation records</td><td>final lengthening and lopa records</td></tr>
+            <tr><td><code>6.2</code></td><td>partial compound and pada accent records</td><td>accent profiles</td></tr>
+            <tr><td><code>6.3</code></td><td>partial uttarapada and internal-domain records</td><td>second-member scope records</td></tr>
+            <tr><td><code>6.4</code></td><td>partial late stem-final operation records</td><td>final lengthening and lopa records</td></tr>
             <tr><td><code>7.1</code></td><td>augment behavior</td><td>nasal augment records</td></tr>
             <tr><td><code>7.2</code></td><td>strengthening behavior</td><td>guṇa and vṛddhi replacements</td></tr>
             <tr><td><code>7.3</code></td><td>internal aṅga replacement</td><td>guṇa and nasalization records</td></tr>
@@ -380,7 +380,7 @@ deva + final-a-lengthening -> devā</pre>
         <section id="limits">
           <h2>Limits</h2>
           <div class="callout">
-            <p>The current language is not full Sanskrit yet. Every canon item now has at least partial treatment, but the canon gate blocks release until those partial batches become fully implemented behavior.</p>
+            <p>The current language is not full Sanskrit yet. Every canon item now has at least partial treatment, but the canon gate blocks release until those partial batches become discrete implemented behavior.</p>
           </div>
         </section>
       </div>

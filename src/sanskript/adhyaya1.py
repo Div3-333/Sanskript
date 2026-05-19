@@ -28,8 +28,9 @@ class RuleKind(str, Enum):
 
 
 class ImplementationMode(str, Enum):
-    EXECUTABLE = "executable"
-    SEMANTIC = "semantic"
+    EXECUTABLE = "executable_anchor"
+    SEMANTIC = "semantic_scaffold"
+    DISCRETE = "discrete_executable"
 
 
 @dataclass(frozen=True)
@@ -52,7 +53,7 @@ class SutraRule:
 
     @property
     def implemented(self) -> bool:
-        return bool(self.hooks) and bool(self.examples)
+        return self.mode == ImplementationMode.DISCRETE
 
 
 def rule_for(sutra_id: str) -> SutraRule:
@@ -70,11 +71,27 @@ def implemented_sutra_ids() -> frozenset[str]:
     return frozenset(sutra_id for sutra_id, rule in ADHYAYA1_RULES.items() if rule.implemented)
 
 
+def partial_sutra_ids() -> frozenset[str]:
+    return frozenset(sutra_id for sutra_id, rule in ADHYAYA1_RULES.items() if not rule.implemented)
+
+
 def implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
-    mode = "Executable" if rule.mode == ImplementationMode.EXECUTABLE else "Formal semantic"
+    mode = "Discrete executable" if rule.mode == ImplementationMode.DISCRETE else "Partial"
     hooks = ", ".join(rule.hooks)
     return f"{mode} Adhyaya 1 implementation: {rule.compiler_effect} Hooks: {hooks}."
+
+
+def partial_implementation_note_for(sutra_id: str) -> str:
+    rule = rule_for(sutra_id)
+    hooks = ", ".join(rule.hooks)
+    prefix = "Executable anchor only" if rule.mode == ImplementationMode.EXECUTABLE else "Semantic scaffold only"
+    return (
+        f"{prefix}, not a complete discrete Paninian sutra implementation: "
+        f"{rule.compiler_effect} Required before completion: exact sutra text, inherited domain, "
+        f"conditions, exceptions, rule-specific executable logic, positive behavioral tests, "
+        f"negative behavioral tests, and reviewer notes. Hooks: {hooks}."
+    )
 
 
 def expected_half_adhyaya_ids() -> tuple[str, ...]:

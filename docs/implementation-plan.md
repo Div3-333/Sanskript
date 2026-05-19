@@ -7,10 +7,12 @@ Sanskript's canon currently contains thousands of obligations. This document rec
 A canon item is complete only when it has:
 
 - a grammar note linking it to the local PDF canon;
-- a compiler/runtime representation where relevant;
-- accepted examples;
-- rejected examples;
-- tests.
+- exact sutra text where the item is a sutra;
+- inherited domain, conditions, and exceptions;
+- rule-specific executable logic, not just a hook name or metadata record;
+- accepted behavioral examples;
+- rejected behavioral examples;
+- tests that prove both acceptance and rejection.
 
 ## Phase 1: Sound And Form Infrastructure
 
@@ -28,15 +30,15 @@ Initial support now lives in `src/sanskript/phonology.py`.
 
 Batch status:
 
-- `1.1` is implemented as part of the full Adhyāya 1 registry.
-- `6.1`, `6.2`, `6.3`, and `6.4` are repair-tracked in the Adhyāya 4-6 registry; executable anchors remain partial until they receive atomic Paninian completion.
+- `1.1` is partial: executable helper anchors exist, but the sutras are not complete discrete implementations.
+- `6.1`, `6.2`, `6.3`, and `6.4` are partial scaffolds with executable helper anchors for a small number of sound and aṅga behaviors.
 - `7.1`, `7.2`, `7.3`, `7.4`, `8.2`, `8.3`, and `8.4` are now marked `batch_partial` in the canon ledger.
 - This means their sound/sandhi subsystem exists, but individual sutras in those later pādas are still not considered complete.
 - Current support includes pratyāhāra expansion, sound classification, guṇa/vṛddhi classifiers, conservative savarṇa checks, IAST/Devanagari transliteration, first-pass vowel/visarga sandhi, accent profiles, and aṅga-operation scaffolds.
 
-Implemented slice:
+Truth-gated slice:
 
-- Adhyāya 1 and 2 are implemented as atomic sutra-by-sutra registries. Adhyāya 3 through 6 are indexed as repair-tracked registries; no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion.
+- No Adhyāya 1-6 sutra is counted as `implemented` until it has real discrete Paninian executable logic with positive and negative behavioral tests. Existing records are useful scaffolds, not completion.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -56,8 +58,8 @@ Initial support now lives in `src/sanskript/subanta.py` and `src/sanskript/karak
 
 Batch status:
 
-- `1.4` is implemented as part of the full Adhyāya 1 registry.
-- `2.1`, `2.2`, `2.3`, and `2.4` are complete atomic Adhyāya 2 records with exact source text, inherited domain, conditions, examples, counterexamples, and tests.
+- `1.4` is partial: kāraka and saṃjñā helper anchors exist, but individual sutras still need discrete logic.
+- `2.1`, `2.2`, `2.3`, and `2.4` are partial: Adhyāya 2 has source-text metadata, but metadata is not executable sutra logic.
 - Current support includes sup technical endings, generated a-stem masculine/neuter forms, generated ā-stem feminine forms, first/second/third person pronoun forms, and case-to-kāraka explanations.
 
 ## Phase 3: Tiṅanta
@@ -75,7 +77,7 @@ Targets:
 
 Batch status:
 
-- `3.1`, `3.2`, `3.3`, and `3.4` are repair-tracked in the Adhyāya 2/3 registry; executable anchors remain partial until they receive atomic Paninian completion.
+- `3.1`, `3.2`, `3.3`, and `3.4` are partial scaffolds. The tiṅanta helpers exist, but individual sutras still need discrete logic.
 - Current support includes dhātu records, sanādi derived roots, vikaraṇa selection, lakāra time/mood mapping, tiṅ endings, and controlled kṛt derivation.
 
 ## Phase 4: Derivation
@@ -93,7 +95,7 @@ Initial support now lives in `src/sanskript/derivation.py`.
 
 Batch status:
 
-- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` are repair-tracked in the Adhyāya 4-6 registry; executable anchors remain partial until they receive atomic Paninian completion.
+- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` are partial scaffolds. The taddhita helpers cover a few controlled examples only.
 - Current executable support includes controlled taddhita examples for descent, possession, and degree; other sutras in these pādas are represented as formal semantic compiler records until deeper derivation behavior is added.
 
 ## Phase 5: Compounds And Sentences
@@ -117,7 +119,7 @@ Initial compound support now lives in `src/sanskript/samasa.py`. Initial sentenc
 
 Batch status:
 
-- `1.2` and `1.3` are implemented as part of the full Adhyāya 1 registry.
+- `1.2` and `1.3` are partial: metarule and marker helpers exist, but individual sutras still need discrete logic.
 - `8.1` is now marked `batch_partial`.
 - Current support includes a controlled avyaya registry, standard upasarga registry, sentence classification, subject-verb agreement checks, and metarule records for optionality, technical markers, domain carry, and late sentence-edge operations.
 - Later non-Adhyāya 1-6 ranges here are still scaffolds that need individual completion work.
@@ -133,6 +135,6 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
-- Adhyāya 1 and 2 have sutra-specific implemented records and tests. Adhyāya 3 through 6 must be upgraded from partial scaffolds into atomic implemented records before they can be called complete.
+- Adhyāya 1 through 6 have sutra-specific records, but they are partial until they are upgraded into real discrete executable implementations.
 - Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
-- The next phase is full implementation: replacing partial and batch-partial scaffolds with sutra/topic-specific implemented behavior and tests.
+- The next phase is full implementation: replacing partial and batch-partial scaffolds with sutra/topic-specific executable behavior and tests.

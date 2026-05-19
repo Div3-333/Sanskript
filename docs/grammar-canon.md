@@ -23,8 +23,8 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Total obligations: `4172`
 - Topic obligations: `191`
 - Sutra obligations: `3981`
-- Implemented: `618`
-- Partial: `2747`
+- Implemented: `0`
+- Partial: `3365`
 - Batch partial: `807`
 - Pending design: `0`
 
@@ -271,14 +271,13 @@ This file is the project contract for the user's requirement that Sanskript use 
 - `p. 457` Lists — `partial`
   - `p. 458` Grammatical Terms — `partial`
 
-## Current Implemented Slice
+## Current Truth Gate
 
-The current interpreter implements a controlled executable slice plus complete atomic workpacks for Adhyāya 1 and Adhyāya 2. Adhyāya 3-6 are indexed as repair registries, but no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion:
+The current interpreter has runnable Sanskrit-aware subsystems, but no Aṣṭādhyāyī sutra is marked `implemented` until it has discrete Paninian executable logic:
 
-- all sutras from `1.1.1` through `1.4.110` as typed rule records with implementation hooks and tests;
-- all indexed Adhyāya 2 sutras as atomic records with exact source text, inherited domain, conditions, examples, counterexamples, hooks, and tests;
-- selected Adhyāya 3-6 records have executable anchors for tiṅanta, taddhita, sandhi, accent, and aṅga behavior, but still remain `partial`;
-- all generated Adhyāya 3-6 records are marked `partial` until they receive exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests;
+- Adhyāya 1 has executable helper anchors and semantic scaffolds, but the sutras are `partial` until each one has exact source text, inherited domain, conditions, exceptions, rule-specific executable behavior, positive tests, and negative tests;
+- Adhyāya 2 has source-text metadata records, but those records are `partial` because metadata is not executable sutra logic;
+- Adhyāya 3 through 6 are currently `partial` scaffolds, not complete implementations;
 - finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;
 - karman, karaṇa, and adhikaraṇa role recovery from controlled forms;
 - small cardinal numerals 0 through 10 in object and instrumental roles;

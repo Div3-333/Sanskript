@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from sanskript.adhyaya1 import implementation_note_for as adhyaya1_implementation_note_for
 from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
+from sanskript.adhyaya1 import partial_implementation_note_for as adhyaya1_partial_implementation_note_for
+from sanskript.adhyaya1 import partial_sutra_ids as adhyaya1_partial_sutra_ids
 from sanskript.adhyaya23 import implementation_note_for as adhyaya23_implementation_note_for
 from sanskript.adhyaya23 import implemented_sutra_ids as adhyaya23_implemented_sutra_ids
 from sanskript.adhyaya23 import partial_implementation_note_for as adhyaya23_partial_implementation_note_for
@@ -192,7 +194,10 @@ TOPIC_IMPLEMENTATION_NOTES = {
 }
 
 
-PARTIAL_SUTRA_IDS: dict[str, str] = {}
+PARTIAL_SUTRA_IDS: dict[str, str] = {
+    sutra_id: adhyaya1_partial_implementation_note_for(sutra_id)
+    for sutra_id in sorted(adhyaya1_partial_sutra_ids())
+}
 PARTIAL_SUTRA_IDS.update(
     {
         sutra_id: adhyaya23_partial_implementation_note_for(sutra_id)
@@ -255,7 +260,7 @@ def main() -> int:
             "copyright_boundary": "The ledger stores metadata, outline topics, and sutra identifiers; it does not copy full PDF text.",
             "coverage_statuses": {
                 "canon_indexed": "Indexed from a source PDF and accepted as part of the language-design canon.",
-                "implemented": "Implemented in code and covered by tests.",
+                "implemented": "Complete discrete Paninian executable logic with positive and negative behavioral tests.",
                 "partial": "Some compiler support exists, but the topic is not fully implemented.",
                 "batch_partial": "A whole sutra cluster is supported by a subsystem scaffold, but individual sutras are not complete.",
                 "pending_design": "Not yet implemented; must be addressed before the language can be considered complete.",
@@ -506,14 +511,13 @@ def render_markdown(canon: dict[str, Any]) -> str:
 
     lines.extend(
         [
-            "## Current Implemented Slice",
+            "## Current Truth Gate",
             "",
-            "The current interpreter implements a controlled executable slice plus complete atomic workpacks for Adhyāya 1 and Adhyāya 2. Adhyāya 3-6 are indexed as repair registries, but no sutra in those ranges counts as implemented until it is promoted to atomic executable or atomic formal completion:",
+            "The current interpreter has runnable Sanskrit-aware subsystems, but no Aṣṭādhyāyī sutra is marked `implemented` until it has discrete Paninian executable logic:",
             "",
-            "- all sutras from `1.1.1` through `1.4.110` as typed rule records with implementation hooks and tests;",
-            "- all indexed Adhyāya 2 sutras as atomic records with exact source text, inherited domain, conditions, examples, counterexamples, hooks, and tests;",
-            "- selected Adhyāya 3-6 records have executable anchors for tiṅanta, taddhita, sandhi, accent, and aṅga behavior, but still remain `partial`;",
-            "- all generated Adhyāya 3-6 records are marked `partial` until they receive exact sutra text, inherited domain, conditions, exceptions, examples, counterexamples, and tests;",
+            "- Adhyāya 1 has executable helper anchors and semantic scaffolds, but the sutras are `partial` until each one has exact source text, inherited domain, conditions, exceptions, rule-specific executable behavior, positive tests, and negative tests;",
+            "- Adhyāya 2 has source-text metadata records, but those records are `partial` because metadata is not executable sutra logic;",
+            "- Adhyāya 3 through 6 are currently `partial` scaffolds, not complete implementations;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",

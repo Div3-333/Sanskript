@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
-
 class RuleKind(str, Enum):
     TADDHITA = "taddhita"
     FEMININE_SUFFIX = "feminine_suffix"
@@ -21,6 +20,7 @@ class ImplementationMode(str, Enum):
     SEMANTIC = "semantic_scaffold"
     ATOMIC_EXECUTABLE = "atomic_executable"
     ATOMIC_FORMAL = "atomic_formal"
+    DISCRETE = "discrete_executable"
 
 
 @dataclass(frozen=True)
@@ -40,10 +40,32 @@ class SutraRule:
     compiler_effect: str
     hooks: tuple[str, ...]
     examples: tuple[RuleExample, ...]
+    sutra_text_devanagari: str = ""
+    sutra_text_iast: str = ""
+    source: str = ""
+    anuvritti: tuple[str, ...] = ()
+    conditions: tuple[str, ...] = ()
+    exceptions: tuple[str, ...] = ()
+    counterexamples: tuple[RuleExample, ...] = ()
 
     @property
     def implemented(self) -> bool:
-        return self.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL} and bool(self.hooks) and bool(self.examples)
+        return self.mode == ImplementationMode.DISCRETE and self.atomic
+
+    @property
+    def atomic(self) -> bool:
+        return all(
+            (
+                self.sutra_text_devanagari,
+                self.sutra_text_iast,
+                self.source,
+                self.anuvritti,
+                self.conditions,
+                self.examples,
+                self.counterexamples,
+                self.hooks,
+            )
+        )
 
 
 PADA_COUNTS = {
@@ -140,19 +162,25 @@ def partial_sutra_ids() -> frozenset[str]:
 
 def implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
-    mode = "Atomic executable" if rule.mode == ImplementationMode.ATOMIC_EXECUTABLE else "Atomic formal"
+    mode = "Discrete executable" if rule.mode == ImplementationMode.DISCRETE else "Partial"
     hooks = ", ".join(rule.hooks)
-    return f"{mode} Adhyaya 4/5/6 implementation: {rule.compiler_effect} Hooks: {hooks}."
+    return f"{mode} Adhyaya 4/5/6 implementation: {rule.sutra_text_iast}. {rule.compiler_effect} Hooks: {hooks}."
 
 
 def partial_implementation_note_for(sutra_id: str) -> str:
     rule = rule_for(sutra_id)
     hooks = ", ".join(rule.hooks)
-    prefix = "Executable anchor only" if rule.mode == ImplementationMode.EXECUTABLE else "Semantic scaffold only"
+    if rule.mode in {ImplementationMode.ATOMIC_EXECUTABLE, ImplementationMode.ATOMIC_FORMAL}:
+        prefix = "Atomic metadata only"
+    elif rule.mode == ImplementationMode.EXECUTABLE:
+        prefix = "Executable anchor only"
+    else:
+        prefix = "Semantic scaffold only"
     return (
-        f"{prefix}, not a complete atomic sutra implementation: "
+        f"{prefix}, not a complete discrete Paninian sutra implementation: "
         f"{rule.compiler_effect} Required before completion: exact sutra text, inherited domain, "
-        f"conditions, exceptions, positive examples, rejected examples, and tests. Hooks: {hooks}."
+        f"conditions, exceptions, rule-specific executable logic, positive behavioral tests, "
+        f"negative behavioral tests, and reviewer notes. Hooks: {hooks}."
     )
 
 
