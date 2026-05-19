@@ -1,6 +1,7 @@
 import unittest
 
 from sanskript.sutra_logic import (
+    SUTRA_LOGIC,
     evaluate_sutra,
     has_discrete_sutra_logic,
     implemented_logic_ids,
@@ -66,6 +67,12 @@ class SutraLogicTests(unittest.TestCase):
                 self.assertIn(f"sutra:{sutra_id}", positive.assigned)
                 self.assertNotEqual(positive.action, "reject")
                 self.assertFalse(negative.applies)
+
+    def test_truth_gated_handlers_are_named_functions(self) -> None:
+        for sutra_id in sorted(EXPECTED_REAL_LOGIC_IDS):
+            with self.subTest(sutra_id=sutra_id):
+                evaluator = SUTRA_LOGIC[sutra_id].evaluator
+                self.assertEqual(evaluator.__name__, f"sutra_{sutra_id.replace('.', '_')}")
 
 
 if __name__ == "__main__":
