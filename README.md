@@ -63,6 +63,8 @@ The granular reference guide lives at [docs/guide/reference.html](docs/guide/ref
 
 Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a strict real-handler truth gate for sutras.
 
+Adhyaya 1-3 now also have a shared dry-style engine layer in `src/sanskript/adhyaya123_engines.py`. It exposes a reusable sutra-predicate selection bridge plus domain engines for technical names/it-markers, metarules, samasa, karaka-vibhakti, subanta sup forms, lopa/root substitution, sanadi-dhatu/vikarana, krt derivation, and tinanta lakara conjugation. These engines reuse the truth-gated sutra predicates instead of copying rule logic.
+
 The derivation layer has begun moving beyond example lookup: Adhyāya 4–5 now have five shared engines for strī-pratyaya formation, taddhita rule selection, semantic relation interpretation, taddhita surface realization, and samāsānta endings. These engines consume the existing per-sūtra predicates instead of duplicating them, while the core apatya, matup, and atiśayana anchors still record sutra id, semantic relation, suffix, surface form, and stem operations.
 
 The truth gate now requires **discrete Pāṇinian predicates** — every implemented sutra is a hand-written Python function that checks specific Pāṇinian conditions (root class, case, role, semantic context, lakāra, suffix, …) against a linguistically real positive example and rejects a linguistically real negative example. The previous slug-roundtrip scaffold has been retired.

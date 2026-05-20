@@ -156,6 +156,7 @@
       <nav aria-label="Reference sections">
         <a href="#run">Run</a>
         <a href="#canon-workpacks">Canon Workpacks</a>
+        <a href="#engines">Runtime Engines</a>
         <a href="#programs">Programs</a>
         <a href="#sentences">Sentences</a>
         <a href="#cases">Cases</a>
@@ -214,6 +215,25 @@ rule_for("1.1.71").compiler_effect
           <div class="callout">
             <p>Helper anchors expose direct functions such as <code>pratyahara</code>, <code>is_savarna</code>, <code>guna</code>, <code>analyze_it_markers</code>, <code>determine_available_padas</code>, <code>get_karaka_role</code>, <code>create_compound</code>, <code>derive</code>, <code>get_lakara_for_time</code>, <code>tin_ending</code>, <code>join_words</code>, <code>profile_accent</code>, and <code>apply_anga_operation</code>. These anchors are not counted as complete sutras until a named handler and positive/negative behavior gate exist.</p>
           </div>
+        </section>
+
+        <section id="engines">
+          <h2>Runtime Engines</h2>
+          <p>Adhyaya 1-3 now use dry engines that compose truth-gated sutra predicates into reusable derivational behavior.</p>
+          <table>
+            <tr><th>Engine</th><th>Range</th><th>Use</th></tr>
+            <tr><td><code>SutraPredicateSelectionEngine</code></td><td>1-3</td><td>Runs the real sutra registry and returns accepted sutra ids, operators, and tags.</td></tr>
+            <tr><td><code>SamjnaTechnicalEngine</code></td><td>1.1-1.4</td><td>Classifies technical names, it markers, pada status, and vowel weight.</td></tr>
+            <tr><td><code>MetaruleGovernanceEngine</code></td><td>1.1</td><td>Locates substitution targets, augment positions, and optionality.</td></tr>
+            <tr><td><code>SamasaDerivationEngine</code></td><td>2.1-2.2, 2.4</td><td>Builds compound surfaces while recording samarthya, type, order, and sup-lopa rules.</td></tr>
+            <tr><td><code>KarakaVibhaktiEngine</code></td><td>1.4, 2.3</td><td>Maps semantic roles to karaka and then to case selection.</td></tr>
+            <tr><td><code>SubantaSupEngine</code></td><td>1.4, 2.x</td><td>Generates nominal forms with sup/vibhakti rule evidence.</td></tr>
+            <tr><td><code>PratyayaLopaEngine</code></td><td>2.4</td><td>Handles controlled luk and root-substitution behavior.</td></tr>
+            <tr><td><code>DhatuSanadiEngine</code></td><td>3.1</td><td>Creates sanadi roots and selects vikarana markers.</td></tr>
+            <tr><td><code>KrtDerivationEngine</code></td><td>3.1-3.4</td><td>Derives controlled krt forms through sutra-backed candidates.</td></tr>
+            <tr><td><code>TinantaLakaraEngine</code></td><td>3.2-3.4</td><td>Selects lakara, tiṅ endings, and finite verb forms.</td></tr>
+          </table>
+          <pre>from sanskript.adhyaya123_engines import derive_krt123, conjugate_tinanta123</pre>
         </section>
 
         <section id="programs">
