@@ -1,5 +1,5 @@
 ﻿from dataclasses import dataclass
-from typing import Set, Tuple
+from typing import Set
 from .phonology import tokenize_sounds, is_consonant, is_vowel
 
 @dataclass(frozen=True)

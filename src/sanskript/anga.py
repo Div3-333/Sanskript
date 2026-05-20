@@ -2,15 +2,10 @@
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Iterable
 from .phonology import (
     best_substitute,
-    SOUNDS,
     tokenize_sounds,
-    is_vowel,
     is_consonant,
-    ArticulationPlace,
-    Effort,
     is_ik,
     guna_replacement_for_ik,
     vrddhi_replacement_for_ik,

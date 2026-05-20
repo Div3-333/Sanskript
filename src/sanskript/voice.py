@@ -1,5 +1,4 @@
 from .grammar import Pada
-from .markers import MarkerAnalysis
 
 def determine_available_padas(markers: frozenset[str], lemma: str = "", prefixes: tuple[str, ...] = (), has_reflexive_result: bool = False) -> set[Pada]:
     """

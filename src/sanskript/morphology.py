@@ -18,7 +18,7 @@ from .subanta import iter_nominal_analyses, iter_pronoun_analyses
 from .tinanta import iter_tinanta_analyses
 
 
-from .phonology import tokenize_sounds, is_vowel, SoundKind
+from .phonology import tokenize_sounds
 
 
 @dataclass(frozen=True)

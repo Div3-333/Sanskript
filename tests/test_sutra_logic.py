@@ -8,6 +8,13 @@ from sanskript.derivation import KrtSuffix
 from sanskript.grammar import Case
 from sanskript.tinanta import DhatuType
 import sanskript.sutra_handlers_adhyaya23 as h23
+import sanskript.sutra_impl_2 as impl2
+import sanskript.sutra_impl_3_1 as impl3_1
+import sanskript.sutra_impl_3_2 as impl3_2
+import sanskript.sutra_impl_3_3 as impl3_3
+import sanskript.sutra_impl_3_4 as impl3_4
+
+REAL_IMPLEMENTATION_MODULES = (impl2, impl3_1, impl3_2, impl3_3, impl3_4)
 from sanskript.sutra_logic import (
     SUTRA_LOGIC,
     evaluate_sutra,
@@ -105,6 +112,62 @@ class SutraLogicTests(unittest.TestCase):
         self.assertEqual(h23._spec("3.1.68").payload["vikarana"], "a")
         self.assertEqual(h23._spec("3.2.102").payload["suffix"], KrtSuffix.KTA)
         self.assertEqual(h23._spec("3.3.115").payload["suffix"], KrtSuffix.LYUT)
+
+    def test_no_real_impl_module_contains_slug_roundtrip(self) -> None:
+        for module in REAL_IMPLEMENTATION_MODULES:
+            with self.subTest(module=module.__name__):
+                source = inspect.getsource(module)
+                self.assertNotIn("return _evaluate(", source)
+                self.assertNotIn('"wrong_semantic"', source)
+
+    def test_every_real_impl_predicate_fires_on_its_fixtures(self) -> None:
+        for module in REAL_IMPLEMENTATION_MODULES:
+            for sid in sorted(module.IMPLEMENTED_IDS):
+                with self.subTest(module=module.__name__, sutra_id=sid):
+                    predicate = module.handler_for(sid)
+                    self.assertTrue(
+                        predicate(module.positive_features(sid)),
+                        f"{sid} predicate rejected its own positive fixture",
+                    )
+                    self.assertFalse(
+                        predicate(module.negative_features(sid)),
+                        f"{sid} predicate accepted its negative fixture",
+                    )
+
+    def test_each_real_impl_sutra_is_wired_through_its_module(self) -> None:
+        for module in REAL_IMPLEMENTATION_MODULES:
+            for sid in sorted(module.IMPLEMENTED_IDS):
+                with self.subTest(module=module.__name__, sutra_id=sid):
+                    self.assertEqual(
+                        SUTRA_LOGIC[sid].evaluator.__module__,
+                        module.__name__,
+                        f"{sid} should be wired through {module.__name__}",
+                    )
+
+    def test_adhyaya_2_is_fully_covered_by_sutra_impl_2(self) -> None:
+        adhyaya2_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("2.")}
+
+        self.assertEqual(adhyaya2_in_h23, set(impl2.IMPLEMENTED_IDS))
+
+    def test_adhyaya_3_1_is_fully_covered_by_sutra_impl_3_1(self) -> None:
+        adhyaya3_1_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("3.1.")}
+
+        self.assertEqual(adhyaya3_1_in_h23, set(impl3_1.IMPLEMENTED_IDS))
+
+    def test_adhyaya_3_2_is_fully_covered_by_sutra_impl_3_2(self) -> None:
+        adhyaya3_2_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("3.2.")}
+
+        self.assertEqual(adhyaya3_2_in_h23, set(impl3_2.IMPLEMENTED_IDS))
+
+    def test_adhyaya_3_3_is_fully_covered_by_sutra_impl_3_3(self) -> None:
+        adhyaya3_3_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("3.3.")}
+
+        self.assertEqual(adhyaya3_3_in_h23, set(impl3_3.IMPLEMENTED_IDS))
+
+    def test_adhyaya_3_4_is_fully_covered_by_sutra_impl_3_4(self) -> None:
+        adhyaya3_4_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("3.4.")}
+
+        self.assertEqual(adhyaya3_4_in_h23, set(impl3_4.IMPLEMENTED_IDS))
 
 
 if __name__ == "__main__":

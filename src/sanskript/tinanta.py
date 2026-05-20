@@ -1,7 +1,8 @@
 ﻿from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterable
+from enum import Enum
+from typing import Iterable, Optional
 
 from .grammar import Analysis, GrammaticalNumber, Lakara, Pada, PartOfSpeech, Person
 
@@ -13,10 +14,6 @@ class TinEnding:
     person: Person
     number: GrammaticalNumber
     ending: str
-
-
-from enum import Enum
-from typing import Iterable, Optional
 
 
 class TimeContext(str, Enum):
@@ -132,7 +129,7 @@ def create_derived_dhatu(base: Dhatu, type: DhatuType) -> Dhatu:
         return Dhatu(f"{base.lemma}-ṇic", stem, base.pada, f"cause to {base.gloss}", type=type, base_dhatu=base, varga=10)
     elif type == DhatuType.INTENSIVE:
         # 3.1.22: yaṅ
-        return Dhatu(f"{base.lemma}-yaṅ", f"bobhūya", Pada.ATMANEPADA, f"repeatedly {base.gloss}", type=type, base_dhatu=base)
+        return Dhatu(f"{base.lemma}-yaṅ", "bobhūya", Pada.ATMANEPADA, f"repeatedly {base.gloss}", type=type, base_dhatu=base)
     elif type == DhatuType.DENOMINATIVE:
         # 3.1.8: kyac
         return Dhatu(f"{base.lemma}-kyac", f"{base.lemma}īya", base.pada, f"act like {base.lemma}", type=type, base_dhatu=base)
