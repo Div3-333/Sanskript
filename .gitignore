@@ -9,3 +9,7 @@ dist/
 *.egg-info/
 *.pyc
 
+# Scratch files used when authoring commits/PRs via tooling
+.commit_msg.txt
+.m1_*.bak
+
