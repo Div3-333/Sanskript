@@ -8,13 +8,14 @@ from sanskript.derivation import KrtSuffix
 from sanskript.grammar import Case
 from sanskript.tinanta import DhatuType
 import sanskript.sutra_handlers_adhyaya23 as h23
+import sanskript.sutra_impl_1_1 as impl1_1
 import sanskript.sutra_impl_2 as impl2
 import sanskript.sutra_impl_3_1 as impl3_1
 import sanskript.sutra_impl_3_2 as impl3_2
 import sanskript.sutra_impl_3_3 as impl3_3
 import sanskript.sutra_impl_3_4 as impl3_4
 
-REAL_IMPLEMENTATION_MODULES = (impl2, impl3_1, impl3_2, impl3_3, impl3_4)
+REAL_IMPLEMENTATION_MODULES = (impl1_1, impl2, impl3_1, impl3_2, impl3_3, impl3_4)
 from sanskript.sutra_logic import (
     SUTRA_LOGIC,
     evaluate_sutra,
@@ -77,7 +78,7 @@ class SutraLogicTests(unittest.TestCase):
 
     def test_truth_gate_is_not_the_old_generated_adhyaya_one_to_six_metric(self) -> None:
         self.assertEqual(implemented_logic_ids(), EXPECTED_REAL_LOGIC_IDS)
-        self.assertEqual(len(implemented_logic_ids()), 1031)
+        self.assertEqual(len(implemented_logic_ids()), 1060)
         self.assertTrue(has_discrete_sutra_logic("2.1.1"))
         self.assertFalse(has_discrete_sutra_logic("4.1.1"))
 
@@ -212,6 +213,24 @@ class RealDiscreteImplementationTests(unittest.TestCase):
         adhyaya3_4_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("3.4.")}
 
         self.assertEqual(adhyaya3_4_in_h23, set(impl3_4.IMPLEMENTED_IDS))
+
+    def test_sutra_impl_1_1_covers_previously_missing_pada_one_one_sutras(self) -> None:
+        """sutra_impl_1_1 owns the 29 Adhyāya 1.1 sūtras that were absent
+        from the inline registry (1.1.13/14/16/17/18/28-36/38/39/45/
+        56-63/66-68/72). All must be wired and route through impl1_1."""
+        expected = frozenset({
+            "1.1.13", "1.1.14", "1.1.16", "1.1.17", "1.1.18",
+            "1.1.28", "1.1.29", "1.1.30", "1.1.31", "1.1.32",
+            "1.1.33", "1.1.34", "1.1.35", "1.1.36",
+            "1.1.38", "1.1.39", "1.1.45",
+            "1.1.56", "1.1.57", "1.1.58", "1.1.59", "1.1.60",
+            "1.1.61", "1.1.62", "1.1.63",
+            "1.1.66", "1.1.67", "1.1.68", "1.1.72",
+        })
+        self.assertEqual(set(impl1_1.IMPLEMENTED_IDS), expected)
+        for sid in expected:
+            with self.subTest(sutra_id=sid):
+                self.assertTrue(has_discrete_sutra_logic(sid))
 
 
 if __name__ == "__main__":

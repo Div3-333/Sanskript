@@ -5314,8 +5314,8 @@
         "1.1.13"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.14",
@@ -5326,8 +5326,8 @@
         "1.1.14"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.15",
@@ -5350,8 +5350,8 @@
         "1.1.16"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.17",
@@ -5362,8 +5362,8 @@
         "1.1.17"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.18",
@@ -5374,8 +5374,8 @@
         "1.1.18"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_pragrhya."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: marks forms that resist ordinary sandhi in the pragṛhya environment Hooks: sanskript.phonology.is_pragrhya."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.19",
@@ -5494,8 +5494,8 @@
         "1.1.28"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps the optional sarvanāma reading for direction compounds Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps the optional sarvanāma reading for direction compounds Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.29",
@@ -5506,8 +5506,8 @@
         "1.1.29"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: blocks the general sarvanāma reading in ordinary bahuvrīhi Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks the general sarvanāma reading in ordinary bahuvrīhi Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.30",
@@ -5518,8 +5518,8 @@
         "1.1.30"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps the optional pronoun-class reading in instrumental compounds Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps the optional pronoun-class reading in instrumental compounds Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.31",
@@ -5530,8 +5530,8 @@
         "1.1.31"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: blocks the sarvanāma reading in dvandva compounds Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks the sarvanāma reading in dvandva compounds Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.32",
@@ -5542,8 +5542,8 @@
         "1.1.32"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records optional pronoun behavior in nominative plural contexts Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records optional pronoun behavior in nominative plural contexts Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.33",
@@ -5554,8 +5554,8 @@
         "1.1.33"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records optional pronoun behavior for prathama, carama, and related terms Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records optional pronoun behavior for prathama, carama, and related terms Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.34",
@@ -5566,8 +5566,8 @@
         "1.1.34"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records optional pronoun behavior for pūrva/para and related terms Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records optional pronoun behavior for pūrva/para and related terms Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.35",
@@ -5578,8 +5578,8 @@
         "1.1.35"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records the restricted optional pronoun reading of sva Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the restricted optional pronoun reading of sva Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.36",
@@ -5590,8 +5590,8 @@
         "1.1.36"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records the restricted optional pronoun reading of antara Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records the restricted optional pronoun reading of antara Hooks: sanskript.avyaya, sanskript.categories, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.37",
@@ -5614,8 +5614,8 @@
         "1.1.38"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps non-inflecting taddhita forms in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps non-inflecting taddhita forms in the avyaya channel Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.39",
@@ -5626,8 +5626,8 @@
         "1.1.39"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps mejanta kṛt forms in the avyaya channel Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps mejanta kṛt forms in the avyaya channel Hooks: sanskript.avyaya.iter_avyaya_analyses, sanskript.avyaya.is_avyaya_suffix, sanskript.samasa.create_compound."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.40",
@@ -5698,8 +5698,8 @@
         "1.1.45"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: keeps guṇa/vṛddhi tied to ik-bearing targets Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.is_ik, sanskript.anga.guna, sanskript.anga.vrddhi."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps guṇa/vṛddhi tied to ik-bearing targets Hooks: sanskript.phonology.is_ik, sanskript.anga.guna, sanskript.anga.vrddhi."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.46",
@@ -5830,8 +5830,8 @@
         "1.1.56"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps substitute identity unless a sound-specific rule says otherwise Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps substitute identity unless a sound-specific rule says otherwise Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.57",
@@ -5842,8 +5842,8 @@
         "1.1.57"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: extends sthānivad behavior into earlier-vowel environments Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: extends sthānivad behavior into earlier-vowel environments Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.58",
@@ -5854,8 +5854,8 @@
         "1.1.58"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records contexts where sthānivad behavior is blocked Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records contexts where sthānivad behavior is blocked Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.59",
@@ -5866,8 +5866,8 @@
         "1.1.59"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: records sthānivad limits in vowel reduplication Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: records sthānivad limits in vowel reduplication Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.60",
@@ -5878,8 +5878,8 @@
         "1.1.60"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: models deletion as non-appearance rather than string absence only Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: models deletion as non-appearance rather than string absence only Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.61",
@@ -5890,8 +5890,8 @@
         "1.1.61"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: distinguishes deletion flavors for suffix-memory rules Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: distinguishes deletion flavors for suffix-memory rules Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.62",
@@ -5902,8 +5902,8 @@
         "1.1.62"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Executable anchor only, not a complete discrete Paninian sutra implementation: preserves suffix effects after deletion Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: preserves suffix effects after deletion Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.63",
@@ -5914,8 +5914,8 @@
         "1.1.63"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: blocks suffix-memory effects for lumat deletion Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: blocks suffix-memory effects for lumat deletion Hooks: sanskript.phonology.best_substitute, sanskript.metarules.directive, sanskript.markers.analyze_it_markers."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.64",
@@ -5950,8 +5950,8 @@
         "1.1.66"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: locative reference targets the preceding term Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: locative reference targets the preceding term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.67",
@@ -5962,8 +5962,8 @@
         "1.1.67"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: ablative reference targets the following term Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: ablative reference targets the following term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.68",
@@ -5974,8 +5974,8 @@
         "1.1.68"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: keeps a word's own surface unless it is a technical term Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: keeps a word's own surface unless it is a technical term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.69",
@@ -6022,8 +6022,8 @@
         "1.1.72"
       ],
       "page": null,
-      "status": "partial",
-      "implementation_note": "Semantic scaffold only, not a complete discrete Paninian sutra implementation: extends a rule to forms ending in the named term Required before completion: exact sutra text, inherited domain, conditions, exceptions, rule-specific executable logic, positive behavioral tests, negative behavioral tests, and reviewer notes. Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
+      "status": "implemented",
+      "implementation_note": "Discrete executable Adhyaya 1 implementation: extends a rule to forms ending in the named term Hooks: sanskript.phonology, sanskript.metarules.rules_for_range."
     },
     {
       "id": "sutra:ashtadhyayi:1.1.73",
@@ -55248,8 +55248,8 @@
     "total": 4172,
     "by_status": {
       "batch_partial": 807,
-      "implemented": 1031,
-      "partial": 2334
+      "implemented": 1060,
+      "partial": 2305
     },
     "by_kind": {
       "sutra": 3981,

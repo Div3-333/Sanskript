@@ -10,6 +10,8 @@ from typing import Any
 
 from . import sutra_handlers_1_2 as h12
 from . import sutra_handlers_adhyaya23 as h23
+from . import sutra_impl_1_1 as impl1_1
+from .sutra_impl_base import register_module_in_registry
 from .anga import DerivationContext, Suffix, guna, operations_for_range
 from .avyaya import is_avyaya_suffix, is_controlled_avyaya, upasarga_surfaces
 from .categories import (
@@ -1677,6 +1679,12 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
             _ctx(sutra_id, **h23.negative_features(sutra_id)),
             *h23.assigned_tags(sutra_id),
         )
+
+    # Per-pāda real-implementation modules for sūtras that were missing
+    # from the inline registry above. Each module owns discrete predicates
+    # + linguistic fixtures + META and is plugged in via the shared helper.
+    for module in (impl1_1,):
+        register_module_in_registry(registry, module, _add, _ctx, SutraOperator)
 
     return registry
 

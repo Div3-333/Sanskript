@@ -23,8 +23,8 @@ This file is the project contract for the user's requirement that Sanskript use 
 - Total obligations: `4172`
 - Topic obligations: `191`
 - Sutra obligations: `3981`
-- Implemented: `1031`
-- Partial: `2334`
+- Implemented: `1060`
+- Partial: `2305`
 - Batch partial: `807`
 - Pending design: `0`
 
@@ -275,7 +275,7 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 The current interpreter now uses a strict real-handler truth gate. A sutra is marked `implemented` only when it has exact source text, inherited domain data, conditions, positive behavior, negative behavior, and a named executable handler that calls the grammar engine instead of a generated metadata profile:
 
-- 1031 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;
+- 1060 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;
 - the previous generated Adhyaya 1-6 profile is deliberately rejected as a completion metric;
 - Adhyaya 2 and 3 now have named executable handlers across samasa, vibhakti, subanta, dhatu, krt, lakara, and tin domains;
 - Adhyaya 4 through 8 ranges remain partial or batch-partial until their individual sutra logic is upgraded;
