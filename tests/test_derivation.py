@@ -5,6 +5,7 @@ from sanskript.derivation import (
     KrtSuffix,
     TaddhitaSuffix,
     derive,
+    derive_taddhita,
     forms_by_family,
 )
 
@@ -36,6 +37,17 @@ class DerivationTests(unittest.TestCase):
 
         self.assertEqual(suffixes, {TaddhitaSuffix.APATYA, TaddhitaSuffix.MATUP, TaddhitaSuffix.ATISHAYANA})
         self.assertEqual(derive("bala", TaddhitaSuffix.MATUP).surface, "balavān")
+
+    def test_taddhita_engine_derives_rule_level_forms(self) -> None:
+        apatya = derive_taddhita("manu", sutra_id="4.1.92")
+        matup = derive_taddhita("bala", sutra_id="5.2.94")
+        degree = derive_taddhita("guru", sutra_id="5.3.55")
+
+        self.assertEqual((apatya.surface, apatya.semantic), ("mānava", "apatya"))
+        self.assertEqual(apatya.operations, ("initial-vrddhi", "final-u-to-ava"))
+        self.assertEqual((matup.surface, matup.semantic), ("balavān", "possession"))
+        self.assertEqual(matup.operations, ("matup-realized-as-vān",))
+        self.assertEqual((degree.surface, degree.semantic), ("gariṣṭha", "atishayana"))
 
 
 if __name__ == "__main__":

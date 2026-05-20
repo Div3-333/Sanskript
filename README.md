@@ -63,6 +63,8 @@ The granular reference guide lives at [docs/guide/reference.html](docs/guide/ref
 
 Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a strict real-handler truth gate for sutras.
 
+The derivation layer has begun moving beyond example lookup: core taddhita anchors now route through a rule-level engine that records the sutra id, semantic relation, suffix, surface form, and stem operations for apatya, matup, and atiśayana forms.
+
 The truth gate now requires **discrete Pāṇinian predicates** — every implemented sutra is a hand-written Python function that checks specific Pāṇinian conditions (root class, case, role, semantic context, lakāra, suffix, …) against a linguistically real positive example and rejects a linguistically real negative example. The previous slug-roundtrip scaffold has been retired.
 
 Real-implementation modules (Adhyāya 1–5 in full via discrete predicates; Adhyāya 6 partial):

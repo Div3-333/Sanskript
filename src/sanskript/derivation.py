@@ -46,6 +46,24 @@ class DerivedForm:
     family: DerivationFamily
     surface: str
     gloss: str
+    sutra_id: str = ""
+    semantic: str = ""
+    operations: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class TaddhitaRule:
+    sutra_id: str
+    suffix: TaddhitaSuffix
+    semantic: str
+    source_gloss: str
+
+
+TADDHITA_RULES: dict[str, TaddhitaRule] = {
+    "4.1.92": TaddhitaRule("4.1.92", TaddhitaSuffix.APATYA, "apatya", "descendant or offspring of the source stem"),
+    "5.2.94": TaddhitaRule("5.2.94", TaddhitaSuffix.MATUP, "possession", "possessing the source object or quality"),
+    "5.3.55": TaddhitaRule("5.3.55", TaddhitaSuffix.ATISHAYANA, "atishayana", "surpassing degree or superlative quality"),
+}
 
 
 KRT_FORMS: tuple[DerivedForm, ...] = (
@@ -63,11 +81,118 @@ KRT_FORMS: tuple[DerivedForm, ...] = (
 
 
 TADDHITA_FORMS: tuple[DerivedForm, ...] = (
-    DerivedForm("bala", TaddhitaSuffix.MATUP, DerivationFamily.TADDHITA, "balavān", "possessing strength"),
-    DerivedForm("go", TaddhitaSuffix.MATUP, DerivationFamily.TADDHITA, "gomān", "possessing cattle"),
-    DerivedForm("upagu", TaddhitaSuffix.APATYA, DerivationFamily.TADDHITA, "aupagava", "descendant of Upagu"),
-    DerivedForm("laghu", TaddhitaSuffix.ATISHAYANA, DerivationFamily.TADDHITA, "laghiṣṭha", "lightest"),
+    DerivedForm("bala", TaddhitaSuffix.MATUP, DerivationFamily.TADDHITA, "balavān", "possessing strength", "5.2.94", "possession", ("matup-realized-as-vān",)),
+    DerivedForm("go", TaddhitaSuffix.MATUP, DerivationFamily.TADDHITA, "gomān", "possessing cattle", "5.2.94", "possession", ("matup-realized-as-mān",)),
+    DerivedForm("upagu", TaddhitaSuffix.APATYA, DerivationFamily.TADDHITA, "aupagava", "descendant of Upagu", "4.1.92", "apatya", ("initial-vrddhi", "final-u-to-ava")),
+    DerivedForm("laghu", TaddhitaSuffix.ATISHAYANA, DerivationFamily.TADDHITA, "laghiṣṭha", "lightest", "5.3.55", "atishayana", ("final-u-to-iṣṭha",)),
 )
+
+
+VRDDHI_INITIAL = {
+    "a": "ā",
+    "ā": "ā",
+    "i": "ai",
+    "ī": "ai",
+    "u": "au",
+    "ū": "au",
+    "ṛ": "ār",
+    "ṝ": "ār",
+    "e": "ai",
+    "o": "au",
+}
+
+
+def _apply_initial_vrddhi(stem: str) -> tuple[str, bool]:
+    for index, char in enumerate(stem):
+        replacement = VRDDHI_INITIAL.get(char)
+        if replacement is not None:
+            return stem[:index] + replacement + stem[index + 1 :], True
+    return stem, False
+
+
+def _derive_apatya(source: str) -> tuple[str, tuple[str, ...]]:
+    stem, strengthened = _apply_initial_vrddhi(source)
+    operations: list[str] = ["initial-vrddhi"] if strengthened else []
+    if stem.endswith("u"):
+        operations.append("final-u-to-ava")
+        return stem[:-1] + "ava", tuple(operations)
+    if stem.endswith("i"):
+        operations.append("final-i-to-eya")
+        return stem[:-1] + "eya", tuple(operations)
+    if stem.endswith("a"):
+        operations.append("apatya-aṇ")
+        return stem, tuple(operations)
+    operations.append("apatya-a")
+    return stem + "a", tuple(operations)
+
+
+def _derive_matup(source: str) -> tuple[str, tuple[str, ...]]:
+    if source == "go":
+        return "gomān", ("matup-realized-as-mān",)
+    if source.endswith("a"):
+        return source[:-1] + "avān", ("matup-realized-as-vān",)
+    if source.endswith("ā"):
+        return source + "vān", ("matup-realized-as-vān",)
+    return source + "mān", ("matup-realized-as-mān",)
+
+
+def _derive_atishayana(source: str) -> tuple[str, tuple[str, ...]]:
+    lexical = {
+        "laghu": "laghiṣṭha",
+        "guru": "gariṣṭha",
+        "dīrgha": "drāghiṣṭha",
+        "alpa": "alpiṣṭha",
+    }
+    if source in lexical:
+        return lexical[source], ("lexical-superlative-stem", "iṣṭha")
+    if source.endswith("u"):
+        return source[:-1] + "iṣṭha", ("final-u-to-iṣṭha",)
+    if source.endswith("a"):
+        return source[:-1] + "iṣṭha", ("final-a-to-iṣṭha",)
+    return source + "iṣṭha", ("iṣṭha",)
+
+
+def derive_taddhita(source: str, sutra_id: str | None = None, suffix: TaddhitaSuffix | None = None) -> DerivedForm:
+    """Derive a controlled taddhita form through a rule-level engine.
+
+    Unlike the older registry lookup, this function selects a Paninian rule,
+    applies the stem operation required by the taddhita suffix, and returns
+    the rule id, semantic relation, surface, and operations used.
+    """
+    if sutra_id is not None:
+        try:
+            rule = TADDHITA_RULES[sutra_id]
+        except KeyError as exc:
+            raise ValueError(f"No taddhita rule engine for {sutra_id!r}") from exc
+        if suffix is not None and rule.suffix != suffix:
+            raise ValueError(f"{sutra_id} derives {rule.suffix.value}, not {suffix.value}")
+    elif suffix is not None:
+        matches = [candidate for candidate in TADDHITA_RULES.values() if candidate.suffix == suffix]
+        if not matches:
+            raise ValueError(f"No taddhita rule engine for suffix {suffix.value!r}")
+        rule = matches[0]
+    else:
+        raise ValueError("derive_taddhita requires sutra_id or suffix")
+
+    if rule.suffix == TaddhitaSuffix.APATYA:
+        surface, operations = _derive_apatya(source)
+    elif rule.suffix == TaddhitaSuffix.MATUP:
+        surface, operations = _derive_matup(source)
+    elif rule.suffix == TaddhitaSuffix.ATISHAYANA:
+        surface, operations = _derive_atishayana(source)
+    else:
+        raise ValueError(f"Unhandled taddhita suffix {rule.suffix.value!r}")
+
+    return DerivedForm(
+        source,
+        rule.suffix,
+        DerivationFamily.TADDHITA,
+        surface,
+        f"{rule.source_gloss}: {source} -> {surface}",
+        rule.sutra_id,
+        rule.semantic,
+        operations,
+    )
 
 
 def derive(source: str, suffix: KrtSuffix | TaddhitaSuffix) -> DerivedForm:
@@ -173,6 +298,9 @@ def derive(source: str, suffix: KrtSuffix | TaddhitaSuffix) -> DerivedForm:
                  surface += "anīya"
 
         return DerivedForm(source, suffix, DerivationFamily.KRT, surface, f"{suffix.name} of {source}")
+
+    if isinstance(suffix, TaddhitaSuffix):
+        return derive_taddhita(source, suffix=suffix)
 
     raise ValueError(f"No controlled derived form for {source!r} with suffix {suffix.value!r}")
 

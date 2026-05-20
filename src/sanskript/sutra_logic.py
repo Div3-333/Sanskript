@@ -33,7 +33,7 @@ from .categories import (
     is_shat_numeral,
 )
 from .accent import Accent, profile_accent
-from .derivation import KrtSuffix, TaddhitaSuffix, derive
+from .derivation import KrtSuffix, TaddhitaSuffix, derive, derive_taddhita
 from .grammar import Analysis, Case, Gender, GrammaticalNumber, Lakara, Pada, PartOfSpeech, Person, Role, Samjna
 from .karaka import get_allowed_vibhaktis, get_karaka_role, get_vibhakti
 from .markers import analyze_it_markers
@@ -793,13 +793,31 @@ def sutra_4_1_2(c) -> bool:
     return decline_aa_feminine(str(c.get("lemma")))[(Case.NOMINATIVE, GrammaticalNumber.SINGULAR)] == c.get("surface")
 
 def sutra_4_1_92(c) -> bool:
-    return derive(str(c.get("source")), TaddhitaSuffix.APATYA).surface == c.get("surface")
+    form = derive_taddhita(str(c.get("source")), sutra_id="4.1.92")
+    return (
+        form.surface == c.get("surface")
+        and form.suffix == TaddhitaSuffix.APATYA
+        and form.semantic == "apatya"
+        and c.get("semantic", "apatya") == "apatya"
+    )
 
 def sutra_5_2_94(c) -> bool:
-    return derive(str(c.get("source")), TaddhitaSuffix.MATUP).surface == c.get("surface")
+    form = derive_taddhita(str(c.get("source")), sutra_id="5.2.94")
+    return (
+        form.surface == c.get("surface")
+        and form.suffix == TaddhitaSuffix.MATUP
+        and form.semantic == "possession"
+        and c.get("semantic", "possession") == "possession"
+    )
 
 def sutra_5_3_55(c) -> bool:
-    return derive(str(c.get("source")), TaddhitaSuffix.ATISHAYANA).surface == c.get("surface")
+    form = derive_taddhita(str(c.get("source")), sutra_id="5.3.55")
+    return (
+        form.surface == c.get("surface")
+        and form.suffix == TaddhitaSuffix.ATISHAYANA
+        and form.semantic == "atishayana"
+        and c.get("semantic", "atishayana") == "atishayana"
+    )
 
 def sutra_6_2_1(c) -> bool:
     return profile_accent(tuple(c.get("tokens", ())), int(c.get("udatta_index", 0)), "6.2").primary.accent == Accent.UDATTA
@@ -1653,9 +1671,9 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     _add(registry, "3.4.115", SutraOperator.SAMJNA, "marks lit as ardhadhatuka", sutra_3_4_115, _ctx("3.4.115", lakara=Lakara.LIT), _ctx("3.4.115", lakara=Lakara.LAT), "samjna:ardhadhatuka")
 
     _add(registry, "4.1.2", SutraOperator.VIDHI, "derives controlled aa-stem feminine forms", sutra_4_1_2, _ctx("4.1.2", lemma="latā", surface="latā"), _ctx("4.1.2", lemma="latā", surface="lata"), "suffix:tap")
-    _add(registry, "4.1.92", SutraOperator.VIDHI, "derives apatya descendant taddhita", sutra_4_1_92, _ctx("4.1.92", source="upagu", surface="aupagava"), _ctx("4.1.92", source="bala", surface="balavān"), "taddhita:apatya")
-    _add(registry, "5.2.94", SutraOperator.VIDHI, "derives possession adjectives with matup", sutra_5_2_94, _ctx("5.2.94", source="bala", surface="balavān"), _ctx("5.2.94", source="upagu", surface="aupagava"), "taddhita:matup")
-    _add(registry, "5.3.55", SutraOperator.VIDHI, "derives degree forms with atishayana", sutra_5_3_55, _ctx("5.3.55", source="laghu", surface="laghiṣṭha"), _ctx("5.3.55", source="bala", surface="balavān"), "taddhita:atishayana")
+    _add(registry, "4.1.92", SutraOperator.VIDHI, "derives apatya descendant taddhita", sutra_4_1_92, _ctx("4.1.92", source="upagu", surface="aupagava", semantic="apatya"), _ctx("4.1.92", source="upagu", surface="aupagava", semantic="possession"), "taddhita:apatya")
+    _add(registry, "5.2.94", SutraOperator.VIDHI, "derives possession adjectives with matup", sutra_5_2_94, _ctx("5.2.94", source="bala", surface="balavān", semantic="possession"), _ctx("5.2.94", source="bala", surface="balavān", semantic="apatya"), "taddhita:matup")
+    _add(registry, "5.3.55", SutraOperator.VIDHI, "derives degree forms with atishayana", sutra_5_3_55, _ctx("5.3.55", source="laghu", surface="laghiṣṭha", semantic="atishayana"), _ctx("5.3.55", source="laghu", surface="laghiṣṭha", semantic="possession"), "taddhita:atishayana")
     for sutra_id, left, right, rule in (
         ("6.1.78", "hare", "atra", "ayavāyāva"),
         ("6.1.87", "deva", "iti", "guṇa"),

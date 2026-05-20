@@ -95,8 +95,8 @@ Initial support now lives in `src/sanskript/derivation.py`.
 
 Batch status:
 
-- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` have taddhita helper anchors for controlled runtime examples, but remain partial until real per-sutra handlers exist.
-- Current executable support includes controlled taddhita examples for descent, possession, and degree; the canon tracks the full Adhyaya 4-5 rule surface for later runtime deepening.
+- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` have discrete per-sutra predicates, and the first taddhita anchors now route through a rule-level derivation engine.
+- Current executable support derives descent, possession, and degree forms with recorded sutra id, semantic relation, suffix, surface, and stem operations; the next runtime-deepening step is expanding that engine across more Adhyaya 4-5 suffix classes.
 
 ## Phase 5: Compounds And Sentences
 

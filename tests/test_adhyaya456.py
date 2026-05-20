@@ -15,7 +15,7 @@ from sanskript.adhyaya456 import (
     rules_for_pada,
 )
 from sanskript.anga import apply_anga_operation, operation_named, operations_for_range
-from sanskript.derivation import TaddhitaSuffix, derive
+from sanskript.derivation import TaddhitaSuffix, derive, derive_taddhita
 from sanskript.sandhi import join_words
 
 
@@ -62,6 +62,8 @@ class AdhyayaFourFiveSixBehaviorTests(unittest.TestCase):
         self.assertEqual(derive("bala", TaddhitaSuffix.MATUP).surface, "balavān")
         self.assertEqual(derive("go", TaddhitaSuffix.MATUP).surface, "gomān")
         self.assertEqual(derive("laghu", TaddhitaSuffix.ATISHAYANA).surface, "laghiṣṭha")
+        self.assertEqual(derive_taddhita("manu", sutra_id="4.1.92").surface, "mānava")
+        self.assertEqual(derive_taddhita("bala", sutra_id="5.2.94").sutra_id, "5.2.94")
 
     def test_vowel_sandhi_anchors_cover_adhyaya_six_one(self) -> None:
         self.assertEqual(join_words("deva", "atra").value, "devātra")
