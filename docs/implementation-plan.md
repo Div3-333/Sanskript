@@ -40,6 +40,7 @@ Truth-gated slice:
 
 - The current real-handler gate contributes 2447 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
 - Adhyaya 1-3 now have a shared dry runtime layer in `src/sanskript/adhyaya123_engines.py`: `SutraPredicateSelectionEngine`, `SamjnaTechnicalEngine`, `MetaruleGovernanceEngine`, `SamasaDerivationEngine`, `KarakaVibhaktiEngine`, `SubantaSupEngine`, `PratyayaLopaEngine`, `DhatuSanadiEngine`, `KrtDerivationEngine`, and `TinantaLakaraEngine`. This layer composes existing predicates into derivational behavior without re-counting metadata as sutra completion.
+- Runtime independence has begun: `ast.py`, `ir.py`, `compiler.py`, `bytecode.py`, and `vm.py` now form an explicit Sanskript-owned execution pipeline. The first VM is Python-hosted, but it executes Sanskript bytecode rather than treating Python control flow as the language semantics.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 

@@ -50,6 +50,24 @@ The compiler recovers these roles from analyzed word forms. The current subset i
 
 The role mapping is intentionally attached to verb frames. Case alone is not enough for a mature Sanskrit parser.
 
+## Independence Architecture
+
+Sanskript semantics do not lower to Python source or Python AST. The current compiler path is:
+
+```text
+Sanskrit source -> morphology -> Sanskript AST -> Sanskript IR -> Sanskript bytecode -> Sanskript VM
+```
+
+The VM is currently hosted in Python, but it consumes only Sanskript-owned bytecode instructions from `bytecode.py`. Python is therefore an implementation host, not the semantic target. The durable language boundary is:
+
+- `ast.py`: sentence-level semantic statements recovered from Sanskrit roles;
+- `ir.py`: Sanskript intermediate representation with storage, adjustment, and output operations;
+- `compiler.py`: AST-to-IR and IR-to-bytecode lowering;
+- `bytecode.py`: owned opcodes such as `push_int`, `load_name`, `store_name`, `add`, `subtract`, and `emit`;
+- `vm.py`: bytecode execution state, stack, environment, and output.
+
+Future non-Python runtimes should implement the bytecode contract rather than reinterpret the Sanskrit source directly.
+
 ## Identifiers
 
 The current prototype uses ordinary Sanskrit nouns as storage names. For example:

@@ -157,6 +157,7 @@
         <a href="#run">Run</a>
         <a href="#canon-workpacks">Canon Workpacks</a>
         <a href="#engines">Runtime Engines</a>
+        <a href="#compiler-vm">Compiler VM</a>
         <a href="#programs">Programs</a>
         <a href="#sentences">Sentences</a>
         <a href="#cases">Cases</a>
@@ -234,6 +235,21 @@ rule_for("1.1.71").compiler_effect
             <tr><td><code>TinantaLakaraEngine</code></td><td>3.2-3.4</td><td>Selects lakara, tiṅ endings, and finite verb forms.</td></tr>
           </table>
           <pre>from sanskript.adhyaya123_engines import derive_krt123, conjugate_tinanta123</pre>
+        </section>
+
+        <section id="compiler-vm">
+          <h2>Compiler VM</h2>
+          <p>The current execution path is Sanskrit source to Sanskript AST, Sanskript IR, Sanskript bytecode, and finally the Sanskript VM.</p>
+          <table>
+            <tr><th>Layer</th><th>File</th><th>Responsibility</th></tr>
+            <tr><td>AST</td><td><code>ast.py</code></td><td>Stores role-derived statements such as assignment, increase, decrease, and display.</td></tr>
+            <tr><td>IR</td><td><code>ir.py</code></td><td>Owns language-level operations independent of any host language.</td></tr>
+            <tr><td>Bytecode</td><td><code>bytecode.py</code></td><td>Defines VM instructions such as <code>push_int</code>, <code>load_name</code>, <code>store_name</code>, <code>add</code>, and <code>emit</code>.</td></tr>
+            <tr><td>Compiler</td><td><code>compiler.py</code></td><td>Lowers AST to IR and IR to bytecode.</td></tr>
+            <tr><td>VM</td><td><code>vm.py</code></td><td>Executes Sanskript bytecode with its own stack, environment, and output.</td></tr>
+          </table>
+          <pre>from sanskript.compiler import compile_source
+from sanskript.vm import SanskriptVM</pre>
         </section>
 
         <section id="programs">
