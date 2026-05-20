@@ -14,23 +14,23 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 | Source | Pages | Text chars | Indexed items | SHA-256 |
 | --- | ---: | ---: | ---: | --- |
-| Aṣṭādhyāyī or Sūtrapāṭha of Pāṇini | 131 | 111198 | 3992 | `507a945f47d4...` |
+| Aṣṭādhyāyī or Sūtrapāṭha of Pāṇini | 131 | 111198 | 3993 | `507a945f47d4...` |
 | vyākaraṇa-praveśaḥ | 217 | 209240 | 58 | `91661c418222...` |
 | Sanskrit for Beginners | 462 | 337373 | 122 | `1f25e354487c...` |
 
 ## Coverage Summary
 
-- Total obligations: `4172`
+- Total obligations: `4173`
 - Topic obligations: `191`
-- Sutra obligations: `3981`
-- Implemented: `1060`
-- Partial: `2305`
+- Sutra obligations: `3982`
+- Implemented: `2447`
+- Partial: `919`
 - Batch partial: `807`
 - Pending design: `0`
 
 ## Aṣṭādhyāyī Sutra Index
 
-- Sutra identifiers indexed: `3981`
+- Sutra identifiers indexed: `3982`
 - First identifier: `1.1.1`
 - Last identifier: `8.4.68`
 
@@ -51,7 +51,7 @@ This file is the project contract for the user's requirement that Sanskript use 
 | `4.1` | 178 |
 | `4.2` | 145 |
 | `4.3` | 168 |
-| `4.4` | 143 |
+| `4.4` | 144 |
 | `5.1` | 136 |
 | `5.2` | 140 |
 | `5.3` | 119 |
@@ -275,7 +275,7 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 The current interpreter now uses a strict real-handler truth gate. A sutra is marked `implemented` only when it has exact source text, inherited domain data, conditions, positive behavior, negative behavior, and a named executable handler that calls the grammar engine instead of a generated metadata profile:
 
-- 1060 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;
+- 2447 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;
 - the previous generated Adhyaya 1-6 profile is deliberately rejected as a completion metric;
 - Adhyaya 2 and 3 now have named executable handlers across samasa, vibhakti, subanta, dhatu, krt, lakara, and tin domains;
 - Adhyaya 4 through 8 ranges remain partial or batch-partial until their individual sutra logic is upgraded;

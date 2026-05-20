@@ -65,19 +65,22 @@ Current grammar infrastructure includes phonology, transliteration, first-pass s
 
 The truth gate now requires **discrete Pāṇinian predicates** — every implemented sutra is a hand-written Python function that checks specific Pāṇinian conditions (root class, case, role, semantic context, lakāra, suffix, …) against a linguistically real positive example and rejects a linguistically real negative example. The previous slug-roundtrip scaffold has been retired.
 
-Real-implementation modules (Adhyāya 2 and 3 in full; Adhyāya 1 in progress):
+Real-implementation modules (Adhyāya 1–5 in full via discrete predicates; Adhyāya 6 partial):
 
 | Module                         | Range            | Sutras |
 | ------------------------------ | ---------------- | ------ |
-| `sutra_logic.py` main registry | Adhyāya 1, 4–6   |    227 |
+| `sutra_logic.py` main registry | Adhyāya 1–3 anchors, 6 (+ sandhi) |    227 |
 | `sutra_handlers_1_2.py`        | misc Adhyāya 1   |     28 |
 | `sutra_impl_1_1.py`            | 1.1 (gaps)       |     29 |
+| `sutra_impl_1_rest.py`         | 1.2 + 1.3 + 1.4  |    201 |
 | `sutra_impl_2.py`              | Adhyāya 2 (all)  |    190 |
 | `sutra_impl_3_1.py`            | 3.1              |    137 |
 | `sutra_impl_3_2.py`            | 3.2              |    180 |
 | `sutra_impl_3_3.py`            | 3.3              |    167 |
 | `sutra_impl_3_4.py`            | 3.4              |    102 |
-| **Total real predicates**      |                  | **1060** |
+| `sutra_impl_4.py`              | Adhyāya 4 (all)  |    633 |
+| `sutra_impl_5.py`              | Adhyāya 5 (all)  |    553 |
+| **Total real predicates**      |                  | **2447** |
 
 The regression test `tests/test_sutra_logic.py::RealDiscreteImplementationTests`
 enforces that every wired sutra is routed through one of these real-implementation modules, that no `_evaluate(...)` slug round-trip is reintroduced, and that each predicate fires on its positive fixture and rejects its negative fixture.

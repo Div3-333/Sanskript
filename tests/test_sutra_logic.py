@@ -9,13 +9,26 @@ from sanskript.grammar import Case
 from sanskript.tinanta import DhatuType
 import sanskript.sutra_handlers_adhyaya23 as h23
 import sanskript.sutra_impl_1_1 as impl1_1
+import sanskript.sutra_impl_1_rest as impl1_rest
 import sanskript.sutra_impl_2 as impl2
 import sanskript.sutra_impl_3_1 as impl3_1
 import sanskript.sutra_impl_3_2 as impl3_2
 import sanskript.sutra_impl_3_3 as impl3_3
 import sanskript.sutra_impl_3_4 as impl3_4
+import sanskript.sutra_impl_4 as impl4
+import sanskript.sutra_impl_5 as impl5
 
-REAL_IMPLEMENTATION_MODULES = (impl1_1, impl2, impl3_1, impl3_2, impl3_3, impl3_4)
+REAL_IMPLEMENTATION_MODULES = (
+    impl1_1,
+    impl1_rest,
+    impl2,
+    impl3_1,
+    impl3_2,
+    impl3_3,
+    impl3_4,
+    impl4,
+    impl5,
+)
 from sanskript.sutra_logic import (
     SUTRA_LOGIC,
     evaluate_sutra,
@@ -78,9 +91,10 @@ class SutraLogicTests(unittest.TestCase):
 
     def test_truth_gate_is_not_the_old_generated_adhyaya_one_to_six_metric(self) -> None:
         self.assertEqual(implemented_logic_ids(), EXPECTED_REAL_LOGIC_IDS)
-        self.assertEqual(len(implemented_logic_ids()), 1060)
+        self.assertEqual(len(implemented_logic_ids()), 2447)
         self.assertTrue(has_discrete_sutra_logic("2.1.1"))
-        self.assertFalse(has_discrete_sutra_logic("4.1.1"))
+        self.assertTrue(has_discrete_sutra_logic("4.1.1"))
+        self.assertTrue(has_discrete_sutra_logic("5.1.1"))
 
     def test_each_truth_gated_sutra_has_positive_and_negative_logic(self) -> None:
         for sutra_id in sorted(EXPECTED_REAL_LOGIC_IDS):
@@ -213,6 +227,20 @@ class RealDiscreteImplementationTests(unittest.TestCase):
         adhyaya3_4_in_h23 = {sid for sid in h23.EXTRA_SUTRA_IDS if sid.startswith("3.4.")}
 
         self.assertEqual(adhyaya3_4_in_h23, set(impl3_4.IMPLEMENTED_IDS))
+
+    def test_adhyaya_4_is_fully_covered_by_sutra_impl_4(self) -> None:
+        self.assertEqual(len(impl4.IMPLEMENTED_IDS), 633)
+        for pada in ("4.1", "4.2", "4.3", "4.4"):
+            with self.subTest(pada=pada):
+                pada_ids = {sid for sid in impl4.IMPLEMENTED_IDS if sid.startswith(f"{pada}.")}
+                self.assertGreater(len(pada_ids), 0)
+
+    def test_adhyaya_5_is_fully_covered_by_sutra_impl_5(self) -> None:
+        self.assertEqual(len(impl5.IMPLEMENTED_IDS), 553)
+        for pada in ("5.1", "5.2", "5.3", "5.4"):
+            with self.subTest(pada=pada):
+                pada_ids = {sid for sid in impl5.IMPLEMENTED_IDS if sid.startswith(f"{pada}.")}
+                self.assertGreater(len(pada_ids), 0)
 
     def test_sutra_impl_1_1_covers_previously_missing_pada_one_one_sutras(self) -> None:
         """sutra_impl_1_1 owns the 29 Adhyāya 1.1 sūtras that were absent

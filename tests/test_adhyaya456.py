@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class AdhyayaFourFiveSixRegistryTests(unittest.TestCase):
     def test_registry_covers_adhyaya_four_five_and_six(self) -> None:
-        self.assertEqual(len(expected_adhyaya456_ids()), 1925)
+        self.assertEqual(len(expected_adhyaya456_ids()), 1926)
         self.assertEqual(missing_rule_ids(), ())
         self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya456_ids()) - implemented_sutra_ids())
         self.assertEqual(implemented_sutra_ids() | partial_sutra_ids(), frozenset(expected_adhyaya456_ids()))
@@ -51,7 +51,7 @@ class AdhyayaFourFiveSixRegistryTests(unittest.TestCase):
             if item["kind"] == "sutra" and item["title"] in expected_adhyaya456_ids()
         }
 
-        self.assertEqual(len(statuses), 1925)
+        self.assertEqual(len(statuses), 1926)
         self.assertEqual({sid for sid, status in statuses.items() if status == "implemented"}, set(implemented_sutra_ids()))
         self.assertEqual({sid for sid, status in statuses.items() if status == "partial"}, set(partial_sutra_ids()))
 

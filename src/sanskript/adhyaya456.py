@@ -74,7 +74,7 @@ PADA_COUNTS = {
     "4.1": 178,
     "4.2": 145,
     "4.3": 168,
-    "4.4": 143,
+    "4.4": 144,
     "5.1": 136,
     "5.2": 140,
     "5.3": 119,
@@ -90,7 +90,7 @@ PADA_INDICES = {
     pada: tuple(range(1, count + 1))
     for pada, count in PADA_COUNTS.items()
 }
-PADA_INDICES["4.4"] = tuple(range(1, 129)) + tuple(range(130, 145))
+PADA_INDICES["4.4"] = tuple(range(1, 130)) + tuple(range(130, 145))
 
 
 SPECIAL_RULES: dict[str, tuple[RuleKind, str, str, tuple[str, ...], str, ImplementationMode]] = {

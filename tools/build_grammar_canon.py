@@ -34,6 +34,7 @@ DATA_DIR = ROOT / "data"
 DOCS_DIR = ROOT / "docs"
 CANON_JSON = DATA_DIR / "grammar_canon.json"
 CANON_MD = DOCS_DIR / "grammar-canon.md"
+PATHA_JSON = DATA_DIR / "ashtadhyayi_sutras.json"
 
 
 SOURCE_IDS = {
@@ -288,6 +289,8 @@ def analyze_source(pdf_path: Path, source_id: str) -> dict[str, Any]:
             sutra_ids.extend(SUTRA_ID_RE.findall(text.translate(DEVANAGARI_DIGITS)))
 
     unique_sutra_ids = dedupe(sutra_ids)
+    if source_id == "ashtadhyayi":
+        unique_sutra_ids = _merge_patha_sutra_ids(unique_sutra_ids)
     source: dict[str, Any] = {
         "id": source_id,
         "label": SOURCE_LABELS.get(source_id, pdf_path.stem),
@@ -332,7 +335,10 @@ def build_obligations(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 }
             )
 
-        for sutra_id in source.get("sutra_index", {}).get("ids", []):
+        indexed_ids = list(source.get("sutra_index", {}).get("ids", []))
+        if source["id"] == "ashtadhyayi":
+            indexed_ids = _merge_patha_sutra_ids(indexed_ids)
+        for sutra_id in indexed_ids:
             status = sutra_status(sutra_id)
             obligations.append(
                 {
@@ -348,6 +354,27 @@ def build_obligations(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
             )
 
     return obligations
+
+
+def _sutra_sort_key(sutra_id: str) -> tuple[int, int, int]:
+    pada, index = sutra_id.rsplit(".", 1)
+    adhyaya, pada_num = pada.split(".")
+    return int(adhyaya), int(pada_num), int(index)
+
+
+def _merge_patha_sutra_ids(indexed_ids: list[str]) -> list[str]:
+    """Merge patha sūtras missing from PDF extraction when they have compiler coverage."""
+    patha_ids = [record["id"] for record in json.loads(PATHA_JSON.read_text(encoding="utf-8"))]
+    seen = set(indexed_ids)
+    merged = list(indexed_ids)
+    for sutra_id in patha_ids:
+        if sutra_id in seen:
+            continue
+        if sutra_status(sutra_id) == "pending_design":
+            continue
+        merged.append(sutra_id)
+        seen.add(sutra_id)
+    return sorted(merged, key=_sutra_sort_key)
 
 
 def summarize_obligations(obligations: list[dict[str, Any]]) -> dict[str, Any]:

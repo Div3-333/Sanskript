@@ -98,7 +98,7 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 ## Metarules
 
-The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. The current truth gate marks 1060 sutras as implemented, each backed by a named handler in `sutra_logic.evaluate_sutra`. The previous generated Adhyaya 1-6 metric is rejected because metadata profiles are not discrete Paninian logic.
+The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. The current truth gate marks 2447 sutras as implemented, each backed by a named handler in `sutra_logic.evaluate_sutra`. The previous generated Adhyaya 1-6 metric is rejected because metadata profiles are not discrete Paninian logic.
 
 ## Future Safety Tiers
 

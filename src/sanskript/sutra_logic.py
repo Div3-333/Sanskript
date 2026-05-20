@@ -11,6 +11,9 @@ from typing import Any
 from . import sutra_handlers_1_2 as h12
 from . import sutra_handlers_adhyaya23 as h23
 from . import sutra_impl_1_1 as impl1_1
+from . import sutra_impl_1_rest as impl1_rest
+from . import sutra_impl_4 as impl4
+from . import sutra_impl_5 as impl5
 from .sutra_impl_base import register_module_in_registry
 from .anga import DerivationContext, Suffix, guna, operations_for_range
 from .avyaya import is_avyaya_suffix, is_controlled_avyaya, upasarga_surfaces
@@ -1683,7 +1686,7 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     # Per-pāda real-implementation modules for sūtras that were missing
     # from the inline registry above. Each module owns discrete predicates
     # + linguistic fixtures + META and is plugged in via the shared helper.
-    for module in (impl1_1,):
+    for module in (impl1_1, impl1_rest, impl4, impl5):
         register_module_in_registry(registry, module, _add, _ctx, SutraOperator)
 
     return registry
