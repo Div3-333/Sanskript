@@ -10,7 +10,7 @@ from typing import Any
 
 from . import sutra_handlers_1_2 as h12
 from . import sutra_handlers_adhyaya23 as h23
-from .anga import DerivationContext, Suffix, guna, operations_for_range, vrddhi
+from .anga import DerivationContext, Suffix, guna, operations_for_range
 from .avyaya import is_avyaya_suffix, is_controlled_avyaya, upasarga_surfaces
 from .categories import (
     assign_technical_names,
@@ -50,7 +50,6 @@ from .phonology import (
     is_guna,
     is_ik,
     is_pragrhya,
-    is_aprkta,
     is_samyoga,
     is_savarna,
     is_ti,
@@ -64,7 +63,7 @@ from .phonology import (
     tapara_matches_duration,
     vrddhi_replacement_for_ik,
 )
-from .samasa import SamasaSense, SamasaType, apply_ekashesha, create_compound, is_samartha
+from .samasa import SamasaSense, SamasaType, create_compound, is_samartha
 from .sandhi import join_words
 from .subanta import decline_aa_feminine
 from .tinanta import (
@@ -80,7 +79,6 @@ from .tinanta import (
     is_ardhadhatuka,
     is_sarvadhatuka,
     join_stem_ending,
-    tin_ending,
 )
 from .transliteration import devanagari_to_iast
 from .voice import determine_available_padas
@@ -508,10 +506,26 @@ def sutra_1_4_10(c) -> bool:
     return get_vowel_weight(str(c.get("word")), int(c.get("index", 0))) == Samjna.LAGHU
 
 def sutra_1_4_11(c) -> bool:
-    return get_vowel_weight(str(c.get("word")), int(c.get("index", 0))) == Samjna.GURU
+    """saṁyoge guru: a short vowel followed by a consonant cluster (saṁyoga) is guru."""
+    word = str(c.get("word"))
+    idx = int(c.get("index", 0))
+    if not (0 <= idx < len(word)) or not is_vowel(word[idx]):
+        return False
+    leading_consonants = []
+    for ch in word[idx + 1:]:
+        if is_vowel(ch):
+            break
+        leading_consonants.append(ch)
+    return is_samyoga(leading_consonants) and get_vowel_weight(word, idx) == Samjna.GURU
 
 def sutra_1_4_12(c) -> bool:
-    return get_vowel_weight(str(c.get("word")), int(c.get("index", 0))) == Samjna.GURU
+    """dīrghaṁ ca: a dīrgha (long) vowel is also guru, irrespective of what follows."""
+    word = str(c.get("word"))
+    idx = int(c.get("index", 0))
+    if not (0 <= idx < len(word)) or not is_vowel(word[idx]):
+        return False
+    long_vowels = {"ā", "ī", "ū", "ṝ", "ḹ", "e", "ai", "o", "au"}
+    return word[idx] in long_vowels and get_vowel_weight(word, idx) == Samjna.GURU
 
 def sutra_1_4_13(c) -> bool:
     return c.get("suffix") is not None and Samjna.ANGA in assign_technical_names(c.get("analysis"), str(c.get("suffix"))).samjnas
@@ -825,80 +839,136 @@ def _atmanepada_available(c) -> bool:
         bool(c.get("reflexive")),
     )
 
+
+def _has_prefix(c, *needed: str) -> bool:
+    prefixes = tuple(c.get("prefixes", ()))
+    return any(p in prefixes for p in needed)
+
+
+# Per-sūtra ātmanepada predicates. Each sūtra IS itself the rule that licences
+# ātmanepada for its specific (prefix, root, marker, semantic) trigger; the
+# predicate therefore only needs to test the discriminating trigger Pāṇini names,
+# not call back into the (incomplete) generic engine.
+
 def sutra_1_3_12(c) -> bool:
-    return _atmanepada_available(c)
+    """anudāttaṅita ātmanepadam: roots marked anudātta or ṅit take ātmanepada."""
+    markers = frozenset(c.get("markers", frozenset()))
+    return "ṅ" in markers or "anudātta" in markers
 
 def sutra_1_3_13(c) -> bool:
-    return _atmanepada_available(c)
+    """bhāvakarmaṇoḥ: impersonal (bhāva) or passive (karma) usage → ātmanepada."""
+    return str(c.get("voice", "")) in {"bhava", "karman"}
 
 def sutra_1_3_17(c) -> bool:
-    return _atmanepada_available(c)
+    """nerviśaḥ: prefix 'ni' + root viś → ātmanepada."""
+    return _has_prefix(c, "ni") and str(c.get("lemma")) == "viś"
 
 def sutra_1_3_18(c) -> bool:
-    return _atmanepada_available(c)
+    """parivyavebhyaḥ kriyaḥ: pari/vi/ava + krī → ātmanepada."""
+    return _has_prefix(c, "pari", "vi", "ava") and str(c.get("lemma")) == "krī"
 
 def sutra_1_3_19(c) -> bool:
-    return _atmanepada_available(c)
+    """viparābhyāṃ jeḥ: vi/parā + ji → ātmanepada."""
+    return _has_prefix(c, "vi", "parā") and str(c.get("lemma")) == "ji"
 
 def sutra_1_3_21(c) -> bool:
-    return _atmanepada_available(c)
+    """krīḍo'nusamparibhyaśca: anu/sam/pari + krīḍ → ātmanepada."""
+    return _has_prefix(c, "anu", "sam", "pari") and str(c.get("lemma")) == "krīḍ"
 
 def sutra_1_3_24(c) -> bool:
-    return _atmanepada_available(c)
+    """udo'nūrdhvakarmaṇi: ud + sthā → ātmanepada (except 'rising-up' sense)."""
+    return (_has_prefix(c, "ud") and str(c.get("lemma")) == "sthā"
+            and str(c.get("semantic", "")) != "urdhva_karma")
 
 def sutra_1_3_25(c) -> bool:
-    return _atmanepada_available(c)
+    """upānmantrakaraṇe: upa + man in mantra-making sense → ātmanepada."""
+    return (_has_prefix(c, "upa") and str(c.get("lemma")) == "man"
+            and str(c.get("semantic", "")) == "mantra_karana")
 
 def sutra_1_3_29(c) -> bool:
-    return _atmanepada_available(c)
+    """samo gamy-ṛcchi-...-vidibhyaḥ: sam + specific roots → ātmanepada."""
+    SAM_LIST = {"gam", "ṛch", "prach", "svar", "ṛ", "śru", "vid"}
+    return _has_prefix(c, "sam") and str(c.get("lemma")) in SAM_LIST
 
 def sutra_1_3_32(c) -> bool:
-    return _atmanepada_available(c)
+    """gandhanāvakṣepaṇa-...-upayogeṣu kṛñaḥ: kṛ in listed semantic senses → ātmanepada."""
+    KRT_SENSES = {"gandhana", "avaksepana", "sevana", "sahasikya",
+                  "pratiyatna", "prakathana", "upayoga"}
+    return str(c.get("lemma")) == "kṛ" and str(c.get("semantic", "")) in KRT_SENSES
 
 def sutra_1_3_40(c) -> bool:
-    return _atmanepada_available(c)
+    """āṅa udgamane: prefix 'ā' + gam in 'rising-up' sense → ātmanepada."""
+    return (_has_prefix(c, "ā") and str(c.get("lemma")) == "gam"
+            and str(c.get("semantic", "")) == "udgamana")
 
 def sutra_1_3_72(c) -> bool:
-    return _atmanepada_available(c)
+    """svaritañitaḥ kartrabhipraye kriyāphale: svarita/ñit roots → ātmanepada when
+    the fruit of action accrues to the agent."""
+    markers = frozenset(c.get("markers", frozenset()))
+    return (("svarita" in markers or "ñ" in markers)
+            and bool(c.get("phala_to_kartr")))
 
 def _karaka_role_is(c, role: Role) -> bool:
     return get_karaka_role(str(c.get("verb")), str(c.get("context"))) == role
 
+
+# Per-sūtra kāraka predicates. Each requires both the engine-computed role
+# AND the specific syntactic / semantic context Pāṇini names for that sūtra,
+# so the predicates distinguish sūtras with the same kāraka outcome.
+
 def sutra_1_4_24(c) -> bool:
-    return _karaka_role_is(c, Role.APADANA)
+    """dhruvam apāye'pādānam: the fixed point from which separation occurs → apādāna."""
+    return str(c.get("context")) == "separation_point" and _karaka_role_is(c, Role.APADANA)
 
 def sutra_1_4_25(c) -> bool:
-    return _karaka_role_is(c, Role.APADANA)
+    """bhī-trārthānāṃ bhayahetuḥ: with bhī/tras-meaning verbs, source of fear → apādāna."""
+    return (str(c.get("context")) == "cause_of_fear"
+            and str(c.get("verb", "")) in {"bhī", "tras"}
+            and _karaka_role_is(c, Role.APADANA))
 
 def sutra_1_4_26(c) -> bool:
-    return _karaka_role_is(c, Role.APADANA)
+    """parājerasoḍhaḥ: with parā-ji, an unbearable thing → apādāna."""
+    return (str(c.get("context")) == "unbearable"
+            and str(c.get("verb", "")) == "parā-ji"
+            and _karaka_role_is(c, Role.APADANA))
 
 def sutra_1_4_27(c) -> bool:
-    return _karaka_role_is(c, Role.APADANA)
+    """vāraṇārthānām īpsitaḥ: with 'ward-off'-meaning verbs, the desired thing → apādāna."""
+    return str(c.get("context")) == "warded_off_object" and _karaka_role_is(c, Role.APADANA)
 
 def sutra_1_4_28(c) -> bool:
-    return _karaka_role_is(c, Role.APADANA)
+    """antardhau yenādarśanam icchati: the one from whom one wishes to be hidden → apādāna."""
+    return str(c.get("context")) == "hidden_from" and _karaka_role_is(c, Role.APADANA)
 
 def sutra_1_4_29(c) -> bool:
-    return _karaka_role_is(c, Role.APADANA)
+    """ākhyātopayoge: with verbs of regular instruction, the teacher → apādāna."""
+    return str(c.get("context")) == "teacher" and _karaka_role_is(c, Role.APADANA)
 
 def sutra_1_4_32(c) -> bool:
-    return _karaka_role_is(c, Role.SAMPRADANA)
+    """karmaṇā yam abhipraiti sa sampradānam: the intended recipient of the karman → sampradāna."""
+    return str(c.get("context")) == "intended_recipient" and _karaka_role_is(c, Role.SAMPRADANA)
 
 def sutra_1_4_33(c) -> bool:
-    return _karaka_role_is(c, Role.SAMPRADANA)
+    """rucyarthānāṃ prīyamāṇaḥ: with ruc-meaning verbs, the pleased one → sampradāna."""
+    return (str(c.get("context")) == "pleased_one"
+            and str(c.get("verb", "")) == "ruc"
+            and _karaka_role_is(c, Role.SAMPRADANA))
 
 def sutra_1_4_42(c) -> bool:
-    return _karaka_role_is(c, Role.KARANA)
+    """sādhakatamaṃ karaṇam: the most effective means → karaṇa."""
+    return str(c.get("context")) == "most_effective_means" and _karaka_role_is(c, Role.KARANA)
 
 def sutra_1_4_45(c) -> bool:
-    return _karaka_role_is(c, Role.ADHIKARANA)
+    """ādhāro'dhikaraṇam: the substratum (locus) of the action → adhikaraṇa."""
+    return str(c.get("context")) == "substratum" and _karaka_role_is(c, Role.ADHIKARANA)
 
 def sutra_1_4_49(c) -> bool:
-    return _karaka_role_is(c, Role.KARMAN)
+    """kartur īpsitatamaṃ karma: the agent's most desired object → karman."""
+    return str(c.get("context")) == "most_desired" and _karaka_role_is(c, Role.KARMAN)
 
 def sutra_1_4_54(c) -> bool:
-    return _karaka_role_is(c, Role.KARTR)
+    """svatantraḥ kartā: the independent (volitional) agent → kartṛ."""
+    return str(c.get("context")) == "independent_agent" and _karaka_role_is(c, Role.KARTR)
 
 def _compound_sense_is(c, sense: SamasaSense) -> bool:
     return create_compound(list(c.get("members", ()))).sense == sense
@@ -1291,58 +1361,135 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     _add(registry, "1.4.3", SutraOperator.SAMJNA, "assigns nadi to feminine i/u-final stems", sutra_1_4_3, _ctx("1.4.3", analysis=_analysis("nadī", "nadī", PartOfSpeech.NOUN, gender=Gender.FEMININE)), _ctx("1.4.3", analysis=_analysis("agni", "agni", PartOfSpeech.NOUN, gender=Gender.MASCULINE)), "samjna:nadi")
     _add(registry, "1.4.7", SutraOperator.SAMJNA, "assigns ghi to remaining i/u-final stems except sakhi", sutra_1_4_7, _ctx("1.4.7", analysis=_analysis("agni", "agni", PartOfSpeech.NOUN, gender=Gender.MASCULINE)), _ctx("1.4.7", analysis=_analysis("sakhi", "sakhi", PartOfSpeech.NOUN, gender=Gender.MASCULINE)), "samjna:ghi")
     _add(registry, "1.4.10", SutraOperator.SAMJNA, "assigns laghu to short vowels", sutra_1_4_10, _ctx("1.4.10", word="aga", index=0), _ctx("1.4.10", word="āgama", index=0), "samjna:laghu")
-    _add(registry, "1.4.11", SutraOperator.SAMJNA, "assigns guru to a vowel before a consonant cluster", sutra_1_4_11, _ctx("1.4.11", word="akta", index=0), _ctx("1.4.11", word="aga", index=0), "samjna:guru")
-    _add(registry, "1.4.12", SutraOperator.SAMJNA, "assigns guru to long vowels and diphthongs", sutra_1_4_12, _ctx("1.4.12", word="āgama", index=0), _ctx("1.4.12", word="aga", index=0), "samjna:guru")
+    _add(registry, "1.4.11", SutraOperator.SAMJNA, "saṁyoge guru: short vowel before a consonant cluster is guru", sutra_1_4_11, _ctx("1.4.11", word="akta", index=0), _ctx("1.4.11", word="āgama", index=0), "samjna:guru")
+    _add(registry, "1.4.12", SutraOperator.SAMJNA, "dīrghaṁ ca: a long vowel is also guru", sutra_1_4_12, _ctx("1.4.12", word="āgama", index=0), _ctx("1.4.12", word="aga", index=0), "samjna:guru")
     _add(registry, "1.4.13", SutraOperator.SAMJNA, "assigns anga to the base before a suffix", sutra_1_4_13, _ctx("1.4.13", analysis=_analysis("deva", "deva", PartOfSpeech.NOUN), suffix="su"), _ctx("1.4.13", analysis=_analysis("deva", "deva", PartOfSpeech.NOUN), suffix=None), "samjna:anga")
     _add(registry, "1.4.14", SutraOperator.SAMJNA, "assigns pada to sup/tin-ending analyses", sutra_1_4_14, _ctx("1.4.14", analysis=_analysis("devah", "deva", PartOfSpeech.NOUN, case=Case.NOMINATIVE)), _ctx("1.4.14", analysis=_analysis("deva", "deva", PartOfSpeech.NOUN)), "samjna:pada")
     _add(registry, "1.4.17", SutraOperator.SAMJNA, "keeps pada before selected svadi non-sarvanamasthana suffixes", sutra_1_4_17, _ctx("1.4.17", analysis=_analysis("devah", "deva", PartOfSpeech.NOUN, case=Case.NOMINATIVE), suffix="su"), _ctx("1.4.17", analysis=_analysis("deva", "deva", PartOfSpeech.NOUN), suffix="su"), "samjna:pada")
     _add(registry, "1.4.18", SutraOperator.SAMJNA, "assigns bha before y or vowel-initial suffixes", sutra_1_4_18, _ctx("1.4.18", analysis=_analysis("devah", "deva", PartOfSpeech.NOUN, case=Case.NOMINATIVE), suffix="ya"), _ctx("1.4.18", analysis=_analysis("devah", "deva", PartOfSpeech.NOUN, case=Case.NOMINATIVE), suffix="ta"), "samjna:bha")
 
-    for sutra_id, verb, context, role in (
-        ("1.4.24", "", "separation_point", Role.APADANA),
-        ("1.4.25", "bhī", "cause_of_fear", Role.APADANA),
-        ("1.4.26", "parā-ji", "unbearable", Role.APADANA),
-        ("1.4.27", "", "warded_off_object", Role.APADANA),
-        ("1.4.28", "", "hidden_from", Role.APADANA),
-        ("1.4.29", "", "teacher", Role.APADANA),
-        ("1.4.32", "", "intended_recipient", Role.SAMPRADANA),
-        ("1.4.33", "ruc", "pleased_one", Role.SAMPRADANA),
-        ("1.4.42", "", "most_effective_means", Role.KARANA),
-        ("1.4.45", "", "substratum", Role.ADHIKARANA),
-        ("1.4.49", "", "most_desired", Role.KARMAN),
-        ("1.4.54", "", "independent_agent", Role.KARTR),
+    # Each karaka sūtra below carries a distinct (verb, semantic-context) pair that
+    # discriminates it from neighbouring sūtras assigning the same kāraka.
+    for sutra_id, verb, context, role, summary in (
+        ("1.4.24", "", "separation_point", Role.APADANA, "dhruvam apāye'pādānam: fixed point of separation → apādāna"),
+        ("1.4.25", "bhī", "cause_of_fear", Role.APADANA, "bhī-trārthānāṃ bhayahetuḥ: source of fear → apādāna"),
+        ("1.4.26", "parā-ji", "unbearable", Role.APADANA, "parājerasoḍhaḥ: unbearable thing of parā-ji → apādāna"),
+        ("1.4.27", "", "warded_off_object", Role.APADANA, "vāraṇārthānām īpsitaḥ: desired (warded-off) object → apādāna"),
+        ("1.4.28", "", "hidden_from", Role.APADANA, "antardhau yenādarśanam icchati: hidden-from → apādāna"),
+        ("1.4.29", "", "teacher", Role.APADANA, "ākhyātopayoge: teacher being learned-from → apādāna"),
+        ("1.4.32", "", "intended_recipient", Role.SAMPRADANA, "karmaṇā yam abhipraiti sa sampradānam: intended recipient → sampradāna"),
+        ("1.4.33", "ruc", "pleased_one", Role.SAMPRADANA, "rucyarthānāṃ prīyamāṇaḥ: the pleased one with ruc-verbs → sampradāna"),
+        ("1.4.42", "", "most_effective_means", Role.KARANA, "sādhakatamaṃ karaṇam: most effective means → karaṇa"),
+        ("1.4.45", "", "substratum", Role.ADHIKARANA, "ādhāro'dhikaraṇam: substratum/locus → adhikaraṇa"),
+        ("1.4.49", "", "most_desired", Role.KARMAN, "kartur īpsitatamaṃ karma: agent's most desired object → karman"),
+        ("1.4.54", "", "independent_agent", Role.KARTR, "svatantraḥ kartā: independent volitional agent → kartṛ"),
     ):
-        _add(registry, sutra_id, SutraOperator.SAMJNA, f"assigns karaka role {role.value} for {context}", SUTRA_HANDLER_BY_ID[sutra_id], _ctx(sutra_id, verb=verb, context=context), _ctx(sutra_id, verb=verb, context="unrelated"), f"karaka:{role.value}")
+        _add(registry, sutra_id, SutraOperator.SAMJNA, summary, SUTRA_HANDLER_BY_ID[sutra_id], _ctx(sutra_id, verb=verb, context=context), _ctx(sutra_id, verb=verb, context="unrelated"), f"karaka:{role.value}")
     _add(registry, "1.4.58", SutraOperator.SAMJNA, "recognizes pra and related prefixes as gati material", sutra_1_4_58, _ctx("1.4.58", prefix="pra"), _ctx("1.4.58", prefix="ca"), "samjna:gati")
     _add(registry, "1.4.59", SutraOperator.SAMJNA, "recognizes upasarga when prefixes are in verbal connection", sutra_1_4_59, _ctx("1.4.59", prefix="pra", verb_connection=True), _ctx("1.4.59", prefix="pra", verb_connection=False), "samjna:upasarga")
     _add(registry, "1.4.60", SutraOperator.SAMJNA, "preserves gati relation metadata for controlled upasargas", sutra_1_4_60, _ctx("1.4.60", prefix="upa", gati_relation=True), _ctx("1.4.60", prefix="upa", gati_relation=False), "samjna:gati")
     _add(registry, "1.4.109", SutraOperator.SAMJNA, "assigns samhita to close phonological proximity", sutra_1_4_109, _ctx("1.4.109", word="agnim"), _ctx("1.4.109", word=""), "samjna:samhita")
     _add(registry, "1.4.110", SutraOperator.SAMJNA, "assigns avasana to cessation after the final sound", sutra_1_4_110, _ctx("1.4.110", word="agni", index=4), _ctx("1.4.110", word="agni", index=1), "samjna:avasana")
 
-    for sutra_id, markers, lemma, prefixes, reflexive, expected in (
-        ("1.3.12", frozenset({"ṅ"}), "", (), False, Pada.ATMANEPADA),
-        ("1.3.13", frozenset({"ṅ"}), "", (), False, Pada.ATMANEPADA),
-        ("1.3.17", frozenset(), "viś", ("ni",), False, Pada.ATMANEPADA),
-        ("1.3.18", frozenset(), "krī", ("pari",), False, Pada.ATMANEPADA),
-        ("1.3.19", frozenset(), "jñā", ("vi",), False, Pada.ATMANEPADA),
-        ("1.3.21", frozenset(), "krīḍ", ("sam",), False, Pada.ATMANEPADA),
-        ("1.3.24", frozenset(), "vid", ("ud",), False, Pada.ATMANEPADA),
-        ("1.3.25", frozenset(), "vad", ("upa",), False, Pada.ATMANEPADA),
-        ("1.3.29", frozenset(), "gam", ("sam",), False, Pada.ATMANEPADA),
-        ("1.3.32", frozenset(), "kṣi", (), False, Pada.ATMANEPADA),
-        ("1.3.40", frozenset(), "kram", ("upa",), False, Pada.ATMANEPADA),
-        ("1.3.72", frozenset({"svarita"}), "", (), True, Pada.ATMANEPADA),
-    ):
-        _add(
-            registry,
-            sutra_id,
-            SutraOperator.VIDHI,
-            f"selects {expected.value} in the controlled voice domain",
-            SUTRA_HANDLER_BY_ID[sutra_id],
-            _ctx(sutra_id, markers=markers, lemma=lemma, prefixes=prefixes, reflexive=reflexive),
-            _ctx(sutra_id, markers=frozenset(), lemma="bhū", prefixes=(), reflexive=False),
-            f"pada:{expected.value}",
-        )
+    # Per-sūtra ātmanepada fixtures. Each positive carries the *specific* trigger
+    # (prefix, root, marker, voice, semantic context) the sūtra names; each negative
+    # is a near-miss (same domain but missing the discriminating element).
+    _add(
+        registry, "1.3.12", SutraOperator.VIDHI,
+        "anudāttaṅita ātmanepadam: ṅit/anudātta-marked roots take ātmanepada",
+        sutra_1_3_12,
+        _ctx("1.3.12", markers=frozenset({"ṅ"}), lemma="śīṅ", prefixes=(), reflexive=False),
+        _ctx("1.3.12", markers=frozenset(), lemma="bhū", prefixes=(), reflexive=False),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.13", SutraOperator.VIDHI,
+        "bhāvakarmaṇoḥ: impersonal/passive forms take ātmanepada",
+        sutra_1_3_13,
+        _ctx("1.3.13", markers=frozenset({"ṅ"}), lemma="bhū", prefixes=(), reflexive=False, voice="karman"),
+        _ctx("1.3.13", markers=frozenset({"ṅ"}), lemma="bhū", prefixes=(), reflexive=False, voice="kartṛ"),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.17", SutraOperator.VIDHI,
+        "nerviśaḥ: ni + viś → ātmanepada",
+        sutra_1_3_17,
+        _ctx("1.3.17", markers=frozenset(), lemma="viś", prefixes=("ni",), reflexive=False),
+        _ctx("1.3.17", markers=frozenset(), lemma="viś", prefixes=(), reflexive=False),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.18", SutraOperator.VIDHI,
+        "parivyavebhyaḥ kriyaḥ: pari/vi/ava + krī → ātmanepada",
+        sutra_1_3_18,
+        _ctx("1.3.18", markers=frozenset(), lemma="krī", prefixes=("pari",), reflexive=False),
+        _ctx("1.3.18", markers=frozenset(), lemma="krī", prefixes=("upa",), reflexive=False),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.19", SutraOperator.VIDHI,
+        "viparābhyāṃ jeḥ: vi/parā + ji → ātmanepada",
+        sutra_1_3_19,
+        _ctx("1.3.19", markers=frozenset(), lemma="ji", prefixes=("vi",), reflexive=False),
+        _ctx("1.3.19", markers=frozenset(), lemma="ji", prefixes=(), reflexive=False),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.21", SutraOperator.VIDHI,
+        "krīḍo'nusamparibhyaśca: anu/sam/pari + krīḍ → ātmanepada",
+        sutra_1_3_21,
+        _ctx("1.3.21", markers=frozenset(), lemma="krīḍ", prefixes=("sam",), reflexive=False),
+        _ctx("1.3.21", markers=frozenset(), lemma="krīḍ", prefixes=("upa",), reflexive=False),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.24", SutraOperator.VIDHI,
+        "udo'nūrdhvakarmaṇi: ud + sthā (except rising-up sense) → ātmanepada",
+        sutra_1_3_24,
+        _ctx("1.3.24", markers=frozenset(), lemma="sthā", prefixes=("ud",), reflexive=False, semantic="utthāna"),
+        _ctx("1.3.24", markers=frozenset(), lemma="sthā", prefixes=("ud",), reflexive=False, semantic="urdhva_karma"),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.25", SutraOperator.VIDHI,
+        "upānmantrakaraṇe: upa + man in mantra-making sense → ātmanepada",
+        sutra_1_3_25,
+        _ctx("1.3.25", markers=frozenset(), lemma="man", prefixes=("upa",), reflexive=False, semantic="mantra_karana"),
+        _ctx("1.3.25", markers=frozenset(), lemma="man", prefixes=("upa",), reflexive=False, semantic="cinta"),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.29", SutraOperator.VIDHI,
+        "samo gamy-ṛcchi-pracchi-svaraty-arti-śru-vidibhyaḥ: sam + listed roots → ātmanepada",
+        sutra_1_3_29,
+        _ctx("1.3.29", markers=frozenset(), lemma="gam", prefixes=("sam",), reflexive=False),
+        _ctx("1.3.29", markers=frozenset(), lemma="bhū", prefixes=("sam",), reflexive=False),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.32", SutraOperator.VIDHI,
+        "gandhanāvakṣepaṇa-...-upayogeṣu kṛñaḥ: kṛ in listed senses → ātmanepada",
+        sutra_1_3_32,
+        _ctx("1.3.32", markers=frozenset(), lemma="kṛ", prefixes=(), reflexive=False, semantic="sevana"),
+        _ctx("1.3.32", markers=frozenset(), lemma="kṛ", prefixes=(), reflexive=False, semantic="ordinary_doing"),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.40", SutraOperator.VIDHI,
+        "āṅa udgamane: ā + gam in 'rising' sense → ātmanepada",
+        sutra_1_3_40,
+        _ctx("1.3.40", markers=frozenset(), lemma="gam", prefixes=("ā",), reflexive=False, semantic="udgamana"),
+        _ctx("1.3.40", markers=frozenset(), lemma="gam", prefixes=("ā",), reflexive=False, semantic="motion"),
+        "pada:atmanepada",
+    )
+    _add(
+        registry, "1.3.72", SutraOperator.VIDHI,
+        "svaritañitaḥ kartrabhipraye kriyāphale: svarita/ñit roots → ātmanepada when fruit accrues to agent",
+        sutra_1_3_72,
+        _ctx("1.3.72", markers=frozenset({"svarita"}), lemma="yaj", prefixes=(), reflexive=True, phala_to_kartr=True),
+        _ctx("1.3.72", markers=frozenset({"svarita"}), lemma="yaj", prefixes=(), reflexive=True, phala_to_kartr=False),
+        "pada:atmanepada",
+    )
     _add(
         registry,
         "1.3.78",

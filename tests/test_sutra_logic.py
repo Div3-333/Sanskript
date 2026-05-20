@@ -113,6 +113,50 @@ class SutraLogicTests(unittest.TestCase):
         self.assertEqual(h23._spec("3.2.102").payload["suffix"], KrtSuffix.KTA)
         self.assertEqual(h23._spec("3.3.115").payload["suffix"], KrtSuffix.LYUT)
 
+    def test_no_collapsed_duplicate_bodies_in_adhyaya_1(self) -> None:
+        """No two distinct Adhyāya-1 sūtras may share the same one-line
+        evaluator body. Each sūtra encodes a distinct Pāṇinian condition; if
+        the bodies collapse, the truth-gate cannot tell the sūtras apart.
+
+        A small allow-list covers cases where Pāṇini explicitly defines two
+        sūtras to point at the same upstream predicate (e.g. 1.1.11/12/19
+        all assigning pragṛhya via the shared phonology engine)."""
+        ALLOWED_SHARED_BODIES = frozenset({
+            'return is_pragrhya(c.get("analysis"))',
+            'return whole_term_replacement_applies(str(c.get("substitute")), str(c.get("marker")))',
+            'return _it_marker_is_present(c, "k")',
+        })
+        bodies: dict[str, str] = {}
+        for sid, logic in SUTRA_LOGIC.items():
+            if not sid.startswith("1."):
+                continue
+            src = inspect.getsource(logic.evaluator)
+            body = "\n".join(
+                line for line in src.split("\n")
+                if line.strip() and not line.strip().startswith(("def ", '"""', "#"))
+            ).strip()
+            bodies[sid] = body
+
+        by_body: dict[str, list[str]] = {}
+        for sid, body in bodies.items():
+            by_body.setdefault(body, []).append(sid)
+
+        offenders: list[tuple[str, list[str]]] = [
+            (body, sorted(sids))
+            for body, sids in by_body.items()
+            if len(sids) >= 2 and body not in ALLOWED_SHARED_BODIES
+        ]
+        self.assertEqual(
+            offenders, [],
+            f"Adhyāya-1 sūtras share identical evaluator bodies: {offenders}",
+        )
+
+
+class RealDiscreteImplementationTests(unittest.TestCase):
+    """Every real-implementation module must provide honest Pāṇinian
+    predicates and real linguistic fixtures — no slug-roundtrip scaffold
+    is allowed to slip back in."""
+
     def test_no_real_impl_module_contains_slug_roundtrip(self) -> None:
         for module in REAL_IMPLEMENTATION_MODULES:
             with self.subTest(module=module.__name__):
