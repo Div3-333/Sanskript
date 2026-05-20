@@ -91,12 +91,12 @@ Targets:
 - Derived roots: causative, desiderative, nominal, intensive.
 - Participles.
 
-Initial support now lives in `src/sanskript/derivation.py`.
+Initial support now lives in `src/sanskript/derivation.py` and `src/sanskript/adhyaya45_engines.py`.
 
 Batch status:
 
-- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` have discrete per-sutra predicates, and the first taddhita anchors now route through a rule-level derivation engine.
-- Current executable support derives descent, possession, and degree forms with recorded sutra id, semantic relation, suffix, surface, and stem operations; the next runtime-deepening step is expanding that engine across more Adhyaya 4-5 suffix classes.
+- `4.1`, `4.2`, `4.3`, `4.4`, `5.1`, `5.2`, `5.3`, and `5.4` have discrete per-sutra predicates, and Adhyāya 4-5 now have five shared derivational engines layered above those predicates.
+- Current executable support derives feminine stems, taddhita suffix selections, semantic relations, taddhita surfaces, and samāsānta endings with recorded sutra id, suffix, semantic relation, surface, and operations. The next runtime-deepening step is widening the suffix-surface maps and special stem transformations while keeping the per-sutra predicates as the source of truth.
 
 ## Phase 5: Compounds And Sentences
 

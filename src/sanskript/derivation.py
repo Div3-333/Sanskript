@@ -159,39 +159,24 @@ def derive_taddhita(source: str, sutra_id: str | None = None, suffix: TaddhitaSu
     applies the stem operation required by the taddhita suffix, and returns
     the rule id, semantic relation, surface, and operations used.
     """
-    if sutra_id is not None:
-        try:
-            rule = TADDHITA_RULES[sutra_id]
-        except KeyError as exc:
-            raise ValueError(f"No taddhita rule engine for {sutra_id!r}") from exc
-        if suffix is not None and rule.suffix != suffix:
-            raise ValueError(f"{sutra_id} derives {rule.suffix.value}, not {suffix.value}")
-    elif suffix is not None:
-        matches = [candidate for candidate in TADDHITA_RULES.values() if candidate.suffix == suffix]
-        if not matches:
-            raise ValueError(f"No taddhita rule engine for suffix {suffix.value!r}")
-        rule = matches[0]
-    else:
+    if sutra_id is None and suffix is None:
         raise ValueError("derive_taddhita requires sutra_id or suffix")
 
-    if rule.suffix == TaddhitaSuffix.APATYA:
-        surface, operations = _derive_apatya(source)
-    elif rule.suffix == TaddhitaSuffix.MATUP:
-        surface, operations = _derive_matup(source)
-    elif rule.suffix == TaddhitaSuffix.ATISHAYANA:
-        surface, operations = _derive_atishayana(source)
-    else:
-        raise ValueError(f"Unhandled taddhita suffix {rule.suffix.value!r}")
+    from .adhyaya45_engines import derive_adhyaya45_taddhita
 
+    engine_result = derive_adhyaya45_taddhita(source, sutra_id=sutra_id, suffix=suffix)
+    selected_suffix = engine_result.suffix
+    if not isinstance(selected_suffix, TaddhitaSuffix):
+        raise ValueError(f"{engine_result.sutra_ids[0]} did not select a controlled TaddhitaSuffix")
     return DerivedForm(
         source,
-        rule.suffix,
+        selected_suffix,
         DerivationFamily.TADDHITA,
-        surface,
-        f"{rule.source_gloss}: {source} -> {surface}",
-        rule.sutra_id,
-        rule.semantic,
-        operations,
+        engine_result.surface,
+        engine_result.gloss,
+        engine_result.sutra_ids[0],
+        engine_result.semantic,
+        engine_result.operations,
     )
 
 
