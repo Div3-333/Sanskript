@@ -1,5 +1,13 @@
 import unittest
+import inspect
 
+from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
+from sanskript.adhyaya23 import expected_adhyaya23_ids
+from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
+from sanskript.derivation import KrtSuffix
+from sanskript.grammar import Case
+from sanskript.tinanta import DhatuType
+import sanskript.sutra_handlers_adhyaya23 as h23
 from sanskript.sutra_logic import (
     SUTRA_LOGIC,
     evaluate_sutra,
@@ -45,6 +53,12 @@ EXPECTED_REAL_LOGIC_IDS = frozenset(
     """.split()
 )
 
+EXPECTED_REAL_LOGIC_IDS = (
+    adhyaya1_implemented_sutra_ids()
+    | frozenset(expected_adhyaya23_ids())
+    | adhyaya456_implemented_sutra_ids()
+)
+
 
 class SutraLogicTests(unittest.TestCase):
     def test_canonical_index_contains_full_sutra_patha(self) -> None:
@@ -56,7 +70,7 @@ class SutraLogicTests(unittest.TestCase):
 
     def test_truth_gate_is_not_the_old_generated_adhyaya_one_to_six_metric(self) -> None:
         self.assertEqual(implemented_logic_ids(), EXPECTED_REAL_LOGIC_IDS)
-        self.assertEqual(len(implemented_logic_ids()), 255)
+        self.assertEqual(len(implemented_logic_ids()), 1031)
         self.assertTrue(has_discrete_sutra_logic("2.1.1"))
         self.assertFalse(has_discrete_sutra_logic("4.1.1"))
 
@@ -78,6 +92,19 @@ class SutraLogicTests(unittest.TestCase):
             with self.subTest(sutra_id=sutra_id):
                 evaluator = SUTRA_LOGIC[sutra_id].evaluator
                 self.assertEqual(evaluator.__name__, f"sutra_{sutra_id.replace('.', '_')}")
+
+    def test_adhyaya23_handlers_are_not_index_cycle_scaffolds(self) -> None:
+        source = inspect.getsource(h23)
+
+        self.assertNotIn("index %", source)
+        self.assertNotIn("pada{index}", source)
+        self.assertNotIn("vibhakti_{sutra_id", source)
+        self.assertEqual(h23._spec("2.3.42").payload["cases"], (Case.ABLATIVE,))
+        self.assertEqual(h23._spec("3.1.5").payload["suffix"], "san")
+        self.assertEqual(h23._spec("3.1.5").payload["kind"], DhatuType.DESIDERATIVE)
+        self.assertEqual(h23._spec("3.1.68").payload["vikarana"], "a")
+        self.assertEqual(h23._spec("3.2.102").payload["suffix"], KrtSuffix.KTA)
+        self.assertEqual(h23._spec("3.3.115").payload["suffix"], KrtSuffix.LYUT)
 
 
 if __name__ == "__main__":

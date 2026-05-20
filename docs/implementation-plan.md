@@ -38,7 +38,7 @@ Batch status:
 
 Truth-gated slice:
 
-- The current real-handler gate contributes 255 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
+- The current real-handler gate contributes 1031 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -59,7 +59,7 @@ Initial support now lives in `src/sanskript/subanta.py` and `src/sanskript/karak
 Batch status:
 
 - Selected `1.4` sutras are implemented through real named handlers, with karaka and samjna helper anchors retained for runtime behavior.
-- `2.1`, `2.2`, `2.3`, and `2.4` have atomic metadata and runtime helper anchors, but remain partial until real per-sutra handlers exist.
+- `2.1`, `2.2`, `2.3`, and `2.4` now have named executable handlers across samāsa, vibhakti, subanta, lopa, and dhātu-substitution domains.
 - Current support includes sup technical endings, generated a-stem masculine/neuter forms, generated ā-stem feminine forms, first/second/third person pronoun forms, and case-to-kāraka explanations.
 
 ## Phase 3: Tiṅanta
@@ -77,7 +77,7 @@ Targets:
 
 Batch status:
 
-- `3.1`, `3.2`, `3.3`, and `3.4` have tinganta helper anchors for selected verb behavior, but remain partial until real per-sutra handlers exist.
+- `3.1`, `3.2`, `3.3`, and `3.4` now have named executable handlers for dhātu derivation, vikaraṇa, kṛt suffixing, lakāra choice, and tiṅ endings.
 - Current support includes dhātu records, sanādi derived roots, vikaraṇa selection, lakāra time/mood mapping, tiṅ endings, and controlled kṛt derivation.
 
 ## Phase 4: Derivation
@@ -135,6 +135,6 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
-- 255 sutras have real-handler executable implementations; the rest remain partial or batch-partial.
+- 1031 sutras have real-handler executable implementations; the rest remain partial or batch-partial.
 - Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
 - The next phase is adding real handlers sutra by sutra and upgrading Adhyaya 2-8 from partial or batch-partial to individual sutra implementations.

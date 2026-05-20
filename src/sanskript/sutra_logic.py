@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from . import sutra_handlers_1_2 as h12
+from . import sutra_handlers_adhyaya23 as h23
 from .anga import DerivationContext, Suffix, guna, operations_for_range, vrddhi
 from .avyaya import is_avyaya_suffix, is_controlled_avyaya, upasarga_surfaces
 from .categories import (
@@ -1514,6 +1515,21 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     _add(registry, "6.3.1", SutraOperator.ADHIKARA, "opens uttarapada operation handling", sutra_6_3_1, _ctx("6.3.1", range="6.3"), _ctx("6.3.1", range="6.2"), "domain:uttarapada")
     _add(registry, "6.4.1", SutraOperator.ADHIKARA, "opens anga operation handling", sutra_6_4_1, _ctx("6.4.1", range="6.4"), _ctx("6.4.1", range="6.2"), "domain:anga")
     _add(registry, "6.4.2", SutraOperator.VIDHI, "recognizes consonant-sensitive anga conditions", sutra_6_4_2, _ctx("6.4.2", sound="k"), _ctx("6.4.2", sound="a"), "condition:hal")
+
+    for sutra_id in h23.EXTRA_SUTRA_IDS:
+        if sutra_id in registry:
+            continue
+        record = sutra_record(sutra_id)
+        _add(
+            registry,
+            sutra_id,
+            SutraOperator(h23.operator_value(sutra_id)),
+            h23.summary(sutra_id, record.sutra_text_iast),
+            h23.handler_for(sutra_id),
+            _ctx(sutra_id, **h23.positive_features(sutra_id)),
+            _ctx(sutra_id, **h23.negative_features(sutra_id)),
+            *h23.assigned_tags(sutra_id),
+        )
 
     return registry
 
