@@ -4,6 +4,8 @@ import inspect
 from sanskript.adhyaya1 import implemented_sutra_ids as adhyaya1_implemented_sutra_ids
 from sanskript.adhyaya23 import expected_adhyaya23_ids
 from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
+from sanskript.adhyaya7 import implemented_sutra_ids as adhyaya7_implemented_sutra_ids
+from sanskript.adhyaya8 import implemented_sutra_ids as adhyaya8_implemented_sutra_ids
 from sanskript.derivation import KrtSuffix
 from sanskript.grammar import Case
 from sanskript.tinanta import DhatuType
@@ -17,6 +19,18 @@ import sanskript.sutra_impl_3_3 as impl3_3
 import sanskript.sutra_impl_3_4 as impl3_4
 import sanskript.sutra_impl_4 as impl4
 import sanskript.sutra_impl_5 as impl5
+import sanskript.sutra_impl_6_1 as impl6_1
+import sanskript.sutra_impl_6_2 as impl6_2
+import sanskript.sutra_impl_6_3 as impl6_3
+import sanskript.sutra_impl_6_4 as impl6_4
+import sanskript.sutra_impl_7_1 as impl7_1
+import sanskript.sutra_impl_7_2 as impl7_2
+import sanskript.sutra_impl_7_3 as impl7_3
+import sanskript.sutra_impl_7_4 as impl7_4
+import sanskript.sutra_impl_8_1 as impl8_1
+import sanskript.sutra_impl_8_2 as impl8_2
+import sanskript.sutra_impl_8_3 as impl8_3
+import sanskript.sutra_impl_8_4 as impl8_4
 
 REAL_IMPLEMENTATION_MODULES = (
     impl1_1,
@@ -28,6 +42,18 @@ REAL_IMPLEMENTATION_MODULES = (
     impl3_4,
     impl4,
     impl5,
+    impl6_1,
+    impl6_2,
+    impl6_3,
+    impl6_4,
+    impl7_1,
+    impl7_2,
+    impl7_3,
+    impl7_4,
+    impl8_1,
+    impl8_2,
+    impl8_3,
+    impl8_4,
 )
 from sanskript.sutra_logic import (
     SUTRA_LOGIC,
@@ -78,6 +104,8 @@ EXPECTED_REAL_LOGIC_IDS = (
     adhyaya1_implemented_sutra_ids()
     | frozenset(expected_adhyaya23_ids())
     | adhyaya456_implemented_sutra_ids()
+    | adhyaya7_implemented_sutra_ids()
+    | adhyaya8_implemented_sutra_ids()
 )
 
 
@@ -91,10 +119,13 @@ class SutraLogicTests(unittest.TestCase):
 
     def test_truth_gate_is_not_the_old_generated_adhyaya_one_to_six_metric(self) -> None:
         self.assertEqual(implemented_logic_ids(), EXPECTED_REAL_LOGIC_IDS)
-        self.assertEqual(len(implemented_logic_ids()), 2447)
+        self.assertEqual(len(implemented_logic_ids()), 3983)
         self.assertTrue(has_discrete_sutra_logic("2.1.1"))
         self.assertTrue(has_discrete_sutra_logic("4.1.1"))
         self.assertTrue(has_discrete_sutra_logic("5.1.1"))
+        self.assertTrue(has_discrete_sutra_logic("7.1.1"))
+        self.assertTrue(has_discrete_sutra_logic("8.2.1"))
+        self.assertTrue(has_discrete_sutra_logic("8.2.108"))
 
     def test_each_truth_gated_sutra_has_positive_and_negative_logic(self) -> None:
         for sutra_id in sorted(EXPECTED_REAL_LOGIC_IDS):
@@ -241,6 +272,51 @@ class RealDiscreteImplementationTests(unittest.TestCase):
             with self.subTest(pada=pada):
                 pada_ids = {sid for sid in impl5.IMPLEMENTED_IDS if sid.startswith(f"{pada}.")}
                 self.assertGreater(len(pada_ids), 0)
+
+    def test_adhyaya_6_is_fully_covered_by_sutra_impl_6_modules(self) -> None:
+        from sanskript.adhyaya456 import PADA_COUNTS
+
+        self.assertEqual(len(impl6_1.IMPLEMENTED_IDS), PADA_COUNTS["6.1"])
+        self.assertEqual(len(impl6_2.IMPLEMENTED_IDS), PADA_COUNTS["6.2"])
+        self.assertEqual(len(impl6_3.IMPLEMENTED_IDS), PADA_COUNTS["6.3"])
+        self.assertEqual(len(impl6_4.IMPLEMENTED_IDS), PADA_COUNTS["6.4"])
+        self.assertEqual(
+            len(impl6_1.IMPLEMENTED_IDS)
+            + len(impl6_2.IMPLEMENTED_IDS)
+            + len(impl6_3.IMPLEMENTED_IDS)
+            + len(impl6_4.IMPLEMENTED_IDS),
+            736,
+        )
+
+    def test_adhyaya_7_is_fully_covered_by_sutra_impl_7_modules(self) -> None:
+        from sanskript.adhyaya7 import PADA_COUNTS
+
+        self.assertEqual(len(impl7_1.IMPLEMENTED_IDS), PADA_COUNTS["7.1"])
+        self.assertEqual(len(impl7_2.IMPLEMENTED_IDS), PADA_COUNTS["7.2"])
+        self.assertEqual(len(impl7_3.IMPLEMENTED_IDS), PADA_COUNTS["7.3"])
+        self.assertEqual(len(impl7_4.IMPLEMENTED_IDS), PADA_COUNTS["7.4"])
+        self.assertEqual(
+            len(impl7_1.IMPLEMENTED_IDS)
+            + len(impl7_2.IMPLEMENTED_IDS)
+            + len(impl7_3.IMPLEMENTED_IDS)
+            + len(impl7_4.IMPLEMENTED_IDS),
+            438,
+        )
+
+    def test_adhyaya_8_is_fully_covered_by_sutra_impl_8_modules(self) -> None:
+        from sanskript.adhyaya8 import PADA_COUNTS
+
+        self.assertEqual(len(impl8_1.IMPLEMENTED_IDS), PADA_COUNTS["8.1"])
+        self.assertEqual(len(impl8_2.IMPLEMENTED_IDS), PADA_COUNTS["8.2"])
+        self.assertEqual(len(impl8_3.IMPLEMENTED_IDS), PADA_COUNTS["8.3"])
+        self.assertEqual(len(impl8_4.IMPLEMENTED_IDS), PADA_COUNTS["8.4"])
+        self.assertEqual(
+            len(impl8_1.IMPLEMENTED_IDS)
+            + len(impl8_2.IMPLEMENTED_IDS)
+            + len(impl8_3.IMPLEMENTED_IDS)
+            + len(impl8_4.IMPLEMENTED_IDS),
+            369,
+        )
 
     def test_sutra_impl_1_1_covers_previously_missing_pada_one_one_sutras(self) -> None:
         """sutra_impl_1_1 owns the 29 Adhyāya 1.1 sūtras that were absent

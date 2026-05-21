@@ -1191,6 +1191,21 @@ def sutra_2_4_25(c) -> bool:
     return (c.get("first","") in opt_words
             or c.get("second","") in opt_words)
 
+
+def sutra_2_4_27(c) -> bool:
+    """pūrvavad aśvavaḍavau: in dvandva/tatpuruṣa with aśva and vaḍava,
+    compound gender follows the first member (pūrvavat), not the final."""
+    members = list(c.get("members", ()))
+    if len(members) < 2:
+        return False
+    if c.get("compound_type") not in {SamasaType.DVANDVA, SamasaType.TATPURUSHA}:
+        return False
+    lemmas = {m.lemma for m in members}
+    if not (c.get("is_ashva_vadava") or {"aśva", "vaḍava"} <= lemmas):
+        return False
+    return c.get("gender") == members[0].gender
+
+
 def sutra_2_4_28(c) -> bool:
     """hemantaśiśirāv ahorātre ca chandasi: hemanta/śiśira + ahorātra —
     in Vedic (chandasi) they are masculine."""
@@ -1869,6 +1884,20 @@ FIXTURES: dict[str, tuple[dict, dict]] = {
                {"second": "śālā", "is_ashala_context": True}),
     "2.4.25": ({"first": "senā"},
                {"first": "rāma", "second": "kṛṣṇa"}),
+    "2.4.27": (
+        {
+            "members": (_m(lemma="aśva", gender=Gender.MASCULINE), _m(lemma="vaḍava", gender=Gender.FEMININE)),
+            "compound_type": SamasaType.DVANDVA,
+            "gender": Gender.MASCULINE,
+            "is_ashva_vadava": True,
+        },
+        {
+            "members": (_m(lemma="aśva", gender=Gender.MASCULINE), _m(lemma="vaḍava", gender=Gender.FEMININE)),
+            "compound_type": SamasaType.DVANDVA,
+            "gender": Gender.FEMININE,
+            "is_ashva_vadava": True,
+        },
+    ),
     "2.4.28": ({"first": "hemanta", "second": "ahorātra", "is_chandas": True},
                {"first": "hemanta", "second": "ahorātra", "is_chandas": False}),
     "2.4.29": ({"first": "rātri"},

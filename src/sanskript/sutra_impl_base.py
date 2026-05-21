@@ -48,6 +48,22 @@ def _predicate_name(sutra_id: str) -> str:
     return "sutra_" + sutra_id.replace(".", "_")
 
 
+def _engine_backed_predicate(sutra_id: str, predicate: PredicateFn, module_name: str) -> PredicateFn:
+    def evaluator(context: ContextDict) -> bool:
+        if not predicate(context):
+            return False
+        from .adhyaya678_engines import engine_accepts_context
+
+        return engine_accepts_context(sutra_id, context)
+
+    evaluator.__name__ = _predicate_name(sutra_id)
+    evaluator.__qualname__ = _predicate_name(sutra_id)
+    evaluator.__module__ = module_name
+    evaluator.__wrapped__ = predicate
+    evaluator.__sanskript_engine_backed__ = True
+    return evaluator
+
+
 def make_module_api(
     fixtures: Mapping[str, FixturePair],
     module_globals: Mapping[str, Any],
@@ -77,7 +93,10 @@ def make_module_api(
 
     def handler_for(sutra_id: str) -> PredicateFn:
         """Return the discrete Pāṇinian predicate for ``sutra_id``."""
-        return module_globals[_predicate_name(sutra_id)]
+        predicate = module_globals[_predicate_name(sutra_id)]
+        if sutra_id.startswith(("6.", "7.", "8.")):
+            return _engine_backed_predicate(sutra_id, predicate, str(module_globals.get("__name__", "")))
+        return predicate
 
     def positive_features(sutra_id: str) -> dict[str, Any]:
         """Real linguistic features the sūtra must classify as firing."""

@@ -258,8 +258,9 @@ def derive(source: str, suffix: KrtSuffix | TaddhitaSuffix) -> DerivedForm:
 
         # 3.2.16: careṣ-ṭaḥ
         elif suffix == KrtSuffix.TA:
-             surface = source + "a"
              if source == "car": surface = "cara"
+             elif source.endswith("a"): surface = source + "ta"
+             else: surface = source + "a"
 
         # 3.2.102: niṣṭhā
         elif suffix == KrtSuffix.KTA:

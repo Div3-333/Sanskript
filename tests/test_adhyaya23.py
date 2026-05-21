@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class AdhyayaTwoThreeRegistryTests(unittest.TestCase):
     def test_registry_covers_adhyaya_two_and_three(self) -> None:
-        self.assertEqual(len(expected_adhyaya23_ids()), 898)
+        self.assertEqual(len(expected_adhyaya23_ids()), 899)
         self.assertEqual(missing_rule_ids(), ())
         self.assertEqual(implemented_sutra_ids(), DISCRETE_ADHYAYA23_IDS)
         self.assertEqual(partial_sutra_ids(), frozenset(expected_adhyaya23_ids()) - DISCRETE_ADHYAYA23_IDS)
@@ -83,7 +83,7 @@ class AdhyayaTwoThreeRegistryTests(unittest.TestCase):
             if item["kind"] == "sutra" and item["title"] in expected_adhyaya23_ids()
         }
 
-        self.assertEqual(len(statuses), 898)
+        self.assertEqual(len(statuses), 899)
         self.assertEqual({sid for sid, status in statuses.items() if status == "implemented"}, set(implemented_sutra_ids()))
         self.assertEqual({sid for sid, status in statuses.items() if status == "partial"}, set(partial_sutra_ids()))
 

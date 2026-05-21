@@ -78,7 +78,7 @@ PADA_COUNTS = {
     "2.1": 72,
     "2.2": 38,
     "2.3": 73,
-    "2.4": 84,
+    "2.4": 85,
     "3.1": 150,
     "3.2": 188,
     "3.3": 176,
@@ -90,7 +90,6 @@ PADA_INDICES = {
     pada: tuple(range(1, count + 1))
     for pada, count in PADA_COUNTS.items()
 }
-PADA_INDICES["2.4"] = tuple(range(1, 27)) + tuple(range(28, 86))
 
 
 DISCRETE_ADHYAYA23_IDS = frozenset(

@@ -12,6 +12,12 @@ from sanskript.adhyaya23 import partial_sutra_ids as adhyaya23_partial_sutra_ids
 from sanskript.adhyaya456 import expected_adhyaya456_ids
 from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
 from sanskript.adhyaya456 import partial_sutra_ids as adhyaya456_partial_sutra_ids
+from sanskript.adhyaya7 import expected_adhyaya7_ids
+from sanskript.adhyaya7 import implemented_sutra_ids as adhyaya7_implemented_sutra_ids
+from sanskript.adhyaya7 import partial_sutra_ids as adhyaya7_partial_sutra_ids
+from sanskript.adhyaya8 import expected_adhyaya8_ids
+from sanskript.adhyaya8 import implemented_sutra_ids as adhyaya8_implemented_sutra_ids
+from sanskript.adhyaya8 import partial_sutra_ids as adhyaya8_partial_sutra_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,6 +111,10 @@ class GrammarCanonTests(unittest.TestCase):
         adhyaya_four_five_six_implemented = set(adhyaya456_implemented_sutra_ids())
         adhyaya_two_three_partial = set(adhyaya23_partial_sutra_ids())
         adhyaya_four_five_six_partial = set(adhyaya456_partial_sutra_ids())
+        adhyaya_seven_implemented = set(adhyaya7_implemented_sutra_ids())
+        adhyaya_seven_partial = set(adhyaya7_partial_sutra_ids())
+        adhyaya_eight_implemented = set(adhyaya8_implemented_sutra_ids())
+        adhyaya_eight_partial = set(adhyaya8_partial_sutra_ids())
         implemented = {title for title, status in obligations.items() if status == "implemented"}
         partial = {title for title, status in obligations.items() if status == "partial"}
 
@@ -112,9 +122,19 @@ class GrammarCanonTests(unittest.TestCase):
         self.assertEqual(partial & set(expected_adhyaya1_ids()), adhyaya_one_partial)
         self.assertEqual(implemented & set(expected_adhyaya23_ids()), adhyaya_two_three_implemented)
         self.assertEqual(implemented & set(expected_adhyaya456_ids()), adhyaya_four_five_six_implemented)
+        self.assertEqual(implemented & set(expected_adhyaya7_ids()), adhyaya_seven_implemented)
+        self.assertEqual(implemented & set(expected_adhyaya8_ids()), adhyaya_eight_implemented)
         self.assertEqual(partial & set(expected_adhyaya23_ids()), adhyaya_two_three_partial)
         self.assertEqual(partial & set(expected_adhyaya456_ids()), adhyaya_four_five_six_partial)
-        expected_implemented_count = len(adhyaya_one_implemented) + len(adhyaya_two_three_implemented) + len(adhyaya_four_five_six_implemented)
+        self.assertEqual(partial & set(expected_adhyaya7_ids()), adhyaya_seven_partial)
+        self.assertEqual(partial & set(expected_adhyaya8_ids()), adhyaya_eight_partial)
+        expected_implemented_count = (
+            len(adhyaya_one_implemented)
+            + len(adhyaya_two_three_implemented)
+            + len(adhyaya_four_five_six_implemented)
+            + len(adhyaya_seven_implemented)
+            + len(adhyaya_eight_implemented)
+        )
         self.assertEqual(len(implemented), expected_implemented_count)
 
     def test_sound_and_sandhi_batch_tracks_hundreds_of_sutras(self) -> None:
@@ -125,9 +145,15 @@ class GrammarCanonTests(unittest.TestCase):
         ]
         padas = {item["title"].rsplit(".", 1)[0] for item in batch_partial}
 
-        self.assertGreaterEqual(len(batch_partial), 800)
-        self.assertFalse({"4.1", "4.2", "4.3", "4.4", "5.1", "5.2", "5.3", "5.4", "6.1", "6.2", "6.3", "6.4"} & padas)
-        self.assertTrue({"7.1", "7.2", "7.3", "7.4", "8.1", "8.2", "8.3", "8.4"}.issubset(padas))
+        self.assertEqual(len(batch_partial), 0)
+        self.assertFalse(
+            {
+                "4.1", "4.2", "4.3", "4.4", "5.1", "5.2", "5.3", "5.4",
+                "6.1", "6.2", "6.3", "6.4", "7.1", "7.2", "7.3", "7.4",
+                "8.1", "8.2", "8.3", "8.4",
+            }
+            & padas
+        )
 
     def test_no_sutra_identifier_is_left_pending_after_batch_scaffolds(self) -> None:
         pending_sutras = [

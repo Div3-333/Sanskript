@@ -27,6 +27,14 @@ from sanskript.adhyaya456 import implementation_note_for as adhyaya456_implement
 from sanskript.adhyaya456 import implemented_sutra_ids as adhyaya456_implemented_sutra_ids
 from sanskript.adhyaya456 import partial_implementation_note_for as adhyaya456_partial_implementation_note_for
 from sanskript.adhyaya456 import partial_sutra_ids as adhyaya456_partial_sutra_ids
+from sanskript.adhyaya7 import implementation_note_for as adhyaya7_implementation_note_for
+from sanskript.adhyaya7 import implemented_sutra_ids as adhyaya7_implemented_sutra_ids
+from sanskript.adhyaya7 import partial_implementation_note_for as adhyaya7_partial_implementation_note_for
+from sanskript.adhyaya7 import partial_sutra_ids as adhyaya7_partial_sutra_ids
+from sanskript.adhyaya8 import implementation_note_for as adhyaya8_implementation_note_for
+from sanskript.adhyaya8 import implemented_sutra_ids as adhyaya8_implemented_sutra_ids
+from sanskript.adhyaya8 import partial_implementation_note_for as adhyaya8_partial_implementation_note_for
+from sanskript.adhyaya8 import partial_sutra_ids as adhyaya8_partial_sutra_ids
 from sanskript.canon_topics import treatment_for
 
 SOURCES_DIR = ROOT / "sources"
@@ -211,6 +219,18 @@ PARTIAL_SUTRA_IDS.update(
         for sutra_id in sorted(adhyaya456_partial_sutra_ids())
     }
 )
+PARTIAL_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya7_partial_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya7_partial_sutra_ids())
+    }
+)
+PARTIAL_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya8_partial_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya8_partial_sutra_ids())
+    }
+)
 
 
 IMPLEMENTED_SUTRA_IDS = {
@@ -227,6 +247,18 @@ IMPLEMENTED_SUTRA_IDS.update(
     {
         sutra_id: adhyaya456_implementation_note_for(sutra_id)
         for sutra_id in sorted(adhyaya456_implemented_sutra_ids())
+    }
+)
+IMPLEMENTED_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya7_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya7_implemented_sutra_ids())
+    }
+)
+IMPLEMENTED_SUTRA_IDS.update(
+    {
+        sutra_id: adhyaya8_implementation_note_for(sutra_id)
+        for sutra_id in sorted(adhyaya8_implemented_sutra_ids())
     }
 )
 
@@ -540,6 +572,8 @@ def render_markdown(canon: dict[str, Any]) -> str:
         adhyaya1_implemented_sutra_ids()
         | adhyaya23_implemented_sutra_ids()
         | adhyaya456_implemented_sutra_ids()
+        | adhyaya7_implemented_sutra_ids()
+        | adhyaya8_implemented_sutra_ids()
     )
     lines.extend(
         [
@@ -550,7 +584,8 @@ def render_markdown(canon: dict[str, Any]) -> str:
             f"- {truth_gate_count} sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;",
             "- the previous generated Adhyaya 1-6 profile is deliberately rejected as a completion metric;",
             "- Adhyaya 2 and 3 now have named executable handlers across samasa, vibhakti, subanta, dhatu, krt, lakara, and tin domains;",
-            "- Adhyaya 4 through 8 ranges remain partial or batch-partial until their individual sutra logic is upgraded;",
+            "- Adhyaya 7 agama/vikara/ādeśa/ṇati ranges now pass the discrete real-handler gate;",
+            "- Adhyaya 8 samasanta, asiddha, samhita sandhi, and avasana ranges now pass the discrete real-handler gate;",
             "- finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;",
             "- karman, karaṇa, and adhikaraṇa role recovery from controlled forms;",
             "- small cardinal numerals 0 through 10 in object and instrumental roles;",

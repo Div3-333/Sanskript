@@ -197,14 +197,19 @@ def create_compound(members: list[Analysis], forced_type: SamasaType | None = No
         # 2.4.2: dvandvaś-ca prāṇi-tūrya-senāṅgānām (Samahara-Dvandva)
         # For simplicity, if we detect semantic roles matching these, we'd make it singular neuter.
         # Otherwise, 2.4.26: paraval-liṅgaṃ dvandva-tatpuruṣayoḥ
-        last = members[-1]
+        # 2.4.27: pūrvavad aśvavaḍavau — aśva+vaḍava follow the first member's gender.
+        lemmas = {member.lemma for member in members}
+        if {"aśva", "vaḍava"} <= lemmas:
+            gender_member = members[0]
+        else:
+            gender_member = members[-1]
         result_analysis = Analysis(
             surface=surface,
             lemma=surface,
-            pos=last.pos,
-            gender=last.gender,
+            pos=gender_member.pos,
+            gender=gender_member.gender,
             number=_get_compound_number(members),
-            case=last.case,
+            case=gender_member.case,
             samjnas=frozenset({Samjna.PADA})
         )
     else:

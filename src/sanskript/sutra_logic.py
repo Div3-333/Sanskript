@@ -14,6 +14,18 @@ from . import sutra_impl_1_1 as impl1_1
 from . import sutra_impl_1_rest as impl1_rest
 from . import sutra_impl_4 as impl4
 from . import sutra_impl_5 as impl5
+from . import sutra_impl_6_1 as impl6_1
+from . import sutra_impl_6_2 as impl6_2
+from . import sutra_impl_6_3 as impl6_3
+from . import sutra_impl_6_4 as impl6_4
+from . import sutra_impl_7_1 as impl7_1
+from . import sutra_impl_7_2 as impl7_2
+from . import sutra_impl_7_3 as impl7_3
+from . import sutra_impl_7_4 as impl7_4
+from . import sutra_impl_8_1 as impl8_1
+from . import sutra_impl_8_3 as impl8_3
+from . import sutra_impl_8_2 as impl8_2
+from . import sutra_impl_8_4 as impl8_4
 from .sutra_impl_base import register_module_in_registry
 from .anga import DerivationContext, Suffix, guna, operations_for_range
 from .avyaya import is_avyaya_suffix, is_controlled_avyaya, upasarga_surfaces
@@ -69,7 +81,6 @@ from .phonology import (
     vrddhi_replacement_for_ik,
 )
 from .samasa import SamasaSense, SamasaType, create_compound, is_samartha
-from .sandhi import join_words
 from .subanta import decline_aa_feminine
 from .tinanta import (
     Dhatu,
@@ -819,19 +830,6 @@ def sutra_5_3_55(c) -> bool:
         and c.get("semantic", "atishayana") == "atishayana"
     )
 
-def sutra_6_2_1(c) -> bool:
-    return profile_accent(tuple(c.get("tokens", ())), int(c.get("udatta_index", 0)), "6.2").primary.accent == Accent.UDATTA
-
-def sutra_6_3_1(c) -> bool:
-    return bool([op for op in operations_for_range(str(c.get("range"))) if op.name == "uttarapada-domain"])
-
-def sutra_6_4_1(c) -> bool:
-    return any(op.name == "final-a-lengthening" for op in operations_for_range(str(c.get("range"))))
-
-def sutra_6_4_2(c) -> bool:
-    return is_consonant(str(c.get("sound")))
-
-
 # Named handlers for loop-captured executable predicates.
 def _it_marker_is_present(c, marker: str) -> bool:
     return marker in analyze_it_markers(str(c.get("upadesha")), str(c.get("kind", "suffix"))).markers
@@ -1177,21 +1175,6 @@ def sutra_3_3_161(c) -> bool:
 def sutra_3_3_162(c) -> bool:
     return _lakara_for_time_is(c, TimeContext.IMPERATIVE, Lakara.LOT)
 
-def _sandhi_rule_is(c, expected: str) -> bool:
-    return join_words(str(c.get("left")), str(c.get("right"))).rule == expected
-
-def sutra_6_1_78(c) -> bool:
-    return _sandhi_rule_is(c, "ayavāyāva")
-
-def sutra_6_1_87(c) -> bool:
-    return _sandhi_rule_is(c, "guṇa")
-
-def sutra_6_1_88(c) -> bool:
-    return _sandhi_rule_is(c, "vṛddhi")
-
-def sutra_6_1_101(c) -> bool:
-    return _sandhi_rule_is(c, "savarṇa-dīrgha")
-
 SUTRA_HANDLER_BY_ID: dict[str, Callable[[SutraContext], bool]] = {
     "1.3.2": sutra_1_3_2,
     "1.3.3": sutra_1_3_3,
@@ -1275,10 +1258,6 @@ SUTRA_HANDLER_BY_ID: dict[str, Callable[[SutraContext], bool]] = {
     "3.4.69": sutra_3_4_69,
     "3.4.71": sutra_3_4_71,
     "3.4.72": sutra_3_4_72,
-    "6.1.78": sutra_6_1_78,
-    "6.1.87": sutra_6_1_87,
-    "6.1.88": sutra_6_1_88,
-    "6.1.101": sutra_6_1_101,
 }
 
 def _build_registry() -> dict[str, DiscreteSutraLogic]:
@@ -1674,18 +1653,6 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     _add(registry, "4.1.92", SutraOperator.VIDHI, "derives apatya descendant taddhita", sutra_4_1_92, _ctx("4.1.92", source="upagu", surface="aupagava", semantic="apatya"), _ctx("4.1.92", source="upagu", surface="aupagava", semantic="possession"), "taddhita:apatya")
     _add(registry, "5.2.94", SutraOperator.VIDHI, "derives possession adjectives with matup", sutra_5_2_94, _ctx("5.2.94", source="bala", surface="balavān", semantic="possession"), _ctx("5.2.94", source="bala", surface="balavān", semantic="apatya"), "taddhita:matup")
     _add(registry, "5.3.55", SutraOperator.VIDHI, "derives degree forms with atishayana", sutra_5_3_55, _ctx("5.3.55", source="laghu", surface="laghiṣṭha", semantic="atishayana"), _ctx("5.3.55", source="laghu", surface="laghiṣṭha", semantic="possession"), "taddhita:atishayana")
-    for sutra_id, left, right, rule in (
-        ("6.1.78", "hare", "atra", "ayavāyāva"),
-        ("6.1.87", "deva", "iti", "guṇa"),
-        ("6.1.88", "deva", "eva", "vṛddhi"),
-        ("6.1.101", "deva", "atra", "savarṇa-dīrgha"),
-    ):
-        _add(registry, sutra_id, SutraOperator.VIDHI, f"applies {rule} sandhi", SUTRA_HANDLER_BY_ID[sutra_id], _ctx(sutra_id, left=left, right=right), _ctx(sutra_id, left="deva", right="gacchati"), f"sandhi:{rule}")
-    _add(registry, "6.2.1", SutraOperator.ADHIKARA, "opens compound accent handling", sutra_6_2_1, _ctx("6.2.1", tokens=("rāja", "puruṣa"), udatta_index=1), _ctx("6.2.1", tokens=(), udatta_index=0), "accent:udatta")
-    _add(registry, "6.3.1", SutraOperator.ADHIKARA, "opens uttarapada operation handling", sutra_6_3_1, _ctx("6.3.1", range="6.3"), _ctx("6.3.1", range="6.2"), "domain:uttarapada")
-    _add(registry, "6.4.1", SutraOperator.ADHIKARA, "opens anga operation handling", sutra_6_4_1, _ctx("6.4.1", range="6.4"), _ctx("6.4.1", range="6.2"), "domain:anga")
-    _add(registry, "6.4.2", SutraOperator.VIDHI, "recognizes consonant-sensitive anga conditions", sutra_6_4_2, _ctx("6.4.2", sound="k"), _ctx("6.4.2", sound="a"), "condition:hal")
-
     for sutra_id in h23.EXTRA_SUTRA_IDS:
         if sutra_id in registry:
             continue
@@ -1704,7 +1671,24 @@ def _build_registry() -> dict[str, DiscreteSutraLogic]:
     # Per-pāda real-implementation modules for sūtras that were missing
     # from the inline registry above. Each module owns discrete predicates
     # + linguistic fixtures + META and is plugged in via the shared helper.
-    for module in (impl1_1, impl1_rest, impl4, impl5):
+    for module in (
+        impl1_1,
+        impl1_rest,
+        impl4,
+        impl5,
+        impl6_1,
+        impl6_2,
+        impl6_3,
+        impl6_4,
+        impl7_1,
+        impl7_2,
+        impl7_3,
+        impl7_4,
+        impl8_1,
+        impl8_2,
+        impl8_3,
+        impl8_4,
+    ):
         register_module_in_registry(registry, module, _add, _ctx, SutraOperator)
 
     return registry

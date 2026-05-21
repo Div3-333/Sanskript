@@ -80,6 +80,13 @@ SEMANTIC_CONTEXT_CASES: dict[str, frozenset[Case]] = {
     "cause_genitive": frozenset({Case.GENITIVE}),
     "pronoun_instrumental": frozenset({Case.INSTRUMENTAL}),
     "stock_measure": frozenset({Case.INSTRUMENTAL}),
+    "adhigama": frozenset({Case.GENITIVE}),
+    "bhava_vacana": frozenset({Case.GENITIVE}),
+    "himsa": frozenset({Case.GENITIVE}),
+    "vyavahara": frozenset({Case.GENITIVE}),
+    "tadartha": frozenset({Case.GENITIVE}),
+    "vartamana_kta": frozenset({Case.GENITIVE}),
+    "adhikarana_krit": frozenset({Case.GENITIVE}),
 }
 
 

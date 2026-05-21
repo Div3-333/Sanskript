@@ -14,23 +14,23 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 | Source | Pages | Text chars | Indexed items | SHA-256 |
 | --- | ---: | ---: | ---: | --- |
-| Aṣṭādhyāyī or Sūtrapāṭha of Pāṇini | 131 | 111198 | 3993 | `507a945f47d4...` |
+| Aṣṭādhyāyī or Sūtrapāṭha of Pāṇini | 131 | 111198 | 3994 | `507a945f47d4...` |
 | vyākaraṇa-praveśaḥ | 217 | 209240 | 58 | `91661c418222...` |
 | Sanskrit for Beginners | 462 | 337373 | 122 | `1f25e354487c...` |
 
 ## Coverage Summary
 
-- Total obligations: `4173`
+- Total obligations: `4174`
 - Topic obligations: `191`
-- Sutra obligations: `3982`
-- Implemented: `2447`
-- Partial: `919`
-- Batch partial: `807`
+- Sutra obligations: `3983`
+- Implemented: `3983`
+- Partial: `191`
+- Batch partial: `0`
 - Pending design: `0`
 
 ## Aṣṭādhyāyī Sutra Index
 
-- Sutra identifiers indexed: `3982`
+- Sutra identifiers indexed: `3983`
 - First identifier: `1.1.1`
 - Last identifier: `8.4.68`
 
@@ -43,7 +43,7 @@ This file is the project contract for the user's requirement that Sanskript use 
 | `2.1` | 72 |
 | `2.2` | 38 |
 | `2.3` | 73 |
-| `2.4` | 84 |
+| `2.4` | 85 |
 | `3.1` | 150 |
 | `3.2` | 188 |
 | `3.3` | 176 |
@@ -275,10 +275,11 @@ This file is the project contract for the user's requirement that Sanskript use 
 
 The current interpreter now uses a strict real-handler truth gate. A sutra is marked `implemented` only when it has exact source text, inherited domain data, conditions, positive behavior, negative behavior, and a named executable handler that calls the grammar engine instead of a generated metadata profile:
 
-- 2447 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;
+- 3983 sutras currently pass the real-handler gate in `sanskript.sutra_logic.evaluate_sutra`;
 - the previous generated Adhyaya 1-6 profile is deliberately rejected as a completion metric;
 - Adhyaya 2 and 3 now have named executable handlers across samasa, vibhakti, subanta, dhatu, krt, lakara, and tin domains;
-- Adhyaya 4 through 8 ranges remain partial or batch-partial until their individual sutra logic is upgraded;
+- Adhyaya 7 agama/vikara/ādeśa/ṇati ranges now pass the discrete real-handler gate;
+- Adhyaya 8 samasanta, asiddha, samhita sandhi, and avasana ranges now pass the discrete real-handler gate;
 - finite present third-person singular parasmaipada verb frames for assignment, increase, decrease, and display;
 - karman, karaṇa, and adhikaraṇa role recovery from controlled forms;
 - small cardinal numerals 0 through 10 in object and instrumental roles;

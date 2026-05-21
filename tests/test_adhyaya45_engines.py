@@ -9,6 +9,7 @@ from sanskript.adhyaya45_engines import (
     derive_adhyaya45_taddhita,
     derive_samasanta,
     derive_stri,
+    resolve_adhyaya45_source,
 )
 from sanskript.derivation import TaddhitaSuffix, derive_taddhita
 from sanskript.sutra_impl_4 import handler_for as adhyaya4_handler
@@ -64,6 +65,26 @@ class AdhyayaFourFiveEngineTests(unittest.TestCase):
         self.assertEqual(result.surface, "pratisāma")
         self.assertEqual(result.sutra_ids, ("5.4.75",))
         self.assertIn("SamasantaEngine", result.engines)
+
+    def test_source_resolver_does_not_treat_semantics_as_stems(self) -> None:
+        self.assertEqual(resolve_adhyaya45_source({"semantic": "tasmai_hita", "rule": "continuation"}), "")
+
+    def test_continuation_rules_inherit_prior_suffix_and_form_surface(self) -> None:
+        kaumara = derive_adhyaya45_taddhita(
+            "",
+            sutra_id="4.2.13",
+            features={"semantic": "kaumāra_apūrva_vacana", "rule": "continuation"},
+        )
+        hita = derive_adhyaya45_taddhita(
+            "",
+            sutra_id="5.1.5",
+            features={"semantic": "tasmai_hita", "rule": "continuation"},
+        )
+
+        self.assertEqual((kaumara.source, kaumara.surface, kaumara.suffix), ("kumāra", "kaumāra", "añ"))
+        self.assertIn("anuvritti:4.2.12", kaumara.operations)
+        self.assertEqual((hita.source, hita.surface, hita.suffix), ("bala", "balat", "at"))
+        self.assertIn("anuvritti:5.1.2", hita.operations)
 
     def test_public_engine_classes_are_the_five_adapters(self) -> None:
         engines = (
