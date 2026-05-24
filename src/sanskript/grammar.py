@@ -90,6 +90,7 @@ class FrameOperation(str, Enum):
     ASSIGN = "assign"
     INCREASE = "increase"
     DECREASE = "decrease"
+    MULTIPLY = "multiply"
     DISPLAY = "display"
 
 

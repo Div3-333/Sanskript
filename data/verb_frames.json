@@ -150,6 +150,232 @@
       "number": "singular",
       "lakara": "laṭ",
       "pada": "parasmaipada"
+    },
+    {
+      "surface": "niveśayati",
+      "lemma": "niveś",
+      "gloss": "places, sets down",
+      "construction": {
+        "id": "VF-009",
+        "name": "locative assignment with niveśayati",
+        "status": "experimental",
+        "description": "A karman value is placed in an adhikaraṇa storage location."
+      },
+      "operation": "assign",
+      "required_roles": ["karman", "adhikaraṇa"],
+      "target_role": "adhikaraṇa",
+      "value_role": "karman",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "avasthāpayati",
+      "lemma": "avasthā",
+      "gloss": "establishes in place",
+      "construction": {
+        "id": "VF-010",
+        "name": "locative assignment with avasthāpayati",
+        "status": "experimental",
+        "description": "A karman value is established in an adhikaraṇa storage location."
+      },
+      "operation": "assign",
+      "required_roles": ["karman", "adhikaraṇa"],
+      "target_role": "adhikaraṇa",
+      "value_role": "karman",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "abhyvardhayati",
+      "lemma": "vṛdh",
+      "gloss": "increases further",
+      "construction": {
+        "id": "VF-011",
+        "name": "instrumental increase with abhyvardhayati",
+        "status": "experimental",
+        "description": "A karman stored value is increased by a karaṇa amount."
+      },
+      "operation": "increase",
+      "required_roles": ["karman", "karaṇa"],
+      "target_role": "karman",
+      "amount_role": "karaṇa",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "saṃvardhayati",
+      "lemma": "vṛdh",
+      "gloss": "increases together",
+      "construction": {
+        "id": "VF-012",
+        "name": "instrumental increase with saṃvardhayati",
+        "status": "experimental",
+        "description": "A karman stored value is increased by a karaṇa amount."
+      },
+      "operation": "increase",
+      "required_roles": ["karman", "karaṇa"],
+      "target_role": "karman",
+      "amount_role": "karaṇa",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "hrasayati",
+      "lemma": "hras",
+      "gloss": "reduces, lessens",
+      "construction": {
+        "id": "VF-013",
+        "name": "instrumental decrease with hrasayati",
+        "status": "experimental",
+        "description": "A karman stored value is decreased by a karaṇa amount."
+      },
+      "operation": "decrease",
+      "required_roles": ["karman", "karaṇa"],
+      "target_role": "karman",
+      "amount_role": "karaṇa",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "kṣapayati",
+      "lemma": "kṣap",
+      "gloss": "diminishes",
+      "construction": {
+        "id": "VF-014",
+        "name": "instrumental decrease with kṣapayati",
+        "status": "experimental",
+        "description": "A karman stored value is decreased by a karaṇa amount."
+      },
+      "operation": "decrease",
+      "required_roles": ["karman", "karaṇa"],
+      "target_role": "karman",
+      "amount_role": "karaṇa",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "guṇayati",
+      "lemma": "guṇ",
+      "gloss": "multiplies",
+      "construction": {
+        "id": "VF-015",
+        "name": "instrumental multiply with guṇayati",
+        "status": "experimental",
+        "description": "A karman stored value is multiplied by a karaṇa factor."
+      },
+      "operation": "multiply",
+      "required_roles": ["karman", "karaṇa"],
+      "target_role": "karman",
+      "amount_role": "karaṇa",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "saṃguṇayati",
+      "lemma": "guṇ",
+      "gloss": "multiplies together",
+      "construction": {
+        "id": "VF-016",
+        "name": "instrumental multiply with saṃguṇayati",
+        "status": "experimental",
+        "description": "A karman stored value is multiplied by a karaṇa factor."
+      },
+      "operation": "multiply",
+      "required_roles": ["karman", "karaṇa"],
+      "target_role": "karman",
+      "amount_role": "karaṇa",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "udīrayati",
+      "lemma": "udīr",
+      "gloss": "proclaims, displays",
+      "construction": {
+        "id": "VF-017",
+        "name": "object display with udīrayati",
+        "status": "experimental",
+        "description": "A karman value is shown as program output."
+      },
+      "operation": "display",
+      "required_roles": ["karman"],
+      "value_role": "karman",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "spaṣṭayati",
+      "lemma": "spaṣṭ",
+      "gloss": "makes clear, displays",
+      "construction": {
+        "id": "VF-018",
+        "name": "object display with spaṣṭayati",
+        "status": "experimental",
+        "description": "A karman value is shown as program output."
+      },
+      "operation": "display",
+      "required_roles": ["karman"],
+      "value_role": "karman",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "nyasati",
+      "lemma": "nyas",
+      "gloss": "lays down, assigns",
+      "construction": {
+        "id": "VF-019",
+        "name": "locative assignment with nyasati",
+        "status": "experimental",
+        "description": "A karman value is placed in an adhikaraṇa storage location."
+      },
+      "operation": "assign",
+      "required_roles": ["karman", "adhikaraṇa"],
+      "target_role": "adhikaraṇa",
+      "value_role": "karman",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
+    },
+    {
+      "surface": "upanyasati",
+      "lemma": "nyas",
+      "gloss": "sets forth, assigns",
+      "construction": {
+        "id": "VF-020",
+        "name": "locative assignment with upanyasati",
+        "status": "experimental",
+        "description": "A karman value is placed in an adhikaraṇa storage location."
+      },
+      "operation": "assign",
+      "required_roles": ["karman", "adhikaraṇa"],
+      "target_role": "adhikaraṇa",
+      "value_role": "karman",
+      "person": "third",
+      "number": "singular",
+      "lakara": "laṭ",
+      "pada": "parasmaipada"
     }
   ]
 }

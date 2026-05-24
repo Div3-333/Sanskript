@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "compare_eq"
+    },
+    {
+      "op": "jump_if_zero",
+      "operand": 11
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 10
+    },
+    {
+      "op": "add"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "jump",
+      "operand": 11
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "description": "if phala==3 then phala+=10; emit -> 13",
+  "expected_output": [
+    "13"
+  ],
+  "expected_environment": {
+    "phala": 13
+  }
+}

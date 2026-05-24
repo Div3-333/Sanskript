@@ -32,6 +32,15 @@ AVYAYA_FORMS: tuple[Avyaya, ...] = (
     Avyaya("punaḥ", "punar", IndeclinableKind.ADVERB, "again", "marks repeated action"),
     Avyaya("iti", "iti", IndeclinableKind.QUOTATIVE, "thus", "closes quoted or named material"),
     Avyaya("atha", "atha", IndeclinableKind.SEQUENCER, "now, then", "begins the next step"),
+    Avyaya("yadi", "yadi", IndeclinableKind.RELATIVE, "if", "opens a conditional block"),
+    Avyaya("tarhi", "tarhi", IndeclinableKind.CORRELATIVE, "then", "marks the consequent clause"),
+    Avyaya("anyathā", "anyathā", IndeclinableKind.ALTERNATIVE, "otherwise", "marks the alternate branch"),
+    Avyaya("samam", "samam", IndeclinableKind.ADVERB, "equally", "marks equality in a condition"),
+    Avyaya("vidhānam", "vidhāna", IndeclinableKind.SEQUENCER, "procedure", "declares a named procedure"),
+    Avyaya("samāpanam", "samāpana", IndeclinableKind.SEQUENCER, "completion", "closes a procedure or module"),
+    Avyaya("āhvānam", "āhvāna", IndeclinableKind.SEQUENCER, "invocation", "calls a named procedure"),
+    Avyaya("kṣetram", "kṣetra", IndeclinableKind.SEQUENCER, "field, module", "opens a module scope"),
+    Avyaya("antam", "anta", IndeclinableKind.SEQUENCER, "end", "closes a conditional or loop block"),
 )
 
 

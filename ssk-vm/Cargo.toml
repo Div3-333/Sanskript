@@ -1,0 +1,18 @@
+[package]
+name = "ssk-vm"
+version = "0.1.0"
+edition = "2021"
+description = "Reference Sanskript bytecode v1/v2 virtual machine"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+
+[[bin]]
+name = "ssk-vm"
+path = "src/main.rs"
+
+[dev-dependencies]
+walkdir = "2"

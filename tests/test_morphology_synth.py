@@ -163,8 +163,8 @@ class ControlledLexiconTests(unittest.TestCase):
         facade = MorphologyFacade()
         analyses = facade.analyze_sentence("gaṇakaḥ pañca phale nidadhāti.")
         self.assertEqual(len(analyses), 4)
-        statements = parse_program("gaṇakaḥ pañca phale nidadhāti.")
-        self.assertEqual(len(statements), 1)
+        program = parse_program("gaṇakaḥ pañca phale nidadhāti.")
+        self.assertEqual(len(program.statements), 1)
 
     def test_checked_in_lexicon_matches_register(self) -> None:
         checked_in = json.loads(DEFAULT_LEXICON_PATH.read_text(encoding="utf-8"))

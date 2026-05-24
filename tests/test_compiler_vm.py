@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from sanskript.ast import Assign, Display, Increase, Literal, Reference
-from sanskript.bytecode import Instruction, OpCode
+from sanskript.bytecode import Instruction, OpCode, encode_program, validate_bytecode
 from sanskript.compiler import compile_source, compile_statements, compile_statements_to_ir, lower_ir_to_bytecode
 from sanskript.interpreter import Interpreter
 from sanskript.ir import IREmit, IRIncrease, IRLiteral, IRProgram, IRReference, IRStore
@@ -58,6 +58,10 @@ class CompilerVmTests(unittest.TestCase):
                 Instruction(OpCode.HALT),
             ),
         )
+        from sanskript.bytecode import BYTECODE_VERSION_1
+
+        validate_bytecode(bytecode, version=BYTECODE_VERSION_1)
+        self.assertEqual(encode_program(bytecode, version=BYTECODE_VERSION_1)["version"], 1)
 
     def test_vm_executes_bytecode_without_ast_interpreter_semantics(self) -> None:
         bytecode = compile_statements(
@@ -90,6 +94,10 @@ class CompilerVmTests(unittest.TestCase):
         expected = {
             "caturtha.ssk": ["7"],
             "pancama.ssk": ["7"],
+            "shashṭha-if.ssk": ["13"],
+            "saptama-while.ssk": ["2"],
+            "aṣṭama-vidhānam.ssk": ["11"],
+            "navama-kṣetram.ssk": ["11"],
         }
         for filename, output in expected.items():
             with self.subTest(filename=filename):

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskript.dev/schemas/bytecode-v2.json",
+  "title": "Sanskript Bytecode v2",
+  "type": "object",
+  "required": ["version", "instructions"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 2
+    },
+    "instructions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/instruction" }
+    },
+    "functions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/function" }
+    },
+    "modules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/module" }
+    }
+  },
+  "$defs": {
+    "instruction": {
+      "type": "object",
+      "required": ["op"],
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "type": "string",
+          "enum": [
+            "push_int",
+            "load_name",
+            "store_name",
+            "add",
+            "subtract",
+            "multiply",
+            "divide",
+            "compare_eq",
+            "compare_lt",
+            "emit",
+            "jump",
+            "jump_if_zero",
+            "call",
+            "return",
+            "pop",
+            "halt"
+          ]
+        },
+        "operand": {}
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "op": { "const": "push_int" } } },
+          "then": { "required": ["operand"], "properties": { "operand": { "type": "integer" } } }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": { "enum": ["load_name", "store_name", "call"] }
+            }
+          },
+          "then": {
+            "required": ["operand"],
+            "properties": { "operand": { "type": "string", "minLength": 1 } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "op": { "enum": ["jump", "jump_if_zero"] } }
+          },
+          "then": {
+            "required": ["operand"],
+            "properties": { "operand": { "type": "integer" } }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "subtract",
+                  "multiply",
+                  "divide",
+                  "compare_eq",
+                  "compare_lt",
+                  "emit",
+                  "return",
+                  "pop",
+                  "halt"
+                ]
+              }
+            }
+          },
+          "then": { "not": { "required": ["operand"] } }
+        }
+      ]
+    },
+    "function": {
+      "type": "object",
+      "required": ["name", "instructions"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "instructions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/instruction" }
+        }
+      }
+    },
+    "module": {
+      "type": "object",
+      "required": ["name", "functions"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "functions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/function" }
+        }
+      }
+    }
+  }
+}

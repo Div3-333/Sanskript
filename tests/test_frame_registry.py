@@ -17,7 +17,11 @@ class FrameRegistryTests(unittest.TestCase):
             if frame.operation == FrameOperation.ASSIGN:
                 self.assertEqual(frame.target_role, Role.ADHIKARANA)
                 self.assertEqual(frame.value_role, Role.KARMAN)
-            elif frame.operation in {FrameOperation.INCREASE, FrameOperation.DECREASE}:
+            elif frame.operation in {
+                FrameOperation.INCREASE,
+                FrameOperation.DECREASE,
+                FrameOperation.MULTIPLY,
+            }:
                 self.assertEqual(frame.target_role, Role.KARMAN)
                 self.assertEqual(frame.amount_role, Role.KARANA)
             elif frame.operation == FrameOperation.DISPLAY:

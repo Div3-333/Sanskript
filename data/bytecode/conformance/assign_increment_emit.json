@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "description": "phala = 5; phala += 2; emit phala -> 7",
+  "expected_output": ["7"],
+  "expected_environment": { "phala": 7 },
+  "instructions": [
+    { "op": "push_int", "operand": 5 },
+    { "op": "store_name", "operand": "phala" },
+    { "op": "load_name", "operand": "phala" },
+    { "op": "push_int", "operand": 2 },
+    { "op": "add" },
+    { "op": "store_name", "operand": "phala" },
+    { "op": "load_name", "operand": "phala" },
+    { "op": "emit" },
+    { "op": "halt" }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sanskript.dev/schemas/bytecode-v1.json",
+  "title": "Sanskript Bytecode v1",
+  "type": "object",
+  "required": ["version", "instructions"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "instructions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/instruction" }
+    }
+  },
+  "$defs": {
+    "instruction": {
+      "type": "object",
+      "required": ["op"],
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "type": "string",
+          "enum": [
+            "push_int",
+            "load_name",
+            "store_name",
+            "add",
+            "subtract",
+            "emit",
+            "halt"
+          ]
+        },
+        "operand": {}
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "op": { "const": "push_int" } } },
+          "then": { "required": ["operand"], "properties": { "operand": { "type": "integer" } } }
+        },
+        {
+          "if": {
+            "properties": { "op": { "enum": ["load_name", "store_name"] } }
+          },
+          "then": {
+            "required": ["operand"],
+            "properties": { "operand": { "type": "string", "minLength": 1 } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "op": { "enum": ["add", "subtract", "emit", "halt"] } }
+          },
+          "then": { "not": { "required": ["operand"] } }
+        }
+      ]
+    }
+  }
+}

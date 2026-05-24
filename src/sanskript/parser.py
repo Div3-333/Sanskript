@@ -3,15 +3,128 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import Iterable
 
-from .ast import Assign, Decrease, Display, Increase, Literal, Reference, Statement, Value
+from .ast import (
+    Assign,
+    Call,
+    CompareEq,
+    Decrease,
+    Display,
+    FunctionDef,
+    If,
+    Increase,
+    Literal,
+    Multiply,
+    Program,
+    Reference,
+    Statement,
+    Value,
+    While,
+)
 from .errors import ParseError
 from .grammar import VERB_FRAMES, Analysis, FrameOperation, PartOfSpeech, Role, VerbFrame
-from .morphology_facade import get_default_facade
 from .morphology import split_sentences
+from .morphology_facade import get_default_facade
+import re
+
+_BLOCK_END_MARKERS = frozenset({"antam", "anta", "yadi", "punaḥ", "punah", "vidhānam", "vidhanam", "samāpanam", "samapanam"})
 
 
-def parse_program(source: str) -> list[Statement]:
-    return [parse_sentence(sentence) for sentence in split_sentences(source)]
+def parse_program(source: str) -> Program:
+    sentences = split_sentences(source)
+    statements: list[Statement] = []
+    functions: list[FunctionDef] = []
+    modules: list[tuple[str, tuple[FunctionDef, ...]]] = []
+
+    index = 0
+    current_module: str | None = None
+    module_functions: list[FunctionDef] = []
+
+    while index < len(sentences):
+        sentence = sentences[index].strip()
+        if not sentence:
+            index += 1
+            continue
+
+        header = _parse_directive_header(sentence)
+        if header is not None:
+            kind, payload = header
+            if kind == "module":
+                if current_module and module_functions:
+                    modules.append((current_module, tuple(module_functions)))
+                current_module = payload
+                module_functions = []
+                index += 1
+                continue
+            if kind == "function":
+                name = payload
+                index += 1
+                body, index = _collect_until(sentences, index, end_markers={"samāpanam", "samapanam"})
+                fn = FunctionDef(name, body, module=current_module)
+                if current_module:
+                    module_functions.append(fn)
+                else:
+                    functions.append(fn)
+                continue
+            if kind == "if":
+                condition = payload
+                index += 1
+                then_body, index = _collect_until(
+                    sentences,
+                    index,
+                    end_markers={"anyathā", "anyatha", "antam", "anta"},
+                    stop_before_markers=True,
+                )
+                else_body: tuple[Statement, ...] = ()
+                if index < len(sentences) and _is_marker_sentence(sentences[index], {"anyathā", "anyatha"}):
+                    index += 1
+                    else_body, index = _collect_until(
+                        sentences,
+                        index,
+                        end_markers=_BLOCK_END_MARKERS,
+                        stop_before_markers=True,
+                    )
+                if index < len(sentences) and _is_marker_sentence(
+                    sentences[index], {"antam", "anta"}
+                ):
+                    index += 1
+                statements.append(If(condition, then_body, else_body))
+                continue
+            if kind == "while":
+                condition = payload
+                index += 1
+                body, index = _collect_until(
+                    sentences,
+                    index,
+                    end_markers=_BLOCK_END_MARKERS,
+                    stop_before_markers=True,
+                )
+                if index < len(sentences) and _is_marker_sentence(
+                    sentences[index], {"antam", "anta"}
+                ):
+                    index += 1
+                statements.append(While(condition, body))
+                continue
+            if kind == "call":
+                module_name, fn_name = payload
+                statements.append(Call(fn_name, module=module_name))
+                index += 1
+                continue
+
+        if _is_marker_sentence(sentence, {"samāpanam", "samapanam"}):
+            if current_module and module_functions:
+                modules.append((current_module, tuple(module_functions)))
+                current_module = None
+                module_functions = []
+            index += 1
+            continue
+
+        statements.append(parse_sentence(sentence))
+        index += 1
+
+    if current_module and module_functions:
+        modules.append((current_module, tuple(module_functions)))
+
+    return Program(tuple(statements), tuple(functions), tuple(modules))
 
 
 def parse_sentence(sentence: str) -> Statement:
@@ -67,6 +180,13 @@ def _build_decrease(frame: VerbFrame, roles: dict[Role, list[Analysis]]) -> Decr
     )
 
 
+def _build_multiply(frame: VerbFrame, roles: dict[Role, list[Analysis]]) -> Multiply:
+    return Multiply(
+        target=_single(roles, _frame_role(frame, "target_role")).lemma,
+        factor=_value_from(_single(roles, _frame_role(frame, "amount_role"))),
+    )
+
+
 def _build_display(frame: VerbFrame, roles: dict[Role, list[Analysis]]) -> Display:
     return Display(value=_value_from(_single(roles, _frame_role(frame, "value_role"))))
 
@@ -75,8 +195,106 @@ FRAME_DISPATCH: dict[FrameOperation, FrameBuilder] = {
     FrameOperation.ASSIGN: _build_assign,
     FrameOperation.INCREASE: _build_increase,
     FrameOperation.DECREASE: _build_decrease,
+    FrameOperation.MULTIPLY: _build_multiply,
     FrameOperation.DISPLAY: _build_display,
 }
+
+
+def _parse_directive_header(sentence: str) -> tuple[str, object] | None:
+    tokens = [token.strip(".,;:!?।") for token in re.split(r"[\s,;]+", sentence) if token.strip(".,;:!?।")]
+    if not tokens:
+        return None
+
+    first = tokens[0]
+    if first in {"kṣetram", "ksetram"} and len(tokens) >= 2:
+        return ("module", tokens[1])
+
+    if first in {"vidhānam", "vidhanam"} and len(tokens) >= 2:
+        return ("function", tokens[1])
+
+    if first in {"āhvānam", "ahvanam"}:
+        if len(tokens) >= 3:
+            return ("call", (tokens[1], tokens[2]))
+        if len(tokens) >= 2:
+            return ("call", (None, tokens[1]))
+        return None
+
+    if first == "punaḥ" or first == "punah":
+        condition = _parse_compare_tokens(tokens[1:])
+        if condition is not None:
+            return ("while", condition)
+        return None
+
+    if first == "yadi":
+        condition = _parse_compare_tokens(tokens[1:])
+        if condition is not None:
+            return ("if", condition)
+        return None
+
+    return None
+
+
+def _parse_compare_tokens(tokens: list[str]) -> CompareEq | None:
+    if "samam" not in tokens:
+        return None
+    split_at = tokens.index("samam")
+    left_tokens = tokens[:split_at]
+    right_tokens = tokens[split_at + 1 :]
+    if not left_tokens or not right_tokens:
+        return None
+    left = _value_from_tokens(left_tokens)
+    right = _value_from_tokens(right_tokens)
+    if left is None or right is None:
+        return None
+    return CompareEq(left, right)
+
+
+def _value_from_tokens(tokens: list[str]) -> Value | None:
+    facade = get_default_facade()
+    for token in tokens:
+        try:
+            analysis = facade.analyze_token(token)
+        except Exception:
+            continue
+        if analysis.value is not None:
+            return Literal(analysis.value)
+        if analysis.pos == PartOfSpeech.NOUN:
+            return Reference(analysis.lemma)
+    if len(tokens) == 1:
+        return Reference(tokens[0])
+    return None
+
+
+def _collect_until(
+    sentences: list[str],
+    index: int,
+    *,
+    end_markers: set[str],
+    stop_before_markers: bool = False,
+) -> tuple[tuple[Statement, ...], int]:
+    body: list[Statement] = []
+    while index < len(sentences):
+        sentence = sentences[index].strip()
+        if not sentence:
+            index += 1
+            continue
+        if _is_marker_sentence(sentence, end_markers):
+            if stop_before_markers:
+                return tuple(body), index
+            index += 1
+            if not stop_before_markers:
+                return tuple(body), index
+            continue
+        if stop_before_markers and _parse_directive_header(sentence) is not None:
+            return tuple(body), index
+        body.append(parse_sentence(sentence))
+        index += 1
+    return tuple(body), index
+
+
+def _is_marker_sentence(sentence: str, markers: set[str]) -> bool:
+    tokens = [token.strip(".,;:!?।") for token in re.split(r"[\s,;]+", sentence) if token.strip(".,;:!?।")]
+    return bool(tokens) and tokens[0] in markers
 
 
 def _roles_by_type(items: Iterable[Analysis]) -> dict[Role, list[Analysis]]:

@@ -63,8 +63,10 @@ The VM is currently hosted in Python, but it consumes only Sanskript-owned bytec
 - `ast.py`: sentence-level semantic statements recovered from Sanskrit roles;
 - `ir.py`: Sanskript intermediate representation with storage, adjustment, and output operations;
 - `compiler.py`: AST-to-IR and IR-to-bytecode lowering;
-- `bytecode.py`: owned opcodes such as `push_int`, `load_name`, `store_name`, `add`, `subtract`, and `emit`;
+- `bytecode.py`: owned opcodes (v1 linear programs; v2 adds control flow, calls, and modules);
 - `vm.py`: bytecode execution state, stack, environment, and output.
+
+The portable wire format is specified in [bytecode-v1.md](bytecode-v1.md) and [bytecode-v2.md](bytecode-v2.md), with JSON schemas under `data/bytecode/` and conformance fixtures under `data/bytecode/conformance/`. A Rust reference port lives in [`ssk-vm/`](../ssk-vm/).
 
 Future non-Python runtimes should implement the bytecode contract rather than reinterpret the Sanskrit source directly.
 

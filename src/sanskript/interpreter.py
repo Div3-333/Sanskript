@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from .ast import Literal, Reference, Statement, Value
+from .ast import Literal, Program, Reference, Statement, Value
+from .compiler import compile_program
 from .compiler import compile_statements
 from .errors import RuntimeSanskriptError
 from .parser import parse_program
@@ -15,6 +16,7 @@ def run(source: str) -> list[str]:
 class Interpreter:
     def __init__(self) -> None:
         self.vm = SanskriptVM()
+        self._statements: list[Statement] = []
 
     @property
     def environment(self) -> dict[str, int]:
@@ -24,11 +26,17 @@ class Interpreter:
     def output(self) -> list[str]:
         return self.vm.output
 
-    def execute(self, statements: list[Statement]) -> list[str]:
-        return self.vm.execute(compile_statements(statements))
+    def execute(self, program: Program | list[Statement]) -> list[str]:
+        if isinstance(program, Program):
+            self._statements = list(program.statements)
+        else:
+            self._statements = list(program)
+        self.vm.execute(compile_program(Program(tuple(self._statements))))
+        return self.output
 
     def execute_statement(self, statement: Statement) -> None:
-        self.execute([statement])
+        self._statements.append(statement)
+        self.vm.execute(compile_program(Program(tuple(self._statements))))
 
     def evaluate(self, value: Value) -> int:
         if isinstance(value, Literal):
