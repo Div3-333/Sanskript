@@ -136,6 +136,35 @@ def create_derived_dhatu(base: Dhatu, type: DhatuType) -> Dhatu:
     return base
 
 
+def _pps_slots(lakara: Lakara, endings: tuple[str, ...]) -> tuple[TinEnding, ...]:
+    """Build nine parasmaipada slots from third→second→first person ending triples."""
+    persons = (Person.THIRD, Person.SECOND, Person.FIRST)
+    numbers = (GrammaticalNumber.SINGULAR, GrammaticalNumber.DUAL, GrammaticalNumber.PLURAL)
+    items: list[TinEnding] = []
+    idx = 0
+    for person in persons:
+        for number in numbers:
+            items.append(
+                TinEnding(lakara, Pada.PARASMAIPADA, person, number, endings[idx])
+            )
+            idx += 1
+    return tuple(items)
+
+
+def _aps_slots(lakara: Lakara, endings: tuple[str, ...]) -> tuple[TinEnding, ...]:
+    persons = (Person.THIRD, Person.SECOND, Person.FIRST)
+    numbers = (GrammaticalNumber.SINGULAR, GrammaticalNumber.DUAL, GrammaticalNumber.PLURAL)
+    items: list[TinEnding] = []
+    idx = 0
+    for person in persons:
+        for number in numbers:
+            items.append(
+                TinEnding(lakara, Pada.ATMANEPADA, person, number, endings[idx])
+            )
+            idx += 1
+    return tuple(items)
+
+
 TIN_ENDINGS: tuple[TinEnding, ...] = (
     TinEnding(Lakara.LAT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ti"),
     TinEnding(Lakara.LAT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.DUAL, "taḥ"),
@@ -172,18 +201,73 @@ TIN_ENDINGS: tuple[TinEnding, ...] = (
     TinEnding(Lakara.VIDHILING, Pada.PARASMAIPADA, Person.FIRST, GrammaticalNumber.DUAL, "vaḥ"),
     TinEnding(Lakara.VIDHILING, Pada.PARASMAIPADA, Person.FIRST, GrammaticalNumber.PLURAL, "maḥ"),
 
-    # LRT (Future) - same basic endings as LAT
-    TinEnding(Lakara.LRT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ti"),
-    TinEnding(Lakara.LRT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.DUAL, "taḥ"),
-    TinEnding(Lakara.LRT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.PLURAL, "nti"),
+    # LAN (imperfect) — ṅit sārvadhātuka, same latent endings as laṭ
+    *_pps_slots(
+        Lakara.LAN,
+        ("ti", "taḥ", "nti", "si", "thaḥ", "tha", "mi", "vaḥ", "maḥ"),
+    ),
 
-    # LUT (Distant Future) - 3.4.94 specific endings for 3rd person
+    # LIT (perfect) — periphrastic endings on strong/weak stem
+    *_pps_slots(
+        Lakara.LIT,
+        ("a", "atuḥ", "uḥ", "tha", "athuḥ", "a", "a", "va", "ma"),
+    ),
+    *_aps_slots(
+        Lakara.LIT,
+        ("e", "āte", "ire", "e", "ethe", "idhvaṃ", "e", "vahe", "mahe"),
+    ),
+
+    # LUN (aorist) — ardhadhātuka luṅ endings
+    *_pps_slots(
+        Lakara.LUN,
+        ("t", "tām", "an", "s", "tam", "ta", "am", "vaḥ", "maḥ"),
+    ),
+    *_aps_slots(
+        Lakara.LUN,
+        ("ta", "etām", "anta", "thās", "ethām", "dhvam", "i", "vahi", "mahi"),
+    ),
+
+    # LRT (future) — full nine PPS slots
+    *_pps_slots(
+        Lakara.LRT,
+        ("ti", "taḥ", "nti", "si", "thaḥ", "tha", "mi", "vaḥ", "maḥ"),
+    ),
+    *_aps_slots(
+        Lakara.LRT,
+        ("te", "āte", "ante", "se", "ethe", "dhve", "e", "vahe", "mahe"),
+    ),
+
+    # LUT (distant future) — 3.4.94 third-person + extended first/second
     TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "ā"),
     TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.DUAL, "ārau"),
     TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.PLURAL, "āraḥ"),
+    TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.SECOND, GrammaticalNumber.SINGULAR, "si"),
+    TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.SECOND, GrammaticalNumber.DUAL, "thaḥ"),
+    TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.SECOND, GrammaticalNumber.PLURAL, "tha"),
+    TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.FIRST, GrammaticalNumber.SINGULAR, "mi"),
+    TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.FIRST, GrammaticalNumber.DUAL, "vaḥ"),
+    TinEnding(Lakara.LUT, Pada.PARASMAIPADA, Person.FIRST, GrammaticalNumber.PLURAL, "maḥ"),
 
-    # LRN (Conditional) - LAN endings + sya
-    TinEnding(Lakara.LRN, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "t"),
+    # LRN (conditional) — laṅ-like ṅit endings
+    *_pps_slots(
+        Lakara.LRN,
+        ("t", "tām", "an", "s", "tam", "ta", "am", "vaḥ", "maḥ"),
+    ),
+
+    # LOT / VIDHILING — ātmanepada (APS) full paradigms
+    *_aps_slots(
+        Lakara.LOT,
+        ("tām", "etām", "antām", "thās", "ethām", "dhvam", "ai", "vah", "mah"),
+    ),
+    *_aps_slots(
+        Lakara.VIDHILING,
+        ("īta", "itām", "iran", "s", "tām", "dhvam", "īya", "vahi", "mahi"),
+    ),
+
+    # Āśīrliṅ (benedictive) — third-person subset
+    TinEnding(Lakara.ASHIRLING, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.SINGULAR, "t"),
+    TinEnding(Lakara.ASHIRLING, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.DUAL, "tām"),
+    TinEnding(Lakara.ASHIRLING, Pada.PARASMAIPADA, Person.THIRD, GrammaticalNumber.PLURAL, "an"),
 )
 
 
@@ -252,20 +336,35 @@ def apply_luk_elision(dhatu: Dhatu, ending: TinEnding) -> bool:
     class_2_roots = {"as", "ad", "han", "vid"}
     return dhatu.lemma in class_2_roots
 
-def conjugate(dhatu: Dhatu, lakara: Lakara) -> dict[tuple[Person, GrammaticalNumber], str]:
+def has_tin_endings(lakara: Lakara, pada: Pada) -> bool:
+    return any(e.lakara == lakara and e.pada == pada for e in TIN_ENDINGS)
+
+
+def conjugate_paradigm(dhatu: Dhatu, lakara: Lakara) -> dict[tuple[Person, GrammaticalNumber], str]:
+    from . import tinanta_grades
+
     forms: dict[tuple[Person, GrammaticalNumber], str] = {}
 
     # 2.4.35-57 substitutions
     effective_dhatu = get_substituted_dhatu(dhatu, lakara)
 
-    # Ardhadhatuka Lakaras start from lemma, not present_stem (which includes śap)
-    base_stem = effective_dhatu.lemma if is_ardhadhatuka(lakara) else effective_dhatu.present_stem
-
     for ending in TIN_ENDINGS:
         if ending.lakara != lakara or ending.pada != effective_dhatu.pada:
             continue
+        base_stem = tinanta_grades.conjunct_stem(
+            dhatu,
+            lakara,
+            ending.person,
+            ending.number,
+            effective_dhatu=effective_dhatu,
+        )
         forms[(ending.person, ending.number)] = join_stem_ending(base_stem, ending, effective_dhatu)
     return forms
+
+
+def conjugate(dhatu: Dhatu, lakara: Lakara) -> dict[tuple[Person, GrammaticalNumber], str]:
+    """Return full verbal paradigms from tiṅ tables (used by tests and engine fallbacks)."""
+    return conjugate_paradigm(dhatu, lakara)
 
 
 def iter_tinanta_analyses() -> Iterable[Analysis]:
@@ -371,6 +470,32 @@ def join_stem_ending(stem: str, ending: TinEnding, dhatu: Dhatu | None = None) -
         if stem.endswith("a"): stem = stem[:-1]
         if not effective_ending.startswith("e"): stem += "e"
 
+    if ending.lakara == Lakara.LAN and ending.pada == Pada.PARASMAIPADA:
+        # Imperfect augment a- (3.4.78)
+        stem = "a" + stem
+
+    if ending.lakara == Lakara.LIT:
+        # Perfect periphrastic slot — weak grade uses reduplicated weak stem when known
+        if stem.endswith("a") and len(stem) > 1:
+            stem = stem[:-1]
+
+    if ending.lakara == Lakara.LUN and ending.pada == Pada.PARASMAIPADA:
+        # Luṅ 3rd sg often zero ending after guṇa root
+        if effective_ending == "t" and ending.person == Person.THIRD and ending.number == GrammaticalNumber.SINGULAR:
+            pass
+
+    if ending.lakara == Lakara.VIDHILING and ending.pada == Pada.ATMANEPADA:
+        if effective_ending == "īta":
+            effective_ending = "īta"
+        elif effective_ending == "īya":
+            effective_ending = "īya"
+
+    if ending.lakara == Lakara.LOT and ending.pada == Pada.ATMANEPADA:
+        if effective_ending == "tām":
+            effective_ending = "stām"
+        elif effective_ending == "thās":
+            effective_ending = "sva"
+
     if ending.lakara == Lakara.LAT and ending.pada == Pada.PARASMAIPADA:
         if ending.person == Person.FIRST:
             if stem.endswith("a"): stem = stem[:-1] + "ā"
@@ -383,4 +508,4 @@ def join_stem_ending(stem: str, ending: TinEnding, dhatu: Dhatu | None = None) -
         if stem.endswith("a") and effective_ending.startswith(("a", "e")):
             stem = stem[:-1]
 
-    return stem + effective_ending
+    return (stem + effective_ending).replace("-", "")

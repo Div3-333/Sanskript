@@ -1,0 +1,706 @@
+{
+  "pattern": "i_masculine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "abhi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "fear (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "adhipati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "overlord, ruler",
+      "source": "MW"
+    },
+    {
+      "lemma": "adri",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "rock, mountain",
+      "source": "MW"
+    },
+    {
+      "lemma": "agni",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "fire (i-stem)",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "agnipati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of fire",
+      "source": "MW"
+    },
+    {
+      "lemma": "ahi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "snake",
+      "source": "MW"
+    },
+    {
+      "lemma": "ajapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of goats",
+      "source": "MW"
+    },
+    {
+      "lemma": "akṣapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of dice, gambler",
+      "source": "MW"
+    },
+    {
+      "lemma": "ani",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "pin, finger ring",
+      "source": "MW"
+    },
+    {
+      "lemma": "annapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of food",
+      "source": "MW"
+    },
+    {
+      "lemma": "ari",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "enemy, foe",
+      "source": "MW"
+    },
+    {
+      "lemma": "atithi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "guest",
+      "source": "MW"
+    },
+    {
+      "lemma": "aśani",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "thunderbolt, Indra",
+      "source": "MW"
+    },
+    {
+      "lemma": "aśvapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of horses",
+      "source": "MW"
+    },
+    {
+      "lemma": "aśvi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "horseman",
+      "source": "MW"
+    },
+    {
+      "lemma": "balapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of strength",
+      "source": "MW"
+    },
+    {
+      "lemma": "bali",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "tribute, offering",
+      "source": "MW"
+    },
+    {
+      "lemma": "bandhupati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of kinsmen",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhogi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "enjoyer, sensualist",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhrāji",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "splendor, light",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhūpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "king, earth-lord",
+      "source": "MW"
+    },
+    {
+      "lemma": "brahmapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of sacred knowledge",
+      "source": "MW"
+    },
+    {
+      "lemma": "bāhupati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of arms",
+      "source": "MW"
+    },
+    {
+      "lemma": "cadi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "cover, sheath",
+      "source": "MW"
+    },
+    {
+      "lemma": "cakrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "discus-lord",
+      "source": "MW"
+    },
+    {
+      "lemma": "cakri",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "discus-bearer, Viṣṇu",
+      "source": "MW"
+    },
+    {
+      "lemma": "candrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the moon",
+      "source": "MW"
+    },
+    {
+      "lemma": "chadi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "cover, sheath",
+      "source": "MW"
+    },
+    {
+      "lemma": "devapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of gods",
+      "source": "MW"
+    },
+    {
+      "lemma": "deśapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the country",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhanapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of wealth, Kubera",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "thought, intellect (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhūni",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "sounding, roaring",
+      "source": "MW"
+    },
+    {
+      "lemma": "dinapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "sun, day-lord",
+      "source": "MW"
+    },
+    {
+      "lemma": "dundubhi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "drum",
+      "source": "MW"
+    },
+    {
+      "lemma": "dvipati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of an island",
+      "source": "MW"
+    },
+    {
+      "lemma": "gajapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of elephants",
+      "source": "MW"
+    },
+    {
+      "lemma": "garuḍapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of Garuḍa",
+      "source": "MW"
+    },
+    {
+      "lemma": "gavi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "singer, poet (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "gavāmpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of cows",
+      "source": "MW"
+    },
+    {
+      "lemma": "gaṇapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of hosts, Gaṇeśa",
+      "source": "MW"
+    },
+    {
+      "lemma": "ghani",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "destroyer (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "giri",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "mountain",
+      "source": "MW"
+    },
+    {
+      "lemma": "gopati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of cows, moon, Śiva",
+      "source": "MW"
+    },
+    {
+      "lemma": "grāmapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "village headman",
+      "source": "MW"
+    },
+    {
+      "lemma": "gurupati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of teachers",
+      "source": "MW"
+    },
+    {
+      "lemma": "gṛhamedhapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the domestic sacrifice",
+      "source": "MW"
+    },
+    {
+      "lemma": "gṛhapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "householder",
+      "source": "MW"
+    },
+    {
+      "lemma": "hari",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "tawny, monkey, Viṣṇu",
+      "source": "MW"
+    },
+    {
+      "lemma": "havirdhānapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the offering-place",
+      "source": "MW"
+    },
+    {
+      "lemma": "haṃsapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of swans",
+      "source": "MW"
+    },
+    {
+      "lemma": "hotṛpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of priests",
+      "source": "MW"
+    },
+    {
+      "lemma": "idhmi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "fire-pan, fireplace",
+      "source": "MW"
+    },
+    {
+      "lemma": "indrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of Indra",
+      "source": "MW"
+    },
+    {
+      "lemma": "jagatpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the world",
+      "source": "MW"
+    },
+    {
+      "lemma": "jani",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "birth, origin",
+      "source": "MW"
+    },
+    {
+      "lemma": "jathari",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "stomach, belly",
+      "source": "MW"
+    },
+    {
+      "lemma": "jaṭhari",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "stomach, belly",
+      "source": "MW"
+    },
+    {
+      "lemma": "jaṭi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "ascetic with matted hair",
+      "source": "MW"
+    },
+    {
+      "lemma": "jñāni",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "knower, sage",
+      "source": "MW"
+    },
+    {
+      "lemma": "kapi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "monkey",
+      "source": "MW"
+    },
+    {
+      "lemma": "kavi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "poet, sage",
+      "source": "MW"
+    },
+    {
+      "lemma": "kukṣi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "belly, womb",
+      "source": "MW"
+    },
+    {
+      "lemma": "kumārapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of Kumāra",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṛmi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "worm, insect",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣatrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "satrap, governor",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣatri",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "warrior, kṣatriya",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣetrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the field",
+      "source": "MW"
+    },
+    {
+      "lemma": "labhi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "reacher, obtainer",
+      "source": "MW"
+    },
+    {
+      "lemma": "lavi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "cutter",
+      "source": "MW"
+    },
+    {
+      "lemma": "lokapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the world, king",
+      "source": "MW"
+    },
+    {
+      "lemma": "mahīpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "earth-lord, king",
+      "source": "MW"
+    },
+    {
+      "lemma": "makhipati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of bees",
+      "source": "MW"
+    },
+    {
+      "lemma": "mantrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of spells",
+      "source": "MW"
+    },
+    {
+      "lemma": "marutpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of the Maruts",
+      "source": "MW"
+    },
+    {
+      "lemma": "masi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "ink",
+      "source": "MW"
+    },
+    {
+      "lemma": "medhapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of sacrifice",
+      "source": "MW"
+    },
+    {
+      "lemma": "meṣapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of rams",
+      "source": "MW"
+    },
+    {
+      "lemma": "mitrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of friends, ally",
+      "source": "MW"
+    },
+    {
+      "lemma": "mukhyapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "chief lord",
+      "source": "MW"
+    },
+    {
+      "lemma": "muni",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "sage, ascetic",
+      "source": "MW"
+    },
+    {
+      "lemma": "māhi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "great one (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "mṛgapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of beasts",
+      "source": "MW"
+    },
+    {
+      "lemma": "nadīpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of rivers",
+      "source": "MW"
+    },
+    {
+      "lemma": "nagapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of mountains",
+      "source": "MW"
+    },
+    {
+      "lemma": "nagarapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "city lord",
+      "source": "MW"
+    },
+    {
+      "lemma": "narapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "king, lord of men",
+      "source": "MW"
+    },
+    {
+      "lemma": "netrapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of eyes",
+      "source": "MW"
+    },
+    {
+      "lemma": "nāgapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of serpents",
+      "source": "MW"
+    },
+    {
+      "lemma": "nāvapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of ships",
+      "source": "MW"
+    },
+    {
+      "lemma": "nṛpati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "king, ruler",
+      "source": "MW"
+    },
+    {
+      "lemma": "pakṣi",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "bird",
+      "source": "MW"
+    },
+    {
+      "lemma": "pakṣipati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of birds",
+      "source": "MW"
+    },
+    {
+      "lemma": "pani",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "hand (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "pari",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "mystic verse, halo",
+      "source": "MW"
+    },
+    {
+      "lemma": "parvatapati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of mountains",
+      "source": "MW"
+    },
+    {
+      "lemma": "pati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord, husband, master",
+      "source": "MW"
+    },
+    {
+      "lemma": "patti",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "foot-soldier, infantry",
+      "source": "MW"
+    },
+    {
+      "lemma": "paśupati",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "lord of cattle, Śiva",
+      "source": "MW"
+    },
+    {
+      "lemma": "phāli",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "ploughshare",
+      "source": "MW"
+    }
+  ]
+}

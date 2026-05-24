@@ -1,0 +1,15 @@
+{
+  "pattern": "ai_stem",
+  "target_count": 40,
+  "entries": [
+    {
+      "lemma": "rai",
+      "pattern": "ai_stem",
+      "gender": "masculine",
+      "gloss": "wealth, prosperity",
+      "source": "Whitney §361; Macdonell §109; MW"
+    }
+  ],
+  "attested_count": 1,
+  "shortfall_note": "The ai-stem class is represented by rai alone in attested literature (Whitney §361; Macdonell §109; MW)."
+}

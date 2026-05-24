@@ -1,0 +1,29 @@
+{
+  "pattern": "e_stem",
+  "target_count": 40,
+  "entries": [
+    {
+      "lemma": "e",
+      "pattern": "e_stem",
+      "gender": "masculine",
+      "gloss": "Viṣṇu (Ekākṣara-kośa)",
+      "source": "MW; Whitney §360"
+    },
+    {
+      "lemma": "se",
+      "pattern": "e_stem",
+      "gender": "feminine",
+      "gloss": "service; serving",
+      "source": "Whitney §360; MW"
+    },
+    {
+      "lemma": "ve",
+      "pattern": "e_stem",
+      "gender": "masculine",
+      "gloss": "bird",
+      "source": "Whitney §360; MW"
+    }
+  ],
+  "attested_count": 3,
+  "shortfall_note": "Monosyllabic e-stems are marginal; attestation is limited to se, ve, and the Ekākṣara-kośa name e (Viṣṇu) in MW and Whitney §360."
+}

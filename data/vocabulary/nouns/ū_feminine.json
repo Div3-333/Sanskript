@@ -1,0 +1,111 @@
+{
+  "pattern": "ū_feminine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "agrū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "first woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "camū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "army",
+      "source": "MW"
+    },
+    {
+      "lemma": "caraṇyū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "approaching woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "cariṣṇū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "movable woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "guggulū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "bdellium plant",
+      "source": "MW"
+    },
+    {
+      "lemma": "jatū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "lac, gum",
+      "source": "MW"
+    },
+    {
+      "lemma": "jighatsū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "hungry woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "kadrū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "Kadrū, serpent mother",
+      "source": "MW"
+    },
+    {
+      "lemma": "madhū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "sweet woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "nṛtū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "dancing",
+      "source": "MW"
+    },
+    {
+      "lemma": "pṛdākū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "female serpent",
+      "source": "MW"
+    },
+    {
+      "lemma": "tanū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "body, self",
+      "source": "MW"
+    },
+    {
+      "lemma": "vadhū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "bride",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "śundhyū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "purifying woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "śvaśrū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "mother-in-law",
+      "source": "MW"
+    }
+  ]
+}

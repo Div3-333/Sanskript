@@ -43,7 +43,7 @@ from .metarules import (
     whole_term_replacement_applies,
 )
 from .samasa import Compound, SamasaType, create_compound
-from .subanta import DeclensionStem, SupEnding, decline, sup_ending
+from .subanta import DeclensionStem, SupEnding, decline_paradigm, sup_ending
 from .sutra_logic import (
     SutraContext,
     evaluate_sutra,
@@ -56,7 +56,7 @@ from .tinanta import (
     TimeContext,
     TinEnding,
     apply_luk_elision,
-    conjugate,
+    conjugate_paradigm,
     create_derived_dhatu,
     get_lakara_for_time,
     get_substituted_dhatu,
@@ -1648,7 +1648,7 @@ class SubantaSupEngine:
         case: Case | None = None,
         number: GrammaticalNumber | None = None,
     ) -> SubantaEngineResult:
-        forms = decline(stem)
+        forms = decline_paradigm(stem)
         applied = [
             self.selector.apply("1.4.103", {"suffix_class": "sup"}),
             self.selector.apply("1.4.104", {"suffix_class": "sup", "is_vibhakti": True}),
@@ -2069,7 +2069,7 @@ class TinantaLakaraEngine:
         person: Person | None = None,
         number: GrammaticalNumber | None = None,
     ) -> TinantaEngineResult:
-        forms = conjugate(dhatu, lakara)
+        forms = conjugate_paradigm(dhatu, lakara)
         applied: list[AppliedSutra123] = []
         operations: list[str] = []
 

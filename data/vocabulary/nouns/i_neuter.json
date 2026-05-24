@@ -1,0 +1,55 @@
+{
+  "pattern": "i_neuter",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "akṣi",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "eye",
+      "source": "MW"
+    },
+    {
+      "lemma": "asthi",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "bone",
+      "source": "MW"
+    },
+    {
+      "lemma": "dadhi",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "curds, yogurt",
+      "source": "MW"
+    },
+    {
+      "lemma": "karīṣi",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "powder, manure",
+      "source": "MW"
+    },
+    {
+      "lemma": "sakthi",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "thigh",
+      "source": "MW"
+    },
+    {
+      "lemma": "vyaṣṭi",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "individual, particular",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāri",
+      "pattern": "i_neuter",
+      "gender": "neuter",
+      "gloss": "water",
+      "source": "MW"
+    }
+  ]
+}

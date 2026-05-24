@@ -1,0 +1,706 @@
+{
+  "pattern": "a_masculine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "adhikāra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "authority, office",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "adhikārin",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "official, officer",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "adhvaryu",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Vedic priest",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "adri",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "mountain, stone",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "agni",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "fire",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "amara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "immortal, god",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "amitra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "enemy",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "amātya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "minister",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "anala",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "fire",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "arjuna",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Arjuna, white one",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "artha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "meaning, wealth",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "asura",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "demon, anti-god",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "aśva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "horse",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "aśvatthāman",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Aśvatthāman",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "aṅkura",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "sprout, shoot",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhakta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "devotee",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "bhīma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Bhīma, terrible one",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhīṣma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Bhīṣma, terrible",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhṛtya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "dependent, servant",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "brahmā",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Brahma, priest",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "brāhmaṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "brahmin",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "buddha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "awakened one",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "bāhu",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "arm",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bāla",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "child",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "candra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "moon",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "deha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "body",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "deva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "deity",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "deśa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "country, region",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dhanika",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "merchant",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dharma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "duty, law",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dhvaja",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "banner",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dhṛtarāṣṭra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Dhṛtarāṣṭra",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "draupada",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Drupada, king",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "droṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Droṇa, teacher",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "druma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "tree",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "duryodhana",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Duryodhana",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dvija",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "twice-born, brahmin",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dvīpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "island",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dānta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "self-controlled person",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dāsa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "servant",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dīpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "lamp",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dūta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "messenger",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "gaja",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "elephant",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "gandha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "smell",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "gandharva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "celestial musician",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "gaṇaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "calculator",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "giri",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "mountain",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "gopa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "cowherd, protector",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "grantha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "book",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "grāma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "village",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "guru",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "teacher, preceptor",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "gṛhastha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "householder",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "haṃsa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "goose, swan",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "hetu",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "cause, reason",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "homa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "oblation",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "hotṛ",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "priest, offerer",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "hrada",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "lake, pool",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "indra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Indra",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "jana",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "person, folk",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "jarāsandha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Jarāsandha",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "jarāsaṃdha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Jarāsaṃdha",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "hand",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "karṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Karṇa, ear",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kavi",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "poet, seer",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kavīndra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "chief poet",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kaṇṭha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "throat",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "khaḍga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "sword",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "krodha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "anger",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kumāra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "boy, prince",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kāka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "crow",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kāla",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "time",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kāma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "desire",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kṛpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Kṛpa, compassion",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kṛṣaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "farmer",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kṛṣṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Kṛṣṇa, dark one",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kṣatriya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "warrior",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kṣetra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "field, domain",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "lobha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "greed",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "loka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "world, people",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mantra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "mantra",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "matsya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "fish",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "meṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "ram, sheep",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "moha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "delusion",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mokṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "release",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "muni",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "sage, silent one",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "munīndra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "chief sage",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mārga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "path",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mṛga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "deer, beast",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nagara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "city",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nakra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "crocodile",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "man, person",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nartaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "dancer",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nāga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "serpent, elephant",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nāyaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "leader, general",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nṛpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "king",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "odana",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "cooked rice",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "pakṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "wing, side, fortnight",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pantha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "road",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "parvata",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "mountain",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "parājaya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "defeat",
+      "source": "legacy vocabulary_stems.json; MW"
+    }
+  ]
+}

@@ -5,7 +5,8 @@ from typing import Iterable
 from .ast import Assign, Decrease, Display, Increase, Literal, Reference, Statement, Value
 from .errors import ParseError
 from .grammar import VERB_FRAMES, Analysis, PartOfSpeech, Role
-from .morphology import analyze_sentence, split_sentences
+from .morphology_facade import get_default_facade
+from .morphology import split_sentences
 
 
 def parse_program(source: str) -> list[Statement]:
@@ -13,7 +14,8 @@ def parse_program(source: str) -> list[Statement]:
 
 
 def parse_sentence(sentence: str) -> Statement:
-    analyses = analyze_sentence(sentence)
+    facade = get_default_facade()
+    analyses = facade.analyze_sentence(sentence)
     verbs = [item for item in analyses if item.pos == PartOfSpeech.VERB]
     if len(verbs) != 1:
         raise ParseError(f"Expected exactly one finite verb, found {len(verbs)} in {sentence!r}")
@@ -24,11 +26,9 @@ def parse_sentence(sentence: str) -> Statement:
     except KeyError as exc:
         raise ParseError(f"No verb frame has been declared for {verb.surface!r}") from exc
 
+    facade.validate_karaka(analyses, verb)
+
     roles = _roles_by_type(item for item in analyses if item.pos != PartOfSpeech.VERB)
-    missing = frame.required_roles - roles.keys()
-    if missing:
-        missing_text = ", ".join(role.value for role in sorted(missing, key=lambda role: role.value))
-        raise ParseError(f"{verb.surface} needs participant role(s): {missing_text}")
 
     if verb.surface == "nidadhāti":
         return Assign(

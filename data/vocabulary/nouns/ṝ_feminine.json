@@ -1,0 +1,15 @@
+{
+  "pattern": "ṝ_feminine",
+  "target_count": 40,
+  "entries": [
+    {
+      "lemma": "nīḍṝ",
+      "pattern": "ṝ_feminine",
+      "gender": "feminine",
+      "gloss": "nest",
+      "source": "Whitney §376; MW"
+    }
+  ],
+  "attested_count": 1,
+  "shortfall_note": "Long-ṝ feminines are exceedingly rare; only nīḍṝ is securely attested in the standard grammars and lexicons surveyed (Whitney, Macdonell, MW)."
+}

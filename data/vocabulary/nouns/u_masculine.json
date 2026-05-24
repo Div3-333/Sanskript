@@ -1,0 +1,706 @@
+{
+  "pattern": "u_masculine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "abhimanyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Abhimanyu",
+      "source": "MW"
+    },
+    {
+      "lemma": "abhīśu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "rein, driver",
+      "source": "MW"
+    },
+    {
+      "lemma": "adhvaryu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Vedic priest",
+      "source": "MW"
+    },
+    {
+      "lemma": "agaru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "aloe wood",
+      "source": "MW"
+    },
+    {
+      "lemma": "aktu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "night, day",
+      "source": "MW"
+    },
+    {
+      "lemma": "alābu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "gourd",
+      "source": "MW"
+    },
+    {
+      "lemma": "amaru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Amaru, god of love",
+      "source": "MW"
+    },
+    {
+      "lemma": "anu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "atom, molecule",
+      "source": "MW"
+    },
+    {
+      "lemma": "argu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Argu",
+      "source": "MW"
+    },
+    {
+      "lemma": "asu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "life breath",
+      "source": "MW"
+    },
+    {
+      "lemma": "ayu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "life, lifespan",
+      "source": "MW"
+    },
+    {
+      "lemma": "aṃhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "day (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "aṃśu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "ray, stalk",
+      "source": "MW"
+    },
+    {
+      "lemma": "aṅgu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "limb",
+      "source": "MW"
+    },
+    {
+      "lemma": "aṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "atom, minute",
+      "source": "MW"
+    },
+    {
+      "lemma": "babhru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "brown, baboon",
+      "source": "MW"
+    },
+    {
+      "lemma": "bandhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "kinsman, friend",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhrāgu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Bhrāgu",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhujyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Bhujyu",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhānu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "sun, light",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhṛgu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Bhṛgu, sage",
+      "source": "MW"
+    },
+    {
+      "lemma": "bāhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "arm",
+      "source": "MW"
+    },
+    {
+      "lemma": "caṣu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "seer, spy",
+      "source": "MW"
+    },
+    {
+      "lemma": "cātu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "flatterer",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhanu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "bow",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhūmaketu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "smoke-bannered, comet",
+      "source": "MW"
+    },
+    {
+      "lemma": "dru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "wood",
+      "source": "MW"
+    },
+    {
+      "lemma": "dvigu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "compound numerals",
+      "source": "MW"
+    },
+    {
+      "lemma": "dyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "day, sky",
+      "source": "MW"
+    },
+    {
+      "lemma": "dānu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "demon, drop",
+      "source": "MW"
+    },
+    {
+      "lemma": "dāru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "wood, tree",
+      "source": "MW"
+    },
+    {
+      "lemma": "garu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "heavy (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "guru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "teacher",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "hanu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "jaw",
+      "source": "MW"
+    },
+    {
+      "lemma": "ibhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "servant",
+      "source": "MW"
+    },
+    {
+      "lemma": "indu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "moon",
+      "source": "MW"
+    },
+    {
+      "lemma": "iṣu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "arrow",
+      "source": "MW"
+    },
+    {
+      "lemma": "kambu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "conch",
+      "source": "MW"
+    },
+    {
+      "lemma": "karkāru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "potter",
+      "source": "MW"
+    },
+    {
+      "lemma": "ketu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "banner, comet",
+      "source": "MW"
+    },
+    {
+      "lemma": "krandanu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "howler",
+      "source": "MW"
+    },
+    {
+      "lemma": "kratu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "sacrifice, rite",
+      "source": "MW"
+    },
+    {
+      "lemma": "kratuyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "performer of rites",
+      "source": "MW"
+    },
+    {
+      "lemma": "kroṣṭu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Kroṣṭu, dog star",
+      "source": "MW"
+    },
+    {
+      "lemma": "krumu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Krumu river",
+      "source": "MW"
+    },
+    {
+      "lemma": "kuru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Kuru",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṛṣānu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "fire",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣapu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "night",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣayu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "abode",
+      "source": "MW"
+    },
+    {
+      "lemma": "laghu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "light, swift",
+      "source": "MW"
+    },
+    {
+      "lemma": "madgu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "water bird",
+      "source": "MW"
+    },
+    {
+      "lemma": "mantu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "counsel, adviser",
+      "source": "MW"
+    },
+    {
+      "lemma": "manu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Manu, man",
+      "source": "MW"
+    },
+    {
+      "lemma": "manyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "wrath, spirit",
+      "source": "MW"
+    },
+    {
+      "lemma": "maru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "desert",
+      "source": "MW"
+    },
+    {
+      "lemma": "meru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Meru mountain",
+      "source": "MW"
+    },
+    {
+      "lemma": "mṛtyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "death",
+      "source": "MW"
+    },
+    {
+      "lemma": "parjanyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "rain-cloud",
+      "source": "MW"
+    },
+    {
+      "lemma": "paśu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "cattle, beast",
+      "source": "MW"
+    },
+    {
+      "lemma": "pitu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "father (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "plu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "floater, swimmer",
+      "source": "MW"
+    },
+    {
+      "lemma": "prabhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "lord, master",
+      "source": "MW"
+    },
+    {
+      "lemma": "puru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "much, Puru",
+      "source": "MW"
+    },
+    {
+      "lemma": "pṛdāku",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "spotted serpent",
+      "source": "MW"
+    },
+    {
+      "lemma": "retu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "semen, flow",
+      "source": "MW"
+    },
+    {
+      "lemma": "rāhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Rāhu, eclipse demon",
+      "source": "MW"
+    },
+    {
+      "lemma": "setu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "bridge, dam",
+      "source": "MW"
+    },
+    {
+      "lemma": "sindhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "river, Indus",
+      "source": "MW"
+    },
+    {
+      "lemma": "staru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "stake, post",
+      "source": "MW"
+    },
+    {
+      "lemma": "sthāvu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "firm, stable",
+      "source": "MW"
+    },
+    {
+      "lemma": "sthāṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "post, Śiva",
+      "source": "MW"
+    },
+    {
+      "lemma": "stāyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "standing one",
+      "source": "MW"
+    },
+    {
+      "lemma": "supāṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "with beautiful hands",
+      "source": "MW"
+    },
+    {
+      "lemma": "svaru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "bright, sun",
+      "source": "MW"
+    },
+    {
+      "lemma": "svādu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "sweet, pleasant",
+      "source": "MW"
+    },
+    {
+      "lemma": "sādhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "saint",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "sānu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "peak, ridge",
+      "source": "MW"
+    },
+    {
+      "lemma": "sūnu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "son",
+      "source": "MW"
+    },
+    {
+      "lemma": "tantu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "thread, cord",
+      "source": "MW"
+    },
+    {
+      "lemma": "tanu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "body, self",
+      "source": "MW"
+    },
+    {
+      "lemma": "tayu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "approacher",
+      "source": "MW"
+    },
+    {
+      "lemma": "trapu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "tin",
+      "source": "MW"
+    },
+    {
+      "lemma": "tsaru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Vedic name",
+      "source": "MW"
+    },
+    {
+      "lemma": "turvaśu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Turvaśa",
+      "source": "MW"
+    },
+    {
+      "lemma": "tālu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "palate",
+      "source": "MW"
+    },
+    {
+      "lemma": "vagnu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Vedic name",
+      "source": "MW"
+    },
+    {
+      "lemma": "valgu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "handsome",
+      "source": "MW"
+    },
+    {
+      "lemma": "vibhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "all-pervading",
+      "source": "MW"
+    },
+    {
+      "lemma": "vidhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "moon, lover",
+      "source": "MW"
+    },
+    {
+      "lemma": "viṣṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Viṣṇu",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "wind (u-stem)",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "vīḍu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "space, leisure",
+      "source": "MW"
+    },
+    {
+      "lemma": "vīṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "wise man",
+      "source": "MW"
+    },
+    {
+      "lemma": "vṛṣṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Vṛṣṇi",
+      "source": "MW"
+    },
+    {
+      "lemma": "yadu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Yadu",
+      "source": "MW"
+    },
+    {
+      "lemma": "āyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "life, lifespan",
+      "source": "MW"
+    },
+    {
+      "lemma": "śambhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "Śambhu, Śiva",
+      "source": "MW"
+    },
+    {
+      "lemma": "śatru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "enemy",
+      "source": "MW"
+    },
+    {
+      "lemma": "ṛtu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "season",
+      "source": "MW"
+    },
+    {
+      "lemma": "ṣaṇu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "six",
+      "source": "MW"
+    }
+  ]
+}

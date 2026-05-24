@@ -1,0 +1,706 @@
+{
+  "pattern": "i_feminine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "abhibhūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "overcoming, subjugation",
+      "source": "MW"
+    },
+    {
+      "lemma": "abhimati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "hostile intent",
+      "source": "MW"
+    },
+    {
+      "lemma": "abhirati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "devotion, attachment",
+      "source": "MW"
+    },
+    {
+      "lemma": "aditi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "Aditi, freedom",
+      "source": "MW"
+    },
+    {
+      "lemma": "anubhūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "perception, experience",
+      "source": "MW"
+    },
+    {
+      "lemma": "anuciti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "custom, usage",
+      "source": "MW"
+    },
+    {
+      "lemma": "anumati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "permission, assent",
+      "source": "MW"
+    },
+    {
+      "lemma": "anurati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "following love",
+      "source": "MW"
+    },
+    {
+      "lemma": "arthiti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "request, desire",
+      "source": "MW"
+    },
+    {
+      "lemma": "aviti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "help, protection",
+      "source": "MW"
+    },
+    {
+      "lemma": "aśri",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "corner, edge",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhakti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "devotion, attachment",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhūmi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "earth, ground, soil",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "being, welfare",
+      "source": "MW"
+    },
+    {
+      "lemma": "buddhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "intellect",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "citi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "thought, funeral pile",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "thought, prayer",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhvasti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "destruction, loss",
+      "source": "MW"
+    },
+    {
+      "lemma": "dhṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "firmness, fortitude",
+      "source": "MW"
+    },
+    {
+      "lemma": "durbuddhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "bad intellect",
+      "source": "MW"
+    },
+    {
+      "lemma": "durmati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "bad counsel",
+      "source": "MW"
+    },
+    {
+      "lemma": "dyuti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "splendor, brightness",
+      "source": "MW"
+    },
+    {
+      "lemma": "dṛṣṭi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "sight, view, vision",
+      "source": "MW"
+    },
+    {
+      "lemma": "gati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "going, course, fate",
+      "source": "MW"
+    },
+    {
+      "lemma": "janani",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "mother",
+      "source": "MW"
+    },
+    {
+      "lemma": "jyoti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "light, brightness",
+      "source": "MW"
+    },
+    {
+      "lemma": "jāti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "birth, caste, kind",
+      "source": "MW"
+    },
+    {
+      "lemma": "kaci",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "mucus, phlegm",
+      "source": "MW"
+    },
+    {
+      "lemma": "kaṭi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "hip, waist",
+      "source": "MW"
+    },
+    {
+      "lemma": "kukṣi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "belly, womb",
+      "source": "MW"
+    },
+    {
+      "lemma": "kumati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "bad intention",
+      "source": "MW"
+    },
+    {
+      "lemma": "kānti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "loveliness, beauty",
+      "source": "MW"
+    },
+    {
+      "lemma": "kīrti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "fame, glory",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "creation, action",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "injury, loss",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣiti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "earth, abode",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣudhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "hunger",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṣānti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "patience, forbearance",
+      "source": "MW"
+    },
+    {
+      "lemma": "mahāmati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "great mind",
+      "source": "MW"
+    },
+    {
+      "lemma": "mati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "thought, mind, opinion",
+      "source": "MW"
+    },
+    {
+      "lemma": "miti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "measure, scale",
+      "source": "MW"
+    },
+    {
+      "lemma": "mukti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "liberation, release",
+      "source": "MW"
+    },
+    {
+      "lemma": "nandini",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "daughter, joyful woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "nivṛtti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "desisting, cessation",
+      "source": "MW"
+    },
+    {
+      "lemma": "nīti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "conduct, policy, ethics",
+      "source": "MW"
+    },
+    {
+      "lemma": "pari",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "mystic verse (Vedic)",
+      "source": "MW"
+    },
+    {
+      "lemma": "pariśiṣṭi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "remainder, supplement",
+      "source": "MW"
+    },
+    {
+      "lemma": "pariṇati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "transformation, change",
+      "source": "MW"
+    },
+    {
+      "lemma": "patni",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "wife, mistress",
+      "source": "MW"
+    },
+    {
+      "lemma": "prakṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "origin, nature",
+      "source": "MW"
+    },
+    {
+      "lemma": "prasūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "procreation, offspring",
+      "source": "MW"
+    },
+    {
+      "lemma": "prasṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "flowing forth",
+      "source": "MW"
+    },
+    {
+      "lemma": "pratibhūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "manifestation, overcoming",
+      "source": "MW"
+    },
+    {
+      "lemma": "pratīti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "belief, conviction",
+      "source": "MW"
+    },
+    {
+      "lemma": "pravṛtti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "activity, proceeding",
+      "source": "MW"
+    },
+    {
+      "lemma": "preṣiti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "sending, mission",
+      "source": "MW"
+    },
+    {
+      "lemma": "prīti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "love, kindness, joy",
+      "source": "MW"
+    },
+    {
+      "lemma": "rati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "pleasure, love, sexual passion",
+      "source": "MW"
+    },
+    {
+      "lemma": "revati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "Revati, wealthy",
+      "source": "MW"
+    },
+    {
+      "lemma": "rohiṇi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "Rohiṇī, red cow",
+      "source": "MW"
+    },
+    {
+      "lemma": "ruci",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "splendor, taste, appetite",
+      "source": "MW"
+    },
+    {
+      "lemma": "rātri",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "night",
+      "source": "MW"
+    },
+    {
+      "lemma": "samiti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "assembly, meeting",
+      "source": "MW"
+    },
+    {
+      "lemma": "samādhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "meditation, concentration",
+      "source": "MW"
+    },
+    {
+      "lemma": "samāpti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "completion, end",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃbandhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "connection, relation",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃgati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "meeting, union",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃhati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "union, bundle",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃnati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "obsequiousness, bowing",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃnidhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "presence, proximity",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃnipāti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "coincidence, contact",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃskṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "refinement, culture",
+      "source": "MW"
+    },
+    {
+      "lemma": "saṃvṛtti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "inclusion, covering",
+      "source": "MW"
+    },
+    {
+      "lemma": "siddhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "accomplishment, perfection",
+      "source": "MW"
+    },
+    {
+      "lemma": "smiti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "smile",
+      "source": "MW"
+    },
+    {
+      "lemma": "smṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "memory, tradition, Smṛti",
+      "source": "MW"
+    },
+    {
+      "lemma": "sphāti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "swelling, increase",
+      "source": "MW"
+    },
+    {
+      "lemma": "sphīti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "prosperity, growth",
+      "source": "MW"
+    },
+    {
+      "lemma": "sphūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "pulsation, throbbing",
+      "source": "MW"
+    },
+    {
+      "lemma": "sthiti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "standing, situation, state",
+      "source": "MW"
+    },
+    {
+      "lemma": "stuti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "praise, hymn",
+      "source": "MW"
+    },
+    {
+      "lemma": "subuddhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "good intellect",
+      "source": "MW"
+    },
+    {
+      "lemma": "sumati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "good counsel",
+      "source": "MW"
+    },
+    {
+      "lemma": "svasri",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "sister",
+      "source": "MW"
+    },
+    {
+      "lemma": "sāvitri",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "Savitri, sacred verse",
+      "source": "MW"
+    },
+    {
+      "lemma": "tṛpti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "satisfaction, contentment",
+      "source": "MW"
+    },
+    {
+      "lemma": "tṛṣi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "thirst",
+      "source": "MW"
+    },
+    {
+      "lemma": "upatti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "attainment, origin",
+      "source": "MW"
+    },
+    {
+      "lemma": "utpatti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "production, birth",
+      "source": "MW"
+    },
+    {
+      "lemma": "utti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "floating, rising",
+      "source": "MW"
+    },
+    {
+      "lemma": "vasati",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "abode, dwelling",
+      "source": "MW"
+    },
+    {
+      "lemma": "vikṛti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "modification, change",
+      "source": "MW"
+    },
+    {
+      "lemma": "vyāpti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "pervasion, extent",
+      "source": "MW"
+    },
+    {
+      "lemma": "vṛtti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "mode of life, activity",
+      "source": "MW"
+    },
+    {
+      "lemma": "yukti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "union, fitness, reasoning",
+      "source": "MW"
+    },
+    {
+      "lemma": "śakti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "power",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "śruti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "hearing, sacred text, Veda",
+      "source": "MW"
+    },
+    {
+      "lemma": "śuddhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "purification, purity",
+      "source": "MW"
+    },
+    {
+      "lemma": "śānti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "peace, calm",
+      "source": "MW"
+    },
+    {
+      "lemma": "śūti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "delivery, birth",
+      "source": "MW"
+    }
+  ]
+}

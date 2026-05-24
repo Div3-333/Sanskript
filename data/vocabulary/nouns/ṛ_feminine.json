@@ -1,0 +1,36 @@
+{
+  "pattern": "ṛ_feminine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "dhītṛ",
+      "pattern": "ṛ_feminine",
+      "gender": "feminine",
+      "gloss": "daughter (Vedic)",
+      "source": "Whitney §137; MW"
+    },
+    {
+      "lemma": "duhitṛ",
+      "pattern": "ṛ_feminine",
+      "gender": "feminine",
+      "gloss": "daughter",
+      "source": "Whitney §137; MW"
+    },
+    {
+      "lemma": "mātṛ",
+      "pattern": "ṛ_feminine",
+      "gender": "feminine",
+      "gloss": "mother",
+      "source": "Whitney §137; Macdonell §109; MW"
+    },
+    {
+      "lemma": "svasṛ",
+      "pattern": "ṛ_feminine",
+      "gender": "feminine",
+      "gloss": "sister",
+      "source": "Whitney §137; Macdonell §109; MW"
+    }
+  ],
+  "attested_count": 4,
+  "shortfall_note": "Feminine ṛ-stems are essentially kinship terms (mātṛ, svasṛ, duhitṛ/dhītṛ); Sanskrit regularly forms feminine agents in -trī rather than -tṛ. No further attested feminine ṛ-stems were found in MW, Macdonell, or Whitney."
+}

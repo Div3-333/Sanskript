@@ -1,0 +1,202 @@
+{
+  "pattern": "u_neuter",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "ambu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "water",
+      "source": "MW"
+    },
+    {
+      "lemma": "asru",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "tear",
+      "source": "MW"
+    },
+    {
+      "lemma": "bahu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "muchness, abundance",
+      "source": "MW"
+    },
+    {
+      "lemma": "bindu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "drop, dot",
+      "source": "MW"
+    },
+    {
+      "lemma": "cakṣu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "eye",
+      "source": "MW"
+    },
+    {
+      "lemma": "caru",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "oblation",
+      "source": "MW"
+    },
+    {
+      "lemma": "dānu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "drop (neuter)",
+      "source": "MW"
+    },
+    {
+      "lemma": "dātu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "gift, part",
+      "source": "MW"
+    },
+    {
+      "lemma": "guru",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "heaviness",
+      "source": "MW"
+    },
+    {
+      "lemma": "karu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "pool, pond",
+      "source": "MW"
+    },
+    {
+      "lemma": "kṛṣṇu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "blackness",
+      "source": "MW"
+    },
+    {
+      "lemma": "laghu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "lightness",
+      "source": "MW"
+    },
+    {
+      "lemma": "madhu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "honey",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "mastu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "whey, skim",
+      "source": "MW"
+    },
+    {
+      "lemma": "mṛdu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "softness",
+      "source": "MW"
+    },
+    {
+      "lemma": "paru",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "cave, cavern",
+      "source": "MW"
+    },
+    {
+      "lemma": "phālu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "fruit",
+      "source": "MW"
+    },
+    {
+      "lemma": "pṛthu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "breadth, extent",
+      "source": "MW"
+    },
+    {
+      "lemma": "saru",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "lake",
+      "source": "MW"
+    },
+    {
+      "lemma": "svādu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "sweetness",
+      "source": "MW"
+    },
+    {
+      "lemma": "sādhu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "the good (neuter)",
+      "source": "MW"
+    },
+    {
+      "lemma": "tanu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "body (neuter)",
+      "source": "MW"
+    },
+    {
+      "lemma": "tīkṣṇu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "sharpness",
+      "source": "MW"
+    },
+    {
+      "lemma": "valgu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "beauty, loveliness",
+      "source": "MW"
+    },
+    {
+      "lemma": "vastu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "thing, property",
+      "source": "MW"
+    },
+    {
+      "lemma": "vasu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "wealth, good",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāstu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "dwelling, site",
+      "source": "MW"
+    },
+    {
+      "lemma": "ṛju",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "straightness",
+      "source": "MW"
+    }
+  ]
+}

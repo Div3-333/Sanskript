@@ -1,0 +1,2747 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "lemma": "aj",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ajati",
+      "gloss": "drive",
+      "markers": [],
+      "source": "Dhatupatha 1.28"
+    },
+    {
+      "lemma": "anu-gam",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "anugacchati",
+      "gloss": "follow",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "anu-vad",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "anuvadati",
+      "gloss": "repeat",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "arc",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "arcati",
+      "gloss": "honor, worship",
+      "markers": [],
+      "source": "Dhatupatha 1.24"
+    },
+    {
+      "lemma": "av",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "unoti",
+      "gloss": "favor, protect",
+      "markers": [],
+      "source": "Dhatupatha 1.684"
+    },
+    {
+      "lemma": "avatṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "avatīrṇa",
+      "gloss": "descend",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "bhaj",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "bhaja",
+      "gloss": "serve, divide",
+      "markers": [],
+      "source": "Dhatupatha 1.38"
+    },
+    {
+      "lemma": "bhās",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "bhāsate",
+      "gloss": "shine",
+      "markers": [],
+      "source": "Dhatupatha 1.57"
+    },
+    {
+      "lemma": "bhū",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "bhava",
+      "gloss": "become, be",
+      "markers": [],
+      "source": "Dhatupatha 1.1"
+    },
+    {
+      "lemma": "bhūṣ",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "bhūṣate",
+      "gloss": "adorn",
+      "markers": [],
+      "source": "Dhatupatha 1.82"
+    },
+    {
+      "lemma": "bodh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "bodhati",
+      "gloss": "awaken",
+      "markers": [],
+      "source": "Dhatupatha 1.33"
+    },
+    {
+      "lemma": "budh",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "budhyate",
+      "gloss": "awaken, know",
+      "markers": [],
+      "source": "Dhatupatha 1.58"
+    },
+    {
+      "lemma": "bādh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "bādhate",
+      "gloss": "press, harass",
+      "markers": [],
+      "source": "Dhatupatha 1.84"
+    },
+    {
+      "lemma": "cal",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "cala",
+      "gloss": "move, shake",
+      "markers": [],
+      "source": "Dhatupatha 1.7"
+    },
+    {
+      "lemma": "car",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "cara",
+      "gloss": "move, wander",
+      "markers": [],
+      "source": "Dhatupatha 1.6"
+    },
+    {
+      "lemma": "carc",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "carcati",
+      "gloss": "investigate",
+      "markers": [],
+      "source": "Dhatupatha 1.814"
+    },
+    {
+      "lemma": "caya",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "cayati",
+      "gloss": "collect",
+      "markers": [],
+      "source": "Dhatupatha 1.550"
+    },
+    {
+      "lemma": "cyu",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "cyavate",
+      "gloss": "fall, move",
+      "markers": [],
+      "source": "Dhatupatha 1.59"
+    },
+    {
+      "lemma": "dhāv",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "dhāvati",
+      "gloss": "run",
+      "markers": [],
+      "source": "Dhatupatha 1.48"
+    },
+    {
+      "lemma": "dru",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "dravati",
+      "gloss": "run, melt",
+      "markers": [],
+      "source": "Dhatupatha 1.1095"
+    },
+    {
+      "lemma": "duh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "dugdhi",
+      "gloss": "milk",
+      "markers": [],
+      "source": "Dhatupatha 1.839"
+    },
+    {
+      "lemma": "dṛh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "dṛhṇāti",
+      "gloss": "make firm",
+      "markers": [],
+      "source": "Dhatupatha 1.834"
+    },
+    {
+      "lemma": "dṛś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "paśya",
+      "gloss": "see",
+      "markers": [],
+      "source": "Dhatupatha 1.62"
+    },
+    {
+      "lemma": "edh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "edhate",
+      "gloss": "grow, prosper",
+      "markers": [],
+      "source": "Dhatupatha 1.77"
+    },
+    {
+      "lemma": "gai",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "gāyati",
+      "gloss": "sing",
+      "markers": [],
+      "source": "Dhatupatha 1.25"
+    },
+    {
+      "lemma": "gam",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "gaccha",
+      "gloss": "go",
+      "markers": [],
+      "source": "Dhatupatha 1.2"
+    },
+    {
+      "lemma": "han",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "hanta",
+      "gloss": "strike, kill",
+      "markers": [],
+      "source": "Dhatupatha 1.14"
+    },
+    {
+      "lemma": "i",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ehi",
+      "gloss": "go",
+      "markers": [],
+      "source": "Dhatupatha 1.3"
+    },
+    {
+      "lemma": "icch",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "iccha",
+      "gloss": "desire",
+      "markers": [],
+      "source": "Dhatupatha 1.41"
+    },
+    {
+      "lemma": "iṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "icchati",
+      "gloss": "desire",
+      "markers": [],
+      "source": "Dhatupatha 1.65"
+    },
+    {
+      "lemma": "jan",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "janaya",
+      "gloss": "produce, beget",
+      "markers": [],
+      "source": "Dhatupatha 1.37"
+    },
+    {
+      "lemma": "jay",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "jayati",
+      "gloss": "conquer",
+      "markers": [],
+      "source": "Dhatupatha 1.49"
+    },
+    {
+      "lemma": "ji",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "jaya",
+      "gloss": "conquer",
+      "markers": [],
+      "source": "Dhatupatha 1.13"
+    },
+    {
+      "lemma": "jīv",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "jīva",
+      "gloss": "live",
+      "markers": [],
+      "source": "Dhatupatha 1.35"
+    },
+    {
+      "lemma": "khan",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "khanati",
+      "gloss": "dig",
+      "markers": [],
+      "source": "Dhatupatha 1.30"
+    },
+    {
+      "lemma": "khād",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "khādati",
+      "gloss": "chew, eat",
+      "markers": [],
+      "source": "Dhatupatha 1.40"
+    },
+    {
+      "lemma": "kram",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "kramati",
+      "gloss": "stride, ascend",
+      "markers": [],
+      "source": "Dhatupatha 1.21"
+    },
+    {
+      "lemma": "kṛ",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "kurute",
+      "gloss": "do, make",
+      "markers": [
+        "ñ"
+      ],
+      "source": "Dhatupatha 1.52"
+    },
+    {
+      "lemma": "kṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "kuru",
+      "gloss": "do, make",
+      "markers": [
+        "ñ"
+      ],
+      "source": "Dhatupatha 1.52"
+    },
+    {
+      "lemma": "kṛṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "karṣati",
+      "gloss": "plow, draw",
+      "markers": [],
+      "source": "Dhatupatha 1.39"
+    },
+    {
+      "lemma": "kṣal",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "kṣalati",
+      "gloss": "wash",
+      "markers": [],
+      "source": "Dhatupatha 1.47"
+    },
+    {
+      "lemma": "kṣar",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "kṣarati",
+      "gloss": "flow",
+      "markers": [],
+      "source": "Dhatupatha 1.23"
+    },
+    {
+      "lemma": "kṣi",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "kṣiṇoti",
+      "gloss": "waste, destroy",
+      "markers": [],
+      "source": "Dhatupatha 1.78"
+    },
+    {
+      "lemma": "kṣip",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "kṣipa",
+      "gloss": "throw",
+      "markers": [],
+      "source": "Dhatupatha 1.17"
+    },
+    {
+      "lemma": "kṣubh",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "kṣubhyati",
+      "gloss": "be agitated",
+      "markers": [],
+      "source": "Dhatupatha 1.60"
+    },
+    {
+      "lemma": "labh",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "labhate",
+      "gloss": "obtain",
+      "markers": [
+        "ṅ"
+      ],
+      "source": "Dhatupatha 1.53"
+    },
+    {
+      "lemma": "likh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "likha",
+      "gloss": "write",
+      "markers": [],
+      "source": "Dhatupatha 1.9"
+    },
+    {
+      "lemma": "luṭ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "luṭati",
+      "gloss": "plunder",
+      "markers": [],
+      "source": "Dhatupatha 1.73"
+    },
+    {
+      "lemma": "luṭh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "luṇṭhati",
+      "gloss": "roll, rob",
+      "markers": [],
+      "source": "Dhatupatha 1.72"
+    },
+    {
+      "lemma": "mṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "mara",
+      "gloss": "die",
+      "markers": [],
+      "source": "Dhatupatha 1.36"
+    },
+    {
+      "lemma": "mṛd",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "mṛdnāti",
+      "gloss": "crush, rub",
+      "markers": [],
+      "source": "Dhatupatha 1.68"
+    },
+    {
+      "lemma": "mṛj",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "mṛja",
+      "gloss": "wipe, cleanse",
+      "markers": [],
+      "source": "Dhatupatha 1.19"
+    },
+    {
+      "lemma": "ni",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "nayati",
+      "gloss": "lead",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ni-dhā",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "nidadhāti",
+      "gloss": "deposit",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ni-hṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "niharati",
+      "gloss": "remove",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ni-vad",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "nivadati",
+      "gloss": "blame",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "nidhā",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "nidadhā",
+      "gloss": "deposit",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "niśam",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "niśamya",
+      "gloss": "hear",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "nī",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "naya",
+      "gloss": "lead",
+      "markers": [],
+      "source": "Dhatupatha 1.32"
+    },
+    {
+      "lemma": "nṛt",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "nṛtyati",
+      "gloss": "dance",
+      "markers": [],
+      "source": "Dhatupatha 1.26"
+    },
+    {
+      "lemma": "pac",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "paca",
+      "gloss": "cook",
+      "markers": [],
+      "source": "Dhatupatha 1.5"
+    },
+    {
+      "lemma": "pad",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "padati",
+      "gloss": "go, fall",
+      "markers": [],
+      "source": "Dhatupatha 1.22"
+    },
+    {
+      "lemma": "parā-ji",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "parājayati",
+      "gloss": "defeat",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "pat",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "patati",
+      "gloss": "fall, fly",
+      "markers": [],
+      "source": "Dhatupatha 1.45"
+    },
+    {
+      "lemma": "paś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "paśya",
+      "gloss": "see",
+      "markers": [],
+      "source": "Dhatupatha 1.61"
+    },
+    {
+      "lemma": "paṭh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "paṭha",
+      "gloss": "read",
+      "markers": [],
+      "source": "Dhatupatha 1.10"
+    },
+    {
+      "lemma": "phal",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "phalati",
+      "gloss": "bear fruit",
+      "markers": [],
+      "source": "Dhatupatha 1.83"
+    },
+    {
+      "lemma": "plu",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "plava",
+      "gloss": "float, swim",
+      "markers": [],
+      "source": "Dhatupatha 1.18"
+    },
+    {
+      "lemma": "pra-vad",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "pravadati",
+      "gloss": "proclaim",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "pracch",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "pṛccha",
+      "gloss": "ask",
+      "markers": [],
+      "source": "Dhatupatha 1.63"
+    },
+    {
+      "lemma": "pā",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "pāhi",
+      "gloss": "protect, drink",
+      "markers": [],
+      "source": "Dhatupatha 1.12"
+    },
+    {
+      "lemma": "pū",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "pūta",
+      "gloss": "purify",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "pṛch",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "pṛccha",
+      "gloss": "ask",
+      "markers": [],
+      "source": "Dhatupatha 1.64"
+    },
+    {
+      "lemma": "rakṣ",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "rakṣate",
+      "gloss": "protect",
+      "markers": [],
+      "source": "Dhatupatha 1.100"
+    },
+    {
+      "lemma": "rakṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "rakṣa",
+      "gloss": "protect",
+      "markers": [],
+      "source": "Dhatupatha 1.11"
+    },
+    {
+      "lemma": "ram",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "ramate",
+      "gloss": "enjoy",
+      "markers": [],
+      "source": "Dhatupatha 1.54"
+    },
+    {
+      "lemma": "ru",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ravati",
+      "gloss": "roar, cry",
+      "markers": [],
+      "source": "Dhatupatha 1.27"
+    },
+    {
+      "lemma": "ruc",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "rocate",
+      "gloss": "shine, please",
+      "markers": [],
+      "source": "Dhatupatha 1.55"
+    },
+    {
+      "lemma": "ruc",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "rocati",
+      "gloss": "shine",
+      "markers": [],
+      "source": "Dhatupatha 1.99"
+    },
+    {
+      "lemma": "sah",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "sahate",
+      "gloss": "endure",
+      "markers": [],
+      "source": "Dhatupatha 1.56"
+    },
+    {
+      "lemma": "sam-dhā",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "sandadhatte",
+      "gloss": "join",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "sam-vad",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "samvadate",
+      "gloss": "converse",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "sarp",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "sarati",
+      "gloss": "creep, go",
+      "markers": [],
+      "source": "Dhatupatha 1.46"
+    },
+    {
+      "lemma": "skabh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "skabhnāti",
+      "gloss": "prop, support",
+      "markers": [],
+      "source": "Dhatupatha 1.89"
+    },
+    {
+      "lemma": "skand",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "skandati",
+      "gloss": "leap, mount",
+      "markers": [],
+      "source": "Dhatupatha 1.88"
+    },
+    {
+      "lemma": "smṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "smara",
+      "gloss": "remember",
+      "markers": [],
+      "source": "Dhatupatha 1.34"
+    },
+    {
+      "lemma": "sphur",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "sphurati",
+      "gloss": "quiver, flash",
+      "markers": [],
+      "source": "Dhatupatha 1.74"
+    },
+    {
+      "lemma": "sphuṭ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "sphuṭati",
+      "gloss": "burst open",
+      "markers": [],
+      "source": "Dhatupatha 1.76"
+    },
+    {
+      "lemma": "sphā",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "sphāyate",
+      "gloss": "expand",
+      "markers": [],
+      "source": "Dhatupatha 1.75"
+    },
+    {
+      "lemma": "spṛh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "spṛhati",
+      "gloss": "desire",
+      "markers": [],
+      "source": "Dhatupatha 1.79"
+    },
+    {
+      "lemma": "spṛś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "spṛśa",
+      "gloss": "touch",
+      "markers": [],
+      "source": "Dhatupatha 1.16"
+    },
+    {
+      "lemma": "stab",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "stabhnāti",
+      "gloss": "fix, establish",
+      "markers": [],
+      "source": "Dhatupatha 1.90"
+    },
+    {
+      "lemma": "stambh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "stambhate",
+      "gloss": "become stiff",
+      "markers": [],
+      "source": "Dhatupatha 1.91"
+    },
+    {
+      "lemma": "sthā",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tiṣṭha",
+      "gloss": "stand",
+      "markers": [],
+      "source": "Dhatupatha 1.4"
+    },
+    {
+      "lemma": "svan",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "svanati",
+      "gloss": "sound, roar",
+      "markers": [],
+      "source": "Dhatupatha 1.92"
+    },
+    {
+      "lemma": "svar",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "svarati",
+      "gloss": "sing",
+      "markers": [],
+      "source": "Dhatupatha 1.93"
+    },
+    {
+      "lemma": "syand",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "syandate",
+      "gloss": "flow, trickle",
+      "markers": [],
+      "source": "Dhatupatha 1.85"
+    },
+    {
+      "lemma": "tap",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tapati",
+      "gloss": "heat, practice austerities",
+      "markers": [],
+      "source": "Dhatupatha 1.20"
+    },
+    {
+      "lemma": "tar",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tṛṇoti",
+      "gloss": "cross",
+      "markers": [],
+      "source": "Dhatupatha 1.69"
+    },
+    {
+      "lemma": "tras",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "trasyate",
+      "gloss": "be frightened",
+      "markers": [],
+      "source": "Dhatupatha 1.96"
+    },
+    {
+      "lemma": "tras",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "trasati",
+      "gloss": "tremble",
+      "markers": [],
+      "source": "Dhatupatha 1.95"
+    },
+    {
+      "lemma": "tvar",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tvarati",
+      "gloss": "hasten",
+      "markers": [],
+      "source": "Dhatupatha 1.80"
+    },
+    {
+      "lemma": "tyaj",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tyaja",
+      "gloss": "abandon",
+      "markers": [],
+      "source": "Dhatupatha 1.15"
+    },
+    {
+      "lemma": "tṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tṛṇoti",
+      "gloss": "cross",
+      "markers": [],
+      "source": "Dhatupatha 1.94"
+    },
+    {
+      "lemma": "tṛp",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "tarpati",
+      "gloss": "satisfy",
+      "markers": [],
+      "source": "Dhatupatha 1.97"
+    },
+    {
+      "lemma": "ud-hṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "udharati",
+      "gloss": "deliver",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ud-viś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "udviśati",
+      "gloss": "enter",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ukṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ukṣati",
+      "gloss": "sprinkle",
+      "markers": [],
+      "source": "Dhatupatha 1.745"
+    },
+    {
+      "lemma": "upa-nī",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "upanayati",
+      "gloss": "lead near",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "upaviś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "upaviśati",
+      "gloss": "sit down",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "upā",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "upāgaccha",
+      "gloss": "approach",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "vad",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "vada",
+      "gloss": "speak",
+      "markers": [],
+      "source": "Dhatupatha 1.8"
+    },
+    {
+      "lemma": "vah",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "vaha",
+      "gloss": "carry",
+      "markers": [],
+      "source": "Dhatupatha 1.29"
+    },
+    {
+      "lemma": "vi-dhā",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "vidhatte",
+      "gloss": "arrange",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "vij",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "vijati",
+      "gloss": "win",
+      "markers": [],
+      "source": "Dhatupatha 1.42"
+    },
+    {
+      "lemma": "vraj",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "vraja",
+      "gloss": "walk, go",
+      "markers": [],
+      "source": "Dhatupatha 1.70"
+    },
+    {
+      "lemma": "vṛdh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "vardhaya",
+      "gloss": "increase",
+      "markers": [],
+      "source": "Dhatupatha 1.50"
+    },
+    {
+      "lemma": "yaj",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "yajati",
+      "gloss": "sacrifice",
+      "markers": [],
+      "source": "Dhatupatha 1.51"
+    },
+    {
+      "lemma": "yam",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "yacchati",
+      "gloss": "restrain, offer",
+      "markers": [],
+      "source": "Dhatupatha 1.31"
+    },
+    {
+      "lemma": "ā",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ā",
+      "gloss": "come",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ā-dhā",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "ādadhatte",
+      "gloss": "place on",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ā-hṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āharati",
+      "gloss": "bring",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ādiś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ādiśati",
+      "gloss": "command",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āgam",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āgaccha",
+      "gloss": "arrive",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āha",
+      "gloss": "say",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āhṛ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āhara",
+      "gloss": "bring",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āp",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āpnoti",
+      "gloss": "obtain",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ārabh",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "ārabhate",
+      "gloss": "begin",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ārambh",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "ārabhate",
+      "gloss": "begin",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āruh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āruhati",
+      "gloss": "ascend",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āś",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "āśa",
+      "gloss": "obtain",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "āśri",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "āśrayate",
+      "gloss": "take refuge",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "īh",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "īhate",
+      "gloss": "endeavor",
+      "markers": [],
+      "source": "Dhatupatha 1.81"
+    },
+    {
+      "lemma": "īkṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "īkṣa",
+      "gloss": "see",
+      "markers": [],
+      "source": "Dhatupatha 1.44"
+    },
+    {
+      "lemma": "śak",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śaknoti",
+      "gloss": "be able",
+      "markers": [],
+      "source": "Dhatupatha 1.71"
+    },
+    {
+      "lemma": "śay",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śete",
+      "gloss": "lie down",
+      "markers": [],
+      "source": "Dhatupatha 1.67"
+    },
+    {
+      "lemma": "śiṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śāsti",
+      "gloss": "teach",
+      "markers": [],
+      "source": "Dhatupatha 1.783"
+    },
+    {
+      "lemma": "śliṣ",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śliṣati",
+      "gloss": "embrace",
+      "markers": [],
+      "source": "Dhatupatha 1.87"
+    },
+    {
+      "lemma": "śram",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śramati",
+      "gloss": "toil",
+      "markers": [],
+      "source": "Dhatupatha 1.86"
+    },
+    {
+      "lemma": "śuc",
+      "gana": 1,
+      "pada": "atmanepada",
+      "present_stem": "śucyate",
+      "gloss": "be pure",
+      "markers": [],
+      "source": "Dhatupatha 1.98"
+    },
+    {
+      "lemma": "śuc",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śocati",
+      "gloss": "grieve, purify",
+      "markers": [],
+      "source": "Dhatupatha 1.43"
+    },
+    {
+      "lemma": "śās",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śāsti",
+      "gloss": "punish, teach",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "śī",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "śete",
+      "gloss": "lie, sleep",
+      "markers": [],
+      "source": "Dhatupatha 1.66"
+    },
+    {
+      "lemma": "ūh",
+      "gana": 1,
+      "pada": "parasmaipada",
+      "present_stem": "ūhati",
+      "gloss": "reason, infer",
+      "markers": [],
+      "source": "Dhatupatha 1.735"
+    },
+    {
+      "lemma": "ad",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "atti",
+      "gloss": "eat",
+      "markers": [],
+      "source": "Dhatupatha 2.1"
+    },
+    {
+      "lemma": "adhi",
+      "gana": 2,
+      "pada": "atmanepada",
+      "present_stem": "adhīte",
+      "gloss": "study",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "api",
+      "gana": 2,
+      "pada": "atmanepada",
+      "present_stem": "apnute",
+      "gloss": "reach, obtain",
+      "markers": [],
+      "source": "Dhatupatha 2.9"
+    },
+    {
+      "lemma": "as",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "asti",
+      "gloss": "be",
+      "markers": [],
+      "source": "Dhatupatha 2.60"
+    },
+    {
+      "lemma": "av",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "unoti",
+      "gloss": "favor, protect",
+      "markers": [],
+      "source": "Dhatupatha 2.8"
+    },
+    {
+      "lemma": "brū",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "brūhi",
+      "gloss": "speak",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "dih",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "dehī",
+      "gloss": "smear",
+      "markers": [],
+      "source": "Dhatupatha 2.5"
+    },
+    {
+      "lemma": "diś",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "diśati",
+      "gloss": "show, point",
+      "markers": [],
+      "source": "Dhatupatha 2.6"
+    },
+    {
+      "lemma": "duh",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "dugdhi",
+      "gloss": "milk",
+      "markers": [],
+      "source": "Dhatupatha 2.4"
+    },
+    {
+      "lemma": "dviṣ",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "dveṣṭi",
+      "gloss": "hate",
+      "markers": [],
+      "source": "Dhatupatha 2.3"
+    },
+    {
+      "lemma": "han",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "hanta",
+      "gloss": "strike, kill",
+      "markers": [],
+      "source": "Dhatupatha 2.2"
+    },
+    {
+      "lemma": "mā",
+      "gana": 2,
+      "pada": "atmanepada",
+      "present_stem": "mimīte",
+      "gloss": "measure",
+      "markers": [],
+      "source": "Dhatupatha 2.57"
+    },
+    {
+      "lemma": "mṛj",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "mṛja",
+      "gloss": "wipe, cleanse",
+      "markers": [],
+      "source": "Dhatupatha 2.61"
+    },
+    {
+      "lemma": "pib",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "piba",
+      "gloss": "drink",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "pā",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "pāhi",
+      "gloss": "protect, drink",
+      "markers": [],
+      "source": "Dhatupatha 2.51"
+    },
+    {
+      "lemma": "ru",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "ravati",
+      "gloss": "roar, cry",
+      "markers": [],
+      "source": "Dhatupatha 2.28"
+    },
+    {
+      "lemma": "snā",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "snāti",
+      "gloss": "bathe",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "stu",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "stauti",
+      "gloss": "praise",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ukṣ",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "ukṣati",
+      "gloss": "sprinkle",
+      "markers": [],
+      "source": "Dhatupatha 2.27"
+    },
+    {
+      "lemma": "vid",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "veda",
+      "gloss": "know",
+      "markers": [],
+      "source": "Dhatupatha 2.59"
+    },
+    {
+      "lemma": "āp",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "āpnoti",
+      "gloss": "obtain",
+      "markers": [],
+      "source": "Dhatupatha 2.10"
+    },
+    {
+      "lemma": "śvas",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "śvasiti",
+      "gloss": "breathe",
+      "markers": [],
+      "source": "Dhatupatha 2.64"
+    },
+    {
+      "lemma": "śās",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "śāsti",
+      "gloss": "punish, teach",
+      "markers": [],
+      "source": "Dhatupatha 2.70"
+    },
+    {
+      "lemma": "ūh",
+      "gana": 2,
+      "pada": "atmanepada",
+      "present_stem": "ūhyate",
+      "gloss": "be inferred",
+      "markers": [],
+      "source": "Dhatupatha 2.30"
+    },
+    {
+      "lemma": "ūh",
+      "gana": 2,
+      "pada": "parasmaipada",
+      "present_stem": "ūhati",
+      "gloss": "reason, infer",
+      "markers": [],
+      "source": "Dhatupatha 2.29"
+    },
+    {
+      "lemma": "bhī",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "bibheti",
+      "gloss": "fear",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "bhṛ",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "bibharti",
+      "gloss": "bear, carry",
+      "markers": [],
+      "source": "Dhatupatha 3.24"
+    },
+    {
+      "lemma": "dhu",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "dhunoti",
+      "gloss": "shake",
+      "markers": [],
+      "source": "Dhatupatha 3.7"
+    },
+    {
+      "lemma": "dhā",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "dhatta",
+      "gloss": "place",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "dhū",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "dhunoti",
+      "gloss": "shake, fumigate",
+      "markers": [],
+      "source": "Dhatupatha 3.8"
+    },
+    {
+      "lemma": "dā",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "dada",
+      "gloss": "give",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "gā",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "jigāti",
+      "gloss": "go",
+      "markers": [],
+      "source": "Dhatupatha 3.11"
+    },
+    {
+      "lemma": "hrī",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "jihrīyate",
+      "gloss": "be ashamed",
+      "markers": [],
+      "source": "Dhatupatha 3.3"
+    },
+    {
+      "lemma": "hu",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "juhoti",
+      "gloss": "offer oblation",
+      "markers": [],
+      "source": "Dhatupatha 3.1"
+    },
+    {
+      "lemma": "hā",
+      "gana": 3,
+      "pada": "atmanepada",
+      "present_stem": "jihīte",
+      "gloss": "leave",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "jan",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "janaya",
+      "gloss": "produce, beget",
+      "markers": [],
+      "source": "Dhatupatha 3.25"
+    },
+    {
+      "lemma": "ju",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "juhoti",
+      "gloss": "offer",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "pṛ",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "pṛṇāti",
+      "gloss": "fill",
+      "markers": [],
+      "source": "Dhatupatha 3.5"
+    },
+    {
+      "lemma": "vij",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "vijati",
+      "gloss": "win",
+      "markers": [],
+      "source": "Dhatupatha 3.13"
+    },
+    {
+      "lemma": "yā",
+      "gana": 3,
+      "pada": "parasmaipada",
+      "present_stem": "yāti",
+      "gloss": "go",
+      "markers": [],
+      "source": "Dhatupatha 3.14"
+    },
+    {
+      "lemma": "budh",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "budhyate",
+      "gloss": "awaken, know",
+      "markers": [],
+      "source": "Dhatupatha 4.68"
+    },
+    {
+      "lemma": "chāy",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "chāyate",
+      "gloss": "become still",
+      "markers": [],
+      "source": "Dhatupatha 4.13"
+    },
+    {
+      "lemma": "do",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "dyati",
+      "gloss": "cut",
+      "markers": [],
+      "source": "Dhatupatha 4.43"
+    },
+    {
+      "lemma": "dīp",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "dīpyate",
+      "gloss": "shine",
+      "markers": [],
+      "source": "Dhatupatha 4.45"
+    },
+    {
+      "lemma": "jan",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "janaya",
+      "gloss": "produce, beget",
+      "markers": [],
+      "source": "Dhatupatha 4.44"
+    },
+    {
+      "lemma": "jā",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "jāya",
+      "gloss": "be born",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "jṝ",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "jīryati",
+      "gloss": "grow old",
+      "markers": [],
+      "source": "Dhatupatha 4.14"
+    },
+    {
+      "lemma": "kṣip",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "kṣipa",
+      "gloss": "throw",
+      "markers": [],
+      "source": "Dhatupatha 4.15"
+    },
+    {
+      "lemma": "kṣubh",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "kṣubhyati",
+      "gloss": "be agitated",
+      "markers": [],
+      "source": "Dhatupatha 4.154"
+    },
+    {
+      "lemma": "lubh",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "lubhyati",
+      "gloss": "be greedy",
+      "markers": [],
+      "source": "Dhatupatha 4.153"
+    },
+    {
+      "lemma": "luṭ",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "luṭati",
+      "gloss": "plunder",
+      "markers": [],
+      "source": "Dhatupatha 4.133"
+    },
+    {
+      "lemma": "mā",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "mimīte",
+      "gloss": "measure",
+      "markers": [],
+      "source": "Dhatupatha 4.16"
+    },
+    {
+      "lemma": "mūrch",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "mūrchati",
+      "gloss": "faint",
+      "markers": [],
+      "source": "Dhatupatha 4.11"
+    },
+    {
+      "lemma": "nṛt",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "nṛtyati",
+      "gloss": "dance",
+      "markers": [],
+      "source": "Dhatupatha 4.10"
+    },
+    {
+      "lemma": "pad",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "padati",
+      "gloss": "go, fall",
+      "markers": [],
+      "source": "Dhatupatha 4.65"
+    },
+    {
+      "lemma": "sidh",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "siddhyati",
+      "gloss": "succeed",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "spand",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "spandate",
+      "gloss": "quiver",
+      "markers": [],
+      "source": "Dhatupatha 4.25"
+    },
+    {
+      "lemma": "tap",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "tapati",
+      "gloss": "heat, practice austerities",
+      "markers": [],
+      "source": "Dhatupatha 4.54"
+    },
+    {
+      "lemma": "tras",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "trasati",
+      "gloss": "tremble",
+      "markers": [],
+      "source": "Dhatupatha 4.11"
+    },
+    {
+      "lemma": "tṛp",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "tṛpyati",
+      "gloss": "be satisfied",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json; Dhatupatha 4.92"
+    },
+    {
+      "lemma": "tṛp",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "tarpati",
+      "gloss": "satisfy",
+      "markers": [],
+      "source": "Dhatupatha 4.92"
+    },
+    {
+      "lemma": "vyadh",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "vidhyati",
+      "gloss": "pierce",
+      "markers": [],
+      "source": "Dhatupatha 4.12"
+    },
+    {
+      "lemma": "yudh",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "yudhyate",
+      "gloss": "fight",
+      "markers": [],
+      "source": "Dhatupatha 4.69"
+    },
+    {
+      "lemma": "ās",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "āsa",
+      "gloss": "sit",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "śak",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "śaknoti",
+      "gloss": "be able",
+      "markers": [],
+      "source": "Dhatupatha 4.84"
+    },
+    {
+      "lemma": "śam",
+      "gana": 4,
+      "pada": "atmanepada",
+      "present_stem": "śāmyati",
+      "gloss": "be pacified",
+      "markers": [],
+      "source": "Dhatupatha 4.98"
+    },
+    {
+      "lemma": "śram",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "śramati",
+      "gloss": "toil",
+      "markers": [],
+      "source": "Dhatupatha 4.101"
+    },
+    {
+      "lemma": "śuṣ",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "śuṣyati",
+      "gloss": "dry",
+      "markers": [],
+      "source": "Dhatupatha 4.15"
+    },
+    {
+      "lemma": "śvas",
+      "gana": 4,
+      "pada": "parasmaipada",
+      "present_stem": "śvasiti",
+      "gloss": "breathe",
+      "markers": [],
+      "source": "Dhatupatha 4.24"
+    },
+    {
+      "lemma": "dhū",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "dhūnoti",
+      "gloss": "shake",
+      "markers": [],
+      "source": "Dhatupatha 5.8"
+    },
+    {
+      "lemma": "kṣi",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "kṣiṇoti",
+      "gloss": "waste, destroy",
+      "markers": [],
+      "source": "Dhatupatha 5.33"
+    },
+    {
+      "lemma": "lubh",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "lubhyati",
+      "gloss": "be greedy",
+      "markers": [],
+      "source": "Dhatupatha 5.12"
+    },
+    {
+      "lemma": "lī",
+      "gana": 5,
+      "pada": "atmanepada",
+      "present_stem": "līyate",
+      "gloss": "adhere",
+      "markers": [],
+      "source": "Dhatupatha 5.10"
+    },
+    {
+      "lemma": "lū",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "lunāti",
+      "gloss": "cut",
+      "markers": [],
+      "source": "Dhatupatha 5.11"
+    },
+    {
+      "lemma": "pṛ",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "pṛṇāti",
+      "gloss": "fill",
+      "markers": [],
+      "source": "Dhatupatha 5.13"
+    },
+    {
+      "lemma": "smṛ",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "smara",
+      "gloss": "remember",
+      "markers": [],
+      "source": "Dhatupatha 5.15"
+    },
+    {
+      "lemma": "u",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "unoti",
+      "gloss": "protect",
+      "markers": [],
+      "source": "Dhatupatha 5.6"
+    },
+    {
+      "lemma": "śru",
+      "gana": 5,
+      "pada": "parasmaipada",
+      "present_stem": "śṛṇu",
+      "gloss": "hear",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "bhid",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "bhindati",
+      "gloss": "split",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "cal",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "cala",
+      "gloss": "move, shake",
+      "markers": [],
+      "source": "Dhatupatha 6.83"
+    },
+    {
+      "lemma": "carc",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "carcati",
+      "gloss": "investigate",
+      "markers": [],
+      "source": "Dhatupatha 6.19"
+    },
+    {
+      "lemma": "chhid",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "chindati",
+      "gloss": "cut",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "chid",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "chindati",
+      "gloss": "cut",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "dhū",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "dhunoti",
+      "gloss": "shake, fumigate",
+      "markers": [],
+      "source": "Dhatupatha 6.133"
+    },
+    {
+      "lemma": "diś",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "diśati",
+      "gloss": "show, point",
+      "markers": [],
+      "source": "Dhatupatha 6.3"
+    },
+    {
+      "lemma": "dru",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "dravati",
+      "gloss": "run, melt",
+      "markers": [],
+      "source": "Dhatupatha 6.12"
+    },
+    {
+      "lemma": "dṛh",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "dṛhṇāti",
+      "gloss": "make firm",
+      "markers": [],
+      "source": "Dhatupatha 6.11"
+    },
+    {
+      "lemma": "iṣ",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "icchati",
+      "gloss": "desire",
+      "markers": [],
+      "source": "Dhatupatha 6.78"
+    },
+    {
+      "lemma": "kṛṣ",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "karṣati",
+      "gloss": "plow, draw",
+      "markers": [],
+      "source": "Dhatupatha 6.6"
+    },
+    {
+      "lemma": "kṣip",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "kṣipa",
+      "gloss": "throw",
+      "markers": [],
+      "source": "Dhatupatha 6.5"
+    },
+    {
+      "lemma": "likh",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "likha",
+      "gloss": "write",
+      "markers": [],
+      "source": "Dhatupatha 6.92"
+    },
+    {
+      "lemma": "lip",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "limpati",
+      "gloss": "smear",
+      "markers": [],
+      "source": "Dhatupatha 6.13"
+    },
+    {
+      "lemma": "lubh",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "lubhyati",
+      "gloss": "be greedy",
+      "markers": [],
+      "source": "Dhatupatha 6.25"
+    },
+    {
+      "lemma": "luṭ",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "luṭati",
+      "gloss": "plunder",
+      "markers": [],
+      "source": "Dhatupatha 6.109"
+    },
+    {
+      "lemma": "luṭh",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "luṇṭhati",
+      "gloss": "roll, rob",
+      "markers": [],
+      "source": "Dhatupatha 6.110"
+    },
+    {
+      "lemma": "muc",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "muñca",
+      "gloss": "release",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "sphuṭ",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "sphuṭati",
+      "gloss": "burst open",
+      "markers": [],
+      "source": "Dhatupatha 6.100"
+    },
+    {
+      "lemma": "spṛś",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "spṛśa",
+      "gloss": "touch",
+      "markers": [],
+      "source": "Dhatupatha 6.158"
+    },
+    {
+      "lemma": "sṛj",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "sṛjati",
+      "gloss": "create",
+      "markers": [],
+      "source": "Dhatupatha 6.150"
+    },
+    {
+      "lemma": "visṛj",
+      "gana": 6,
+      "pada": "parasmaipada",
+      "present_stem": "visṛjati",
+      "gloss": "release",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "bhuj",
+      "gana": 7,
+      "pada": "atmanepada",
+      "present_stem": "bhuñjate",
+      "gloss": "enjoy, eat",
+      "markers": [],
+      "source": "Dhatupatha 7.17"
+    },
+    {
+      "lemma": "bhuñj",
+      "gana": 7,
+      "pada": "atmanepada",
+      "present_stem": "bhuñjate",
+      "gloss": "eat",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "ric",
+      "gana": 7,
+      "pada": "parasmaipada",
+      "present_stem": "rinakti",
+      "gloss": "leave",
+      "markers": [],
+      "source": "Dhatupatha 7.5"
+    },
+    {
+      "lemma": "vic",
+      "gana": 7,
+      "pada": "parasmaipada",
+      "present_stem": "vinakti",
+      "gloss": "choose",
+      "markers": [],
+      "source": "Dhatupatha 7.6"
+    },
+    {
+      "lemma": "yuj",
+      "gana": 7,
+      "pada": "parasmaipada",
+      "present_stem": "yunakti",
+      "gloss": "yoke, join",
+      "markers": [],
+      "source": "Dhatupatha 7.7"
+    },
+    {
+      "lemma": "do",
+      "gana": 8,
+      "pada": "parasmaipada",
+      "present_stem": "dyati",
+      "gloss": "cut",
+      "markers": [],
+      "source": "Dhatupatha 8.7"
+    },
+    {
+      "lemma": "gṛ",
+      "gana": 8,
+      "pada": "parasmaipada",
+      "present_stem": "gṛhṇāti",
+      "gloss": "seize",
+      "markers": [],
+      "source": "Dhatupatha 8.5"
+    },
+    {
+      "lemma": "man",
+      "gana": 8,
+      "pada": "atmanepada",
+      "present_stem": "manyate",
+      "gloss": "think",
+      "markers": [],
+      "source": "Dhatupatha 8.9"
+    },
+    {
+      "lemma": "bandh",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "badhna",
+      "gloss": "bind",
+      "markers": [],
+      "source": "Dhatupatha 9.44"
+    },
+    {
+      "lemma": "dī",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "dināti",
+      "gloss": "cut",
+      "markers": [],
+      "source": "Dhatupatha 9.11"
+    },
+    {
+      "lemma": "dṛ",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "dṛṇāti",
+      "gloss": "tear",
+      "markers": [],
+      "source": "Dhatupatha 9.14"
+    },
+    {
+      "lemma": "grah",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "gṛhāṇa",
+      "gloss": "take, accept",
+      "markers": [],
+      "source": "Dhatupatha 9.71"
+    },
+    {
+      "lemma": "iṣ",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "icchati",
+      "gloss": "desire",
+      "markers": [],
+      "source": "Dhatupatha 9.61"
+    },
+    {
+      "lemma": "jñā",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "jānā",
+      "gloss": "know",
+      "markers": [],
+      "source": "Dhatupatha 9.43"
+    },
+    {
+      "lemma": "jṝ",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "jīryati",
+      "gloss": "grow old",
+      "markers": [],
+      "source": "Dhatupatha 9.27"
+    },
+    {
+      "lemma": "krī",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "krīṇāti",
+      "gloss": "buy",
+      "markers": [],
+      "source": "Dhatupatha 9.10"
+    },
+    {
+      "lemma": "kṣubh",
+      "gana": 9,
+      "pada": "atmanepada",
+      "present_stem": "kṣubhyati",
+      "gloss": "be agitated",
+      "markers": [],
+      "source": "Dhatupatha 9.55"
+    },
+    {
+      "lemma": "lī",
+      "gana": 9,
+      "pada": "atmanepada",
+      "present_stem": "līyate",
+      "gloss": "adhere",
+      "markers": [],
+      "source": "Dhatupatha 9.36"
+    },
+    {
+      "lemma": "mī",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "mināti",
+      "gloss": "diminish",
+      "markers": [],
+      "source": "Dhatupatha 9.4"
+    },
+    {
+      "lemma": "mṛd",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "mṛdnāti",
+      "gloss": "crush, rub",
+      "markers": [],
+      "source": "Dhatupatha 9.51"
+    },
+    {
+      "lemma": "prī",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "prīṇāti",
+      "gloss": "please",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "pṛ",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "pṛṇāti",
+      "gloss": "fill",
+      "markers": [],
+      "source": "Dhatupatha 9.12"
+    },
+    {
+      "lemma": "stambh",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "stambhate",
+      "gloss": "become stiff",
+      "markers": [],
+      "source": "Dhatupatha 9.7"
+    },
+    {
+      "lemma": "stṛ",
+      "gana": 9,
+      "pada": "parasmaipada",
+      "present_stem": "stṛṇāti",
+      "gloss": "spread",
+      "markers": [],
+      "source": "Dhatupatha 9.13"
+    },
+    {
+      "lemma": "aj",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "ajati",
+      "gloss": "drive",
+      "markers": [],
+      "source": "Dhatupatha 10.316"
+    },
+    {
+      "lemma": "arc",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "arcati",
+      "gloss": "honor, worship",
+      "markers": [],
+      "source": "Dhatupatha 10.340"
+    },
+    {
+      "lemma": "bhaj",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "bhaja",
+      "gloss": "serve, divide",
+      "markers": [],
+      "source": "Dhatupatha 10.259"
+    },
+    {
+      "lemma": "bhāv",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "bhāvayati",
+      "gloss": "cause to be",
+      "markers": [],
+      "source": "Dhatupatha 10.16"
+    },
+    {
+      "lemma": "bhūṣ",
+      "gana": 10,
+      "pada": "atmanepada",
+      "present_stem": "bhūṣate",
+      "gloss": "adorn",
+      "markers": [],
+      "source": "Dhatupatha 10.255"
+    },
+    {
+      "lemma": "cal",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "cala",
+      "gloss": "move, shake",
+      "markers": [],
+      "source": "Dhatupatha 10.97"
+    },
+    {
+      "lemma": "carc",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "carcati",
+      "gloss": "investigate",
+      "markers": [],
+      "source": "Dhatupatha 10.9"
+    },
+    {
+      "lemma": "caya",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "cayati",
+      "gloss": "collect",
+      "markers": [],
+      "source": "Dhatupatha 10.7"
+    },
+    {
+      "lemma": "cint",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "cintayati",
+      "gloss": "think",
+      "markers": [],
+      "source": "Dhatupatha 10.10"
+    },
+    {
+      "lemma": "cud",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "codayati",
+      "gloss": "incite",
+      "markers": [],
+      "source": "Dhatupatha 10.11"
+    },
+    {
+      "lemma": "cumb",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "cumbati",
+      "gloss": "kiss",
+      "markers": [],
+      "source": "Dhatupatha 10.8"
+    },
+    {
+      "lemma": "cyu",
+      "gana": 10,
+      "pada": "atmanepada",
+      "present_stem": "cyavate",
+      "gloss": "fall, move",
+      "markers": [],
+      "source": "Dhatupatha 10.275"
+    },
+    {
+      "lemma": "ji",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "jaya",
+      "gloss": "conquer",
+      "markers": [],
+      "source": "Dhatupatha 10.324"
+    },
+    {
+      "lemma": "kṣal",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "kṣalati",
+      "gloss": "wash",
+      "markers": [],
+      "source": "Dhatupatha 10.86"
+    },
+    {
+      "lemma": "luṭ",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "luṭati",
+      "gloss": "plunder",
+      "markers": [],
+      "source": "Dhatupatha 10.284"
+    },
+    {
+      "lemma": "lī",
+      "gana": 10,
+      "pada": "atmanepada",
+      "present_stem": "līyate",
+      "gloss": "adhere",
+      "markers": [],
+      "source": "Dhatupatha 10.343"
+    },
+    {
+      "lemma": "mī",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "mināti",
+      "gloss": "diminish",
+      "markers": [],
+      "source": "Dhatupatha 10.361"
+    },
+    {
+      "lemma": "mṛj",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "mṛja",
+      "gloss": "wipe, cleanse",
+      "markers": [],
+      "source": "Dhatupatha 10.386"
+    },
+    {
+      "lemma": "pac",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "paca",
+      "gloss": "cook",
+      "markers": [],
+      "source": "Dhatupatha 10.153"
+    },
+    {
+      "lemma": "pad",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "padati",
+      "gloss": "go, fall",
+      "markers": [],
+      "source": "Dhatupatha 10.440"
+    },
+    {
+      "lemma": "pat",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "patati",
+      "gloss": "fall, fly",
+      "markers": [],
+      "source": "Dhatupatha 10.400"
+    },
+    {
+      "lemma": "paś",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "paśya",
+      "gloss": "see",
+      "markers": [],
+      "source": "Dhatupatha 10.244"
+    },
+    {
+      "lemma": "ric",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "rinakti",
+      "gloss": "leave",
+      "markers": [],
+      "source": "Dhatupatha 10.348"
+    },
+    {
+      "lemma": "sphuṭ",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "sphuṭati",
+      "gloss": "burst open",
+      "markers": [],
+      "source": "Dhatupatha 10.5"
+    },
+    {
+      "lemma": "spṛh",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "spṛhati",
+      "gloss": "desire",
+      "markers": [],
+      "source": "Dhatupatha 10.410"
+    },
+    {
+      "lemma": "svar",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "svarati",
+      "gloss": "sing",
+      "markers": [],
+      "source": "Dhatupatha 10.402"
+    },
+    {
+      "lemma": "tap",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "tapati",
+      "gloss": "heat, practice austerities",
+      "markers": [],
+      "source": "Dhatupatha 10.350"
+    },
+    {
+      "lemma": "tras",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "trasati",
+      "gloss": "tremble",
+      "markers": [],
+      "source": "Dhatupatha 10.269"
+    },
+    {
+      "lemma": "vad",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "vada",
+      "gloss": "speak",
+      "markers": [],
+      "source": "Dhatupatha 10.379"
+    },
+    {
+      "lemma": "vardh",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "vardhayati",
+      "gloss": "increase",
+      "markers": [],
+      "source": "Dhatupatha 10.20"
+    },
+    {
+      "lemma": "vic",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "vinakti",
+      "gloss": "choose",
+      "markers": [],
+      "source": "Dhatupatha 10.304"
+    },
+    {
+      "lemma": "vraj",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "vraja",
+      "gloss": "walk, go",
+      "markers": [],
+      "source": "Dhatupatha 10.109"
+    },
+    {
+      "lemma": "vṛdh",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "vardhaya",
+      "gloss": "increase",
+      "markers": [],
+      "source": "Dhatupatha 10.313"
+    },
+    {
+      "lemma": "yam",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "yacchati",
+      "gloss": "restrain, offer",
+      "markers": [],
+      "source": "Dhatupatha 10.119"
+    },
+    {
+      "lemma": "īkṣ",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "īkṣa",
+      "gloss": "see",
+      "markers": [],
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "śiṣ",
+      "gana": 10,
+      "pada": "parasmaipada",
+      "present_stem": "śāsti",
+      "gloss": "teach",
+      "markers": [],
+      "source": "Dhatupatha 10.349"
+    }
+  ]
+}

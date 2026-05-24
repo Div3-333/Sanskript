@@ -1,0 +1,177 @@
+Here is everything from that discussion that is realistically doable in a few months (roughly 8–12 weeks), assuming
+  focused part-time-to-full-time effort. Items are grouped by track; none of them require solving “full automatic
+  Aṣṭādhyāyī for arbitrary Sanskrit.”
+
+  ────────────────────────────────────────
+
+  Morphology / derivation backend
+
+  1. DerivationIntent API — typed request object (tinanta, subanta, kṛt, taddhita, samāsa, sandhi) with lemma, lakāra,
+     case, person, etc.
+
+  2. RecipePlanner — maps each intent kind to an ordered sūtra/engine recipe (not global search across all 3983
+     sūtras).
+
+  3. MorphologySynthesizer / synthesize() — thin wrapper: intent → recipe → PaninianDerivationEngine.derive_sequence()
+     → Analysis.
+
+  4. Directed tiṅ synthesis — dhātu + lakāra + person/number/pada → finite verb surface (controlled dhātupatha).
+
+  5. Directed sup synthesis — prātipadika + case + number → nominal surface (controlled stems).
+
+  6. Directed kṛt synthesis — dhātu/stem + kṛt suffix → participle/gerund/etc. for a small inventory.
+
+  7. Directed taddhita synthesis — stem + semantic relation + suffix → derived nominal (extend existing 4–5 engines).
+
+  8. Directed samāsa synthesis — member analyses + compound type → surface (existing SamasaDerivationEngine).
+
+  9. Directed sandhi join — left + right → joined form for controlled padaccheda rules (existing
+     SandhiDerivationEngine).
+
+  10. Family-scoped auto-derive — within one pipeline (e.g. only 3.* + 6.* + 7.* + 8.* for tiṅ), use prefix-scoped
+      derive(prefixes=...) instead of hand-picked sūtra lists everywhere.
+
+  11. Recipe catalog per grammar-register entry — document + code: “this lexeme is produced by this recipe.”
+
+  12. Unify duplicate morphology — gradually route tinanta.conjugate() / subanta.decline() special cases through
+      engine recipes where they overlap (incremental, form-by-form).
+
+  ────────────────────────────────────────
+
+  Lexicon & build pipeline (highest ROI)
+
+  13. build_controlled_lexicon.py — offline script that calls synthesize() for every allowed form in the grammar
+      register.
+
+  14. data/controlled_lexicon.json — versioned artifact checked into repo or built in CI.
+
+  15. Load lexicon from artifact — morphology.build_lexicon() merges generated JSON with any hand-maintained
+      overrides.
+
+  16. Lexicon diff / validation test — CI fails if register changes but lexicon wasn’t regenerated.
+
+  17. Authoring workflow — add a new verb/noun to register → run builder → lexicon updates automatically.
+
+  ────────────────────────────────────────
+
+  Language hot path (parser / morphology)
+
+  18. MorphologyFacade — single entry: analyze_token(), analyze_sentence().
+
+  19. Cache-first lookup — LEXICON / JSON first; no engine call on hot path for known forms.
+
+  20. Swap parser to facade — one-line architectural change in parser.py import path.
+
+  21. In-memory parse cache — memoize unknown-token resolution within a session.
+
+  22. Strict register enforcement — clear error: “form not in controlled register” (better than silent lexicon miss).
+
+  23. Kāraka validation pass — after morphological analysis, validate case/role against verb frame via
+      KarakaVibhaktiEngine.
+
+  24. Frame registry cleanup — verb frames driven from data (JSON/YAML) instead of hard-coded if verb.surface == ...
+      branches where possible.
+
+  25. Normalize input sandhi — optional pre-tokenization step using existing sandhi join/split for controlled
+      examples.
+
+  26. Devanagari → IAST normalize — extend morphology.normalize() on the hot path (already planned in README).
+
+  ────────────────────────────────────────
+
+  Parser / compiler / runtime (language features on top)
+
+  27. Expand controlled verb frames — more verbs wired through same Assign/Increase/Display pattern.
+
+  28. Expand controlled noun/pronoun/numeral inventory — via lexicon builder, not hand LEXICON entries.
+
+  29. Data-driven parser dispatch — table from (verb_lemma, frame) → AST constructor instead of growing if chains.
+
+  30. Richer Analysis on hot path — propagate lakāra, pada, gender from synthesized lexicon into parser decisions.
+
+  31. IR/compiler: new statement forms — conditional, loop, function call (language design already sketched in docs).
+
+  32. VM opcodes for new semantics — extend bytecode + VM for anything new in IR (still integer-only is fine for v1).
+
+  33. Better runtime errors — morphological, parse, and VM errors with Sanskrit-aware messages.
+
+  34. Stdlib in Sanskrit surface forms — generated via synthesizer, loaded as prebuilt lexicon entries.
+
+  35. Example programs beyond prathama.ssk — exercise new frames and lexicon entries.
+
+  ────────────────────────────────────────
+
+  Engine / foundation hardening (bounded, not new sūtra mining)
+
+  36. Freeze sūtra layer — bugfixes only; document “engine API stable.”
+
+  37. Document integration boundary — derive_paninian() / synthesize() as the public morphology backend API.
+
+  38. Integration tests: register ↔ lexicon ↔ parse — end-to-end: synthesize form → in lexicon → parses → compiles →
+       runs.
+
+  39. Per-family synthesis tests — tiṅ, sup, kṛt, taddhita, samāsa each have a small golden test suite.
+
+  40. Performance baseline — lexicon lookup + full parse/compile of examples under acceptable ms (sanity, not
+      optimization project).
+
+  41. Regenerate / shrink predicate-only-weak-sutras.md — optional audit script in CI (maintenance, not new grammar
+      work).
+
+  ────────────────────────────────────────
+
+  Reverse analysis (limited, still feasible in months)
+
+  42. Generate-and-test analyzer for controlled register only — unknown token → try candidates from small lemma
+      inventory × recipes → match surface.
+
+  43. Ambiguity reporting — if multiple analyses match, raise structured error (don’t silently pick).
+
+  44. Timeout / bounded search — cap candidates per token so parse stays predictable.
+
+  Not feasible in months: unique analysis for arbitrary Classical Sanskrit surfaces.
+
+  ────────────────────────────────────────
+
+  Docs & tooling
+
+  45. Update README / implementation-plan — “morphology compiler backend + lexicon builder” as official architecture.
+
+  46. Grammar register ↔ code sync — single source listing allowed lemmas and derivations.
+
+  47. CLI: sanskript build-lexicon and sanskript synthesize for debugging derivations.
+
+  48. CLI: sanskript analyze <token> — show Analysis + derivation trace for developers.
+
+  ────────────────────────────────────────
+
+  Explicitly NOT in the “few months” list
+
+  These were discussed but should not be on a near-term plan:
+
+  • Full automatic rule discovery across all 3983 sūtras for any input
+  • Complete tripādī / asiddha closure for open-ended derivation
+  • Open-vocabulary live engine derivation on every parse token at scale
+  • Full compound segmentation + sandhi tokenizer for free Sanskrit text
+  • Replacing the entire hand-tuned tinanta/subanta modules in one pass
+
+  ────────────────────────────────────────
+
+  Suggested 8–12 week ordering
+
+  ┌───────┬─────────────────────────────────────────────────────────────┐
+  │ Weeks │ Focus                                                       │
+  ├───────┼─────────────────────────────────────────────────────────────┤
+  │ 1–2   │ DerivationIntent, RecipePlanner, synthesize() for tiṅ + sup │
+  │ 2–3   │ build_controlled_lexicon.py + JSON artifact + CI test       │
+  │ 3–4   │ MorphologyFacade + parser swap + kāraka validation          │
+  │ 4–6   │ Expand register (verbs/nouns), data-driven parser dispatch  │
+  │ 6–8   │ kṛt/taddhita/samāsa in builder; stdlib forms                │
+  │ 8–10  │ Bounded generate-and-test analyzer; CLI tools               │
+  │ 10–12 │ New language statements + VM; docs; integration tests       │
+  └───────┴─────────────────────────────────────────────────────────────┘
+
+  That is the full set of feasible-within-months work from the prior discussion—roughly 48 concrete items, all scoped to
+   a controlled Sanskrit programming register, not open-ended classical Sanskrit NLP.
+
+ensure premium quality at all times so that once we tick something off, we never come back to it

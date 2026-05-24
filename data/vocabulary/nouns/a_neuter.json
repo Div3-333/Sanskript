@@ -1,0 +1,706 @@
+{
+  "pattern": "a_neuter",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "adhyāya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "chapter",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "ahita",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "foe, harm",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "aiśvarya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "sovereignty, power",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "akṣa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "die, eye",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "akṣara",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "syllable, letter",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "anna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "food",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "antara",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "interior, interval",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "antra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "intestine",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "astra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "missile weapon",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "aṅga",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "limb",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "bala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "strength",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "bhaiṣajya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "medicine",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "fear",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "bhājana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "vessel, receptacle",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bīja",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "seed",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "caitya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "shrine",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "carma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "hide, leather",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "citta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "thought",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dhairya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "fortitude, patience",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dhana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "wealth",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "dhyāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "meditation",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "duḥkha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "suffering",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "duṣkṛta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "evil deed",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "garbha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "womb, embryo",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "geha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "house",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "ghrāṇa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "nose",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "ghṛta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "ghee",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "graha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "planet, seizing",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "guṇa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "quality, attribute",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "gṛha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "house, home",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "hita",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "welfare, benefit",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "hṛdaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "heart",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "jala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "water",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "janma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "birth",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "janman",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "birth",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "jñāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "knowledge",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kalyāṇa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "welfare, auspiciousness",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "karma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "action, deed",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kavaca",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "armor",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kusuma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "flower",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kāraṇa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "cause, reason",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kārya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "work, effect",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kāvya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "poetry",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kūla",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "bank, slope",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kṣema",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "welfare, security",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kṣīra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "milk",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "liṅga",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "mark, sign",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "madya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "intoxicating drink",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "majjā",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "marrow",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "mauna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "silence",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "maṅgala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "auspiciousness",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "maṇi",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "jewel, gem",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "maṇḍala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "circle, disk, realm",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "maṇḍapa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "pavilion, hall",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mitra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "friend",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mukha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "mouth, face",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "māṃsa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "flesh, meat",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mūla",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "root",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mūlya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "value, price",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nakṣatra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "star",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nayana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "eye",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "netra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "eye",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nilaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "dwelling, nest",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nimitta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "cause, omen",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nirṇaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "decision, conclusion",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "niścaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "certainty, decision",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "niḥśvāsa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "exhalation, sigh",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nāma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "name",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "nāṭaka",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "drama",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "pada",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "word, step",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "padma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "lotus",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pariccheda",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "section, division",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pattra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "leaf",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "phala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "fruit, result",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "prakaraṇa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "section, topic",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pramāṇa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "proof, measure",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "prayoga",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "application, use",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "puṇya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "merit",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "puṣpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "flower",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "pāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "drink",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "pāpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "sin",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "pātra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "vessel, bowl",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "rajas",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "passion, atmosphere",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "ratna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "jewel, treasure",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "roga",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "disease",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "rudhira",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "blood",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "rājya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "kingship",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "rūpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "form",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "sadana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "seat, house",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "sattva",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "goodness, being",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "satya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "truth",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "saṃkalpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "intention, resolve",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "saṃskāra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "impression, rite",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "saṃsāra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "worldly existence",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "sthairya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "firmness, stability",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "sthāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "place",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "sukha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "happiness",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "sukṛta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "good deed",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "sādhana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "means, instrument",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "sūtra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "aphorism",
+      "source": "legacy vocabulary_stems.json; MW"
+    }
+  ]
+}

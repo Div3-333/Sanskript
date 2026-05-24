@@ -1,0 +1,22 @@
+{
+  "pattern": "o_masculine",
+  "target_count": 40,
+  "entries": [
+    {
+      "lemma": "dyo",
+      "pattern": "o_masculine",
+      "gender": "masculine",
+      "gloss": "sky, heaven, day (also feminine in Veda)",
+      "source": "Whitney §361; MW"
+    },
+    {
+      "lemma": "go",
+      "pattern": "o_masculine",
+      "gender": "masculine",
+      "gloss": "bull, ox; cow (same stem, natural gender)",
+      "source": "Whitney §361; Macdonell §109; MW"
+    }
+  ],
+  "attested_count": 2,
+  "shortfall_note": "Attested independent o-stems are go (cow/bull) and dyo (sky) only; Whitney §361 lists no further substantive lemmas in -o."
+}

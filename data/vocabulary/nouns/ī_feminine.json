@@ -1,0 +1,706 @@
+{
+  "pattern": "ī_feminine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "asurī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Asura woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "aśvinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Aśvinī, horsewoman",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhavānī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Bhavānī, Pārvatī",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhāratī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "speech, Bhāratī",
+      "source": "MW"
+    },
+    {
+      "lemma": "bhī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "fright, Bhī",
+      "source": "MW"
+    },
+    {
+      "lemma": "brāhmaṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "brahmin woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "brāhmī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Brahmi, sacred plant",
+      "source": "MW"
+    },
+    {
+      "lemma": "capalī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "restless woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "cañcalī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "fickle woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "caṇḍī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Caṇḍī, fierce goddess",
+      "source": "MW"
+    },
+    {
+      "lemma": "chambalī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Chambalī river",
+      "source": "MW"
+    },
+    {
+      "lemma": "devī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "goddess",
+      "source": "MW"
+    },
+    {
+      "lemma": "dharitrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "earth, bearer",
+      "source": "MW"
+    },
+    {
+      "lemma": "draupadī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Draupadī",
+      "source": "MW"
+    },
+    {
+      "lemma": "dānavī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "demon woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "dāsī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "female servant",
+      "source": "MW"
+    },
+    {
+      "lemma": "gajinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "elephant woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "gandharvī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "celestial nymph",
+      "source": "MW"
+    },
+    {
+      "lemma": "gaurī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Gaurī, fair goddess",
+      "source": "MW"
+    },
+    {
+      "lemma": "ghorī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "frightful woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "ghṛtacī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Ghṛtacī, celestial nymph",
+      "source": "MW"
+    },
+    {
+      "lemma": "godāvarī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Godāvarī river",
+      "source": "MW"
+    },
+    {
+      "lemma": "gāndhārī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Gāndhārī",
+      "source": "MW"
+    },
+    {
+      "lemma": "gāyatrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Gāyatrī, sacred meter",
+      "source": "MW"
+    },
+    {
+      "lemma": "haimavatī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "daughter of Himavat",
+      "source": "MW"
+    },
+    {
+      "lemma": "hastinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "female elephant",
+      "source": "MW"
+    },
+    {
+      "lemma": "irāvatī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Irāvatī river",
+      "source": "MW"
+    },
+    {
+      "lemma": "jayantī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "victorious woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "jānakī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Jānakī, Sītā",
+      "source": "MW"
+    },
+    {
+      "lemma": "jātī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "jasmine, birth",
+      "source": "MW"
+    },
+    {
+      "lemma": "kadalī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "plantain tree",
+      "source": "MW"
+    },
+    {
+      "lemma": "kaikeyī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kaikeyī",
+      "source": "MW"
+    },
+    {
+      "lemma": "kailāsavāsinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "dweller on Kailāsa",
+      "source": "MW"
+    },
+    {
+      "lemma": "kalyāṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "auspicious woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "kanakāvalī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "gold necklace",
+      "source": "MW"
+    },
+    {
+      "lemma": "karavīrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "karavīra plant",
+      "source": "MW"
+    },
+    {
+      "lemma": "kumārī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "girl, virgin",
+      "source": "MW"
+    },
+    {
+      "lemma": "kuntī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kuntī",
+      "source": "MW"
+    },
+    {
+      "lemma": "kālī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kālī, dark goddess",
+      "source": "MW"
+    },
+    {
+      "lemma": "kāminī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "passionate woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "kāmākṣī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kāmākṣī",
+      "source": "MW"
+    },
+    {
+      "lemma": "kātyāyanī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kātyāyanī",
+      "source": "MW"
+    },
+    {
+      "lemma": "kāverī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kāverī river",
+      "source": "MW"
+    },
+    {
+      "lemma": "kāśikī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Kāśikī, of Kāśī",
+      "source": "MW"
+    },
+    {
+      "lemma": "lakṣmī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "fortune, Lakṣmī",
+      "source": "MW"
+    },
+    {
+      "lemma": "mahiṣī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "queen",
+      "source": "MW"
+    },
+    {
+      "lemma": "mahī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "earth",
+      "source": "MW"
+    },
+    {
+      "lemma": "maithilī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Maithilī, of Mithilā",
+      "source": "MW"
+    },
+    {
+      "lemma": "mallikī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "jasmine",
+      "source": "MW"
+    },
+    {
+      "lemma": "mandodarī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Mandodarī",
+      "source": "MW"
+    },
+    {
+      "lemma": "maṇimālinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "jewel-garlanded woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "mālatī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "jasmine",
+      "source": "MW"
+    },
+    {
+      "lemma": "mālinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "garlanded woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "mālī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "garland, gardener",
+      "source": "MW"
+    },
+    {
+      "lemma": "mṛgī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "doe, antelope",
+      "source": "MW"
+    },
+    {
+      "lemma": "nadī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "river",
+      "source": "legacy vocabulary_stems.json"
+    },
+    {
+      "lemma": "nāgī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "serpent woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "nārasīṃhī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Narasīṃhī",
+      "source": "MW"
+    },
+    {
+      "lemma": "nārāyaṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Nārāyaṇī",
+      "source": "MW"
+    },
+    {
+      "lemma": "paruṣṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Paruṣṇī river",
+      "source": "MW"
+    },
+    {
+      "lemma": "piśācī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "ogress",
+      "source": "MW"
+    },
+    {
+      "lemma": "putrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "daughter",
+      "source": "MW"
+    },
+    {
+      "lemma": "pārthivī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "earthly woman, queen",
+      "source": "MW"
+    },
+    {
+      "lemma": "pārvatī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Pārvatī, mountain goddess",
+      "source": "MW"
+    },
+    {
+      "lemma": "pṛthivī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "earth",
+      "source": "MW"
+    },
+    {
+      "lemma": "ratnāvalī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "jewel necklace",
+      "source": "MW"
+    },
+    {
+      "lemma": "raṅgī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "colored woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "revatī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Revatī, wealthy",
+      "source": "MW"
+    },
+    {
+      "lemma": "rohiṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Rohiṇī, red star",
+      "source": "MW"
+    },
+    {
+      "lemma": "rudrāṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Rudrāṇī, consort of Rudra",
+      "source": "MW"
+    },
+    {
+      "lemma": "rukmiṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Rukmiṇī",
+      "source": "MW"
+    },
+    {
+      "lemma": "rājñī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "queen",
+      "source": "MW"
+    },
+    {
+      "lemma": "rākṣasī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "demoness",
+      "source": "MW"
+    },
+    {
+      "lemma": "sarasvatī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Sarasvatī, sacred speech",
+      "source": "MW"
+    },
+    {
+      "lemma": "siṃhinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "lioness",
+      "source": "MW"
+    },
+    {
+      "lemma": "sumukhī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "fair-faced woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "sundarī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "beautiful woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "suratī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "joyful woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "suśroṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "fair-hipped woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "sāvitrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Sāvitrī, sacred verse",
+      "source": "MW"
+    },
+    {
+      "lemma": "tantrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "lute string",
+      "source": "MW"
+    },
+    {
+      "lemma": "taruṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "young woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "tāpī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Tāpī river",
+      "source": "MW"
+    },
+    {
+      "lemma": "tārī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "saviour, star",
+      "source": "MW"
+    },
+    {
+      "lemma": "urvaśī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Urvaśī, celestial nymph",
+      "source": "MW"
+    },
+    {
+      "lemma": "vaidehī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Vaidehī, Sītā",
+      "source": "MW"
+    },
+    {
+      "lemma": "vaiṣṇavī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Vaiṣṇavī",
+      "source": "MW"
+    },
+    {
+      "lemma": "vasantī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "spring woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "vijayinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "conqueress",
+      "source": "MW"
+    },
+    {
+      "lemma": "vyāghrī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "tigress",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāndhavī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "female friend",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāruṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Vāruṇī, spirituous liquor",
+      "source": "MW"
+    },
+    {
+      "lemma": "vārāhī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Vārāhī",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāṇī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "speech, voice",
+      "source": "MW"
+    },
+    {
+      "lemma": "vāṇīśvarī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "goddess of speech",
+      "source": "MW"
+    },
+    {
+      "lemma": "yakṣī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "yakṣa woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "yaśasvinī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "famous woman",
+      "source": "MW"
+    },
+    {
+      "lemma": "yājñasenī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Yājñasenī, Draupadī",
+      "source": "MW"
+    },
+    {
+      "lemma": "īśvarī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "goddess, sovereign lady",
+      "source": "MW"
+    },
+    {
+      "lemma": "śacī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "Indra's consort",
+      "source": "MW"
+    }
+  ]
+}

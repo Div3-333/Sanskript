@@ -1,0 +1,22 @@
+{
+  "pattern": "au_stem",
+  "target_count": 40,
+  "entries": [
+    {
+      "lemma": "glau",
+      "pattern": "au_stem",
+      "gender": "masculine",
+      "gloss": "ball (Vedic)",
+      "source": "Whitney §361; MW"
+    },
+    {
+      "lemma": "nau",
+      "pattern": "au_stem",
+      "gender": "feminine",
+      "gloss": "ship, boat",
+      "source": "Whitney §361; Macdonell §109; MW"
+    }
+  ],
+  "attested_count": 2,
+  "shortfall_note": "Attested au-stems are nau (ship) and the rare Vedic glau (ball); Whitney §361 lists no further substantive inventory for this class."
+}

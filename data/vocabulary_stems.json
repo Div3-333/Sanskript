@@ -1,0 +1,2038 @@
+{
+  "version": 1,
+  "description": "High-frequency Sanskrit stems for controlled lexicon expansion (a-/ā-stems and curated dhātus).",
+  "nouns": [
+    {
+      "lemma": "puruṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "person, man"
+    },
+    {
+      "lemma": "nara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "man, person"
+    },
+    {
+      "lemma": "loka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "world, people"
+    },
+    {
+      "lemma": "jana",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "person, folk"
+    },
+    {
+      "lemma": "prajā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "people, subjects"
+    },
+    {
+      "lemma": "bāla",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "child"
+    },
+    {
+      "lemma": "kumāra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "boy, prince"
+    },
+    {
+      "lemma": "putra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "son"
+    },
+    {
+      "lemma": "suta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "son"
+    },
+    {
+      "lemma": "dāsa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "servant"
+    },
+    {
+      "lemma": "sevaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "attendant"
+    },
+    {
+      "lemma": "bhṛtya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "dependent, servant"
+    },
+    {
+      "lemma": "mitra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "friend"
+    },
+    {
+      "lemma": "ahita",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "foe, harm"
+    },
+    {
+      "lemma": "śiṣya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "student"
+    },
+    {
+      "lemma": "upādhyāya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "preceptor"
+    },
+    {
+      "lemma": "ācārya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "spiritual teacher"
+    },
+    {
+      "lemma": "paṇḍita",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "scholar"
+    },
+    {
+      "lemma": "śiṣṭa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "learned, cultured person"
+    },
+    {
+      "lemma": "bhakta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "devotee"
+    },
+    {
+      "lemma": "sādhaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "practitioner, saint"
+    },
+    {
+      "lemma": "dānta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "self-controlled person"
+    },
+    {
+      "lemma": "śānta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "peaceful person"
+    },
+    {
+      "lemma": "brāhmaṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "brahmin"
+    },
+    {
+      "lemma": "kṣatriya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "warrior"
+    },
+    {
+      "lemma": "vaiśya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "tradesman"
+    },
+    {
+      "lemma": "śūdra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "servant class"
+    },
+    {
+      "lemma": "rāja",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "king"
+    },
+    {
+      "lemma": "nṛpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "king"
+    },
+    {
+      "lemma": "amātya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "minister"
+    },
+    {
+      "lemma": "saciva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "counselor"
+    },
+    {
+      "lemma": "purohita",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "royal priest"
+    },
+    {
+      "lemma": "dūta",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "messenger"
+    },
+    {
+      "lemma": "nāyaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "leader, general"
+    },
+    {
+      "lemma": "yodha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "warrior"
+    },
+    {
+      "lemma": "kavīndra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "chief poet"
+    },
+    {
+      "lemma": "ṛṣika",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "seer"
+    },
+    {
+      "lemma": "munīndra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "chief sage"
+    },
+    {
+      "lemma": "śramaṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "ascetic"
+    },
+    {
+      "lemma": "tāpasa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "hermit"
+    },
+    {
+      "lemma": "siddha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "perfected being"
+    },
+    {
+      "lemma": "buddha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "awakened one"
+    },
+    {
+      "lemma": "deva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "deity"
+    },
+    {
+      "lemma": "sura",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "god"
+    },
+    {
+      "lemma": "indra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Indra"
+    },
+    {
+      "lemma": "śiva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Śiva"
+    },
+    {
+      "lemma": "rāma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "Rāma"
+    },
+    {
+      "lemma": "purusa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "person"
+    },
+    {
+      "lemma": "kāla",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "time"
+    },
+    {
+      "lemma": "deśa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "country, region"
+    },
+    {
+      "lemma": "grāma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "village"
+    },
+    {
+      "lemma": "nagara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "city"
+    },
+    {
+      "lemma": "nagarā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "city"
+    },
+    {
+      "lemma": "deha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "body"
+    },
+    {
+      "lemma": "sthāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "place"
+    },
+    {
+      "lemma": "tīra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "bank, shore"
+    },
+    {
+      "lemma": "dvīpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "island"
+    },
+    {
+      "lemma": "kūla",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "bank, slope"
+    },
+    {
+      "lemma": "mārga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "path"
+    },
+    {
+      "lemma": "pantha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "road"
+    },
+    {
+      "lemma": "yāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "vehicle"
+    },
+    {
+      "lemma": "ratha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "chariot"
+    },
+    {
+      "lemma": "sāratha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "charioteer"
+    },
+    {
+      "lemma": "anala",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "fire"
+    },
+    {
+      "lemma": "pavana",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "wind"
+    },
+    {
+      "lemma": "agni",
+      "pattern": "i_masculine",
+      "gender": "masculine",
+      "gloss": "fire (i-stem)"
+    },
+    {
+      "lemma": "vāyu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "wind (u-stem)"
+    },
+    {
+      "lemma": "guru",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "teacher"
+    },
+    {
+      "lemma": "sādhu",
+      "pattern": "u_masculine",
+      "gender": "masculine",
+      "gloss": "saint"
+    },
+    {
+      "lemma": "madhu",
+      "pattern": "u_neuter",
+      "gender": "neuter",
+      "gloss": "honey"
+    },
+    {
+      "lemma": "buddhi",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "intellect"
+    },
+    {
+      "lemma": "śakti",
+      "pattern": "i_feminine",
+      "gender": "feminine",
+      "gloss": "power"
+    },
+    {
+      "lemma": "nadī",
+      "pattern": "ī_feminine",
+      "gender": "feminine",
+      "gloss": "river"
+    },
+    {
+      "lemma": "vadhū",
+      "pattern": "ū_feminine",
+      "gender": "feminine",
+      "gloss": "bride"
+    },
+    {
+      "lemma": "pitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "father"
+    },
+    {
+      "lemma": "mātṛ",
+      "pattern": "ṛ_feminine",
+      "gender": "feminine",
+      "gloss": "mother"
+    },
+    {
+      "lemma": "kartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "doer"
+    },
+    {
+      "lemma": "bhrātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "brother"
+    },
+    {
+      "lemma": "svasṛ",
+      "pattern": "ṛ_feminine",
+      "gender": "feminine",
+      "gloss": "sister"
+    },
+    {
+      "lemma": "nīḍṝ",
+      "pattern": "ṝ_feminine",
+      "gender": "feminine",
+      "gloss": "nest (long ṝ stem)"
+    },
+    {
+      "lemma": "sūrya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "sun"
+    },
+    {
+      "lemma": "candra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "moon"
+    },
+    {
+      "lemma": "nakṣatra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "star"
+    },
+    {
+      "lemma": "sāgara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "ocean"
+    },
+    {
+      "lemma": "parvata",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "mountain"
+    },
+    {
+      "lemma": "vana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "forest"
+    },
+    {
+      "lemma": "vṛkṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "tree"
+    },
+    {
+      "lemma": "puṣpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "flower"
+    },
+    {
+      "lemma": "pattra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "leaf"
+    },
+    {
+      "lemma": "gaṅgā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Gaṅgā"
+    },
+    {
+      "lemma": "yamunā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Yamunā"
+    },
+    {
+      "lemma": "revā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Narmadā river"
+    },
+    {
+      "lemma": "jala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "water"
+    },
+    {
+      "lemma": "udaka",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "water"
+    },
+    {
+      "lemma": "pāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "drink"
+    },
+    {
+      "lemma": "anna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "food"
+    },
+    {
+      "lemma": "odana",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "cooked rice"
+    },
+    {
+      "lemma": "ghṛta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "ghee"
+    },
+    {
+      "lemma": "kṣīra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "milk"
+    },
+    {
+      "lemma": "taila",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "oil"
+    },
+    {
+      "lemma": "ākāśa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "sky, ether"
+    },
+    {
+      "lemma": "aśva",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "horse"
+    },
+    {
+      "lemma": "gaja",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "elephant"
+    },
+    {
+      "lemma": "nāga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "serpent, elephant"
+    },
+    {
+      "lemma": "vṛka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "wolf"
+    },
+    {
+      "lemma": "siṃha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "lion"
+    },
+    {
+      "lemma": "sarpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "serpent"
+    },
+    {
+      "lemma": "matsya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "fish"
+    },
+    {
+      "lemma": "vānara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "monkey"
+    },
+    {
+      "lemma": "ṛṣabha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "bull"
+    },
+    {
+      "lemma": "meṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "ram, sheep"
+    },
+    {
+      "lemma": "citta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "thought"
+    },
+    {
+      "lemma": "hṛdaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "heart"
+    },
+    {
+      "lemma": "jñāna",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "knowledge"
+    },
+    {
+      "lemma": "vidyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "learning"
+    },
+    {
+      "lemma": "śraddhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "faith"
+    },
+    {
+      "lemma": "satya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "truth"
+    },
+    {
+      "lemma": "dharma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "duty, law"
+    },
+    {
+      "lemma": "artha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "meaning, wealth"
+    },
+    {
+      "lemma": "kāma",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "desire"
+    },
+    {
+      "lemma": "mokṣa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "release"
+    },
+    {
+      "lemma": "yoga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "yoga"
+    },
+    {
+      "lemma": "puṇya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "merit"
+    },
+    {
+      "lemma": "pāpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "sin"
+    },
+    {
+      "lemma": "sukha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "happiness"
+    },
+    {
+      "lemma": "duḥkha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "suffering"
+    },
+    {
+      "lemma": "krodha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "anger"
+    },
+    {
+      "lemma": "lobha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "greed"
+    },
+    {
+      "lemma": "moha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "delusion"
+    },
+    {
+      "lemma": "bhaya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "fear"
+    },
+    {
+      "lemma": "śarīra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "body"
+    },
+    {
+      "lemma": "aṅga",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "limb"
+    },
+    {
+      "lemma": "mukha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "mouth, face"
+    },
+    {
+      "lemma": "netra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "eye"
+    },
+    {
+      "lemma": "kara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "hand"
+    },
+    {
+      "lemma": "pāda",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "foot"
+    },
+    {
+      "lemma": "vacana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "speech"
+    },
+    {
+      "lemma": "vākya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "sentence"
+    },
+    {
+      "lemma": "śabda",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "word, sound"
+    },
+    {
+      "lemma": "nāma",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "name"
+    },
+    {
+      "lemma": "kathā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "story"
+    },
+    {
+      "lemma": "gāthā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "song, verse"
+    },
+    {
+      "lemma": "śloka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "verse"
+    },
+    {
+      "lemma": "grantha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "book"
+    },
+    {
+      "lemma": "pustaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "book"
+    },
+    {
+      "lemma": "śāstra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "treatise"
+    },
+    {
+      "lemma": "sūtra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "aphorism"
+    },
+    {
+      "lemma": "akṣara",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "syllable, letter"
+    },
+    {
+      "lemma": "lekhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "writing"
+    },
+    {
+      "lemma": "śikṣā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "instruction"
+    },
+    {
+      "lemma": "upadeśa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "instruction"
+    },
+    {
+      "lemma": "kāvya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "poetry"
+    },
+    {
+      "lemma": "nāṭaka",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "drama"
+    },
+    {
+      "lemma": "rāṣṭra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "kingdom"
+    },
+    {
+      "lemma": "rājya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "kingship"
+    },
+    {
+      "lemma": "senā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "army"
+    },
+    {
+      "lemma": "yuddha",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "battle"
+    },
+    {
+      "lemma": "vijaya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "victory"
+    },
+    {
+      "lemma": "parājaya",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "defeat"
+    },
+    {
+      "lemma": "dhana",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "wealth"
+    },
+    {
+      "lemma": "vitta",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "property"
+    },
+    {
+      "lemma": "dhanika",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "merchant"
+    },
+    {
+      "lemma": "vanija",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "merchant"
+    },
+    {
+      "lemma": "kṛṣaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "farmer"
+    },
+    {
+      "lemma": "sabhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "assembly"
+    },
+    {
+      "lemma": "śālā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "hall, school"
+    },
+    {
+      "lemma": "rasa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "taste, essence"
+    },
+    {
+      "lemma": "gandha",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "smell"
+    },
+    {
+      "lemma": "sparśa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "touch"
+    },
+    {
+      "lemma": "rūpa",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "form"
+    },
+    {
+      "lemma": "varṇa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "color, class"
+    },
+    {
+      "lemma": "bala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "strength"
+    },
+    {
+      "lemma": "vīrya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "heroism"
+    },
+    {
+      "lemma": "kārya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "work, effect"
+    },
+    {
+      "lemma": "phala",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "fruit, result"
+    },
+    {
+      "lemma": "mūlya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "value, price"
+    },
+    {
+      "lemma": "pada",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "word, step"
+    },
+    {
+      "lemma": "śastra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "weapon"
+    },
+    {
+      "lemma": "astra",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "missile weapon"
+    },
+    {
+      "lemma": "śara",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "arrow"
+    },
+    {
+      "lemma": "khaḍga",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "sword"
+    },
+    {
+      "lemma": "kavaca",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "armor"
+    },
+    {
+      "lemma": "dhvaja",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "banner"
+    },
+    {
+      "lemma": "caitya",
+      "pattern": "a_neuter",
+      "gender": "neuter",
+      "gloss": "shrine"
+    },
+    {
+      "lemma": "stūpa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "stūpa"
+    },
+    {
+      "lemma": "prāsāda",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "palace"
+    },
+    {
+      "lemma": "yajña",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "sacrifice"
+    },
+    {
+      "lemma": "homa",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "oblation"
+    },
+    {
+      "lemma": "mantra",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "mantra"
+    },
+    {
+      "lemma": "latā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "creeper"
+    },
+    {
+      "lemma": "mālā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "garland"
+    },
+    {
+      "lemma": "kalā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "art"
+    },
+    {
+      "lemma": "kriyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "action"
+    },
+    {
+      "lemma": "priyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "beloved"
+    },
+    {
+      "lemma": "bhāryā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "wife"
+    },
+    {
+      "lemma": "kanyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "girl, daughter"
+    },
+    {
+      "lemma": "yātrā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "journey"
+    },
+    {
+      "lemma": "ślāghā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "praise"
+    },
+    {
+      "lemma": "icchā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "desire"
+    },
+    {
+      "lemma": "saṅkhyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "number"
+    },
+    {
+      "lemma": "mimāṃsā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "inquiry"
+    },
+    {
+      "lemma": "gaṇaka",
+      "pattern": "a_masculine",
+      "gender": "masculine",
+      "gloss": "calculator"
+    }
+  ],
+  "verbs": [
+    {
+      "lemma": "gam",
+      "present_stem": "gaccha",
+      "pada": "parasmaipada",
+      "gloss": "go"
+    },
+    {
+      "lemma": "i",
+      "present_stem": "ehi",
+      "pada": "parasmaipada",
+      "gloss": "go"
+    },
+    {
+      "lemma": "sthā",
+      "present_stem": "tiṣṭha",
+      "pada": "parasmaipada",
+      "gloss": "stand"
+    },
+    {
+      "lemma": "ās",
+      "present_stem": "āsa",
+      "pada": "parasmaipada",
+      "gloss": "sit"
+    },
+    {
+      "lemma": "śru",
+      "present_stem": "śṛṇu",
+      "pada": "parasmaipada",
+      "gloss": "hear"
+    },
+    {
+      "lemma": "vid",
+      "present_stem": "veda",
+      "pada": "parasmaipada",
+      "gloss": "know"
+    },
+    {
+      "lemma": "jñā",
+      "present_stem": "jānā",
+      "pada": "parasmaipada",
+      "gloss": "know"
+    },
+    {
+      "lemma": "man",
+      "present_stem": "manyate",
+      "pada": "atmanepada",
+      "gloss": "think"
+    },
+    {
+      "lemma": "vad",
+      "present_stem": "vada",
+      "pada": "parasmaipada",
+      "gloss": "speak"
+    },
+    {
+      "lemma": "brū",
+      "present_stem": "brūhi",
+      "pada": "parasmaipada",
+      "gloss": "speak"
+    },
+    {
+      "lemma": "likh",
+      "present_stem": "likha",
+      "pada": "parasmaipada",
+      "gloss": "write"
+    },
+    {
+      "lemma": "paṭh",
+      "present_stem": "paṭha",
+      "pada": "parasmaipada",
+      "gloss": "read"
+    },
+    {
+      "lemma": "adhi",
+      "present_stem": "adhīte",
+      "pada": "atmanepada",
+      "gloss": "study"
+    },
+    {
+      "lemma": "icch",
+      "present_stem": "iccha",
+      "pada": "parasmaipada",
+      "gloss": "desire"
+    },
+    {
+      "lemma": "iṣ",
+      "present_stem": "iccha",
+      "pada": "parasmaipada",
+      "gloss": "desire"
+    },
+    {
+      "lemma": "dā",
+      "present_stem": "dada",
+      "pada": "parasmaipada",
+      "gloss": "give"
+    },
+    {
+      "lemma": "grah",
+      "present_stem": "gṛhāṇa",
+      "pada": "parasmaipada",
+      "gloss": "take, accept"
+    },
+    {
+      "lemma": "dhā",
+      "present_stem": "dhatta",
+      "pada": "parasmaipada",
+      "gloss": "place"
+    },
+    {
+      "lemma": "nidhā",
+      "present_stem": "nidadhā",
+      "pada": "parasmaipada",
+      "gloss": "deposit"
+    },
+    {
+      "lemma": "hā",
+      "present_stem": "jihīte",
+      "pada": "atmanepada",
+      "gloss": "leave"
+    },
+    {
+      "lemma": "pac",
+      "present_stem": "paca",
+      "pada": "parasmaipada",
+      "gloss": "cook"
+    },
+    {
+      "lemma": "car",
+      "present_stem": "cara",
+      "pada": "parasmaipada",
+      "gloss": "move"
+    },
+    {
+      "lemma": "cal",
+      "present_stem": "cala",
+      "pada": "parasmaipada",
+      "gloss": "move"
+    },
+    {
+      "lemma": "nī",
+      "present_stem": "naya",
+      "pada": "parasmaipada",
+      "gloss": "lead"
+    },
+    {
+      "lemma": "āhṛ",
+      "present_stem": "āhara",
+      "pada": "parasmaipada",
+      "gloss": "bring"
+    },
+    {
+      "lemma": "īkṣ",
+      "present_stem": "īkṣa",
+      "pada": "parasmaipada",
+      "gloss": "see"
+    },
+    {
+      "lemma": "dṛś",
+      "present_stem": "paśya",
+      "pada": "parasmaipada",
+      "gloss": "see"
+    },
+    {
+      "lemma": "paś",
+      "present_stem": "paśya",
+      "pada": "parasmaipada",
+      "gloss": "see"
+    },
+    {
+      "lemma": "smṛ",
+      "present_stem": "smara",
+      "pada": "parasmaipada",
+      "gloss": "remember"
+    },
+    {
+      "lemma": "jīv",
+      "present_stem": "jīva",
+      "pada": "parasmaipada",
+      "gloss": "live"
+    },
+    {
+      "lemma": "mṛ",
+      "present_stem": "mara",
+      "pada": "parasmaipada",
+      "gloss": "die"
+    },
+    {
+      "lemma": "jā",
+      "present_stem": "jāya",
+      "pada": "atmanepada",
+      "gloss": "be born"
+    },
+    {
+      "lemma": "jan",
+      "present_stem": "janaya",
+      "pada": "parasmaipada",
+      "gloss": "produce"
+    },
+    {
+      "lemma": "śam",
+      "present_stem": "śāmyati",
+      "pada": "atmanepada",
+      "gloss": "be pacified"
+    },
+    {
+      "lemma": "yudh",
+      "present_stem": "yudhyate",
+      "pada": "atmanepada",
+      "gloss": "fight"
+    },
+    {
+      "lemma": "ji",
+      "present_stem": "jaya",
+      "pada": "parasmaipada",
+      "gloss": "conquer"
+    },
+    {
+      "lemma": "jay",
+      "present_stem": "jayati",
+      "pada": "parasmaipada",
+      "gloss": "conquer"
+    },
+    {
+      "lemma": "rakṣ",
+      "present_stem": "rakṣa",
+      "pada": "parasmaipada",
+      "gloss": "protect"
+    },
+    {
+      "lemma": "pā",
+      "present_stem": "pāhi",
+      "pada": "parasmaipada",
+      "gloss": "protect"
+    },
+    {
+      "lemma": "han",
+      "present_stem": "hanta",
+      "pada": "parasmaipada",
+      "gloss": "strike, kill"
+    },
+    {
+      "lemma": "muc",
+      "present_stem": "muñca",
+      "pada": "parasmaipada",
+      "gloss": "release"
+    },
+    {
+      "lemma": "bandh",
+      "present_stem": "badhna",
+      "pada": "parasmaipada",
+      "gloss": "bind"
+    },
+    {
+      "lemma": "pracch",
+      "present_stem": "pṛccha",
+      "pada": "parasmaipada",
+      "gloss": "ask"
+    },
+    {
+      "lemma": "pṛch",
+      "present_stem": "pṛccha",
+      "pada": "parasmaipada",
+      "gloss": "ask"
+    },
+    {
+      "lemma": "bhū",
+      "present_stem": "bhava",
+      "pada": "parasmaipada",
+      "gloss": "become"
+    },
+    {
+      "lemma": "as",
+      "present_stem": "asti",
+      "pada": "parasmaipada",
+      "gloss": "be"
+    },
+    {
+      "lemma": "kṛ",
+      "present_stem": "kuru",
+      "pada": "parasmaipada",
+      "gloss": "do, make"
+    },
+    {
+      "lemma": "labh",
+      "present_stem": "labhate",
+      "pada": "atmanepada",
+      "gloss": "obtain"
+    },
+    {
+      "lemma": "vṛdh",
+      "present_stem": "vardhaya",
+      "pada": "parasmaipada",
+      "gloss": "increase"
+    },
+    {
+      "lemma": "yaj",
+      "present_stem": "yajati",
+      "pada": "parasmaipada",
+      "gloss": "sacrifice"
+    },
+    {
+      "lemma": "ju",
+      "present_stem": "juhoti",
+      "pada": "parasmaipada",
+      "gloss": "offer"
+    },
+    {
+      "lemma": "hu",
+      "present_stem": "juhoti",
+      "pada": "parasmaipada",
+      "gloss": "offer oblation"
+    },
+    {
+      "lemma": "bhaj",
+      "present_stem": "bhaja",
+      "pada": "parasmaipada",
+      "gloss": "serve, divide"
+    },
+    {
+      "lemma": "spṛś",
+      "present_stem": "spṛśa",
+      "pada": "parasmaipada",
+      "gloss": "touch"
+    },
+    {
+      "lemma": "kṣip",
+      "present_stem": "kṣipa",
+      "pada": "parasmaipada",
+      "gloss": "throw"
+    },
+    {
+      "lemma": "pat",
+      "present_stem": "patati",
+      "pada": "parasmaipada",
+      "gloss": "fall, fly"
+    },
+    {
+      "lemma": "plu",
+      "present_stem": "plava",
+      "pada": "parasmaipada",
+      "gloss": "float, swim"
+    },
+    {
+      "lemma": "snā",
+      "present_stem": "snāti",
+      "pada": "parasmaipada",
+      "gloss": "bathe"
+    },
+    {
+      "lemma": "mṛj",
+      "present_stem": "mṛja",
+      "pada": "parasmaipada",
+      "gloss": "wipe, cleanse"
+    },
+    {
+      "lemma": "dhāv",
+      "present_stem": "dhāvati",
+      "pada": "parasmaipada",
+      "gloss": "run"
+    },
+    {
+      "lemma": "kṣal",
+      "present_stem": "kṣalati",
+      "pada": "parasmaipada",
+      "gloss": "wash"
+    },
+    {
+      "lemma": "khād",
+      "present_stem": "khādati",
+      "pada": "parasmaipada",
+      "gloss": "chew, eat"
+    },
+    {
+      "lemma": "ad",
+      "present_stem": "atti",
+      "pada": "parasmaipada",
+      "gloss": "eat"
+    },
+    {
+      "lemma": "pib",
+      "present_stem": "piba",
+      "pada": "parasmaipada",
+      "gloss": "drink"
+    },
+    {
+      "lemma": "tyaj",
+      "present_stem": "tyaja",
+      "pada": "parasmaipada",
+      "gloss": "abandon"
+    },
+    {
+      "lemma": "śās",
+      "present_stem": "śāsti",
+      "pada": "parasmaipada",
+      "gloss": "punish, teach"
+    },
+    {
+      "lemma": "śiṣ",
+      "present_stem": "śāsti",
+      "pada": "parasmaipada",
+      "gloss": "teach"
+    },
+    {
+      "lemma": "bodh",
+      "present_stem": "bodhati",
+      "pada": "parasmaipada",
+      "gloss": "awaken"
+    },
+    {
+      "lemma": "budh",
+      "present_stem": "budhyate",
+      "pada": "atmanepada",
+      "gloss": "awaken, know"
+    },
+    {
+      "lemma": "yuj",
+      "present_stem": "yunakti",
+      "pada": "parasmaipada",
+      "gloss": "yoke, join"
+    },
+    {
+      "lemma": "bhī",
+      "present_stem": "bibheti",
+      "pada": "parasmaipada",
+      "gloss": "fear"
+    },
+    {
+      "lemma": "pū",
+      "present_stem": "pūta",
+      "pada": "parasmaipada",
+      "gloss": "purify"
+    },
+    {
+      "lemma": "tap",
+      "present_stem": "tapati",
+      "pada": "parasmaipada",
+      "gloss": "heat, ascetic practice"
+    },
+    {
+      "lemma": "dīp",
+      "present_stem": "dīpyate",
+      "pada": "atmanepada",
+      "gloss": "shine"
+    },
+    {
+      "lemma": "bhās",
+      "present_stem": "bhāsate",
+      "pada": "atmanepada",
+      "gloss": "shine"
+    },
+    {
+      "lemma": "sarp",
+      "present_stem": "sarati",
+      "pada": "parasmaipada",
+      "gloss": "creep, go"
+    },
+    {
+      "lemma": "kram",
+      "present_stem": "kramati",
+      "pada": "parasmaipada",
+      "gloss": "stride, ascend"
+    },
+    {
+      "lemma": "pad",
+      "present_stem": "padati",
+      "pada": "parasmaipada",
+      "gloss": "go, fall"
+    },
+    {
+      "lemma": "cyu",
+      "present_stem": "cyavate",
+      "pada": "atmanepada",
+      "gloss": "fall, move"
+    },
+    {
+      "lemma": "kṣar",
+      "present_stem": "kṣarati",
+      "pada": "parasmaipada",
+      "gloss": "flow"
+    },
+    {
+      "lemma": "sṛj",
+      "present_stem": "sṛjati",
+      "pada": "parasmaipada",
+      "gloss": "create"
+    },
+    {
+      "lemma": "visṛj",
+      "present_stem": "visṛjati",
+      "pada": "parasmaipada",
+      "gloss": "release"
+    },
+    {
+      "lemma": "chhid",
+      "present_stem": "chindati",
+      "pada": "parasmaipada",
+      "gloss": "cut"
+    },
+    {
+      "lemma": "chid",
+      "present_stem": "chindati",
+      "pada": "parasmaipada",
+      "gloss": "cut"
+    },
+    {
+      "lemma": "bhid",
+      "present_stem": "bhindati",
+      "pada": "parasmaipada",
+      "gloss": "split"
+    },
+    {
+      "lemma": "kṛṣ",
+      "present_stem": "karṣati",
+      "pada": "parasmaipada",
+      "gloss": "plow, draw"
+    },
+    {
+      "lemma": "sah",
+      "present_stem": "sahate",
+      "pada": "atmanepada",
+      "gloss": "endure"
+    },
+    {
+      "lemma": "yam",
+      "present_stem": "yacchati",
+      "pada": "parasmaipada",
+      "gloss": "restrain, offer"
+    },
+    {
+      "lemma": "ram",
+      "present_stem": "ramate",
+      "pada": "atmanepada",
+      "gloss": "enjoy"
+    },
+    {
+      "lemma": "prī",
+      "present_stem": "prīṇāti",
+      "pada": "parasmaipada",
+      "gloss": "please"
+    },
+    {
+      "lemma": "tṛp",
+      "present_stem": "tṛpyati",
+      "pada": "atmanepada",
+      "gloss": "be satisfied"
+    },
+    {
+      "lemma": "khan",
+      "present_stem": "khanati",
+      "pada": "parasmaipada",
+      "gloss": "dig"
+    },
+    {
+      "lemma": "bhuj",
+      "present_stem": "bhuñjate",
+      "pada": "atmanepada",
+      "gloss": "enjoy, eat"
+    },
+    {
+      "lemma": "bhuñj",
+      "present_stem": "bhuñjate",
+      "pada": "atmanepada",
+      "gloss": "eat"
+    },
+    {
+      "lemma": "ruc",
+      "present_stem": "rocate",
+      "pada": "atmanepada",
+      "gloss": "shine, please"
+    },
+    {
+      "lemma": "arc",
+      "present_stem": "arcati",
+      "pada": "parasmaipada",
+      "gloss": "honor, worship"
+    },
+    {
+      "lemma": "stu",
+      "present_stem": "stauti",
+      "pada": "parasmaipada",
+      "gloss": "praise"
+    },
+    {
+      "lemma": "gai",
+      "present_stem": "gāyati",
+      "pada": "parasmaipada",
+      "gloss": "sing"
+    },
+    {
+      "lemma": "nṛt",
+      "present_stem": "nṛtyati",
+      "pada": "parasmaipada",
+      "gloss": "dance"
+    },
+    {
+      "lemma": "sidh",
+      "present_stem": "siddhyati",
+      "pada": "atmanepada",
+      "gloss": "succeed"
+    },
+    {
+      "lemma": "ru",
+      "present_stem": "ravati",
+      "pada": "parasmaipada",
+      "gloss": "roar, cry"
+    },
+    {
+      "lemma": "vij",
+      "present_stem": "vijati",
+      "pada": "parasmaipada",
+      "gloss": "win"
+    },
+    {
+      "lemma": "aj",
+      "present_stem": "ajati",
+      "pada": "parasmaipada",
+      "gloss": "drive"
+    },
+    {
+      "lemma": "vah",
+      "present_stem": "vaha",
+      "pada": "parasmaipada",
+      "gloss": "carry"
+    },
+    {
+      "lemma": "kṣubh",
+      "present_stem": "kṣubhyati",
+      "pada": "atmanepada",
+      "gloss": "be agitated"
+    },
+    {
+      "lemma": "śuc",
+      "present_stem": "śocati",
+      "pada": "parasmaipada",
+      "gloss": "grieve, purify"
+    },
+    {
+      "lemma": "ni",
+      "present_stem": "nayati",
+      "pada": "parasmaipada",
+      "gloss": "lead"
+    },
+    {
+      "lemma": "ā",
+      "present_stem": "ā",
+      "pada": "parasmaipada",
+      "gloss": "come"
+    },
+    {
+      "lemma": "āgam",
+      "present_stem": "āgaccha",
+      "pada": "parasmaipada",
+      "gloss": "arrive"
+    },
+    {
+      "lemma": "upā",
+      "present_stem": "upāgaccha",
+      "pada": "parasmaipada",
+      "gloss": "approach"
+    },
+    {
+      "lemma": "āruh",
+      "present_stem": "āruhati",
+      "pada": "parasmaipada",
+      "gloss": "ascend"
+    },
+    {
+      "lemma": "avatṛ",
+      "present_stem": "avatīrṇa",
+      "pada": "parasmaipada",
+      "gloss": "descend"
+    },
+    {
+      "lemma": "āśri",
+      "present_stem": "āśrayate",
+      "pada": "atmanepada",
+      "gloss": "take refuge"
+    },
+    {
+      "lemma": "āś",
+      "present_stem": "āśa",
+      "pada": "parasmaipada",
+      "gloss": "obtain"
+    },
+    {
+      "lemma": "āp",
+      "present_stem": "āpnoti",
+      "pada": "parasmaipada",
+      "gloss": "obtain"
+    },
+    {
+      "lemma": "āh",
+      "present_stem": "āha",
+      "pada": "parasmaipada",
+      "gloss": "say"
+    },
+    {
+      "lemma": "ādiś",
+      "present_stem": "ādiśati",
+      "pada": "parasmaipada",
+      "gloss": "command"
+    },
+    {
+      "lemma": "ārambh",
+      "present_stem": "ārabhate",
+      "pada": "atmanepada",
+      "gloss": "begin"
+    },
+    {
+      "lemma": "ārabh",
+      "present_stem": "ārabhate",
+      "pada": "atmanepada",
+      "gloss": "begin"
+    },
+    {
+      "lemma": "upaviś",
+      "present_stem": "upaviśati",
+      "pada": "parasmaipada",
+      "gloss": "sit down"
+    },
+    {
+      "lemma": "niśam",
+      "present_stem": "niśamya",
+      "pada": "parasmaipada",
+      "gloss": "hear"
+    },
+    {
+      "lemma": "upa-nī",
+      "present_stem": "upanayati",
+      "pada": "parasmaipada",
+      "gloss": "lead near"
+    },
+    {
+      "lemma": "ud-viś",
+      "present_stem": "udviśati",
+      "pada": "parasmaipada",
+      "gloss": "enter"
+    },
+    {
+      "lemma": "parā-ji",
+      "present_stem": "parājayati",
+      "pada": "parasmaipada",
+      "gloss": "defeat"
+    },
+    {
+      "lemma": "anu-gam",
+      "present_stem": "anugacchati",
+      "pada": "parasmaipada",
+      "gloss": "follow"
+    },
+    {
+      "lemma": "anu-vad",
+      "present_stem": "anuvadati",
+      "pada": "parasmaipada",
+      "gloss": "repeat"
+    },
+    {
+      "lemma": "sam-vad",
+      "present_stem": "samvadate",
+      "pada": "atmanepada",
+      "gloss": "converse"
+    },
+    {
+      "lemma": "pra-vad",
+      "present_stem": "pravadati",
+      "pada": "parasmaipada",
+      "gloss": "proclaim"
+    },
+    {
+      "lemma": "ni-vad",
+      "present_stem": "nivadati",
+      "pada": "parasmaipada",
+      "gloss": "blame"
+    },
+    {
+      "lemma": "vi-dhā",
+      "present_stem": "vidhatte",
+      "pada": "atmanepada",
+      "gloss": "arrange"
+    },
+    {
+      "lemma": "sam-dhā",
+      "present_stem": "sandadhatte",
+      "pada": "atmanepada",
+      "gloss": "join"
+    },
+    {
+      "lemma": "ni-dhā",
+      "present_stem": "nidadhāti",
+      "pada": "parasmaipada",
+      "gloss": "deposit"
+    },
+    {
+      "lemma": "ā-dhā",
+      "present_stem": "ādadhatte",
+      "pada": "atmanepada",
+      "gloss": "place on"
+    },
+    {
+      "lemma": "ā-hṛ",
+      "present_stem": "āharati",
+      "pada": "parasmaipada",
+      "gloss": "bring"
+    },
+    {
+      "lemma": "ni-hṛ",
+      "present_stem": "niharati",
+      "pada": "parasmaipada",
+      "gloss": "remove"
+    },
+    {
+      "lemma": "ud-hṛ",
+      "present_stem": "udharati",
+      "pada": "parasmaipada",
+      "gloss": "deliver"
+    }
+  ],
+  "noun_count": 202,
+  "verb_count": 136
+}

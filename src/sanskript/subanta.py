@@ -11,6 +11,21 @@ class StemPattern(str, Enum):
     A_MASCULINE = "a_masculine"
     A_NEUTER = "a_neuter"
     AA_FEMININE = "ā_feminine"
+    I_MASCULINE = "i_masculine"
+    I_FEMININE = "i_feminine"
+    I_NEUTER = "i_neuter"
+    II_FEMININE = "ī_feminine"
+    U_MASCULINE = "u_masculine"
+    U_NEUTER = "u_neuter"
+    UU_FEMININE = "ū_feminine"
+    R_MASCULINE = "ṛ_masculine"
+    R_FEMININE = "ṛ_feminine"
+    RR_FEMININE = "ṝ_feminine"
+    L_STEM = "ḷ_stem"
+    E_STEM = "e_stem"
+    AI_STEM = "ai_stem"
+    O_MASCULINE = "o_masculine"
+    AU_STEM = "au_stem"
 
 
 @dataclass(frozen=True)
@@ -101,14 +116,102 @@ def sup_ending(case: Case, number: GrammaticalNumber) -> str:
     raise ValueError(f"No sup ending for {case.value}/{number.value}")
 
 
+def infer_stem_pattern(lemma: str, gender: Gender) -> StemPattern | None:
+    """Infer declension class from lemma ending and gender."""
+    if lemma.endswith("au"):
+        return StemPattern.AU_STEM
+    if lemma.endswith("ai"):
+        return StemPattern.AI_STEM
+    if lemma.endswith("e"):
+        return StemPattern.E_STEM
+    if lemma.endswith("o"):
+        return StemPattern.O_MASCULINE
+    if lemma.endswith("ḷ"):
+        return StemPattern.L_STEM
+    if lemma.endswith("ṝ"):
+        return StemPattern.RR_FEMININE
+    if lemma.endswith("ṛ"):
+        return StemPattern.R_FEMININE if gender == Gender.FEMININE else StemPattern.R_MASCULINE
+    if lemma.endswith("ū"):
+        return StemPattern.UU_FEMININE
+    if lemma.endswith("u"):
+        return StemPattern.U_NEUTER if gender == Gender.NEUTER else StemPattern.U_MASCULINE
+    if lemma.endswith("ī"):
+        return StemPattern.II_FEMININE
+    if lemma.endswith("i"):
+        if gender == Gender.NEUTER:
+            return StemPattern.I_NEUTER
+        if gender == Gender.FEMININE:
+            return StemPattern.I_FEMININE
+        return StemPattern.I_MASCULINE
+    if lemma.endswith("ā"):
+        return StemPattern.AA_FEMININE
+    if lemma.endswith("a"):
+        return StemPattern.A_NEUTER if gender == Gender.NEUTER else StemPattern.A_MASCULINE
+    return None
+
+
+def valid_lemma_for_pattern(lemma: str, pattern: StemPattern) -> bool:
+    checks: dict[StemPattern, tuple[str, ...]] = {
+        StemPattern.A_MASCULINE: ("a",),
+        StemPattern.A_NEUTER: ("a",),
+        StemPattern.AA_FEMININE: ("ā",),
+        StemPattern.I_MASCULINE: ("i",),
+        StemPattern.I_FEMININE: ("i",),
+        StemPattern.I_NEUTER: ("i",),
+        StemPattern.II_FEMININE: ("ī",),
+        StemPattern.U_MASCULINE: ("u",),
+        StemPattern.U_NEUTER: ("u",),
+        StemPattern.UU_FEMININE: ("ū",),
+        StemPattern.R_MASCULINE: ("ṛ",),
+        StemPattern.R_FEMININE: ("ṛ",),
+        StemPattern.RR_FEMININE: ("ṝ",),
+        StemPattern.L_STEM: ("ḷ",),
+        StemPattern.E_STEM: ("e",),
+        StemPattern.AI_STEM: ("ai",),
+        StemPattern.O_MASCULINE: ("o",),
+        StemPattern.AU_STEM: ("au",),
+    }
+    suffixes = checks.get(pattern)
+    if not suffixes:
+        return False
+    if pattern in {StemPattern.A_MASCULINE, StemPattern.A_NEUTER}:
+        return lemma.endswith("a") and not lemma.endswith("ā")
+    return any(lemma.endswith(suffix) for suffix in suffixes)
+
+
+def decline_paradigm(stem: DeclensionStem) -> dict[tuple[Case, GrammaticalNumber], str]:
+    from . import subanta_paradigms as paradigms
+
+    dispatch: dict[StemPattern, object] = {
+        StemPattern.A_MASCULINE: decline_a_masculine,
+        StemPattern.A_NEUTER: decline_a_neuter,
+        StemPattern.AA_FEMININE: decline_aa_feminine,
+        StemPattern.I_MASCULINE: paradigms.decline_i_masculine,
+        StemPattern.I_FEMININE: paradigms.decline_i_masculine,
+        StemPattern.I_NEUTER: paradigms.decline_i_neuter,
+        StemPattern.II_FEMININE: paradigms.decline_ii_feminine,
+        StemPattern.U_MASCULINE: paradigms.decline_u_masculine,
+        StemPattern.U_NEUTER: paradigms.decline_u_neuter,
+        StemPattern.UU_FEMININE: paradigms.decline_uu_feminine,
+        StemPattern.R_MASCULINE: paradigms.decline_r_masculine,
+        StemPattern.R_FEMININE: paradigms.decline_r_masculine,
+        StemPattern.RR_FEMININE: paradigms.decline_rr_feminine,
+        StemPattern.L_STEM: paradigms.decline_l_stem,
+        StemPattern.E_STEM: paradigms.decline_e_stem,
+        StemPattern.AI_STEM: paradigms.decline_ai_stem,
+        StemPattern.O_MASCULINE: paradigms.decline_o_masculine,
+        StemPattern.AU_STEM: paradigms.decline_au_stem,
+    }
+    handler = dispatch.get(stem.pattern)
+    if handler is None:
+        raise ValueError(f"Unknown stem pattern: {stem.pattern}")
+    return handler(stem.lemma)  # type: ignore[operator]
+
+
 def decline(stem: DeclensionStem) -> dict[tuple[Case, GrammaticalNumber], str]:
-    if stem.pattern == StemPattern.A_MASCULINE:
-        return decline_a_masculine(stem.lemma)
-    if stem.pattern == StemPattern.A_NEUTER:
-        return decline_a_neuter(stem.lemma)
-    if stem.pattern == StemPattern.AA_FEMININE:
-        return decline_aa_feminine(stem.lemma)
-    raise ValueError(f"Unknown stem pattern: {stem.pattern}")
+    """Return full nominal paradigms from sup tables (used by tests and engine fallbacks)."""
+    return decline_paradigm(stem)
 
 
 def iter_nominal_analyses() -> Iterable[Analysis]:

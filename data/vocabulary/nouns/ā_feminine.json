@@ -1,0 +1,706 @@
+{
+  "pattern": "ā_feminine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "abalā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "woman, weak one",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "abhidhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "appellation, literal meaning",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "adhyāyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "chapter",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "ambā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "mother",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "anyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "other (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "apsarā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "celestial nymph",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "arcā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "worship, image",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "avasthā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "condition, state",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "balā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "army, strength",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhadrā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "auspicious (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhāgyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "fortunate (feminine)",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "bhāryā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "wife",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "bhūtā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "being, spirit (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "bālā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "girl, maiden",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "candrā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "moon (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "caritā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "conduct, biography",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "cintā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "thought, anxiety",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dayā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "compassion, mercy",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "daśā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "condition, fate",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "devatā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "goddess, divinity",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "devī",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "goddess",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "dhanyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "fortunate (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "diśā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "quarter, direction",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "duhitā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "daughter",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "durgā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Durgā, fortress",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dīkṣā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "initiation, consecration",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "dṛḍhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "firm, strong (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "ekā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "one (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "gaṅgā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Gaṅgā",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "gaṇā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "troop, flock",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "girā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "speech, voice",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "glānā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "fatigue, exhaustion",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "godāvarī",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Godāvarī river",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "gāthā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "song, verse",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "gītā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "song",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "icchā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "desire",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "janatā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "populace, people",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "jarā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "old age, decay",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "jātā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "born (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "jāyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "wife",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kalatrā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "wife",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kalpanā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "creation, fiction",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kalā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "art",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kanyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "girl, daughter",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kathā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "story",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "kavitā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "poetry",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kriyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "action",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "krīḍā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "play, sport",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kāmanā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "desire, longing",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kṣamā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "patience, forgiveness",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kṣemā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "welfare, security",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "kṣmā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "earth",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "lalitā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "graceful woman, sport",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "latā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "creeper",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "lekhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "writing",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "līlā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "play, sport",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mahilā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "woman",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "maitrā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "friendship",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "manyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "self-respect, anger",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "manīṣā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "opinion, wisdom",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "matā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "opinion, thought",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mayā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "deceit, illusion",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "maṅgalā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "auspicious (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "medhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "intelligence, wisdom",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "menakā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "celestial nymph",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mimāṃsā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "inquiry",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mitrā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "friend (feminine)",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "mudā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "joy, delight",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "muktā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "liberated (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "mālā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "garland",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "mātā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "mother",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nadikā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "brook, rill",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nadā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "river",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nagarā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "city",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "narmadā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Narmadā river",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "niṣṭhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "devotion, conclusion",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "nāsā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "nose",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "paricchedā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "section, division",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "parā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "other (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pativratā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "faithful wife",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "patrikā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "letter, leaf, magazine",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "prajñā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "wisdom, discernment",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "prajā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "people, subjects",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "prakaraṇā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "section, topic",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "pramāṇā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "proof, authority",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "premā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "love, affection",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "priyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "beloved",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "puṇyā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "meritorious (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pāpā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "sin (feminine)",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pīḍā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "pain, affliction",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "pūjā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "worship, honor",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "rakṣā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "protection, guard",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "rambhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "plantain, nymph",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "ramā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "pleasure, Lakṣmī",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "raśmā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "ray, rein",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "rekhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "line, streak",
+      "source": "Macdonell §109; MW"
+    },
+    {
+      "lemma": "revā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "Narmadā river",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "rājñī",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "queen",
+      "source": "Whitney; MW"
+    },
+    {
+      "lemma": "sabhā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "assembly",
+      "source": "legacy vocabulary_stems.json; MW"
+    },
+    {
+      "lemma": "sakalā",
+      "pattern": "ā_feminine",
+      "gender": "feminine",
+      "gloss": "whole, entire",
+      "source": "Macdonell §109; MW"
+    }
+  ]
+}

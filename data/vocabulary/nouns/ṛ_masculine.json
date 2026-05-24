@@ -1,0 +1,881 @@
+{
+  "pattern": "ṛ_masculine",
+  "target_count": 100,
+  "entries": [
+    {
+      "lemma": "abhoktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "non-enjoyer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "abhyudhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "elevator, deliverer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "adhvaryṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "Adhvaryu priest",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "adātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "non-giver",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "ajitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "driver",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "akartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "non-doer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "anetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "non-leader",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "anujñātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "permitter",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "anumantṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "approver",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "anuvaktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "repeater, imitator",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "apātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "non-protector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "arcayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "honorer, worshipper",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "arpayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "bestower",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "avaktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "non-speaker",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "baddhītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "binder",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "bhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "bearer, maintainer, lord",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "bhetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "breaker",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "bhoktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "enjoyer, eater",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "bhrātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "brother",
+      "source": "Whitney §137; Macdonell §109; MW"
+    },
+    {
+      "lemma": "bhāvayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "causer to be, developer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "bodhayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "awakener",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "cetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "thinker, observer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "codītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "instigator",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "supporter, bearer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dhvastṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "destroyer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dhārayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "bearer, maintainer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dhātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "creator, ordainer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "draṣṭṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "seer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dviṣṭṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "hater, enemy",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "giver",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "dīpayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "illuminator",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "gantṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "goer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "goptṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "grahītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "taker, acceptor",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "gāyatṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "singer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "hantṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "slayer, killer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "hetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "killer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "hotṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "sacrificer, priest",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "iṣṭṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "seeker, worshipper",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "janayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "producer, begetter",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "janitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "begetter",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "jantṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "begetter, father (Vedic)",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "jayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "conqueror",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "jetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "conqueror, victor",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "jñātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "knower",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "jāmātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "son-in-law",
+      "source": "Whitney §137; MW"
+    },
+    {
+      "lemma": "jīvayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "vivifier",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "kartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "doer, maker",
+      "source": "Whitney §1161; Macdonell §109; MW"
+    },
+    {
+      "lemma": "karṣītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "ploughman, drawer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "kṣalitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "washer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "kṣapitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "destroyer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "kṣetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "cultivator",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "kṣiptṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "thrower",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "labhītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "obtainer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "muktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "releaser, liberator",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "māntṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "thinker",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "mārayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "killer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "mṛjītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "cleanser, wiper",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "naptṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "grandson",
+      "source": "Whitney §137; MW"
+    },
+    {
+      "lemma": "nartitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "dancer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "nayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "leader",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "netṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "leader, guide",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "nihartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "remover",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "nītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "leader",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "parihartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "avoider, remover",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "parivartayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "turner, changer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pariśodhayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "purifier",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "patītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "fallen one, deserter",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "father",
+      "source": "Whitney §137; Macdonell §109; MW"
+    },
+    {
+      "lemma": "plavitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "floater, swimmer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "prabodhayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "awakener",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pradātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "bestower",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pratipātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pravaktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "expounder",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pravartayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "instigator, settor in motion",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "prāptṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "attainer, obtainer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pālayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector, keeper",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pātayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "feller, causer to fall",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector, drinker",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pūtṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "purifier",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "pṛcchitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "asker, inquirer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "rakṣatṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "rakṣītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "rocayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "illuminator, pleaser",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "savitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "stimulator; the sun",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "sañjīvayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "restorer to life",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "saṃbodhayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "awakener, instructor",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "saṃhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "destroyer, collector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "saṃjñātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "knower, namer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "saṃrakṣītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "protector",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "saṃvardhayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "increaser",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "siddhayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "accomplisher",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "smṛtṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "rememberer (Vedic)",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "spṛśtṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "toucher",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "stotṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "praiser",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "stutṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "praiser (Vedic)",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "sṛjītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "creator, emitter",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "tapītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "ascetic, heater",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "trātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "deliverer, saviour",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "tyaktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "abandoner",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "tāpayitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "causer of heat, tormentor",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "udghātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "opener, destroyer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "udhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "deliverer, raiser",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "upadeṣṭṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "instructor",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "upanetṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "bringer, offerer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "upasaṃhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "collector, destroyer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "uṣṭṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "ploughing bull (Vedic)",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vadītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "speaker",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vahītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "carrier",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vaktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "speaker",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "varītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "chooser",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vettṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "knower",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vidhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "maintainer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vidhātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "disposer, creator",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "vindītṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "finder",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "yantṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "driver, charioteer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "yatitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "striver, ascetic",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "yaṣṭṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "worshipper, sacrificer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "yoktṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "yoker, joiner",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "yātṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "traveller",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "ādiśitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "commander",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "āhartṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "bringer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "śocitṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "mourner",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "śrotṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "hearer",
+      "source": "Whitney §1161; MW"
+    },
+    {
+      "lemma": "śāstṛ",
+      "pattern": "ṛ_masculine",
+      "gender": "masculine",
+      "gloss": "chastiser, teacher, ruler",
+      "source": "Whitney §1161; MW"
+    }
+  ]
+}
