@@ -69,7 +69,7 @@ Here is everything from that discussion that is realistically doable in a few mo
   [x] 23. Kāraka validation pass — role↔case consistency for all participants; KarakaVibhaktiEngine cross-check
       for frame-required roles (with nominative kartṛ register convention).
 
-  [ ] 24. Frame registry cleanup — verb frames driven from data (JSON/YAML) instead of hard-coded if verb.surface == ...
+  [x] 24. Frame registry cleanup — verb frames driven from data/verb_frames.json instead of hard-coded if verb.surface == ...
       branches where possible.
 
   [ ] 25. Normalize input sandhi — optional pre-tokenization step using existing sandhi join/split for controlled
@@ -81,29 +81,29 @@ Here is everything from that discussion that is realistically doable in a few mo
 
   Parser / compiler / runtime (language features on top)
 
-  [ ] 27. Expand controlled verb frames — more verbs wired through same Assign/Increase/Display pattern.
+  [x] 27. Expand controlled verb frames — more verbs wired through same Assign/Increase/Display pattern.
 
-  [ ] 28. Expand controlled noun/pronoun/numeral inventory — via lexicon builder, not hand LEXICON entries.
+  [x] 28. Expand controlled noun/pronoun/numeral inventory — via lexicon builder, not hand LEXICON entries.
 
-  [ ] 29. Data-driven parser dispatch — table from (verb_lemma, frame) → AST constructor instead of growing if chains.
+  [x] 29. Data-driven parser dispatch — table from (verb frame operation) → AST constructor instead of growing if chains.
 
-  [ ] 30. Richer Analysis on hot path — propagate lakāra, pada, gender from synthesized lexicon into parser decisions.
+  [x] 30. Richer Analysis on hot path — propagate lakāra, pada, gender from synthesized lexicon into parser decisions.
 
   [ ] 31. IR/compiler: new statement forms — conditional, loop, function call (language design already sketched in docs).
 
   [ ] 32. VM opcodes for new semantics — extend bytecode + VM for anything new in IR (still integer-only is fine for v1).
 
-  [ ] 33. Better runtime errors — morphological, parse, and VM errors with Sanskrit-aware messages.
+  [x] 33. Better runtime errors — morphological, parse, and VM errors with Sanskrit-aware messages.
 
   [ ] 34. Stdlib in Sanskrit surface forms — generated via synthesizer, loaded as prebuilt lexicon entries.
 
-  [ ] 35. Example programs beyond prathama.ssk — exercise new frames and lexicon entries.
+  [x] 35. Example programs beyond prathama.ssk — exercise new frames and lexicon entries.
 
   ────────────────────────────────────────
 
   Engine / foundation hardening (bounded, not new sūtra mining)
 
-  [ ] 36. Freeze sūtra layer — bugfixes only; document “engine API stable.”
+  [x] 36. Freeze sūtra layer — bugfixes only; document “engine API stable.”
 
   [x] 37. Document integration boundary — derive_paninian() / synthesize() / auto_derive() as the public morphology
       backend API (exported from sanskript package).
@@ -113,10 +113,10 @@ Here is everything from that discussion that is realistically doable in a few mo
 
   [x] 39. Per-family synthesis tests — tiṅ, sup, kṛt, taddhita, samāsa, sandhi golden tests in test_morphology_synth.py.
 
-  [ ] 40. Performance baseline — lexicon lookup + full parse/compile of examples under acceptable ms (sanity, not
+  [x] 40. Performance baseline — lexicon lookup + full parse/compile of examples under acceptable ms (sanity, not
       optimization project).
 
-  [ ] 41. Regenerate / shrink predicate-only-weak-sutras.md — optional audit script in CI (maintenance, not new grammar
+  [x] 41. Regenerate / shrink predicate-only-weak-sutras.md — optional audit script in CI (maintenance, not new grammar
       work).
 
   ────────────────────────────────────────
@@ -136,10 +136,10 @@ Here is everything from that discussion that is realistically doable in a few mo
 
   Docs & tooling
 
-  [ ] 45. Update README / implementation-plan — “morphology compiler backend + lexicon builder” as official architecture.
+  [x] 45. Update README / implementation-plan — “morphology compiler backend + lexicon builder” as official architecture.
 
-  [~] 46. Grammar register ↔ code sync — single source listing allowed lemmas and derivations.
-      (grammar_register.py is source of truth; docs/grammar-register.md not yet synced)
+  [x] 46. Grammar register ↔ code sync — single source listing allowed lemmas and derivations.
+      (grammar_register.py and data/verb_frames.json are source of truth; docs/grammar-register.generated.md is tested)
 
   [x] 47. CLI: sanskript build-lexicon and sanskript synthesize for debugging derivations.
 
@@ -167,10 +167,10 @@ Here is everything from that discussion that is realistically doable in a few mo
   │ 1–2   │ DerivationIntent, RecipePlanner, synthesize() for tiṅ + sup │  DONE
   │ 2–3   │ build_controlled_lexicon.py + JSON artifact + CI test       │  DONE
   │ 3–4   │ MorphologyFacade + parser swap + kāraka validation          │  DONE
-  │ 4–6   │ Expand register (verbs/nouns), data-driven parser dispatch  │  NEXT
+  │ 4–6   │ Expand register (verbs/nouns), data-driven parser dispatch  │  DONE
   │ 6–8   │ kṛt/taddhita/samāsa in builder; stdlib forms                │
   │ 8–10  │ Bounded generate-and-test analyzer; CLI tools               │  CLI done; analyzer partial
-  │ 10–12 │ New language statements + VM; docs; integration tests       │
+  │ 10–12 │ New language statements + VM; docs; integration tests       │  NEXT
   └───────┴─────────────────────────────────────────────────────────────┘
 
   That is the full set of feasible-within-months work from the prior discussion—roughly 48 concrete items, all scoped to

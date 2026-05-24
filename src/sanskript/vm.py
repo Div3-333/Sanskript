@@ -43,7 +43,10 @@ class SanskriptVM:
             try:
                 self.stack.append(self.environment[name])
             except KeyError as exc:
-                raise RuntimeSanskriptError(f"Unknown stored value: {name!r}") from exc
+                raise RuntimeSanskriptError(
+                    f"Unknown stored value: {name!r}",
+                    hint="Assign a value with an adhikaraṇa frame before reading it.",
+                ) from exc
             return
 
         if opcode == OpCode.STORE_NAME:
@@ -79,4 +82,3 @@ class SanskriptVM:
         if not isinstance(operand, str):
             raise RuntimeSanskriptError(f"{opcode.value} expected a name operand, got {operand!r}")
         return operand
-

@@ -53,12 +53,14 @@ class MorphologyFacade:
         if not matches:
             raise MorphologyError(
                 f"Form {normalized!r} is not in the controlled Sanskrit register. "
-                "Add it to the grammar register and rebuild the lexicon."
+                "Add it to the grammar register and rebuild the lexicon.",
+                hint="Run `python scripts/build_controlled_lexicon.py` after adding the form.",
             )
         if len(matches) > 1:
             options = ", ".join(sorted({item.lemma for item in matches}))
             raise MorphologyError(
-                f"Form {normalized!r} is ambiguous in the controlled register ({options})."
+                f"Form {normalized!r} is ambiguous in the controlled register ({options}).",
+                hint="Use a less ambiguous registered form or add parser context for this frame.",
             )
         analysis = matches[0]
         self._session_cache[normalized] = analysis
@@ -77,7 +79,10 @@ class MorphologyFacade:
     def validate_karaka(self, analyses: list[Analysis], verb: Analysis) -> None:
         frame = VERB_FRAMES.get(verb.surface)
         if frame is None:
-            raise ParseError(f"No verb frame has been declared for {verb.surface!r}")
+            raise ParseError(
+                f"No verb frame has been declared for {verb.surface!r}",
+                hint="Declare the surface in data/verb_frames.json and rebuild the lexicon.",
+            )
 
         roles_present = _roles_by_type(item for item in analyses if item.pos != PartOfSpeech.VERB)
         missing = frame.required_roles - roles_present.keys()

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
 
 
 class Case(str, Enum):
@@ -82,6 +84,13 @@ class Lakara(str, Enum):
     ASHIRLING = "āśīrliṅ"
     LRN = "lṛṅ"
     LET = "leṭ"
+
+
+class FrameOperation(str, Enum):
+    ASSIGN = "assign"
+    INCREASE = "increase"
+    DECREASE = "decrease"
+    DISPLAY = "display"
 
 
 CASE_TO_ROLE = {
@@ -169,6 +178,10 @@ class VerbFrame:
     number: GrammaticalNumber
     lakara: Lakara
     pada: Pada
+    operation: FrameOperation
+    target_role: Role | None = None
+    value_role: Role | None = None
+    amount_role: Role | None = None
 
 
 @dataclass(frozen=True)
@@ -250,55 +263,7 @@ NUMERAL_FORMS: tuple[NumeralForm, ...] = (
 )
 
 
-VERB_FRAMES: dict[str, VerbFrame] = {
-    "nidadhāti": VerbFrame(
-        surface="nidadhāti",
-        lemma="nidhā",
-        gloss="places, puts down",
-        required_roles=frozenset({Role.KARMAN, Role.ADHIKARANA}),
-        construction_id="VF-001",
-        person=Person.THIRD,
-        number=GrammaticalNumber.SINGULAR,
-        lakara=Lakara.LAT,
-        pada=Pada.PARASMAIPADA,
-    ),
-    "vardhayati": VerbFrame(
-        surface="vardhayati",
-        lemma="vṛdh",
-        gloss="increases, augments",
-        required_roles=frozenset({Role.KARMAN, Role.KARANA}),
-        construction_id="VF-002",
-        person=Person.THIRD,
-        number=GrammaticalNumber.SINGULAR,
-        lakara=Lakara.LAT,
-        pada=Pada.PARASMAIPADA,
-    ),
-    "darśayati": VerbFrame(
-        surface="darśayati",
-        lemma="dṛś",
-        gloss="shows, displays",
-        required_roles=frozenset({Role.KARMAN}),
-        construction_id="VF-003",
-        person=Person.THIRD,
-        number=GrammaticalNumber.SINGULAR,
-        lakara=Lakara.LAT,
-        pada=Pada.PARASMAIPADA,
-    ),
-    "nyūnayati": VerbFrame(
-        surface="nyūnayati",
-        lemma="nyūnaya",
-        gloss="lessens, diminishes",
-        required_roles=frozenset({Role.KARMAN, Role.KARANA}),
-        construction_id="VF-004",
-        person=Person.THIRD,
-        number=GrammaticalNumber.SINGULAR,
-        lakara=Lakara.LAT,
-        pada=Pada.PARASMAIPADA,
-    ),
-}
-
-
-CONSTRUCTIONS: dict[str, Construction] = {
+BASE_CONSTRUCTIONS: dict[str, Construction] = {
     "NF-001": Construction(
         id="NF-001",
         name="controlled nominal forms",
@@ -311,28 +276,52 @@ CONSTRUCTIONS: dict[str, Construction] = {
         status="experimental",
         description="Cardinal numerals 0 through 10 are accepted in object and instrumental roles.",
     ),
-    "VF-001": Construction(
-        id="VF-001",
-        name="locative assignment with nidadhāti",
-        status="experimental",
-        description="A karman value is placed in an adhikaraṇa storage location.",
-    ),
-    "VF-002": Construction(
-        id="VF-002",
-        name="instrumental increase with vardhayati",
-        status="experimental",
-        description="A karman stored value is increased by a karaṇa amount.",
-    ),
-    "VF-003": Construction(
-        id="VF-003",
-        name="object display with darśayati",
-        status="experimental",
-        description="A karman value is shown as program output.",
-    ),
-    "VF-004": Construction(
-        id="VF-004",
-        name="instrumental decrease with nyūnayati",
-        status="experimental",
-        description="A karman stored value is decreased by a karaṇa amount.",
-    ),
 }
+
+
+def _frame_data_path() -> Path:
+    return Path(__file__).resolve().parents[2] / "data" / "verb_frames.json"
+
+
+def _maybe_role(value: str | None) -> Role | None:
+    return Role(value) if value else None
+
+
+def _load_controlled_frame_registry() -> tuple[dict[str, VerbFrame], dict[str, Construction]]:
+    payload = json.loads(_frame_data_path().read_text(encoding="utf-8"))
+    frames: dict[str, VerbFrame] = {}
+    constructions: dict[str, Construction] = {}
+    for raw in payload.get("frames", []):
+        construction = raw["construction"]
+        construction_id = str(construction["id"])
+        if construction_id in constructions:
+            raise ValueError(f"Duplicate verb-frame construction id: {construction_id}")
+        constructions[construction_id] = Construction(
+            id=construction_id,
+            name=str(construction["name"]),
+            status=str(construction.get("status", "experimental")),
+            description=str(construction["description"]),
+        )
+        frame = VerbFrame(
+            surface=str(raw["surface"]),
+            lemma=str(raw["lemma"]),
+            gloss=str(raw["gloss"]),
+            required_roles=frozenset(Role(role) for role in raw["required_roles"]),
+            construction_id=construction_id,
+            person=Person(raw.get("person", Person.THIRD.value)),
+            number=GrammaticalNumber(raw.get("number", GrammaticalNumber.SINGULAR.value)),
+            lakara=Lakara(raw.get("lakara", Lakara.LAT.value)),
+            pada=Pada(raw.get("pada", Pada.PARASMAIPADA.value)),
+            operation=FrameOperation(raw["operation"]),
+            target_role=_maybe_role(raw.get("target_role")),
+            value_role=_maybe_role(raw.get("value_role")),
+            amount_role=_maybe_role(raw.get("amount_role")),
+        )
+        if frame.surface in frames:
+            raise ValueError(f"Duplicate verb-frame surface: {frame.surface}")
+        frames[frame.surface] = frame
+    return frames, constructions
+
+
+VERB_FRAMES, _VERB_FRAME_CONSTRUCTIONS = _load_controlled_frame_registry()
+CONSTRUCTIONS: dict[str, Construction] = {**BASE_CONSTRUCTIONS, **_VERB_FRAME_CONSTRUCTIONS}

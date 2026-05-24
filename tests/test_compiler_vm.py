@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 from sanskript.ast import Assign, Display, Increase, Literal, Reference
 from sanskript.bytecode import Instruction, OpCode
@@ -6,6 +7,9 @@ from sanskript.compiler import compile_source, compile_statements, compile_state
 from sanskript.interpreter import Interpreter
 from sanskript.ir import IREmit, IRIncrease, IRLiteral, IRProgram, IRReference, IRStore
 from sanskript.vm import SanskriptVM
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 class CompilerVmTests(unittest.TestCase):
@@ -81,6 +85,16 @@ class CompilerVmTests(unittest.TestCase):
 
         self.assertEqual(bytecode.instructions[-1], Instruction(OpCode.HALT))
         self.assertEqual(SanskriptVM().execute(bytecode), ["7"])
+
+    def test_new_frame_examples_execute_through_same_runtime(self) -> None:
+        expected = {
+            "caturtha.ssk": ["7"],
+            "pancama.ssk": ["7"],
+        }
+        for filename, output in expected.items():
+            with self.subTest(filename=filename):
+                source = (ROOT / "examples" / filename).read_text(encoding="utf-8")
+                self.assertEqual(SanskriptVM().execute(compile_source(source)), output)
 
     def test_legacy_interpreter_facade_is_vm_backed(self) -> None:
         interpreter = Interpreter()

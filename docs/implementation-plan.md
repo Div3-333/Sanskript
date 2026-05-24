@@ -41,6 +41,9 @@ Truth-gated slice:
 - The current real-handler gate contributes 3613 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
 - Adhyaya 1-3 now have a shared dry runtime layer in `src/sanskript/adhyaya123_engines.py`: `SutraPredicateSelectionEngine`, `SamjnaTechnicalEngine`, `MetaruleGovernanceEngine`, `SamasaDerivationEngine`, `KarakaVibhaktiEngine`, `SubantaSupEngine`, `PratyayaLopaEngine`, `DhatuSanadiEngine`, `KrtDerivationEngine`, and `TinantaLakaraEngine`. This layer composes existing predicates into derivational behavior without re-counting metadata as sutra completion.
 - Runtime independence has begun: `ast.py`, `ir.py`, `compiler.py`, `bytecode.py`, and `vm.py` now form an explicit Sanskript-owned execution pipeline. The first VM is Python-hosted, but it executes Sanskript bytecode rather than treating Python control flow as the language semantics.
+- The source-language hot path now has a data-driven verb-frame registry in `data/verb_frames.json`. The parser maps frame operations to AST constructors through a dispatch table, so adding a new surface like `sthāpayati`, `yojayati`, `vyavakalayati`, or `prakāśayati` no longer requires another `if verb.surface == ...` branch.
+- `scripts/performance_baseline.py` and `python -m sanskript performance` provide a repeatable parse/compile/VM baseline across checked-in examples.
+- `scripts/check_predicate_weak_sutras.py` makes the predicate-only weak-sūtra report CI-checkable so its summary counts cannot drift from its table.
 
 Initial accent and aṅga support now lives in `src/sanskript/accent.py` and `src/sanskript/anga.py`.
 
@@ -124,6 +127,7 @@ Batch status:
 - Selected `1.3` sutras are implemented through real named handlers, with metarule and marker helpers retained for runtime behavior. `1.2` remains partial.
 - `8.1` is now marked `batch_partial`.
 - Current support includes a controlled avyaya registry, standard upasarga registry, sentence classification, subject-verb agreement checks, and metarule records for optionality, technical markers, domain carry, and late sentence-edge operations.
+- Current executable sentence support includes data-backed assignment, increase, decrease, and display frames with tested kāraka role bindings and generated register documentation.
 - Later non-Adhyāya 1-6 ranges here are still scaffolds that need individual completion work.
 
 ## Phase 6: Full Aṣṭādhyāyī Sweep

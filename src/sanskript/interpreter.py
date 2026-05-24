@@ -38,6 +38,9 @@ class Interpreter:
             try:
                 return self.environment[value.name]
             except KeyError as exc:
-                raise RuntimeSanskriptError(f"Unknown stored value: {value.name!r}") from exc
+                raise RuntimeSanskriptError(
+                    f"Unknown stored value: {value.name!r}",
+                    hint="Assign a value with an adhikaraṇa frame before reading it.",
+                ) from exc
 
         raise RuntimeSanskriptError(f"Unknown value: {value!r}")

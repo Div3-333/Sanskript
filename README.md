@@ -12,9 +12,10 @@ The current implementation is only a seed. It proves the compiler shape:
 
 1. Normalize Sanskrit text.
 2. Analyze each word morphologically.
-3. Recover kāraka-style semantic roles from inflection and verb frames.
-4. Build an AST from sentence meaning rather than token position.
-5. Interpret or later compile that AST.
+3. Load controlled verb frames and morphology from data-backed registers.
+4. Recover kāraka-style semantic roles from inflection and verb frames.
+5. Build an AST from sentence meaning rather than token position.
+6. Lower the AST to Sanskript IR, bytecode, and the Sanskript VM.
 
 ## Tiny Current Example
 
@@ -49,15 +50,17 @@ Expected output:
 This is not yet the final language. It is the first executable scaffold for a stricter design:
 
 - IAST is the current canonical input form.
-- Devanagari support is planned.
+- Devanagari input is normalized on the morphology hot path.
 - Sandhi is currently permissive; later phases should make it explicit and validated.
-- Every accepted construction should eventually carry a grammar note and review status.
+- Verb-frame syntax is driven by `data/verb_frames.json`, while the grammar register and controlled lexicon define the accepted source forms.
+- Every accepted construction should carry a grammar note, review status, generated register entry, and parser/runtime test.
 
 See [docs/charter.md](docs/charter.md) and [docs/language-design.md](docs/language-design.md).
-The controlled grammar register lives at [docs/grammar-register.md](docs/grammar-register.md).
+The controlled grammar register lives at [docs/grammar-register.md](docs/grammar-register.md), with a tested generated sync view at [docs/grammar-register.generated.md](docs/grammar-register.generated.md).
 The morphology-to-semantics plan lives at [docs/feature-lattice.md](docs/feature-lattice.md).
 The PDF-derived grammar canon lives at [docs/grammar-canon.md](docs/grammar-canon.md).
 The canon implementation roadmap lives at [docs/implementation-plan.md](docs/implementation-plan.md).
+The stable engine API boundary lives at [docs/engine-api-stability.md](docs/engine-api-stability.md).
 The visual beginner guide lives at [docs/guide/index.html](docs/guide/index.html).
 The granular reference guide lives at [docs/guide/reference.html](docs/guide/reference.html).
 
@@ -66,6 +69,8 @@ Current grammar infrastructure includes phonology, transliteration, first-pass s
 Adhyaya 1-3 now also have a shared dry-style engine layer in `src/sanskript/adhyaya123_engines.py`. It exposes a reusable sutra-predicate selection bridge plus domain engines for technical names/it-markers, metarules, samasa, karaka-vibhakti, subanta sup forms, lopa/root substitution, sanadi-dhatu/vikarana, krt derivation, and tinanta lakara conjugation. These engines reuse the truth-gated sutra predicates instead of copying rule logic.
 
 Sanskript now has an explicit implementation-independent runtime boundary: source is parsed into Sanskript AST, lowered into Sanskript IR, lowered again into Sanskript bytecode, and executed by a Sanskript VM. Python hosts this first VM, but the semantics are no longer direct Python interpreter branches.
+
+The parser hot path now uses a data-driven frame registry: `nidadhāti`/`sthāpayati` assign, `vardhayati`/`yojayati` increase, `nyūnayati`/`vyavakalayati` decrease, and `darśayati`/`prakāśayati` display. New frame surfaces can be added by extending `data/verb_frames.json`, rebuilding the controlled lexicon, and adding examples/tests.
 
 The derivation layer has begun moving beyond example lookup: Adhyāya 4–5 now have five shared engines for strī-pratyaya formation, taddhita rule selection, semantic relation interpretation, taddhita surface realization, and samāsānta endings. These engines consume the existing per-sūtra predicates instead of duplicating them, while the core apatya, matup, and atiśayana anchors still record sutra id, semantic relation, suffix, surface form, and stem operations.
 
@@ -107,4 +112,8 @@ enforces that every wired sutra is routed through one of these real-implementati
 
 ```powershell
 $env:PYTHONPATH='src'; python -m unittest discover -s tests
+```
+
+```powershell
+$env:PYTHONPATH='src'; python -m sanskript performance --iterations 20
 ```

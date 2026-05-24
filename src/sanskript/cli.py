@@ -13,6 +13,7 @@ from .interpreter import run
 from .morphology_facade import MorphologyFacade
 from .morphology_lexicon import build_lexicon_artifact
 from .morphology_synth import synthesize
+from .performance import main as performance_main
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -36,6 +37,10 @@ def main(argv: list[str] | None = None) -> int:
     analyze_parser = subparsers.add_parser("analyze", help="Analyze one token")
     analyze_parser.add_argument("token")
 
+    bench_parser = subparsers.add_parser("performance", help="Measure example parse/compile/run speed")
+    bench_parser.add_argument("--iterations", type=int, default=20)
+    bench_parser.add_argument("--budget-ms", type=float, default=25.0)
+
     args = parser.parse_args(argv)
     command = args.command or "run"
 
@@ -50,6 +55,8 @@ def main(argv: list[str] | None = None) -> int:
             return _synthesize_command(args.register_id)
         if command == "analyze":
             return _analyze_command(args.token)
+        if command == "performance":
+            return performance_main(["--iterations", str(args.iterations), "--budget-ms", str(args.budget_ms)])
     except SanskriptError as exc:
         print(f"sanskript: {exc}", file=sys.stderr)
         return 1
