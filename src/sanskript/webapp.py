@@ -142,22 +142,102 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         stack: [],
         output: [],
         instructions: program.instructions,
-        callStack: []
+        callStack: [],
+        safetyTier: program.safety_tier || "surakshita",
+        heap: Object.create(null),
+        heapNext: 1,
+        unsafeDepth: 0
       }};
 
+      const isFloat = (value) =>
+        value !== null && typeof value === "object" && value.__sanskriptFloat === true;
+      const makeFloat = (value) => ({{ __sanskriptFloat: true, value }});
+      const isMapValue = (value) =>
+        value !== null && typeof value === "object" && !Array.isArray(value) && !isFloat(value);
+      const isInt = (value) => Number.isInteger(value) && typeof value === "number";
+      const numericPayload = (value) => {{
+        if (isFloat(value)) return {{ value: value.value, isFloat: true }};
+        if (typeof value === "number" && Number.isFinite(value)) {{
+          return {{ value, isFloat: false }};
+        }}
+        throw new Error("Expected numeric stack value: " + displayValue(value));
+      }};
+      const isTruthy = (value) => {{
+        if (isFloat(value)) return value.value !== 0;
+        if (value === false || value === 0 || value === "") return false;
+        if (Array.isArray(value)) return value.length > 0;
+        if (isMapValue(value)) return Object.keys(value).length > 0;
+        return true;
+      }};
+      const valuesEqual = (left, right) => {{
+        if ((isFloat(left) || typeof left === "number") && (isFloat(right) || typeof right === "number")) {{
+          return numericPayload(left).value === numericPayload(right).value;
+        }}
+        if (Array.isArray(left) && Array.isArray(right)) {{
+          return left.length === right.length && left.every((value, index) => valuesEqual(value, right[index]));
+        }}
+        if (isMapValue(left) && isMapValue(right)) {{
+          const leftKeys = Object.keys(left);
+          const rightKeys = Object.keys(right);
+          return leftKeys.length === rightKeys.length && leftKeys.every((key) =>
+            Object.prototype.hasOwnProperty.call(right, key) && valuesEqual(left[key], right[key])
+          );
+        }}
+        return left === right;
+      }};
+      const displayValue = (value) => {{
+        if (isFloat(value)) {{
+          const text = String(value.value);
+          return Number.isInteger(value.value) ? text + ".0" : text;
+        }}
+        if (typeof value === "boolean") return value ? "satyam" : "asatyam";
+        if (Array.isArray(value)) return "[" + value.map(displayValue).join(", ") + "]";
+        if (isMapValue(value)) {{
+          return "{{" + Object.keys(value).map((key) => displayValue(key) + ":" + displayValue(value[key])).join(", ") + "}}";
+        }}
+        return String(value);
+      }};
       const pop = () => {{
         if (state.stack.length === 0) throw new Error("Sanskript VM stack underflow");
         return state.stack.pop();
       }};
       const popInt = () => {{
         const value = pop();
-        if (!Number.isInteger(value)) throw new Error(`Expected integer stack value: ${{value}}`);
+        if (!isInt(value)) throw new Error("Expected integer stack value: " + displayValue(value));
         return value;
+      }};
+      const popNumber = () => numericPayload(pop());
+      const popList = () => {{
+        const value = pop();
+        if (!Array.isArray(value)) throw new Error("Expected list, got " + displayValue(value));
+        return value;
+      }};
+      const popMap = () => {{
+        const value = pop();
+        if (!isMapValue(value)) throw new Error("Expected map, got " + displayValue(value));
+        return value;
+      }};
+      const mapKey = (value) => {{
+        if (typeof value === "string" || isInt(value)) return String(value);
+        throw new Error("Map key must be text or integer, got " + displayValue(value));
+      }};
+      const requireHeapAccess = (op) => {{
+        if (state.safetyTier === "surakshita") {{
+          throw new Error(op + " is not allowed in surakshita programs");
+        }}
+        if (state.safetyTier === "rakshita" && state.unsafeDepth === 0) {{
+          throw new Error(op + " in rakshita programs requires unsafe_enter");
+        }}
+      }};
+      const ensureHeapAddress = (address) => {{
+        if (!Object.prototype.hasOwnProperty.call(state.heap, String(address))) {{
+          throw new Error("Invalid heap address: " + address);
+        }}
       }};
       const lookup = (name) => {{
         if (Object.prototype.hasOwnProperty.call(state.locals, name)) return state.locals[name];
         if (Object.prototype.hasOwnProperty.call(state.globals, name)) return state.globals[name];
-        throw new Error(`Unknown stored value: ${{name}}`);
+        throw new Error("Unknown stored value: " + name);
       }};
       const store = (name, value) => {{
         if (Object.prototype.hasOwnProperty.call(state.locals, name)) state.locals[name] = value;
@@ -173,7 +253,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           const found = (program.functions || []).find((item) => item.name === target);
           if (found) return found;
         }}
-        throw new Error(`Unknown function: ${{target}}`);
+        throw new Error("Unknown function: " + target);
       }};
 
       let ip = 0;
@@ -186,6 +266,57 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           case "push_text":
             state.stack.push(instruction.operand);
             break;
+          case "push_bool":
+            state.stack.push(instruction.operand !== 0);
+            break;
+          case "push_float":
+            state.stack.push(makeFloat(instruction.operand));
+            break;
+          case "list_new":
+            state.stack.push([]);
+            break;
+          case "list_append": {{
+            const value = pop();
+            const items = popList();
+            items.push(value);
+            state.stack.push(items);
+            break;
+          }}
+          case "list_len": {{
+            state.stack.push(popList().length);
+            break;
+          }}
+          case "list_get": {{
+            const index = popInt();
+            const items = popList();
+            if (index < 0 || index >= items.length) throw new Error("List index " + index + " out of range");
+            state.stack.push(items[index]);
+            break;
+          }}
+          case "map_new":
+            state.stack.push(Object.create(null));
+            break;
+          case "map_set": {{
+            const value = pop();
+            const key = mapKey(pop());
+            const table = popMap();
+            table[key] = value;
+            state.stack.push(table);
+            break;
+          }}
+          case "map_get": {{
+            const key = mapKey(pop());
+            const table = popMap();
+            if (!(key in table)) throw new Error("Map has no entry for key " + key);
+            state.stack.push(table[key]);
+            break;
+          }}
+          case "map_contains": {{
+            const key = mapKey(pop());
+            const table = popMap();
+            state.stack.push(key in table ? 1 : 0);
+            break;
+          }}
           case "load_name":
             state.stack.push(lookup(instruction.operand));
             break;
@@ -193,34 +324,38 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             store(instruction.operand, pop());
             break;
           case "add": {{
-            const right = popInt();
-            const left = popInt();
-            state.stack.push(left + right);
+            const right = popNumber();
+            const left = popNumber();
+            const value = left.value + right.value;
+            state.stack.push(left.isFloat || right.isFloat ? makeFloat(value) : value);
             break;
           }}
           case "subtract": {{
-            const right = popInt();
-            const left = popInt();
-            state.stack.push(left - right);
+            const right = popNumber();
+            const left = popNumber();
+            const value = left.value - right.value;
+            state.stack.push(left.isFloat || right.isFloat ? makeFloat(value) : value);
             break;
           }}
           case "multiply": {{
-            const right = popInt();
-            const left = popInt();
-            state.stack.push(left * right);
+            const right = popNumber();
+            const left = popNumber();
+            const value = left.value * right.value;
+            state.stack.push(left.isFloat || right.isFloat ? makeFloat(value) : value);
             break;
           }}
           case "divide": {{
-            const right = popInt();
-            if (right === 0) throw new Error("Division by zero");
-            const left = popInt();
-            state.stack.push(Math.trunc(left / right));
+            const right = popNumber();
+            if (right.value === 0) throw new Error("Division by zero");
+            const left = popNumber();
+            if (left.isFloat || right.isFloat) state.stack.push(makeFloat(left.value / right.value));
+            else state.stack.push(Math.trunc(left.value / right.value));
             break;
           }}
           case "compare_eq": {{
             const right = pop();
             const left = pop();
-            state.stack.push(left === right ? 1 : 0);
+            state.stack.push(valuesEqual(left, right) ? 1 : 0);
             break;
           }}
           case "compare_lt": {{
@@ -229,14 +364,52 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             state.stack.push(left < right ? 1 : 0);
             break;
           }}
+          case "heap_alloc": {{
+            requireHeapAccess("heap_alloc");
+            const size = popInt();
+            if (size < 0) throw new Error("heap_alloc size must be non-negative");
+            const address = state.heapNext;
+            state.heapNext += Math.max(1, size);
+            for (let offset = 0; offset < size; offset += 1) state.heap[address + offset] = 0;
+            state.stack.push(address);
+            break;
+          }}
+          case "heap_store": {{
+            requireHeapAccess("heap_store");
+            const value = popInt();
+            const address = popInt();
+            ensureHeapAddress(address);
+            state.heap[address] = value;
+            break;
+          }}
+          case "heap_load": {{
+            requireHeapAccess("heap_load");
+            const address = popInt();
+            ensureHeapAddress(address);
+            state.stack.push(state.heap[address]);
+            break;
+          }}
+          case "heap_free": {{
+            requireHeapAccess("heap_free");
+            const address = popInt();
+            delete state.heap[address];
+            break;
+          }}
+          case "unsafe_enter":
+            state.unsafeDepth += 1;
+            break;
+          case "unsafe_exit":
+            if (state.unsafeDepth === 0) throw new Error("unsafe_exit without matching unsafe_enter");
+            state.unsafeDepth -= 1;
+            break;
           case "emit":
-            state.output.push(String(pop()));
+            state.output.push(displayValue(pop()));
             break;
           case "jump":
             ip = instruction.operand;
             continue;
           case "jump_if_zero":
-            if (popInt() === 0) {{
+            if (!isTruthy(pop())) {{
               ip = instruction.operand;
               continue;
             }}
@@ -282,7 +455,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             }}
             return state.output;
           default:
-            throw new Error(`Unknown opcode: ${{instruction.op}}`);
+            throw new Error("Unknown opcode: " + instruction.op);
         }}
         ip += 1;
       }}

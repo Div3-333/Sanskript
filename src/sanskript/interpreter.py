@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .ast import Literal, Program, Reference, Statement, TextLiteral, Value
+from .runtime_values import SanskriptValue, to_display_string
 from .compiler import compile_program
 from .compiler import compile_statements
 from .errors import RuntimeSanskriptError
@@ -19,7 +20,7 @@ class Interpreter:
         self._statements: list[Statement] = []
 
     @property
-    def environment(self) -> dict[str, int | str]:
+    def environment(self) -> dict[str, SanskriptValue]:
         return self.vm.environment
 
     @property
@@ -38,7 +39,7 @@ class Interpreter:
         self._statements.append(statement)
         self.vm.execute(compile_program(Program(tuple(self._statements))))
 
-    def evaluate(self, value: Value) -> int | str:
+    def evaluate(self, value: Value) -> SanskriptValue:
         if isinstance(value, Literal):
             return value.value
 

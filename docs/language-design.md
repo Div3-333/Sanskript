@@ -130,6 +130,8 @@ The planned memory model can use Sanskrit grammar as the safety surface rather t
 
 The grammar gives useful handles: genitive for ownership, dative for transfer/recipient, instrumental for pointer-like tools, locative for memory regions, ablative for release/source, and moods/prohibitions for unsafe permission boundaries.
 
+The full scalar, collection, memory, and I/O type inventory for these tiers is registered in [`data/types/catalog.json`](../data/types/catalog.json) and documented in [`docs/type-system.md`](type-system.md). Query it from Python via `sanskript.type_catalog.get_type_catalog()`.
+
 ## Accent And Aṅga
 
 The remaining sound-form sutra ranges are now represented by two explicit substrates:

@@ -5,14 +5,23 @@ from typing import Iterable
 
 from .ast import (
     Assign,
+    BoolLiteral,
     Call,
+    CallValue,
     CompareEq,
     Decrease,
     Display,
+    FloatLiteral,
     FunctionDef,
     If,
     Increase,
+    ListAppend,
+    ListInit,
     Literal,
+    MapContains,
+    MapGet,
+    MapInit,
+    MapPut,
     Multiply,
     Program,
     Reference,
@@ -29,6 +38,14 @@ from .morphology_facade import get_default_facade
 import re
 
 _BLOCK_END_MARKERS = frozenset({"antam", "anta", "yadi", "punaḥ", "punah", "vidhānam", "vidhanam", "samāpanam", "samapanam"})
+_TIER_MARKERS = {
+    "surakṣitam": "surakshita",
+    "surakshitam": "surakshita",
+    "rakṣitam": "rakshita",
+    "rakshitam": "rakshita",
+    "arakṣitam": "arakshita",
+    "arakshitam": "arakshita",
+}
 _TEXT_MARKERS = frozenset({"vākyam", "vakyam", "śabdam", "shabdam"})
 _ASSIGN_VERBS = frozenset({"nidadhāti", "sthāpayati"})
 _DISPLAY_VERBS = frozenset({"darśayati", "prakāśayati"})
@@ -44,6 +61,7 @@ def parse_program(source: str) -> Program:
     current_module: str | None = None
     module_functions: list[FunctionDef] = []
     known_modules: set[str] = set()
+    safety_tier = "surakshita"
 
     while index < len(sentences):
         sentence = sentences[index].strip()
@@ -60,6 +78,15 @@ def parse_program(source: str) -> Program:
         header = _parse_directive_header(sentence, known_modules=known_modules)
         if header is not None:
             kind, payload = header
+            if kind == "tier":
+                safety_tier = payload
+                index += 1
+                continue
+            collection_stmt = _collection_statement_from_directive(kind, payload)
+            if collection_stmt is not None:
+                statements.extend(collection_stmt)
+                index += 1
+                continue
             if kind == "module":
                 if current_module and module_functions:
                     modules.append((current_module, tuple(module_functions)))
@@ -130,6 +157,15 @@ def parse_program(source: str) -> Program:
                 statements.append(Call(fn_name, module=module_name, args=args))
                 index += 1
                 continue
+            if kind == "assign":
+                target, value = payload
+                statements.append(Assign(target, value))
+                index += 1
+                continue
+            if kind == "display":
+                statements.append(Display(payload))
+                index += 1
+                continue
             if kind == "return":
                 statements.append(Return(payload))
                 index += 1
@@ -149,7 +185,12 @@ def parse_program(source: str) -> Program:
     if current_module and module_functions:
         modules.append((current_module, tuple(module_functions)))
 
-    return Program(tuple(statements), tuple(functions), tuple(modules))
+    return Program(
+        tuple(statements),
+        tuple(functions),
+        tuple(modules),
+        safety_tier=safety_tier,
+    )
 
 
 def parse_sentence(sentence: str) -> Statement:
@@ -242,6 +283,14 @@ def _parse_directive_header(
         return ("function", (tokens[1], tuple(_identifier_from_token(token) for token in tokens[2:])))
 
     if first in {"āhvānam", "ahvanam"}:
+        if len(tokens) >= 4 and tokens[-1] in _ASSIGN_VERBS:
+            value = _call_value_from_tokens(tokens[:-2], known_modules=known_modules)
+            if value is not None:
+                return ("assign", (_identifier_from_token(tokens[-2]), value))
+        if len(tokens) >= 3 and tokens[-1] in _DISPLAY_VERBS:
+            value = _call_value_from_tokens(tokens[:-1], known_modules=known_modules)
+            if value is not None:
+                return ("display", value)
         if len(tokens) >= 2:
             if len(tokens) >= 3 and tokens[1] in known_modules:
                 return ("call", (tokens[1], tokens[2], _values_from_tokens(tokens[3:])))
@@ -268,6 +317,64 @@ def _parse_directive_header(
             return ("if", condition)
         return None
 
+    if first in _TIER_MARKERS:
+        return ("tier", _TIER_MARKERS[first])
+
+    if first in {"samūhaḥ", "samuhah"} and len(tokens) >= 2:
+        return ("list_init", _identifier_from_token(tokens[1]))
+
+    if first == "yojanam" and len(tokens) >= 3:
+        container = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:])
+        if values:
+            return ("list_append", (container, values))
+
+    if first in {"kośaḥ", "kosah"} and len(tokens) >= 2:
+        return ("map_init", _identifier_from_token(tokens[1]))
+
+    if first in {"sthāpanam", "sthapanam"} and len(tokens) >= 4:
+        container = _identifier_from_token(tokens[1])
+        key = _map_key_from_tokens(tokens[2:3])
+        value = _value_from_tokens(tokens[3:])
+        if key is not None and value is not None:
+            return ("map_put", (container, key, value))
+
+    if first in {"āharaṇam", "aharanam"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        container = _identifier_from_token(tokens[2])
+        key = _map_key_from_tokens(tokens[3:])
+        if key is not None:
+            return ("map_get", (target, container, key))
+
+    if first == "asti" and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        container = _identifier_from_token(tokens[2])
+        key = _map_key_from_tokens(tokens[3:])
+        if key is not None:
+            return ("map_contains", (target, container, key))
+
+    return None
+
+
+def _collection_statement_from_directive(
+    kind: str, payload: object
+) -> tuple[Statement, ...] | None:
+    if kind == "list_init":
+        return (ListInit(str(payload)),)
+    if kind == "map_init":
+        return (MapInit(str(payload)),)
+    if kind == "list_append":
+        container, values = payload  # type: ignore[misc]
+        return tuple(ListAppend(container, value) for value in values)
+    if kind == "map_put":
+        container, key, value = payload  # type: ignore[misc]
+        return (MapPut(container, key, value),)
+    if kind == "map_get":
+        target, container, key = payload  # type: ignore[misc]
+        return (MapGet(target, container, key),)
+    if kind == "map_contains":
+        target, container, key = payload  # type: ignore[misc]
+        return (MapContains(target, container, key),)
     return None
 
 
@@ -286,10 +393,42 @@ def _parse_compare_tokens(tokens: list[str]) -> CompareEq | None:
     return CompareEq(left, right)
 
 
-def _value_from_tokens(tokens: list[str]) -> Value | None:
+def _map_key_from_tokens(tokens: list[str]) -> Value | None:
     text = _text_literal_from_tokens(tokens)
     if text is not None:
         return text
+    if len(tokens) != 1:
+        return None
+    token = tokens[0]
+    if token in {"satyam", "asatyam"}:
+        return BoolLiteral(token == "satyam")
+    if re.fullmatch(r"\d+\.\d+", token):
+        return FloatLiteral(float(token))
+    facade = get_default_facade()
+    try:
+        analysis = facade.analyze_token(token)
+    except Exception:
+        return TextLiteral(token)
+    if analysis.value is not None:
+        return Literal(analysis.value)
+    if analysis.pos == PartOfSpeech.NOUN:
+        return TextLiteral(analysis.lemma)
+    return TextLiteral(token)
+
+
+def _value_from_tokens(tokens: list[str]) -> Value | None:
+    call_value = _call_value_from_tokens(tokens)
+    if call_value is not None:
+        return call_value
+    text = _text_literal_from_tokens(tokens)
+    if text is not None:
+        return text
+    if len(tokens) == 1:
+        token = tokens[0]
+        if token in {"satyam", "asatyam"}:
+            return BoolLiteral(token == "satyam")
+        if re.fullmatch(r"\d+\.\d+", token):
+            return FloatLiteral(float(token))
     facade = get_default_facade()
     for token in tokens:
         try:
@@ -303,6 +442,18 @@ def _value_from_tokens(tokens: list[str]) -> Value | None:
     if len(tokens) == 1:
         return Reference(tokens[0])
     return None
+
+
+def _call_value_from_tokens(
+    tokens: list[str],
+    *,
+    known_modules: set[str] | frozenset[str] = frozenset(),
+) -> CallValue | None:
+    if len(tokens) < 2 or tokens[0] not in {"āhvānam", "ahvanam"}:
+        return None
+    if len(tokens) >= 3 and tokens[1] in known_modules:
+        return CallValue(tokens[2], module=tokens[1], args=_values_from_tokens(tokens[3:]))
+    return CallValue(tokens[1], args=_values_from_tokens(tokens[2:]))
 
 
 def _text_literal_from_tokens(tokens: list[str]) -> TextLiteral | None:
@@ -391,9 +542,23 @@ def _collect_until(
             if stop_before_markers:
                 return tuple(body), index
             kind, payload = header
+            collection_stmt = _collection_statement_from_directive(kind, payload)
+            if collection_stmt is not None:
+                body.extend(collection_stmt)
+                index += 1
+                continue
             if kind == "call":
                 module_name, fn_name, args = payload
                 body.append(Call(fn_name, module=module_name, args=args))
+                index += 1
+                continue
+            if kind == "assign":
+                target, value = payload
+                body.append(Assign(target, value))
+                index += 1
+                continue
+            if kind == "display":
+                body.append(Display(payload))
                 index += 1
                 continue
             if kind == "return":

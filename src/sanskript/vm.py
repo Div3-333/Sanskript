@@ -9,8 +9,15 @@ from .bytecode import (
     resolve_call_target,
 )
 from .errors import RuntimeSanskriptError
-
-SanskriptValue = int | str
+from .runtime_values import (
+    SanskriptValue,
+    expect_list,
+    expect_map,
+    is_truthy,
+    map_key_from_value,
+    to_display_string,
+    values_equal,
+)
 
 
 @dataclass
@@ -31,6 +38,9 @@ class SanskriptVM:
         self._program: BytecodeProgram | None = None
         self._instructions: tuple[Instruction, ...] = ()
         self._call_stack: list[_CallFrame] = []
+        self._heap: dict[int, int] = {}
+        self._heap_next = 1
+        self._unsafe_depth = 0
 
     def execute(self, program: BytecodeProgram) -> list[str]:
         self.globals = {}
@@ -38,6 +48,9 @@ class SanskriptVM:
         self.output = []
         self.stack = []
         self._call_stack = []
+        self._heap = {}
+        self._heap_next = 1
+        self._unsafe_depth = 0
         self._program = program
         self._instructions = program.instructions
         self._run(0)
@@ -70,6 +83,70 @@ class SanskriptVM:
             self.stack.append(self._expect_text(operand, opcode))
             return None
 
+        if opcode == OpCode.PUSH_BOOL:
+            value = self._expect_int(operand, opcode)
+            if value not in {0, 1}:
+                raise RuntimeSanskriptError(f"{opcode.value} operand must be 0 or 1, got {value!r}")
+            self.stack.append(bool(value))
+            return None
+
+        if opcode == OpCode.PUSH_FLOAT:
+            if not isinstance(operand, float):
+                raise RuntimeSanskriptError(
+                    f"{opcode.value} expected a float operand, got {operand!r}"
+                )
+            self.stack.append(operand)
+            return None
+
+        if opcode == OpCode.LIST_NEW:
+            self.stack.append([])
+            return None
+
+        if opcode == OpCode.LIST_APPEND:
+            value = self._pop()
+            items = expect_list(self._pop())
+            items.append(value)
+            self.stack.append(items)
+            return None
+
+        if opcode == OpCode.LIST_LEN:
+            items = expect_list(self._pop())
+            self.stack.append(len(items))
+            return None
+
+        if opcode == OpCode.LIST_GET:
+            index = self._pop_int()
+            items = expect_list(self._pop())
+            self._check_index(items, index)
+            self.stack.append(items[index])
+            return None
+
+        if opcode == OpCode.MAP_NEW:
+            self.stack.append({})
+            return None
+
+        if opcode == OpCode.MAP_SET:
+            value = self._pop()
+            key = map_key_from_value(self._pop())
+            mapping = expect_map(self._pop())
+            mapping[key] = value
+            self.stack.append(mapping)
+            return None
+
+        if opcode == OpCode.MAP_GET:
+            key = map_key_from_value(self._pop())
+            mapping = expect_map(self._pop())
+            if key not in mapping:
+                raise RuntimeSanskriptError(f"Map has no entry for key {key!r}")
+            self.stack.append(mapping[key])
+            return None
+
+        if opcode == OpCode.MAP_CONTAINS:
+            key = map_key_from_value(self._pop())
+            mapping = expect_map(self._pop())
+            self.stack.append(1 if key in mapping else 0)
+            return None
+
         if opcode == OpCode.LOAD_NAME:
             self.stack.append(self._lookup_name(self._expect_name(operand, opcode)))
             return None
@@ -80,35 +157,79 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.ADD:
-            right = self._pop_int()
-            left = self._pop_int()
+            right = self._pop_number()
+            left = self._pop_number()
             self.stack.append(left + right)
             return None
 
         if opcode == OpCode.SUBTRACT:
-            right = self._pop_int()
-            left = self._pop_int()
+            right = self._pop_number()
+            left = self._pop_number()
             self.stack.append(left - right)
             return None
 
         if opcode == OpCode.MULTIPLY:
-            right = self._pop_int()
-            left = self._pop_int()
+            right = self._pop_number()
+            left = self._pop_number()
             self.stack.append(left * right)
             return None
 
         if opcode == OpCode.DIVIDE:
-            right = self._pop_int()
+            right = self._pop_number()
             if right == 0:
                 raise RuntimeSanskriptError("Division by zero")
-            left = self._pop_int()
-            self.stack.append(left // right)
+            left = self._pop_number()
+            if isinstance(left, float) or isinstance(right, float):
+                self.stack.append(left / right)
+            else:
+                self.stack.append(left // right)
+            return None
+
+        if opcode == OpCode.HEAP_ALLOC:
+            self._require_heap_access(opcode)
+            size = self._pop_int()
+            if size < 0:
+                raise RuntimeSanskriptError("heap_alloc size must be non-negative")
+            address = self._heap_next
+            self._heap_next += max(1, size)
+            for offset in range(size):
+                self._heap[address + offset] = 0
+            self.stack.append(address)
+            return None
+
+        if opcode == OpCode.HEAP_STORE:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._heap_store(address, value)
+            return None
+
+        if opcode == OpCode.HEAP_LOAD:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._heap_load(address))
+            return None
+
+        if opcode == OpCode.HEAP_FREE:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self._heap.pop(address, None)
+            return None
+
+        if opcode == OpCode.UNSAFE_ENTER:
+            self._unsafe_depth += 1
+            return None
+
+        if opcode == OpCode.UNSAFE_EXIT:
+            if self._unsafe_depth == 0:
+                raise RuntimeSanskriptError("unsafe_exit without matching unsafe_enter")
+            self._unsafe_depth -= 1
             return None
 
         if opcode == OpCode.COMPARE_EQ:
             right = self._pop()
             left = self._pop()
-            self.stack.append(1 if left == right else 0)
+            self.stack.append(1 if values_equal(left, right) else 0)
             return None
 
         if opcode == OpCode.COMPARE_LT:
@@ -118,15 +239,14 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.EMIT:
-            self.output.append(str(self._pop()))
+            self.output.append(to_display_string(self._pop()))
             return None
 
         if opcode == OpCode.JUMP:
             return self._expect_int(operand, opcode)
 
         if opcode == OpCode.JUMP_IF_ZERO:
-            value = self._pop_int()
-            if value == 0:
+            if not is_truthy(self._pop()):
                 return self._expect_int(operand, opcode)
             return None
 
@@ -158,6 +278,13 @@ class SanskriptVM:
 
         raise RuntimeSanskriptError(f"Unknown bytecode instruction: {instruction!r}")
 
+    @staticmethod
+    def _check_index(items: list[SanskriptValue], index: int) -> None:
+        if index < 0 or index >= len(items):
+            raise RuntimeSanskriptError(
+                f"List index {index} out of range for length {len(items)}"
+            )
+
     def _lookup_name(self, name: str) -> SanskriptValue:
         if name in self.locals:
             return self.locals[name]
@@ -185,6 +312,37 @@ class SanskriptVM:
         if not isinstance(value, int) or isinstance(value, bool):
             raise RuntimeSanskriptError(f"Expected integer stack value, got {value!r}")
         return value
+
+    def _pop_number(self) -> int | float:
+        value = self._pop()
+        if isinstance(value, bool):
+            raise RuntimeSanskriptError(f"Expected numeric stack value, got {value!r}")
+        if isinstance(value, (int, float)):
+            return value
+        raise RuntimeSanskriptError(f"Expected numeric stack value, got {value!r}")
+
+    def _require_heap_access(self, opcode: OpCode) -> None:
+        if self._program is None:
+            raise RuntimeSanskriptError("Heap access requires a full BytecodeProgram context")
+        tier = self._program.safety_tier
+        if tier == "surakshita":
+            raise RuntimeSanskriptError(
+                f"{opcode.value} is not allowed in surakṣita (surakshita) programs"
+            )
+        if tier == "rakshita" and self._unsafe_depth == 0:
+            raise RuntimeSanskriptError(
+                f"{opcode.value} in rakṣita (rakshita) programs requires unsafe_enter"
+            )
+
+    def _heap_store(self, address: int, value: int) -> None:
+        if address not in self._heap:
+            raise RuntimeSanskriptError(f"Invalid heap address: {address}")
+        self._heap[address] = value
+
+    def _heap_load(self, address: int) -> int:
+        if address not in self._heap:
+            raise RuntimeSanskriptError(f"Invalid heap address: {address}")
+        return self._heap[address]
 
     def _expect_int(self, operand: object, opcode: OpCode) -> int:
         if not isinstance(operand, int) or isinstance(operand, bool):

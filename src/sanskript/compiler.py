@@ -2,14 +2,23 @@ from __future__ import annotations
 
 from .ast import (
     Assign,
+    BoolLiteral,
     Call,
+    CallValue,
     CompareEq,
     Decrease,
     Display,
+    FloatLiteral,
     FunctionDef,
     If,
     Increase,
+    ListAppend,
+    ListInit,
     Literal,
+    MapContains,
+    MapGet,
+    MapInit,
+    MapPut,
     Multiply,
     Program,
     Reference,
@@ -29,14 +38,23 @@ from .bytecode import (
 )
 from .errors import RuntimeSanskriptError
 from .ir import (
+    IRBoolLiteral,
     IRCall,
+    IRCallValue,
     IRCompareEq,
     IRDecrease,
     IREmit,
+    IRFloatLiteral,
     IRFunction,
     IRIf,
     IRIncrease,
     IRInstruction,
+    IRListAppend,
+    IRListInit,
+    IRMapContains,
+    IRMapGet,
+    IRMapInit,
+    IRMapPut,
     IRModule,
     IRMultiply,
     IRProgram,
@@ -55,7 +73,7 @@ class _Lowerer:
     def __init__(self) -> None:
         self.instructions: list[Instruction] = []
 
-    def emit(self, opcode: OpCode, operand: int | str | None = None) -> int:
+    def emit(self, opcode: OpCode, operand: int | float | str | None = None) -> int:
         index = len(self.instructions)
         self.instructions.append(Instruction(opcode, operand))
         return index
@@ -94,7 +112,15 @@ def compile_source(source: str) -> BytecodeProgram:
 
 def compile_program(program: Program) -> BytecodeProgram:
     ir = compile_program_to_ir(program)
-    return lower_ir_to_bytecode(ir)
+    bytecode = lower_ir_to_bytecode(ir)
+    if program.safety_tier == bytecode.safety_tier:
+        return bytecode
+    return BytecodeProgram(
+        bytecode.instructions,
+        bytecode.functions,
+        bytecode.modules,
+        safety_tier=program.safety_tier,
+    )
 
 
 def compile_statements(statements: list[Statement]) -> BytecodeProgram:
@@ -217,6 +243,45 @@ def _lower_instruction(instruction: IRInstruction) -> tuple[Instruction, ...]:
         )
     if isinstance(instruction, IREmit):
         return (*_lower_value(instruction.value), Instruction(OpCode.EMIT))
+    if isinstance(instruction, IRListInit):
+        return (
+            Instruction(OpCode.LIST_NEW),
+            Instruction(OpCode.STORE_NAME, instruction.container),
+        )
+    if isinstance(instruction, IRMapInit):
+        return (
+            Instruction(OpCode.MAP_NEW),
+            Instruction(OpCode.STORE_NAME, instruction.container),
+        )
+    if isinstance(instruction, IRListAppend):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.container),
+            *_lower_value(instruction.item),
+            Instruction(OpCode.LIST_APPEND),
+            Instruction(OpCode.STORE_NAME, instruction.container),
+        )
+    if isinstance(instruction, IRMapPut):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.container),
+            *_lower_value(instruction.key),
+            *_lower_value(instruction.value),
+            Instruction(OpCode.MAP_SET),
+            Instruction(OpCode.STORE_NAME, instruction.container),
+        )
+    if isinstance(instruction, IRMapGet):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.container),
+            *_lower_value(instruction.key),
+            Instruction(OpCode.MAP_GET),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRMapContains):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.container),
+            *_lower_value(instruction.key),
+            Instruction(OpCode.MAP_CONTAINS),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
     if isinstance(instruction, IRCall):
         return (
             *tuple(item for arg in instruction.args for item in _lower_value(arg)),
@@ -275,10 +340,19 @@ def _lower_compare(condition: IRCompareEq) -> tuple[Instruction, ...]:
 def _lower_value(value: IRValue) -> tuple[Instruction, ...]:
     if isinstance(value, IRLiteral):
         return (Instruction(OpCode.PUSH_INT, value.value),)
+    if isinstance(value, IRFloatLiteral):
+        return (Instruction(OpCode.PUSH_FLOAT, value.value),)
+    if isinstance(value, IRBoolLiteral):
+        return (Instruction(OpCode.PUSH_BOOL, 1 if value.value else 0),)
     if isinstance(value, IRTextLiteral):
         return (Instruction(OpCode.PUSH_TEXT, value.value),)
     if isinstance(value, IRReference):
         return (Instruction(OpCode.LOAD_NAME, value.name),)
+    if isinstance(value, IRCallValue):
+        return (
+            *tuple(item for arg in value.args for item in _lower_value(arg)),
+            Instruction(OpCode.CALL, value.target),
+        )
     raise RuntimeSanskriptError(f"Cannot lower unknown IR value: {value!r}")
 
 
@@ -302,6 +376,30 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
         return IRMultiply(statement.target, _compile_value_to_ir(statement.factor))
     if isinstance(statement, Display):
         return IREmit(_compile_value_to_ir(statement.value))
+    if isinstance(statement, ListInit):
+        return IRListInit(statement.container)
+    if isinstance(statement, MapInit):
+        return IRMapInit(statement.container)
+    if isinstance(statement, ListAppend):
+        return IRListAppend(statement.container, _compile_value_to_ir(statement.item))
+    if isinstance(statement, MapPut):
+        return IRMapPut(
+            statement.container,
+            _compile_value_to_ir(statement.key),
+            _compile_value_to_ir(statement.value),
+        )
+    if isinstance(statement, MapGet):
+        return IRMapGet(
+            statement.target,
+            statement.container,
+            _compile_value_to_ir(statement.key),
+        )
+    if isinstance(statement, MapContains):
+        return IRMapContains(
+            statement.target,
+            statement.container,
+            _compile_value_to_ir(statement.key),
+        )
     if isinstance(statement, If):
         return IRIf(
             IRCompareEq(
@@ -331,8 +429,15 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
 def _compile_value_to_ir(value: Value) -> IRValue:
     if isinstance(value, Literal):
         return IRLiteral(value.value)
+    if isinstance(value, FloatLiteral):
+        return IRFloatLiteral(value.value)
+    if isinstance(value, BoolLiteral):
+        return IRBoolLiteral(value.value)
     if isinstance(value, TextLiteral):
         return IRTextLiteral(value.value)
     if isinstance(value, Reference):
         return IRReference(value.name)
+    if isinstance(value, CallValue):
+        target = qualified_function_name(value.module, value.name)
+        return IRCallValue(target, tuple(_compile_value_to_ir(arg) for arg in value.args))
     raise RuntimeSanskriptError(f"Cannot compile unknown value: {value!r}")

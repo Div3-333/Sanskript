@@ -16,6 +16,22 @@ BYTECODE_LATEST = BYTECODE_VERSION_2
 _OPERAND_KIND: dict[str, str | None] = {
     "push_int": "int",
     "push_text": "text",
+    "push_bool": "int",
+    "list_new": None,
+    "list_append": None,
+    "list_len": None,
+    "list_get": None,
+    "map_new": None,
+    "map_set": None,
+    "map_get": None,
+    "map_contains": None,
+    "push_float": "float",
+    "heap_alloc": None,
+    "heap_store": None,
+    "heap_load": None,
+    "heap_free": None,
+    "unsafe_enter": None,
+    "unsafe_exit": None,
     "load_name": "name",
     "store_name": "name",
     "add": None,
@@ -36,6 +52,22 @@ _OPERAND_KIND: dict[str, str | None] = {
 _STACK_EFFECT: dict[str, tuple[int, int]] = {
     "push_int": (0, 1),
     "push_text": (0, 1),
+    "push_bool": (0, 1),
+    "list_new": (0, 1),
+    "list_append": (2, 1),
+    "list_len": (1, 1),
+    "list_get": (2, 1),
+    "map_new": (0, 1),
+    "map_set": (3, 1),
+    "map_get": (2, 1),
+    "map_contains": (2, 1),
+    "push_float": (0, 1),
+    "heap_alloc": (1, 1),
+    "heap_store": (2, 0),
+    "heap_load": (1, 1),
+    "heap_free": (1, 0),
+    "unsafe_enter": (0, 0),
+    "unsafe_exit": (0, 0),
     "load_name": (0, 1),
     "store_name": (1, 0),
     "add": (2, 1),
@@ -61,6 +93,22 @@ _V1_OPCODES = frozenset(
 class OpCode(str, Enum):
     PUSH_INT = "push_int"
     PUSH_TEXT = "push_text"
+    PUSH_BOOL = "push_bool"
+    LIST_NEW = "list_new"
+    LIST_APPEND = "list_append"
+    LIST_LEN = "list_len"
+    LIST_GET = "list_get"
+    MAP_NEW = "map_new"
+    MAP_SET = "map_set"
+    MAP_GET = "map_get"
+    MAP_CONTAINS = "map_contains"
+    PUSH_FLOAT = "push_float"
+    HEAP_ALLOC = "heap_alloc"
+    HEAP_STORE = "heap_store"
+    HEAP_LOAD = "heap_load"
+    HEAP_FREE = "heap_free"
+    UNSAFE_ENTER = "unsafe_enter"
+    UNSAFE_EXIT = "unsafe_exit"
     LOAD_NAME = "load_name"
     STORE_NAME = "store_name"
     ADD = "add"
@@ -88,7 +136,7 @@ class BytecodeValidationError(SanskriptError):
     code = "SANSKRIPT_BYTECODE"
 
 
-Operand = Union[int, str, None]
+Operand = Union[int, float, str, None]
 
 
 @dataclass(frozen=True)
@@ -115,6 +163,7 @@ class BytecodeProgram:
     instructions: tuple[Instruction, ...]
     functions: tuple[FunctionBytecode, ...] = ()
     modules: tuple[ModuleBytecode, ...] = ()
+    safety_tier: str = "surakshita"
 
 
 def instruction_to_dict(instruction: Instruction) -> dict[str, Any]:
@@ -149,6 +198,11 @@ def instruction_from_dict(raw: dict[str, Any], *, allowed: frozenset[str] | None
                 f"{opcode.value} operand must be an integer, got {operand!r}"
             )
         return Instruction(opcode, operand)
+
+    if kind == "float":
+        if not isinstance(operand, (int, float)) or isinstance(operand, bool):
+            raise BytecodeValidationError(f"{opcode.value} operand must be a number, got {operand!r}")
+        return Instruction(opcode, float(operand))
 
     if kind == "text":
         if not isinstance(operand, str):
@@ -232,6 +286,8 @@ def encode_program(
             }
             for module in program.modules
         ]
+    if version >= BYTECODE_VERSION_2 and program.safety_tier != "surakshita":
+        payload["safety_tier"] = program.safety_tier
     return payload
 
 
@@ -262,7 +318,10 @@ def decode_program(payload: dict[str, Any]) -> BytecodeProgram:
         )
         modules.append(ModuleBytecode(mod_name, mod_fns))
 
-    program = BytecodeProgram(tuple(instructions), tuple(functions), tuple(modules))
+    tier = str(payload.get("safety_tier", "surakshita"))
+    if tier not in {"surakshita", "rakshita", "arakshita"}:
+        raise BytecodeValidationError(f"Unknown safety_tier: {tier!r}")
+    program = BytecodeProgram(tuple(instructions), tuple(functions), tuple(modules), safety_tier=tier)
     validate_bytecode(program, version=version)
     return program
 
@@ -304,6 +363,8 @@ def _has_control_flow(program: BytecodeProgram) -> bool:
 def validate_bytecode(program: BytecodeProgram, *, version: int = BYTECODE_LATEST) -> None:
     if not program.instructions:
         raise BytecodeValidationError("Program must contain at least one instruction")
+    if program.safety_tier not in {"surakshita", "rakshita", "arakshita"}:
+        raise BytecodeValidationError(f"Unknown safety_tier: {program.safety_tier!r}")
 
     _validate_instruction_stream(
         program.instructions,
@@ -376,6 +437,12 @@ def _validate_instruction_stream(
         ):
             raise BytecodeValidationError(
                 f"Instruction {index} ({opcode}) requires an integer operand"
+            )
+        if kind == "float" and (
+            not isinstance(instruction.operand, (int, float)) or isinstance(instruction.operand, bool)
+        ):
+            raise BytecodeValidationError(
+                f"Instruction {index} ({opcode}) requires a numeric operand"
             )
         if kind == "text" and not isinstance(instruction.operand, str):
             raise BytecodeValidationError(

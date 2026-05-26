@@ -10,6 +10,16 @@ class Literal:
 
 
 @dataclass(frozen=True)
+class FloatLiteral:
+    value: float
+
+
+@dataclass(frozen=True)
+class BoolLiteral:
+    value: bool
+
+
+@dataclass(frozen=True)
 class TextLiteral:
     value: str
 
@@ -19,7 +29,14 @@ class Reference:
     name: str
 
 
-Value = Union[Literal, TextLiteral, Reference]
+@dataclass(frozen=True)
+class CallValue:
+    name: str
+    module: str | None = None
+    args: tuple["Value", ...] = ()
+
+
+Value = Union[Literal, FloatLiteral, BoolLiteral, TextLiteral, Reference, CallValue]
 
 
 @dataclass(frozen=True)
@@ -49,6 +66,43 @@ class Multiply:
 @dataclass(frozen=True)
 class Display:
     value: Value
+
+
+@dataclass(frozen=True)
+class ListInit:
+    container: str
+
+
+@dataclass(frozen=True)
+class MapInit:
+    container: str
+
+
+@dataclass(frozen=True)
+class ListAppend:
+    container: str
+    item: Value
+
+
+@dataclass(frozen=True)
+class MapPut:
+    container: str
+    key: Value
+    value: Value
+
+
+@dataclass(frozen=True)
+class MapGet:
+    target: str
+    container: str
+    key: Value
+
+
+@dataclass(frozen=True)
+class MapContains:
+    target: str
+    container: str
+    key: Value
 
 
 @dataclass(frozen=True)
@@ -96,6 +150,12 @@ Statement = Union[
     Decrease,
     Multiply,
     Display,
+    ListInit,
+    MapInit,
+    ListAppend,
+    MapPut,
+    MapGet,
+    MapContains,
     If,
     While,
     FunctionDef,
@@ -111,3 +171,4 @@ class Program:
     statements: tuple[Statement, ...]
     functions: tuple[FunctionDef, ...] = ()
     modules: tuple[tuple[str, tuple[FunctionDef, ...]], ...] = ()
+    safety_tier: str = "surakshita"

@@ -6,6 +6,7 @@ Generated project data lives here.
 - `vocabulary/nouns/{pattern}.json` — per-stem-class noun corpus (target 100 for common classes; tiered for rare finals).
 - `vocabulary/verbs/dhatu_catalog.json` — graduate-tier dhātus organized by gaṇa (1–10), not nominal stem class.
 - `verb_frames.json` — controlled finite-verb surfaces with kāraka roles and parser operations.
+- `types/catalog.json` — canonical scalars, collections, memory types, and tier matrix for surakṣita / rakṣita / arakṣita.
 - `controlled_lexicon.json` — synthesized surfaces from grammar register (rebuild after corpus changes).
 
 Regenerate grammar canon:

@@ -1,8 +1,8 @@
 import unittest
 
-from sanskript.ast import Assign, Call, Display, FunctionDef, Literal, Program, Reference, Return, TextLiteral
+from sanskript.ast import Assign, Call, CallValue, Display, FunctionDef, Literal, Program, Reference, Return, TextLiteral
 from sanskript.bytecode import decode_program, encode_program, qualified_function_name
-from sanskript.compiler import compile_program
+from sanskript.compiler import compile_program, compile_source
 from sanskript.vm import SanskriptVM
 
 
@@ -156,3 +156,33 @@ class FunctionModuleTests(unittest.TestCase):
         )
 
         self.assertEqual(SanskriptVM().execute(compile_program(program)), ["svāgatam mitra"])
+
+    def test_function_return_value_can_be_assigned(self) -> None:
+        program = Program(
+            statements=(
+                Assign("phala", CallValue("ādarśa", args=(Literal(12),))),
+                Display(Reference("phala")),
+            ),
+            functions=(
+                FunctionDef(
+                    "ādarśa",
+                    (Return(Reference("mūlya")),),
+                    params=("mūlya",),
+                ),
+            ),
+        )
+
+        self.assertEqual(SanskriptVM().execute(compile_program(program)), ["12"])
+
+    def test_source_can_assign_function_return_value(self) -> None:
+        program = compile_source(
+            """
+            vidhānam ādarśa mūlya.
+            pratyāvartanam mūlya.
+            samāpanam.
+            āhvānam ādarśa pañca phale nidadhāti.
+            gaṇakaḥ phalaṃ darśayati.
+            """
+        )
+
+        self.assertEqual(SanskriptVM().execute(program), ["5"])

@@ -77,7 +77,7 @@ Function bodies end with `return` (not `halt`). `call` transfers control to a na
 
 Function objects may include `params`, a list of parameter names. The compiler lowers call arguments before `call`; the VM pops the argument values, binds them to the callee's parameters as local values, and restores the caller's locals on `return`.
 
-The runtime value model currently supports integers and text. Numeric arithmetic and ordered comparison require integers; equality and display work across both value types.
+The runtime value model currently supports integers, floats, booleans, text, lists, and maps. Numeric arithmetic accepts integers or floats; integer division remains floor-style while mixed/float division returns a float. Equality and display work across all managed value types.
 
 The yantra-pāṭha renderer expresses the same operations as formal prose sentences, for example `phala iti nāma āhriyate.` for `load_name`, `sapta iti pūrṇāṅkaḥ nikṣipyate.` for `push_int 7`, `svāgatam mitra iti vākyam nikṣipyate.` for `push_text`, and `gaṇita iti kṣetre vṛddhi iti vidhānam āhūyate.` for `call gaṇita.vṛddhi`.
 
@@ -105,6 +105,34 @@ The yantra-pāṭha renderer expresses the same operations as formal prose sente
 | `pop` | — | `…, v → …` | Discard stack top |
 
 v1 opcodes (`push_int`, `load_name`, `store_name`, `add`, `subtract`, `emit`, `halt`) are unchanged.
+
+### Collection and boolean opcodes (surakṣita runtime)
+
+| Opcode | Stack | Effect |
+| --- | --- | --- |
+| `push_bool` | `… → …, bool` | Operand `0` or `1` |
+| `list_new` | `… → …, list` | Empty list |
+| `list_append` | `…, list, v → …, list` | Mutate list |
+| `list_len` | `…, list → …, int` | Length |
+| `list_get` | `…, list, i → …, v` | Index (bounds checked) |
+| `map_new` | `… → …, map` | Empty map |
+| `map_set` | `…, map, k, v → …, map` | Keys: text or int |
+| `map_get` | `…, map, k → …, v` | Error if missing |
+| `map_contains` | `…, map, k → …, 0\|1` | Membership test |
+
+`jump_if_zero` uses surakṣita truthiness (`0`, `false`, `""`, `[]`, `{{}}` are false).
+
+### Numeric and heap opcodes
+
+| Opcode | Stack | Effect |
+| --- | --- | --- |
+| `push_float` | `… → …, float` | Push a floating-point value |
+| `heap_alloc` | `…, size → …, address` | Allocate checked integer cells in `arakṣita`, or inside `rakṣita` unsafe scope |
+| `heap_store` | `…, address, value → …` | Store an integer at an allocated address |
+| `heap_load` | `…, address → …, value` | Load an integer from an allocated address |
+| `heap_free` | `…, address → …` | Release an allocated address |
+| `unsafe_enter` | `… → …` | Enter a `rakṣita` unsafe permission region |
+| `unsafe_exit` | `… → …` | Leave a `rakṣita` unsafe permission region |
 
 ## Static validation
 

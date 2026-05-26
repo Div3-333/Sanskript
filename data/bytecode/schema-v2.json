@@ -22,6 +22,10 @@
     "modules": {
       "type": "array",
       "items": { "$ref": "#/$defs/module" }
+    },
+    "safety_tier": {
+      "type": "string",
+      "enum": ["surakshita", "rakshita", "arakshita"]
     }
   },
   "$defs": {
@@ -35,6 +39,22 @@
           "enum": [
             "push_int",
             "push_text",
+            "push_bool",
+            "list_new",
+            "list_append",
+            "list_len",
+            "list_get",
+            "map_new",
+            "map_set",
+            "map_get",
+            "map_contains",
+            "push_float",
+            "heap_alloc",
+            "heap_store",
+            "heap_load",
+            "heap_free",
+            "unsafe_enter",
+            "unsafe_exit",
             "load_name",
             "store_name",
             "add",
@@ -56,12 +76,16 @@
       },
       "allOf": [
         {
-          "if": { "properties": { "op": { "const": "push_int" } } },
+          "if": { "properties": { "op": { "enum": ["push_int", "push_bool"] } } },
           "then": { "required": ["operand"], "properties": { "operand": { "type": "integer" } } }
         },
         {
           "if": { "properties": { "op": { "const": "push_text" } } },
           "then": { "required": ["operand"], "properties": { "operand": { "type": "string" } } }
+        },
+        {
+          "if": { "properties": { "op": { "const": "push_float" } } },
+          "then": { "required": ["operand"], "properties": { "operand": { "type": "number" } } }
         },
         {
           "if": {
@@ -88,6 +112,20 @@
             "properties": {
               "op": {
                 "enum": [
+                  "list_new",
+                  "list_append",
+                  "list_len",
+                  "list_get",
+                  "map_new",
+                  "map_set",
+                  "map_get",
+                  "map_contains",
+                  "heap_alloc",
+                  "heap_store",
+                  "heap_load",
+                  "heap_free",
+                  "unsafe_enter",
+                  "unsafe_exit",
                   "add",
                   "subtract",
                   "multiply",

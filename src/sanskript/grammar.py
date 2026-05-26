@@ -92,6 +92,11 @@ class FrameOperation(str, Enum):
     DECREASE = "decrease"
     MULTIPLY = "multiply"
     DISPLAY = "display"
+    LIST_INIT = "list_init"
+    LIST_APPEND = "list_append"
+    MAP_PUT = "map_put"
+    MAP_GET = "map_get"
+    MAP_CONTAINS = "map_contains"
 
 
 CASE_TO_ROLE = {

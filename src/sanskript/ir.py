@@ -10,6 +10,16 @@ class IRLiteral:
 
 
 @dataclass(frozen=True)
+class IRFloatLiteral:
+    value: float
+
+
+@dataclass(frozen=True)
+class IRBoolLiteral:
+    value: bool
+
+
+@dataclass(frozen=True)
 class IRTextLiteral:
     value: str
 
@@ -19,7 +29,13 @@ class IRReference:
     name: str
 
 
-IRValue = Union[IRLiteral, IRTextLiteral, IRReference]
+@dataclass(frozen=True)
+class IRCallValue:
+    target: str
+    args: tuple["IRValue", ...] = ()
+
+
+IRValue = Union[IRLiteral, IRFloatLiteral, IRBoolLiteral, IRTextLiteral, IRReference, IRCallValue]
 
 
 @dataclass(frozen=True)
@@ -49,6 +65,43 @@ class IRMultiply:
 @dataclass(frozen=True)
 class IREmit:
     value: IRValue
+
+
+@dataclass(frozen=True)
+class IRListInit:
+    container: str
+
+
+@dataclass(frozen=True)
+class IRMapInit:
+    container: str
+
+
+@dataclass(frozen=True)
+class IRListAppend:
+    container: str
+    item: IRValue
+
+
+@dataclass(frozen=True)
+class IRMapPut:
+    container: str
+    key: IRValue
+    value: IRValue
+
+
+@dataclass(frozen=True)
+class IRMapGet:
+    target: str
+    container: str
+    key: IRValue
+
+
+@dataclass(frozen=True)
+class IRMapContains:
+    target: str
+    container: str
+    key: IRValue
 
 
 @dataclass(frozen=True)
@@ -87,6 +140,12 @@ IRInstruction = Union[
     IRDecrease,
     IRMultiply,
     IREmit,
+    IRListInit,
+    IRMapInit,
+    IRListAppend,
+    IRMapPut,
+    IRMapGet,
+    IRMapContains,
     IRIf,
     IRWhile,
     IRCall,
