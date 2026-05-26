@@ -66,6 +66,16 @@ $env:PYTHONPATH='src'; python -m sanskript run examples/caturtha.ssk
 $env:PYTHONPATH='src'; python -m sanskript run C:\tmp\caturtha.sskbc
 ```
 
+Readable VM text can also be kept in Sanskrit-prose yantra-pāṭha form:
+
+```powershell
+$env:PYTHONPATH='src'; python -m sanskript disassemble C:\tmp\caturtha.sskbc
+$env:PYTHONPATH='src'; python -m sanskript assemble C:\tmp\caturtha.sskyp
+$env:PYTHONPATH='src'; python -m sanskript run C:\tmp\caturtha.sskyp
+```
+
+Yantra-pāṭha sentences avoid braces, semicolons, symbolic operators, and Python/C-style expression syntax. A machine instruction is rendered as formal Sanskrit meta-prose, such as `pañca iti pūrṇāṅkaḥ nikṣipyate.` or `phala iti nāma āhriyate.`.
+
 ## Project Status
 
 This is not yet the final language. It is the first executable scaffold for a stricter design:
@@ -92,6 +102,8 @@ Adhyaya 1-3 now also have a shared dry-style engine layer in `src/sanskript/adhy
 Sanskript now has an explicit implementation-independent runtime boundary: source is parsed into Sanskript AST, lowered into Sanskript IR, lowered again into Sanskript bytecode, and executed by a Sanskript VM. Python hosts this first VM, but the semantics are no longer direct Python interpreter branches.
 
 The command-line toolchain now has a split compile/run boundary: `.ssk` source compiles to `.sskbc` bytecode, and `.sskbc` runs directly in the VM without reparsing Sanskrit source.
+
+The bytecode layer now has a reversible Sanskrit-prose yantra-pāṭha form (`.sskyp`): `.sskbc` can be disassembled into prose, assembled back into bytecode, and run directly. This is the first bootstrapping step toward a future self-hosted VM written in Sanskript itself, while keeping the user-facing and human-readable layers aligned with the no-trench-coat design promise.
 
 The parser hot path now uses a data-driven frame registry: `nidadhāti`/`sthāpayati` assign, `vardhayati`/`yojayati` increase, `nyūnayati`/`vyavakalayati` decrease, and `darśayati`/`prakāśayati` display. New frame surfaces can be added by extending `data/verb_frames.json`, rebuilding the controlled lexicon, and adding examples/tests.
 

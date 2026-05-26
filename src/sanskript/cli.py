@@ -16,25 +16,43 @@ from .morphology_facade import MorphologyFacade
 from .morphology_lexicon import build_lexicon_artifact
 from .morphology_synth import synthesize
 from .performance import main as performance_main
+from .yantra_patha import program_from_yantra_patha, program_to_yantra_patha
 
 
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
 
     # Backward-compatible invocation: `sanskript examples/foo.ssk`
-    if len(argv) == 1 and Path(argv[0]).suffix in {".ssk", ".sskbc"}:
+    if len(argv) == 1 and Path(argv[0]).suffix in {".ssk", ".sskbc", ".sskyp"}:
         return _run_file(Path(argv[0]))
 
     parser = argparse.ArgumentParser(prog="sanskript")
     subparsers = parser.add_subparsers(dest="command")
 
-    run_parser = subparsers.add_parser("run", help="Execute a .ssk source or .sskbc bytecode file")
+    run_parser = subparsers.add_parser(
+        "run",
+        help="Execute a .ssk source, .sskbc bytecode, or .sskyp yantra-pāṭha file",
+    )
     run_parser.add_argument("source", type=Path)
 
     compile_parser = subparsers.add_parser("compile", help="Compile a .ssk source file to .sskbc bytecode")
     compile_parser.add_argument("source", type=Path)
     compile_parser.add_argument("-o", "--output", type=Path)
     compile_parser.add_argument("--version", type=int, default=BYTECODE_LATEST, choices=(1, 2))
+
+    disassemble_parser = subparsers.add_parser(
+        "disassemble",
+        help="Render .sskbc bytecode as Sanskrit-prose yantra-pāṭha",
+    )
+    disassemble_parser.add_argument("source", type=Path)
+    disassemble_parser.add_argument("-o", "--output", type=Path)
+
+    assemble_parser = subparsers.add_parser(
+        "assemble",
+        help="Assemble Sanskrit-prose yantra-pāṭha into .sskbc bytecode",
+    )
+    assemble_parser.add_argument("source", type=Path)
+    assemble_parser.add_argument("-o", "--output", type=Path)
 
     subparsers.add_parser("build-lexicon", help="Build data/controlled_lexicon.json")
 
@@ -56,6 +74,10 @@ def main(argv: list[str] | None = None) -> int:
             return _run_file(args.source)
         if command == "compile":
             return _compile_file(args.source, args.output, version=args.version)
+        if command == "disassemble":
+            return _disassemble_file(args.source, args.output)
+        if command == "assemble":
+            return _assemble_file(args.source, args.output)
         if command == "build-lexicon":
             path = build_lexicon_artifact()
             print(path)
@@ -80,6 +102,11 @@ def _run_file(source: Path) -> int:
         from .vm import SanskriptVM
 
         output = SanskriptVM().execute(program)
+    elif source.suffix == ".sskyp":
+        program = program_from_yantra_patha(source.read_text(encoding="utf-8"))
+        from .vm import SanskriptVM
+
+        output = SanskriptVM().execute(program)
     else:
         output = run(source.read_text(encoding="utf-8"))
     for line in output:
@@ -92,6 +119,23 @@ def _compile_file(source: Path, output: Path | None = None, *, version: int = BY
     program = compile_source(source.read_text(encoding="utf-8"))
     validate_bytecode(program, version=version)
     dump_bytecode_file(program, target, version=version)
+    print(target)
+    return 0
+
+
+def _disassemble_file(source: Path, output: Path | None = None) -> int:
+    target = output or source.with_suffix(".sskyp")
+    program = load_bytecode_file(source)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(program_to_yantra_patha(program), encoding="utf-8")
+    print(target)
+    return 0
+
+
+def _assemble_file(source: Path, output: Path | None = None) -> int:
+    target = output or source.with_suffix(".sskbc")
+    program = program_from_yantra_patha(source.read_text(encoding="utf-8"))
+    dump_bytecode_file(program, target)
     print(target)
     return 0
 

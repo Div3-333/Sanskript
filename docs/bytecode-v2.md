@@ -16,12 +16,31 @@ Bytecode v2 extends [v1](bytecode-v1.md) with arithmetic, comparisons, control f
 
 The canonical bytecode file extension is `.sskbc`. The file is plain UTF-8 JSON using the same object shape described below.
 
+The human-readable machine text extension is `.sskyp` ("Sanskript yantra-pāṭha"). It is a reversible Sanskrit-prose assembly form for the same bytecode program. It exists so the lower toolchain does not have to expose C/Python-style operators, braces, labels, or instruction mnemonics as the only readable machine form.
+
 ```powershell
 $env:PYTHONPATH='src'; python -m sanskript compile examples/caturtha.ssk
 $env:PYTHONPATH='src'; python -m sanskript run examples/caturtha.sskbc
+$env:PYTHONPATH='src'; python -m sanskript disassemble examples/caturtha.sskbc
+$env:PYTHONPATH='src'; python -m sanskript run examples/caturtha.sskyp
 ```
 
 `sanskript compile input.ssk` writes `input.sskbc` unless `-o/--output` is supplied. The compiler validates the bytecode before writing. `sanskript run` accepts either `.ssk` source or `.sskbc` bytecode; `.sskbc` execution loads JSON bytecode directly and skips morphology/parser compilation.
+
+`sanskript disassemble input.sskbc` writes `input.sskyp`. `sanskript assemble input.sskyp` writes `input.sskbc`. `.sskyp` files can also be run directly; the CLI assembles the prose form into bytecode in memory and then executes the VM.
+
+Example yantra-pāṭha:
+
+```text
+saṃskaraṇam dvitīyam.
+mukhyaḥ pāṭhaḥ ārabhyate.
+pañca iti pūrṇāṅkaḥ nikṣipyate.
+phala iti nāma sthāpyate.
+phala iti nāma āhriyate.
+darśanam kriyate.
+virāmaḥ kriyate.
+pāṭhaḥ samāpyate.
+```
 
 ## Program model
 
@@ -52,6 +71,8 @@ A v2 **program** has:
 ```
 
 Function bodies end with `return` (not `halt`). `call` transfers control to a named target; `return` resumes the caller at the instruction after `call` and pushes the popped return value.
+
+The yantra-pāṭha renderer expresses the same operations as formal prose sentences, for example `phala iti nāma āhriyate.` for `load_name`, `sapta iti pūrṇāṅkaḥ nikṣipyate.` for `push_int 7`, and `gaṇita iti kṣetre vṛddhi iti vidhānam āhūyate.` for `call gaṇita.vṛddhi`.
 
 ### Calling convention (reference VM)
 
