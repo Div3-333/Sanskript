@@ -1,6 +1,6 @@
 import unittest
 
-from sanskript.ast import Assign, Call, Display, FunctionDef, Literal, Program, Reference
+from sanskript.ast import Assign, Call, Display, FunctionDef, Literal, Program, Reference, Return
 from sanskript.bytecode import decode_program, encode_program, qualified_function_name
 from sanskript.compiler import compile_program
 from sanskript.vm import SanskriptVM
@@ -79,3 +79,63 @@ class FunctionModuleTests(unittest.TestCase):
         restored = decode_program(encode_program(bytecode))
 
         self.assertEqual(SanskriptVM().execute(restored), ["99"])
+
+    def test_function_parameters_bind_as_local_values(self) -> None:
+        program = Program(
+            statements=(
+                Call("sthāpaya", args=(Literal(12),)),
+                Display(Reference("phala")),
+            ),
+            functions=(
+                FunctionDef(
+                    "sthāpaya",
+                    (Assign("phala", Reference("mūlya")),),
+                    params=("mūlya",),
+                ),
+            ),
+        )
+
+        output = SanskriptVM().execute(compile_program(program))
+
+        self.assertEqual(output, ["12"])
+
+    def test_function_parameters_shadow_globals_without_overwriting_them(self) -> None:
+        program = Program(
+            statements=(
+                Assign("mūlya", Literal(1)),
+                Call("sthāpaya", args=(Literal(8),)),
+                Display(Reference("mūlya")),
+                Display(Reference("phala")),
+            ),
+            functions=(
+                FunctionDef(
+                    "sthāpaya",
+                    (
+                        Assign("mūlya", Literal(9)),
+                        Assign("phala", Reference("mūlya")),
+                    ),
+                    params=("mūlya",),
+                ),
+            ),
+        )
+
+        output = SanskriptVM().execute(compile_program(program))
+
+        self.assertEqual(output, ["1", "9"])
+
+    def test_function_params_round_trip_through_json_payload(self) -> None:
+        program = Program(
+            statements=(Call("sthāpaya", args=(Literal(12),)), Display(Reference("phala"))),
+            functions=(
+                FunctionDef(
+                    "sthāpaya",
+                    (Assign("phala", Reference("mūlya")), Return(Reference("mūlya"))),
+                    params=("mūlya",),
+                ),
+            ),
+        )
+        bytecode = compile_program(program)
+        restored = decode_program(encode_program(bytecode))
+
+        self.assertEqual(restored.functions[0].params, ("mūlya",))
+        self.assertEqual(SanskriptVM().execute(restored), ["12"])

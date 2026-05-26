@@ -16,6 +16,7 @@ from .morphology_facade import MorphologyFacade
 from .morphology_lexicon import build_lexicon_artifact
 from .morphology_synth import synthesize
 from .performance import main as performance_main
+from .webapp import load_program_for_web, write_web_app
 from .yantra_patha import program_from_yantra_patha, program_to_yantra_patha
 
 
@@ -54,6 +55,14 @@ def main(argv: list[str] | None = None) -> int:
     assemble_parser.add_argument("source", type=Path)
     assemble_parser.add_argument("-o", "--output", type=Path)
 
+    web_parser = subparsers.add_parser(
+        "web",
+        help="Compile .ssk, .sskbc, or .sskyp into a static browser app",
+    )
+    web_parser.add_argument("source", type=Path)
+    web_parser.add_argument("-o", "--output", type=Path)
+    web_parser.add_argument("--title", default="Sanskript App")
+
     subparsers.add_parser("build-lexicon", help="Build data/controlled_lexicon.json")
 
     synth_parser = subparsers.add_parser("synthesize", help="Synthesize one register entry by id")
@@ -78,6 +87,8 @@ def main(argv: list[str] | None = None) -> int:
             return _disassemble_file(args.source, args.output)
         if command == "assemble":
             return _assemble_file(args.source, args.output)
+        if command == "web":
+            return _web_file(args.source, args.output, title=args.title)
         if command == "build-lexicon":
             path = build_lexicon_artifact()
             print(path)
@@ -136,6 +147,14 @@ def _assemble_file(source: Path, output: Path | None = None) -> int:
     target = output or source.with_suffix(".sskbc")
     program = program_from_yantra_patha(source.read_text(encoding="utf-8"))
     dump_bytecode_file(program, target)
+    print(target)
+    return 0
+
+
+def _web_file(source: Path, output: Path | None = None, *, title: str) -> int:
+    target = output or source.with_suffix(".html")
+    program = load_program_for_web(source)
+    write_web_app(program, target, title=title)
     print(target)
     return 0
 

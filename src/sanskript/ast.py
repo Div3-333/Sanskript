@@ -70,12 +70,14 @@ class FunctionDef:
     name: str
     body: tuple["Statement", ...]
     module: str | None = None
+    params: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
 class Call:
     name: str
     module: str | None = None
+    args: tuple[Value, ...] = ()
 
 
 @dataclass(frozen=True)

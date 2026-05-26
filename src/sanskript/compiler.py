@@ -105,6 +105,7 @@ def compile_program_to_ir(program: Program) -> IRProgram:
             function.name,
             _compile_statement_block(function.body),
             module=None,
+            params=function.params,
         )
         for function in program.functions
     )
@@ -117,6 +118,7 @@ def compile_program_to_ir(program: Program) -> IRProgram:
                     function.name,
                     _compile_statement_block(function.body),
                     module=module_name,
+                    params=function.params,
                 )
                 for function in functions
             ),
@@ -141,7 +143,13 @@ def lower_ir_to_bytecode(program: IRProgram) -> BytecodeProgram:
     functions: list[FunctionBytecode] = []
     for function in program.functions:
         key = qualified_function_name(function.module, function.name)
-        functions.append(FunctionBytecode(key, _lower_function_body(function.instructions)))
+        functions.append(
+            FunctionBytecode(
+                key,
+                _lower_function_body(function.instructions),
+                params=function.params,
+            )
+        )
 
     modules: list[ModuleBytecode] = []
     for module in program.modules:
@@ -149,6 +157,7 @@ def lower_ir_to_bytecode(program: IRProgram) -> BytecodeProgram:
             FunctionBytecode(
                 qualified_function_name(module.name, function.name),
                 _lower_function_body(function.instructions),
+                params=function.params,
             )
             for function in module.functions
         )
@@ -207,7 +216,11 @@ def _lower_instruction(instruction: IRInstruction) -> tuple[Instruction, ...]:
     if isinstance(instruction, IREmit):
         return (*_lower_value(instruction.value), Instruction(OpCode.EMIT))
     if isinstance(instruction, IRCall):
-        return (Instruction(OpCode.CALL, instruction.target), Instruction(OpCode.POP))
+        return (
+            *tuple(item for arg in instruction.args for item in _lower_value(arg)),
+            Instruction(OpCode.CALL, instruction.target),
+            Instruction(OpCode.POP),
+        )
     if isinstance(instruction, IRReturn):
         if instruction.value is None:
             return (Instruction(OpCode.PUSH_INT, 0), Instruction(OpCode.RETURN))
@@ -304,7 +317,7 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
         )
     if isinstance(statement, Call):
         target = qualified_function_name(statement.module, statement.name)
-        return IRCall(target)
+        return IRCall(target, tuple(_compile_value_to_ir(arg) for arg in statement.args))
     if isinstance(statement, Return):
         value = None if statement.value is None else _compile_value_to_ir(statement.value)
         return IRReturn(value)

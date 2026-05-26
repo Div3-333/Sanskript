@@ -98,6 +98,7 @@ class Instruction:
 class FunctionBytecode:
     name: str
     instructions: tuple[Instruction, ...]
+    params: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -157,10 +158,13 @@ def instruction_from_dict(raw: dict[str, Any], *, allowed: frozenset[str] | None
 
 
 def _function_to_dict(function: FunctionBytecode) -> dict[str, Any]:
-    return {
+    payload: dict[str, Any] = {
         "name": function.name,
         "instructions": [instruction_to_dict(item) for item in function.instructions],
     }
+    if function.params:
+        payload["params"] = list(function.params)
+    return payload
 
 
 def _function_from_dict(raw: dict[str, Any], *, version: int) -> FunctionBytecode:
@@ -168,6 +172,7 @@ def _function_from_dict(raw: dict[str, Any], *, version: int) -> FunctionBytecod
     name = str(raw.get("name", ""))
     if not name:
         raise BytecodeValidationError("function name is required")
+    params = _params_from_raw(raw.get("params", []), owner=f"function {name!r}")
     body = raw.get("instructions", [])
     if not isinstance(body, list) or not body:
         raise BytecodeValidationError(f"function {name!r} must have instructions")
@@ -178,7 +183,24 @@ def _function_from_dict(raw: dict[str, Any], *, version: int) -> FunctionBytecod
         strict_stack=False,
         require_halt=False,
     )
-    return FunctionBytecode(name, instructions)
+    return FunctionBytecode(name, instructions, params=params)
+
+
+def _params_from_raw(raw: object, *, owner: str) -> tuple[str, ...]:
+    if raw is None:
+        return ()
+    if not isinstance(raw, list):
+        raise BytecodeValidationError(f"{owner} params must be a list")
+    params: list[str] = []
+    seen: set[str] = set()
+    for item in raw:
+        if not isinstance(item, str) or not item:
+            raise BytecodeValidationError(f"{owner} params must be non-empty string names")
+        if item in seen:
+            raise BytecodeValidationError(f"{owner} has duplicate param {item!r}")
+        params.append(item)
+        seen.add(item)
+    return tuple(params)
 
 
 def encode_program(
@@ -260,7 +282,12 @@ def _has_control_flow(program: BytecodeProgram) -> bool:
         OpCode.CALL,
         OpCode.RETURN,
     }
-    for stream in (program.instructions, *(f.instructions for f in program.functions)):
+    streams = (
+        program.instructions,
+        *(function.instructions for function in program.functions),
+        *(function.instructions for module in program.modules for function in module.functions),
+    )
+    for stream in streams:
         if any(inst.opcode in control for inst in stream):
             return True
     return False
@@ -278,6 +305,7 @@ def validate_bytecode(program: BytecodeProgram, *, version: int = BYTECODE_LATES
     )
 
     for function in program.functions:
+        _validate_function_signature(function)
         _validate_instruction_stream(
             function.instructions,
             version=version,
@@ -293,12 +321,23 @@ def validate_bytecode(program: BytecodeProgram, *, version: int = BYTECODE_LATES
                     f"Duplicate function {function.name!r} in module {module.name!r}"
                 )
             seen.add(function.name)
+            _validate_function_signature(function)
             _validate_instruction_stream(
                 function.instructions,
                 version=version,
                 strict_stack=False,
                 require_halt=False,
             )
+
+
+def _validate_function_signature(function: FunctionBytecode) -> None:
+    seen: set[str] = set()
+    for param in function.params:
+        if not isinstance(param, str) or not param:
+            raise BytecodeValidationError(f"function {function.name!r} has invalid param {param!r}")
+        if param in seen:
+            raise BytecodeValidationError(f"function {function.name!r} has duplicate param {param!r}")
+        seen.add(param)
 
 
 def _validate_instruction_stream(
@@ -369,19 +408,19 @@ def qualified_function_name(module: str | None, name: str) -> str:
     return name
 
 
-def resolve_call_target(program: BytecodeProgram, target: str) -> tuple[Instruction, ...]:
+def resolve_call_target(program: BytecodeProgram, target: str) -> FunctionBytecode:
     if "." in target:
         module_name, fn_name = target.split(".", 1)
         for module in program.modules:
             if module.name == module_name:
                 for function in module.functions:
                     if function.name in {fn_name, target}:
-                        return function.instructions
+                        return function
         raise BytecodeValidationError(f"Unknown module function {target!r}")
 
     for function in program.functions:
         if function.name == target:
-            return function.instructions
+            return function
     raise BytecodeValidationError(f"Unknown function {target!r}")
 
 

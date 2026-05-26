@@ -70,7 +70,7 @@ class SanskriptVM:
 
         if opcode == OpCode.STORE_NAME:
             name = self._expect_name(operand, opcode)
-            self.globals[name] = self._pop()
+            self._store_name(name, self._pop())
             return None
 
         if opcode == OpCode.ADD:
@@ -128,9 +128,12 @@ class SanskriptVM:
             target = self._expect_name(operand, opcode)
             if self._program is None:
                 raise RuntimeSanskriptError("CALL requires a full BytecodeProgram context")
-            body = resolve_call_target(self._program, target)
-            self._call_stack.append(_CallFrame(ip + 1, self._instructions, {}))
-            self._instructions = body
+            function = resolve_call_target(self._program, target)
+            args = [self._pop() for _ in function.params]
+            args.reverse()
+            self._call_stack.append(_CallFrame(ip + 1, self._instructions, dict(self.locals)))
+            self.locals = dict(zip(function.params, args))
+            self._instructions = function.instructions
             return 0
 
         if opcode == OpCode.RETURN:
@@ -158,6 +161,12 @@ class SanskriptVM:
             f"Unknown stored value: {name!r}",
             hint="Assign a value before reading it, or check the function scope.",
         )
+
+    def _store_name(self, name: str, value: int) -> None:
+        if name in self.locals:
+            self.locals[name] = value
+        else:
+            self.globals[name] = value
 
     def _pop(self) -> int:
         try:

@@ -4,7 +4,14 @@ import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
 
-from sanskript.bytecode import BytecodeProgram, Instruction, OpCode, dump_bytecode_file, load_bytecode_file
+from sanskript.bytecode import (
+    BytecodeProgram,
+    FunctionBytecode,
+    Instruction,
+    OpCode,
+    dump_bytecode_file,
+    load_bytecode_file,
+)
 from sanskript.cli import main
 from sanskript.compiler import compile_source
 from sanskript.vm import SanskriptVM
@@ -73,6 +80,37 @@ class YantraPathaTests(unittest.TestCase):
         restored = program_from_yantra_patha(program_to_yantra_patha(program))
 
         self.assertEqual(restored.instructions, program.instructions)
+
+    def test_function_params_round_trip_through_prose_bytecode(self) -> None:
+        program = BytecodeProgram(
+            (
+                Instruction(OpCode.PUSH_INT, 5),
+                Instruction(OpCode.CALL, "sthāpaya"),
+                Instruction(OpCode.POP),
+                Instruction(OpCode.LOAD_NAME, "phala"),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.HALT),
+            ),
+            functions=(
+                FunctionBytecode(
+                    "sthāpaya",
+                    (
+                        Instruction(OpCode.LOAD_NAME, "mūlya"),
+                        Instruction(OpCode.STORE_NAME, "phala"),
+                        Instruction(OpCode.PUSH_INT, 0),
+                        Instruction(OpCode.RETURN),
+                    ),
+                    params=("mūlya",),
+                ),
+            ),
+        )
+        prose = program_to_yantra_patha(program)
+
+        self.assertIn("sthāpaya mūlya iti vidhānam ārabhyate.", prose)
+        restored = program_from_yantra_patha(prose)
+
+        self.assertEqual(restored.functions[0].params, ("mūlya",))
+        self.assertEqual(SanskriptVM().execute(restored), ["5"])
 
     def test_cli_disassemble_assemble_and_run_yantra_patha(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

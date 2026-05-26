@@ -89,9 +89,9 @@ Here is everything from that discussion that is realistically doable in a few mo
 
   [x] 30. Richer Analysis on hot path — propagate lakāra, pada, gender from synthesized lexicon into parser decisions.
 
-  [ ] 31. IR/compiler: new statement forms — conditional, loop, function call (language design already sketched in docs).
+  [x] 31. IR/compiler: new statement forms — conditional, loop, function call, and parameterized function calls now lower through AST → IR → bytecode.
 
-  [ ] 32. VM opcodes for new semantics — extend bytecode + VM for anything new in IR (still integer-only is fine for v1).
+  [x] 32. VM opcodes for new semantics — bytecode v2 covers arithmetic, comparison, control flow, call/return, local parameter binding, yantra-pāṭha, and static browser execution.
 
   [x] 33. Better runtime errors — morphological, parse, and VM errors with Sanskrit-aware messages.
 

@@ -58,7 +58,11 @@ def program_to_yantra_patha(program: BytecodeProgram) -> str:
         sections.append(f"{module.name} iti kṣetram ārabhyate.")
         for function in module.functions:
             display_name = _module_function_display_name(module.name, function.name)
-            sections.extend(_render_function(FunctionBytecode(display_name, function.instructions)))
+            sections.extend(
+                _render_function(
+                    FunctionBytecode(display_name, function.instructions, params=function.params)
+                )
+            )
         sections.append("kṣetram samāpyate.")
 
     return "\n".join(sections) + "\n"
@@ -74,7 +78,9 @@ def program_from_yantra_patha(source: str) -> BytecodeProgram:
 
 
 def _render_function(function: FunctionBytecode) -> list[str]:
-    body = [f"{function.name} iti vidhānam ārabhyate."]
+    params = " ".join(function.params)
+    header = f"{function.name} {params} iti vidhānam ārabhyate." if params else f"{function.name} iti vidhānam ārabhyate."
+    body = [header]
     body.extend(_render_instruction(item) for item in function.instructions)
     body.append("vidhānam samāpyate.")
     return body
@@ -132,6 +138,7 @@ class _YantraPathaParser:
         self.modules: list[ModuleBytecode] = []
         self.current_stream: list[Instruction] | None = None
         self.current_function: str | None = None
+        self.current_params: tuple[str, ...] = ()
         self.current_module: str | None = None
         self.current_module_functions: list[FunctionBytecode] = []
 
@@ -173,12 +180,13 @@ class _YantraPathaParser:
         if tokens == ["vidhānam", "samāpyate"]:
             self._close_function()
             return True
-        if len(tokens) == 4 and tokens[1:] == ["iti", "vidhānam", "ārabhyate"]:
+        if len(tokens) >= 4 and tokens[-3:] == ["iti", "vidhānam", "ārabhyate"]:
             if self.current_function is not None:
                 raise BytecodeValidationError(
                     f"Function {self.current_function!r} was not closed before {tokens[0]!r}"
                 )
             self.current_function = tokens[0]
+            self.current_params = tuple(tokens[1:-3])
             self.current_stream = []
             return True
         return False
@@ -189,12 +197,13 @@ class _YantraPathaParser:
         name = self.current_function
         if self.current_module is not None:
             name = qualified_function_name(self.current_module, name)
-        function = FunctionBytecode(name, tuple(self.current_stream))
+        function = FunctionBytecode(name, tuple(self.current_stream), params=self.current_params)
         if self.current_module is None:
             self.functions.append(function)
         else:
             self.current_module_functions.append(function)
         self.current_function = None
+        self.current_params = ()
         self.current_stream = None
 
     def _close_module(self) -> None:

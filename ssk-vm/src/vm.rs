@@ -19,6 +19,7 @@ impl VmError {
 struct CallFrame {
     return_ip: usize,
     instructions: Vec<Instruction>,
+    locals_snapshot: HashMap<String, i64>,
 }
 
 pub struct SanskriptVm {
@@ -69,7 +70,7 @@ impl SanskriptVm {
             if instruction.opcode == OpCode::Halt {
                 if let Some(frame) = self.call_stack.pop() {
                     self.instructions = frame.instructions;
-                    self.locals.clear();
+                    self.locals = frame.locals_snapshot;
                     ip = frame.return_ip;
                     continue;
                 }
@@ -100,7 +101,7 @@ impl SanskriptVm {
             OpCode::StoreName => {
                 let name = self.expect_name(instruction)?;
                 let value = self.pop()?;
-                self.globals.insert(name, value);
+                self.store_name(name, value);
                 Ok(None)
             }
             OpCode::Add => {
@@ -161,13 +162,27 @@ impl SanskriptVm {
                 let program = self.program.as_ref().ok_or_else(|| {
                     VmError::new("CALL requires a full BytecodeProgram context")
                 })?;
-                let body = resolve_call_target(program, &target)
-                    .map_err(|err| VmError::new(err.to_string()))?;
+                let function = resolve_call_target(program, &target)
+                    .map_err(|err| VmError::new(err.to_string()))?
+                    .clone();
+                let mut args = Vec::new();
+                for _ in &function.params {
+                    args.push(self.pop()?);
+                }
+                args.reverse();
+                let locals = function
+                    .params
+                    .iter()
+                    .cloned()
+                    .zip(args.into_iter())
+                    .collect::<HashMap<_, _>>();
                 self.call_stack.push(CallFrame {
                     return_ip: ip + 1,
                     instructions: self.instructions.clone(),
+                    locals_snapshot: self.locals.clone(),
                 });
-                self.instructions = body.to_vec();
+                self.locals = locals;
+                self.instructions = function.instructions;
                 Ok(Some(0))
             }
             OpCode::Return => {
@@ -177,7 +192,7 @@ impl SanskriptVm {
                     .pop()
                     .ok_or_else(|| VmError::new("RETURN outside of a function call"))?;
                 self.instructions = frame.instructions;
-                self.locals.clear();
+                self.locals = frame.locals_snapshot;
                 self.stack.push(value);
                 Ok(Some(frame.return_ip))
             }
@@ -197,6 +212,14 @@ impl SanskriptVm {
             .get(name)
             .copied()
             .ok_or_else(|| VmError::new(format!("Unknown stored value: {name:?}")))
+    }
+
+    fn store_name(&mut self, name: String, value: i64) {
+        if self.locals.contains_key(&name) {
+            self.locals.insert(name, value);
+        } else {
+            self.globals.insert(name, value);
+        }
     }
 
     fn pop(&mut self) -> Result<i64, VmError> {

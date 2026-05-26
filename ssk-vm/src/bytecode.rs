@@ -1,5 +1,5 @@
 use serde::Deserialize;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use thiserror::Error;
 
 #[derive(Debug, Error)]
@@ -72,6 +72,7 @@ pub enum Operand {
 pub struct FunctionBytecode {
     pub name: String,
     pub instructions: Vec<Instruction>,
+    pub params: Vec<String>,
 }
 
 #[derive(Debug, Clone)]
@@ -98,6 +99,8 @@ struct RawInstruction {
 #[derive(Debug, Deserialize)]
 struct RawFunction {
     name: String,
+    #[serde(default)]
+    params: Vec<String>,
     instructions: Vec<RawInstruction>,
 }
 
@@ -183,6 +186,21 @@ fn parse_function(raw: RawFunction) -> Result<FunctionBytecode, BytecodeError> {
     if raw.name.is_empty() {
         return Err(BytecodeError::InvalidProgram("function name is required".into()));
     }
+    let mut seen = HashSet::new();
+    for param in &raw.params {
+        if param.is_empty() {
+            return Err(BytecodeError::InvalidProgram(format!(
+                "function {} has an empty param",
+                raw.name
+            )));
+        }
+        if !seen.insert(param.clone()) {
+            return Err(BytecodeError::InvalidProgram(format!(
+                "function {} has duplicate param {param}",
+                raw.name
+            )));
+        }
+    }
     let instructions = raw
         .instructions
         .iter()
@@ -197,6 +215,7 @@ fn parse_function(raw: RawFunction) -> Result<FunctionBytecode, BytecodeError> {
     Ok(FunctionBytecode {
         name: raw.name,
         instructions,
+        params: raw.params,
     })
 }
 
@@ -261,13 +280,13 @@ fn decode_raw_program(raw: RawProgram) -> Result<BytecodeProgram, BytecodeError>
 pub fn resolve_call_target<'a>(
     program: &'a BytecodeProgram,
     target: &str,
-) -> Result<&'a [Instruction], BytecodeError> {
+) -> Result<&'a FunctionBytecode, BytecodeError> {
     if let Some((module_name, fn_name)) = target.split_once('.') {
         for module in &program.modules {
             if module.name == module_name {
                 for function in &module.functions {
                     if function.name == fn_name || function.name == target {
-                        return Ok(&function.instructions);
+                        return Ok(function);
                     }
                 }
             }
@@ -278,7 +297,7 @@ pub fn resolve_call_target<'a>(
     }
     for function in &program.functions {
         if function.name == target {
-            return Ok(&function.instructions);
+            return Ok(function);
         }
     }
     Err(BytecodeError::InvalidProgram(format!(

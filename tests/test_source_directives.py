@@ -82,6 +82,35 @@ class SourceDirectiveTests(unittest.TestCase):
         self.assertIsInstance(program.functions[0], FunctionDef)
         self.assertEqual(program.functions[0].name, "set")
 
+    def test_function_parameters_from_source_run(self) -> None:
+        source = """
+        vidhānam sthāpaya balaṃ.
+        gaṇakaḥ balaṃ phale nidadhāti.
+        samāpanam.
+        āhvānam sthāpaya pañca.
+        gaṇakaḥ phalaṃ darśayati.
+        """
+        program = parse_program(source)
+
+        self.assertEqual(program.functions[0].params, ("bala",))
+        self.assertEqual(SanskriptVM().execute(compile_source(source)), ["5"])
+
+    def test_module_function_parameters_from_source_run(self) -> None:
+        source = """
+        kṣetram gaṇita.
+        vidhānam sthāpaya balaṃ.
+        gaṇakaḥ balaṃ phale nidadhāti.
+        samāpanam.
+        samāpanam.
+        āhvānam gaṇita sthāpaya sapta.
+        gaṇakaḥ phalaṃ darśayati.
+        """
+        program = parse_program(source)
+        function = program.modules[0][1][0]
+
+        self.assertEqual(function.params, ("bala",))
+        self.assertEqual(SanskriptVM().execute(compile_source(source)), ["7"])
+
 
 if __name__ == "__main__":
     unittest.main()

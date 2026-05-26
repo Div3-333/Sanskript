@@ -16,6 +16,7 @@ from .ast import (
     Multiply,
     Program,
     Reference,
+    Return,
     Statement,
     Value,
     While,
@@ -38,6 +39,7 @@ def parse_program(source: str) -> Program:
     index = 0
     current_module: str | None = None
     module_functions: list[FunctionDef] = []
+    known_modules: set[str] = set()
 
     while index < len(sentences):
         sentence = sentences[index].strip()
@@ -45,21 +47,27 @@ def parse_program(source: str) -> Program:
             index += 1
             continue
 
-        header = _parse_directive_header(sentence)
+        header = _parse_directive_header(sentence, known_modules=known_modules)
         if header is not None:
             kind, payload = header
             if kind == "module":
                 if current_module and module_functions:
                     modules.append((current_module, tuple(module_functions)))
                 current_module = payload
+                known_modules.add(current_module)
                 module_functions = []
                 index += 1
                 continue
             if kind == "function":
-                name = payload
+                name, params = payload
                 index += 1
-                body, index = _collect_until(sentences, index, end_markers={"samāpanam", "samapanam"})
-                fn = FunctionDef(name, body, module=current_module)
+                body, index = _collect_until(
+                    sentences,
+                    index,
+                    end_markers={"samāpanam", "samapanam"},
+                    known_modules=known_modules,
+                )
+                fn = FunctionDef(name, body, module=current_module, params=params)
                 if current_module:
                     module_functions.append(fn)
                 else:
@@ -73,6 +81,7 @@ def parse_program(source: str) -> Program:
                     index,
                     end_markers={"anyathā", "anyatha", "antam", "anta"},
                     stop_before_markers=True,
+                    known_modules=known_modules,
                 )
                 else_body: tuple[Statement, ...] = ()
                 if index < len(sentences) and _is_marker_sentence(sentences[index], {"anyathā", "anyatha"}):
@@ -82,6 +91,7 @@ def parse_program(source: str) -> Program:
                         index,
                         end_markers=_BLOCK_END_MARKERS,
                         stop_before_markers=True,
+                        known_modules=known_modules,
                     )
                 if index < len(sentences) and _is_marker_sentence(
                     sentences[index], {"antam", "anta"}
@@ -97,6 +107,7 @@ def parse_program(source: str) -> Program:
                     index,
                     end_markers=_BLOCK_END_MARKERS,
                     stop_before_markers=True,
+                    known_modules=known_modules,
                 )
                 if index < len(sentences) and _is_marker_sentence(
                     sentences[index], {"antam", "anta"}
@@ -105,8 +116,12 @@ def parse_program(source: str) -> Program:
                 statements.append(While(condition, body))
                 continue
             if kind == "call":
-                module_name, fn_name = payload
-                statements.append(Call(fn_name, module=module_name))
+                module_name, fn_name, args = payload
+                statements.append(Call(fn_name, module=module_name, args=args))
+                index += 1
+                continue
+            if kind == "return":
+                statements.append(Return(payload))
                 index += 1
                 continue
 
@@ -200,8 +215,12 @@ FRAME_DISPATCH: dict[FrameOperation, FrameBuilder] = {
 }
 
 
-def _parse_directive_header(sentence: str) -> tuple[str, object] | None:
-    tokens = [token.strip(".,;:!?।") for token in re.split(r"[\s,;]+", sentence) if token.strip(".,;:!?।")]
+def _parse_directive_header(
+    sentence: str,
+    *,
+    known_modules: set[str] | frozenset[str] = frozenset(),
+) -> tuple[str, object] | None:
+    tokens = _directive_tokens(sentence)
     if not tokens:
         return None
 
@@ -210,14 +229,22 @@ def _parse_directive_header(sentence: str) -> tuple[str, object] | None:
         return ("module", tokens[1])
 
     if first in {"vidhānam", "vidhanam"} and len(tokens) >= 2:
-        return ("function", tokens[1])
+        return ("function", (tokens[1], tuple(_identifier_from_token(token) for token in tokens[2:])))
 
     if first in {"āhvānam", "ahvanam"}:
-        if len(tokens) >= 3:
-            return ("call", (tokens[1], tokens[2]))
         if len(tokens) >= 2:
-            return ("call", (None, tokens[1]))
+            if len(tokens) >= 3 and tokens[1] in known_modules:
+                return ("call", (tokens[1], tokens[2], _values_from_tokens(tokens[3:])))
+            return ("call", (None, tokens[1], _values_from_tokens(tokens[2:])))
         return None
+
+    if first in {"pratyāvartanam", "pratyavartanam"}:
+        if len(tokens) == 1:
+            return ("return", None)
+        value = _value_from_tokens(tokens[1:])
+        if value is None:
+            return None
+        return ("return", value)
 
     if first == "punaḥ" or first == "punah":
         condition = _parse_compare_tokens(tokens[1:])
@@ -265,12 +292,33 @@ def _value_from_tokens(tokens: list[str]) -> Value | None:
     return None
 
 
+def _values_from_tokens(tokens: list[str]) -> tuple[Value, ...]:
+    values: list[Value] = []
+    for token in tokens:
+        value = _value_from_tokens([token])
+        if value is not None:
+            values.append(value)
+    return tuple(values)
+
+
+def _identifier_from_token(token: str) -> str:
+    facade = get_default_facade()
+    try:
+        analysis = facade.analyze_token(token)
+    except Exception:
+        return token
+    if analysis.value is None and analysis.pos == PartOfSpeech.NOUN:
+        return analysis.lemma
+    return token
+
+
 def _collect_until(
     sentences: list[str],
     index: int,
     *,
     end_markers: set[str],
     stop_before_markers: bool = False,
+    known_modules: set[str] | frozenset[str] = frozenset(),
 ) -> tuple[tuple[Statement, ...], int]:
     body: list[Statement] = []
     while index < len(sentences):
@@ -285,7 +333,58 @@ def _collect_until(
             if not stop_before_markers:
                 return tuple(body), index
             continue
-        if stop_before_markers and _parse_directive_header(sentence) is not None:
+        header = _parse_directive_header(sentence, known_modules=known_modules)
+        if header is not None:
+            if stop_before_markers:
+                return tuple(body), index
+            kind, payload = header
+            if kind == "call":
+                module_name, fn_name, args = payload
+                body.append(Call(fn_name, module=module_name, args=args))
+                index += 1
+                continue
+            if kind == "return":
+                body.append(Return(payload))
+                index += 1
+                continue
+            if kind == "if":
+                condition = payload
+                index += 1
+                then_body, index = _collect_until(
+                    sentences,
+                    index,
+                    end_markers={"anyathā", "anyatha", "antam", "anta"},
+                    stop_before_markers=True,
+                    known_modules=known_modules,
+                )
+                else_body: tuple[Statement, ...] = ()
+                if index < len(sentences) and _is_marker_sentence(sentences[index], {"anyathā", "anyatha"}):
+                    index += 1
+                    else_body, index = _collect_until(
+                        sentences,
+                        index,
+                        end_markers=_BLOCK_END_MARKERS,
+                        stop_before_markers=True,
+                        known_modules=known_modules,
+                    )
+                if index < len(sentences) and _is_marker_sentence(sentences[index], {"antam", "anta"}):
+                    index += 1
+                body.append(If(condition, then_body, else_body))
+                continue
+            if kind == "while":
+                condition = payload
+                index += 1
+                loop_body, index = _collect_until(
+                    sentences,
+                    index,
+                    end_markers=_BLOCK_END_MARKERS,
+                    stop_before_markers=True,
+                    known_modules=known_modules,
+                )
+                if index < len(sentences) and _is_marker_sentence(sentences[index], {"antam", "anta"}):
+                    index += 1
+                body.append(While(condition, loop_body))
+                continue
             return tuple(body), index
         body.append(parse_sentence(sentence))
         index += 1
@@ -293,8 +392,16 @@ def _collect_until(
 
 
 def _is_marker_sentence(sentence: str, markers: set[str]) -> bool:
-    tokens = [token.strip(".,;:!?।") for token in re.split(r"[\s,;]+", sentence) if token.strip(".,;:!?।")]
+    tokens = _directive_tokens(sentence)
     return bool(tokens) and tokens[0] in markers
+
+
+def _directive_tokens(sentence: str) -> list[str]:
+    return [
+        token.strip(".,;:!?।")
+        for token in re.split(r"[\s,;]+", sentence)
+        if token.strip(".,;:!?।")
+    ]
 
 
 def _roles_by_type(items: Iterable[Analysis]) -> dict[Role, list[Analysis]]:

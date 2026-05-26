@@ -68,6 +68,7 @@ class IRWhile:
 @dataclass(frozen=True)
 class IRCall:
     target: str
+    args: tuple[IRValue, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -93,6 +94,7 @@ class IRFunction:
     name: str
     instructions: tuple[IRInstruction, ...]
     module: str | None = None
+    params: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
