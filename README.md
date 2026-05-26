@@ -45,6 +45,27 @@ Expected output:
 7
 ```
 
+## Compile Once, Run Bytecode
+
+Sanskript source can be compiled into portable JSON bytecode with the `.sskbc` extension:
+
+```powershell
+$env:PYTHONPATH='src'; python -m sanskript compile examples/caturtha.ssk
+```
+
+This writes `examples/caturtha.sskbc` by default. You can choose the output path:
+
+```powershell
+$env:PYTHONPATH='src'; python -m sanskript compile examples/caturtha.ssk -o C:\tmp\caturtha.sskbc
+```
+
+Run source or bytecode with the same command:
+
+```powershell
+$env:PYTHONPATH='src'; python -m sanskript run examples/caturtha.ssk
+$env:PYTHONPATH='src'; python -m sanskript run C:\tmp\caturtha.sskbc
+```
+
 ## Project Status
 
 This is not yet the final language. It is the first executable scaffold for a stricter design:
@@ -69,6 +90,8 @@ Current grammar infrastructure includes phonology, transliteration, first-pass s
 Adhyaya 1-3 now also have a shared dry-style engine layer in `src/sanskript/adhyaya123_engines.py`. It exposes a reusable sutra-predicate selection bridge plus domain engines for technical names/it-markers, metarules, samasa, karaka-vibhakti, subanta sup forms, lopa/root substitution, sanadi-dhatu/vikarana, krt derivation, and tinanta lakara conjugation. These engines reuse the truth-gated sutra predicates instead of copying rule logic.
 
 Sanskript now has an explicit implementation-independent runtime boundary: source is parsed into Sanskript AST, lowered into Sanskript IR, lowered again into Sanskript bytecode, and executed by a Sanskript VM. Python hosts this first VM, but the semantics are no longer direct Python interpreter branches.
+
+The command-line toolchain now has a split compile/run boundary: `.ssk` source compiles to `.sskbc` bytecode, and `.sskbc` runs directly in the VM without reparsing Sanskrit source.
 
 The parser hot path now uses a data-driven frame registry: `nidadhāti`/`sthāpayati` assign, `vardhayati`/`yojayati` increase, `nyūnayati`/`vyavakalayati` decrease, and `darśayati`/`prakāśayati` display. New frame surfaces can be added by extending `data/verb_frames.json`, rebuilding the controlled lexicon, and adding examples/tests.
 

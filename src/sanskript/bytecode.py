@@ -245,7 +245,9 @@ def load_bytecode_file(path: Path | str) -> BytecodeProgram:
 
 
 def dump_bytecode_file(program: BytecodeProgram, path: Path | str, *, version: int = BYTECODE_LATEST) -> None:
-    Path(path).write_text(
+    output = Path(path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
         json.dumps(encode_program(program, version=version), ensure_ascii=False, indent=2),
         encoding="utf-8",
     )

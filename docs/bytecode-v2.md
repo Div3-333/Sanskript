@@ -12,6 +12,17 @@ Bytecode v2 extends [v1](bytecode-v1.md) with arithmetic, comparisons, control f
 | Reference VM (Rust) | `ssk-vm/` (`cargo test` / `ssk-vm <fixture.json>`) |
 | Encoder | `encode_program(..., version=2)` in `src/sanskript/bytecode.py` |
 
+## Toolchain workflow
+
+The canonical bytecode file extension is `.sskbc`. The file is plain UTF-8 JSON using the same object shape described below.
+
+```powershell
+$env:PYTHONPATH='src'; python -m sanskript compile examples/caturtha.ssk
+$env:PYTHONPATH='src'; python -m sanskript run examples/caturtha.sskbc
+```
+
+`sanskript compile input.ssk` writes `input.sskbc` unless `-o/--output` is supplied. The compiler validates the bytecode before writing. `sanskript run` accepts either `.ssk` source or `.sskbc` bytecode; `.sskbc` execution loads JSON bytecode directly and skips morphology/parser compilation.
+
 ## Program model
 
 A v2 **program** has:

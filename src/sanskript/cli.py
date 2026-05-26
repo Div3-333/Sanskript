@@ -7,6 +7,8 @@ import json
 import sys
 from pathlib import Path
 
+from .bytecode import BYTECODE_LATEST, dump_bytecode_file, load_bytecode_file, validate_bytecode
+from .compiler import compile_source
 from .errors import SanskriptError
 from .grammar_register import register_entries
 from .interpreter import run
@@ -20,14 +22,19 @@ def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
 
     # Backward-compatible invocation: `sanskript examples/foo.ssk`
-    if len(argv) == 1 and argv[0].endswith(".ssk"):
+    if len(argv) == 1 and Path(argv[0]).suffix in {".ssk", ".sskbc"}:
         return _run_file(Path(argv[0]))
 
     parser = argparse.ArgumentParser(prog="sanskript")
     subparsers = parser.add_subparsers(dest="command")
 
-    run_parser = subparsers.add_parser("run", help="Execute a .ssk source file")
+    run_parser = subparsers.add_parser("run", help="Execute a .ssk source or .sskbc bytecode file")
     run_parser.add_argument("source", type=Path)
+
+    compile_parser = subparsers.add_parser("compile", help="Compile a .ssk source file to .sskbc bytecode")
+    compile_parser.add_argument("source", type=Path)
+    compile_parser.add_argument("-o", "--output", type=Path)
+    compile_parser.add_argument("--version", type=int, default=BYTECODE_LATEST, choices=(1, 2))
 
     subparsers.add_parser("build-lexicon", help="Build data/controlled_lexicon.json")
 
@@ -47,6 +54,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if command == "run":
             return _run_file(args.source)
+        if command == "compile":
+            return _compile_file(args.source, args.output, version=args.version)
         if command == "build-lexicon":
             path = build_lexicon_artifact()
             print(path)
@@ -66,9 +75,24 @@ def main(argv: list[str] | None = None) -> int:
 
 
 def _run_file(source: Path) -> int:
-    output = run(source.read_text(encoding="utf-8"))
+    if source.suffix == ".sskbc":
+        program = load_bytecode_file(source)
+        from .vm import SanskriptVM
+
+        output = SanskriptVM().execute(program)
+    else:
+        output = run(source.read_text(encoding="utf-8"))
     for line in output:
         print(line)
+    return 0
+
+
+def _compile_file(source: Path, output: Path | None = None, *, version: int = BYTECODE_LATEST) -> int:
+    target = output or source.with_suffix(".sskbc")
+    program = compile_source(source.read_text(encoding="utf-8"))
+    validate_bytecode(program, version=version)
+    dump_bytecode_file(program, target, version=version)
+    print(target)
     return 0
 
 

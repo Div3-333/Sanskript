@@ -78,3 +78,10 @@ Task 5 — Compile / run CLI (toolchain boundary)
 
   In one line: Task 5 is the compile/run command-line split so Sanskript programs become portable bytecode files that
   any conforming VM (Python today, Rust via ssk-vm) can execute without recompiling from source.
+
+  Implementation status: DONE
+
+  • `sanskript compile input.ssk [-o output.sskbc]` writes validated JSON bytecode.
+  • `sanskript run input.sskbc` executes bytecode directly through the Python VM.
+  • `sanskript run input.ssk` and legacy `sanskript input.ssk` remain source-compatible.
+  • CLI integration tests cover default `.sskbc` output, explicit output paths, and all checked-in examples.

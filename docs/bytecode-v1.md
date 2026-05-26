@@ -47,6 +47,8 @@ On disk, a program file is:
 }
 ```
 
+Sanskript uses `.sskbc` for bytecode files. v1 and v2 share this extension; the JSON `version` field chooses the decoding rules.
+
 ## Opcodes (v1)
 
 Stack notation: `before → after` (stack top on the right).
