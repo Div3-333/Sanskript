@@ -15,7 +15,7 @@ The browser target is only one deployment backend. The language target is genera
 | Return-value expressions | Implemented | Function calls can now produce values for assignment/display/return lowering |
 | Arithmetic expressions | Implemented | `gaṇitam phale phala yoga eka`, plus subtract/multiply/divide value lowering |
 | Ordered conditions | Implemented | `nyūnam` lowers to bytecode `compare_lt` for loops and branches |
-| Text values | Implemented | `vākyam … iti` source values, bytecode `push_text`, VM/web output |
+| Text values | Implemented | `vākyam … iti`, concat, length, indexed read, slice, contains |
 | Records / objects | Implemented substrate | `vastuḥ`, `aṅgasthāpanam`, `aṅgāharaṇam`, `aṅgāsti`; bytecode `record_*` opcodes |
 | Low-level heap source | Initial | `rakṣitam`, unsafe authority regions, allocation, store/load/free prose |
 | Portable bytecode | Implemented | `.sskbc` compile/run split |

@@ -17,6 +17,11 @@ _OPERAND_KIND: dict[str, str | None] = {
     "push_int": "int",
     "push_text": "text",
     "push_bool": "int",
+    "text_concat": None,
+    "text_len": None,
+    "text_get": None,
+    "text_slice": None,
+    "text_contains": None,
     "list_new": None,
     "list_append": None,
     "list_len": None,
@@ -57,6 +62,11 @@ _STACK_EFFECT: dict[str, tuple[int, int]] = {
     "push_int": (0, 1),
     "push_text": (0, 1),
     "push_bool": (0, 1),
+    "text_concat": (2, 1),
+    "text_len": (1, 1),
+    "text_get": (2, 1),
+    "text_slice": (3, 1),
+    "text_contains": (2, 1),
     "list_new": (0, 1),
     "list_append": (2, 1),
     "list_len": (1, 1),
@@ -102,6 +112,11 @@ class OpCode(str, Enum):
     PUSH_INT = "push_int"
     PUSH_TEXT = "push_text"
     PUSH_BOOL = "push_bool"
+    TEXT_CONCAT = "text_concat"
+    TEXT_LEN = "text_len"
+    TEXT_GET = "text_get"
+    TEXT_SLICE = "text_slice"
+    TEXT_CONTAINS = "text_contains"
     LIST_NEW = "list_new"
     LIST_APPEND = "list_append"
     LIST_LEN = "list_len"

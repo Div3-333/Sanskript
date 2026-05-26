@@ -76,6 +76,41 @@ class Display:
 
 
 @dataclass(frozen=True)
+class TextConcat:
+    target: str
+    left: Value
+    right: Value
+
+
+@dataclass(frozen=True)
+class TextLength:
+    target: str
+    text: Value
+
+
+@dataclass(frozen=True)
+class TextGet:
+    target: str
+    text: Value
+    index: Value
+
+
+@dataclass(frozen=True)
+class TextSlice:
+    target: str
+    text: Value
+    start: Value
+    end: Value
+
+
+@dataclass(frozen=True)
+class TextContains:
+    target: str
+    text: Value
+    needle: Value
+
+
+@dataclass(frozen=True)
 class ListInit:
     container: str
 
@@ -238,6 +273,11 @@ Statement = Union[
     Decrease,
     Multiply,
     Display,
+    TextConcat,
+    TextLength,
+    TextGet,
+    TextSlice,
+    TextContains,
     ListInit,
     MapInit,
     ListAppend,

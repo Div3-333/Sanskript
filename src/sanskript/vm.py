@@ -15,6 +15,7 @@ from .runtime_values import (
     expect_list,
     expect_map,
     expect_record,
+    expect_text,
     is_truthy,
     map_key_from_value,
     record_field_from_value,
@@ -99,6 +100,40 @@ class SanskriptVM:
                     f"{opcode.value} expected a float operand, got {operand!r}"
                 )
             self.stack.append(operand)
+            return None
+
+        if opcode == OpCode.TEXT_CONCAT:
+            right = expect_text(self._pop())
+            left = expect_text(self._pop())
+            self.stack.append(left + right)
+            return None
+
+        if opcode == OpCode.TEXT_LEN:
+            self.stack.append(len(expect_text(self._pop())))
+            return None
+
+        if opcode == OpCode.TEXT_GET:
+            index = self._pop_int()
+            text = expect_text(self._pop())
+            self._check_index(text, index)
+            self.stack.append(text[index])
+            return None
+
+        if opcode == OpCode.TEXT_SLICE:
+            end = self._pop_int()
+            start = self._pop_int()
+            text = expect_text(self._pop())
+            if start < 0 or end < start or end > len(text):
+                raise RuntimeSanskriptError(
+                    f"Text slice {start}:{end} out of range for length {len(text)}"
+                )
+            self.stack.append(text[start:end])
+            return None
+
+        if opcode == OpCode.TEXT_CONTAINS:
+            needle = expect_text(self._pop())
+            text = expect_text(self._pop())
+            self.stack.append(1 if needle in text else 0)
             return None
 
         if opcode == OpCode.LIST_NEW:
@@ -308,10 +343,10 @@ class SanskriptVM:
         raise RuntimeSanskriptError(f"Unknown bytecode instruction: {instruction!r}")
 
     @staticmethod
-    def _check_index(items: list[SanskriptValue], index: int) -> None:
+    def _check_index(items: list[SanskriptValue] | str, index: int) -> None:
         if index < 0 or index >= len(items):
             raise RuntimeSanskriptError(
-                f"List index {index} out of range for length {len(items)}"
+                f"Index {index} out of range for length {len(items)}"
             )
 
     def _lookup_name(self, name: str) -> SanskriptValue:

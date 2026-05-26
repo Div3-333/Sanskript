@@ -25,7 +25,7 @@ The catalog is **normative for design** and **descriptive for implementation**: 
 | Status | Types (examples) |
 | --- | --- |
 | **implemented** | `text` (`vākyam … iti`, `push_text`) |
-| **partial** | `i32` / `bigint` (host `int`), `bool` (`push_bool`), `list` (`list_*` opcodes), `hash_map` (`map_*` opcodes), `object` (`record_*` opcodes), `callable`, `module` |
+| **partial** | `i32` / `bigint` (host `int`), `bool` (`push_bool`), `text` (`text_*` opcodes), `list` (`list_*` opcodes), `hash_map` (`map_*` opcodes), `object` (`record_*` opcodes), `callable`, `module` |
 | **planned** | Remaining catalog entries (see JSON) |
 
 Collection opcodes (bytecode v2, surakṣita tier):

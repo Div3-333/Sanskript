@@ -39,7 +39,12 @@ from .ast import (
     RecordInit,
     Return,
     Statement,
+    TextConcat,
+    TextContains,
+    TextGet,
+    TextLength,
     TextLiteral,
+    TextSlice,
     UnsafeEnter,
     UnsafeExit,
     Value,
@@ -378,6 +383,39 @@ def _parse_directive_header(
         if value is not None:
             return ("display", value)
 
+    if first in {"vākyasaṃyogaḥ", "vakyasamyogah"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:])
+        if len(values) == 2:
+            return ("text_concat", (target, values[0], values[1]))
+
+    if first in {"vākyaparimāṇam", "vakyaparimanam"} and len(tokens) >= 3:
+        target = _identifier_from_token(tokens[1])
+        text = _value_from_tokens(tokens[2:])
+        if text is not None:
+            return ("text_len", (target, text))
+
+    if first in {"vākyāharaṇam", "vakyaharanam"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        text = _value_from_tokens(tokens[2:3])
+        index = _value_from_tokens(tokens[3:])
+        if text is not None and index is not None:
+            return ("text_get", (target, text, index))
+
+    if first in {"vākyacchedaḥ", "vakyacchedah"} and len(tokens) >= 5:
+        target = _identifier_from_token(tokens[1])
+        text = _value_from_tokens(tokens[2:3])
+        start = _value_from_tokens(tokens[3:4])
+        end = _value_from_tokens(tokens[4:])
+        if text is not None and start is not None and end is not None:
+            return ("text_slice", (target, text, start, end))
+
+    if first in {"vākyāsti", "vakyasti"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:])
+        if len(values) == 2:
+            return ("text_contains", (target, values[0], values[1]))
+
     if first in {"samūhaḥ", "samuhah"} and len(tokens) >= 2:
         return ("list_init", _identifier_from_token(tokens[1]))
 
@@ -538,6 +576,21 @@ def _collection_statement_from_directive(
         return (HeapLoad(target, address),)
     if kind == "heap_free":
         return (HeapFree(payload),)  # type: ignore[arg-type]
+    if kind == "text_concat":
+        target, left, right = payload  # type: ignore[misc]
+        return (TextConcat(target, left, right),)
+    if kind == "text_len":
+        target, text = payload  # type: ignore[misc]
+        return (TextLength(target, text),)
+    if kind == "text_get":
+        target, text, index = payload  # type: ignore[misc]
+        return (TextGet(target, text, index),)
+    if kind == "text_slice":
+        target, text, start, end = payload  # type: ignore[misc]
+        return (TextSlice(target, text, start, end),)
+    if kind == "text_contains":
+        target, text, needle = payload  # type: ignore[misc]
+        return (TextContains(target, text, needle),)
     return None
 
 

@@ -221,6 +221,11 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         return value;
       }};
       const popNumber = () => numericPayload(pop());
+      const popText = () => {{
+        const value = pop();
+        if (typeof value !== "string") throw new Error("Expected text, got " + displayValue(value));
+        return value;
+      }};
       const popList = () => {{
         const value = pop();
         if (!Array.isArray(value)) throw new Error("Expected list, got " + displayValue(value));
@@ -295,6 +300,36 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           case "push_float":
             state.stack.push(makeFloat(instruction.operand));
             break;
+          case "text_concat": {{
+            const right = popText();
+            const left = popText();
+            state.stack.push(left + right);
+            break;
+          }}
+          case "text_len":
+            state.stack.push(popText().length);
+            break;
+          case "text_get": {{
+            const index = popInt();
+            const text = popText();
+            if (index < 0 || index >= text.length) throw new Error("Text index " + index + " out of range");
+            state.stack.push(text[index]);
+            break;
+          }}
+          case "text_slice": {{
+            const end = popInt();
+            const start = popInt();
+            const text = popText();
+            if (start < 0 || end < start || end > text.length) throw new Error("Text slice " + start + ":" + end + " out of range");
+            state.stack.push(text.slice(start, end));
+            break;
+          }}
+          case "text_contains": {{
+            const needle = popText();
+            const text = popText();
+            state.stack.push(text.includes(needle) ? 1 : 0);
+            break;
+          }}
           case "list_new":
             state.stack.push([]);
             break;

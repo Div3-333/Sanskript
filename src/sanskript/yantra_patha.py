@@ -115,6 +115,16 @@ def _render_instruction(instruction: Instruction) -> str:
         return f"{'satyam' if _expect_bool_operand(operand, opcode) else 'asatyam'} iti satyamūlyam nikṣipyate."
     if opcode == OpCode.PUSH_FLOAT:
         return f"{_format_float(_expect_float(operand, opcode))} iti daśāṃśaḥ nikṣipyate."
+    if opcode == OpCode.TEXT_CONCAT:
+        return "vākyayoḥ saṃyogaḥ kriyate."
+    if opcode == OpCode.TEXT_LEN:
+        return "vākyasya parimāṇam gṛhyate."
+    if opcode == OpCode.TEXT_GET:
+        return "vākyāt aṅkam gṛhyate."
+    if opcode == OpCode.TEXT_SLICE:
+        return "vākyasya chedaḥ kriyate."
+    if opcode == OpCode.TEXT_CONTAINS:
+        return "vākye sattā parīkṣyate."
     if opcode == OpCode.LIST_NEW:
         return "śūnyaḥ samūhaḥ nirmīyate."
     if opcode == OpCode.LIST_APPEND:
@@ -299,6 +309,16 @@ def _parse_instruction(sentence: str) -> Instruction:
             return Instruction(OpCode.PUSH_BOOL, 0)
     if len(tokens) >= 4 and tokens[-3:] == ["iti", "daśāṃśaḥ", "nikṣipyate"]:
         return Instruction(OpCode.PUSH_FLOAT, _parse_float(tokens[:-3]))
+    if tokens == ["vākyayoḥ", "saṃyogaḥ", "kriyate"]:
+        return Instruction(OpCode.TEXT_CONCAT)
+    if tokens == ["vākyasya", "parimāṇam", "gṛhyate"]:
+        return Instruction(OpCode.TEXT_LEN)
+    if tokens == ["vākyāt", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.TEXT_GET)
+    if tokens == ["vākyasya", "chedaḥ", "kriyate"]:
+        return Instruction(OpCode.TEXT_SLICE)
+    if tokens == ["vākye", "sattā", "parīkṣyate"]:
+        return Instruction(OpCode.TEXT_CONTAINS)
     if tokens == ["śūnyaḥ", "samūhaḥ", "nirmīyate"]:
         return Instruction(OpCode.LIST_NEW)
     if tokens == ["samūhe", "yojanam", "kriyate"]:

@@ -207,6 +207,7 @@
       "c_types": ["char*", "const char*"],
       "python_types": ["str"],
       "implementation": "implemented",
+      "notes": "push_text plus text_concat, text_len, text_get, text_slice, and text_contains opcodes; source prose frames are available.",
       "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "restricted" },
       "sanskrit_hint": "vākyam … iti / śabda",
       "bytecode_tag": "text"

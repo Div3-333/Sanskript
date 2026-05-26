@@ -40,6 +40,11 @@
             "push_int",
             "push_text",
             "push_bool",
+            "text_concat",
+            "text_len",
+            "text_get",
+            "text_slice",
+            "text_contains",
             "list_new",
             "list_append",
             "list_len",
@@ -117,6 +122,11 @@
               "op": {
                 "enum": [
                   "list_new",
+                  "text_concat",
+                  "text_len",
+                  "text_get",
+                  "text_slice",
+                  "text_contains",
                   "list_append",
                   "list_len",
                   "list_get",

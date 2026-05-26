@@ -111,6 +111,11 @@ v1 opcodes (`push_int`, `load_name`, `store_name`, `add`, `subtract`, `emit`, `h
 | Opcode | Stack | Effect |
 | --- | --- | --- |
 | `push_bool` | `… → …, bool` | Operand `0` or `1` |
+| `text_concat` | `…, text, text → …, text` | Concatenate text values |
+| `text_len` | `…, text → …, int` | Count Unicode code points in text |
+| `text_get` | `…, text, index → …, text` | One-character text read (bounds checked) |
+| `text_slice` | `…, text, start, end → …, text` | Half-open text slice (bounds checked) |
+| `text_contains` | `…, text, needle → …, 0\|1` | Substring membership test |
 | `list_new` | `… → …, list` | Empty list |
 | `list_append` | `…, list, v → …, list` | Mutate list |
 | `list_len` | `…, list → …, int` | Length |
@@ -157,6 +162,11 @@ v1 opcodes (`push_int`, `load_name`, `store_name`, `add`, `subtract`, `emit`, `h
 | `āhvānam` | Call (`āhvānam name`, `āhvānam name arg`, or `āhvānam module name arg`) |
 | `pratyāvartanam` | Return from a function |
 | `vākyam … iti` | Text value without quote/operator syntax |
+| `vākyasaṃyogaḥ target left right` | Concatenate text |
+| `vākyaparimāṇam target text` | Text length |
+| `vākyāharaṇam target text index` | Text character read |
+| `vākyacchedaḥ target text start end` | Text slice |
+| `vākyāsti target text needle` | Text contains |
 | `gaṇitam target left yoga right` | Arithmetic expression assignment (`yoga`, `vyavakalanam`, `guṇanam`, `bhāga`) |
 | `yadi left nyūnam right` / `punaḥ left nyūnam right` | Ordered branch/loop condition |
 | `samūhāharaṇam target list index` | Checked list index read |

@@ -78,6 +78,12 @@ def expect_map(value: SanskriptValue) -> dict[str, SanskriptValue]:
     return value
 
 
+def expect_text(value: SanskriptValue) -> str:
+    if not isinstance(value, str):
+        raise TypeError(f"expected text, got {type(value).__name__}")
+    return value
+
+
 def expect_record(value: SanskriptValue) -> RecordValue:
     if not isinstance(value, RecordValue):
         raise TypeError(f"expected record, got {type(value).__name__}")
@@ -105,6 +111,7 @@ __all__ = [
     "expect_list",
     "expect_map",
     "expect_record",
+    "expect_text",
     "is_map_key",
     "is_truthy",
     "map_key_from_value",

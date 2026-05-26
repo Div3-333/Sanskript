@@ -35,7 +35,12 @@ from .ast import (
     RecordInit,
     Return,
     Statement,
+    TextConcat,
+    TextContains,
+    TextGet,
+    TextLength,
     TextLiteral,
+    TextSlice,
     UnsafeEnter,
     UnsafeExit,
     Value,
@@ -87,6 +92,11 @@ from .ir import (
     IRReturn,
     IRStore,
     IRTextLiteral,
+    IRTextConcat,
+    IRTextContains,
+    IRTextGet,
+    IRTextLength,
+    IRTextSlice,
     IRUnsafeEnter,
     IRUnsafeExit,
     IRValue,
@@ -277,6 +287,41 @@ def _lower_instruction(instruction: IRInstruction) -> tuple[Instruction, ...]:
         )
     if isinstance(instruction, IREmit):
         return (*_lower_value(instruction.value), Instruction(OpCode.EMIT))
+    if isinstance(instruction, IRTextConcat):
+        return (
+            *_lower_value(instruction.left),
+            *_lower_value(instruction.right),
+            Instruction(OpCode.TEXT_CONCAT),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRTextLength):
+        return (
+            *_lower_value(instruction.text),
+            Instruction(OpCode.TEXT_LEN),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRTextGet):
+        return (
+            *_lower_value(instruction.text),
+            *_lower_value(instruction.index),
+            Instruction(OpCode.TEXT_GET),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRTextSlice):
+        return (
+            *_lower_value(instruction.text),
+            *_lower_value(instruction.start),
+            *_lower_value(instruction.end),
+            Instruction(OpCode.TEXT_SLICE),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRTextContains):
+        return (
+            *_lower_value(instruction.text),
+            *_lower_value(instruction.needle),
+            Instruction(OpCode.TEXT_CONTAINS),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
     if isinstance(instruction, IRListInit):
         return (
             Instruction(OpCode.LIST_NEW),
@@ -486,6 +531,33 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
         return IRMultiply(statement.target, _compile_value_to_ir(statement.factor))
     if isinstance(statement, Display):
         return IREmit(_compile_value_to_ir(statement.value))
+    if isinstance(statement, TextConcat):
+        return IRTextConcat(
+            statement.target,
+            _compile_value_to_ir(statement.left),
+            _compile_value_to_ir(statement.right),
+        )
+    if isinstance(statement, TextLength):
+        return IRTextLength(statement.target, _compile_value_to_ir(statement.text))
+    if isinstance(statement, TextGet):
+        return IRTextGet(
+            statement.target,
+            _compile_value_to_ir(statement.text),
+            _compile_value_to_ir(statement.index),
+        )
+    if isinstance(statement, TextSlice):
+        return IRTextSlice(
+            statement.target,
+            _compile_value_to_ir(statement.text),
+            _compile_value_to_ir(statement.start),
+            _compile_value_to_ir(statement.end),
+        )
+    if isinstance(statement, TextContains):
+        return IRTextContains(
+            statement.target,
+            _compile_value_to_ir(statement.text),
+            _compile_value_to_ir(statement.needle),
+        )
     if isinstance(statement, ListInit):
         return IRListInit(statement.container)
     if isinstance(statement, MapInit):

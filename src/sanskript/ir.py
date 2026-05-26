@@ -83,6 +83,41 @@ class IREmit:
 
 
 @dataclass(frozen=True)
+class IRTextConcat:
+    target: str
+    left: IRValue
+    right: IRValue
+
+
+@dataclass(frozen=True)
+class IRTextLength:
+    target: str
+    text: IRValue
+
+
+@dataclass(frozen=True)
+class IRTextGet:
+    target: str
+    text: IRValue
+    index: IRValue
+
+
+@dataclass(frozen=True)
+class IRTextSlice:
+    target: str
+    text: IRValue
+    start: IRValue
+    end: IRValue
+
+
+@dataclass(frozen=True)
+class IRTextContains:
+    target: str
+    text: IRValue
+    needle: IRValue
+
+
+@dataclass(frozen=True)
 class IRListInit:
     container: str
 
@@ -233,6 +268,11 @@ IRInstruction = Union[
     IRDecrease,
     IRMultiply,
     IREmit,
+    IRTextConcat,
+    IRTextLength,
+    IRTextGet,
+    IRTextSlice,
+    IRTextContains,
     IRListInit,
     IRMapInit,
     IRListAppend,
