@@ -14,6 +14,7 @@ The browser target is only one deployment backend. The language target is genera
 | Functions with parameters | Implemented | Prose headers and calls, local parameter binding, bytecode `params` |
 | Return-value expressions | Implemented | Function calls can now produce values for assignment/display/return lowering |
 | Text values | Implemented | `vākyam … iti` source values, bytecode `push_text`, VM/web output |
+| Records / objects | Implemented substrate | `vastuḥ`, `aṅgasthāpanam`, `aṅgāharaṇam`, `aṅgāsti`; bytecode `record_*` opcodes |
 | Portable bytecode | Implemented | `.sskbc` compile/run split |
 | Sanskrit-prose machine text | Implemented | `.sskyp` yantra-pāṭha assemble/disassemble/run |
 | Browser execution | Initial | `sanskript web` emits a static HTML runner for bytecode output |
@@ -24,7 +25,6 @@ The browser target is only one deployment backend. The language target is genera
 | Layer | Why It Matters | Grammar-shaped direction |
 | --- | --- | --- |
 | Collections | Needed for real apps and algorithms | Introduce samūha/list surfaces through noun classes and verb frames |
-| Records / objects | Needed before classes and methods | Model owned fields as named values in an object locus, not brace literals |
 | Classes / methods | OOP target | Class words should be grammatical declarations; method calls should remain `kṣetram`/adhikaraṇa-style prose |
 | Errors | Useful programs need recoverable failure | Use Sanskrit-aware result/error frames rather than exception symbols |
 | Web DOM/events | Needed for webapps | Expose page, element, event, and handler concepts as stdlib nouns and verbs |

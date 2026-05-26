@@ -96,6 +96,68 @@ class YantraPathaTests(unittest.TestCase):
 
         self.assertEqual(restored.instructions, program.instructions)
 
+    def test_extended_v2_runtime_opcodes_round_trip_through_prose_bytecode(self) -> None:
+        program = BytecodeProgram(
+            (
+                Instruction(OpCode.PUSH_BOOL, 1),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.PUSH_FLOAT, 1.5),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.LIST_NEW),
+                Instruction(OpCode.PUSH_INT, 9),
+                Instruction(OpCode.LIST_APPEND),
+                Instruction(OpCode.STORE_NAME, "samūha"),
+                Instruction(OpCode.LOAD_NAME, "samūha"),
+                Instruction(OpCode.LIST_LEN),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.LOAD_NAME, "samūha"),
+                Instruction(OpCode.PUSH_INT, 0),
+                Instruction(OpCode.LIST_GET),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.MAP_NEW),
+                Instruction(OpCode.PUSH_TEXT, "phala"),
+                Instruction(OpCode.PUSH_INT, 7),
+                Instruction(OpCode.MAP_SET),
+                Instruction(OpCode.STORE_NAME, "kośa"),
+                Instruction(OpCode.LOAD_NAME, "kośa"),
+                Instruction(OpCode.PUSH_TEXT, "phala"),
+                Instruction(OpCode.MAP_CONTAINS),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.LOAD_NAME, "kośa"),
+                Instruction(OpCode.PUSH_TEXT, "phala"),
+                Instruction(OpCode.MAP_GET),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.UNSAFE_ENTER),
+                Instruction(OpCode.PUSH_INT, 1),
+                Instruction(OpCode.HEAP_ALLOC),
+                Instruction(OpCode.STORE_NAME, "sthāna"),
+                Instruction(OpCode.LOAD_NAME, "sthāna"),
+                Instruction(OpCode.PUSH_INT, 42),
+                Instruction(OpCode.HEAP_STORE),
+                Instruction(OpCode.LOAD_NAME, "sthāna"),
+                Instruction(OpCode.HEAP_LOAD),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.LOAD_NAME, "sthāna"),
+                Instruction(OpCode.HEAP_FREE),
+                Instruction(OpCode.UNSAFE_EXIT),
+                Instruction(OpCode.HALT),
+            ),
+            safety_tier="rakshita",
+        )
+        prose = program_to_yantra_patha(program)
+
+        self.assertIn("rakṣitaḥ pāṭhaḥ.", prose)
+        self.assertIn("eka bindu pañca iti daśāṃśaḥ nikṣipyate.", prose)
+        self.assertNotRegex(prose, r"[{}\\[\\]();:=<>]")
+        restored = program_from_yantra_patha(prose)
+
+        self.assertEqual(restored.safety_tier, "rakshita")
+        self.assertEqual(restored.instructions, program.instructions)
+        self.assertEqual(
+            SanskriptVM().execute(restored),
+            ["satyam", "1.5", "1", "9", "1", "7", "42"],
+        )
+
     def test_function_params_round_trip_through_prose_bytecode(self) -> None:
         program = BytecodeProgram(
             (

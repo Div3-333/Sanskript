@@ -152,8 +152,11 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
       const isFloat = (value) =>
         value !== null && typeof value === "object" && value.__sanskriptFloat === true;
       const makeFloat = (value) => ({{ __sanskriptFloat: true, value }});
+      const isRecord = (value) =>
+        value !== null && typeof value === "object" && value.__sanskriptRecord === true;
+      const makeRecord = () => ({{ __sanskriptRecord: true, fields: Object.create(null) }});
       const isMapValue = (value) =>
-        value !== null && typeof value === "object" && !Array.isArray(value) && !isFloat(value);
+        value !== null && typeof value === "object" && !Array.isArray(value) && !isFloat(value) && !isRecord(value);
       const isInt = (value) => Number.isInteger(value) && typeof value === "number";
       const numericPayload = (value) => {{
         if (isFloat(value)) return {{ value: value.value, isFloat: true }};
@@ -167,6 +170,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         if (value === false || value === 0 || value === "") return false;
         if (Array.isArray(value)) return value.length > 0;
         if (isMapValue(value)) return Object.keys(value).length > 0;
+        if (isRecord(value)) return Object.keys(value.fields).length > 0;
         return true;
       }};
       const valuesEqual = (left, right) => {{
@@ -183,6 +187,13 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             Object.prototype.hasOwnProperty.call(right, key) && valuesEqual(left[key], right[key])
           );
         }}
+        if (isRecord(left) && isRecord(right)) {{
+          const leftKeys = Object.keys(left.fields);
+          const rightKeys = Object.keys(right.fields);
+          return leftKeys.length === rightKeys.length && leftKeys.every((key) =>
+            Object.prototype.hasOwnProperty.call(right.fields, key) && valuesEqual(left.fields[key], right.fields[key])
+          );
+        }}
         return left === right;
       }};
       const displayValue = (value) => {{
@@ -194,6 +205,9 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         if (Array.isArray(value)) return "[" + value.map(displayValue).join(", ") + "]";
         if (isMapValue(value)) {{
           return "{{" + Object.keys(value).map((key) => displayValue(key) + ":" + displayValue(value[key])).join(", ") + "}}";
+        }}
+        if (isRecord(value)) {{
+          return "vastu{{" + Object.keys(value.fields).map((key) => displayValue(key) + ":" + displayValue(value.fields[key])).join(", ") + "}}";
         }}
         return String(value);
       }};
@@ -217,9 +231,18 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         if (!isMapValue(value)) throw new Error("Expected map, got " + displayValue(value));
         return value;
       }};
+      const popRecord = () => {{
+        const value = pop();
+        if (!isRecord(value)) throw new Error("Expected record, got " + displayValue(value));
+        return value;
+      }};
       const mapKey = (value) => {{
         if (typeof value === "string" || isInt(value)) return String(value);
         throw new Error("Map key must be text or integer, got " + displayValue(value));
+      }};
+      const fieldKey = (value) => {{
+        if (typeof value === "string" && value.length > 0) return value;
+        throw new Error("Record field must be non-empty text, got " + displayValue(value));
       }};
       const requireHeapAccess = (op) => {{
         if (state.safetyTier === "surakshita") {{
@@ -315,6 +338,30 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             const key = mapKey(pop());
             const table = popMap();
             state.stack.push(key in table ? 1 : 0);
+            break;
+          }}
+          case "record_new":
+            state.stack.push(makeRecord());
+            break;
+          case "record_set": {{
+            const value = pop();
+            const field = fieldKey(pop());
+            const record = popRecord();
+            record.fields[field] = value;
+            state.stack.push(record);
+            break;
+          }}
+          case "record_get": {{
+            const field = fieldKey(pop());
+            const record = popRecord();
+            if (!(field in record.fields)) throw new Error("Record has no field " + field);
+            state.stack.push(record.fields[field]);
+            break;
+          }}
+          case "record_contains": {{
+            const field = fieldKey(pop());
+            const record = popRecord();
+            state.stack.push(field in record.fields ? 1 : 0);
             break;
           }}
           case "load_name":

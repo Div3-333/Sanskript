@@ -106,6 +106,32 @@ class MapContains:
 
 
 @dataclass(frozen=True)
+class RecordInit:
+    record: str
+
+
+@dataclass(frozen=True)
+class FieldSet:
+    record: str
+    field: Value
+    value: Value
+
+
+@dataclass(frozen=True)
+class FieldGet:
+    target: str
+    record: str
+    field: Value
+
+
+@dataclass(frozen=True)
+class FieldContains:
+    target: str
+    record: str
+    field: Value
+
+
+@dataclass(frozen=True)
 class CompareEq:
     left: Value
     right: Value
@@ -156,6 +182,10 @@ Statement = Union[
     MapPut,
     MapGet,
     MapContains,
+    RecordInit,
+    FieldSet,
+    FieldGet,
+    FieldContains,
     If,
     While,
     FunctionDef,

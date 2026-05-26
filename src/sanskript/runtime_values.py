@@ -2,11 +2,26 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass, field
 from typing import TypeAlias
+
+
+@dataclass
+class RecordValue:
+    """Managed named-field value; the object substrate before full classes."""
+
+    fields: dict[str, "SanskriptValue"] = field(default_factory=dict)
+
 
 # Host representation until values gain a dedicated heap / tag word in the VM.
 SanskriptValue: TypeAlias = (
-    int | float | str | bool | list["SanskriptValue"] | dict[str, "SanskriptValue"]
+    int
+    | float
+    | str
+    | bool
+    | list["SanskriptValue"]
+    | dict[str, "SanskriptValue"]
+    | RecordValue
 )
 
 MapKey: TypeAlias = str | int
@@ -20,6 +35,8 @@ def is_truthy(value: SanskriptValue) -> bool:
     if value is False or value == 0 or value == "":
         return False
     if isinstance(value, (list, dict)) and len(value) == 0:
+        return False
+    if isinstance(value, RecordValue) and len(value.fields) == 0:
         return False
     return True
 
@@ -40,6 +57,12 @@ def to_display_string(value: SanskriptValue) -> str:
     if isinstance(value, dict):
         parts = [f"{to_display_string(key)}:{to_display_string(val)}" for key, val in value.items()]
         return "{" + ", ".join(parts) + "}"
+    if isinstance(value, RecordValue):
+        parts = [
+            f"{to_display_string(key)}:{to_display_string(val)}"
+            for key, val in value.fields.items()
+        ]
+        return "vastu{" + ", ".join(parts) + "}"
     return str(value)
 
 
@@ -55,6 +78,12 @@ def expect_map(value: SanskriptValue) -> dict[str, SanskriptValue]:
     return value
 
 
+def expect_record(value: SanskriptValue) -> RecordValue:
+    if not isinstance(value, RecordValue):
+        raise TypeError(f"expected record, got {type(value).__name__}")
+    return value
+
+
 def map_key_from_value(value: SanskriptValue) -> str:
     if isinstance(value, str):
         return value
@@ -63,14 +92,23 @@ def map_key_from_value(value: SanskriptValue) -> str:
     raise TypeError(f"map key must be text or integer, got {value!r}")
 
 
+def record_field_from_value(value: SanskriptValue) -> str:
+    if isinstance(value, str) and value:
+        return value
+    raise TypeError(f"record field must be non-empty text, got {value!r}")
+
+
 __all__ = [
     "MapKey",
+    "RecordValue",
     "SanskriptValue",
     "expect_list",
     "expect_map",
+    "expect_record",
     "is_map_key",
     "is_truthy",
     "map_key_from_value",
+    "record_field_from_value",
     "to_display_string",
     "values_equal",
 ]

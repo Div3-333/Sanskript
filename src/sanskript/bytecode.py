@@ -25,6 +25,10 @@ _OPERAND_KIND: dict[str, str | None] = {
     "map_set": None,
     "map_get": None,
     "map_contains": None,
+    "record_new": None,
+    "record_set": None,
+    "record_get": None,
+    "record_contains": None,
     "push_float": "float",
     "heap_alloc": None,
     "heap_store": None,
@@ -61,6 +65,10 @@ _STACK_EFFECT: dict[str, tuple[int, int]] = {
     "map_set": (3, 1),
     "map_get": (2, 1),
     "map_contains": (2, 1),
+    "record_new": (0, 1),
+    "record_set": (3, 1),
+    "record_get": (2, 1),
+    "record_contains": (2, 1),
     "push_float": (0, 1),
     "heap_alloc": (1, 1),
     "heap_store": (2, 0),
@@ -102,6 +110,10 @@ class OpCode(str, Enum):
     MAP_SET = "map_set"
     MAP_GET = "map_get"
     MAP_CONTAINS = "map_contains"
+    RECORD_NEW = "record_new"
+    RECORD_SET = "record_set"
+    RECORD_GET = "record_get"
+    RECORD_CONTAINS = "record_contains"
     PUSH_FLOAT = "push_float"
     HEAP_ALLOC = "heap_alloc"
     HEAP_STORE = "heap_store"

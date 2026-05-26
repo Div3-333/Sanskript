@@ -105,6 +105,32 @@ class IRMapContains:
 
 
 @dataclass(frozen=True)
+class IRRecordInit:
+    record: str
+
+
+@dataclass(frozen=True)
+class IRFieldSet:
+    record: str
+    field: IRValue
+    value: IRValue
+
+
+@dataclass(frozen=True)
+class IRFieldGet:
+    target: str
+    record: str
+    field: IRValue
+
+
+@dataclass(frozen=True)
+class IRFieldContains:
+    target: str
+    record: str
+    field: IRValue
+
+
+@dataclass(frozen=True)
 class IRCompareEq:
     left: IRValue
     right: IRValue
@@ -146,6 +172,10 @@ IRInstruction = Union[
     IRMapPut,
     IRMapGet,
     IRMapContains,
+    IRRecordInit,
+    IRFieldSet,
+    IRFieldGet,
+    IRFieldContains,
     IRIf,
     IRWhile,
     IRCall,

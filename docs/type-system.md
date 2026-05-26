@@ -25,7 +25,7 @@ The catalog is **normative for design** and **descriptive for implementation**: 
 | Status | Types (examples) |
 | --- | --- |
 | **implemented** | `text` (`vākyam … iti`, `push_text`) |
-| **partial** | `i32` / `bigint` (host `int`), `bool` (`push_bool`), `list` (`list_*` opcodes), `hash_map` (`map_*` opcodes), `callable`, `module` |
+| **partial** | `i32` / `bigint` (host `int`), `bool` (`push_bool`), `list` (`list_*` opcodes), `hash_map` (`map_*` opcodes), `object` (`record_*` opcodes), `callable`, `module` |
 | **planned** | Remaining catalog entries (see JSON) |
 
 Collection opcodes (bytecode v2, surakṣita tier):
@@ -73,7 +73,7 @@ Kāraka mapping (from catalog): **genitive** → ownership / field path; **dativ
 
 ### Objects and modules
 
-`object`, `class`, `vtable`, `module` — aligned with [language-paradigms.md](language-paradigms.md) (records before OOP syntax).
+`object`, `class`, `vtable`, `module` — aligned with [language-paradigms.md](language-paradigms.md). The first object substrate is now executable as records: `vastuḥ` creates a managed object, `aṅgasthāpanam` writes a field, `aṅgāharaṇam` reads a field, and `aṅgāsti` checks field presence. Full classes, methods, inheritance/interfaces, and vtables build on that rather than replacing it.
 
 ### Concurrency
 

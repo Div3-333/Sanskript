@@ -8,6 +8,9 @@ from .ast import (
     CompareEq,
     Decrease,
     Display,
+    FieldContains,
+    FieldGet,
+    FieldSet,
     FloatLiteral,
     FunctionDef,
     If,
@@ -22,6 +25,7 @@ from .ast import (
     Multiply,
     Program,
     Reference,
+    RecordInit,
     Return,
     Statement,
     TextLiteral,
@@ -44,6 +48,9 @@ from .ir import (
     IRCompareEq,
     IRDecrease,
     IREmit,
+    IRFieldContains,
+    IRFieldGet,
+    IRFieldSet,
     IRFloatLiteral,
     IRFunction,
     IRIf,
@@ -59,6 +66,7 @@ from .ir import (
     IRMultiply,
     IRProgram,
     IRReference,
+    IRRecordInit,
     IRReturn,
     IRStore,
     IRTextLiteral,
@@ -282,6 +290,33 @@ def _lower_instruction(instruction: IRInstruction) -> tuple[Instruction, ...]:
             Instruction(OpCode.MAP_CONTAINS),
             Instruction(OpCode.STORE_NAME, instruction.target),
         )
+    if isinstance(instruction, IRRecordInit):
+        return (
+            Instruction(OpCode.RECORD_NEW),
+            Instruction(OpCode.STORE_NAME, instruction.record),
+        )
+    if isinstance(instruction, IRFieldSet):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.record),
+            *_lower_value(instruction.field),
+            *_lower_value(instruction.value),
+            Instruction(OpCode.RECORD_SET),
+            Instruction(OpCode.STORE_NAME, instruction.record),
+        )
+    if isinstance(instruction, IRFieldGet):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.record),
+            *_lower_value(instruction.field),
+            Instruction(OpCode.RECORD_GET),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRFieldContains):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.record),
+            *_lower_value(instruction.field),
+            Instruction(OpCode.RECORD_CONTAINS),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
     if isinstance(instruction, IRCall):
         return (
             *tuple(item for arg in instruction.args for item in _lower_value(arg)),
@@ -399,6 +434,26 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
             statement.target,
             statement.container,
             _compile_value_to_ir(statement.key),
+        )
+    if isinstance(statement, RecordInit):
+        return IRRecordInit(statement.record)
+    if isinstance(statement, FieldSet):
+        return IRFieldSet(
+            statement.record,
+            _compile_value_to_ir(statement.field),
+            _compile_value_to_ir(statement.value),
+        )
+    if isinstance(statement, FieldGet):
+        return IRFieldGet(
+            statement.target,
+            statement.record,
+            _compile_value_to_ir(statement.field),
+        )
+    if isinstance(statement, FieldContains):
+        return IRFieldContains(
+            statement.target,
+            statement.record,
+            _compile_value_to_ir(statement.field),
         )
     if isinstance(statement, If):
         return IRIf(

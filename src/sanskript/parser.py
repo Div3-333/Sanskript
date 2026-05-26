@@ -11,6 +11,9 @@ from .ast import (
     CompareEq,
     Decrease,
     Display,
+    FieldContains,
+    FieldGet,
+    FieldSet,
     FloatLiteral,
     FunctionDef,
     If,
@@ -25,6 +28,7 @@ from .ast import (
     Multiply,
     Program,
     Reference,
+    RecordInit,
     Return,
     Statement,
     TextLiteral,
@@ -353,6 +357,30 @@ def _parse_directive_header(
         if key is not None:
             return ("map_contains", (target, container, key))
 
+    if first in {"vastuḥ", "vastuh"} and len(tokens) >= 2:
+        return ("record_init", _identifier_from_token(tokens[1]))
+
+    if first in {"aṅgasthāpanam", "angasthapanam"} and len(tokens) >= 4:
+        record = _identifier_from_token(tokens[1])
+        field = _map_key_from_tokens(tokens[2:3])
+        value = _value_from_tokens(tokens[3:])
+        if field is not None and value is not None:
+            return ("field_set", (record, field, value))
+
+    if first in {"aṅgāharaṇam", "angaharanam"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        record = _identifier_from_token(tokens[2])
+        field = _map_key_from_tokens(tokens[3:])
+        if field is not None:
+            return ("field_get", (target, record, field))
+
+    if first in {"aṅgāsti", "angasti"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        record = _identifier_from_token(tokens[2])
+        field = _map_key_from_tokens(tokens[3:])
+        if field is not None:
+            return ("field_contains", (target, record, field))
+
     return None
 
 
@@ -375,6 +403,17 @@ def _collection_statement_from_directive(
     if kind == "map_contains":
         target, container, key = payload  # type: ignore[misc]
         return (MapContains(target, container, key),)
+    if kind == "record_init":
+        return (RecordInit(str(payload)),)
+    if kind == "field_set":
+        record, field, value = payload  # type: ignore[misc]
+        return (FieldSet(record, field, value),)
+    if kind == "field_get":
+        target, record, field = payload  # type: ignore[misc]
+        return (FieldGet(target, record, field),)
+    if kind == "field_contains":
+        target, record, field = payload  # type: ignore[misc]
+        return (FieldContains(target, record, field),)
     return None
 
 

@@ -40,12 +40,29 @@ _INT_TO_WORD = {
 }
 _WORD_TO_INT = {word: value for value, word in _INT_TO_WORD.items()}
 _WORD_TO_INT.update({"dvitīya": 2, "dvitiyam": 2, "dvitīyam": 2})
+_DIGIT_TO_WORD = {value: word for value, word in _INT_TO_WORD.items() if 0 <= value <= 9}
+_WORD_TO_DIGIT = {word: value for value, word in _DIGIT_TO_WORD.items()}
+_TIER_TO_WORD = {
+    "surakshita": "surakṣitaḥ",
+    "rakshita": "rakṣitaḥ",
+    "arakshita": "arakṣitaḥ",
+}
+_WORD_TO_TIER = {
+    "surakṣitaḥ": "surakshita",
+    "surakshitaḥ": "surakshita",
+    "rakṣitaḥ": "rakshita",
+    "rakshitaḥ": "rakshita",
+    "arakṣitaḥ": "arakshita",
+    "arakshitaḥ": "arakshita",
+}
 
 
 def program_to_yantra_patha(program: BytecodeProgram) -> str:
     """Render bytecode as canonical Sanskrit-prose machine text."""
 
     sections: list[str] = ["saṃskaraṇam dvitīyam.", "", "mukhyaḥ pāṭhaḥ ārabhyate."]
+    if program.safety_tier != "surakshita":
+        sections.append(f"{_TIER_TO_WORD[program.safety_tier]} pāṭhaḥ.")
     sections.extend(_render_instruction(item) for item in program.instructions)
     sections.append("pāṭhaḥ samāpyate.")
 
@@ -94,6 +111,46 @@ def _render_instruction(instruction: Instruction) -> str:
         return f"{_format_int(_expect_int(operand, opcode))} iti pūrṇāṅkaḥ nikṣipyate."
     if opcode == OpCode.PUSH_TEXT:
         return f"{_expect_text(operand, opcode)} iti vākyam nikṣipyate."
+    if opcode == OpCode.PUSH_BOOL:
+        return f"{'satyam' if _expect_bool_operand(operand, opcode) else 'asatyam'} iti satyamūlyam nikṣipyate."
+    if opcode == OpCode.PUSH_FLOAT:
+        return f"{_format_float(_expect_float(operand, opcode))} iti daśāṃśaḥ nikṣipyate."
+    if opcode == OpCode.LIST_NEW:
+        return "śūnyaḥ samūhaḥ nirmīyate."
+    if opcode == OpCode.LIST_APPEND:
+        return "samūhe yojanam kriyate."
+    if opcode == OpCode.LIST_LEN:
+        return "samūhasya parimāṇam gṛhyate."
+    if opcode == OpCode.LIST_GET:
+        return "samūhāt aṅkam gṛhyate."
+    if opcode == OpCode.MAP_NEW:
+        return "śūnyaḥ kośaḥ nirmīyate."
+    if opcode == OpCode.MAP_SET:
+        return "kośe sthāpanam kriyate."
+    if opcode == OpCode.MAP_GET:
+        return "kośāt mūlyam gṛhyate."
+    if opcode == OpCode.MAP_CONTAINS:
+        return "kośe sattā parīkṣyate."
+    if opcode == OpCode.RECORD_NEW:
+        return "śūnyaṃ vastu nirmīyate."
+    if opcode == OpCode.RECORD_SET:
+        return "vastuni aṅgasthāpanam kriyate."
+    if opcode == OpCode.RECORD_GET:
+        return "vastunaḥ aṅgam gṛhyate."
+    if opcode == OpCode.RECORD_CONTAINS:
+        return "vastuni aṅgasattā parīkṣyate."
+    if opcode == OpCode.HEAP_ALLOC:
+        return "smṛtau avakāśaḥ kalpyate."
+    if opcode == OpCode.HEAP_STORE:
+        return "smṛtau sthāpanam kriyate."
+    if opcode == OpCode.HEAP_LOAD:
+        return "smṛteḥ āharaṇam kriyate."
+    if opcode == OpCode.HEAP_FREE:
+        return "smṛteḥ mokṣaḥ kriyate."
+    if opcode == OpCode.UNSAFE_ENTER:
+        return "arakṣitaḥ adhikāraḥ ārabhyate."
+    if opcode == OpCode.UNSAFE_EXIT:
+        return "arakṣitaḥ adhikāraḥ samāpyate."
     if opcode == OpCode.LOAD_NAME:
         return f"{_expect_name(operand, opcode)} iti nāma āhriyate."
     if opcode == OpCode.STORE_NAME:
@@ -143,6 +200,7 @@ class _YantraPathaParser:
         self.current_params: tuple[str, ...] = ()
         self.current_module: str | None = None
         self.current_module_functions: list[FunctionBytecode] = []
+        self.safety_tier = "surakshita"
 
     def parse(self) -> BytecodeProgram:
         for sentence in self.sentences:
@@ -158,7 +216,12 @@ class _YantraPathaParser:
             raise BytecodeValidationError(f"Function {self.current_function!r} was not closed")
         if self.current_module is not None:
             self._close_module()
-        return BytecodeProgram(tuple(self.main), tuple(self.functions), tuple(self.modules))
+        return BytecodeProgram(
+            tuple(self.main),
+            tuple(self.functions),
+            tuple(self.modules),
+            safety_tier=self.safety_tier,
+        )
 
     def _consume_structure(self, sentence: str) -> bool:
         tokens = sentence.split()
@@ -166,6 +229,9 @@ class _YantraPathaParser:
             return True
         if tokens == ["mukhyaḥ", "pāṭhaḥ", "ārabhyate"]:
             self.current_stream = self.main
+            return True
+        if len(tokens) == 2 and tokens[0] in _WORD_TO_TIER and tokens[1] == "pāṭhaḥ":
+            self.safety_tier = _WORD_TO_TIER[tokens[0]]
             return True
         if tokens == ["pāṭhaḥ", "samāpyate"]:
             self.current_stream = None
@@ -226,6 +292,49 @@ def _parse_instruction(sentence: str) -> Instruction:
         return Instruction(OpCode.PUSH_INT, _parse_int(tokens[:-3]))
     if len(tokens) >= 4 and tokens[-3:] == ["iti", "vākyam", "nikṣipyate"]:
         return Instruction(OpCode.PUSH_TEXT, " ".join(tokens[:-3]))
+    if len(tokens) == 4 and tokens[-3:] == ["iti", "satyamūlyam", "nikṣipyate"]:
+        if tokens[0] == "satyam":
+            return Instruction(OpCode.PUSH_BOOL, 1)
+        if tokens[0] == "asatyam":
+            return Instruction(OpCode.PUSH_BOOL, 0)
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "daśāṃśaḥ", "nikṣipyate"]:
+        return Instruction(OpCode.PUSH_FLOAT, _parse_float(tokens[:-3]))
+    if tokens == ["śūnyaḥ", "samūhaḥ", "nirmīyate"]:
+        return Instruction(OpCode.LIST_NEW)
+    if tokens == ["samūhe", "yojanam", "kriyate"]:
+        return Instruction(OpCode.LIST_APPEND)
+    if tokens == ["samūhasya", "parimāṇam", "gṛhyate"]:
+        return Instruction(OpCode.LIST_LEN)
+    if tokens == ["samūhāt", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.LIST_GET)
+    if tokens == ["śūnyaḥ", "kośaḥ", "nirmīyate"]:
+        return Instruction(OpCode.MAP_NEW)
+    if tokens == ["kośe", "sthāpanam", "kriyate"]:
+        return Instruction(OpCode.MAP_SET)
+    if tokens == ["kośāt", "mūlyam", "gṛhyate"]:
+        return Instruction(OpCode.MAP_GET)
+    if tokens == ["kośe", "sattā", "parīkṣyate"]:
+        return Instruction(OpCode.MAP_CONTAINS)
+    if tokens == ["śūnyaṃ", "vastu", "nirmīyate"]:
+        return Instruction(OpCode.RECORD_NEW)
+    if tokens == ["vastuni", "aṅgasthāpanam", "kriyate"]:
+        return Instruction(OpCode.RECORD_SET)
+    if tokens == ["vastunaḥ", "aṅgam", "gṛhyate"]:
+        return Instruction(OpCode.RECORD_GET)
+    if tokens == ["vastuni", "aṅgasattā", "parīkṣyate"]:
+        return Instruction(OpCode.RECORD_CONTAINS)
+    if tokens == ["smṛtau", "avakāśaḥ", "kalpyate"]:
+        return Instruction(OpCode.HEAP_ALLOC)
+    if tokens == ["smṛtau", "sthāpanam", "kriyate"]:
+        return Instruction(OpCode.HEAP_STORE)
+    if tokens == ["smṛteḥ", "āharaṇam", "kriyate"]:
+        return Instruction(OpCode.HEAP_LOAD)
+    if tokens == ["smṛteḥ", "mokṣaḥ", "kriyate"]:
+        return Instruction(OpCode.HEAP_FREE)
+    if tokens == ["arakṣitaḥ", "adhikāraḥ", "ārabhyate"]:
+        return Instruction(OpCode.UNSAFE_ENTER)
+    if tokens == ["arakṣitaḥ", "adhikāraḥ", "samāpyate"]:
+        return Instruction(OpCode.UNSAFE_EXIT)
     if len(tokens) == 4 and tokens[1:] == ["iti", "nāma", "āhriyate"]:
         return Instruction(OpCode.LOAD_NAME, tokens[0])
     if len(tokens) == 4 and tokens[1:] == ["iti", "nāma", "sthāpyate"]:
@@ -283,6 +392,18 @@ def _format_int(value: int) -> str:
     return _INT_TO_WORD.get(value, str(value))
 
 
+def _format_float(value: float) -> str:
+    sign = "ṛṇa " if value < 0 else ""
+    absolute = abs(value)
+    text = format(absolute, ".12f").rstrip("0").rstrip(".")
+    if "." not in text:
+        text = f"{text}.0"
+    whole_text, fractional_text = text.split(".", 1)
+    whole = _format_int(int(whole_text))
+    fractional = " ".join(_DIGIT_TO_WORD[int(item)] for item in fractional_text)
+    return f"{sign}{whole} bindu {fractional}"
+
+
 def _parse_int(tokens: list[str]) -> int:
     if not tokens:
         raise BytecodeValidationError("Expected a Sanskrit integer phrase")
@@ -299,6 +420,31 @@ def _parse_int(tokens: list[str]) -> int:
     raise BytecodeValidationError(f"Unknown Sanskrit integer phrase: {' '.join(tokens)!r}")
 
 
+def _parse_float(tokens: list[str]) -> float:
+    if "bindu" not in tokens:
+        return float(_parse_int(tokens))
+    split_at = tokens.index("bindu")
+    whole_tokens = tokens[:split_at]
+    fractional_tokens = tokens[split_at + 1 :]
+    if not whole_tokens or not fractional_tokens:
+        raise BytecodeValidationError("Expected a Sanskrit decimal phrase")
+    negative = whole_tokens[0] == "ṛṇa"
+    if negative:
+        whole_tokens = whole_tokens[1:]
+    whole = _parse_int(whole_tokens)
+    digits = "".join(str(_parse_digit(item)) for item in fractional_tokens)
+    value = float(f"{whole}.{digits}")
+    return -value if negative else value
+
+
+def _parse_digit(token: str) -> int:
+    if token in _WORD_TO_DIGIT:
+        return _WORD_TO_DIGIT[token]
+    if re.fullmatch(r"\d", token):
+        return int(token)
+    raise BytecodeValidationError(f"Expected a single decimal digit, got {token!r}")
+
+
 def _module_function_display_name(module_name: str, function_name: str) -> str:
     prefix = f"{module_name}."
     if function_name.startswith(prefix):
@@ -310,6 +456,19 @@ def _expect_int(operand: object, opcode: OpCode) -> int:
     if not isinstance(operand, int) or isinstance(operand, bool):
         raise BytecodeValidationError(f"{opcode.value} expected an integer operand")
     return operand
+
+
+def _expect_bool_operand(operand: object, opcode: OpCode) -> bool:
+    value = _expect_int(operand, opcode)
+    if value not in {0, 1}:
+        raise BytecodeValidationError(f"{opcode.value} expected 0 or 1")
+    return bool(value)
+
+
+def _expect_float(operand: object, opcode: OpCode) -> float:
+    if not isinstance(operand, (int, float)) or isinstance(operand, bool):
+        raise BytecodeValidationError(f"{opcode.value} expected a numeric operand")
+    return float(operand)
 
 
 def _expect_name(operand: object, opcode: OpCode) -> str:

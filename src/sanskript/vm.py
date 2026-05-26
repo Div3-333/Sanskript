@@ -10,11 +10,14 @@ from .bytecode import (
 )
 from .errors import RuntimeSanskriptError
 from .runtime_values import (
+    RecordValue,
     SanskriptValue,
     expect_list,
     expect_map,
+    expect_record,
     is_truthy,
     map_key_from_value,
+    record_field_from_value,
     to_display_string,
     values_equal,
 )
@@ -145,6 +148,32 @@ class SanskriptVM:
             key = map_key_from_value(self._pop())
             mapping = expect_map(self._pop())
             self.stack.append(1 if key in mapping else 0)
+            return None
+
+        if opcode == OpCode.RECORD_NEW:
+            self.stack.append(RecordValue())
+            return None
+
+        if opcode == OpCode.RECORD_SET:
+            value = self._pop()
+            field = record_field_from_value(self._pop())
+            record = expect_record(self._pop())
+            record.fields[field] = value
+            self.stack.append(record)
+            return None
+
+        if opcode == OpCode.RECORD_GET:
+            field = record_field_from_value(self._pop())
+            record = expect_record(self._pop())
+            if field not in record.fields:
+                raise RuntimeSanskriptError(f"Record has no field {field!r}")
+            self.stack.append(record.fields[field])
+            return None
+
+        if opcode == OpCode.RECORD_CONTAINS:
+            field = record_field_from_value(self._pop())
+            record = expect_record(self._pop())
+            self.stack.append(1 if field in record.fields else 0)
             return None
 
         if opcode == OpCode.LOAD_NAME:

@@ -119,6 +119,10 @@ v1 opcodes (`push_int`, `load_name`, `store_name`, `add`, `subtract`, `emit`, `h
 | `map_set` | `…, map, k, v → …, map` | Keys: text or int |
 | `map_get` | `…, map, k → …, v` | Error if missing |
 | `map_contains` | `…, map, k → …, 0\|1` | Membership test |
+| `record_new` | `… → …, record` | Empty managed object/record |
+| `record_set` | `…, record, field, v → …, record` | Mutate named text field |
+| `record_get` | `…, record, field → …, v` | Error if missing |
+| `record_contains` | `…, record, field → …, 0\|1` | Field presence test |
 
 `jump_if_zero` uses surakṣita truthiness (`0`, `false`, `""`, `[]`, `{{}}` are false).
 
