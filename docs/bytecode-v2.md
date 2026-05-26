@@ -157,6 +157,15 @@ v1 opcodes (`push_int`, `load_name`, `store_name`, `add`, `subtract`, `emit`, `h
 | `āhvānam` | Call (`āhvānam name`, `āhvānam name arg`, or `āhvānam module name arg`) |
 | `pratyāvartanam` | Return from a function |
 | `vākyam … iti` | Text value without quote/operator syntax |
+| `gaṇitam target left yoga right` | Arithmetic expression assignment (`yoga`, `vyavakalanam`, `guṇanam`, `bhāga`) |
+| `yadi left nyūnam right` / `punaḥ left nyūnam right` | Ordered branch/loop condition |
+| `samūhāharaṇam target list index` | Checked list index read |
+| `parimāṇam target list` | Checked list length read |
+| `arakṣitaḥ adhikāraḥ ārabhyate` / `samāpyate` | Enter/leave unsafe authority for `rakṣita` heap operations |
+| `avakāśaḥ target size` | Allocate heap cells into `target` |
+| `smṛtisthāpanam address value` | Store integer value at heap address |
+| `smṛtyāharaṇam target address` | Load integer value from heap address |
+| `smṛtimokṣaḥ address` | Free heap address |
 
 Function parameters remain prose tokens in the function header:
 

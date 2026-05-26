@@ -35,7 +35,22 @@ class IRCallValue:
     args: tuple["IRValue", ...] = ()
 
 
-IRValue = Union[IRLiteral, IRFloatLiteral, IRBoolLiteral, IRTextLiteral, IRReference, IRCallValue]
+@dataclass(frozen=True)
+class IRBinaryValue:
+    operator: str
+    left: "IRValue"
+    right: "IRValue"
+
+
+IRValue = Union[
+    IRLiteral,
+    IRFloatLiteral,
+    IRBoolLiteral,
+    IRTextLiteral,
+    IRReference,
+    IRCallValue,
+    IRBinaryValue,
+]
 
 
 @dataclass(frozen=True)
@@ -81,6 +96,19 @@ class IRMapInit:
 class IRListAppend:
     container: str
     item: IRValue
+
+
+@dataclass(frozen=True)
+class IRListGet:
+    target: str
+    container: str
+    index: IRValue
+
+
+@dataclass(frozen=True)
+class IRListLength:
+    target: str
+    container: str
 
 
 @dataclass(frozen=True)
@@ -137,15 +165,21 @@ class IRCompareEq:
 
 
 @dataclass(frozen=True)
+class IRCompareLt:
+    left: IRValue
+    right: IRValue
+
+
+@dataclass(frozen=True)
 class IRIf:
-    condition: IRCompareEq
+    condition: IRCompareEq | IRCompareLt
     then_body: tuple["IRInstruction", ...]
     else_body: tuple["IRInstruction", ...] = ()
 
 
 @dataclass(frozen=True)
 class IRWhile:
-    condition: IRCompareEq
+    condition: IRCompareEq | IRCompareLt
     body: tuple["IRInstruction", ...]
 
 
@@ -160,6 +194,39 @@ class IRReturn:
     value: IRValue | None = None
 
 
+@dataclass(frozen=True)
+class IRUnsafeEnter:
+    pass
+
+
+@dataclass(frozen=True)
+class IRUnsafeExit:
+    pass
+
+
+@dataclass(frozen=True)
+class IRHeapAlloc:
+    target: str
+    size: IRValue
+
+
+@dataclass(frozen=True)
+class IRHeapStore:
+    address: IRValue
+    value: IRValue
+
+
+@dataclass(frozen=True)
+class IRHeapLoad:
+    target: str
+    address: IRValue
+
+
+@dataclass(frozen=True)
+class IRHeapFree:
+    address: IRValue
+
+
 IRInstruction = Union[
     IRStore,
     IRIncrease,
@@ -169,6 +236,8 @@ IRInstruction = Union[
     IRListInit,
     IRMapInit,
     IRListAppend,
+    IRListGet,
+    IRListLength,
     IRMapPut,
     IRMapGet,
     IRMapContains,
@@ -180,6 +249,12 @@ IRInstruction = Union[
     IRWhile,
     IRCall,
     IRReturn,
+    IRUnsafeEnter,
+    IRUnsafeExit,
+    IRHeapAlloc,
+    IRHeapStore,
+    IRHeapLoad,
+    IRHeapFree,
 ]
 
 

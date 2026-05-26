@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from .ast import (
     Assign,
+    BinaryValue,
     BoolLiteral,
     Call,
     CallValue,
@@ -13,10 +14,16 @@ from .ast import (
     FieldSet,
     FloatLiteral,
     FunctionDef,
+    HeapAlloc,
+    HeapFree,
+    HeapLoad,
+    HeapStore,
     If,
     Increase,
     ListAppend,
+    ListGet,
     ListInit,
+    ListLength,
     Literal,
     MapContains,
     MapGet,
@@ -29,6 +36,8 @@ from .ast import (
     Return,
     Statement,
     TextLiteral,
+    UnsafeEnter,
+    UnsafeExit,
     Value,
     While,
 )
@@ -43,9 +52,11 @@ from .bytecode import (
 from .errors import RuntimeSanskriptError
 from .ir import (
     IRBoolLiteral,
+    IRBinaryValue,
     IRCall,
     IRCallValue,
     IRCompareEq,
+    IRCompareLt,
     IRDecrease,
     IREmit,
     IRFieldContains,
@@ -53,11 +64,17 @@ from .ir import (
     IRFieldSet,
     IRFloatLiteral,
     IRFunction,
+    IRHeapAlloc,
+    IRHeapFree,
+    IRHeapLoad,
+    IRHeapStore,
     IRIf,
     IRIncrease,
     IRInstruction,
     IRListAppend,
+    IRListGet,
     IRListInit,
+    IRListLength,
     IRMapContains,
     IRMapGet,
     IRMapInit,
@@ -70,11 +87,20 @@ from .ir import (
     IRReturn,
     IRStore,
     IRTextLiteral,
+    IRUnsafeEnter,
+    IRUnsafeExit,
     IRValue,
     IRWhile,
     IRLiteral,
 )
 from .parser import parse_program
+
+_BINARY_OPCODES: dict[str, OpCode] = {
+    "add": OpCode.ADD,
+    "subtract": OpCode.SUBTRACT,
+    "multiply": OpCode.MULTIPLY,
+    "divide": OpCode.DIVIDE,
+}
 
 
 class _Lowerer:
@@ -268,6 +294,19 @@ def _lower_instruction(instruction: IRInstruction) -> tuple[Instruction, ...]:
             Instruction(OpCode.LIST_APPEND),
             Instruction(OpCode.STORE_NAME, instruction.container),
         )
+    if isinstance(instruction, IRListGet):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.container),
+            *_lower_value(instruction.index),
+            Instruction(OpCode.LIST_GET),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRListLength):
+        return (
+            Instruction(OpCode.LOAD_NAME, instruction.container),
+            Instruction(OpCode.LIST_LEN),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
     if isinstance(instruction, IRMapPut):
         return (
             Instruction(OpCode.LOAD_NAME, instruction.container),
@@ -327,6 +366,30 @@ def _lower_instruction(instruction: IRInstruction) -> tuple[Instruction, ...]:
         if instruction.value is None:
             return (Instruction(OpCode.PUSH_INT, 0), Instruction(OpCode.RETURN))
         return (*_lower_value(instruction.value), Instruction(OpCode.RETURN))
+    if isinstance(instruction, IRUnsafeEnter):
+        return (Instruction(OpCode.UNSAFE_ENTER),)
+    if isinstance(instruction, IRUnsafeExit):
+        return (Instruction(OpCode.UNSAFE_EXIT),)
+    if isinstance(instruction, IRHeapAlloc):
+        return (
+            *_lower_value(instruction.size),
+            Instruction(OpCode.HEAP_ALLOC),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRHeapStore):
+        return (
+            *_lower_value(instruction.address),
+            *_lower_value(instruction.value),
+            Instruction(OpCode.HEAP_STORE),
+        )
+    if isinstance(instruction, IRHeapLoad):
+        return (
+            *_lower_value(instruction.address),
+            Instruction(OpCode.HEAP_LOAD),
+            Instruction(OpCode.STORE_NAME, instruction.target),
+        )
+    if isinstance(instruction, IRHeapFree):
+        return (*_lower_value(instruction.address), Instruction(OpCode.HEAP_FREE))
     if isinstance(instruction, IRIf):
         return _lower_if(instruction)
     if isinstance(instruction, IRWhile):
@@ -368,8 +431,14 @@ def _lower_while(instruction: IRWhile) -> tuple[Instruction, ...]:
     return tuple(lowerer.instructions)
 
 
-def _lower_compare(condition: IRCompareEq) -> tuple[Instruction, ...]:
-    return (*_lower_value(condition.left), *_lower_value(condition.right), Instruction(OpCode.COMPARE_EQ))
+def _lower_compare(condition: IRCompareEq | IRCompareLt) -> tuple[Instruction, ...]:
+    if isinstance(condition, IRCompareEq):
+        opcode = OpCode.COMPARE_EQ
+    elif isinstance(condition, IRCompareLt):
+        opcode = OpCode.COMPARE_LT
+    else:
+        raise RuntimeSanskriptError(f"Cannot lower unknown comparison: {condition!r}")
+    return (*_lower_value(condition.left), *_lower_value(condition.right), Instruction(opcode))
 
 
 def _lower_value(value: IRValue) -> tuple[Instruction, ...]:
@@ -388,6 +457,12 @@ def _lower_value(value: IRValue) -> tuple[Instruction, ...]:
             *tuple(item for arg in value.args for item in _lower_value(arg)),
             Instruction(OpCode.CALL, value.target),
         )
+    if isinstance(value, IRBinaryValue):
+        try:
+            opcode = _BINARY_OPCODES[value.operator]
+        except KeyError as exc:
+            raise RuntimeSanskriptError(f"Unknown binary value operator: {value.operator!r}") from exc
+        return (*_lower_value(value.left), *_lower_value(value.right), Instruction(opcode))
     raise RuntimeSanskriptError(f"Cannot lower unknown IR value: {value!r}")
 
 
@@ -417,6 +492,14 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
         return IRMapInit(statement.container)
     if isinstance(statement, ListAppend):
         return IRListAppend(statement.container, _compile_value_to_ir(statement.item))
+    if isinstance(statement, ListGet):
+        return IRListGet(
+            statement.target,
+            statement.container,
+            _compile_value_to_ir(statement.index),
+        )
+    if isinstance(statement, ListLength):
+        return IRListLength(statement.target, statement.container)
     if isinstance(statement, MapPut):
         return IRMapPut(
             statement.container,
@@ -456,20 +539,34 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
             _compile_value_to_ir(statement.field),
         )
     if isinstance(statement, If):
-        return IRIf(
-            IRCompareEq(
+        if isinstance(statement.condition, CompareEq):
+            condition = IRCompareEq(
                 _compile_value_to_ir(statement.condition.left),
                 _compile_value_to_ir(statement.condition.right),
-            ),
+            )
+        else:
+            condition = IRCompareLt(
+                _compile_value_to_ir(statement.condition.left),
+                _compile_value_to_ir(statement.condition.right),
+            )
+        return IRIf(
+            condition,
             _compile_statement_block(statement.then_body),
             _compile_statement_block(statement.else_body),
         )
     if isinstance(statement, While):
-        return IRWhile(
-            IRCompareEq(
+        if isinstance(statement.condition, CompareEq):
+            condition = IRCompareEq(
                 _compile_value_to_ir(statement.condition.left),
                 _compile_value_to_ir(statement.condition.right),
-            ),
+            )
+        else:
+            condition = IRCompareLt(
+                _compile_value_to_ir(statement.condition.left),
+                _compile_value_to_ir(statement.condition.right),
+            )
+        return IRWhile(
+            condition,
             _compile_statement_block(statement.body),
         )
     if isinstance(statement, Call):
@@ -478,6 +575,21 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
     if isinstance(statement, Return):
         value = None if statement.value is None else _compile_value_to_ir(statement.value)
         return IRReturn(value)
+    if isinstance(statement, UnsafeEnter):
+        return IRUnsafeEnter()
+    if isinstance(statement, UnsafeExit):
+        return IRUnsafeExit()
+    if isinstance(statement, HeapAlloc):
+        return IRHeapAlloc(statement.target, _compile_value_to_ir(statement.size))
+    if isinstance(statement, HeapStore):
+        return IRHeapStore(
+            _compile_value_to_ir(statement.address),
+            _compile_value_to_ir(statement.value),
+        )
+    if isinstance(statement, HeapLoad):
+        return IRHeapLoad(statement.target, _compile_value_to_ir(statement.address))
+    if isinstance(statement, HeapFree):
+        return IRHeapFree(_compile_value_to_ir(statement.address))
     raise RuntimeSanskriptError(f"Cannot compile unknown statement: {statement!r}")
 
 
@@ -495,4 +607,10 @@ def _compile_value_to_ir(value: Value) -> IRValue:
     if isinstance(value, CallValue):
         target = qualified_function_name(value.module, value.name)
         return IRCallValue(target, tuple(_compile_value_to_ir(arg) for arg in value.args))
+    if isinstance(value, BinaryValue):
+        return IRBinaryValue(
+            value.operator,
+            _compile_value_to_ir(value.left),
+            _compile_value_to_ir(value.right),
+        )
     raise RuntimeSanskriptError(f"Cannot compile unknown value: {value!r}")

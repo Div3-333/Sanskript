@@ -5,10 +5,12 @@ from typing import Iterable
 
 from .ast import (
     Assign,
+    BinaryValue,
     BoolLiteral,
     Call,
     CallValue,
     CompareEq,
+    CompareLt,
     Decrease,
     Display,
     FieldContains,
@@ -16,10 +18,16 @@ from .ast import (
     FieldSet,
     FloatLiteral,
     FunctionDef,
+    HeapAlloc,
+    HeapFree,
+    HeapLoad,
+    HeapStore,
     If,
     Increase,
     ListAppend,
+    ListGet,
     ListInit,
+    ListLength,
     Literal,
     MapContains,
     MapGet,
@@ -32,6 +40,8 @@ from .ast import (
     Return,
     Statement,
     TextLiteral,
+    UnsafeEnter,
+    UnsafeExit,
     Value,
     While,
 )
@@ -53,6 +63,39 @@ _TIER_MARKERS = {
 _TEXT_MARKERS = frozenset({"vākyam", "vakyam", "śabdam", "shabdam"})
 _ASSIGN_VERBS = frozenset({"nidadhāti", "sthāpayati"})
 _DISPLAY_VERBS = frozenset({"darśayati", "prakāśayati"})
+_SOURCE_INT_WORDS = {
+    "śūnya": 0,
+    "shunya": 0,
+    "eka": 1,
+    "dvi": 2,
+    "tri": 3,
+    "catur": 4,
+    "pañca": 5,
+    "panca": 5,
+    "ṣaṭ": 6,
+    "sat": 6,
+    "sapta": 7,
+    "aṣṭa": 8,
+    "asta": 8,
+    "nava": 9,
+    "daśa": 10,
+    "dasha": 10,
+}
+_BINARY_VALUE_OPERATORS = {
+    "yoga": "add",
+    "yogena": "add",
+    "vyavakalanam": "subtract",
+    "hīna": "subtract",
+    "hina": "subtract",
+    "guṇanam": "multiply",
+    "gunanam": "multiply",
+    "guṇena": "multiply",
+    "gunena": "multiply",
+    "bhāga": "divide",
+    "bhaga": "divide",
+    "bhāgena": "divide",
+    "bhagena": "divide",
+}
 
 
 def parse_program(source: str) -> Program:
@@ -324,6 +367,17 @@ def _parse_directive_header(
     if first in _TIER_MARKERS:
         return ("tier", _TIER_MARKERS[first])
 
+    if first in {"gaṇitam", "ganitam"} and len(tokens) >= 3:
+        target = _identifier_from_token(tokens[1])
+        value = _value_from_tokens(tokens[2:])
+        if value is not None:
+            return ("assign", (target, value))
+
+    if first in {"darśanam", "darshanam"} and len(tokens) >= 2:
+        value = _value_from_tokens(tokens[1:])
+        if value is not None:
+            return ("display", value)
+
     if first in {"samūhaḥ", "samuhah"} and len(tokens) >= 2:
         return ("list_init", _identifier_from_token(tokens[1]))
 
@@ -332,6 +386,18 @@ def _parse_directive_header(
         values = _values_from_tokens(tokens[2:])
         if values:
             return ("list_append", (container, values))
+
+    if first in {"samūhāharaṇam", "samuhaharanam"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        container = _identifier_from_token(tokens[2])
+        index = _value_from_tokens(tokens[3:])
+        if index is not None:
+            return ("list_get", (target, container, index))
+
+    if first in {"parimāṇam", "parimanam"} and len(tokens) >= 3:
+        target = _identifier_from_token(tokens[1])
+        container = _identifier_from_token(tokens[2])
+        return ("list_len", (target, container))
 
     if first in {"kośaḥ", "kosah"} and len(tokens) >= 2:
         return ("map_init", _identifier_from_token(tokens[1]))
@@ -381,6 +447,43 @@ def _parse_directive_header(
         if field is not None:
             return ("field_contains", (target, record, field))
 
+    if tokens == ["arakṣitaḥ", "adhikāraḥ", "ārabhyate"] or tokens == [
+        "arakshitah",
+        "adhikarah",
+        "arabhyate",
+    ]:
+        return ("unsafe_enter", None)
+
+    if tokens == ["arakṣitaḥ", "adhikāraḥ", "samāpyate"] or tokens == [
+        "arakshitah",
+        "adhikarah",
+        "samapyate",
+    ]:
+        return ("unsafe_exit", None)
+
+    if first in {"avakāśaḥ", "avakasah"} and len(tokens) >= 3:
+        target = _identifier_from_token(tokens[1])
+        size = _value_from_tokens(tokens[2:])
+        if size is not None:
+            return ("heap_alloc", (target, size))
+
+    if first in {"smṛtisthāpanam", "smritisthapanam"} and len(tokens) >= 3:
+        address = _value_from_tokens(tokens[1:2])
+        value = _value_from_tokens(tokens[2:])
+        if address is not None and value is not None:
+            return ("heap_store", (address, value))
+
+    if first in {"smṛtyāharaṇam", "smrtyaharanam", "smrityaharanam"} and len(tokens) >= 3:
+        target = _identifier_from_token(tokens[1])
+        address = _value_from_tokens(tokens[2:])
+        if address is not None:
+            return ("heap_load", (target, address))
+
+    if first in {"smṛtimokṣaḥ", "smrtimoksah", "smritimoksah"} and len(tokens) >= 2:
+        address = _value_from_tokens(tokens[1:])
+        if address is not None:
+            return ("heap_free", address)
+
     return None
 
 
@@ -394,6 +497,12 @@ def _collection_statement_from_directive(
     if kind == "list_append":
         container, values = payload  # type: ignore[misc]
         return tuple(ListAppend(container, value) for value in values)
+    if kind == "list_get":
+        target, container, index = payload  # type: ignore[misc]
+        return (ListGet(target, container, index),)
+    if kind == "list_len":
+        target, container = payload  # type: ignore[misc]
+        return (ListLength(target, container),)
     if kind == "map_put":
         container, key, value = payload  # type: ignore[misc]
         return (MapPut(container, key, value),)
@@ -414,11 +523,34 @@ def _collection_statement_from_directive(
     if kind == "field_contains":
         target, record, field = payload  # type: ignore[misc]
         return (FieldContains(target, record, field),)
+    if kind == "unsafe_enter":
+        return (UnsafeEnter(),)
+    if kind == "unsafe_exit":
+        return (UnsafeExit(),)
+    if kind == "heap_alloc":
+        target, size = payload  # type: ignore[misc]
+        return (HeapAlloc(target, size),)
+    if kind == "heap_store":
+        address, value = payload  # type: ignore[misc]
+        return (HeapStore(address, value),)
+    if kind == "heap_load":
+        target, address = payload  # type: ignore[misc]
+        return (HeapLoad(target, address),)
+    if kind == "heap_free":
+        return (HeapFree(payload),)  # type: ignore[arg-type]
     return None
 
 
-def _parse_compare_tokens(tokens: list[str]) -> CompareEq | None:
+def _parse_compare_tokens(tokens: list[str]) -> CompareEq | CompareLt | None:
     if "samam" not in tokens:
+        for marker in ("nyūnam", "nyunam"):
+            if marker in tokens:
+                split_at = tokens.index(marker)
+                left = _value_from_tokens(tokens[:split_at])
+                right = _value_from_tokens(tokens[split_at + 1 :])
+                if left is None or right is None:
+                    return None
+                return CompareLt(left, right)
         return None
     split_at = tokens.index("samam")
     left_tokens = tokens[:split_at]
@@ -459,11 +591,18 @@ def _value_from_tokens(tokens: list[str]) -> Value | None:
     call_value = _call_value_from_tokens(tokens)
     if call_value is not None:
         return call_value
+    binary_value = _binary_value_from_tokens(tokens)
+    if binary_value is not None:
+        return binary_value
     text = _text_literal_from_tokens(tokens)
     if text is not None:
         return text
     if len(tokens) == 1:
         token = tokens[0]
+        if token in _SOURCE_INT_WORDS:
+            return Literal(_SOURCE_INT_WORDS[token])
+        if re.fullmatch(r"\d+", token):
+            return Literal(int(token))
         if token in {"satyam", "asatyam"}:
             return BoolLiteral(token == "satyam")
         if re.fullmatch(r"\d+\.\d+", token):
@@ -480,6 +619,18 @@ def _value_from_tokens(tokens: list[str]) -> Value | None:
             return Reference(analysis.lemma)
     if len(tokens) == 1:
         return Reference(tokens[0])
+    return None
+
+
+def _binary_value_from_tokens(tokens: list[str]) -> BinaryValue | None:
+    for index, token in enumerate(tokens):
+        operator = _BINARY_VALUE_OPERATORS.get(token)
+        if operator is None or index == 0 or index == len(tokens) - 1:
+            continue
+        left = _value_from_tokens(tokens[:index])
+        right = _value_from_tokens(tokens[index + 1 :])
+        if left is not None and right is not None:
+            return BinaryValue(operator, left, right)
     return None
 
 
@@ -578,8 +729,6 @@ def _collect_until(
             continue
         header = _parse_directive_header(sentence, known_modules=known_modules)
         if header is not None:
-            if stop_before_markers:
-                return tuple(body), index
             kind, payload = header
             collection_stmt = _collection_statement_from_directive(kind, payload)
             if collection_stmt is not None:

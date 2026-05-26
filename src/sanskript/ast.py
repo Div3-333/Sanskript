@@ -36,7 +36,14 @@ class CallValue:
     args: tuple["Value", ...] = ()
 
 
-Value = Union[Literal, FloatLiteral, BoolLiteral, TextLiteral, Reference, CallValue]
+@dataclass(frozen=True)
+class BinaryValue:
+    operator: str
+    left: "Value"
+    right: "Value"
+
+
+Value = Union[Literal, FloatLiteral, BoolLiteral, TextLiteral, Reference, CallValue, BinaryValue]
 
 
 @dataclass(frozen=True)
@@ -82,6 +89,19 @@ class MapInit:
 class ListAppend:
     container: str
     item: Value
+
+
+@dataclass(frozen=True)
+class ListGet:
+    target: str
+    container: str
+    index: Value
+
+
+@dataclass(frozen=True)
+class ListLength:
+    target: str
+    container: str
 
 
 @dataclass(frozen=True)
@@ -138,15 +158,24 @@ class CompareEq:
 
 
 @dataclass(frozen=True)
+class CompareLt:
+    left: Value
+    right: Value
+
+
+Condition = Union[CompareEq, CompareLt]
+
+
+@dataclass(frozen=True)
 class If:
-    condition: CompareEq
+    condition: Condition
     then_body: tuple["Statement", ...]
     else_body: tuple["Statement", ...] = ()
 
 
 @dataclass(frozen=True)
 class While:
-    condition: CompareEq
+    condition: Condition
     body: tuple["Statement", ...]
 
 
@@ -170,6 +199,39 @@ class Return:
     value: Value | None = None
 
 
+@dataclass(frozen=True)
+class UnsafeEnter:
+    pass
+
+
+@dataclass(frozen=True)
+class UnsafeExit:
+    pass
+
+
+@dataclass(frozen=True)
+class HeapAlloc:
+    target: str
+    size: Value
+
+
+@dataclass(frozen=True)
+class HeapStore:
+    address: Value
+    value: Value
+
+
+@dataclass(frozen=True)
+class HeapLoad:
+    target: str
+    address: Value
+
+
+@dataclass(frozen=True)
+class HeapFree:
+    address: Value
+
+
 Statement = Union[
     Assign,
     Increase,
@@ -179,6 +241,8 @@ Statement = Union[
     ListInit,
     MapInit,
     ListAppend,
+    ListGet,
+    ListLength,
     MapPut,
     MapGet,
     MapContains,
@@ -191,6 +255,12 @@ Statement = Union[
     FunctionDef,
     Call,
     Return,
+    UnsafeEnter,
+    UnsafeExit,
+    HeapAlloc,
+    HeapStore,
+    HeapLoad,
+    HeapFree,
 ]
 
 

@@ -30,9 +30,11 @@ class Interpreter:
     def execute(self, program: Program | list[Statement]) -> list[str]:
         if isinstance(program, Program):
             self._statements = list(program.statements)
+            bytecode = compile_program(program)
         else:
             self._statements = list(program)
-        self.vm.execute(compile_program(Program(tuple(self._statements))))
+            bytecode = compile_program(Program(tuple(self._statements)))
+        self.vm.execute(bytecode)
         return self.output
 
     def execute_statement(self, statement: Statement) -> None:
