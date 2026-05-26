@@ -1,6 +1,6 @@
 # Sanskript Bytecode Specification v2
 
-Bytecode v2 extends [v1](bytecode-v1.md) with arithmetic, comparisons, control flow, function calls, and function parameters. v1 programs remain valid; decoders accept `version: 1` or `version: 2`.
+Bytecode v2 extends [v1](bytecode-v1.md) with text values, arithmetic, comparisons, control flow, function calls, and function parameters. v1 programs remain valid; decoders accept `version: 1` or `version: 2`.
 
 ## Edition
 
@@ -77,7 +77,9 @@ Function bodies end with `return` (not `halt`). `call` transfers control to a na
 
 Function objects may include `params`, a list of parameter names. The compiler lowers call arguments before `call`; the VM pops the argument values, binds them to the callee's parameters as local values, and restores the caller's locals on `return`.
 
-The yantra-pāṭha renderer expresses the same operations as formal prose sentences, for example `phala iti nāma āhriyate.` for `load_name`, `sapta iti pūrṇāṅkaḥ nikṣipyate.` for `push_int 7`, and `gaṇita iti kṣetre vṛddhi iti vidhānam āhūyate.` for `call gaṇita.vṛddhi`.
+The runtime value model currently supports integers and text. Numeric arithmetic and ordered comparison require integers; equality and display work across both value types.
+
+The yantra-pāṭha renderer expresses the same operations as formal prose sentences, for example `phala iti nāma āhriyate.` for `load_name`, `sapta iti pūrṇāṅkaḥ nikṣipyate.` for `push_int 7`, `svāgatam mitra iti vākyam nikṣipyate.` for `push_text`, and `gaṇita iti kṣetre vṛddhi iti vidhānam āhūyate.` for `call gaṇita.vṛddhi`.
 
 ### Calling convention (reference VM)
 
@@ -91,6 +93,7 @@ The yantra-pāṭha renderer expresses the same operations as formal prose sente
 
 | Opcode | Operand | Stack | Effect |
 | --- | --- | --- | --- |
+| `push_text` | text (string) | `… → …, text` | Push a text value |
 | `multiply` | — | `…, a, b → …, a*b` | Integer multiply |
 | `divide` | — | `…, a, b → …, a//b` | Integer divide; divide-by-zero is a runtime error |
 | `compare_eq` | — | `…, a, b → …, 0\|1` | Push `1` if equal else `0` |
@@ -121,6 +124,7 @@ v1 opcodes (`push_int`, `load_name`, `store_name`, `add`, `subtract`, `emit`, `h
 | `kṣetram` | Module scope |
 | `āhvānam` | Call (`āhvānam name`, `āhvānam name arg`, or `āhvānam module name arg`) |
 | `pratyāvartanam` | Return from a function |
+| `vākyam … iti` | Text value without quote/operator syntax |
 
 Function parameters remain prose tokens in the function header:
 
@@ -129,6 +133,13 @@ vidhānam sthāpaya balaṃ.
 gaṇakaḥ balaṃ phale nidadhāti.
 samāpanam.
 āhvānam sthāpaya pañca.
+```
+
+Text values use the Sanskrit quotative `iti`:
+
+```text
+vākyam svāgatam mitra iti phale nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
 ```
 
 ## Conformance

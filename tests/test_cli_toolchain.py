@@ -59,6 +59,14 @@ class CliToolchainTests(unittest.TestCase):
                     bytecode_output = SanskriptVM().execute(load_bytecode_file(output))
                     self.assertEqual(bytecode_output, source_output)
 
+    def test_run_prints_unicode_text_output(self) -> None:
+        run_stdout = io.StringIO()
+
+        with redirect_stdout(run_stdout):
+            self.assertEqual(main(["run", str(EXAMPLES / "dashama-vakyam.ssk")]), 0)
+
+        self.assertEqual(run_stdout.getvalue().strip().splitlines(), ["svāgatam mitra"])
+
 
 if __name__ == "__main__":
     unittest.main()

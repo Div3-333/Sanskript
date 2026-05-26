@@ -18,6 +18,7 @@ from .ast import (
     Reference,
     Return,
     Statement,
+    TextLiteral,
     Value,
     While,
 )
@@ -28,6 +29,9 @@ from .morphology_facade import get_default_facade
 import re
 
 _BLOCK_END_MARKERS = frozenset({"antam", "anta", "yadi", "punaḥ", "punah", "vidhānam", "vidhanam", "samāpanam", "samapanam"})
+_TEXT_MARKERS = frozenset({"vākyam", "vakyam", "śabdam", "shabdam"})
+_ASSIGN_VERBS = frozenset({"nidadhāti", "sthāpayati"})
+_DISPLAY_VERBS = frozenset({"darśayati", "prakāśayati"})
 
 
 def parse_program(source: str) -> Program:
@@ -44,6 +48,12 @@ def parse_program(source: str) -> Program:
     while index < len(sentences):
         sentence = sentences[index].strip()
         if not sentence:
+            index += 1
+            continue
+
+        text_statement = _parse_text_sentence(sentence)
+        if text_statement is not None:
+            statements.append(text_statement)
             index += 1
             continue
 
@@ -241,7 +251,7 @@ def _parse_directive_header(
     if first in {"pratyāvartanam", "pratyavartanam"}:
         if len(tokens) == 1:
             return ("return", None)
-        value = _value_from_tokens(tokens[1:])
+        value = _text_literal_from_tokens(tokens[1:]) or _value_from_tokens(tokens[1:])
         if value is None:
             return None
         return ("return", value)
@@ -277,6 +287,9 @@ def _parse_compare_tokens(tokens: list[str]) -> CompareEq | None:
 
 
 def _value_from_tokens(tokens: list[str]) -> Value | None:
+    text = _text_literal_from_tokens(tokens)
+    if text is not None:
+        return text
     facade = get_default_facade()
     for token in tokens:
         try:
@@ -292,12 +305,47 @@ def _value_from_tokens(tokens: list[str]) -> Value | None:
     return None
 
 
+def _text_literal_from_tokens(tokens: list[str]) -> TextLiteral | None:
+    if len(tokens) >= 3 and tokens[0] in _TEXT_MARKERS and tokens[-1] == "iti":
+        words = tokens[1:-1]
+        if words:
+            return TextLiteral(" ".join(words))
+    return None
+
+
+def _parse_text_sentence(sentence: str) -> Statement | None:
+    tokens = _directive_tokens(sentence)
+    if len(tokens) < 4 or tokens[0] not in _TEXT_MARKERS or "iti" not in tokens:
+        return None
+    split_at = tokens.index("iti")
+    words = tokens[1:split_at]
+    tail = tokens[split_at + 1 :]
+    if not words or not tail:
+        return None
+    value = TextLiteral(" ".join(words))
+    if len(tail) == 1 and tail[0] in _DISPLAY_VERBS:
+        return Display(value)
+    if len(tail) == 2 and tail[1] in _ASSIGN_VERBS:
+        return Assign(_identifier_from_token(tail[0]), value)
+    return None
+
+
 def _values_from_tokens(tokens: list[str]) -> tuple[Value, ...]:
     values: list[Value] = []
-    for token in tokens:
+    index = 0
+    while index < len(tokens):
+        token = tokens[index]
+        if token in _TEXT_MARKERS and "iti" in tokens[index + 1 :]:
+            end = tokens.index("iti", index + 1)
+            text = _text_literal_from_tokens(tokens[index : end + 1])
+            if text is not None:
+                values.append(text)
+                index = end + 1
+                continue
         value = _value_from_tokens([token])
         if value is not None:
             values.append(value)
+        index += 1
     return tuple(values)
 
 
@@ -332,6 +380,11 @@ def _collect_until(
             index += 1
             if not stop_before_markers:
                 return tuple(body), index
+            continue
+        text_statement = _parse_text_sentence(sentence)
+        if text_statement is not None:
+            body.append(text_statement)
+            index += 1
             continue
         header = _parse_directive_header(sentence, known_modules=known_modules)
         if header is not None:

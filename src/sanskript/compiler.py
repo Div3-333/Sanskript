@@ -15,6 +15,7 @@ from .ast import (
     Reference,
     Return,
     Statement,
+    TextLiteral,
     Value,
     While,
 )
@@ -42,6 +43,7 @@ from .ir import (
     IRReference,
     IRReturn,
     IRStore,
+    IRTextLiteral,
     IRValue,
     IRWhile,
     IRLiteral,
@@ -273,6 +275,8 @@ def _lower_compare(condition: IRCompareEq) -> tuple[Instruction, ...]:
 def _lower_value(value: IRValue) -> tuple[Instruction, ...]:
     if isinstance(value, IRLiteral):
         return (Instruction(OpCode.PUSH_INT, value.value),)
+    if isinstance(value, IRTextLiteral):
+        return (Instruction(OpCode.PUSH_TEXT, value.value),)
     if isinstance(value, IRReference):
         return (Instruction(OpCode.LOAD_NAME, value.name),)
     raise RuntimeSanskriptError(f"Cannot lower unknown IR value: {value!r}")
@@ -327,6 +331,8 @@ def _compile_statement_to_ir(statement: Statement) -> IRInstruction:
 def _compile_value_to_ir(value: Value) -> IRValue:
     if isinstance(value, Literal):
         return IRLiteral(value.value)
+    if isinstance(value, TextLiteral):
+        return IRTextLiteral(value.value)
     if isinstance(value, Reference):
         return IRReference(value.name)
     raise RuntimeSanskriptError(f"Cannot compile unknown value: {value!r}")

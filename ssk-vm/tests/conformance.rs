@@ -1,4 +1,4 @@
-use ssk_vm::{SanskriptVm, decode_conformance_fixture};
+use ssk_vm::{SanskriptVm, Value, decode_conformance_fixture};
 use std::fs;
 use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
@@ -33,7 +33,7 @@ fn all_json_conformance_fixtures_match_python_contract() {
         for (name, expected) in &fixture.expected_environment {
             assert_eq!(
                 vm.globals.get(name),
-                Some(expected),
+                Some(&Value::Int(*expected)),
                 "environment mismatch for {name} in {}",
                 path.display()
             );

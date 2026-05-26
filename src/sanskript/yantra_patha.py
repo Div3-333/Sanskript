@@ -92,6 +92,8 @@ def _render_instruction(instruction: Instruction) -> str:
 
     if opcode == OpCode.PUSH_INT:
         return f"{_format_int(_expect_int(operand, opcode))} iti pūrṇāṅkaḥ nikṣipyate."
+    if opcode == OpCode.PUSH_TEXT:
+        return f"{_expect_text(operand, opcode)} iti vākyam nikṣipyate."
     if opcode == OpCode.LOAD_NAME:
         return f"{_expect_name(operand, opcode)} iti nāma āhriyate."
     if opcode == OpCode.STORE_NAME:
@@ -222,6 +224,8 @@ def _parse_instruction(sentence: str) -> Instruction:
     tokens = sentence.split()
     if len(tokens) >= 4 and tokens[-3:] == ["iti", "pūrṇāṅkaḥ", "nikṣipyate"]:
         return Instruction(OpCode.PUSH_INT, _parse_int(tokens[:-3]))
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "vākyam", "nikṣipyate"]:
+        return Instruction(OpCode.PUSH_TEXT, " ".join(tokens[:-3]))
     if len(tokens) == 4 and tokens[1:] == ["iti", "nāma", "āhriyate"]:
         return Instruction(OpCode.LOAD_NAME, tokens[0])
     if len(tokens) == 4 and tokens[1:] == ["iti", "nāma", "sthāpyate"]:
@@ -311,6 +315,12 @@ def _expect_int(operand: object, opcode: OpCode) -> int:
 def _expect_name(operand: object, opcode: OpCode) -> str:
     if not isinstance(operand, str) or not operand:
         raise BytecodeValidationError(f"{opcode.value} expected a name operand")
+    return operand
+
+
+def _expect_text(operand: object, opcode: OpCode) -> str:
+    if not isinstance(operand, str):
+        raise BytecodeValidationError(f"{opcode.value} expected a text operand")
     return operand
 
 

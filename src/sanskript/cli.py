@@ -21,6 +21,7 @@ from .yantra_patha import program_from_yantra_patha, program_to_yantra_patha
 
 
 def main(argv: list[str] | None = None) -> int:
+    _ensure_utf8_stdio()
     argv = list(sys.argv[1:] if argv is None else argv)
 
     # Backward-compatible invocation: `sanskript examples/foo.ssk`
@@ -105,6 +106,13 @@ def main(argv: list[str] | None = None) -> int:
 
     parser.print_help()
     return 2
+
+
+def _ensure_utf8_stdio() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            reconfigure(encoding="utf-8")
 
 
 def _run_file(source: Path) -> int:

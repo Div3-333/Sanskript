@@ -1,4 +1,4 @@
-use ssk_vm::{SanskriptVm, decode_conformance_fixture, decode_program_json};
+use ssk_vm::{SanskriptVm, Value, decode_conformance_fixture, decode_program_json};
 use std::env;
 use std::fs;
 use std::process;
@@ -33,7 +33,7 @@ fn main() {
         }
         for (name, expected) in &fixture.expected_environment {
             let actual = vm.globals.get(name);
-            if actual != Some(expected) {
+            if actual != Some(&Value::Int(*expected)) {
                 eprintln!(
                     "environment mismatch for {name}: expected {expected}, got {actual:?}"
                 );

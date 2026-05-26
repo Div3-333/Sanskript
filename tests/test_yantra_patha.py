@@ -39,6 +39,21 @@ class YantraPathaTests(unittest.TestCase):
 
         self.assertEqual(SanskriptVM().execute(program), ["5"])
 
+    def test_hand_written_text_prose_assembles_and_runs(self) -> None:
+        source = """
+        saṃskaraṇam dvitīyam.
+        mukhyaḥ pāṭhaḥ ārabhyate.
+        svāgatam mitra iti vākyam nikṣipyate.
+        darśanam kriyate.
+        virāmaḥ kriyate.
+        pāṭhaḥ samāpyate.
+        """
+
+        program = program_from_yantra_patha(source)
+
+        self.assertEqual(program.instructions[0], Instruction(OpCode.PUSH_TEXT, "svāgatam mitra"))
+        self.assertEqual(SanskriptVM().execute(program), ["svāgatam mitra"])
+
     def test_compiled_program_round_trips_through_prose_bytecode(self) -> None:
         program = compile_source((EXAMPLES / "navama-kṣetram.ssk").read_text(encoding="utf-8"))
         prose = program_to_yantra_patha(program)

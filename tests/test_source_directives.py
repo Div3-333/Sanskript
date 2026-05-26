@@ -111,6 +111,17 @@ class SourceDirectiveTests(unittest.TestCase):
         self.assertEqual(function.params, ("bala",))
         self.assertEqual(SanskriptVM().execute(compile_source(source)), ["7"])
 
+    def test_function_text_parameter_from_source_runs(self) -> None:
+        source = """
+        vidhānam likha balaṃ.
+        gaṇakaḥ balaṃ phale nidadhāti.
+        samāpanam.
+        āhvānam likha vākyam svāgatam mitra iti.
+        gaṇakaḥ phalaṃ darśayati.
+        """
+
+        self.assertEqual(SanskriptVM().execute(compile_source(source)), ["svāgatam mitra"])
+
 
 if __name__ == "__main__":
     unittest.main()

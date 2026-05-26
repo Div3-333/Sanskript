@@ -34,6 +34,7 @@
           "type": "string",
           "enum": [
             "push_int",
+            "push_text",
             "load_name",
             "store_name",
             "add",
@@ -57,6 +58,10 @@
         {
           "if": { "properties": { "op": { "const": "push_int" } } },
           "then": { "required": ["operand"], "properties": { "operand": { "type": "integer" } } }
+        },
+        {
+          "if": { "properties": { "op": { "const": "push_text" } } },
+          "then": { "required": ["operand"], "properties": { "operand": { "type": "string" } } }
         },
         {
           "if": {

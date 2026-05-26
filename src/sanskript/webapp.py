@@ -149,6 +149,11 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         if (state.stack.length === 0) throw new Error("Sanskript VM stack underflow");
         return state.stack.pop();
       }};
+      const popInt = () => {{
+        const value = pop();
+        if (!Number.isInteger(value)) throw new Error(`Expected integer stack value: ${{value}}`);
+        return value;
+      }};
       const lookup = (name) => {{
         if (Object.prototype.hasOwnProperty.call(state.locals, name)) return state.locals[name];
         if (Object.prototype.hasOwnProperty.call(state.globals, name)) return state.globals[name];
@@ -178,6 +183,9 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           case "push_int":
             state.stack.push(instruction.operand);
             break;
+          case "push_text":
+            state.stack.push(instruction.operand);
+            break;
           case "load_name":
             state.stack.push(lookup(instruction.operand));
             break;
@@ -185,27 +193,27 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             store(instruction.operand, pop());
             break;
           case "add": {{
-            const right = pop();
-            const left = pop();
+            const right = popInt();
+            const left = popInt();
             state.stack.push(left + right);
             break;
           }}
           case "subtract": {{
-            const right = pop();
-            const left = pop();
+            const right = popInt();
+            const left = popInt();
             state.stack.push(left - right);
             break;
           }}
           case "multiply": {{
-            const right = pop();
-            const left = pop();
+            const right = popInt();
+            const left = popInt();
             state.stack.push(left * right);
             break;
           }}
           case "divide": {{
-            const right = pop();
+            const right = popInt();
             if (right === 0) throw new Error("Division by zero");
-            const left = pop();
+            const left = popInt();
             state.stack.push(Math.trunc(left / right));
             break;
           }}
@@ -216,8 +224,8 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             break;
           }}
           case "compare_lt": {{
-            const right = pop();
-            const left = pop();
+            const right = popInt();
+            const left = popInt();
             state.stack.push(left < right ? 1 : 0);
             break;
           }}
@@ -228,7 +236,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
             ip = instruction.operand;
             continue;
           case "jump_if_zero":
-            if (pop() === 0) {{
+            if (popInt() === 0) {{
               ip = instruction.operand;
               continue;
             }}

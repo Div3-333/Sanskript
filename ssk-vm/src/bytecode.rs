@@ -15,6 +15,7 @@ pub enum BytecodeError {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum OpCode {
     PushInt,
+    PushText,
     LoadName,
     StoreName,
     Add,
@@ -36,6 +37,7 @@ impl OpCode {
     fn from_str(value: &str) -> Result<Self, BytecodeError> {
         match value {
             "push_int" => Ok(Self::PushInt),
+            "push_text" => Ok(Self::PushText),
             "load_name" => Ok(Self::LoadName),
             "store_name" => Ok(Self::StoreName),
             "add" => Ok(Self::Add),
@@ -65,6 +67,7 @@ pub struct Instruction {
 #[derive(Debug, Clone)]
 pub enum Operand {
     Int(i64),
+    Text(String),
     Name(String),
 }
 
@@ -144,6 +147,15 @@ fn parse_instruction(raw: &RawInstruction) -> Result<Instruction, BytecodeError>
                 BytecodeError::InvalidProgram(format!("{} operand must be integer", raw.op))
             })?;
             Some(Operand::Int(number))
+        }
+        OpCode::PushText => {
+            let value = raw.operand.as_ref().ok_or_else(|| {
+                BytecodeError::InvalidProgram(format!("{} requires operand", raw.op))
+            })?;
+            let text = value.as_str().ok_or_else(|| {
+                BytecodeError::InvalidProgram(format!("{} operand must be string", raw.op))
+            })?;
+            Some(Operand::Text(text.to_string()))
         }
         OpCode::LoadName | OpCode::StoreName | OpCode::Call => {
             let value = raw.operand.as_ref().ok_or_else(|| {

@@ -10,11 +10,16 @@ class IRLiteral:
 
 
 @dataclass(frozen=True)
+class IRTextLiteral:
+    value: str
+
+
+@dataclass(frozen=True)
 class IRReference:
     name: str
 
 
-IRValue = Union[IRLiteral, IRReference]
+IRValue = Union[IRLiteral, IRTextLiteral, IRReference]
 
 
 @dataclass(frozen=True)

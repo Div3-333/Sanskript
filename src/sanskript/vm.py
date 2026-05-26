@@ -10,22 +10,24 @@ from .bytecode import (
 )
 from .errors import RuntimeSanskriptError
 
+SanskriptValue = int | str
+
 
 @dataclass
 class _CallFrame:
     return_ip: int
     instructions: tuple[Instruction, ...]
-    locals_snapshot: dict[str, int]
+    locals_snapshot: dict[str, SanskriptValue]
 
 
 class SanskriptVM:
     """Executes Sanskript bytecode (v1 linear programs and v2 control flow)."""
 
     def __init__(self) -> None:
-        self.globals: dict[str, int] = {}
-        self.locals: dict[str, int] = {}
+        self.globals: dict[str, SanskriptValue] = {}
+        self.locals: dict[str, SanskriptValue] = {}
         self.output: list[str] = []
-        self.stack: list[int] = []
+        self.stack: list[SanskriptValue] = []
         self._program: BytecodeProgram | None = None
         self._instructions: tuple[Instruction, ...] = ()
         self._call_stack: list[_CallFrame] = []
@@ -64,6 +66,10 @@ class SanskriptVM:
             self.stack.append(self._expect_int(operand, opcode))
             return None
 
+        if opcode == OpCode.PUSH_TEXT:
+            self.stack.append(self._expect_text(operand, opcode))
+            return None
+
         if opcode == OpCode.LOAD_NAME:
             self.stack.append(self._lookup_name(self._expect_name(operand, opcode)))
             return None
@@ -74,28 +80,28 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.ADD:
-            right = self._pop()
-            left = self._pop()
+            right = self._pop_int()
+            left = self._pop_int()
             self.stack.append(left + right)
             return None
 
         if opcode == OpCode.SUBTRACT:
-            right = self._pop()
-            left = self._pop()
+            right = self._pop_int()
+            left = self._pop_int()
             self.stack.append(left - right)
             return None
 
         if opcode == OpCode.MULTIPLY:
-            right = self._pop()
-            left = self._pop()
+            right = self._pop_int()
+            left = self._pop_int()
             self.stack.append(left * right)
             return None
 
         if opcode == OpCode.DIVIDE:
-            right = self._pop()
+            right = self._pop_int()
             if right == 0:
                 raise RuntimeSanskriptError("Division by zero")
-            left = self._pop()
+            left = self._pop_int()
             self.stack.append(left // right)
             return None
 
@@ -106,8 +112,8 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.COMPARE_LT:
-            right = self._pop()
-            left = self._pop()
+            right = self._pop_int()
+            left = self._pop_int()
             self.stack.append(1 if left < right else 0)
             return None
 
@@ -119,7 +125,7 @@ class SanskriptVM:
             return self._expect_int(operand, opcode)
 
         if opcode == OpCode.JUMP_IF_ZERO:
-            value = self._pop()
+            value = self._pop_int()
             if value == 0:
                 return self._expect_int(operand, opcode)
             return None
@@ -152,7 +158,7 @@ class SanskriptVM:
 
         raise RuntimeSanskriptError(f"Unknown bytecode instruction: {instruction!r}")
 
-    def _lookup_name(self, name: str) -> int:
+    def _lookup_name(self, name: str) -> SanskriptValue:
         if name in self.locals:
             return self.locals[name]
         if name in self.globals:
@@ -162,21 +168,32 @@ class SanskriptVM:
             hint="Assign a value before reading it, or check the function scope.",
         )
 
-    def _store_name(self, name: str, value: int) -> None:
+    def _store_name(self, name: str, value: SanskriptValue) -> None:
         if name in self.locals:
             self.locals[name] = value
         else:
             self.globals[name] = value
 
-    def _pop(self) -> int:
+    def _pop(self) -> SanskriptValue:
         try:
             return self.stack.pop()
         except IndexError as exc:
             raise RuntimeSanskriptError("Sanskript VM stack underflow") from exc
 
+    def _pop_int(self) -> int:
+        value = self._pop()
+        if not isinstance(value, int) or isinstance(value, bool):
+            raise RuntimeSanskriptError(f"Expected integer stack value, got {value!r}")
+        return value
+
     def _expect_int(self, operand: object, opcode: OpCode) -> int:
         if not isinstance(operand, int) or isinstance(operand, bool):
             raise RuntimeSanskriptError(f"{opcode.value} expected an integer operand, got {operand!r}")
+        return operand
+
+    def _expect_text(self, operand: object, opcode: OpCode) -> str:
+        if not isinstance(operand, str):
+            raise RuntimeSanskriptError(f"{opcode.value} expected a text operand, got {operand!r}")
         return operand
 
     def _expect_name(self, operand: object, opcode: OpCode) -> str:
@@ -185,7 +202,7 @@ class SanskriptVM:
         return operand
 
     @property
-    def environment(self) -> dict[str, int]:
+    def environment(self) -> dict[str, SanskriptValue]:
         """Merged view used by tests: locals shadow globals."""
         merged = dict(self.globals)
         merged.update(self.locals)

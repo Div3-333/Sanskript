@@ -10,6 +10,7 @@ Sanskript's application layer must grow without breaking the design promise: sou
 | Structured | Implemented | `yadi`, `anyathā`, `punaḥ`, `antam` |
 | Procedural | Implemented | `vidhānam`, `āhvānam`, modules via `kṣetram` |
 | Functions with parameters | Implemented | Prose headers and calls, local parameter binding, bytecode `params` |
+| Text values | Implemented | `vākyam … iti` source values, bytecode `push_text`, VM/web output |
 | Portable bytecode | Implemented | `.sskbc` compile/run split |
 | Sanskrit-prose machine text | Implemented | `.sskyp` yantra-pāṭha assemble/disassemble/run |
 | Browser execution | Initial | `sanskript web` emits a static HTML runner for bytecode output |
@@ -19,7 +20,7 @@ Sanskript's application layer must grow without breaking the design promise: sou
 | Layer | Why It Matters | Grammar-shaped direction |
 | --- | --- | --- |
 | Return-value expressions | Needed before functional style feels natural | Function returns should become values in assignment/display frames, not symbolic call syntax |
-| Strings and collections | Needed for real apps and algorithms | Introduce śabda/text and samūha/list surfaces through noun classes and verb frames |
+| Collections | Needed for real apps and algorithms | Introduce samūha/list surfaces through noun classes and verb frames |
 | Records / objects | Needed before classes and methods | Model owned fields as named values in an object locus, not brace literals |
 | Classes / methods | OOP target | Class words should be grammatical declarations; method calls should remain `kṣetram`/adhikaraṇa-style prose |
 | Errors | Useful programs need recoverable failure | Use Sanskrit-aware result/error frames rather than exception symbols |

@@ -4,6 +4,21 @@ use crate::bytecode::{
 use std::collections::HashMap;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Value {
+    Int(i64),
+    Text(String),
+}
+
+impl Value {
+    fn as_output(&self) -> String {
+        match self {
+            Self::Int(value) => value.to_string(),
+            Self::Text(value) => value.clone(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VmError {
     pub message: String,
 }
@@ -19,14 +34,14 @@ impl VmError {
 struct CallFrame {
     return_ip: usize,
     instructions: Vec<Instruction>,
-    locals_snapshot: HashMap<String, i64>,
+    locals_snapshot: HashMap<String, Value>,
 }
 
 pub struct SanskriptVm {
-    pub globals: HashMap<String, i64>,
-    pub locals: HashMap<String, i64>,
+    pub globals: HashMap<String, Value>,
+    pub locals: HashMap<String, Value>,
     pub output: Vec<String>,
-    stack: Vec<i64>,
+    stack: Vec<Value>,
     program: Option<BytecodeProgram>,
     instructions: Vec<Instruction>,
     call_stack: Vec<CallFrame>,
@@ -90,7 +105,12 @@ impl SanskriptVm {
         match instruction.opcode {
             OpCode::PushInt => {
                 let value = self.expect_int(instruction)?;
-                self.stack.push(value);
+                self.stack.push(Value::Int(value));
+                Ok(None)
+            }
+            OpCode::PushText => {
+                let value = self.expect_text(instruction)?;
+                self.stack.push(Value::Text(value));
                 Ok(None)
             }
             OpCode::LoadName => {
@@ -105,52 +125,52 @@ impl SanskriptVm {
                 Ok(None)
             }
             OpCode::Add => {
-                let right = self.pop()?;
-                let left = self.pop()?;
-                self.stack.push(left + right);
+                let right = self.pop_int()?;
+                let left = self.pop_int()?;
+                self.stack.push(Value::Int(left + right));
                 Ok(None)
             }
             OpCode::Subtract => {
-                let right = self.pop()?;
-                let left = self.pop()?;
-                self.stack.push(left - right);
+                let right = self.pop_int()?;
+                let left = self.pop_int()?;
+                self.stack.push(Value::Int(left - right));
                 Ok(None)
             }
             OpCode::Multiply => {
-                let right = self.pop()?;
-                let left = self.pop()?;
-                self.stack.push(left * right);
+                let right = self.pop_int()?;
+                let left = self.pop_int()?;
+                self.stack.push(Value::Int(left * right));
                 Ok(None)
             }
             OpCode::Divide => {
-                let right = self.pop()?;
+                let right = self.pop_int()?;
                 if right == 0 {
                     return Err(VmError::new("Division by zero"));
                 }
-                let left = self.pop()?;
-                self.stack.push(left / right);
+                let left = self.pop_int()?;
+                self.stack.push(Value::Int(left / right));
                 Ok(None)
             }
             OpCode::CompareEq => {
                 let right = self.pop()?;
                 let left = self.pop()?;
-                self.stack.push(if left == right { 1 } else { 0 });
+                self.stack.push(Value::Int(if left == right { 1 } else { 0 }));
                 Ok(None)
             }
             OpCode::CompareLt => {
-                let right = self.pop()?;
-                let left = self.pop()?;
-                self.stack.push(if left < right { 1 } else { 0 });
+                let right = self.pop_int()?;
+                let left = self.pop_int()?;
+                self.stack.push(Value::Int(if left < right { 1 } else { 0 }));
                 Ok(None)
             }
             OpCode::Emit => {
                 let value = self.pop()?;
-                self.output.push(value.to_string());
+                self.output.push(value.as_output());
                 Ok(None)
             }
             OpCode::Jump => Ok(Some(self.expect_int(instruction)? as usize)),
             OpCode::JumpIfZero => {
-                let value = self.pop()?;
+                let value = self.pop_int()?;
                 if value == 0 {
                     Ok(Some(self.expect_int(instruction)? as usize))
                 } else {
@@ -204,17 +224,17 @@ impl SanskriptVm {
         }
     }
 
-    fn lookup_name(&self, name: &str) -> Result<i64, VmError> {
+    fn lookup_name(&self, name: &str) -> Result<Value, VmError> {
         if let Some(value) = self.locals.get(name) {
-            return Ok(*value);
+            return Ok(value.clone());
         }
         self.globals
             .get(name)
-            .copied()
+            .cloned()
             .ok_or_else(|| VmError::new(format!("Unknown stored value: {name:?}")))
     }
 
-    fn store_name(&mut self, name: String, value: i64) {
+    fn store_name(&mut self, name: String, value: Value) {
         if self.locals.contains_key(&name) {
             self.locals.insert(name, value);
         } else {
@@ -222,10 +242,19 @@ impl SanskriptVm {
         }
     }
 
-    fn pop(&mut self) -> Result<i64, VmError> {
+    fn pop(&mut self) -> Result<Value, VmError> {
         self.stack
             .pop()
             .ok_or_else(|| VmError::new("Sanskript VM stack underflow"))
+    }
+
+    fn pop_int(&mut self) -> Result<i64, VmError> {
+        match self.pop()? {
+            Value::Int(value) => Ok(value),
+            Value::Text(value) => Err(VmError::new(format!(
+                "Expected integer stack value, got {value:?}"
+            ))),
+        }
     }
 
     fn expect_int(&self, instruction: &Instruction) -> Result<i64, VmError> {
@@ -247,6 +276,16 @@ impl SanskriptVm {
             ))),
         }
     }
+
+    fn expect_text(&self, instruction: &Instruction) -> Result<String, VmError> {
+        match &instruction.operand {
+            Some(Operand::Text(value)) => Ok(value.clone()),
+            _ => Err(VmError::new(format!(
+                "{:?} expected a text operand",
+                instruction.opcode
+            ))),
+        }
+    }
 }
 
 #[cfg(test)]
@@ -261,6 +300,6 @@ mod tests {
         let mut vm = SanskriptVm::new();
         let output = vm.execute(program).expect("execute");
         assert_eq!(output, vec!["7".to_string()]);
-        assert_eq!(vm.globals.get("phala"), Some(&7));
+        assert_eq!(vm.globals.get("phala"), Some(&Value::Int(7)));
     }
 }

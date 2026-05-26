@@ -1,11 +1,11 @@
 import unittest
 from pathlib import Path
 
-from sanskript.ast import Assign, Display, Increase, Literal, Reference
+from sanskript.ast import Assign, Display, Increase, Literal, Reference, TextLiteral
 from sanskript.bytecode import Instruction, OpCode, encode_program, validate_bytecode
 from sanskript.compiler import compile_source, compile_statements, compile_statements_to_ir, lower_ir_to_bytecode
 from sanskript.interpreter import Interpreter
-from sanskript.ir import IREmit, IRIncrease, IRLiteral, IRProgram, IRReference, IRStore
+from sanskript.ir import IREmit, IRIncrease, IRLiteral, IRProgram, IRReference, IRStore, IRTextLiteral
 from sanskript.vm import SanskriptVM
 
 
@@ -78,6 +78,37 @@ class CompilerVmTests(unittest.TestCase):
         self.assertEqual(vm.environment["phala"], 7)
         self.assertEqual(vm.stack, [])
 
+    def test_text_values_compile_and_execute(self) -> None:
+        program = compile_statements_to_ir(
+            [
+                Assign("vākya", TextLiteral("svāgatam mitra")),
+                Display(Reference("vākya")),
+            ]
+        )
+
+        self.assertEqual(
+            program.instructions,
+            (
+                IRStore("vākya", IRTextLiteral("svāgatam mitra")),
+                IREmit(IRReference("vākya")),
+            ),
+        )
+
+        bytecode = lower_ir_to_bytecode(program)
+        self.assertIn(Instruction(OpCode.PUSH_TEXT, "svāgatam mitra"), bytecode.instructions)
+        vm = SanskriptVM()
+        self.assertEqual(vm.execute(bytecode), ["svāgatam mitra"])
+        self.assertEqual(vm.environment["vākya"], "svāgatam mitra")
+
+    def test_text_source_uses_iti_prose_not_quote_syntax(self) -> None:
+        source = """
+        vākyam svāgatam mitra iti phale nidadhāti.
+        gaṇakaḥ phalaṃ darśayati.
+        vākyam punaḥ svāgatam iti darśayati.
+        """
+
+        self.assertEqual(SanskriptVM().execute(compile_source(source)), ["svāgatam mitra", "punaḥ svāgatam"])
+
     def test_source_compiles_to_bytecode(self) -> None:
         source = """
         gaṇakaḥ pañca phale nidadhāti.
@@ -98,6 +129,7 @@ class CompilerVmTests(unittest.TestCase):
             "saptama-while.ssk": ["2"],
             "aṣṭama-vidhānam.ssk": ["11"],
             "navama-kṣetram.ssk": ["11"],
+            "dashama-vakyam.ssk": ["svāgatam mitra"],
         }
         for filename, output in expected.items():
             with self.subTest(filename=filename):

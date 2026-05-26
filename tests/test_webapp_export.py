@@ -56,6 +56,19 @@ class WebAppExportTests(unittest.TestCase):
             self.assertIn("sanskript-program", text)
             self.assertIn('"op": "emit"', text)
 
+    def test_web_runner_supports_text_bytecode(self) -> None:
+        program = compile_source(
+            """
+            vākyam svāgatam mitra iti phale nidadhāti.
+            gaṇakaḥ phalaṃ darśayati.
+            """
+        )
+        html = render_web_app(program, title="Text")
+
+        self.assertIn('"op": "push_text"', html)
+        self.assertIn("svāgatam mitra", html)
+        self.assertIn("case \"push_text\"", html)
+
 
 if __name__ == "__main__":
     unittest.main()

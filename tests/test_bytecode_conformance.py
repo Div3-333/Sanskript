@@ -76,6 +76,10 @@ class BytecodeConformanceTests(unittest.TestCase):
         instruction = instruction_from_dict(raw)
         self.assertEqual(instruction, Instruction(OpCode.PUSH_INT, 42))
 
+        text_raw = {"op": "push_text", "operand": "svāgatam"}
+        text_instruction = instruction_from_dict(text_raw)
+        self.assertEqual(text_instruction, Instruction(OpCode.PUSH_TEXT, "svāgatam"))
+
     def test_rejects_unknown_opcode(self) -> None:
         with self.assertRaises(BytecodeValidationError):
             instruction_from_dict({"op": "jump", "operand": 0}, allowed=frozenset({"halt"}))
@@ -83,6 +87,10 @@ class BytecodeConformanceTests(unittest.TestCase):
     def test_rejects_push_int_without_operand(self) -> None:
         with self.assertRaises(BytecodeValidationError):
             instruction_from_dict({"op": "push_int"})
+
+    def test_rejects_push_text_with_non_string_operand(self) -> None:
+        with self.assertRaises(BytecodeValidationError):
+            instruction_from_dict({"op": "push_text", "operand": 12})
 
     def test_rejects_halt_with_operand(self) -> None:
         with self.assertRaises(BytecodeValidationError):

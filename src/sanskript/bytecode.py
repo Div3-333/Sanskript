@@ -12,9 +12,10 @@ BYTECODE_VERSION_1 = 1
 BYTECODE_VERSION_2 = 2
 BYTECODE_LATEST = BYTECODE_VERSION_2
 
-# Operand kinds: None, "int", "name", "label"
+# Operand kinds: None, "int", "text", "name", "label"
 _OPERAND_KIND: dict[str, str | None] = {
     "push_int": "int",
+    "push_text": "text",
     "load_name": "name",
     "store_name": "name",
     "add": None,
@@ -34,6 +35,7 @@ _OPERAND_KIND: dict[str, str | None] = {
 
 _STACK_EFFECT: dict[str, tuple[int, int]] = {
     "push_int": (0, 1),
+    "push_text": (0, 1),
     "load_name": (0, 1),
     "store_name": (1, 0),
     "add": (2, 1),
@@ -58,6 +60,7 @@ _V1_OPCODES = frozenset(
 
 class OpCode(str, Enum):
     PUSH_INT = "push_int"
+    PUSH_TEXT = "push_text"
     LOAD_NAME = "load_name"
     STORE_NAME = "store_name"
     ADD = "add"
@@ -145,6 +148,11 @@ def instruction_from_dict(raw: dict[str, Any], *, allowed: frozenset[str] | None
             raise BytecodeValidationError(
                 f"{opcode.value} operand must be an integer, got {operand!r}"
             )
+        return Instruction(opcode, operand)
+
+    if kind == "text":
+        if not isinstance(operand, str):
+            raise BytecodeValidationError(f"{opcode.value} operand must be a string")
         return Instruction(opcode, operand)
 
     if kind == "name":
@@ -368,6 +376,10 @@ def _validate_instruction_stream(
         ):
             raise BytecodeValidationError(
                 f"Instruction {index} ({opcode}) requires an integer operand"
+            )
+        if kind == "text" and not isinstance(instruction.operand, str):
+            raise BytecodeValidationError(
+                f"Instruction {index} ({opcode}) requires a string operand"
             )
         if kind == "name" and (not isinstance(instruction.operand, str) or not instruction.operand):
             raise BytecodeValidationError(

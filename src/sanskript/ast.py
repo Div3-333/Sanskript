@@ -10,11 +10,16 @@ class Literal:
 
 
 @dataclass(frozen=True)
+class TextLiteral:
+    value: str
+
+
+@dataclass(frozen=True)
 class Reference:
     name: str
 
 
-Value = Union[Literal, Reference]
+Value = Union[Literal, TextLiteral, Reference]
 
 
 @dataclass(frozen=True)

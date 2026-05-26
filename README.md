@@ -76,6 +76,13 @@ $env:PYTHONPATH='src'; python -m sanskript run C:\tmp\caturtha.sskyp
 
 Yantra-pāṭha sentences avoid braces, semicolons, symbolic operators, and Python/C-style expression syntax. A machine instruction is rendered as formal Sanskrit meta-prose, such as `pañca iti pūrṇāṅkaḥ nikṣipyate.` or `phala iti nāma āhriyate.`.
 
+Text values are now part of the executable language without quote syntax:
+
+```text
+vākyam svāgatam mitra iti phale nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+```
+
 Export a first static browser app:
 
 ```powershell
@@ -115,6 +122,8 @@ The command-line toolchain now has a split compile/run boundary: `.ssk` source c
 The bytecode layer now has a reversible Sanskrit-prose yantra-pāṭha form (`.sskyp`): `.sskbc` can be disassembled into prose, assembled back into bytecode, and run directly. This is the first bootstrapping step toward a future self-hosted VM written in Sanskript itself, while keeping the user-facing and human-readable layers aligned with the no-trench-coat design promise.
 
 Functions now have argument passing and local parameter binding across source, AST, IR, bytecode, the Python VM, the Rust VM scaffold, and yantra-pāṭha. Source keeps the prose shape, for example `vidhānam sthāpaya balaṃ.` and `āhvānam sthāpaya pañca.` rather than symbolic call syntax.
+
+The runtime value model now supports integers and text. Text uses the Sanskrit quotative `iti` at the source layer and `push_text`/`... iti vākyam nikṣipyate.` at the bytecode and yantra-pāṭha layers. This is the first non-numeric value family and the base for user-facing web output.
 
 Sanskript also has an initial static web export command (`sanskript web`) that packages compiled bytecode into a browser runner. This is not yet a full web framework, but it establishes the browser execution target needed for later UI, DOM, state, and event APIs.
 

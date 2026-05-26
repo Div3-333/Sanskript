@@ -1,6 +1,6 @@
 import unittest
 
-from sanskript.ast import Assign, Call, Display, FunctionDef, Literal, Program, Reference, Return
+from sanskript.ast import Assign, Call, Display, FunctionDef, Literal, Program, Reference, Return, TextLiteral
 from sanskript.bytecode import decode_program, encode_program, qualified_function_name
 from sanskript.compiler import compile_program
 from sanskript.vm import SanskriptVM
@@ -139,3 +139,20 @@ class FunctionModuleTests(unittest.TestCase):
 
         self.assertEqual(restored.functions[0].params, ("mūlya",))
         self.assertEqual(SanskriptVM().execute(restored), ["12"])
+
+    def test_function_parameters_accept_text_values(self) -> None:
+        program = Program(
+            statements=(
+                Call("sthāpaya", args=(TextLiteral("svāgatam mitra"),)),
+                Display(Reference("phala")),
+            ),
+            functions=(
+                FunctionDef(
+                    "sthāpaya",
+                    (Assign("phala", Reference("vākya")),),
+                    params=("vākya",),
+                ),
+            ),
+        )
+
+        self.assertEqual(SanskriptVM().execute(compile_program(program)), ["svāgatam mitra"])
