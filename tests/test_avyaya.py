@@ -25,6 +25,15 @@ class AvyayaTests(unittest.TestCase):
         self.assertEqual(analyses["na"].indeclinable_kind, IndeclinableKind.NEGATION)
         self.assertGreater(len(analyses), len(AVYAYA_FORMS))
 
+    def test_example_identifiers_are_not_registered_as_avyaya(self) -> None:
+        surfaces = {form.surface for form in AVYAYA_FORMS}
+
+        for surface in ("a", "x", "n", "greet", "counter", "trace", "namaste", "surakṣitam"):
+            with self.subTest(surface=surface):
+                self.assertNotIn(surface, surfaces)
+                with self.assertRaises(ValueError):
+                    avyaya_for(surface)
+
 
 if __name__ == "__main__":
     unittest.main()

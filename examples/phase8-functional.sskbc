@@ -1,0 +1,259 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "list_map",
+      "operand": "dviguṇa"
+    },
+    {
+      "op": "store_name",
+      "operand": "dviguṇitaṃ"
+    },
+    {
+      "op": "load_name",
+      "operand": "dviguṇitaṃ"
+    },
+    {
+      "op": "list_filter",
+      "operand": "catvārāt-adhikaḥ"
+    },
+    {
+      "op": "store_name",
+      "operand": "cayanam"
+    },
+    {
+      "op": "load_name",
+      "operand": "cayanam"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "list_reduce",
+      "operand": "saṅkalanam"
+    },
+    {
+      "op": "store_name",
+      "operand": "yogaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "cayanam"
+    },
+    {
+      "op": "list_all",
+      "operand": "dhanaḥ"
+    },
+    {
+      "op": "store_name",
+      "operand": "sarve-dhanāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "yogaḥ"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "sarve-dhanāḥ"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "functions": [
+    {
+      "name": "dviguṇa",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "mūlya"
+        },
+        {
+          "op": "push_int",
+          "operand": 2
+        },
+        {
+          "op": "multiply"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "mūlya"
+      ],
+      "defaults": [
+        null
+      ]
+    },
+    {
+      "name": "catvārāt-adhikaḥ",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "mūlya"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "mūlya"
+      ],
+      "defaults": [
+        null
+      ]
+    },
+    {
+      "name": "saṅkalanam",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "prathama"
+        },
+        {
+          "op": "load_name",
+          "operand": "dvitīya"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "prathama",
+        "dvitīya"
+      ],
+      "defaults": [
+        null,
+        null
+      ]
+    },
+    {
+      "name": "dhanaḥ",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "mūlya"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "mūlya"
+      ],
+      "defaults": [
+        null
+      ]
+    }
+  ]
+}

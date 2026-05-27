@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pypdf
+
+      - name: Generate Phase 0 artifacts
+        env:
+          PYTHONPATH: src
+        run: |
+          python tools/generate_feature_matrix.py
+          python tools/generate_module_inventory.py
+          python tools/generate_independence_dashboard.py
+
+      - name: Phase 0 truth gates
+        env:
+          PYTHONPATH: src
+        run: |
+          python tools/check_feature_completion.py
+          python tools/check_no_placeholder_completion.py
+
+      - name: Python unit tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -q
+
+      - name: Canon completion gate
+        env:
+          PYTHONPATH: src
+        run: python tools/check_canon_completion.py
+        continue-on-error: true
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust VM tests
+        working-directory: ssk-vm
+        run: cargo test

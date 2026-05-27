@@ -47,6 +47,7 @@ class TypeCategory(str, Enum):
     IO = "io"
     META = "meta"
     SPECIAL = "special"
+    ASYNC = "async"
 
 
 @dataclass(frozen=True)

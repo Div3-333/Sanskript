@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "i32"
+    },
+    {
+      "op": "store_name",
+      "operand": "prakāra_nāma"
+    },
+    {
+      "op": "push_int",
+      "operand": 42
+    },
+    {
+      "op": "store_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "load_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "store_name",
+      "operand": "lekhā"
+    },
+    {
+      "op": "load_name",
+      "operand": "prakāra_nāma"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "functions": [
+    {
+      "name": "dviguṇa",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "a"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "a",
+        "b"
+      ],
+      "defaults": [
+        null,
+        null
+      ],
+      "effect": "pure"
+    }
+  ]
+}

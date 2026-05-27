@@ -1,0 +1,287 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_nil"
+    },
+    {
+      "op": "store_name",
+      "operand": "eka"
+    },
+    {
+      "op": "class_new",
+      "operand": "Dīpakaḥ"
+    },
+    {
+      "op": "store_name",
+      "operand": "dīpa"
+    },
+    {
+      "op": "load_name",
+      "operand": "dīpa"
+    },
+    {
+      "op": "push_text",
+      "operand": "Dīpakaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "__mro__"
+    },
+    {
+      "op": "record_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "dīpa"
+    },
+    {
+      "op": "load_name",
+      "operand": "dīpa"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "method_call",
+      "operand": "__init__"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "dīpa"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "method_call",
+      "operand": "vardhaya"
+    },
+    {
+      "op": "store_name",
+      "operand": "tyaktam"
+    },
+    {
+      "op": "load_name",
+      "operand": "dīpa"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "method_call",
+      "operand": "darśaya"
+    },
+    {
+      "op": "store_name",
+      "operand": "phalam"
+    },
+    {
+      "op": "load_name",
+      "operand": "phalam"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "functions": [
+    {
+      "name": "Dīpakaḥ__init__",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "push_text",
+          "operand": "__class__"
+        },
+        {
+          "op": "push_text",
+          "operand": "Dīpakaḥ"
+        },
+        {
+          "op": "record_set"
+        },
+        {
+          "op": "store_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "push_text",
+          "operand": "jyoti"
+        },
+        {
+          "op": "load_name",
+          "operand": "prārambhaḥ"
+        },
+        {
+          "op": "record_set"
+        },
+        {
+          "op": "store_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "svayam",
+        "prārambhaḥ"
+      ],
+      "defaults": [
+        null,
+        null
+      ]
+    },
+    {
+      "name": "Dīpakaḥ__vardhaya",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "push_text",
+          "operand": "jyoti"
+        },
+        {
+          "op": "record_get"
+        },
+        {
+          "op": "store_name",
+          "operand": "pūrvaṃ"
+        },
+        {
+          "op": "load_name",
+          "operand": "pūrvaṃ"
+        },
+        {
+          "op": "load_name",
+          "operand": "mātṛ"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "store_name",
+          "operand": "navam"
+        },
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "push_text",
+          "operand": "jyoti"
+        },
+        {
+          "op": "load_name",
+          "operand": "navam"
+        },
+        {
+          "op": "record_set"
+        },
+        {
+          "op": "store_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "svayam",
+        "mātṛ"
+      ],
+      "defaults": [
+        null,
+        null
+      ]
+    },
+    {
+      "name": "Dīpakaḥ__darśaya",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "svayam"
+        },
+        {
+          "op": "push_text",
+          "operand": "jyoti"
+        },
+        {
+          "op": "record_get"
+        },
+        {
+          "op": "store_name",
+          "operand": "jyoti"
+        },
+        {
+          "op": "load_name",
+          "operand": "jyoti"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "svayam"
+      ],
+      "defaults": [
+        null
+      ]
+    }
+  ]
+}

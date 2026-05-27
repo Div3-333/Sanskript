@@ -1,0 +1,20 @@
+// Phase 3: values and data types (controlled-register directives)
+
+ati-pūrṇāṅka big asti 9007199254740991.
+saṅkhyā8 byte asti 127.
+saṅkhyā32 word asti 42.
+vikalpam opt asti 7.
+vikalpam empty śūnyam.
+phalam res siddha 42.
+yugmam pair 1 2.
+saṅgrahaḥ tags 1 2 3.
+akṣarāṇi buf 48656c6c6f.
+
+darśanam big.
+darśanam byte.
+darśanam word.
+darśanam opt.
+darśanam empty.
+darśanam res.
+darśanam pair.
+darśanam buf.

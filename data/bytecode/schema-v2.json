@@ -3,7 +3,10 @@
   "$id": "https://sanskript.dev/schemas/bytecode-v2.json",
   "title": "Sanskript Bytecode v2",
   "type": "object",
-  "required": ["version", "instructions"],
+  "required": [
+    "version",
+    "instructions"
+  ],
   "additionalProperties": false,
   "properties": {
     "version": {
@@ -13,107 +16,445 @@
     "instructions": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/instruction" }
+      "items": {
+        "$ref": "#/$defs/instruction"
+      }
     },
     "functions": {
       "type": "array",
-      "items": { "$ref": "#/$defs/function" }
+      "items": {
+        "$ref": "#/$defs/function"
+      }
     },
     "modules": {
       "type": "array",
-      "items": { "$ref": "#/$defs/module" }
+      "items": {
+        "$ref": "#/$defs/module"
+      }
     },
     "safety_tier": {
       "type": "string",
-      "enum": ["surakshita", "rakshita", "arakshita"]
+      "enum": [
+        "surakshita",
+        "rakshita",
+        "arakshita"
+      ]
     }
   },
   "$defs": {
     "instruction": {
       "type": "object",
-      "required": ["op"],
+      "required": [
+        "op"
+      ],
       "additionalProperties": false,
       "properties": {
         "op": {
           "type": "string",
           "enum": [
-            "push_int",
-            "push_text",
-            "push_bool",
-            "text_concat",
-            "text_len",
-            "text_get",
-            "text_slice",
-            "text_contains",
-            "list_new",
-            "list_append",
-            "list_len",
-            "list_get",
-            "map_new",
-            "map_set",
-            "map_get",
-            "map_contains",
-            "record_new",
-            "record_set",
-            "record_get",
-            "record_contains",
-            "push_float",
-            "heap_alloc",
-            "heap_store",
-            "heap_load",
-            "heap_free",
-            "unsafe_enter",
-            "unsafe_exit",
-            "load_name",
-            "store_name",
             "add",
-            "subtract",
-            "multiply",
-            "divide",
+            "array_new",
+            "byte_get",
+            "byte_len",
+            "byte_new",
+            "bytearray_get",
+            "bytearray_new",
+            "bytearray_set",
+            "call",
+            "tail_call",
             "compare_eq",
+            "compare_gt",
+            "compare_identity",
+            "compare_le",
             "compare_lt",
+            "compare_ne",
+            "complex_add",
+            "counter_add",
+            "counter_get",
+            "counter_new",
+            "data_query",
+            "decimal_add",
+            "default_map_get",
+            "default_map_new",
+            "default_map_set",
+            "deque_len",
+            "deque_new",
+            "deque_pop_back",
+            "deque_pop_front",
+            "deque_push_back",
+            "deque_push_front",
+            "divide",
             "emit",
+            "enum_new",
+            "float_is_inf",
+            "float_is_nan",
+            "frozen_set_add",
+            "frozen_set_len",
+            "frozen_set_new",
+            "generator_new",
+            "generator_next",
+            "generator_yield",
+            "graph_add_edge",
+            "graph_has_edge",
+            "graph_new",
+            "halt",
+            "handle_new",
+            "heap_alloc",
+            "heap_free",
+            "heap_load",
+            "heap_new",
+            "heap_pop",
+            "heap_push",
+            "heap_store",
+            "i128_add_checked",
+            "i128_add_saturating",
+            "i128_add_wrapping",
+            "i16_add_checked",
+            "i16_add_saturating",
+            "i16_add_wrapping",
+            "i32_add_checked",
+            "i32_add_saturating",
+            "i32_add_wrapping",
+            "i64_add_checked",
+            "i64_add_saturating",
+            "i64_add_wrapping",
+            "i8_add_checked",
+            "i8_add_saturating",
+            "i8_add_wrapping",
+            "immutable_list_append",
+            "immutable_list_get",
+            "immutable_list_len",
+            "immutable_list_new",
+            "isize_add_checked",
+            "isize_add_saturating",
+            "isize_add_wrapping",
             "jump",
             "jump_if_zero",
-            "call",
-            "return",
+            "lazy_iter_new",
+            "lazy_iter_next",
+            "list_any",
+            "list_append",
+            "list_comprehension",
+            "list_enumerate",
+            "list_get",
+            "list_len",
+            "list_new",
+            "list_scan",
+            "list_zip",
+            "load_name",
+            "map_contains",
+            "map_get",
+            "map_new",
+            "map_set",
+            "match_expr",
+            "memo_call",
+            "multiply",
+            "named_tuple_get",
+            "named_tuple_new",
+            "opaque_new",
+            "option_is_some",
+            "option_none",
+            "option_some",
+            "option_unwrap",
+            "ordered_map_get",
+            "ordered_map_new",
+            "ordered_map_set",
+            "panic",
+            "pipeline_chain",
             "pop",
-            "halt"
+            "pq_new",
+            "pq_pop",
+            "pq_push",
+            "push_bigint",
+            "push_bool",
+            "push_bytes",
+            "push_complex",
+            "push_decimal",
+            "push_float",
+            "push_i128",
+            "push_i16",
+            "push_i32",
+            "push_i64",
+            "push_i8",
+            "push_int",
+            "push_isize",
+            "push_nil",
+            "push_rational",
+            "push_scalar",
+            "push_text",
+            "push_u128",
+            "push_u16",
+            "push_u32",
+            "push_u64",
+            "push_u8",
+            "push_usize",
+            "queue_dequeue",
+            "queue_enqueue",
+            "queue_new",
+            "rational_add",
+            "record_contains",
+            "record_get",
+            "record_new",
+            "record_set",
+            "result_bind",
+            "result_err",
+            "result_is_ok",
+            "result_ok",
+            "result_unwrap_err",
+            "result_unwrap_ok",
+            "return",
+            "rule_invoke",
+            "rule_register",
+            "scope_enter",
+            "scope_exit",
+            "set_add",
+            "set_contains",
+            "set_len",
+            "set_new",
+            "slice_view",
+            "stack_new",
+            "stack_pop",
+            "stack_push",
+            "store_name",
+            "subtract",
+            "tagged_union_new",
+            "tagged_union_payload",
+            "tagged_union_tag",
+            "text_concat",
+            "text_contains",
+            "text_get",
+            "text_grapheme_len",
+            "text_len",
+            "text_scalar_at",
+            "text_slice",
+            "throw",
+            "tree_contains",
+            "tree_insert",
+            "tree_new",
+            "try_begin",
+            "try_end",
+            "tuple_get",
+            "tuple_new",
+            "typed_error_new",
+            "u128_add_checked",
+            "u128_add_saturating",
+            "u128_add_wrapping",
+            "u16_add_checked",
+            "u16_add_saturating",
+            "u16_add_wrapping",
+            "u32_add_checked",
+            "u32_add_saturating",
+            "u32_add_wrapping",
+            "u64_add_checked",
+            "u64_add_saturating",
+            "u64_add_wrapping",
+            "u8_add_checked",
+            "u8_add_saturating",
+            "u8_add_wrapping",
+            "unsafe_enter",
+            "unsafe_exit",
+            "usize_add_checked",
+            "usize_add_saturating",
+            "usize_add_wrapping"
           ]
         },
         "operand": {}
       },
       "allOf": [
         {
-          "if": { "properties": { "op": { "enum": ["push_int", "push_bool"] } } },
-          "then": { "required": ["operand"], "properties": { "operand": { "type": "integer" } } }
-        },
-        {
-          "if": { "properties": { "op": { "const": "push_text" } } },
-          "then": { "required": ["operand"], "properties": { "operand": { "type": "string" } } }
-        },
-        {
-          "if": { "properties": { "op": { "const": "push_float" } } },
-          "then": { "required": ["operand"], "properties": { "operand": { "type": "number" } } }
-        },
-        {
           "if": {
             "properties": {
-              "op": { "enum": ["load_name", "store_name", "call"] }
+              "op": {
+                "enum": [
+                  "push_int",
+                  "push_bool",
+                  "push_bigint",
+                  "push_i32",
+                  "push_u32",
+                  "tuple_new",
+                  "array_new"
+                ]
+              }
             }
           },
           "then": {
-            "required": ["operand"],
-            "properties": { "operand": { "type": "string", "minLength": 1 } }
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "integer"
+              }
+            }
           }
         },
         {
           "if": {
-            "properties": { "op": { "enum": ["jump", "jump_if_zero"] } }
+            "properties": {
+              "op": {
+                "enum": [
+                  "push_text",
+                  "push_bytes"
+                ]
+              }
+            }
           },
           "then": {
-            "required": ["operand"],
-            "properties": { "operand": { "type": "integer" } }
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "tuple_get"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "push_text",
+                  "push_bytes"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "push_nil"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "operand"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "push_float"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "load_name",
+                  "store_name",
+                  "call",
+            "tail_call",
+                  "opaque_new"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "jump",
+                  "jump_if_zero",
+                  "try_begin"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "operand"
+            ],
+            "properties": {
+              "operand": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "throw",
+                  "panic",
+                  "try_end"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "operand"
+              ]
+            }
           }
         },
         {
@@ -138,6 +479,41 @@
                   "record_set",
                   "record_get",
                   "record_contains",
+                  "i32_add_checked",
+                  "u32_add_checked",
+                  "i32_add_wrapping",
+                  "u32_add_wrapping",
+                  "i32_add_saturating",
+                  "u32_add_saturating",
+                  "byte_new",
+                  "byte_len",
+                  "byte_get",
+                  "bytearray_new",
+                  "bytearray_set",
+                  "bytearray_get",
+                  "set_new",
+                  "set_add",
+                  "set_contains",
+                  "set_len",
+                  "deque_new",
+                  "deque_push_back",
+                  "deque_push_front",
+                  "deque_pop_back",
+                  "deque_pop_front",
+                  "deque_len",
+                  "option_none",
+                  "option_some",
+                  "option_is_some",
+                  "option_unwrap",
+                  "result_ok",
+                  "result_err",
+                  "result_is_ok",
+                  "result_unwrap_ok",
+                  "result_unwrap_err",
+                  "text_grapheme_len",
+                  "float_is_nan",
+                  "float_is_inf",
+                  "slice_view",
                   "heap_alloc",
                   "heap_store",
                   "heap_load",
@@ -149,7 +525,12 @@
                   "multiply",
                   "divide",
                   "compare_eq",
+                  "compare_ne",
                   "compare_lt",
+                  "compare_gt",
+                  "compare_le",
+                  "compare_identity",
+                  "push_nil",
                   "emit",
                   "return",
                   "pop",
@@ -158,38 +539,63 @@
               }
             }
           },
-          "then": { "not": { "required": ["operand"] } }
+          "then": {
+            "not": {
+              "required": [
+                "operand"
+              ]
+            }
+          }
         }
       ]
     },
     "function": {
       "type": "object",
-      "required": ["name", "instructions"],
+      "required": [
+        "name",
+        "instructions"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
         "params": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 },
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
           "uniqueItems": true
         },
         "instructions": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/instruction" }
+          "items": {
+            "$ref": "#/$defs/instruction"
+          }
         }
       }
     },
     "module": {
       "type": "object",
-      "required": ["name", "functions"],
+      "required": [
+        "name",
+        "functions"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
         "functions": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/function" }
+          "items": {
+            "$ref": "#/$defs/function"
+          }
         }
       }
     }

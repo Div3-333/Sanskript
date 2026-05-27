@@ -25,7 +25,7 @@ The catalog is **normative for design** and **descriptive for implementation**: 
 | Status | Types (examples) |
 | --- | --- |
 | **implemented** | `text` (`vākyam … iti`, `push_text`) |
-| **partial** | `i32` / `bigint` (host `int`), `bool` (`push_bool`), `text` (`text_*` opcodes), `list` (`list_*` opcodes), `hash_map` (`map_*` opcodes), `object` (`record_*` opcodes), `callable`, `module` |
+| **partial** | `i32` / `u32` (tagged widths + checked/wrapping/saturating add), `bigint` (`push_bigint`), `bool`, `text` (`text_*`, `text_grapheme_len` stub), `optional` / `result`, `tuple`, `hash_set`, `deque`, `bytes` / `bytearray`, `array` / `slice` substrates, `list`, `hash_map`, `object`, IEEE `float_is_nan` / `float_is_inf`, `decimal` / `complex128` catalog stubs |
 | **planned** | Remaining catalog entries (see JSON) |
 
 Collection opcodes (bytecode v2, surakṣita tier):
@@ -41,6 +41,16 @@ Collection opcodes (bytecode v2, surakṣita tier):
 | `map_get` | Pop key, map; push value |
 | `map_contains` | Pop key, map; push `1` or `0` |
 | `push_bool` | Push `true` / `false` (operand `0` or `1`) |
+| `push_bigint` / `push_i32` / `push_u32` | Tagged numeric widths |
+| `i32_add_checked` / `u32_add_checked` | Checked add with overflow error |
+| `option_*` / `result_*` | Option and Result VM values |
+| `tuple_new` / `tuple_get` | Fixed-arity tuples |
+| `set_*` / `deque_*` | Set and deque collections |
+| `push_bytes` / `byte_*` / `bytearray_*` | Immutable and mutable bytes |
+| `text_grapheme_len` | Scalar-length stub (grapheme clusters planned) |
+| `float_is_nan` / `float_is_inf` | IEEE float classification |
+| `opaque_new` | Native interop handle substrate |
+| `array_new` / `slice_view` | Fixed array and slice substrates |
 
 ## Category inventory
 

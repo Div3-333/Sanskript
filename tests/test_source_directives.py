@@ -40,7 +40,7 @@ class SourceDirectiveTests(unittest.TestCase):
             (EXAMPLES / "navama-kṣetram.ssk").read_text(encoding="utf-8")
         )
         self.assertEqual(len(mod_program.modules), 1)
-        self.assertEqual(mod_program.modules[0][0], "gaṇita")
+        self.assertEqual(mod_program.modules[0].name, "gaṇita")
         calls = [s for s in mod_program.statements if isinstance(s, Call)]
         self.assertEqual(len(calls), 1)
         self.assertEqual(calls[0].module, "gaṇita")
@@ -106,7 +106,7 @@ class SourceDirectiveTests(unittest.TestCase):
         gaṇakaḥ phalaṃ darśayati.
         """
         program = parse_program(source)
-        function = program.modules[0][1][0]
+        function = program.modules[0].functions[0]
 
         self.assertEqual(function.params, ("bala",))
         self.assertEqual(SanskriptVM().execute(compile_source(source)), ["7"])

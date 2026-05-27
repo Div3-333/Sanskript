@@ -6,13 +6,18 @@ The working name is Sanskript. The spelling is intentionally project-like, but t
 
 ## Input Script
 
-The first implementation accepts IAST transliteration. This keeps the compiler small while we design the grammar.
+The compiler accepts **IAST, Devanagari, Harvard-Kyoto, and SLP1** and normalizes all of them to canonical IAST before parsing (`script_normalize.py`, `source_pipeline.py`). Diagnostics can render the user’s script back via reversible transliteration.
 
-Planned script layers:
+| Layer | Module | Notes |
+| --- | --- | --- |
+| Canonical IAST | `script_normalize.normalize_to_iast` | Internal compile form |
+| Devanagari | `transliteration.devanagari_to_iast` | Manuscripts and teaching |
+| Harvard-Kyoto / SLP1 | `script_normalize` | ASCII corpora and lexica |
+| Comments | `comments.strip_comments` | `//`, `(* … *)`, `व्याख्या` |
+| Formatter / linter | `formatter`, `linter` | Layout not semantic |
+| Style | [style-guide.md](style-guide.md) | Prose register |
 
-1. IAST canonical input.
-2. Devanagari input normalized to the same internal representation.
-3. Optional ASCII development aliases only for tests and tooling, never as the literary standard.
+Directives: `śikṣām` (learning hints), `paninianam` / `sandhīnam` (strict morphology and sandhi segmentation). See [style-guide.md](style-guide.md).
 
 ## Program Form
 
@@ -47,6 +52,20 @@ The compiler recovers these roles from analyzed word forms. The current subset i
 | karma | accusative | `phalaṃ` | acted-on object |
 | karaṇa | instrumental | `dvābhyāṃ` | means or increment |
 | adhikaraṇa | locative | `phale` | storage location |
+
+## Phase 7 OOP Layer
+
+Phase 7 introduces a complete object-oriented layer using record-backed instances:
+
+- `vargaḥ` declares classes (fields, visibility, inheritance, mixins, traits, static/class methods).
+- `nirmāṇam` constructs instances, sets `__mro__`, and invokes `<Class>__init__` when available.
+- `paddhati-āhvānam` performs dynamic dispatch along the MRO with overload-aware resolution.
+- `sthira-paddhati-āhvānam` / `varga-paddhati-āhvānam` for static and class methods.
+- `guṇa-āharaṇam`, `antima-saṃskāraṃ`, and reflection directives for properties, finalizers, and introspection.
+
+This remains within the existing semantic pipeline (`AST -> IR -> bytecode -> VM`)
+and reuses the `RecordValue` substrate for runtime storage.
+See [object-oriented.md](object-oriented.md) for full usage and Python/Rust migration notes.
 
 The role mapping is intentionally attached to verb frames. Case alone is not enough for a mature Sanskrit parser.
 
@@ -143,15 +162,11 @@ This gives `6.2` through `6.4` useful runtime scaffolding while keeping the trut
 
 ## Sandhi
 
-Sandhi is currently normalized lightly, not fully enforced. The language should eventually support stricter modes:
-
-- `learning`: accept separated words and report suggested sandhi.
-- `strict`: require grammatical external sandhi where appropriate.
-- `analysis`: show the split, rule, and semantic role analysis.
+Sandhi segmentation is available when `sandhīnam.` or `paninianam.` is declared (or `SANSKRIPT_STRICT=1`): `source_pipeline` uses `sandhi.join_words` to split over-joined tokens before morphology. Learning mode (`śikṣām` or `SANSKRIPT_LEARNING=1`) adds hints without relaxing compile rules.
 
 ## Error Philosophy
 
-Errors should be grammatical first, computational second.
+Errors should be grammatical first, computational second. Parse and morphology errors carry `SourceSpan` and optional `original_script` (`errors.py`, `source_context.py`).
 
 Good:
 

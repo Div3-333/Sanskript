@@ -1,0 +1,13 @@
+[package]
+name = "phase9-demo"
+version = "1.0.0"
+
+[features]
+json = true
+
+[dependencies.local]
+helper = { path = "lib/helper.ssk" }
+
+[namespace]
+stdlib = "stdlib"
+user = "lib"

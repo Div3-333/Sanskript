@@ -31,10 +31,18 @@
       "id": "TY-VOID",
       "name": "void",
       "category": "scalar",
-      "c_types": ["void"],
-      "python_types": ["None (as statement result)"],
+      "c_types": [
+        "void"
+      ],
+      "python_types": [
+        "None (as statement result)"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "śūnyatā / absence as completed action",
       "bytecode_tag": null
     },
@@ -42,11 +50,20 @@
       "id": "TY-BOOL",
       "name": "bool",
       "category": "scalar",
-      "c_types": ["bool", "_Bool"],
-      "python_types": ["bool"],
+      "c_types": [
+        "bool",
+        "_Bool"
+      ],
+      "python_types": [
+        "bool"
+      ],
       "implementation": "partial",
       "notes": "push_bool opcode; source literals planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "satyam / asatyam or dvividhaṃ tattvam",
       "bytecode_tag": "bool"
     },
@@ -54,10 +71,20 @@
       "id": "TY-CHAR",
       "name": "char",
       "category": "scalar",
-      "c_types": ["char", "signed char", "unsigned char"],
-      "python_types": ["str (length-1)"],
+      "c_types": [
+        "char",
+        "signed char",
+        "unsigned char"
+      ],
+      "python_types": [
+        "str (length-1)"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "akṣara as scalar unit",
       "bytecode_tag": "char"
     },
@@ -65,44 +92,88 @@
       "id": "TY-BYTE",
       "name": "byte",
       "category": "scalar",
-      "c_types": ["uint8_t", "unsigned char"],
-      "python_types": ["int (0-255)"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "uint8_t",
+        "unsigned char"
+      ],
+      "python_types": [
+        "int (0-255)"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "aṅkaka / octet",
-      "bytecode_tag": "u8"
+      "bytecode_tag": "u8",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-I8",
       "name": "i8",
       "category": "scalar",
-      "c_types": ["int8_t"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "int8_t"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "saṅkhyā laghu aṣṭaka",
-      "bytecode_tag": "i8"
+      "bytecode_tag": "i8",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-I16",
       "name": "i16",
       "category": "scalar",
-      "c_types": ["int16_t"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "int16_t"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "saṅkhyā ṣoḍaśaka",
-      "bytecode_tag": "i16"
+      "bytecode_tag": "i16",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-I32",
       "name": "i32",
       "category": "scalar",
-      "c_types": ["int", "int32_t"],
-      "python_types": ["int"],
+      "c_types": [
+        "int",
+        "int32_t"
+      ],
+      "python_types": [
+        "int"
+      ],
       "implementation": "partial",
-      "notes": "VM uses unbounded Python int; fixed i32 is a planned narrowing",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "push_i32, i32_add_checked, i32_add_wrapping, i32_add_saturating",
+        "helpers": "checked_i32_add, wrap_i32, clamp_i32",
+        "yantra_patha": "saṅkhyā-lagu nikṣipyate",
+        "ssk_source": "pending grammar registration",
+        "webapp_js": "implemented (__sanskriptI32 tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "pūrṇāṅka / saṅkhyā",
       "bytecode_tag": "i32"
     },
@@ -110,82 +181,165 @@
       "id": "TY-I64",
       "name": "i64",
       "category": "scalar",
-      "c_types": ["int64_t", "long long"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "int64_t",
+        "long long"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "saṅkhyā caturaṣītika",
-      "bytecode_tag": "i64"
+      "bytecode_tag": "i64",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-ISIZE",
       "name": "isize",
       "category": "scalar",
-      "c_types": ["intptr_t", "ptrdiff_t"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "intptr_t",
+        "ptrdiff_t"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "māna pramāṇa (index width)",
-      "bytecode_tag": "isize"
+      "bytecode_tag": "isize",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-U8",
       "name": "u8",
       "category": "scalar",
-      "c_types": ["uint8_t"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
-      "bytecode_tag": "u8"
+      "c_types": [
+        "uint8_t"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
+      "bytecode_tag": "u8",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-U16",
       "name": "u16",
       "category": "scalar",
-      "c_types": ["uint16_t"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
-      "bytecode_tag": "u16"
+      "c_types": [
+        "uint16_t"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
+      "bytecode_tag": "u16",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-U32",
       "name": "u32",
       "category": "scalar",
-      "c_types": ["uint32_t", "unsigned int"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "uint32_t",
+        "unsigned int"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "push_u32, u32_add_checked, u32_add_wrapping, u32_add_saturating",
+        "helpers": "checked_u32_add, wrap_u32",
+        "yantra_patha": "saṅkhyā-nirṇāśa nikṣipyate",
+        "ssk_source": "pending grammar registration",
+        "webapp_js": "implemented (__sanskriptU32 tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "bytecode_tag": "u32"
     },
     {
       "id": "TY-U64",
       "name": "u64",
       "category": "scalar",
-      "c_types": ["uint64_t", "unsigned long long"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
-      "bytecode_tag": "u64"
+      "c_types": [
+        "uint64_t",
+        "unsigned long long"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
+      "bytecode_tag": "u64",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-USIZE",
       "name": "usize",
       "category": "scalar",
-      "c_types": ["size_t", "uintptr_t"],
-      "python_types": ["int"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
-      "bytecode_tag": "usize"
+      "c_types": [
+        "size_t",
+        "uintptr_t"
+      ],
+      "python_types": [
+        "int"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
+      "bytecode_tag": "usize",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-F32",
       "name": "f32",
       "category": "scalar",
-      "c_types": ["float"],
-      "python_types": ["float"],
+      "c_types": [
+        "float"
+      ],
+      "python_types": [
+        "float"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "dve vibhājitāṅka (32-bit float)",
       "bytecode_tag": "f32"
     },
@@ -193,22 +347,45 @@
       "id": "TY-F64",
       "name": "f64",
       "category": "scalar",
-      "c_types": ["double"],
-      "python_types": ["float"],
+      "c_types": [
+        "double"
+      ],
+      "python_types": [
+        "float"
+      ],
       "implementation": "partial",
-      "notes": "push_float opcode; source decimal literals via directives",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "notes": "push_float opcode, float_is_nan, float_is_inf opcodes. IEEE 754 semantics: NaN≠NaN, Inf+1=Inf. Yantra-pātha: anatam (Inf), na-saṅkhyā (NaN). Source decimal literals via directives.",
+      "implementation_notes": {
+        "vm": "push_float, float_is_nan, float_is_inf; NaN/Inf handled in compare_eq/ne",
+        "yantra_patha": "anatam for +Inf, ṛṇa anatam for -Inf, na-saṅkhyā for NaN",
+        "ssk_source": "pending grammar registration",
+        "webapp_js": "implemented (NaN/Inf display + float_is_nan/inf cases)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "bytecode_tag": "f64"
     },
     {
       "id": "TY-TEXT",
       "name": "text",
       "category": "scalar",
-      "c_types": ["char*", "const char*"],
-      "python_types": ["str"],
-      "implementation": "implemented",
-      "notes": "push_text plus text_concat, text_len, text_get, text_slice, and text_contains opcodes; source prose frames are available.",
-      "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "restricted" },
+      "c_types": [
+        "char*",
+        "const char*"
+      ],
+      "python_types": [
+        "str"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "vākyam … iti / śabda",
       "bytecode_tag": "text"
     },
@@ -216,20 +393,37 @@
       "id": "TY-COMPLEX64",
       "name": "complex64",
       "category": "scalar",
-      "c_types": ["float complex"],
-      "python_types": ["complex"],
+      "c_types": [
+        "float complex"
+      ],
+      "python_types": [
+        "complex"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "bytecode_tag": "complex64"
     },
     {
       "id": "TY-COMPLEX128",
       "name": "complex128",
       "category": "scalar",
-      "c_types": ["double complex"],
-      "python_types": ["complex"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "double complex"
+      ],
+      "python_types": [
+        "complex"
+      ],
+      "implementation": "partial",
+      "notes": "ComplexStub runtime tag; opcodes planned",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "bytecode_tag": "complex128"
     },
     {
@@ -237,9 +431,16 @@
       "name": "decimal",
       "category": "scalar",
       "c_types": [],
-      "python_types": ["decimal.Decimal"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "forbidden" },
+      "python_types": [
+        "decimal.Decimal"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "forbidden"
+      },
       "bytecode_tag": "decimal"
     },
     {
@@ -247,10 +448,22 @@
       "name": "bigint",
       "category": "scalar",
       "c_types": [],
-      "python_types": ["int (arbitrary precision)"],
+      "python_types": [
+        "int (arbitrary precision)"
+      ],
       "implementation": "partial",
-      "notes": "Host Python int today; distinct bigint type planned for rakṣita bounds",
-      "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "forbidden" },
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "push_bigint opcode + BigIntValue dataclass",
+        "yantra_patha": "full render+parse (ati-pūrṇāṅkaḥ nikṣipyate)",
+        "ssk_source": "pending grammar registration",
+        "webapp_js": "implemented (__sanskriptBigint tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "forbidden"
+      },
       "bytecode_tag": "bigint"
     },
     {
@@ -258,9 +471,23 @@
       "name": "optional",
       "category": "composite",
       "c_types": [],
-      "python_types": ["Optional[T]", "T | None"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "python_types": [
+        "Optional[T]",
+        "T | None"
+      ],
+      "implementation": "partial",
+      "notes": "option_none/some/is_some/unwrap opcodes + OptionValue runtime type. Yantra-pātha: śūnyaḥ vikalpaḥ nirmīyate / vikalpe yojanam kriyate / vikalpāt mūlyam gṛhyate. Unwrap-none panics at runtime.",
+      "implementation_notes": {
+        "vm": "option_none, option_some, option_is_some, option_unwrap (panics on none)",
+        "yantra_patha": "full render+parse",
+        "ssk_source": "pending grammar registration (vikalpam directive)",
+        "webapp_js": "implemented (__sanskriptOption tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "sambhāvyatā / vikalpa",
       "type_form": "optional(T)",
       "bytecode_tag": "optional"
@@ -270,9 +497,23 @@
       "name": "result",
       "category": "composite",
       "c_types": [],
-      "python_types": ["Result-like", "Either success or error"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "python_types": [
+        "Result-like",
+        "Either success or error"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "result_ok, result_err, result_is_ok, result_unwrap_ok, result_unwrap_err",
+        "yantra_patha": "full render+parse",
+        "ssk_source": "pending grammar registration (phalam siddha/doṣa directive)",
+        "webapp_js": "implemented (__sanskriptResult tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "phala / doṣa frames",
       "type_form": "result(T, E)",
       "bytecode_tag": "result"
@@ -281,10 +522,25 @@
       "id": "TY-TUPLE",
       "name": "tuple",
       "category": "composite",
-      "c_types": ["struct { ... }"],
-      "python_types": ["tuple"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "struct { ... }"
+      ],
+      "python_types": [
+        "tuple"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "tuple_new (dynamic arity), tuple_get (static index)",
+        "yantra_patha": "full render+parse",
+        "ssk_source": "pending grammar registration (yugmam directive)",
+        "webapp_js": "implemented (__sanskriptTuple tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "yukti / samāhāra (fixed arity)",
       "type_form": "tuple(T1, T2, ...)",
       "bytecode_tag": "tuple"
@@ -293,10 +549,19 @@
       "id": "TY-STRUCT",
       "name": "struct",
       "category": "composite",
-      "c_types": ["struct"],
-      "python_types": ["dataclass", "NamedTuple"],
+      "c_types": [
+        "struct"
+      ],
+      "python_types": [
+        "dataclass",
+        "NamedTuple"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "rūpa with genitive field paths",
       "type_form": "struct(Name, fields)",
       "bytecode_tag": "struct"
@@ -305,10 +570,16 @@
       "id": "TY-UNION",
       "name": "union",
       "category": "composite",
-      "c_types": ["union"],
+      "c_types": [
+        "union"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "forbidden", "rakshita": "restricted", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "anyatara rūpa (unsafe overlap)",
       "type_form": "union(...)",
       "bytecode_tag": "union"
@@ -317,13 +588,22 @@
       "id": "TY-ENUM",
       "name": "enum",
       "category": "composite",
-      "c_types": ["enum"],
-      "python_types": ["enum.Enum"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "enum"
+      ],
+      "python_types": [
+        "enum.Enum"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "nāmaika varga",
       "type_form": "enum(Name, variants)",
-      "bytecode_tag": "enum"
+      "bytecode_tag": "enum",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-TAGGED-ENUM",
@@ -332,7 +612,11 @@
       "c_types": [],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "tagged_enum(Name, variants)",
       "bytecode_tag": "tagged_enum"
     },
@@ -340,10 +624,20 @@
       "id": "TY-ARRAY-FIXED",
       "name": "array",
       "category": "collection",
-      "c_types": ["T[N]"],
-      "python_types": ["array.array", "multiprocessing.Array"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "T[N]"
+      ],
+      "python_types": [
+        "array.array",
+        "multiprocessing.Array"
+      ],
+      "implementation": "partial",
+      "notes": "array_new opcode (fixed-length list substrate)",
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "niyata āyāma samūha",
       "type_form": "array(T, N)",
       "bytecode_tag": "array"
@@ -352,10 +646,20 @@
       "id": "TY-SLICE",
       "name": "slice",
       "category": "collection",
-      "c_types": ["pointer + length"],
-      "python_types": ["memoryview", "slice view"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "pointer + length"
+      ],
+      "python_types": [
+        "memoryview",
+        "slice view"
+      ],
+      "implementation": "partial",
+      "notes": "slice_view opcode (copying list slice substrate)",
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "aṃśa / span",
       "type_form": "slice(T)",
       "bytecode_tag": "slice"
@@ -364,11 +668,19 @@
       "id": "TY-LIST",
       "name": "list",
       "category": "collection",
-      "c_types": ["dynamic array"],
-      "python_types": ["list"],
+      "c_types": [
+        "dynamic array"
+      ],
+      "python_types": [
+        "list"
+      ],
       "implementation": "partial",
-      "notes": "list_new, list_append, list_len, list_get opcodes; source directives samūhaḥ, yojanam",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "samūha / śreṇī",
       "type_form": "list(T)",
       "bytecode_tag": "list"
@@ -377,10 +689,18 @@
       "id": "TY-VECTOR",
       "name": "vector",
       "category": "collection",
-      "c_types": ["std::vector"],
-      "python_types": ["list"],
+      "c_types": [
+        "std::vector"
+      ],
+      "python_types": [
+        "list"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "vector(T)",
       "bytecode_tag": "vector"
     },
@@ -388,10 +708,16 @@
       "id": "TY-LINKED-LIST",
       "name": "linked_list",
       "category": "collection",
-      "c_types": ["singly/doubly linked"],
+      "c_types": [
+        "singly/doubly linked"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "linked_list(T)",
       "bytecode_tag": "linked_list"
     },
@@ -399,34 +725,68 @@
       "id": "TY-STACK",
       "name": "stack",
       "category": "collection",
-      "c_types": ["stack ADT"],
-      "python_types": ["list as stack"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "stack ADT"
+      ],
+      "python_types": [
+        "list as stack"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "ūrddhva samūha",
       "type_form": "stack(T)",
-      "bytecode_tag": "stack"
+      "bytecode_tag": "stack",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-QUEUE",
       "name": "queue",
       "category": "collection",
-      "c_types": ["queue ADT"],
-      "python_types": ["collections.deque", "queue.Queue"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "queue ADT"
+      ],
+      "python_types": [
+        "collections.deque",
+        "queue.Queue"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "krama samūha",
       "type_form": "queue(T)",
-      "bytecode_tag": "queue"
+      "bytecode_tag": "queue",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-DEQUE",
       "name": "deque",
       "category": "collection",
-      "c_types": ["deque"],
-      "python_types": ["collections.deque"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "c_types": [
+        "deque"
+      ],
+      "python_types": [
+        "collections.deque"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "deque_new, deque_push_back, deque_push_front, deque_pop_back, deque_pop_front, deque_len",
+        "yantra_patha": "full render+parse",
+        "ssk_source": "pending grammar registration",
+        "webapp_js": "implemented (__sanskriptDeque tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "deque(T)",
       "bytecode_tag": "deque"
     },
@@ -434,11 +794,19 @@
       "id": "TY-HASH-MAP",
       "name": "hash_map",
       "category": "collection",
-      "c_types": ["hash table"],
-      "python_types": ["dict"],
+      "c_types": [
+        "hash table"
+      ],
+      "python_types": [
+        "dict"
+      ],
       "implementation": "partial",
       "notes": "map_new, map_set, map_get, map_contains opcodes; Sanskrit kośa frames planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "nāma→artha kośa",
       "type_form": "hash_map(K, V)",
       "bytecode_tag": "hash_map"
@@ -447,21 +815,45 @@
       "id": "TY-ORDERED-MAP",
       "name": "ordered_map",
       "category": "collection",
-      "c_types": ["tree map"],
-      "python_types": ["dict (insertion ordered)"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "c_types": [
+        "tree map"
+      ],
+      "python_types": [
+        "dict (insertion ordered)"
+      ],
+      "implementation": "partial",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "ordered_map(K, V)",
-      "bytecode_tag": "ordered_map"
+      "bytecode_tag": "ordered_map",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md"
     },
     {
       "id": "TY-HASH-SET",
       "name": "hash_set",
       "category": "collection",
-      "c_types": ["hash set"],
-      "python_types": ["set"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "c_types": [
+        "hash set"
+      ],
+      "python_types": [
+        "set"
+      ],
+      "implementation": "partial",
+      "notes": "set_new/add/contains/len opcodes + SetValue runtime type (insertion-ordered unique set). Yantra-pātha round-trip complete. Duplicates silently ignored.",
+      "implementation_notes": {
+        "vm": "set_new, set_add (dedup), set_contains, set_len",
+        "yantra_patha": "full render+parse (samāhāra forms)",
+        "ssk_source": "pending grammar registration (saṅgrahaḥ directive)",
+        "webapp_js": "implemented (__sanskriptSet tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "hash_set(T)",
       "bytecode_tag": "hash_set"
     },
@@ -469,10 +861,16 @@
       "id": "TY-ORDERED-SET",
       "name": "ordered_set",
       "category": "collection",
-      "c_types": ["tree set"],
+      "c_types": [
+        "tree set"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "ordered_set(T)",
       "bytecode_tag": "ordered_set"
     },
@@ -481,9 +879,15 @@
       "name": "frozen_set",
       "category": "collection",
       "c_types": [],
-      "python_types": ["frozenset"],
+      "python_types": [
+        "frozenset"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "forbidden"
+      },
       "type_form": "frozen_set(T)",
       "bytecode_tag": "frozen_set"
     },
@@ -491,10 +895,16 @@
       "id": "TY-BITSET",
       "name": "bitset",
       "category": "collection",
-      "c_types": ["bitset"],
+      "c_types": [
+        "bitset"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "bitset",
       "bytecode_tag": "bitset"
     },
@@ -502,10 +912,25 @@
       "id": "TY-BYTES",
       "name": "bytes",
       "category": "collection",
-      "c_types": ["uint8_t[]"],
-      "python_types": ["bytes"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "uint8_t[]"
+      ],
+      "python_types": [
+        "bytes"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "push_bytes (hex decode), byte_new, byte_len, byte_get",
+        "yantra_patha": "full render+parse",
+        "ssk_source": "aksharani directive exists in parser, pending grammar registration",
+        "webapp_js": "implemented (__sanskriptBytes tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "akṣara śreṇī (immutable)",
       "type_form": "bytes",
       "bytecode_tag": "bytes"
@@ -514,10 +939,25 @@
       "id": "TY-BYTEARRAY",
       "name": "bytearray",
       "category": "collection",
-      "c_types": ["mutable byte buffer"],
-      "python_types": ["bytearray"],
-      "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "c_types": [
+        "mutable byte buffer"
+      ],
+      "python_types": [
+        "bytearray"
+      ],
+      "implementation": "partial",
+      "notes": "Phase 3 VM+bytecode+source substrate; see type-system-reference.md",
+      "implementation_notes": {
+        "vm": "bytearray_new, bytearray_set (auto-extend, 0..255), bytearray_get",
+        "yantra_patha": "full render+parse",
+        "ssk_source": "pending grammar registration (parivartanīya-akṣarāṇi directive)",
+        "webapp_js": "implemented (__sanskriptByteArray tag)"
+      },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "bytearray",
       "bytecode_tag": "bytearray"
     },
@@ -525,10 +965,19 @@
       "id": "TY-STRING-BUILDER",
       "name": "string_builder",
       "category": "collection",
-      "c_types": ["StringBuilder"],
-      "python_types": ["io.StringIO", "list of chars"],
+      "c_types": [
+        "StringBuilder"
+      ],
+      "python_types": [
+        "io.StringIO",
+        "list of chars"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "string_builder",
       "bytecode_tag": "string_builder"
     },
@@ -536,10 +985,16 @@
       "id": "TY-RING-BUFFER",
       "name": "ring_buffer",
       "category": "collection",
-      "c_types": ["circular buffer"],
+      "c_types": [
+        "circular buffer"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "ring_buffer(T, N)",
       "bytecode_tag": "ring_buffer"
     },
@@ -547,10 +1002,18 @@
       "id": "TY-ITERATOR",
       "name": "iterator",
       "category": "functional",
-      "c_types": ["iterator"],
-      "python_types": ["iterator"],
+      "c_types": [
+        "iterator"
+      ],
+      "python_types": [
+        "iterator"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "iterator(T)",
       "bytecode_tag": "iterator"
     },
@@ -559,9 +1022,15 @@
       "name": "generator",
       "category": "functional",
       "c_types": [],
-      "python_types": ["generator"],
+      "python_types": [
+        "generator"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "forbidden"
+      },
       "type_form": "generator(T)",
       "bytecode_tag": "generator"
     },
@@ -569,11 +1038,19 @@
       "id": "TY-CALLABLE",
       "name": "callable",
       "category": "functional",
-      "c_types": ["function pointer"],
-      "python_types": ["Callable"],
+      "c_types": [
+        "function pointer"
+      ],
+      "python_types": [
+        "Callable"
+      ],
       "implementation": "partial",
       "notes": "Procedures exist; first-class callable values planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "callable(Args -> Ret)",
       "bytecode_tag": "callable"
     },
@@ -581,10 +1058,18 @@
       "id": "TY-CLOSURE",
       "name": "closure",
       "category": "functional",
-      "c_types": ["closure"],
-      "python_types": ["closure"],
+      "c_types": [
+        "closure"
+      ],
+      "python_types": [
+        "closure"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "closure(Env, Args -> Ret)",
       "bytecode_tag": "closure"
     },
@@ -593,9 +1078,15 @@
       "name": "range",
       "category": "functional",
       "c_types": [],
-      "python_types": ["range"],
+      "python_types": [
+        "range"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "forbidden"
+      },
       "type_form": "range",
       "bytecode_tag": "range"
     },
@@ -603,10 +1094,17 @@
       "id": "TY-OWNED",
       "name": "owned",
       "category": "memory",
-      "c_types": ["unique_ptr", "Box"],
+      "c_types": [
+        "unique_ptr",
+        "Box"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "svāmika adhikāra (genitive transfer)",
       "type_form": "owned(T)",
       "bytecode_tag": "owned"
@@ -615,10 +1113,16 @@
       "id": "TY-BORROW",
       "name": "borrow",
       "category": "memory",
-      "c_types": ["&T"],
+      "c_types": [
+        "&T"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "forbidden"
+      },
       "sanskrit_hint": "upayoga mātra (instrumental, no transfer)",
       "type_form": "borrow(T)",
       "bytecode_tag": "borrow"
@@ -627,10 +1131,16 @@
       "id": "TY-BORROW-MUT",
       "name": "borrow_mut",
       "category": "memory",
-      "c_types": ["&mut T"],
+      "c_types": [
+        "&mut T"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "forbidden"
+      },
       "type_form": "borrow_mut(T)",
       "bytecode_tag": "borrow_mut"
     },
@@ -638,10 +1148,18 @@
       "id": "TY-RAW-PTR",
       "name": "raw_ptr",
       "category": "memory",
-      "c_types": ["T*"],
-      "python_types": ["ctypes pointer"],
+      "c_types": [
+        "T*"
+      ],
+      "python_types": [
+        "ctypes pointer"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "forbidden", "rakshita": "restricted", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "sūcaka (instrumental tool, unchecked)",
       "type_form": "raw_ptr(T)",
       "bytecode_tag": "raw_ptr"
@@ -650,10 +1168,16 @@
       "id": "TY-RAW-PTR-MUT",
       "name": "raw_ptr_mut",
       "category": "memory",
-      "c_types": ["T* mutable"],
+      "c_types": [
+        "T* mutable"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "forbidden", "rakshita": "restricted", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
       "type_form": "raw_ptr_mut(T)",
       "bytecode_tag": "raw_ptr_mut"
     },
@@ -661,10 +1185,19 @@
       "id": "TY-ADDR",
       "name": "addr",
       "category": "memory",
-      "c_types": ["void*", "uintptr_t"],
-      "python_types": ["int (address)"],
+      "c_types": [
+        "void*",
+        "uintptr_t"
+      ],
+      "python_types": [
+        "int (address)"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "forbidden", "rakshita": "restricted", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "sthāna saṅkhyā",
       "bytecode_tag": "addr"
     },
@@ -672,10 +1205,16 @@
       "id": "TY-MEM-REGION",
       "name": "mem_region",
       "category": "memory",
-      "c_types": ["memory arena"],
+      "c_types": [
+        "memory arena"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "smṛti kṣetra (locative locus)",
       "type_form": "mem_region",
       "bytecode_tag": "mem_region"
@@ -684,21 +1223,37 @@
       "id": "TY-FFI-C-STRING",
       "name": "ffi_c_string",
       "category": "memory",
-      "c_types": ["char* NUL-terminated"],
-      "python_types": ["bytes"],
+      "c_types": [
+        "char* NUL-terminated"
+      ],
+      "python_types": [
+        "bytes"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "forbidden", "rakshita": "restricted", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
       "bytecode_tag": "ffi_c_string"
     },
     {
       "id": "TY-OBJECT",
       "name": "object",
       "category": "object",
-      "c_types": ["class instance"],
-      "python_types": ["object"],
+      "c_types": [
+        "class instance"
+      ],
+      "python_types": [
+        "object"
+      ],
       "implementation": "partial",
       "notes": "Record/object substrate implemented with record_new, record_set, record_get, and record_contains; full class identity and methods remain planned.",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "sanskrit_hint": "vastu in adhikaraṇa locus",
       "type_form": "object(Class)",
       "bytecode_tag": "object"
@@ -707,10 +1262,18 @@
       "id": "TY-CLASS",
       "name": "class",
       "category": "object",
-      "c_types": ["class"],
-      "python_types": ["type"],
+      "c_types": [
+        "class"
+      ],
+      "python_types": [
+        "type"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "class(Name)",
       "bytecode_tag": "class"
     },
@@ -718,10 +1281,16 @@
       "id": "TY-VTABLE",
       "name": "vtable",
       "category": "object",
-      "c_types": ["vtable pointer"],
+      "c_types": [
+        "vtable pointer"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "vtable(Interface)",
       "bytecode_tag": "vtable"
     },
@@ -729,11 +1298,19 @@
       "id": "TY-MODULE",
       "name": "module",
       "category": "object",
-      "c_types": ["namespace"],
-      "python_types": ["module"],
+      "c_types": [
+        "namespace"
+      ],
+      "python_types": [
+        "module"
+      ],
       "implementation": "partial",
       "notes": "kṣetram modules exist at compile time; module values planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "module(Name)",
       "bytecode_tag": "module"
     },
@@ -741,10 +1318,17 @@
       "id": "TY-ATOMIC",
       "name": "atomic",
       "category": "concurrency",
-      "c_types": ["_Atomic T", "std::atomic"],
+      "c_types": [
+        "_Atomic T",
+        "std::atomic"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "type_form": "atomic(T)",
       "bytecode_tag": "atomic"
     },
@@ -752,10 +1336,18 @@
       "id": "TY-MUTEX",
       "name": "mutex",
       "category": "concurrency",
-      "c_types": ["mutex"],
-      "python_types": ["threading.Lock"],
+      "c_types": [
+        "mutex"
+      ],
+      "python_types": [
+        "threading.Lock"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "mutex(T)",
       "bytecode_tag": "mutex"
     },
@@ -763,10 +1355,16 @@
       "id": "TY-RWLOCK",
       "name": "rwlock",
       "category": "concurrency",
-      "c_types": ["rwlock"],
+      "c_types": [
+        "rwlock"
+      ],
       "python_types": [],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "rwlock(T)",
       "bytecode_tag": "rwlock"
     },
@@ -774,10 +1372,19 @@
       "id": "TY-CHANNEL",
       "name": "channel",
       "category": "concurrency",
-      "c_types": ["channel"],
-      "python_types": ["queue.Queue", "asyncio.Queue"],
+      "c_types": [
+        "channel"
+      ],
+      "python_types": [
+        "queue.Queue",
+        "asyncio.Queue"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "forbidden"
+      },
       "type_form": "channel(T)",
       "bytecode_tag": "channel"
     },
@@ -785,10 +1392,19 @@
       "id": "TY-FILE",
       "name": "file_handle",
       "category": "io",
-      "c_types": ["FILE*"],
-      "python_types": ["io.TextIOBase", "open()"],
+      "c_types": [
+        "FILE*"
+      ],
+      "python_types": [
+        "io.TextIOBase",
+        "open()"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "file_handle",
       "bytecode_tag": "file"
     },
@@ -796,10 +1412,18 @@
       "id": "TY-SOCKET",
       "name": "socket",
       "category": "io",
-      "c_types": ["SOCKET"],
-      "python_types": ["socket.socket"],
+      "c_types": [
+        "SOCKET"
+      ],
+      "python_types": [
+        "socket.socket"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "socket",
       "bytecode_tag": "socket"
     },
@@ -807,10 +1431,19 @@
       "id": "TY-PATH",
       "name": "path",
       "category": "io",
-      "c_types": ["path string"],
-      "python_types": ["pathlib.Path", "str"],
+      "c_types": [
+        "path string"
+      ],
+      "python_types": [
+        "pathlib.Path",
+        "str"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "path",
       "bytecode_tag": "path"
     },
@@ -818,10 +1451,18 @@
       "id": "TY-TYPE",
       "name": "type",
       "category": "meta",
-      "c_types": ["RTTI / typeof"],
-      "python_types": ["type"],
+      "c_types": [
+        "RTTI / typeof"
+      ],
+      "python_types": [
+        "type"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "forbidden"
+      },
       "type_form": "type(T)",
       "bytecode_tag": "type"
     },
@@ -829,10 +1470,18 @@
       "id": "TY-GENERIC",
       "name": "generic",
       "category": "meta",
-      "c_types": ["template type param"],
-      "python_types": ["TypeVar"],
+      "c_types": [
+        "template type param"
+      ],
+      "python_types": [
+        "TypeVar"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "restricted" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
       "type_form": "generic(Name)",
       "bytecode_tag": "generic"
     },
@@ -840,10 +1489,18 @@
       "id": "TY-NULL",
       "name": "null",
       "category": "special",
-      "c_types": ["NULL"],
-      "python_types": ["None"],
+      "c_types": [
+        "NULL"
+      ],
+      "python_types": [
+        "None"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "restricted", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
       "sanskrit_hint": "śūnyam reference",
       "bytecode_tag": "null"
     },
@@ -851,10 +1508,18 @@
       "id": "TY-UNIT",
       "name": "unit",
       "category": "special",
-      "c_types": ["void value"],
-      "python_types": ["None as value"],
+      "c_types": [
+        "void value"
+      ],
+      "python_types": [
+        "None as value"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
       "bytecode_tag": "unit"
     },
     {
@@ -862,21 +1527,203 @@
       "name": "never",
       "category": "special",
       "c_types": [],
-      "python_types": ["NoReturn"],
+      "python_types": [
+        "NoReturn"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "full", "rakshita": "full", "arakshita": "forbidden" },
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "forbidden"
+      },
       "bytecode_tag": "never"
     },
     {
       "id": "TY-ANY",
       "name": "any",
       "category": "special",
-      "c_types": ["void* erasure"],
-      "python_types": ["Any"],
+      "c_types": [
+        "void* erasure"
+      ],
+      "python_types": [
+        "Any"
+      ],
       "implementation": "planned",
-      "tiers": { "surakshita": "restricted", "rakshita": "forbidden", "arakshita": "full" },
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "forbidden",
+        "arakshita": "full"
+      },
       "notes": "Surakṣita discourages; arakṣita allows unchecked erasure",
       "bytecode_tag": "any"
+    },
+    {
+      "id": "TY-SAFE-REF",
+      "name": "safe_ref",
+      "category": "memory",
+      "c_types": [
+        "&T (checked)"
+      ],
+      "python_types": [],
+      "implementation": "planned",
+      "notes": "Checked reference allowed in rakṣita/arakṣita; forbidden in surakṣita (use option/result instead). Sanskrit: sāmānyaḥ sandarbhaḥ.",
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
+      "sanskrit_hint": "sāmānyaḥ sandarbhaḥ (ordinary reference)",
+      "type_form": "safe_ref(T)",
+      "bytecode_tag": "safe_ref"
+    },
+    {
+      "id": "TY-ASYNC-FUTURE",
+      "name": "async_future",
+      "category": "async",
+      "c_types": [
+        "std::future",
+        "promise"
+      ],
+      "python_types": [
+        "asyncio.Future",
+        "Awaitable"
+      ],
+      "implementation": "planned",
+      "notes": "Async future/promise type. Vocabulary defined; runtime execution engine deferred. Sanskrit: anāgata-phalam (future result).",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
+      "sanskrit_hint": "anāgata-phalam",
+      "type_form": "async_future(T)",
+      "bytecode_tag": "async_future"
+    },
+    {
+      "id": "TY-COROUTINE",
+      "name": "coroutine",
+      "category": "async",
+      "c_types": [
+        "coroutine frame"
+      ],
+      "python_types": [
+        "coroutine",
+        "async def"
+      ],
+      "implementation": "planned",
+      "notes": "Stackful/stackless coroutine. Vocabulary defined; scheduler deferred. Sanskrit: kramaśaḥ-karma (step-wise action).",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "restricted",
+        "arakshita": "forbidden"
+      },
+      "sanskrit_hint": "kramaśaḥ-karma",
+      "type_form": "coroutine(T)",
+      "bytecode_tag": "coroutine"
+    },
+    {
+      "id": "TY-EFFECT",
+      "name": "effect",
+      "category": "meta",
+      "c_types": [],
+      "python_types": [],
+      "implementation": "planned",
+      "notes": "Effect annotation type. śuddhaḥ = pure function (no side effects); sādhanaṃ = effectful. Recorded on FunctionDef.effect; enforcement deferred to rakṣita tooling.",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
+      "sanskrit_hint": "śuddhaḥ / sādhanaṃ (pure / effectful)",
+      "type_form": "effect",
+      "bytecode_tag": "effect"
+    },
+    {
+      "id": "TY-OWNED-QUALIFIER",
+      "name": "svamitva",
+      "category": "memory",
+      "c_types": [
+        "owned T"
+      ],
+      "python_types": [],
+      "implementation": "planned",
+      "notes": "Ownership qualifier annotation. svāmitvaṃ=owned, uddhāram=borrow, parivartanīya-uddhāram=mut borrow. Recorded by type checker; borrow rules deferred to rakṣita tooling phase.",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
+      "sanskrit_hint": "svāmitvaṃ / uddhāram / parivartanīya-uddhāram",
+      "type_form": "owned(T) | borrow(T) | borrow_mut(T)",
+      "bytecode_tag": "ownership"
+    },
+    {
+      "id": "TY-LINEAR",
+      "name": "linear",
+      "category": "memory",
+      "c_types": [],
+      "python_types": [],
+      "implementation": "planned",
+      "notes": "Linear resource type: must be used exactly once. Vocabulary + tier gate in type checker.",
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
+      "sanskrit_hint": "ekakāla-upayoga",
+      "type_form": "linear(T)",
+      "bytecode_tag": "linear"
+    },
+    {
+      "id": "TY-AFFINE",
+      "name": "affine",
+      "category": "memory",
+      "c_types": [],
+      "python_types": [],
+      "implementation": "planned",
+      "notes": "Affine resource type: use at most once. Vocabulary + tier gate in type checker.",
+      "tiers": {
+        "surakshita": "forbidden",
+        "rakshita": "full",
+        "arakshita": "restricted"
+      },
+      "sanskrit_hint": "ekavāra-upayoga",
+      "type_form": "affine(T)",
+      "bytecode_tag": "affine"
+    },
+    {
+      "id": "TY-METACLASS",
+      "name": "metaclass",
+      "category": "meta",
+      "c_types": [],
+      "python_types": [
+        "type"
+      ],
+      "implementation": "planned",
+      "notes": "Type-of-types for class identity. Phase 4 vocabulary; Phase 7 metaclass behaviour.",
+      "tiers": {
+        "surakshita": "restricted",
+        "rakshita": "restricted",
+        "arakshita": "full"
+      },
+      "type_form": "metaclass",
+      "bytecode_tag": "metaclass"
+    },
+    {
+      "id": "TY-CLASS-INSTANCE",
+      "name": "class_instance",
+      "category": "composite",
+      "c_types": [],
+      "python_types": [],
+      "implementation": "partial",
+      "notes": "Class instance type (vargaḥ). Phase 4: ClassDecl + record substrate; methods in Phase 7.",
+      "tiers": {
+        "surakshita": "full",
+        "rakshita": "full",
+        "arakshita": "full"
+      },
+      "type_form": "class_instance(Name)",
+      "bytecode_tag": "class_instance"
     }
   ],
   "tier_availability_legend": {

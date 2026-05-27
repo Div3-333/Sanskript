@@ -1,0 +1,49 @@
+surakṣitam.
+
+// Phase 5: control-flow demonstration
+
+// 1. while loop counting to 3
+gaṇitam i śūnya.
+punaḥ i nyūnam tri.
+  gaṇitam i i yoga eka.
+antam.
+darśanam i.
+
+// 2. counted-for loop: sum 0+1+2+3+4 = 10
+gaṇitam phala śūnya.
+saṅkhyā k śūnya pañca.
+  gaṇitam phala phala yoga k.
+antam.
+darśanam phala.
+
+// 3. if / else
+gaṇitam kāryam eka.
+yadi kāryam samam eka.
+  darśanam vākyam sādhitam iti.
+anyathā.
+  darśanam vākyam asādhitam iti.
+antam.
+
+// 4. foreach: sum 1+2+3 = 6
+samūhaḥ citram.
+yojanam citram eka.
+yojanam citram dvi.
+yojanam citram tri.
+gaṇitam yoga śūnya.
+pratyekam akṣaram samūhe citram.
+  gaṇitam yoga yoga yoga akṣaram.
+antam.
+darśanam yoga.
+
+// 5. try / catch (vikṣepaḥ / āgrahītvā)
+āgrahītvā doṣaḥ.
+vikṣepaḥ vākyam caught iti.
+anyathā.
+darśanam doṣaḥ.
+antam.
+
+// 6. precondition (must pass: yoga is 6)
+pūrvaśartam yoga samam ṣaṭ.
+
+// 7. invariant
+nityaśartam yoga nyūnam daśa.

@@ -39,6 +39,8 @@ _INT_TO_WORD = {
     20: "viṃśati",
 }
 _WORD_TO_INT = {word: value for value, word in _INT_TO_WORD.items()}
+_WORD_TO_INT.setdefault("śūnyam", 0)
+_WORD_TO_INT.setdefault("shunyam", 0)
 _WORD_TO_INT.update({"dvitīya": 2, "dvitiyam": 2, "dvitīyam": 2})
 _DIGIT_TO_WORD = {value: word for value, word in _INT_TO_WORD.items() if 0 <= value <= 9}
 _WORD_TO_DIGIT = {word: value for value, word in _DIGIT_TO_WORD.items()}
@@ -133,6 +135,50 @@ def _render_instruction(instruction: Instruction) -> str:
         return "samūhasya parimāṇam gṛhyate."
     if opcode == OpCode.LIST_GET:
         return "samūhāt aṅkam gṛhyate."
+    if opcode == OpCode.LIST_MAP:
+        return f"{_expect_name(operand, opcode)} iti kāryeṇa samūhaḥ māpyate."
+    if opcode == OpCode.LIST_FILTER:
+        return f"{_expect_name(operand, opcode)} iti kāryeṇa samūhaḥ śodhyate."
+    if opcode == OpCode.LIST_REDUCE:
+        return f"{_expect_name(operand, opcode)} iti kāryeṇa samūhaḥ saṅkucyate."
+    if opcode == OpCode.LIST_ALL:
+        return f"{_expect_name(operand, opcode)} iti kāryeṇa samūhaḥ sarvam parīkṣyate."
+    if opcode == OpCode.LIST_SCAN:
+        return f"{_expect_name(operand, opcode)} iti kāryeṇa samūhaḥ avalokyate."
+    if opcode == OpCode.LIST_ZIP:
+        return "dvayoḥ samūhayoḥ yuktam kriyate."
+    if opcode == OpCode.LIST_ENUMERATE:
+        return "samūhaḥ aṅkayuktaḥ kriyate."
+    if opcode == OpCode.LIST_ANY:
+        return f"{_expect_name(operand, opcode)} iti kāryeṇa samūhaḥ kācit parīkṣyate."
+    if opcode == OpCode.LIST_COMPREHENSION:
+        return f"{_expect_name(operand, opcode)} iti samīkaraṇam kriyate."
+    if opcode == OpCode.IMMUTABLE_LIST_NEW:
+        return "nityaḥ samūhaḥ nirmīyate."
+    if opcode == OpCode.IMMUTABLE_LIST_APPEND:
+        return "nitye samūhe yojanam kriyate."
+    if opcode == OpCode.LAZY_ITER_NEW:
+        return "alasaḥ iteratoraḥ nirmīyate."
+    if opcode == OpCode.LAZY_ITER_NEXT:
+        return "alasāt anukramaḥ gṛhyate."
+    if opcode == OpCode.GENERATOR_NEW:
+        return f"{_expect_name(operand, opcode)} iti utpādakaḥ nirmīyate."
+    if opcode == OpCode.GENERATOR_NEXT:
+        return "utpādakāt pradānam gṛhyate."
+    if opcode == OpCode.GENERATOR_YIELD:
+        return "pradānam kriyate."
+    if opcode == OpCode.PIPELINE_CHAIN:
+        return f"{_expect_name(operand, opcode)} iti pravāhaḥ sañcālyate."
+    if opcode == OpCode.RESULT_BIND:
+        return f"{_expect_name(operand, opcode)} iti phale bandhanam kriyate."
+    if opcode == OpCode.DATA_QUERY:
+        return f"{_expect_name(operand, opcode)} iti anveṣaṇam kriyate."
+    if opcode == OpCode.RULE_REGISTER:
+        return f"{_expect_name(operand, opcode)} iti niyamaḥ sthāpyate."
+    if opcode == OpCode.RULE_INVOKE:
+        return f"{_expect_name(operand, opcode)} iti niyamaḥ āhūyate."
+    if opcode == OpCode.MEMO_CALL:
+        return f"{_expect_name(operand, opcode)} iti smaraṇena āhūyate."
     if opcode == OpCode.MAP_NEW:
         return "śūnyaḥ kośaḥ nirmīyate."
     if opcode == OpCode.MAP_SET:
@@ -149,6 +195,88 @@ def _render_instruction(instruction: Instruction) -> str:
         return "vastunaḥ aṅgam gṛhyate."
     if opcode == OpCode.RECORD_CONTAINS:
         return "vastuni aṅgasattā parīkṣyate."
+    if opcode == OpCode.CLASS_NEW:
+        return f"{_expect_name(operand, opcode)} iti varga-nirmāṇam kriyate."
+    if opcode == OpCode.METHOD_CALL:
+        return f"{_expect_name(operand, opcode)} iti paddhati-āhvānam kriyate."
+    if opcode == OpCode.PUSH_BIGINT:
+        return f"{_format_int(_expect_int(operand, opcode))} iti ati-pūrṇāṅkaḥ nikṣipyate."
+    if opcode == OpCode.PUSH_I32:
+        return f"{_format_int(_expect_int(operand, opcode))} iti saṅkhyā-lagu nikṣipyate."
+    if opcode == OpCode.PUSH_U32:
+        return f"{_format_int(_expect_int(operand, opcode))} iti saṅkhyā-nirṇāśa nikṣipyate."
+    if opcode == OpCode.I32_ADD_CHECKED:
+        return "saṅkhyā-lagvoḥ yogaḥ parīkṣitaḥ kriyate."
+    if opcode == OpCode.U32_ADD_CHECKED:
+        return "saṅkhyā-nirṇāśayoḥ yogaḥ parīkṣitaḥ kriyate."
+    if opcode == OpCode.PUSH_BYTES:
+        return f"{_expect_text(operand, opcode)} iti akṣara-śreṇī nikṣipyate."
+    if opcode == OpCode.BYTE_NEW:
+        return "śūnyā akṣara-śreṇī nirmīyate."
+    if opcode == OpCode.BYTE_LEN:
+        return "akṣara-śreṇyāḥ parimāṇam gṛhyate."
+    if opcode == OpCode.BYTE_GET:
+        return "akṣara-śreṇyāḥ aṅkam gṛhyate."
+    if opcode == OpCode.BYTEARRAY_NEW:
+        return "śūnyaḥ akṣara-saṃgrahaḥ nirmīyate."
+    if opcode == OpCode.BYTEARRAY_SET:
+        return "akṣara-saṃgrahe sthāpanam kriyate."
+    if opcode == OpCode.BYTEARRAY_GET:
+        return "akṣara-saṃgrahāt aṅkam gṛhyate."
+    if opcode == OpCode.TUPLE_NEW:
+        return f"{_format_int(_expect_int(operand, opcode))} iti yuktiḥ nirmīyate."
+    if opcode == OpCode.TUPLE_GET:
+        return f"{_format_int(_expect_int(operand, opcode))} iti yuktau aṅkam gṛhyate."
+    if opcode == OpCode.SET_NEW:
+        return "śūnyaḥ samāhāraḥ nirmīyate."
+    if opcode == OpCode.SET_ADD:
+        return "samāhāre yojanam kriyate."
+    if opcode == OpCode.SET_CONTAINS:
+        return "samāhāre sattā parīkṣyate."
+    if opcode == OpCode.SET_LEN:
+        return "samāhārasya parimāṇam gṛhyate."
+    if opcode == OpCode.DEQUE_NEW:
+        return "śūnyaḥ dviguṇa-samūhaḥ nirmīyate."
+    if opcode == OpCode.DEQUE_PUSH_BACK:
+        return "dviguṇa-samūhe pṛṣṭhe yojanam kriyate."
+    if opcode == OpCode.DEQUE_PUSH_FRONT:
+        return "dviguṇa-samūhe agre yojanam kriyate."
+    if opcode == OpCode.DEQUE_POP_BACK:
+        return "dviguṇa-samūhāt pṛṣṭhād aṅkam gṛhyate."
+    if opcode == OpCode.DEQUE_POP_FRONT:
+        return "dviguṇa-samūhāt agrāt aṅkam gṛhyate."
+    if opcode == OpCode.DEQUE_LEN:
+        return "dviguṇa-samūhasya parimāṇam gṛhyate."
+    if opcode == OpCode.OPTION_NONE:
+        return "śūnyaḥ vikalpaḥ nirmīyate."
+    if opcode == OpCode.OPTION_SOME:
+        return "vikalpe yojanam kriyate."
+    if opcode == OpCode.OPTION_IS_SOME:
+        return "vikalpasya sattā parīkṣyate."
+    if opcode == OpCode.OPTION_UNWRAP:
+        return "vikalpāt mūlyam gṛhyate."
+    if opcode == OpCode.RESULT_OK:
+        return "phale saphalatā sthāpyate."
+    if opcode == OpCode.RESULT_ERR:
+        return "phale doṣaḥ sthāpyate."
+    if opcode == OpCode.RESULT_IS_OK:
+        return "phalasya saphalatā parīkṣyate."
+    if opcode == OpCode.RESULT_UNWRAP_OK:
+        return "saphalāt phalāt mūlyam gṛhyate."
+    if opcode == OpCode.RESULT_UNWRAP_ERR:
+        return "doṣāt phalāt mūlyam gṛhyate."
+    if opcode == OpCode.TEXT_GRAPHEME_LEN:
+        return "vākyasya graṇī-parimāṇam gṛhyate."
+    if opcode == OpCode.FLOAT_IS_NAN:
+        return "daśāṃśasya anirṇayaḥ parīkṣyate."
+    if opcode == OpCode.FLOAT_IS_INF:
+        return "daśāṃśasya anantaḥ parīkṣyate."
+    if opcode == OpCode.OPAQUE_NEW:
+        return f"{_expect_name(operand, opcode)} iti āvaraṇaṃ nirmīyate."
+    if opcode == OpCode.ARRAY_NEW:
+        return f"{_format_int(_expect_int(operand, opcode))} iti niyata-samūhaḥ nirmīyate."
+    if opcode == OpCode.SLICE_VIEW:
+        return "samūhasya chedaḥ dṛśyaḥ kriyate."
     if opcode == OpCode.HEAP_ALLOC:
         return "smṛtau avakāśaḥ kalpyate."
     if opcode == OpCode.HEAP_STORE:
@@ -183,16 +311,25 @@ def _render_instruction(instruction: Instruction) -> str:
         return f"{_format_int(_expect_int(operand, opcode))} iti lakṣyaṃ gamyate."
     if opcode == OpCode.JUMP_IF_ZERO:
         return f"śūnye sati {_format_int(_expect_int(operand, opcode))} iti lakṣyaṃ gamyate."
-    if opcode == OpCode.CALL:
+    if opcode in {OpCode.CALL, OpCode.TAIL_CALL}:
         target = _expect_name(operand, opcode)
+        verb = "anukramya" if opcode == OpCode.TAIL_CALL else "āhūyate"
         if "." in target:
             module_name, function_name = target.split(".", 1)
-            return f"{module_name} iti kṣetre {function_name} iti vidhānam āhūyate."
-        return f"{target} iti vidhānam āhūyate."
+            return f"{module_name} iti kṣetre {function_name} iti vidhānam {verb}."
+        return f"{target} iti vidhānam {verb}."
     if opcode == OpCode.RETURN:
         return "pratyāvartanam kriyate."
     if opcode == OpCode.POP:
         return "tyāgaḥ kriyate."
+    if opcode == OpCode.THROW:
+        return "vikṣepaḥ kriyate."
+    if opcode == OpCode.PANIC:
+        return "vipattim kriyate."
+    if opcode == OpCode.TRY_BEGIN:
+        return f"āgrahītvā {_format_int(_expect_int(operand, opcode))} iti lakṣyaṃ ārabhyate."
+    if opcode == OpCode.TRY_END:
+        return "āgrahītvaḥ samāpyate."
     if opcode == OpCode.HALT:
         return "virāmaḥ kriyate."
 
@@ -327,6 +464,14 @@ def _parse_instruction(sentence: str) -> Instruction:
         return Instruction(OpCode.LIST_LEN)
     if tokens == ["samūhāt", "aṅkam", "gṛhyate"]:
         return Instruction(OpCode.LIST_GET)
+    if len(tokens) == 6 and tokens[1:] == ["iti", "kāryeṇa", "samūhaḥ", "māpyate"]:
+        return Instruction(OpCode.LIST_MAP, tokens[0])
+    if len(tokens) == 6 and tokens[1:] == ["iti", "kāryeṇa", "samūhaḥ", "śodhyate"]:
+        return Instruction(OpCode.LIST_FILTER, tokens[0])
+    if len(tokens) == 6 and tokens[1:] == ["iti", "kāryeṇa", "samūhaḥ", "saṅkucyate"]:
+        return Instruction(OpCode.LIST_REDUCE, tokens[0])
+    if len(tokens) == 7 and tokens[1:] == ["iti", "kāryeṇa", "samūhaḥ", "sarvam", "parīkṣyate"]:
+        return Instruction(OpCode.LIST_ALL, tokens[0])
     if tokens == ["śūnyaḥ", "kośaḥ", "nirmīyate"]:
         return Instruction(OpCode.MAP_NEW)
     if tokens == ["kośe", "sthāpanam", "kriyate"]:
@@ -343,6 +488,88 @@ def _parse_instruction(sentence: str) -> Instruction:
         return Instruction(OpCode.RECORD_GET)
     if tokens == ["vastuni", "aṅgasattā", "parīkṣyate"]:
         return Instruction(OpCode.RECORD_CONTAINS)
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "varga-nirmāṇam", "kriyate"]:
+        return Instruction(OpCode.CLASS_NEW, tokens[0])
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "paddhati-āhvānam", "kriyate"]:
+        return Instruction(OpCode.METHOD_CALL, tokens[0])
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "ati-pūrṇāṅkaḥ", "nikṣipyate"]:
+        return Instruction(OpCode.PUSH_BIGINT, _parse_int(tokens[:-3]))
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "saṅkhyā-lagu", "nikṣipyate"]:
+        return Instruction(OpCode.PUSH_I32, _parse_int(tokens[:-3]))
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "saṅkhyā-nirṇāśa", "nikṣipyate"]:
+        return Instruction(OpCode.PUSH_U32, _parse_int(tokens[:-3]))
+    if tokens == ["saṅkhyā-lagvoḥ", "yogaḥ", "parīkṣitaḥ", "kriyate"]:
+        return Instruction(OpCode.I32_ADD_CHECKED)
+    if tokens == ["saṅkhyā-nirṇāśayoḥ", "yogaḥ", "parīkṣitaḥ", "kriyate"]:
+        return Instruction(OpCode.U32_ADD_CHECKED)
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "akṣara-śreṇī", "nikṣipyate"]:
+        return Instruction(OpCode.PUSH_BYTES, " ".join(tokens[:-3]))
+    if tokens == ["śūnyā", "akṣara-śreṇī", "nirmīyate"]:
+        return Instruction(OpCode.BYTE_NEW)
+    if tokens == ["akṣara-śreṇyāḥ", "parimāṇam", "gṛhyate"]:
+        return Instruction(OpCode.BYTE_LEN)
+    if tokens == ["akṣara-śreṇyāḥ", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.BYTE_GET)
+    if tokens == ["śūnyaḥ", "akṣara-saṃgrahaḥ", "nirmīyate"]:
+        return Instruction(OpCode.BYTEARRAY_NEW)
+    if tokens == ["akṣara-saṃgrahe", "sthāpanam", "kriyate"]:
+        return Instruction(OpCode.BYTEARRAY_SET)
+    if tokens == ["akṣara-saṃgrahāt", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.BYTEARRAY_GET)
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "yuktiḥ", "nirmīyate"]:
+        return Instruction(OpCode.TUPLE_NEW, _parse_int(tokens[:-3]))
+    if len(tokens) >= 5 and tokens[-4:] == ["iti", "yuktau", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.TUPLE_GET, _parse_int(tokens[:-4]))
+    if tokens == ["śūnyaḥ", "samāhāraḥ", "nirmīyate"]:
+        return Instruction(OpCode.SET_NEW)
+    if tokens == ["samāhāre", "yojanam", "kriyate"]:
+        return Instruction(OpCode.SET_ADD)
+    if tokens == ["samāhāre", "sattā", "parīkṣyate"]:
+        return Instruction(OpCode.SET_CONTAINS)
+    if tokens == ["samāhārasya", "parimāṇam", "gṛhyate"]:
+        return Instruction(OpCode.SET_LEN)
+    if tokens == ["śūnyaḥ", "dviguṇa-samūhaḥ", "nirmīyate"]:
+        return Instruction(OpCode.DEQUE_NEW)
+    if tokens == ["dviguṇa-samūhe", "pṛṣṭhe", "yojanam", "kriyate"]:
+        return Instruction(OpCode.DEQUE_PUSH_BACK)
+    if tokens == ["dviguṇa-samūhe", "agre", "yojanam", "kriyate"]:
+        return Instruction(OpCode.DEQUE_PUSH_FRONT)
+    if tokens == ["dviguṇa-samūhāt", "pṛṣṭhād", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.DEQUE_POP_BACK)
+    if tokens == ["dviguṇa-samūhāt", "agrāt", "aṅkam", "gṛhyate"]:
+        return Instruction(OpCode.DEQUE_POP_FRONT)
+    if tokens == ["dviguṇa-samūhasya", "parimāṇam", "gṛhyate"]:
+        return Instruction(OpCode.DEQUE_LEN)
+    if tokens == ["śūnyaḥ", "vikalpaḥ", "nirmīyate"]:
+        return Instruction(OpCode.OPTION_NONE)
+    if tokens == ["vikalpe", "yojanam", "kriyate"]:
+        return Instruction(OpCode.OPTION_SOME)
+    if tokens == ["vikalpasya", "sattā", "parīkṣyate"]:
+        return Instruction(OpCode.OPTION_IS_SOME)
+    if tokens == ["vikalpāt", "mūlyam", "gṛhyate"]:
+        return Instruction(OpCode.OPTION_UNWRAP)
+    if tokens == ["phale", "saphalatā", "sthāpyate"]:
+        return Instruction(OpCode.RESULT_OK)
+    if tokens == ["phale", "doṣaḥ", "sthāpyate"]:
+        return Instruction(OpCode.RESULT_ERR)
+    if tokens == ["phalasya", "saphalatā", "parīkṣyate"]:
+        return Instruction(OpCode.RESULT_IS_OK)
+    if tokens == ["saphalāt", "phalāt", "mūlyam", "gṛhyate"]:
+        return Instruction(OpCode.RESULT_UNWRAP_OK)
+    if tokens == ["doṣāt", "phalāt", "mūlyam", "gṛhyate"]:
+        return Instruction(OpCode.RESULT_UNWRAP_ERR)
+    if tokens == ["vākyasya", "graṇī-parimāṇam", "gṛhyate"]:
+        return Instruction(OpCode.TEXT_GRAPHEME_LEN)
+    if tokens == ["daśāṃśasya", "anirṇayaḥ", "parīkṣyate"]:
+        return Instruction(OpCode.FLOAT_IS_NAN)
+    if tokens == ["daśāṃśasya", "anantaḥ", "parīkṣyate"]:
+        return Instruction(OpCode.FLOAT_IS_INF)
+    if len(tokens) == 4 and tokens[1:] == ["iti", "āvaraṇaṃ", "nirmīyate"]:
+        return Instruction(OpCode.OPAQUE_NEW, tokens[0])
+    if len(tokens) >= 4 and tokens[-3:] == ["iti", "niyata-samūhaḥ", "nirmīyate"]:
+        return Instruction(OpCode.ARRAY_NEW, _parse_int(tokens[:-3]))
+    if tokens == ["samūhasya", "chedaḥ", "dṛśyaḥ", "kriyate"]:
+        return Instruction(OpCode.SLICE_VIEW)
     if tokens == ["smṛtau", "avakāśaḥ", "kalpyate"]:
         return Instruction(OpCode.HEAP_ALLOC)
     if tokens == ["smṛtau", "sthāpanam", "kriyate"]:
@@ -393,6 +620,20 @@ def _parse_instruction(sentence: str) -> Instruction:
         return Instruction(OpCode.RETURN)
     if tokens == ["tyāgaḥ", "kriyate"]:
         return Instruction(OpCode.POP)
+    if tokens == ["vikṣepaḥ", "kriyate"]:
+        return Instruction(OpCode.THROW)
+    if tokens == ["vipattim", "kriyate"]:
+        return Instruction(OpCode.PANIC)
+    if (
+        len(tokens) >= 5
+        and tokens[-1] == "ārabhyate"
+        and tokens[-3] == "iti"
+        and tokens[0] in {"āgrahītvā", "āgrahītva", "agrahitva"}
+        and tokens[-2] in {"lakṣyaṃ", "lakṣyam", "lakshyam"}
+    ):
+        return Instruction(OpCode.TRY_BEGIN, _parse_int(tokens[1:-3]))
+    if tokens == ["āgrahītvaḥ", "samāpyate"]:
+        return Instruction(OpCode.TRY_END)
     if tokens == ["virāmaḥ", "kriyate"]:
         return Instruction(OpCode.HALT)
     raise BytecodeValidationError(f"Unknown yantra-pāṭha sentence: {sentence!r}")
@@ -413,6 +654,11 @@ def _format_int(value: int) -> str:
 
 
 def _format_float(value: float) -> str:
+    import math as _math
+    if _math.isnan(value):
+        return "na-saṅkhyā"
+    if _math.isinf(value):
+        return "ṛṇa anatam" if value < 0 else "anatam"
     sign = "ṛṇa " if value < 0 else ""
     absolute = abs(value)
     text = format(absolute, ".12f").rstrip("0").rstrip(".")
@@ -441,6 +687,13 @@ def _parse_int(tokens: list[str]) -> int:
 
 
 def _parse_float(tokens: list[str]) -> float:
+    import math as _math
+    if tokens == ["anatam"]:
+        return _math.inf
+    if tokens == ["ṛṇa", "anatam"]:
+        return -_math.inf
+    if tokens == ["na-saṅkhyā"]:
+        return _math.nan
     if "bindu" not in tokens:
         return float(_parse_int(tokens))
     split_at = tokens.index("bindu")

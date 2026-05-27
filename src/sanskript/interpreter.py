@@ -6,12 +6,20 @@ from .compiler import compile_program
 from .compiler import compile_statements
 from .errors import RuntimeSanskriptError
 from .parser import parse_program
+from .source_pipeline import prepare_source
 from .vm import SanskriptVM
 
 
 def run(source: str) -> list[str]:
+    """Execute source after Phase-1 preparation (comments, script normalize, modes)."""
     interpreter = Interpreter()
-    return interpreter.execute(parse_program(source))
+    return interpreter.execute(interpreter.parse(source))
+
+
+def parse(source: str) -> Program:
+    """Parse after running the full Phase-1 source pipeline."""
+    prepared = prepare_source(source)
+    return parse_program(prepared.text)
 
 
 class Interpreter:
@@ -26,6 +34,10 @@ class Interpreter:
     @property
     def output(self) -> list[str]:
         return self.vm.output
+
+    def parse(self, source: str) -> Program:
+        prepared = prepare_source(source)
+        return parse_program(prepared.text)
 
     def execute(self, program: Program | list[Statement]) -> list[str]:
         if isinstance(program, Program):

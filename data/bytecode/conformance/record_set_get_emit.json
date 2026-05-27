@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "description": "Create a record, set field 'nāma' to 'Devadatta', read it back and emit.",
+  "expected_output": ["Devadatta"],
+  "expected_environment": {},
+  "instructions": [
+    { "op": "record_new" },
+    { "op": "push_text", "operand": "nāma" },
+    { "op": "push_text", "operand": "Devadatta" },
+    { "op": "record_set" },
+    { "op": "push_text", "operand": "nāma" },
+    { "op": "record_get" },
+    { "op": "emit" },
+    { "op": "halt" }
+  ]
+}

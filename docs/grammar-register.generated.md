@@ -6,7 +6,7 @@ verb frames, numerals, avyayas, or runtime derivation entries.
 
 ## Runtime Register
 
-- Runtime entries: `241`
+- Runtime entries: `254`
 - Controlled verb frames: `20`
 - Controlled nominal stems: `4`
 - Controlled numeral forms: `25`
@@ -16,7 +16,7 @@ verb frames, numerals, avyayas, or runtime derivation entries.
 
 | Construction | Entries |
 | --- | ---: |
-| `AVYAYA` | 45 |
+| `AVYAYA` | 58 |
 | `KRT-001` | 10 |
 | `NF-001` | 114 |
 | `NUM-001` | 25 |

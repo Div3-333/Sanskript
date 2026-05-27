@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 
 from .bytecode import BytecodeProgram, encode_program, load_bytecode_file
-from .compiler import compile_source
+from .compiler import compile_program
+from .module_loader import load_program_from_path
 from .yantra_patha import program_from_yantra_patha
 
 
@@ -14,7 +15,7 @@ def load_program_for_web(source: Path) -> BytecodeProgram:
         return load_bytecode_file(source)
     if source.suffix == ".sskyp":
         return program_from_yantra_patha(source.read_text(encoding="utf-8"))
-    return compile_source(source.read_text(encoding="utf-8"))
+    return compile_program(load_program_from_path(source))
 
 
 def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") -> str:
@@ -143,11 +144,15 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         output: [],
         instructions: program.instructions,
         callStack: [],
+        tryStack: [],
         safetyTier: program.safety_tier || "surakshita",
         heap: Object.create(null),
         heapNext: 1,
         unsafeDepth: 0
       }};
+      const isThrown = (error) =>
+        error !== null && typeof error === "object" && error.__sanskriptThrown === true;
+      const makeThrown = (message) => ({{ __sanskriptThrown: true, message }});
 
       const isFloat = (value) =>
         value !== null && typeof value === "object" && value.__sanskriptFloat === true;
@@ -197,11 +202,35 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
         return left === right;
       }};
       const displayValue = (value) => {{
+        if (value === null) return "sunyam";
         if (isFloat(value)) {{
+          if (Number.isNaN(value.value)) return "nan";
+          if (!Number.isFinite(value.value)) return value.value > 0 ? "inf" : "-inf";
           const text = String(value.value);
           return Number.isInteger(value.value) ? text + ".0" : text;
         }}
         if (typeof value === "boolean") return value ? "satyam" : "asatyam";
+        if (value && value.__sanskriptBigint === true) return "bigint(" + value.value + ")";
+        if (value && value.__sanskriptI32 === true) return "i32(" + value.value + ")";
+        if (value && value.__sanskriptU32 === true) return "u32(" + value.value + ")";
+        if (value && value.__sanskriptOption === true) {{
+          return value.present ? "some(" + displayValue(value.value) + ")" : "none";
+        }}
+        if (value && value.__sanskriptResult === true) {{
+          return (value.ok ? "ok(" : "err(") + displayValue(value.value) + ")";
+        }}
+        if (value && value.__sanskriptTuple === true) {{
+          return "(" + value.items.map(displayValue).join(", ") + ")";
+        }}
+        if (value && value.__sanskriptSet === true) {{
+          return "{{" + value.items.map(displayValue).join(", ") + "}}";
+        }}
+        if (value && value.__sanskriptDeque === true) {{
+          return "deque[" + value.items.map(displayValue).join(", ") + "]";
+        }}
+        if (value && value.__sanskriptBytes === true) return "bytes(b'" + value.data.map((b) => "\\\\x" + b.toString(16).padStart(2, "0")).join("") + "')";
+        if (value && value.__sanskriptByteArray === true) return "bytearray(b'" + value.data.map((b) => "\\\\x" + b.toString(16).padStart(2, "0")).join("") + "')";
+        if (value && value.__sanskriptOpaque === true) return "opaque(" + value.kind + ":" + value.handleId + ")";
         if (Array.isArray(value)) return "[" + value.map(displayValue).join(", ") + "]";
         if (isMapValue(value)) {{
           return "{{" + Object.keys(value).map((key) => displayValue(key) + ":" + displayValue(value[key])).join(", ") + "}}";
@@ -287,6 +316,8 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
       let ip = 0;
       while (ip < state.instructions.length) {{
         const instruction = state.instructions[ip];
+        let nextIp = null;
+        try {{
         switch (instruction.op) {{
           case "push_int":
             state.stack.push(instruction.operand);
@@ -527,6 +558,315 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           case "pop":
             pop();
             break;
+          case "push_nil":
+            state.stack.push(null);
+            break;
+          case "push_bigint":
+            state.stack.push({{ __sanskriptBigint: true, value: instruction.operand }});
+            break;
+          case "push_i32":
+            state.stack.push({{ __sanskriptI32: true, value: instruction.operand }});
+            break;
+          case "push_u32":
+            state.stack.push({{ __sanskriptU32: true, value: instruction.operand }});
+            break;
+          case "i32_add_checked": {{
+            const r = pop(); const l = pop();
+            const rv = r.__sanskriptI32 ? r.value : r;
+            const lv = l.__sanskriptI32 ? l.value : l;
+            const res = lv + rv;
+            if (res < -2147483648 || res > 2147483647) throw new Error("i32 overflow: " + lv + " + " + rv);
+            state.stack.push({{ __sanskriptI32: true, value: res }});
+            break;
+          }}
+          case "u32_add_checked": {{
+            const r = pop(); const l = pop();
+            const rv = r.__sanskriptU32 ? r.value : r;
+            const lv = l.__sanskriptU32 ? l.value : l;
+            const res = lv + rv;
+            if (res < 0 || res > 4294967295) throw new Error("u32 overflow: " + lv + " + " + rv);
+            state.stack.push({{ __sanskriptU32: true, value: res }});
+            break;
+          }}
+          case "i32_add_wrapping": {{
+            const r = pop(); const l = pop();
+            const raw = (l.__sanskriptI32 ? l.value : l) + (r.__sanskriptI32 ? r.value : r);
+            const masked = ((raw + 4294967296) % 4294967296);
+            state.stack.push({{ __sanskriptI32: true, value: masked >= 2147483648 ? masked - 4294967296 : masked }});
+            break;
+          }}
+          case "u32_add_wrapping": {{
+            const r = pop(); const l = pop();
+            const raw = (l.__sanskriptU32 ? l.value : l) + (r.__sanskriptU32 ? r.value : r);
+            state.stack.push({{ __sanskriptU32: true, value: ((raw + 4294967296) % 4294967296) }});
+            break;
+          }}
+          case "i32_add_saturating": {{
+            const r = pop(); const l = pop();
+            const raw = (l.__sanskriptI32 ? l.value : l) + (r.__sanskriptI32 ? r.value : r);
+            state.stack.push({{ __sanskriptI32: true, value: Math.max(-2147483648, Math.min(2147483647, raw)) }});
+            break;
+          }}
+          case "u32_add_saturating": {{
+            const r = pop(); const l = pop();
+            const raw = (l.__sanskriptU32 ? l.value : l) + (r.__sanskriptU32 ? r.value : r);
+            state.stack.push({{ __sanskriptU32: true, value: Math.max(0, Math.min(4294967295, raw)) }});
+            break;
+          }}
+          case "option_none":
+            state.stack.push({{ __sanskriptOption: true, present: false, value: null }});
+            break;
+          case "option_some": {{
+            const v = pop();
+            state.stack.push({{ __sanskriptOption: true, present: true, value: v }});
+            break;
+          }}
+          case "option_is_some": {{
+            const o = pop();
+            if (!o || !o.__sanskriptOption) throw new Error("Expected option");
+            state.stack.push(o.present ? 1 : 0);
+            break;
+          }}
+          case "option_unwrap": {{
+            const o = pop();
+            if (!o || !o.__sanskriptOption) throw new Error("Expected option");
+            if (!o.present) throw new Error("option_unwrap on none");
+            state.stack.push(o.value);
+            break;
+          }}
+          case "result_ok": {{
+            const v = pop();
+            state.stack.push({{ __sanskriptResult: true, ok: true, value: v }});
+            break;
+          }}
+          case "result_err": {{
+            const v = pop();
+            state.stack.push({{ __sanskriptResult: true, ok: false, value: v }});
+            break;
+          }}
+          case "result_is_ok": {{
+            const r = pop();
+            if (!r || !r.__sanskriptResult) throw new Error("Expected result");
+            state.stack.push(r.ok ? 1 : 0);
+            break;
+          }}
+          case "result_unwrap_ok": {{
+            const r = pop();
+            if (!r || !r.__sanskriptResult) throw new Error("Expected result");
+            if (!r.ok) throw new Error("result_unwrap_ok on err");
+            state.stack.push(r.value);
+            break;
+          }}
+          case "result_unwrap_err": {{
+            const r = pop();
+            if (!r || !r.__sanskriptResult) throw new Error("Expected result");
+            if (r.ok) throw new Error("result_unwrap_err on ok");
+            state.stack.push(r.value);
+            break;
+          }}
+          case "push_bytes": {{
+            const hex = instruction.operand;
+            const bytes = [];
+            for (let i = 0; i < hex.length; i += 2) bytes.push(parseInt(hex.slice(i, i + 2), 16));
+            state.stack.push({{ __sanskriptBytes: true, data: bytes }});
+            break;
+          }}
+          case "byte_new":
+            state.stack.push({{ __sanskriptBytes: true, data: [] }});
+            break;
+          case "byte_len": {{
+            const b = pop();
+            if (!b || !b.__sanskriptBytes) throw new Error("Expected bytes");
+            state.stack.push(b.data.length);
+            break;
+          }}
+          case "byte_get": {{
+            const idx = popInt();
+            const b = pop();
+            if (!b || !b.__sanskriptBytes) throw new Error("Expected bytes");
+            if (idx < 0 || idx >= b.data.length) throw new Error("bytes index out of range: " + idx);
+            state.stack.push(b.data[idx]);
+            break;
+          }}
+          case "bytearray_new":
+            state.stack.push({{ __sanskriptByteArray: true, data: [] }});
+            break;
+          case "bytearray_set": {{
+            const val = popInt();
+            if (val < 0 || val > 255) throw new Error("byte value must be 0..255");
+            const idx = popInt();
+            const buf = pop();
+            if (!buf || !buf.__sanskriptByteArray) throw new Error("Expected bytearray");
+            while (buf.data.length <= idx) buf.data.push(0);
+            buf.data[idx] = val;
+            state.stack.push(buf);
+            break;
+          }}
+          case "bytearray_get": {{
+            const idx = popInt();
+            const buf = pop();
+            if (!buf || !buf.__sanskriptByteArray) throw new Error("Expected bytearray");
+            if (idx < 0 || idx >= buf.data.length) throw new Error("bytearray index out of range: " + idx);
+            state.stack.push(buf.data[idx]);
+            break;
+          }}
+          case "tuple_new": {{
+            const arity = instruction.operand;
+            const items = [];
+            for (let i = 0; i < arity; i++) items.push(pop());
+            items.reverse();
+            state.stack.push({{ __sanskriptTuple: true, items }});
+            break;
+          }}
+          case "tuple_get": {{
+            const idx = instruction.operand;
+            const t = pop();
+            if (!t || !t.__sanskriptTuple) throw new Error("Expected tuple");
+            if (idx < 0 || idx >= t.items.length) throw new Error("tuple index out of range: " + idx);
+            state.stack.push(t.items[idx]);
+            break;
+          }}
+          case "set_new":
+            state.stack.push({{ __sanskriptSet: true, items: [] }});
+            break;
+          case "set_add": {{
+            const item = pop();
+            const s = pop();
+            if (!s || !s.__sanskriptSet) throw new Error("Expected set");
+            if (!s.items.some((x) => valuesEqual(x, item))) s.items.push(item);
+            state.stack.push(s);
+            break;
+          }}
+          case "set_contains": {{
+            const item = pop();
+            const s = pop();
+            if (!s || !s.__sanskriptSet) throw new Error("Expected set");
+            state.stack.push(s.items.some((x) => valuesEqual(x, item)) ? 1 : 0);
+            break;
+          }}
+          case "set_len": {{
+            const s = pop();
+            if (!s || !s.__sanskriptSet) throw new Error("Expected set");
+            state.stack.push(s.items.length);
+            break;
+          }}
+          case "deque_new":
+            state.stack.push({{ __sanskriptDeque: true, items: [] }});
+            break;
+          case "deque_push_back": {{
+            const item = pop();
+            const d = pop();
+            if (!d || !d.__sanskriptDeque) throw new Error("Expected deque");
+            d.items.push(item);
+            state.stack.push(d);
+            break;
+          }}
+          case "deque_push_front": {{
+            const item = pop();
+            const d = pop();
+            if (!d || !d.__sanskriptDeque) throw new Error("Expected deque");
+            d.items.unshift(item);
+            state.stack.push(d);
+            break;
+          }}
+          case "deque_pop_back": {{
+            const d = pop();
+            if (!d || !d.__sanskriptDeque) throw new Error("Expected deque");
+            if (d.items.length === 0) throw new Error("deque_pop_back on empty deque");
+            state.stack.push(d.items.pop());
+            break;
+          }}
+          case "deque_pop_front": {{
+            const d = pop();
+            if (!d || !d.__sanskriptDeque) throw new Error("Expected deque");
+            if (d.items.length === 0) throw new Error("deque_pop_front on empty deque");
+            state.stack.push(d.items.shift());
+            break;
+          }}
+          case "deque_len": {{
+            const d = pop();
+            if (!d || !d.__sanskriptDeque) throw new Error("Expected deque");
+            state.stack.push(d.items.length);
+            break;
+          }}
+          case "float_is_nan": {{
+            const v = pop();
+            if (!isFloat(v)) throw new Error("float_is_nan expected float");
+            state.stack.push(Number.isNaN(v.value) ? 1 : 0);
+            break;
+          }}
+          case "float_is_inf": {{
+            const v = pop();
+            if (!isFloat(v)) throw new Error("float_is_inf expected float");
+            state.stack.push(!Number.isFinite(v.value) && !Number.isNaN(v.value) ? 1 : 0);
+            break;
+          }}
+          case "text_grapheme_len":
+            state.stack.push(popText().length);
+            break;
+          case "array_new": {{
+            const size = instruction.operand;
+            if (size < 0) throw new Error("array_new size must be non-negative");
+            state.stack.push(new Array(size).fill(0));
+            break;
+          }}
+          case "slice_view": {{
+            const end = popInt();
+            const start = popInt();
+            const items = popList();
+            if (start < 0 || end < start || end > items.length) throw new Error("slice_view out of range");
+            state.stack.push(items.slice(start, end));
+            break;
+          }}
+          case "opaque_new": {{
+            const handleId = popInt();
+            state.stack.push({{ __sanskriptOpaque: true, kind: instruction.operand, handleId }});
+            break;
+          }}
+          case "compare_ne": {{
+            const right = pop(); const left = pop();
+            state.stack.push(valuesEqual(left, right) ? 0 : 1);
+            break;
+          }}
+          case "compare_gt": {{
+            const right = popInt(); const left = popInt();
+            state.stack.push(left > right ? 1 : 0);
+            break;
+          }}
+          case "compare_le": {{
+            const right = popInt(); const left = popInt();
+            state.stack.push(left <= right ? 1 : 0);
+            break;
+          }}
+          case "compare_identity": {{
+            const right = pop(); const left = pop();
+            state.stack.push(valuesEqual(left, right) ? 1 : 0);
+            break;
+          }}
+          case "scope_enter":
+          case "scope_exit":
+          case "break_loop":
+          case "continue_loop":
+          case "defer_push":
+          case "defer_run":
+          case "match_eq":
+          case "match_tuple_len":
+          case "match_record_has":
+            break;
+          case "throw": {{
+            const msg = pop();
+            throw makeThrown(typeof msg === "string" ? msg : String(msg));
+          }}
+          case "panic": {{
+            const msg = pop();
+            throw new Error("SANSKRIPT_PANIC:" + (typeof msg === "string" ? msg : String(msg)));
+          }}
+          case "try_begin":
+            state.tryStack.push([instruction.operand, state.stack.length]);
+            break;
+          case "try_end":
+            if (state.tryStack.length > 0) state.tryStack.pop();
+            break;
           case "halt":
             if (state.callStack.length > 0) {{
               const frame = state.callStack.pop();
@@ -539,7 +879,17 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           default:
             throw new Error("Unknown opcode: " + instruction.op);
         }}
-        ip += 1;
+        }} catch (error) {{
+          if (isThrown(error) && state.tryStack.length > 0) {{
+            const frame = state.tryStack.pop();
+            state.stack.length = frame[1];
+            state.stack.push(error.message);
+            ip = frame[0];
+            continue;
+          }}
+          throw error;
+        }}
+        ip = nextIp !== null ? nextIp : ip + 1;
       }}
       return state.output;
     }}

@@ -8,14 +8,15 @@ import sys
 from pathlib import Path
 
 from .bytecode import BYTECODE_LATEST, dump_bytecode_file, load_bytecode_file, validate_bytecode
-from .compiler import compile_source
+from .compiler import compile_program, compile_source
 from .errors import SanskriptError
 from .grammar_register import register_entries
-from .interpreter import run
 from .morphology_facade import MorphologyFacade
 from .morphology_lexicon import build_lexicon_artifact
 from .morphology_synth import synthesize
+from .module_loader import load_program_from_path
 from .performance import main as performance_main
+from .vm import SanskriptVM
 from .webapp import load_program_for_web, write_web_app
 from .yantra_patha import program_from_yantra_patha, program_to_yantra_patha
 
@@ -118,16 +119,12 @@ def _ensure_utf8_stdio() -> None:
 def _run_file(source: Path) -> int:
     if source.suffix == ".sskbc":
         program = load_bytecode_file(source)
-        from .vm import SanskriptVM
-
         output = SanskriptVM().execute(program)
     elif source.suffix == ".sskyp":
         program = program_from_yantra_patha(source.read_text(encoding="utf-8"))
-        from .vm import SanskriptVM
-
         output = SanskriptVM().execute(program)
     else:
-        output = run(source.read_text(encoding="utf-8"))
+        output = SanskriptVM().execute(compile_program(load_program_from_path(source)))
     for line in output:
         print(line)
     return 0
@@ -135,7 +132,10 @@ def _run_file(source: Path) -> int:
 
 def _compile_file(source: Path, output: Path | None = None, *, version: int = BYTECODE_LATEST) -> int:
     target = output or source.with_suffix(".sskbc")
-    program = compile_source(source.read_text(encoding="utf-8"))
+    if source.suffix == ".ssk":
+        program = compile_program(load_program_from_path(source))
+    else:
+        program = compile_source(source.read_text(encoding="utf-8"))
     validate_bytecode(program, version=version)
     dump_bytecode_file(program, target, version=version)
     print(target)

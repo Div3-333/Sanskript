@@ -1,0 +1,169 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_bigint",
+      "operand": 9007199254740991
+    },
+    {
+      "op": "store_name",
+      "operand": "big"
+    },
+    {
+      "op": "push_i8",
+      "operand": 127
+    },
+    {
+      "op": "store_name",
+      "operand": "byte"
+    },
+    {
+      "op": "push_i32",
+      "operand": 42
+    },
+    {
+      "op": "store_name",
+      "operand": "word"
+    },
+    {
+      "op": "push_int",
+      "operand": 7
+    },
+    {
+      "op": "option_some"
+    },
+    {
+      "op": "store_name",
+      "operand": "opt"
+    },
+    {
+      "op": "option_none"
+    },
+    {
+      "op": "store_name",
+      "operand": "empty"
+    },
+    {
+      "op": "push_int",
+      "operand": 42
+    },
+    {
+      "op": "result_ok"
+    },
+    {
+      "op": "store_name",
+      "operand": "res"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "tuple_new",
+      "operand": 2
+    },
+    {
+      "op": "store_name",
+      "operand": "pair"
+    },
+    {
+      "op": "set_new"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "set_add"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "set_add"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "set_add"
+    },
+    {
+      "op": "store_name",
+      "operand": "tags"
+    },
+    {
+      "op": "push_bytes",
+      "operand": "48656c6c6f"
+    },
+    {
+      "op": "store_name",
+      "operand": "buf"
+    },
+    {
+      "op": "load_name",
+      "operand": "big"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "byte"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "word"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "opt"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "empty"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "res"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "pair"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "buf"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

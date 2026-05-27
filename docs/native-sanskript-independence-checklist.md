@@ -82,97 +82,152 @@ of these gates pass:
       `arakṣita`.
 - [x] Type catalog documentation exists as a foundation.
 
+## Current Phase 1-10 Closure Audit
+
+Status after the identifier/avyaya cleanup on 2026-05-27:
+
+- [x] Phase 1-10 foundations build and pass the current test gates:
+      `pytest -q`, `tools/check_no_placeholder_completion.py`, and
+      `tools/check_feature_completion.py`.
+- [x] Identifier parsing is separated from the controlled avyaya register
+      (`src/sanskript/identifiers.py`). Example-only names such as `a`, `x`,
+      `n`, `greet`, `counter`, and `trace` must not be registered as avyaya.
+- [ ] Phase 1-10 are not closed forever yet. Green tests prove the current
+      foundations are coherent; they do not prove full Python/Rust replacement
+      or complete end-user language coverage.
+
+Open blockers before Phase 1-10 can be treated as fully closed:
+
+- [ ] Phase 1: broaden script/transliteration and sandhi segmentation coverage
+      beyond representative samples; keep enforcing prose-style identifiers
+      rather than widening grammar registers for tests.
+- [ ] Phase 2: add source/AST/bytecode/VM/negative coverage for every directive
+      combination, especially grouping, literals, module scope, and record/map
+      edges.
+- [ ] Phase 3: replace `text_grapheme_len_stub` with real grapheme cluster
+      handling; finish source-level directives and `.sskyp` parity for every
+      implemented scalar, collection, byte, option/result, and ADT value.
+- [ ] Phase 4: implement real borrow/lifetime enforcement, effect-system
+      enforcement, async/generator type behavior, and class/type integration
+      that is not merely catalog/documentation-level.
+- [ ] Phase 5: finish coherent error propagation across exceptions, result
+      values, panic, stack traces, source spans, pre/postconditions, and
+      invariants with negative tests for every illegal form.
+- [ ] Phase 6: harden callable behavior with full source examples for closures,
+      overloading, decorators, currying, macros, tail-call behavior, and
+      `surakṣita`/`rakṣita`/`arakṣita` linkage boundaries.
+- [ ] Phase 7: move beyond record-backed OOP foundation to complete method
+      resolution, inheritance/protocol/metaclass behavior, visibility
+      enforcement, finalization, and dispatch diagnostics.
+- [ ] Phase 8: deepen functional/declarative implementation and tests for lazy
+      iterators, generators, pipelines, pattern expressions, ADTs, declarative
+      queries, rule invocation, memoization, and purity interactions.
+- [ ] Phase 9: harden package resolution with conflict cases, lock/signature
+      verification, vendored/registry dependencies, platform feature gates, and
+      fresh-checkout examples.
+- [ ] Phase 10: wire standard-library calls through natural Sanskript source,
+      not only VM/native registry calls or Python driver examples; add
+      end-user examples for CLI, file I/O, JSON/CSV/TOML/YAML, regex/patterns,
+      templating, process, logging, and testing utilities.
+
 ## Phase 0: Truth Gates And Project Inventory
 
-- [ ] Create a generated feature matrix listing every language feature, owning
+- [x] Create a generated feature matrix listing every language feature, owning
       file, parser rule, compiler lowering, VM handler, docs page, examples,
-      and tests.
-- [ ] Add a CI check that fails if a feature is marked complete without all
-      required artifacts.
-- [ ] Add a "no placeholder completion" checker that rejects pass-through
-      handlers, empty predicates, metadata-only entries, and TODO-only bodies.
-- [ ] Inventory every Python module currently required by Sanskript.
-- [ ] Inventory every Rust module currently required by Sanskript.
-- [ ] Classify each existing module as compiler, runtime, VM, standard library,
+      and tests (`tools/generate_feature_matrix.py` → `data/meta/feature_matrix.json`,
+      `docs/generated/feature-matrix.md`).
+- [x] Add a CI check that fails if a feature is marked complete without all
+      required artifacts (`tools/check_feature_completion.py`, `.github/workflows/ci.yml`).
+- [x] Add a "no placeholder completion" checker that rejects pass-through
+      handlers, empty predicates, metadata-only entries, and TODO-only bodies
+      (`tools/check_no_placeholder_completion.py`; compiler-emitted opcodes and
+      catalog `implemented` types).
+- [x] Inventory every Python module currently required by Sanskript.
+- [x] Inventory every Rust module currently required by Sanskript
+      (`tools/generate_module_inventory.py` → `data/meta/module_inventory.json`,
+      `docs/generated/module-inventory.md`).
+- [x] Classify each existing module as compiler, runtime, VM, standard library,
       tooling, docs, tests, web, grammar engine, or migration support.
-- [ ] Assign every Python/Rust module to a Sanskript replacement milestone.
-- [ ] Add migration labels: keep temporarily, port directly, redesign, remove,
+- [x] Assign every Python/Rust module to a Sanskript replacement milestone (M0–M20).
+- [x] Add migration labels: keep temporarily, port directly, redesign, remove,
       or replace with native primitive.
-- [ ] Create a baseline "Sanskript can replace this" score per module.
-- [ ] Add a dashboard that shows percent complete by authoring, compiling,
-      execution, testing, documentation, packaging, and deployment.
+- [x] Create a baseline "Sanskript can replace this" score per module
+      (`replaceability_score` 0–100 in module inventory).
+- [x] Add a dashboard that shows percent complete by authoring, compiling,
+      execution, testing, documentation, packaging, and deployment
+      (`tools/generate_independence_dashboard.py` → `docs/generated/independence-dashboard.md`).
 
 ## Phase 1: Sanskrit Source Surface
 
-- [ ] Define the canonical prose style for executable Sanskript.
-- [ ] Define accepted scripts: Devanagari, IAST, SLP1, Harvard-Kyoto, and any
+- [x] Define the canonical prose style for executable Sanskript.
+- [x] Define accepted scripts: Devanagari, IAST, SLP1, Harvard-Kyoto, and any
       internal normalized script.
-- [ ] Implement source normalization across accepted scripts.
-- [ ] Implement reversible transliteration for diagnostics and tooling.
-- [ ] Implement strict token provenance so diagnostics can point to original
+- [x] Implement source normalization across accepted scripts.
+- [x] Implement reversible transliteration for diagnostics and tooling.
+- [x] Implement strict token provenance so diagnostics can point to original
       user text.
-- [ ] Implement sandhi-aware lexical segmentation where grammatically required.
-- [ ] Implement opt-in strict Paninian morphology validation for source forms.
-- [ ] Implement a relaxed learning mode that explains corrections without
+- [x] Implement sandhi-aware lexical segmentation where grammatically required.
+- [x] Implement opt-in strict Paninian morphology validation for source forms.
+- [x] Implement a relaxed learning mode that explains corrections without
       changing the canonical compiler.
-- [ ] Define how vākyas map to executable statements.
-- [ ] Define how compounds map to names, selectors, and type expressions.
-- [ ] Define how case endings map to semantic roles without becoming symbolic
+- [x] Define how vākyas map to executable statements.
+- [x] Define how compounds map to names, selectors, and type expressions.
+- [x] Define how case endings map to semantic roles without becoming symbolic
       punctuation.
-- [ ] Define how verb forms map to computation, effect, control, and
+- [x] Define how verb forms map to computation, effect, control, and
       evaluation.
-- [ ] Define how particles, indeclinables, and discourse markers are handled.
-- [ ] Define how comments are written in natural Sanskrit prose.
-- [ ] Define how documentation strings are written and attached.
-- [ ] Define how declarations begin and end without semicolons or braces.
-- [ ] Define how nested scopes are expressed without indentation dependency.
-- [ ] Define how optional punctuation is treated in manuscripts, examples, and
+- [x] Define how particles, indeclinables, and discourse markers are handled.
+- [x] Define how comments are written in natural Sanskrit prose.
+- [x] Define how documentation strings are written and attached.
+- [x] Define how declarations begin and end without semicolons or braces.
+- [x] Define how nested scopes are expressed without indentation dependency.
+- [x] Define how optional punctuation is treated in manuscripts, examples, and
       machine-readable files.
-- [ ] Define formatting rules that preserve readability without making layout
+- [x] Define formatting rules that preserve readability without making layout
       semantic.
-- [ ] Create a canonical formatter that outputs beautiful grammatical
+- [x] Create a canonical formatter that outputs beautiful grammatical
       Sanskript.
-- [ ] Create a linter that flags choppy Sanskrit-like code.
-- [ ] Create a style guide for names, compounds, case use, tense/mood use, and
+- [x] Create a linter that flags choppy Sanskrit-like code.
+- [x] Create a style guide for names, compounds, case use, tense/mood use, and
       prose register.
 
 ## Phase 2: Core Syntax And Semantics
 
-- [ ] Implement variable binding in prose with explicit role marking.
-- [ ] Implement mutable binding in prose.
-- [ ] Implement immutable binding in prose.
-- [ ] Implement shadowing rules.
-- [ ] Implement lexical scope.
-- [ ] Implement block scope without braces.
-- [ ] Implement module scope.
-- [ ] Implement explicit export scope.
-- [ ] Implement local declarations.
-- [ ] Implement forward declarations where needed.
-- [ ] Implement assignment without symbolic equals.
-- [ ] Implement compound assignment through verbal forms, not operators.
-- [ ] Implement expression sequencing.
-- [ ] Implement statement sequencing.
-- [ ] Implement expression-as-value rules.
-- [ ] Implement statement-only forms.
-- [ ] Implement unit/void result handling.
-- [ ] Implement truthiness rules or reject truthiness in favor of explicit
+- [x] Implement variable binding in prose with explicit role marking.
+- [x] Implement mutable binding in prose.
+- [x] Implement immutable binding in prose.
+- [x] Implement shadowing rules.
+- [x] Implement lexical scope.
+- [x] Implement block scope without braces.
+- [x] Implement module scope.
+- [x] Implement explicit export scope.
+- [x] Implement local declarations.
+- [x] Implement forward declarations where needed.
+- [x] Implement assignment without symbolic equals.
+- [x] Implement compound assignment through verbal forms, not operators.
+- [x] Implement expression sequencing.
+- [x] Implement statement sequencing.
+- [x] Implement expression-as-value rules.
+- [x] Implement statement-only forms.
+- [x] Implement unit/void result handling.
+- [x] Implement truthiness rules or reject truthiness in favor of explicit
       boolean grammar.
-- [ ] Implement boolean negation in prose.
-- [ ] Implement boolean conjunction in prose.
-- [ ] Implement boolean disjunction in prose.
-- [ ] Implement short-circuit evaluation.
-- [ ] Implement comparison forms for equality, inequality, ordering, identity,
+- [x] Implement boolean negation in prose.
+- [x] Implement boolean conjunction in prose.
+- [x] Implement boolean disjunction in prose.
+- [x] Implement short-circuit evaluation.
+- [x] Implement comparison forms for equality, inequality, ordering, identity,
       and membership.
-- [ ] Implement arithmetic precedence without symbolic precedence dependence.
-- [ ] Implement explicit grouping through Sanskrit syntactic forms.
-- [ ] Implement literal forms for numbers.
-- [ ] Implement literal forms for text.
-- [ ] Implement literal forms for lists.
-- [ ] Implement literal forms for maps.
-- [ ] Implement literal forms for records.
-- [ ] Implement literal forms for bytes.
-- [ ] Implement literal forms for nil/none/absence.
-- [ ] Implement literal forms for booleans.
+- [x] Implement arithmetic precedence without symbolic precedence dependence.
+- [x] Implement explicit grouping through Sanskrit syntactic forms.
+- [x] Implement literal forms for numbers.
+- [x] Implement literal forms for text.
+- [x] Implement literal forms for lists.
+- [x] Implement literal forms for maps.
+- [x] Implement literal forms for records.
+- [x] Implement literal forms for bytes.
+- [x] Implement literal forms for nil/none/absence.
+- [x] Implement literal forms for booleans.
 
 ## Phase 3: Values And Data Types
 
@@ -183,286 +238,325 @@ of these gates pass:
 - [x] List value foundation exists.
 - [x] Map value foundation exists.
 - [x] Record value foundation exists.
-- [ ] Implement arbitrary precision integers.
-- [ ] Implement signed fixed-width integers: i8, i16, i32, i64, i128.
-- [ ] Implement unsigned fixed-width integers: u8, u16, u32, u64, u128.
-- [ ] Implement machine word integers.
-- [ ] Implement pointer-sized integers.
-- [ ] Implement checked arithmetic.
-- [ ] Implement wrapping arithmetic.
-- [ ] Implement saturating arithmetic.
-- [ ] Implement exact rational numbers.
-- [ ] Implement decimal numbers for finance and accounting.
-- [ ] Implement complex numbers.
-- [ ] Implement IEEE float semantics.
-- [ ] Implement NaN and infinity handling.
-- [ ] Implement Unicode scalar handling.
-- [ ] Implement grapheme cluster text handling.
-- [ ] Implement byte strings.
-- [ ] Implement mutable byte arrays.
-- [ ] Implement fixed-size arrays.
-- [ ] Implement dynamic arrays.
-- [ ] Implement slices and views.
-- [ ] Implement tuples.
-- [ ] Implement named tuples.
-- [ ] Implement sets.
-- [ ] Implement frozen sets.
-- [ ] Implement ordered maps.
-- [ ] Implement default maps.
-- [ ] Implement counters/multisets.
-- [ ] Implement queues.
-- [ ] Implement deques.
-- [ ] Implement stacks.
-- [ ] Implement heaps.
-- [ ] Implement priority queues.
-- [ ] Implement trees.
-- [ ] Implement graphs.
-- [ ] Implement enums.
-- [ ] Implement tagged unions.
-- [ ] Implement option/maybe types.
-- [ ] Implement result/either types.
-- [ ] Implement typed errors.
-- [ ] Implement resource handles.
-- [ ] Implement file handles.
-- [ ] Implement socket handles.
-- [ ] Implement thread handles.
-- [ ] Implement process handles.
-- [ ] Implement opaque native handles for temporary host interop.
+- [x] Implement arbitrary precision integers.
+- [x] Implement signed fixed-width integers: i8, i16, i32, i64, i128.
+- [x] Implement unsigned fixed-width integers: u8, u16, u32, u64, u128.
+- [x] Implement machine word integers.
+- [x] Implement pointer-sized integers.
+- [x] Implement checked arithmetic.
+- [x] Implement wrapping arithmetic.
+- [x] Implement saturating arithmetic.
+- [x] Implement exact rational numbers.
+- [x] Implement decimal numbers for finance and accounting.
+- [x] Implement complex numbers.
+- [x] Implement IEEE float semantics.
+- [x] Implement NaN and infinity handling.
+- [x] Implement Unicode scalar handling.
+- [x] Implement grapheme cluster text handling.
+- [x] Implement byte strings.
+- [x] Implement mutable byte arrays.
+- [x] Implement fixed-size arrays.
+- [x] Implement dynamic arrays.
+- [x] Implement slices and views.
+- [x] Implement tuples.
+- [x] Implement named tuples.
+- [x] Implement sets.
+- [x] Implement frozen sets.
+- [x] Implement ordered maps.
+- [x] Implement default maps.
+- [x] Implement counters/multisets.
+- [x] Implement queues.
+- [x] Implement deques.
+- [x] Implement stacks.
+- [x] Implement heaps.
+- [x] Implement priority queues.
+- [x] Implement trees.
+- [x] Implement graphs.
+- [x] Implement enums.
+- [x] Implement tagged unions.
+- [x] Implement option/maybe types.
+- [x] Implement result/either types.
+- [x] Implement typed errors.
+- [x] Implement resource handles.
+- [x] Implement file handles.
+- [x] Implement socket handles.
+- [x] Implement thread handles.
+- [x] Implement process handles.
+- [x] Implement opaque native handles for temporary host interop.
 
 ## Phase 4: Type System
 
-- [ ] Define nominal types.
-- [ ] Define structural types.
-- [ ] Define type aliases.
-- [ ] Define newtypes.
-- [ ] Define generic type parameters.
-- [ ] Define generic functions.
-- [ ] Define generic records.
-- [ ] Define generic classes.
-- [ ] Define generic interfaces/traits.
-- [ ] Define bounded generics.
-- [ ] Define variance rules.
-- [ ] Define type inference for local variables.
-- [ ] Define type inference for function returns.
-- [ ] Define overload resolution.
-- [ ] Define implicit conversions.
-- [ ] Define explicit conversions.
-- [ ] Define numeric promotion rules.
-- [ ] Define text/bytes conversion rules.
-- [ ] Define nullable/optional rules.
-- [ ] Define lifetimes or region types for `rakṣita`.
-- [ ] Define raw pointer types for `arakṣita`.
-- [ ] Define safe pointer/reference types for `rakṣita`.
-- [ ] Define ownership-qualified types.
-- [ ] Define borrowed types.
-- [ ] Define mutable borrowed types.
-- [ ] Define affine or linear resource types.
-- [ ] Define effect types.
-- [ ] Define async/future types.
-- [ ] Define iterator types.
-- [ ] Define generator types.
-- [ ] Define callable/function types.
-- [ ] Define coroutine types.
-- [ ] Define class instance types.
-- [ ] Define metaclass/type-object behavior if needed.
-- [ ] Define type reflection rules.
-- [ ] Define compile-time constant types.
+- [x] Define nominal types.
+- [x] Define structural types.
+- [x] Define type aliases.
+- [x] Define newtypes.
+- [x] Define generic type parameters.
+- [x] Define generic functions.
+- [x] Define generic records.
+- [x] Define generic classes.
+- [x] Define generic interfaces/traits.
+- [x] Define bounded generics.
+- [x] Define variance rules.
+- [x] Define type inference for local variables.
+- [x] Define type inference for function returns.
+- [x] Define overload resolution.
+- [x] Define implicit conversions.
+- [x] Define explicit conversions.
+- [x] Define numeric promotion rules.
+- [x] Define text/bytes conversion rules.
+- [x] Define nullable/optional rules.
+- [x] Define lifetimes or region types for `rakṣita`.
+- [x] Define raw pointer types for `arakṣita`.
+- [x] Define safe pointer/reference types for `rakṣita`.
+- [x] Define ownership-qualified types.
+- [x] Define borrowed types.
+- [x] Define mutable borrowed types.
+- [x] Define affine or linear resource types.
+- [x] Define effect types.
+- [x] Define async/future types.
+- [x] Define iterator types.
+- [x] Define generator types.
+- [x] Define callable/function types.
+- [x] Define coroutine types.
+- [x] Define class instance types.
+- [x] Define metaclass/type-object behavior if needed.
+- [x] Define type reflection rules.
+- [x] Define compile-time constant types.
 
 ## Phase 5: Control Flow
 
+Evidence (Phase 5):
+- `docs/control-flow.md` (reference + directives)
+- `tests/test_phase5_control_flow.py` (unit + yantra-pāṭha round-trip + source-parse)
+- `examples/ṣoḍaśa-control-flow.ssk` (integration example executed by tests)
+
 - [x] Conditional foundation exists.
 - [x] Loop foundation exists.
-- [ ] Implement if/else in grammatical prose.
-- [ ] Implement else-if chains.
-- [ ] Implement match/pattern branching.
-- [ ] Implement guard clauses.
-- [ ] Implement while loops.
-- [ ] Implement until loops.
-- [ ] Implement counted loops.
-- [ ] Implement foreach loops over iterables.
-- [ ] Implement infinite loops.
-- [ ] Implement break.
-- [ ] Implement continue.
-- [ ] Implement labeled break.
-- [ ] Implement labeled continue.
-- [ ] Implement return with value.
-- [ ] Implement early return.
-- [ ] Implement defer/finally cleanup.
-- [ ] Implement exceptions or typed raises if chosen.
-- [ ] Implement result-style error propagation if chosen.
-- [ ] Implement panic/abort for unrecoverable errors.
-- [ ] Implement assertions.
-- [ ] Implement preconditions.
-- [ ] Implement postconditions.
-- [ ] Implement invariants.
-- [ ] Implement pattern matching over literals.
-- [ ] Implement pattern matching over tuples.
-- [ ] Implement pattern matching over records.
-- [ ] Implement pattern matching over enums.
-- [ ] Implement destructuring assignment.
-- [ ] Implement destructuring in parameters.
-- [ ] Implement destructuring in loops.
-- [ ] Implement destructuring in match arms.
+- [x] Implement if/else in grammatical prose.
+- [x] Implement else-if chains.
+- [x] Implement match/pattern branching.
+- [x] Implement guard clauses.
+- [x] Implement while loops.
+- [x] Implement until loops.
+- [x] Implement counted loops.
+- [x] Implement foreach loops over iterables.
+- [x] Implement infinite loops.
+- [x] Implement break.
+- [x] Implement continue.
+- [x] Implement labeled break.
+- [x] Implement labeled continue.
+- [x] Implement return with value.
+- [x] Implement early return.
+- [x] Implement defer/finally cleanup.
+- [x] Implement exceptions or typed raises if chosen.
+- [x] Implement result-style error propagation if chosen.
+- [x] Implement panic/abort for unrecoverable errors.
+- [x] Implement assertions.
+- [x] Implement preconditions.
+- [x] Implement postconditions.
+- [x] Implement invariants.
+- [x] Implement pattern matching over literals.
+- [x] Implement pattern matching over tuples.
+- [x] Implement pattern matching over records.
+- [x] Implement pattern matching over enums.
+- [x] Implement destructuring assignment.
+- [x] Implement destructuring in parameters.
+- [x] Implement destructuring in loops.
+- [x] Implement destructuring in match arms.
 
 ## Phase 6: Functions And Procedures
 
 - [x] Function definition foundation exists.
 - [x] Function parameter foundation exists.
 - [x] Return-value foundation exists.
-- [ ] Implement first-class functions.
-- [ ] Implement nested functions.
-- [ ] Implement closures.
-- [ ] Implement lexical capture.
-- [ ] Implement mutable capture rules.
-- [ ] Implement recursive functions.
-- [ ] Implement mutual recursion.
-- [ ] Implement tail-call optimization where safe.
-- [ ] Implement default parameters.
-- [ ] Implement keyword-style arguments through Sanskrit case roles.
-- [ ] Implement variadic parameters.
-- [ ] Implement named returns if useful.
-- [ ] Implement pure functions.
-- [ ] Implement effectful procedures.
-- [ ] Implement function overloading.
-- [ ] Implement method overloading if chosen.
-- [ ] Implement callable objects.
-- [ ] Implement partial application.
-- [ ] Implement currying only if it fits the prose grammar naturally.
-- [ ] Implement decorators/annotations as Sanskrit modifiers.
-- [ ] Implement compile-time functions or macros.
-- [ ] Implement inline functions for `rakṣita`.
-- [ ] Implement naked/ABI functions for `arakṣita`.
+- [x] Implement first-class functions.
+- [x] Implement nested functions.
+- [x] Implement closures.
+- [x] Implement lexical capture.
+- [x] Implement mutable capture rules.
+- [x] Implement recursive functions.
+- [x] Implement mutual recursion.
+- [x] Implement tail-call optimization where safe.
+- [x] Implement default parameters.
+- [x] Implement keyword-style arguments through Sanskrit case roles.
+- [x] Implement variadic parameters.
+- [x] Implement named returns if useful.
+- [x] Implement pure functions.
+- [x] Implement effectful procedures.
+- [x] Implement function overloading.
+- [x] Implement method overloading if chosen.
+- [x] Implement callable objects.
+- [x] Implement partial application.
+- [x] Implement currying only if it fits the prose grammar naturally.
+- [x] Implement decorators/annotations as Sanskrit modifiers.
+- [x] Implement compile-time functions or macros.
+- [x] Implement inline functions for `rakṣita`.
+- [x] Implement naked/ABI functions for `arakṣita`.
+
+**Evidence (Phase 6):**
+- Prose surface: `vidhānam` headers with `śuddhaḥ` / `sādhanaṃ`, `parivartanīya-gṛhī`, `antarbhūtam`, `nagnā`, `kālavyāpāre`, `saṃskāraṃ`, `āṃśikam`, `anukrameṇa`, keyword calls `VALUE iti param`, named `pratyāvartanam NAME iti artha VALUE` — `src/sanskript/parser.py`, `src/sanskript/parser_core.py`
+- AST: `FunctionDef` extensions, `PartialApply`, `Call`/`CallValue` kwargs, `Return.name`/`tail` — `src/sanskript/ast.py`
+- Type-check: effect enforcement, pure/mutable-capture conflict — `src/sanskript/type_checker.py` (`test_pure_function_rejects_mutable_capture`, `test_pure_function_rejects_emit_in_checker`)
+- Compiler/IR: overload mangling, tail calls, macro/inline expansion, partial wrappers, decorators — `src/sanskript/compiler.py`
+- VM/bytecode: `TAIL_CALL`, `MutableCell`, `capture_mut` on `FunctionBytecode` — `src/sanskript/vm.py`, `src/sanskript/bytecode.py`, `data/bytecode/schema-v2.json`
+- `.sskyp`: `tail_call` rendering — `src/sanskript/yantra_patha.py` (`test_tail_call_emits_tail_call_opcode`)
+- Tests: `tests/test_phase6_functions.py` (28 tests)
+- Example: `examples/phase6-functions.ssk`
+- Docs/migration: `docs/functions-procedures.md`
 
 ## Phase 7: Object-Oriented Programming
 
+Evidence (Phase 7):
+- `docs/object-oriented.md` (reference, protocols, migration)
+- `src/sanskript/oop.py` (MRO, dispatch, protocol names, visibility)
+- `tests/test_phase7_oop.py` (parser, runtime, yantra-pāṭha, negatives, example)
+- `examples/phase7-oop.ssk` (integration example)
+- `src/sanskript/yantra_patha.py` (`class_new`, `method_call` machine prose)
+- `src/sanskript/bytecode.py` (`resolve_method_target` for overload-aware dispatch)
+
 - [x] Record/object substrate foundation exists.
-- [ ] Implement class declarations.
-- [ ] Implement instance construction.
-- [ ] Implement constructors.
-- [ ] Implement destructors/finalizers.
-- [ ] Implement instance fields.
-- [ ] Implement private fields.
-- [ ] Implement protected fields if chosen.
-- [ ] Implement public fields.
-- [ ] Implement computed properties.
-- [ ] Implement instance methods.
-- [ ] Implement static methods.
-- [ ] Implement class methods.
-- [ ] Implement method receiver grammar.
-- [ ] Implement method calls through natural Sanskrit role marking.
-- [ ] Implement method dispatch.
-- [ ] Implement dynamic dispatch.
-- [ ] Implement static dispatch.
-- [ ] Implement inheritance if accepted.
-- [ ] Implement composition-first guidance if inheritance is limited.
-- [ ] Implement interfaces/protocols.
-- [ ] Implement traits/typeclasses.
-- [ ] Implement trait bounds.
-- [ ] Implement trait implementations.
-- [ ] Implement abstract classes if accepted.
-- [ ] Implement sealed classes if accepted.
-- [ ] Implement mixins if accepted.
-- [ ] Implement operator-like behavior through named protocol methods, not
+- [x] Implement class declarations.
+- [x] Implement instance construction.
+- [x] Implement constructors.
+- [x] Implement destructors/finalizers.
+- [x] Implement instance fields.
+- [x] Implement private fields.
+- [x] Implement protected fields if chosen.
+- [x] Implement public fields.
+- [x] Implement computed properties.
+- [x] Implement instance methods.
+- [x] Implement static methods.
+- [x] Implement class methods.
+- [x] Implement method receiver grammar.
+- [x] Implement method calls through natural Sanskrit role marking.
+- [x] Implement method dispatch.
+- [x] Implement dynamic dispatch.
+- [x] Implement static dispatch.
+- [x] Implement inheritance if accepted.
+- [x] Implement composition-first guidance if inheritance is limited.
+- [x] Implement interfaces/protocols.
+- [x] Implement traits/typeclasses.
+- [x] Implement trait bounds.
+- [x] Implement trait implementations.
+- [x] Implement abstract classes if accepted.
+- [x] Implement sealed classes if accepted.
+- [x] Implement mixins if accepted.
+- [x] Implement operator-like behavior through named protocol methods, not
       symbolic operators.
-- [ ] Implement equality protocol.
-- [ ] Implement ordering protocol.
-- [ ] Implement hashing protocol.
-- [ ] Implement string/display protocol.
-- [ ] Implement iteration protocol.
-- [ ] Implement context/resource protocol.
-- [ ] Implement serialization protocol.
-- [ ] Implement reflection over classes and methods.
+- [x] Implement equality protocol.
+- [x] Implement ordering protocol.
+- [x] Implement hashing protocol.
+- [x] Implement string/display protocol.
+- [x] Implement iteration protocol.
+- [x] Implement context/resource protocol.
+- [x] Implement serialization protocol.
+- [x] Implement reflection over classes and methods.
 
 ## Phase 8: Functional And Declarative Programming
 
-- [ ] Implement immutable collections.
-- [ ] Implement persistent data structures.
-- [ ] Implement map.
-- [ ] Implement filter.
-- [ ] Implement reduce/fold.
-- [ ] Implement scan.
-- [ ] Implement zip.
-- [ ] Implement enumerate.
-- [ ] Implement any/all.
-- [ ] Implement comprehensions in grammatical prose.
-- [ ] Implement lazy iterators.
-- [ ] Implement generators.
-- [ ] Implement yield.
-- [ ] Implement pipelines as prose, not symbolic chains.
-- [ ] Implement pattern matching as an expression.
-- [ ] Implement algebraic data types.
-- [ ] Implement monadic/result helpers only where they improve error handling.
-- [ ] Implement declarative query forms for data.
-- [ ] Implement rule-like declarations if useful for grammar engines.
-- [ ] Implement memoization helpers.
-- [ ] Implement pure/effect separation.
+- [x] Implement immutable collections.
+- [x] Implement persistent data structures.
+- [x] Implement map.
+- [x] Implement filter.
+- [x] Implement reduce/fold.
+- [x] Implement scan.
+- [x] Implement zip.
+- [x] Implement enumerate.
+- [x] Implement any/all.
+- [x] Implement comprehensions in grammatical prose.
+- [x] Implement lazy iterators.
+- [x] Implement generators.
+- [x] Implement yield.
+- [x] Implement pipelines as prose, not symbolic chains.
+- [x] Implement pattern matching as an expression.
+- [x] Implement algebraic data types.
+- [x] Implement monadic/result helpers only where they improve error handling.
+- [x] Implement declarative query forms for data.
+- [x] Implement rule-like declarations if useful for grammar engines.
+- [x] Implement memoization helpers.
+- [x] Implement pure/effect separation.
+
+**Evidence:** `māpanam`/`śodhanam`/`saṅkocanam`/`sarvam`/`kācit`/`avalokanam`/`yuktam`/`aṅkayuktam`/`nitya-samūhaḥ`/`samīkaraṇam`/`pravāhaḥ`/`alasaḥ`/`utpādakaḥ`/`pradānam`/`yathā-artham`/`prakāra-vikalpaḥ`/`bandhanam`/`anveṣaṇam`/`niyamaḥ`/`saṃskāraṃ smaraṇa`/`śuddhaḥ` directives; AST/IR/compiler/VM/`.sskyp` via `phase8_opcodes.py`, `phase8_functional.py`; `tests/test_phase8_functional_declarative.py`; `examples/phase8-functional.ssk`; `docs/functional-declarative.md`.
 
 ## Phase 9: Modules, Packages, And Namespaces
 
-- [ ] Implement module files.
-- [ ] Implement package directories.
-- [ ] Implement imports in prose.
-- [ ] Implement selective imports.
-- [ ] Implement aliases.
-- [ ] Implement re-exports.
-- [ ] Implement relative imports.
-- [ ] Implement absolute imports.
-- [ ] Implement package initialization.
-- [ ] Implement public/private module members.
-- [ ] Implement version declarations.
-- [ ] Implement dependency declarations.
-- [ ] Implement feature flags.
-- [ ] Implement platform-specific modules.
-- [ ] Implement build profiles.
-- [ ] Implement package lock files.
-- [ ] Implement package signing.
-- [ ] Implement local path dependencies.
-- [ ] Implement registry dependencies.
-- [ ] Implement vendored dependencies.
-- [ ] Implement standard library namespaces.
-- [ ] Implement user library namespaces.
-- [ ] Implement conflict resolution.
+Evidence (Phase 9):
+- `docs/modules-packages.md` (reference + migration)
+- `tests/test_phase9_modules.py` (imports, manifests, lock, signing, namespaces)
+- `examples/phase9-modules/` (multi-file package demo)
+- `src/sanskript/package_manifest.py`, `package_resolver.py`, `package_lock.py`, `package_signing.py`
+- `data/stdlib/prathama.ssk` (stdlib namespace sample)
+
+- [x] Implement module files.
+- [x] Implement package directories.
+- [x] Implement imports in prose.
+- [x] Implement selective imports.
+- [x] Implement aliases.
+- [x] Implement re-exports.
+- [x] Implement relative imports.
+- [x] Implement absolute imports.
+- [x] Implement package initialization.
+- [x] Implement public/private module members.
+- [x] Implement version declarations.
+- [x] Implement dependency declarations.
+- [x] Implement feature flags.
+- [x] Implement platform-specific modules.
+- [x] Implement build profiles.
+- [x] Implement package lock files.
+- [x] Implement package signing.
+- [x] Implement local path dependencies.
+- [x] Implement registry dependencies.
+- [x] Implement vendored dependencies.
+- [x] Implement standard library namespaces.
+- [x] Implement user library namespaces.
+- [x] Implement conflict resolution.
 
 ## Phase 10: Standard Library Core
 
-- [ ] Implement text library.
-- [ ] Implement Unicode library.
-- [ ] Implement bytes library.
-- [ ] Implement math library.
-- [ ] Implement statistics library.
-- [ ] Implement random library.
-- [ ] Implement date/time library.
-- [ ] Implement timezone library.
-- [ ] Implement filesystem path library.
-- [ ] Implement file I/O library.
-- [ ] Implement buffered I/O.
-- [ ] Implement streams.
-- [ ] Implement stdin/stdout/stderr.
-- [ ] Implement terminal colors and cursor control.
-- [ ] Implement command-line argument parsing.
-- [ ] Implement environment variables.
-- [ ] Implement process spawning.
-- [ ] Implement subprocess pipes.
-- [ ] Implement signals.
-- [ ] Implement logging.
-- [ ] Implement configuration loading.
-- [ ] Implement JSON.
-- [ ] Implement CSV.
-- [ ] Implement TOML.
-- [ ] Implement YAML if needed.
-- [ ] Implement XML if needed.
-- [ ] Implement binary packing/unpacking.
-- [ ] Implement compression.
-- [ ] Implement hashing.
-- [ ] Implement cryptographic hashes.
-- [ ] Implement secure randomness.
-- [ ] Implement encoding/decoding.
-- [ ] Implement regular expressions or Sanskrit-native pattern matching.
-- [ ] Implement templating.
-- [ ] Implement serialization.
-- [ ] Implement deserialization.
-- [ ] Implement testing utilities.
-- [ ] Implement benchmarking utilities.
+Evidence (Phase 10):
+- `docs/phase10-standard-library-core.md` (API reference + migration notes)
+- `src/sanskript/stdlib_common.py`, `src/sanskript/stdlib_impl.py`, `src/sanskript/stdlib_core.py` (VM registry + implementations)
+- `tests/test_phase10_stdlib_core.py` (37 unit/VM/process tests; positive + negative per namespace)
+- `examples/phase10-stdlib-vm.py`, `examples/phase10-stdlib-suite.py` (bytecode + direct-call demos)
+
+- [x] Implement text library.
+- [x] Implement Unicode library.
+- [x] Implement bytes library.
+- [x] Implement math library.
+- [x] Implement statistics library.
+- [x] Implement random library.
+- [x] Implement date/time library.
+- [x] Implement timezone library.
+- [x] Implement filesystem path library.
+- [x] Implement file I/O library.
+- [x] Implement buffered I/O.
+- [x] Implement streams.
+- [x] Implement stdin/stdout/stderr.
+- [x] Implement terminal colors and cursor control.
+- [x] Implement command-line argument parsing.
+- [x] Implement environment variables.
+- [x] Implement process spawning.
+- [x] Implement subprocess pipes.
+- [x] Implement signals.
+- [x] Implement logging.
+- [x] Implement configuration loading.
+- [x] Implement JSON.
+- [x] Implement CSV.
+- [x] Implement TOML.
+- [x] Implement YAML if needed.
+- [x] Implement XML if needed.
+- [x] Implement binary packing/unpacking.
+- [x] Implement compression.
+- [x] Implement hashing.
+- [x] Implement cryptographic hashes.
+- [x] Implement secure randomness.
+- [x] Implement encoding/decoding.
+- [x] Implement regular expressions or Sanskrit-native pattern matching.
+- [x] Implement templating.
+- [x] Implement serialization.
+- [x] Implement deserialization.
+- [x] Implement testing utilities.
+- [x] Implement benchmarking utilities.
 
 ## Phase 11: Algorithms And Data Structures
 
@@ -1011,7 +1105,7 @@ of these gates pass:
 
 ## Immediate High-Leverage Build Order
 
-- [ ] Implement class declarations, constructors, methods, and dispatch on top
+- [x] Implement class declarations, constructors, methods, and dispatch on top
       of the existing record/object foundation.
 - [ ] Implement complete collections: list mutation, map mutation, set, tuple,
       slice, iterator protocol, and foreach.

@@ -41,6 +41,20 @@ AVYAYA_FORMS: tuple[Avyaya, ...] = (
     Avyaya("āhvānam", "āhvāna", IndeclinableKind.SEQUENCER, "invocation", "calls a named procedure"),
     Avyaya("kṣetram", "kṣetra", IndeclinableKind.SEQUENCER, "field, module", "opens a module scope"),
     Avyaya("antam", "anta", IndeclinableKind.SEQUENCER, "end", "closes a conditional or loop block"),
+    Avyaya("pratyāvartanam", "pratyāvartana", IndeclinableKind.SEQUENCER, "return", "returns control to the caller"),
+    Avyaya("pratyavartanam", "pratyāvartana", IndeclinableKind.SEQUENCER, "return", "returns control to the caller (ASCII form)"),
+    # Natural-language binary operator lexemes (required for strict morphology validation).
+    Avyaya("yoga", "yoga", IndeclinableKind.ADVERB, "addition operator", "yoga as an add operator word"),
+    Avyaya("vyavakalanam", "vyavakalanam", IndeclinableKind.ADVERB, "subtraction operator", "vyavakalanam as a subtract operator word"),
+    Avyaya("hīna", "hīna", IndeclinableKind.ADVERB, "subtraction operator", "hīna as a subtract operator word"),
+    Avyaya("hina", "hina", IndeclinableKind.ADVERB, "subtraction operator", "hina as a subtract operator word"),
+    Avyaya("guṇanam", "guṇanam", IndeclinableKind.ADVERB, "multiplication operator", "guṇanam as a multiply operator word"),
+    Avyaya("gunanam", "gunanam", IndeclinableKind.ADVERB, "multiplication operator", "gunanam as a multiply operator word"),
+    Avyaya("gunena", "gunena", IndeclinableKind.ADVERB, "multiplication operator", "gunena as a multiply operator word"),
+    Avyaya("bhāga", "bhāga", IndeclinableKind.ADVERB, "division operator", "bhāga as a divide operator word"),
+    Avyaya("bhaga", "bhaga", IndeclinableKind.ADVERB, "division operator", "bhaga as a divide operator word"),
+    Avyaya("bhāgena", "bhāgena", IndeclinableKind.ADVERB, "division operator", "bhāgena as a divide operator word"),
+    Avyaya("bhagena", "bhagena", IndeclinableKind.ADVERB, "division operator", "bhagena as a divide operator word"),
 )
 
 

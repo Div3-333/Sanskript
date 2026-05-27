@@ -1,0 +1,25 @@
+// Phase 4: type system showcase (surakṣita tier)
+
+surakṣitam .
+
+prakāraḥ saṅkhyā iti i32 .
+navaprakāraḥ lekhā iti i32 .
+
+vastu-prakāraḥ Puruṣaḥ nāma text show text vayaḥ i32 .
+vastu-prakāraḥ Paṭala T data T size i32 .
+
+abhilakṣaṇaṃ Showable show text .
+sādhayati Puruṣaḥ Showable .
+
+vargaḥ Bindu T x i32 metoda dṛś .
+
+prakāra-āharaṇam prakāra_nāma i32 .
+
+gaṇitam mūlya 42 .
+parivartana lekhā i32 mūlya .
+
+darśanam prakāra_nāma .
+
+vidhānam śuddhaḥ dviguṇa a b .
+pratyāvartanam a .
+samāpanam .

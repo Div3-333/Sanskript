@@ -14,9 +14,19 @@ def normalize(text: str) -> str:
     return normalized
 
 
+_PATH_DOT = "\uE000"
+
+
 def split_sentences(text: str) -> list[str]:
     normalized = normalize(text)
-    return [part.strip() for part in re.split(r"[.?]+", normalized) if part.strip()]
+    protected = re.sub(r"(?<=\s)\./", f" {_PATH_DOT}/", normalized)
+    protected = re.sub(r"(?<=\s)\.\./", f" {_PATH_DOT}{_PATH_DOT}/", protected)
+    parts = re.split(r"[.?]+", protected)
+    return [
+        part.strip().replace(_PATH_DOT, ".")
+        for part in parts
+        if part.strip()
+    ]
 
 
 def tokenize(sentence: str, *, normalize_token) -> list[str]:

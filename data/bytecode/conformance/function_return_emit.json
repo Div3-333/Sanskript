@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "description": "Call function dviguna(x) -> x*2 with argument 6; emit result (12).",
+  "expected_output": ["12"],
+  "expected_environment": { "phala": 12 },
+  "functions": [
+    {
+      "name": "dviguna",
+      "params": ["x"],
+      "instructions": [
+        { "op": "load_name", "operand": "x" },
+        { "op": "push_int", "operand": 2 },
+        { "op": "multiply" },
+        { "op": "return" }
+      ]
+    }
+  ],
+  "instructions": [
+    { "op": "push_int", "operand": 6 },
+    { "op": "call", "operand": "dviguna" },
+    { "op": "store_name", "operand": "phala" },
+    { "op": "load_name", "operand": "phala" },
+    { "op": "emit" },
+    { "op": "halt" }
+  ]
+}

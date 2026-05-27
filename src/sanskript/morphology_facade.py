@@ -8,10 +8,12 @@ from .adhyaya123_engines import KarakaVibhaktiEngine
 from .errors import MorphologyError, ParseError
 from .grammar import VERB_FRAMES, Analysis, CASE_TO_ROLE, Case, PartOfSpeech, Role
 from .grammar_register import runtime_register_entries
-from .morphology_text import normalize, split_sentences, tokenize as _tokenize_words
+from .morphology_text import TOKEN_RE, normalize, split_sentences, tokenize as _tokenize_words
 from .morphology_lexicon import DEFAULT_LEXICON_PATH, load_controlled_lexicon, merge_lexicon_with_overrides, store_preferred
 from .morphology_synth import MorphologySynthesizer, synthesize
-from .transliteration import devanagari_to_iast
+from .morphology_validate import validate_surface
+from .script_normalize import detect_script, normalize_to_iast
+from .source_context import TokenProvenance, span_at
 
 
 MAX_UNKNOWN_CANDIDATES = 64
@@ -67,13 +69,47 @@ class MorphologyFacade:
         self._lexicon[normalized] = analysis
         return analysis
 
-    def analyze_sentence(self, sentence: str) -> list[Analysis]:
-        return [self.analyze_token(token) for token in _tokenize_words(sentence, normalize_token=self.normalize_token)]
+    def analyze_sentence(
+        self,
+        sentence: str,
+        *,
+        source_text: str | None = None,
+        sentence_start: int = 0,
+    ) -> list[Analysis]:
+        tokens = _tokenize_words(sentence, normalize_token=self.normalize_token)
+        if self.strict:
+            for token in tokens:
+                validate_surface(token)
+        return [self.analyze_token(token) for token in tokens]
+
+    def token_provenance(
+        self,
+        sentence: str,
+        *,
+        source_text: str = "",
+        sentence_start: int = 0,
+    ) -> list[TokenProvenance]:
+        base = source_text or sentence
+        script = detect_script(base).value
+        offset = sentence_start
+        items: list[TokenProvenance] = []
+        for match in TOKEN_RE.finditer(sentence):
+            raw = match.group(0)
+            normalized = self.normalize_token(raw)
+            start = sentence_start + match.start()
+            end = sentence_start + match.end()
+            items.append(
+                TokenProvenance(
+                    token=normalized,
+                    span=span_at(base, start, end),
+                    original=raw,
+                    script=script,
+                )
+            )
+        return items
 
     def normalize_token(self, token: str) -> str:
-        text = normalize(token)
-        if _contains_devanagari(text):
-            text = devanagari_to_iast(text)
+        text = normalize_to_iast(normalize(token)).text
         return text.lower()
 
     def validate_karaka(self, analyses: list[Analysis], verb: Analysis) -> None:
@@ -164,10 +200,6 @@ def _expected_surface(entry) -> str:
     return ""
 
 
-def _contains_devanagari(text: str) -> bool:
-    return any("\u0900" <= char <= "\u097f" for char in text)
-
-
 def _roles_by_type(items) -> dict[Role, list[Analysis]]:
     roles: dict[Role, list[Analysis]] = {}
     for item in items:
@@ -197,6 +229,7 @@ def analyze_sentence(sentence: str) -> list[Analysis]:
 
 __all__ = [
     "MorphologyFacade",
+    "TokenProvenance",
     "analyze_sentence",
     "analyze_token",
     "get_default_facade",
