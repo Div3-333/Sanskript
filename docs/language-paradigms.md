@@ -4,6 +4,8 @@ Sanskript's application layer must grow without breaking the design promise: sou
 
 The browser target is only one deployment backend. The language target is general-purpose: command-line programs, desktop tools, games, research scripts, servers, websites, numerical work, and later ML/native interop should all lower through the same Sanskript-owned AST, IR, bytecode, and tiered runtime model.
 
+For the full native-independence roadmap that replaces current Python/Rust implementation code with Sanskript across high, mid, and machine tiers, see [`native-sanskript-independence-checklist.md`](native-sanskript-independence-checklist.md).
+
 ## Current Executable Surface
 
 | Paradigm | Status | Executable support |
