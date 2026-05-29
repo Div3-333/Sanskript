@@ -1,0 +1,360 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "call",
+      "operand": "ṣaṭkam"
+    },
+    {
+      "op": "store_name",
+      "operand": "samāpanam-bandha"
+    },
+    {
+      "op": "push_int",
+      "operand": 7
+    },
+    {
+      "op": "call",
+      "operand": "yogaḥ_1"
+    },
+    {
+      "op": "store_name",
+      "operand": "yukta"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "call",
+      "operand": "yogaḥ_2"
+    },
+    {
+      "op": "store_name",
+      "operand": "vistarita"
+    },
+    {
+      "op": "load_name",
+      "operand": "__partial__tri-yoga__0"
+    },
+    {
+      "op": "store_name",
+      "operand": "ekapūrva"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "call",
+      "operand": "ekapūrva"
+    },
+    {
+      "op": "store_name",
+      "operand": "navam"
+    },
+    {
+      "op": "push_int",
+      "operand": 9
+    },
+    {
+      "op": "call",
+      "operand": "dviguṇana"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "samāpanam-bandha"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "yukta"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "vistarita"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "navam"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "namaste"
+    },
+    {
+      "op": "call",
+      "operand": "abhivādana"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "functions": [
+    {
+      "name": "ṣaṭkam",
+      "instructions": [
+        {
+          "op": "push_int",
+          "operand": 6
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ]
+    },
+    {
+      "name": "yogaḥ_1",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "a"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "a"
+      ]
+    },
+    {
+      "name": "yogaḥ_2",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "a"
+        },
+        {
+          "op": "load_name",
+          "operand": "b"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "tri-yoga",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "a"
+        },
+        {
+          "op": "load_name",
+          "operand": "b"
+        },
+        {
+          "op": "load_name",
+          "operand": "c"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "dviguṇana",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "mūlya"
+        },
+        {
+          "op": "load_name",
+          "operand": "mūlya"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "mūlya"
+      ]
+    },
+    {
+      "name": "abhivādana",
+      "instructions": [
+        {
+          "op": "push_text",
+          "operand": "[anuvīkṣaṇam] enter abhivādana"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "load_name",
+          "operand": "nāma"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "push_text",
+          "operand": "[anuvīkṣaṇam] leave abhivādana"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "nāma"
+      ]
+    },
+    {
+      "name": "punarāvartanam",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "saṅkhyā"
+        },
+        {
+          "op": "tail_call",
+          "operand": "punarāvartanam"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "saṅkhyā"
+      ]
+    },
+    {
+      "name": "__partial__tri-yoga__0",
+      "instructions": [
+        {
+          "op": "push_int",
+          "operand": 1
+        },
+        {
+          "op": "load_name",
+          "operand": "b"
+        },
+        {
+          "op": "load_name",
+          "operand": "c"
+        },
+        {
+          "op": "call",
+          "operand": "tri-yoga"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "b",
+        "c"
+      ]
+    }
+  ]
+}

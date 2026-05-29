@@ -1,0 +1,9 @@
+{
+  "elapsed_ms": 0.04400000034365803,
+  "instruction_count": 3,
+  "opcode_counts": {
+    "push_int": 1,
+    "emit": 1,
+    "halt": 1
+  }
+}

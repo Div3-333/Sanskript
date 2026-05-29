@@ -1,0 +1,38 @@
+{
+  "output": [
+    "bigint(9007199254740991)",
+    "i8(127)",
+    "i32(42)",
+    "some(7)",
+    "none",
+    "ok(42)",
+    "(1, 2)",
+    "bytes(b'Hello')",
+    "bytearray(b'')",
+    "ordered{k:9}",
+    "defaultmap(0, {missing:7})",
+    "counter{1:2, 2:1}",
+    "queue[1, 2]",
+    "stack[5, 6]",
+    "enum(Status.ready)"
+  ],
+  "globals": {
+    "big": "BigIntValue(value=9007199254740991)",
+    "byte": "FixedIntValue(spec=FixedWidthSpec(name='i8', signed=True, bits=8, push_opcode='push_i8', add_checked_opcode='i8_add_checked', add_wrapping_opcode='i8_add_wrapping', add_saturating_opcode='i8_add_saturating', yantra_push_suffix='saṅkhyā-1', yantra_add_checked='saṅkhyā-1ayoḥ yogaḥ parīkṣitaḥ kriyate.'), value=127)",
+    "word": "I32Value(value=42)",
+    "opt": "OptionValue(present=True, value=7)",
+    "empty": "OptionValue(present=False, value=None)",
+    "res": "ResultValue(ok=True, value=42)",
+    "pair": "TupleValue(items=(1, 2))",
+    "tags": "SetValue(items=[1, 2, 3])",
+    "buf": "BytesValue(data=b'Hello')",
+    "mbuf": "ByteArrayValue(data=bytearray(b''))",
+    "omap": "OrderedMapValue(entries=OrderedDict({'k': 9}))",
+    "dmap": "DefaultMapValue(entries={'missing': 7}, default=0)",
+    "cnt": "CounterValue(counts=Counter({1: 2, 2: 1}))",
+    "q": "QueueValue(items=deque([1, 2]))",
+    "st": "StackValue(items=[5, 6])",
+    "status": "EnumValue(type_name='Status', variant='ready', payload=0)"
+  },
+  "locals": {}
+}

@@ -1,0 +1,7 @@
+// Cookbook: minimal std.web route + template render (host-backed; not an HTTP server).
+kośaḥ mārga-saṃyojane.
+sthāpanam mārga-saṃyojane /hello vākyam hello_page iti.
+āhvānam std.web.route_match vākyam /hello iti mārga-saṃyojane phalaṃ nidadhāti.
+kośaḥ pṛṣṭha-sandarbhaḥ.
+sthāpanam pṛṣṭha-sandarbhaḥ title vākyam Hello iti.
+āhvānam std.web.render vākyam <h1>{{title}}</h1> iti pṛṣṭha-sandarbhaḥ darśayati.

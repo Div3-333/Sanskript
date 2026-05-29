@@ -1,0 +1,562 @@
+{
+  "version": 1,
+  "description": "Phase 25 golden registry — auto-expanded stable examples",
+  "source": [
+    {
+      "id": "golden-source-aṣṭama_vidhānam",
+      "path": "examples/aṣṭama-vidhānam.ssk",
+      "bytecode_sha256": "51ff1ad82b1f2c9b4d5bc488e287edc69369f49657ee773986cb816e6262f6ab",
+      "sskyp_sha256": "b64b1b6c1f33a51505266967bea0858cc3eca22dd64bead5c0732e03147600ba",
+      "expected_output": [
+        "11"
+      ]
+    },
+    {
+      "id": "golden-source-caturtha",
+      "path": "examples/caturtha.ssk",
+      "bytecode_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224",
+      "sskyp_sha256": "f81a3285b6cb47fae95b52775ee13369f08eec7d61394c6b9e71ee8f0b070573",
+      "expected_output": [
+        "7"
+      ]
+    },
+    {
+      "id": "golden-source-chaturdasha_algorithm",
+      "path": "examples/chaturdasha-algorithm.ssk",
+      "bytecode_sha256": "31c103a78e4939d426ecb11f05606ab5b164f7ed16b1ed957432cba66ab8be55",
+      "sskyp_sha256": "81c205b93544d6067e22dc25cd49964048419d80288fdf7acb878a70ea285a17",
+      "expected_output": [
+        "5",
+        "10",
+        "2"
+      ]
+    },
+    {
+      "id": "golden-source-dashama_vakyam",
+      "path": "examples/dashama-vakyam.ssk",
+      "bytecode_sha256": "6008f508b59951f1eb24d5517e4ceb64d1ea400bb34d2191924fa6384451fc5a",
+      "sskyp_sha256": "227925b279ab45daf0d5fab4d482d51e1e9126a98477d9e03b8c5080c983d467",
+      "expected_output": [
+        "svāgatam mitra"
+      ]
+    },
+    {
+      "id": "golden-source-dvadasha_vastu",
+      "path": "examples/dvadasha-vastu.ssk",
+      "bytecode_sha256": "3acb7c4c6b31c3afbce6b78c7c0c3a02002a3900f60eea1f90a94b01505a383c",
+      "sskyp_sha256": "7cbaf5bd34007f074be1f0783549d19f35bcb94aec7c1c6ec65eccf3629f8eb1",
+      "expected_output": [
+        "rāma",
+        "5",
+        "1"
+      ]
+    },
+    {
+      "id": "golden-source-dvitiya",
+      "path": "examples/dvitiya.ssk",
+      "bytecode_sha256": "54d201de04d8e284aea5d48219e4f06ab72694cf48256915f5ac70590cdc7e1f",
+      "sskyp_sha256": "4a1f61456ed3a05e8a7183ba420335651a7f13ea28c8af5f5eadf1cfb47744d8",
+      "expected_output": [
+        "7"
+      ]
+    },
+    {
+      "id": "golden-source-dvādaśa_phase2_boolean",
+      "path": "examples/dvādaśa-phase2-boolean.ssk",
+      "bytecode_sha256": "2cdbb7532d8baaf1d97382530b58113b82db7794934dd63a39ac46d4c669394a",
+      "sskyp_sha256": "7df14c769c78e31661239ae301a505707db34b494b35d559c5ac01b9b73167d0",
+      "expected_output": [
+        "5"
+      ]
+    },
+    {
+      "id": "golden-source-dvādaśa_phase2_grouping_matrix",
+      "path": "examples/dvādaśa-phase2-grouping-matrix.ssk",
+      "bytecode_sha256": "c774bb40146b728b7175754525113e6a58bd23f2c236577c4110f2d69c3d98e9",
+      "sskyp_sha256": "7acdec963807d9487fbb32adc3fb2a312f0e018904120e7b9cbde65145402401",
+      "expected_output": [
+        "10"
+      ]
+    },
+    {
+      "id": "golden-source-dvādaśa_phase2_kṣetram",
+      "path": "examples/dvādaśa-phase2-kṣetram.ssk",
+      "bytecode_sha256": "7f29e166e09927d6a6b081b740788244310379dfcaca343f8d02b9fe0cd58356",
+      "sskyp_sha256": "328d077347e6f8313dc38a6838bbf84a6bbb5dafe99867dbdf4b927e89354b9b",
+      "expected_output": [
+        "10"
+      ]
+    },
+    {
+      "id": "golden-source-ekadasha_samuhah",
+      "path": "examples/ekadasha-samuhah.ssk",
+      "bytecode_sha256": "44db506d4f8e1d4a3d0bd84cfac26e66e84c978bacdabda8ce16c512c4be51b1",
+      "sskyp_sha256": "8183aad7434a95d86c0f034a4a4ba40141c86bf1a639a052a436a6799daf4f4f",
+      "expected_output": []
+    },
+    {
+      "id": "golden-source-ekadasha_samūha",
+      "path": "examples/ekadasha-samūha.ssk",
+      "bytecode_sha256": "9c45366b44c6a7746a7e371e46ac22d076be4a26aa9fe8bdc9703351e7f33df2",
+      "sskyp_sha256": "8747a88e9a647320d870711edfde9a12f712cda6cb4ac76cfdb409fe6787bae5",
+      "expected_output": [
+        "[5, 10]",
+        "5"
+      ]
+    },
+    {
+      "id": "golden-source-navama_kṣetram",
+      "path": "examples/navama-kṣetram.ssk",
+      "bytecode_sha256": "4a53a6835649053c25b1b77c140d6309055f8776076209bce53e07f58077cb75",
+      "sskyp_sha256": "0cd7bf9f42bacdb21207fd5ef9b1ef592a2a76d3d77e8edc6f2b0727c92f8aec",
+      "expected_output": [
+        "11"
+      ]
+    },
+    {
+      "id": "golden-source-pancadasha_vakya_kriya",
+      "path": "examples/pancadasha-vakya-kriya.ssk",
+      "bytecode_sha256": "93a3b2c04307eabbc64a282650496a96614f52f88e1118dda4a8172e4a4971e0",
+      "sskyp_sha256": "efdd4a072048c6930f73bc1835a6fdf573f00697029eb6edd90a11f18b71b3a9",
+      "expected_output": [
+        "svagata",
+        "7",
+        "a",
+        "sva",
+        "1"
+      ]
+    },
+    {
+      "id": "golden-source-pancama",
+      "path": "examples/pancama.ssk",
+      "bytecode_sha256": "b00965f608da6d36cf937991b4525a92696951afdca09b713e1c39159ba152e3",
+      "sskyp_sha256": "35cfbdb7badc6b7be3c28034ff646e4784162f0313e2de378065294a47eef3fa",
+      "expected_output": [
+        "7"
+      ]
+    },
+    {
+      "id": "golden-source-phase1_broad_script_sandhi",
+      "path": "examples/phase1-broad-script-sandhi.ssk",
+      "bytecode_sha256": "9beb9e992f7173bdcf7bdac4cf42465e78d8b2b01dba0fae34b667d80158cdce",
+      "sskyp_sha256": "496d062236f536d570d34f0fa9cd2da87b2377dacea8b16d6662dc6d8884315e",
+      "expected_output": [
+        "3"
+      ]
+    },
+    {
+      "id": "golden-source-phase1_script_sandhi",
+      "path": "examples/phase1-script-sandhi.ssk",
+      "bytecode_sha256": "da7b37c971be06c661910c79d815baca4249d109419879014e3e8bf1f1e8395c",
+      "sskyp_sha256": "0c2c97c886f299c05ff86373de89458a36db56a4ec7ef556bc3e18df1f1aee5d",
+      "expected_output": [
+        "1"
+      ]
+    },
+    {
+      "id": "golden-source-phase10_stdlib_cli_io",
+      "path": "examples/phase10-stdlib-cli-io.ssk",
+      "bytecode_sha256": "b892d8222e33530e8c67d936449c6798b3a3b98bf0199143271681a017533e83",
+      "sskyp_sha256": "812af78fb4328c448c44cafed4c94a51aace017ba6863673772902ac7144b79d",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase10_stdlib_formats_patterns",
+      "path": "examples/phase10-stdlib-formats-patterns.ssk",
+      "bytecode_sha256": "6c2cc516b5bd5677c527e164828945e4cd1acc4b165104db95cc2fc41b2921fb",
+      "sskyp_sha256": "c3b8a9b902fd665f7cb84fd0a7b52840339da5006198e6fefbab8614576f399d",
+      "expected_output": [
+        "{\"a\":1}",
+        "[]",
+        "a = 1\n",
+        "a: 1",
+        "namaste mitra",
+        "asatyam"
+      ]
+    },
+    {
+      "id": "golden-source-phase10_stdlib_process_testing",
+      "path": "examples/phase10-stdlib-process-testing.ssk",
+      "bytecode_sha256": "1defc2a953c772fb142d190fc50125c7dfccb278ef76385ce6c6c5a66737a3a8",
+      "sskyp_sha256": "aa437a46fc9a06865b90dc4c53b06ed0ee988d8f96aab3a3faa00631655e621e",
+      "expected_output": [
+        "phase10\n"
+      ]
+    },
+    {
+      "id": "golden-source-phase10_stdlib_source",
+      "path": "examples/phase10-stdlib-source.ssk",
+      "bytecode_sha256": "f58358664cb0006f19be8e298567345a1db70b13670bb28dd982c2c68a7fe402",
+      "sskyp_sha256": "77b1e51bf4a5aec15894e8546e4531f366d2ae32086128ef10ecfa2b5e855a9e",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase11_algorithms_data_structures",
+      "path": "examples/phase11-algorithms-data-structures.ssk",
+      "bytecode_sha256": "99846b528d74f41de512e0b3e5436d1a9db6754d14d2f757339b9e2d1a85ff42",
+      "sskyp_sha256": "ce6b0b03d7db2c5784d53575de4038c6b2476d9f6f6c3b8927fc280c8729d69b",
+      "expected_output": [
+        "6.0",
+        "2",
+        "[1, 3, 5]"
+      ]
+    },
+    {
+      "id": "golden-source-phase12_diagnostics",
+      "path": "examples/phase12-diagnostics.ssk",
+      "bytecode_sha256": "63e36f9953b558401da740863ae7bb4f5c70b0a0249e00043aca12c7d9308a62",
+      "sskyp_sha256": "95810084a3eacd3cbebc5ff441b990c7c3628891ec6143433790d021c3a2123a",
+      "expected_output": [
+        "caught",
+        "5"
+      ]
+    },
+    {
+      "id": "golden-source-phase13_memory_model",
+      "path": "examples/phase13-memory-model.ssk",
+      "bytecode_sha256": "42665c9b1bfd1e2289269be3c0a3b8345408c76ce0d15ad8ca12f702cb392881",
+      "sskyp_sha256": "cf1b904471f72b1563ab484cad3e13501d1fb1dba12f4089e1bc2a8569d4b725",
+      "expected_output": [
+        "{shared_borrows:1, mutable_borrows:0, atomic_locations:0}",
+        "5",
+        "9",
+        "12"
+      ]
+    },
+    {
+      "id": "golden-source-phase14_surakshita",
+      "path": "examples/phase14-surakshita.ssk",
+      "bytecode_sha256": "885472d6c4af63ae9b33dc450d1ac096dbf1815374ac9e0e4c60d082de725231",
+      "sskyp_sha256": "7b0b36e5f5d2e52548427381a30aac98164d660916138881a83a5212fd2cc2f1",
+      "expected_output": [
+        "NAMASTEMITRA",
+        "{\"count\":4,\"max\":7.0,\"mean\":4.0,\"min\":1.0}",
+        "   * \n *   \n  * *\n*    ",
+        "{\"handler\":\"user_show\",\"params\":{\"id\":\"108\"}}",
+        "<h1>Surakshita</h1>",
+        "package=phase14-demo",
+        "1",
+        "build"
+      ]
+    },
+    {
+      "id": "golden-source-phase15_rakshita_systems",
+      "path": "examples/phase15-rakshita-systems.ssk",
+      "bytecode_sha256": "d040aa45270f21b6d04665d11da93df17e4143c796986ccabc0975002640e066",
+      "sskyp_sha256": "de26c57bb5200bfaf686aff64b7f516a895d29fcf4156bb6f4ea751b3f717a82",
+      "expected_output": [
+        "7",
+        "9",
+        "7",
+        "[::1, 127.0.0.1]"
+      ]
+    },
+    {
+      "id": "golden-source-phase21_cross_platform",
+      "path": "examples/phase21-cross-platform.ssk",
+      "bytecode_sha256": "aabd495f0b4e4c19ba65ef6e40447ac57ded653a6127b0e8dd9d09ad8f70d2ea",
+      "sskyp_sha256": "14b8a838f0dc565b9e2830eee35ef33c69d40c817d85bad22e6454e6b4cd17ce",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase22_full_seal",
+      "path": "examples/phase22-full-seal.ssk",
+      "bytecode_sha256": "db15ce6a6457b6b6bc7a247df51a030694c2e6752229bb51e940b233d55424a0",
+      "sskyp_sha256": "6100f8d4b51fe3bc272dcec2853623c7c5ab829682598b26fe3c6a68b72e4bbd",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase22_html_template",
+      "path": "examples/phase22-html-template.ssk",
+      "bytecode_sha256": "a1acc8053cdc5af973ed9775086a42f2a21264cf151311a9aa18a9f2bdad245b",
+      "sskyp_sha256": "5d4d9a1b658a9a9598b87a26cf4964bf7a8ff0d58013eb29482c6b72e4d95a18",
+      "expected_output": [
+        "<h1>Phase22</h1>",
+        "package=phase22-html"
+      ]
+    },
+    {
+      "id": "golden-source-phase22_http_router_auth",
+      "path": "examples/phase22-http-router-auth.ssk",
+      "bytecode_sha256": "df4519d9927f7d449c02982311b636111d28c4ed190888ffc6eaf7ecfc7c2bb9",
+      "sskyp_sha256": "dcbb7f08d87a6c1cb66f2cd666e7d15005a75122ac68633b416390a8c82f11fb",
+      "expected_output": [
+        "{\"handler\":\"show\",\"params\":{\"id\":\"9\"},\"request\":{\"body\":\"\",\"cookies\":{},\"headers\":{\"access-control-allow-origin\":\"*\"},\"logged\":true,\"method\":\"GET\",\"path\":\"/users/9\"}}",
+        "dev"
+      ]
+    },
+    {
+      "id": "golden-source-phase22_http_service",
+      "path": "examples/phase22-http-service.ssk",
+      "bytecode_sha256": "4e238f163ac56bcfc2e08de3f51ff6227e600f90920aa32dba4c027b61bb809c",
+      "sskyp_sha256": "f685b913f7dc1f318669c91b12ce28ef97e2b679727a6f098215af427129bab0",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase22_research_cli_baseline",
+      "path": "examples/phase22-research-cli-baseline.ssk",
+      "bytecode_sha256": "e5e440904bc67b48e3c3747c8ed5f8d32a840b87b77a9e09a8ff71fcdd228e00",
+      "sskyp_sha256": "c61b692ea52c08e51d80c879a9ae9e918e6a50cc32b9538d9b0d2e91608c87a9",
+      "expected_output": [
+        "{count:5, min:1.0, max:5.0, mean:3.0}",
+        "    ****\n  **    \n *      \n*       "
+      ]
+    },
+    {
+      "id": "golden-source-phase22_web_apps_games_research",
+      "path": "examples/phase22-web-apps-games-research.ssk",
+      "bytecode_sha256": "27aa38457921f146df4a9d8e91e67e613b6cf99d5b652f70a654a0f9d24a0221",
+      "sskyp_sha256": "cf868c6c1b7efbad5168ff408ee862cef36fa34ccf6344db7b299e3ede1d5f17",
+      "expected_output": [
+        "{\"handler\":\"user_show\",\"params\":{\"id\":\"108\"}}",
+        "▁▃▅▆█",
+        "{count:5, min:1.0, max:5.0, mean:3.0}"
+      ]
+    },
+    {
+      "id": "golden-source-phase23_concurrency_async",
+      "path": "examples/phase23-concurrency-async.ssk",
+      "bytecode_sha256": "c83ca03e825c769cb38d7aba0aef44326d611ad6c9346ba704c7092d011f1ce9",
+      "sskyp_sha256": "e6e1622c730966eb83de185ee08af198e9e8d83e97ce184a0d2d5be0040b5a7e",
+      "expected_output": [
+        "1",
+        "3",
+        "3",
+        "satyam",
+        "satyam",
+        "satyam",
+        "satyam",
+        "satyam",
+        "satyam",
+        "3",
+        "5"
+      ]
+    },
+    {
+      "id": "golden-source-phase23_full_seal",
+      "path": "examples/phase23-full-seal.ssk",
+      "bytecode_sha256": "b43753125520ae54bf561e9567944391b6e9556bd5f77ad57849c09814ba680f",
+      "sskyp_sha256": "c3a81316415c51651b4a540bd1996b824880a5e05aef3c8fa5ebcf01780cd0ba",
+      "expected_output": [
+        "{\"checklist_count\":19,\"errors\":[],\"host_tier\":\"sealed\",\"marker_count\":19,\"markers\":[\"P23_SEAL:threads:ok\",\"P23_SEAL:fibers_coroutines:ok\",\"P23_SEAL:futures_promises:ok\",\"P23_SEAL:timers:ok\",\"P23_SEAL:async_file_io:ok\",\"P23_SEAL:async_networking:ok\",\"P23_SEAL:cancellation:ok\",\"P23_SEAL:channels:ok\",\"P23_SEAL:queues:ok\",\"P23_SEAL:mutexes:ok\",\"P23_SEAL:read_write_locks:ok\",\"P23_SEAL:semaphores:ok\",\"P23_SEAL:atomics:ok\",\"P23_SEAL:thread_pools:ok\",\"P23_SEAL:work_stealing:ok\",\"P23_SEAL:data_race_rakshita:ok\",\"P23_SEAL:arakshita_unsafe_rules:ok\",\"P23_SEAL:browser_workers:ok\",\"P23_SEAL:gatekeeper:ok\"],\"verdict\":\"SEALED_AT_HOST_TIER\",\"vm_tier\":\"vm_missing\"}"
+      ]
+    },
+    {
+      "id": "golden-source-phase24_tooling",
+      "path": "examples/phase24-tooling.ssk",
+      "bytecode_sha256": "28f169edb05a20654f00ed25f7d49db44d54df6b68a056096c383dfd71c27409",
+      "sskyp_sha256": "d43ad1c83c93ac723aa709de39cf4d84af948314c9057deb7a2060c5844fbb8b",
+      "expected_output": []
+    },
+    {
+      "id": "golden-source-phase27_migration_test_manifest",
+      "path": "examples/phase27-migration-test-manifest.ssk",
+      "bytecode_sha256": "44db506d4f8e1d4a3d0bd84cfac26e66e84c978bacdabda8ce16c512c4be51b1",
+      "sskyp_sha256": "8183aad7434a95d86c0f034a4a4ba40141c86bf1a639a052a436a6799daf4f4f",
+      "expected_output": []
+    },
+    {
+      "id": "golden-source-phase27_port_controlled_lexicon",
+      "path": "examples/phase27-port-controlled-lexicon.ssk",
+      "bytecode_sha256": "cbedf0966082fe0120b0f0e7a3d2599699764e48f1489cc62fa15f046fd3ed71",
+      "sskyp_sha256": "44240b4060c2d3876af447f32e90d071964030f9aa213de012f989c5c04e020f",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase27_port_examples_runner",
+      "path": "examples/phase27-port-examples-runner.ssk",
+      "bytecode_sha256": "752ea7c1e9418374ec2f0703c0aa714dd338c09cc85120ffd902a989b9f9b8fb",
+      "sskyp_sha256": "738d5f24d8ae81647444a3083f4d89ea5996fdcd2bfcfff7424f535b206bda51",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase27_port_sutra_registry",
+      "path": "examples/phase27-port-sutra-registry.ssk",
+      "bytecode_sha256": "4ef4a550ed9b591607871e02506d39346805b8e44500cdb50664738e829d088d",
+      "sskyp_sha256": "83611e57f0981930cc95b13e0a4c0e67bc5102b3d46ce373774031da714a537d",
+      "note": "expected_output omitted — host-dependent IO/platform surface"
+    },
+    {
+      "id": "golden-source-phase28_desktop_gui",
+      "path": "examples/phase28-desktop-gui.ssk",
+      "bytecode_sha256": "1d6c273a08a959cc86f9ac59becf3ae124956d1d7a5e1d95c5b725064c2973c7",
+      "sskyp_sha256": "c7fc1b558dd0834b46c10b26d7e76ad3eb658045d2cbe3745233bc64d466f012",
+      "expected_output": [
+        "{phase:22, tier:host_substitute, implementation_state:host_substitute, host_bridge:satyam, substitute:std.gui.simulate, notes:[Desktop GUI uses host simulation until native windowing lands], widgets:[button, label, text_field, checkbox], menus:satyam, shortcuts:satyam, clipboard:satyam, notifications:satyam, file_dialogs:satyam}"
+      ]
+    },
+    {
+      "id": "golden-source-phase28_milestones",
+      "path": "examples/phase28-milestones.ssk",
+      "bytecode_sha256": "4152966ea9c3f803baf3027b2079668489255f14f3c1a3ff8c98d98d29e7ce58",
+      "sskyp_sha256": "0d0dcb32d7f8a3ae4fed61d175720863dd536a75b8403403727f1339531e4e54",
+      "expected_output": [
+        "5"
+      ]
+    },
+    {
+      "id": "golden-source-phase3_data_types",
+      "path": "examples/phase3-data-types.ssk",
+      "bytecode_sha256": "08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6",
+      "sskyp_sha256": "d0b6cecee50d888032200cb77d103939eb1ded8dc8912ef0c590d22c3379c920",
+      "expected_output": [
+        "bigint(9007199254740991)",
+        "i8(127)",
+        "i32(42)",
+        "some(7)",
+        "none",
+        "ok(42)",
+        "(1, 2)",
+        "bytes(b'Hello')",
+        "bytearray(b'')",
+        "ordered{k:9}",
+        "defaultmap(0, {missing:7})",
+        "counter{1:2, 2:1}",
+        "queue[1, 2]",
+        "stack[5, 6]",
+        "enum(Status.ready)"
+      ]
+    },
+    {
+      "id": "golden-source-phase4_types",
+      "path": "examples/phase4-types.ssk",
+      "bytecode_sha256": "f99b893da743d1d601eafefbbb8cffe0e099bfb6402de169603aca2ae6fa0d82",
+      "sskyp_sha256": "37508ac01f6ac035b2a933ff2c81eb8d3402e000c76e54369c236fc7af3b2171",
+      "expected_output": [
+        "i32"
+      ]
+    },
+    {
+      "id": "golden-source-phase6_functions",
+      "path": "examples/phase6-functions.ssk",
+      "bytecode_sha256": "b83c013f90af8717b51d9ebab3dac6a30de7fb5004e8ac91f819b8b5532312ad",
+      "sskyp_sha256": "1adf614099481aee2d68688d04140cd6ff070dd21be59dfe3f15e694020350a3",
+      "expected_output": [
+        "6",
+        "7",
+        "7",
+        "9",
+        "18",
+        "[anuvīkṣaṇam] enter abhivādana",
+        "namaste",
+        "[anuvīkṣaṇam] leave abhivādana"
+      ]
+    },
+    {
+      "id": "golden-source-phase7_oop",
+      "path": "examples/phase7-oop.ssk",
+      "bytecode_sha256": "77b900487ae641067b7938291083a3ecf5430b79cf1833063fdbd271c802a760",
+      "sskyp_sha256": "b6de924e0f3dfc9acb08cd9454b85e492443be885b4633707dd31de9fb732652",
+      "expected_output": [
+        "7",
+        "śūnyam",
+        "6"
+      ]
+    },
+    {
+      "id": "golden-source-phase8_functional",
+      "path": "examples/phase8-functional.ssk",
+      "bytecode_sha256": "ded18985a1590400980ffdebffdfcdc3c651dfb9a6b56adeea8851e757489973",
+      "sskyp_sha256": "3d023b4ce9b13603b9355d19be5877a146fa92aeca708e295a40681d63ecf01f",
+      "expected_output": [
+        "20",
+        "1",
+        "[2, 4, 6, 8]",
+        "1",
+        "1",
+        "[utpādaka] enter kramaḥ",
+        "1",
+        "0",
+        "[smaraṇa] enter gaṇitam",
+        "6",
+        "6",
+        "1",
+        "enum(phalam.sat)"
+      ]
+    },
+    {
+      "id": "golden-source-prathama",
+      "path": "examples/prathama.ssk",
+      "bytecode_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224",
+      "sskyp_sha256": "f81a3285b6cb47fae95b52775ee13369f08eec7d61394c6b9e71ee8f0b070573",
+      "expected_output": [
+        "7"
+      ]
+    },
+    {
+      "id": "golden-source-saptama_while",
+      "path": "examples/saptama-while.ssk",
+      "bytecode_sha256": "5c0c160e485dfd9de667b76140d1c0f217ac8b5ebc9f50fd5442e981924926e9",
+      "sskyp_sha256": "7ff331f0591cba9a020cedb93323d3d17499aa09b8607059a1df044df2ca7bac",
+      "expected_output": [
+        "2"
+      ]
+    },
+    {
+      "id": "golden-source-shashṭha_if",
+      "path": "examples/shashṭha-if.ssk",
+      "bytecode_sha256": "ea8f67f1ae907f712679549f92a4ec02b1f6fc90dbc6078aaa413d2e229a80a2",
+      "sskyp_sha256": "a323270086b3487b1513d23dd7b36ad8d370232552394069fba728953c01424a",
+      "expected_output": [
+        "13"
+      ]
+    },
+    {
+      "id": "golden-source-shodasha_devanagari",
+      "path": "examples/shodasha-devanagari.ssk",
+      "bytecode_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224",
+      "sskyp_sha256": "f81a3285b6cb47fae95b52775ee13369f08eec7d61394c6b9e71ee8f0b070573",
+      "expected_output": [
+        "7"
+      ]
+    },
+    {
+      "id": "golden-source-trayodasha_rakshita",
+      "path": "examples/trayodasha-rakshita.ssk",
+      "bytecode_sha256": "7d47fd0385165f3d549f4a785d960001cbd4cf1f3c31b04a8588748267880d88",
+      "sskyp_sha256": "7968a11043399d5513e94088f8009623f5adf6c95cfa3505d603931680cfc6f6",
+      "expected_output": [
+        "5"
+      ]
+    },
+    {
+      "id": "golden-source-trtiya",
+      "path": "examples/trtiya.ssk",
+      "bytecode_sha256": "1b5c906c43ccba2bf0c92e64e6d01bd4a9c4288763583491ea7f2facd1d50d79",
+      "sskyp_sha256": "007885b6dac0dc0e9a0291ce4591b920a2e960b31e84fd812d6e1394a8526cc1",
+      "expected_output": [
+        "7"
+      ]
+    },
+    {
+      "id": "golden-source-ṣoḍaśa_control_flow",
+      "path": "examples/ṣoḍaśa-control-flow.ssk",
+      "bytecode_sha256": "c1c5a04e2ccffd8578b906759bc9b5ff1ed39805c78f12c6cfc3ec640016b44d",
+      "sskyp_sha256": "99e49cb4a6a675a491059b3ac2626dabb2677205f561b7505b09e528eb368ff1",
+      "expected_output": [
+        "3",
+        "10",
+        "sādhitam",
+        "6",
+        "caught"
+      ]
+    }
+  ],
+  "bytecode": [
+    {
+      "id": "golden-bytecode-minimal-emit",
+      "path": "data/testing/golden/bytecode/minimal_emit_halt.json",
+      "inherits_conformance": "data/bytecode/conformance/assign_increment_emit.json"
+    }
+  ],
+  "sskyp": [
+    {
+      "id": "golden-sskyp-minimal-emit",
+      "path": "data/testing/golden/sskyp/minimal_emit_halt.sskyp",
+      "sskyp_sha256": "f8ce66cea9d178d429bacb2cdf026e9a4fc2f932f6ff8ff1fb07a6f315a11007",
+      "expected_output": [
+        "7"
+      ]
+    }
+  ]
+}

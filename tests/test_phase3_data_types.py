@@ -57,7 +57,7 @@ from sanskript.runtime_values import (
     checked_u32_add,
     clamp_i32,
     runtime_type_id,
-    text_grapheme_len_stub,
+    text_grapheme_len,
     to_display_string,
     values_equal,
     wrap_i32,
@@ -795,7 +795,7 @@ class TestIEEEFloatSemantics(unittest.TestCase):
 
 
 class TestGraphemeCluster(unittest.TestCase):
-    def test_text_grapheme_len_stub(self) -> None:
+    def test_text_grapheme_len_devanagari(self) -> None:
         out, _ = _run(
             Instruction(OpCode.PUSH_TEXT, "नम"),
             Instruction(OpCode.TEXT_GRAPHEME_LEN),
@@ -811,9 +811,14 @@ class TestGraphemeCluster(unittest.TestCase):
         )
         self.assertEqual(out, ["5"])
 
-    def test_grapheme_stub_returns_scalar_len(self) -> None:
-        # The stub returns Unicode scalar count (not grapheme clusters)
-        self.assertEqual(text_grapheme_len_stub("abc"), 3)
+    def test_grapheme_combining_mark_cluster(self) -> None:
+        self.assertEqual(text_grapheme_len("a\u0301"), 1)
+
+    def test_grapheme_zwj_cluster(self) -> None:
+        self.assertEqual(text_grapheme_len("👩‍💻"), 1)
+
+    def test_grapheme_regional_indicator_pair(self) -> None:
+        self.assertEqual(text_grapheme_len("🇮🇳"), 1)
 
 
 # ── Tier A: Opaque handle ─────────────────────────────────────────────────────
@@ -1279,6 +1284,38 @@ class TestSourceRoundTrips(unittest.TestCase):
         out = _run_source("ati-pūrṇāṅka b asti 1000000000000.\ndarśanam b.\n")
         self.assertEqual(out, ["bigint(1000000000000)"])
 
+    def test_default_map_source(self) -> None:
+        out = _run_source("svataḥ-kośaḥ d 0 k 9.\ndarśanam d.\n")
+        self.assertEqual(out, ["defaultmap(0, {k:9})"])
+
+    def test_ordered_map_source(self) -> None:
+        out = _run_source("krama-kośaḥ m k 9.\ndarśanam m.\n")
+        self.assertEqual(out, ["ordered{k:9}"])
+
+    def test_priority_queue_source(self) -> None:
+        out = _run_source("prādhānya-panktī q 10 1 5 2.\ndarśanam q.\n")
+        self.assertEqual(out, ["pq[1, 2]"])
+
+    def test_enum_source(self) -> None:
+        out = _run_source("prakāra-vikalpaḥ Status ready.\ngaṇavikalpaḥ s Status ready 0.\ndarśanam s.\n")
+        self.assertEqual(out, ["enum(Status.ready)"])
+
+    def test_tagged_union_source(self) -> None:
+        out = _run_source("cihna-saṅghaṭaḥ u ok 42.\ndarśanam u.\n")
+        self.assertEqual(out, ["union(ok, 42)"])
+
+    def test_typed_error_source(self) -> None:
+        out = _run_source("lakṣita-doṣaḥ e E_INPUT vākyam bad input iti.\ndarśanam e.\n")
+        self.assertEqual(out, ["error(E_INPUT: bad input)"])
+
+    def test_resource_handle_source(self) -> None:
+        out = _run_source("sambandha-hastaḥ h file 9.\ndarśanam h.\n")
+        self.assertEqual(out, ["handle(file:9)"])
+
+    def test_bytearray_source(self) -> None:
+        out = _run_source("akṣara-saṃgrahaḥ b.\ndarśanam b.\n")
+        self.assertEqual(out, ["bytearray(b'')"])
+
 
 class TestGraphemeImproved(unittest.TestCase):
     def test_devanagari_grapheme_len(self) -> None:
@@ -1289,6 +1326,55 @@ class TestGraphemeImproved(unittest.TestCase):
             Instruction(OpCode.EMIT),
         )
         self.assertEqual(out, ["2"])
+
+    def test_flag_sequence_grapheme_len(self) -> None:
+        self.assertEqual(text_grapheme_len("🇮🇳🇺🇸"), 2)
+
+    def test_crlf_counts_as_single_cluster(self) -> None:
+        self.assertEqual(text_grapheme_len("\r\n"), 1)
+
+    def test_variation_selector_stays_in_cluster(self) -> None:
+        self.assertEqual(text_grapheme_len("✈️"), 1)
+
+
+class TestPhase3YantraParity(unittest.TestCase):
+    def test_phase3_fixed_width_wrapping_and_saturating_round_trip(self) -> None:
+        prog = BytecodeProgram(
+            (
+                Instruction(OpCode("push_i8"), 127),
+                Instruction(OpCode("push_i8"), 1),
+                Instruction(OpCode("i8_add_wrapping")),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode("push_u8"), 255),
+                Instruction(OpCode("push_u8"), 1),
+                Instruction(OpCode("u8_add_saturating")),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.HALT),
+            )
+        )
+        restored = _round_trip_yp(prog)
+        self.assertEqual(SanskriptVM().execute(restored), ["i8(-128)", "u8(255)"])
+
+    def test_phase3_collection_adt_opcodes_round_trip(self) -> None:
+        prog = BytecodeProgram(
+            (
+                Instruction(OpCode.PUSH_INT, 1),
+                Instruction(OpCode.PUSH_INT, 2),
+                Instruction(OpCode("push_rational")),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode("frozen_set_new")),
+                Instruction(OpCode.PUSH_INT, 9),
+                Instruction(OpCode("frozen_set_add")),
+                Instruction(OpCode("frozen_set_len")),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.PUSH_INT, 7),
+                Instruction(OpCode("handle_new"), "file"),
+                Instruction(OpCode.EMIT),
+                Instruction(OpCode.HALT),
+            )
+        )
+        restored = _round_trip_yp(prog)
+        self.assertEqual(SanskriptVM().execute(restored), ["rational(1/2)", "1", "handle(file:7)"])
 
 
 class TestRuntimeTypeIds(unittest.TestCase):

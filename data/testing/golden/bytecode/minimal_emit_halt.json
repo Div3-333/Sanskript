@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "description": "push 7; emit; halt",
+  "expected_output": ["7"],
+  "expected_environment": {},
+  "instructions": [
+    { "op": "push_int", "operand": 7 },
+    { "op": "emit" },
+    { "op": "halt" }
+  ]
+}

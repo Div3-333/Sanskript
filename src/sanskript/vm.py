@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import os
 from dataclasses import dataclass
 
 from .bytecode import (
@@ -10,14 +11,15 @@ from .bytecode import (
     OpCode,
     resolve_call_target,
 )
-from .errors import PanicError, ThrownError  # noqa: F401 (used in _run and _execute_instruction)
-from .errors import RuntimeSanskriptError
+from .errors import PanicError, RuntimeSanskriptError, SanskriptError, ThrownError  # noqa: F401
 from .stdlib_core import call_native_function, has_native_function, native_arity
 from .vm_phase3 import PHASE3_DISPATCH
 from .phase8_functional import (
     GeneratorValue,
     PHASE8_DISPATCH,
     clear_phase8_runtime_state,
+    memo_cache_for,
+    memo_cache_key,
 )
 from .runtime_values import (
     BigIntValue,
@@ -58,7 +60,7 @@ from .runtime_values import (
     map_key_from_value,
     record_field_from_value,
     set_add_unique,
-    text_grapheme_len_stub,
+    text_grapheme_len,
     NIL,
     to_display_string,
     values_equal,
@@ -73,6 +75,7 @@ class _CallFrame:
     return_ip: int
     instructions: tuple[Instruction, ...]
     locals_snapshot: dict[str, SanskriptValue]
+    function_name: str = "<unknown>"
     named_returns: dict[str, SanskriptValue] | None = None
     capture_mut: frozenset[str] = frozenset()
 
@@ -97,17 +100,31 @@ class SanskriptVM:
         self._instructions: tuple[Instruction, ...] = ()
         self._call_stack: list[_CallFrame] = []
         self._heap: dict[int, int] = {}
+        self._heap_allocations: dict[int, int] = {}
         self._heap_next = 1
         self._unsafe_depth = 0
+        self._registers: dict[str, int] = {}
+        self._sp = 0
+        self._fp = 0
+        self._labels: dict[str, int] = {}
+        self._labels_stream_id: int | None = None
+        self._mmio: dict[int, int] = {}
+        self._last_call_conv: str | None = None
         self._loop_stack: list[_LoopFrame] = []
         self._defer_blocks: list[tuple[Instruction, ...]] = []
         self._scope_stack: list[dict[str, SanskriptValue]] = []
-        # (handler_ip, stack_depth, call_depth, instructions, locals_snapshot)
+        # (handler_ip, stack_depth, call_depth, instructions, locals_snapshot, unsafe_depth)
         self._try_stack: list[
-            tuple[int, int, int, tuple[Instruction, ...], dict[str, SanskriptValue]]
+            tuple[int, int, int, tuple[Instruction, ...], dict[str, SanskriptValue], int]
         ] = []
         self._generator_yield_value: SanskriptValue | None = None
         self._current_effect: str | None = None
+        self._debug_assertions = os.environ.get("SANSKRIPT_DEBUG_ASSERT", "").strip() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
 
     def execute(self, program: BytecodeProgram) -> list[str]:
         self.globals = {}
@@ -117,8 +134,16 @@ class SanskriptVM:
         self.stack = []
         self._call_stack = []
         self._heap = {}
+        self._heap_allocations = {}
         self._heap_next = 1
         self._unsafe_depth = 0
+        self._registers = {}
+        self._sp = 0
+        self._fp = 0
+        self._labels = {}
+        self._labels_stream_id = None
+        self._mmio = {}
+        self._last_call_conv = None
         self._loop_stack = []
         self._defer_blocks = []
         self._try_stack = []
@@ -129,12 +154,17 @@ class SanskriptVM:
         self._program = program
         self._instructions = program.instructions
         self._run(0)
+        if self._unsafe_depth != 0:
+            raise RuntimeSanskriptError(
+                "unsafe scope leak: program halted before matching unsafe_exit",
+                hint="Ensure every unsafe_enter has a matching unsafe_exit on all control-flow paths.",
+            )
         return self.output
 
     def _run(self, start_ip: int) -> None:
-        from .errors import ThrownError
         ip = start_ip
         while ip < len(self._instructions):
+            self._debug_assert_state(ip)
             instruction = self._instructions[ip]
             if instruction.opcode == OpCode.HALT:
                 if self._call_stack:
@@ -147,8 +177,9 @@ class SanskriptVM:
             try:
                 next_ip = self._execute_instruction(instruction, ip)
             except ThrownError as exc:
+                self._attach_error_context(exc, instruction=instruction, ip=ip)
                 if self._try_stack:
-                    handler_ip, stack_depth, call_depth, instructions, locals_snapshot = (
+                    handler_ip, stack_depth, call_depth, instructions, locals_snapshot, unsafe_depth = (
                         self._try_stack.pop()
                     )
                     # Unwind any active calls that occurred inside the try body.
@@ -156,13 +187,40 @@ class SanskriptVM:
                         self._call_stack.pop()
                     self._instructions = instructions
                     self.locals = dict(locals_snapshot)
+                    self._unsafe_depth = unsafe_depth
                     # restore stack to depth at try_begin, then push error message
                     del self.stack[stack_depth:]
                     self.stack.append(exc.message)
                     ip = handler_ip
                     continue
                 raise
+            except SanskriptError as exc:
+                self._attach_error_context(exc, instruction=instruction, ip=ip)
+                raise
+            except TypeError as exc:
+                wrapped = RuntimeSanskriptError(
+                    str(exc),
+                    hint="Host type mismatch was trapped and re-raised as a Sanskript runtime error.",
+                )
+                self._attach_error_context(wrapped, instruction=instruction, ip=ip)
+                raise wrapped from exc
             ip = next_ip if next_ip is not None else ip + 1
+
+    def _debug_assert_state(self, ip: int) -> None:
+        if not self._debug_assertions:
+            return
+        if self._unsafe_depth < 0:
+            raise PanicError(
+                f"debug assertion failed: unsafe depth is negative at ip={ip}",
+                notes=(f"unsafe_depth={self._unsafe_depth}",),
+            )
+        if self._try_stack:
+            _, _, call_depth, _, _, _ = self._try_stack[-1]
+            if call_depth > len(self._call_stack):
+                raise PanicError(
+                    f"debug assertion failed: try-frame call depth {call_depth} exceeds stack {len(self._call_stack)}",
+                    notes=(f"ip={ip}",),
+                )
 
     def _execute_instruction(self, instruction: Instruction, ip: int) -> int | None:
         opcode = instruction.opcode
@@ -448,6 +506,7 @@ class SanskriptVM:
             value = self._pop()
             field = record_field_from_value(self._pop())
             record = expect_record(self._pop())
+            self._check_object_field_access(record, field, write=True)
             record.fields[field] = value
             self.stack.append(record)
             return None
@@ -455,6 +514,7 @@ class SanskriptVM:
         if opcode == OpCode.RECORD_GET:
             field = record_field_from_value(self._pop())
             record = expect_record(self._pop())
+            self._check_object_field_access(record, field, write=False)
             if field not in record.fields:
                 raise RuntimeSanskriptError(f"Record has no field {field!r}")
             self.stack.append(record.fields[field])
@@ -484,6 +544,10 @@ class SanskriptVM:
             class_name = receiver.fields.get("__class__")
             if not isinstance(class_name, str) or not class_name:
                 raise RuntimeSanskriptError("method receiver has no __class__ tag")
+            if method_name != "__finalize__" and receiver.fields.get("__finalized__") == 1:
+                raise RuntimeSanskriptError(
+                    f"Cannot call method {method_name!r} on finalized instance of {class_name!r}"
+                )
 
             from .bytecode import resolve_method_target
 
@@ -501,21 +565,29 @@ class SanskriptVM:
                     argc=argc,
                     mro=mro,
                 )
-            except BytecodeValidationError:
+            except BytecodeValidationError as exc:
                 if method_name == "__init__":
                     self.stack.append(receiver)
                     return None
                 if method_name == "__finalize__":
+                    receiver.fields["__finalized__"] = 1
                     return None
-                raise RuntimeSanskriptError(f"Unknown method {method_name!r} on class {class_name!r}")
+                raise RuntimeSanskriptError(
+                    f"Unknown method {method_name!r} on class {class_name!r} with argc={argc} and mro={mro}",
+                    hint=str(exc),
+                ) from exc
             call_args = [receiver, *args]
             if len(call_args) != len(function.params):
                 raise RuntimeSanskriptError(
                     f"Method {function.name!r} expects {len(function.params)} arguments, got {len(call_args)}",
                 )
-            self._call_stack.append(_CallFrame(ip + 1, self._instructions, dict(self.locals)))
+            self._call_stack.append(
+                _CallFrame(ip + 1, self._instructions, dict(self.locals), function_name=function.name)
+            )
             self.locals = dict(zip(function.params, call_args))
             self._instructions = function.instructions
+            if method_name == "__finalize__":
+                receiver.fields["__finalized__"] = 1
             return 0
 
         if opcode == OpCode.LOAD_NAME:
@@ -563,6 +635,7 @@ class SanskriptVM:
                 raise RuntimeSanskriptError("heap_alloc size must be non-negative")
             address = self._heap_next
             self._heap_next += max(1, size)
+            self._heap_allocations[address] = size
             for offset in range(size):
                 self._heap[address + offset] = 0
             self.stack.append(address)
@@ -584,7 +657,13 @@ class SanskriptVM:
         if opcode == OpCode.HEAP_FREE:
             self._require_heap_access(opcode)
             address = self._pop_int()
-            self._heap.pop(address, None)
+            size = self._heap_allocations.pop(address, None)
+            if size is None:
+                raise RuntimeSanskriptError(
+                    f"Invalid heap free address (expected allocation base): {address}"
+                )
+            for offset in range(size):
+                self._heap.pop(address + offset, None)
             return None
 
         if opcode == OpCode.UNSAFE_ENTER:
@@ -595,6 +674,272 @@ class SanskriptVM:
             if self._unsafe_depth == 0:
                 raise RuntimeSanskriptError("unsafe_exit without matching unsafe_enter")
             self._unsafe_depth -= 1
+            return None
+
+        if opcode == OpCode.PTR_FROM_INT:
+            self._require_arakshita(opcode)
+            self.stack.append(self._pop_int())
+            return None
+
+        if opcode == OpCode.PTR_TO_INT:
+            self._require_arakshita(opcode)
+            self.stack.append(self._pop_int())
+            return None
+
+        if opcode == OpCode.PTR_ADD:
+            self._require_arakshita(opcode)
+            offset = self._pop_int()
+            base = self._pop_int()
+            self.stack.append(base + offset)
+            return None
+
+        if opcode == OpCode.PTR_SUB:
+            self._require_arakshita(opcode)
+            offset = self._pop_int()
+            base = self._pop_int()
+            self.stack.append(base - offset)
+            return None
+
+        if opcode == OpCode.LOAD_U8:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._load_bytes(address, 1, little_endian=True))
+            return None
+
+        if opcode == OpCode.LOAD_U16_LE:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._load_bytes(address, 2, little_endian=True))
+            return None
+
+        if opcode == OpCode.LOAD_U16_BE:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._load_bytes(address, 2, little_endian=False))
+            return None
+
+        if opcode == OpCode.LOAD_U32_LE:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._load_bytes(address, 4, little_endian=True))
+            return None
+
+        if opcode == OpCode.LOAD_U32_BE:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._load_bytes(address, 4, little_endian=False))
+            return None
+
+        if opcode == OpCode.STORE_U8:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._store_bytes(address, value, 1, little_endian=True)
+            return None
+
+        if opcode == OpCode.STORE_U16_LE:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._store_bytes(address, value, 2, little_endian=True)
+            return None
+
+        if opcode == OpCode.STORE_U16_BE:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._store_bytes(address, value, 2, little_endian=False)
+            return None
+
+        if opcode == OpCode.STORE_U32_LE:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._store_bytes(address, value, 4, little_endian=True)
+            return None
+
+        if opcode == OpCode.STORE_U32_BE:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._store_bytes(address, value, 4, little_endian=False)
+            return None
+
+        if opcode == OpCode.VOLATILE_LOAD_U32_LE:
+            self._require_heap_access(opcode)
+            address = self._pop_int()
+            self.stack.append(self._load_bytes(address, 4, little_endian=True))
+            return None
+
+        if opcode == OpCode.VOLATILE_STORE_U32_LE:
+            self._require_heap_access(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._store_bytes(address, value, 4, little_endian=True)
+            return None
+
+        if opcode == OpCode.BIT_AND:
+            right = self._pop_int()
+            left = self._pop_int()
+            self.stack.append(left & right)
+            return None
+
+        if opcode == OpCode.BIT_OR:
+            right = self._pop_int()
+            left = self._pop_int()
+            self.stack.append(left | right)
+            return None
+
+        if opcode == OpCode.BIT_XOR:
+            right = self._pop_int()
+            left = self._pop_int()
+            self.stack.append(left ^ right)
+            return None
+
+        if opcode == OpCode.BIT_NOT:
+            self.stack.append(~self._pop_int())
+            return None
+
+        if opcode == OpCode.SHIFT_LEFT:
+            amount = self._pop_int()
+            value = self._pop_int()
+            if amount < 0:
+                raise RuntimeSanskriptError(f"shift_left expected non-negative shift amount, got {amount}")
+            self.stack.append(value << amount)
+            return None
+
+        if opcode == OpCode.SHIFT_RIGHT:
+            amount = self._pop_int()
+            value = self._pop_int()
+            if amount < 0:
+                raise RuntimeSanskriptError(f"shift_right expected non-negative shift amount, got {amount}")
+            self.stack.append(value >> amount)
+            return None
+
+        if opcode == OpCode.ROTATE_LEFT32:
+            amount = self._pop_int() & 31
+            value = self._pop_int() & 0xFFFFFFFF
+            self.stack.append(((value << amount) | (value >> (32 - amount))) & 0xFFFFFFFF)
+            return None
+
+        if opcode == OpCode.ROTATE_RIGHT32:
+            amount = self._pop_int() & 31
+            value = self._pop_int() & 0xFFFFFFFF
+            self.stack.append(((value >> amount) | (value << (32 - amount))) & 0xFFFFFFFF)
+            return None
+
+        if opcode == OpCode.REG_SET:
+            reg = self._expect_name(operand, opcode)
+            self._registers[reg] = self._pop_int()
+            return None
+
+        if opcode == OpCode.REG_GET:
+            reg = self._expect_name(operand, opcode)
+            self.stack.append(self._registers.get(reg, 0))
+            return None
+
+        if opcode == OpCode.SP_SET:
+            self._sp = self._pop_int()
+            return None
+
+        if opcode == OpCode.SP_GET:
+            self.stack.append(self._sp)
+            return None
+
+        if opcode == OpCode.FP_SET:
+            self._fp = self._pop_int()
+            return None
+
+        if opcode == OpCode.FP_GET:
+            self.stack.append(self._fp)
+            return None
+
+        if opcode == OpCode.CALL_CONV:
+            self._last_call_conv = self._expect_name(operand, opcode)
+            return None
+
+        if opcode == OpCode.PROLOGUE or opcode == OpCode.EPILOGUE or opcode == OpCode.INLINE_ASM:
+            return None
+
+        if opcode == OpCode.LABEL:
+            name = self._expect_name(operand, opcode)
+            self._labels[name] = ip
+            self._labels_stream_id = id(self._instructions)
+            return None
+
+        if opcode == OpCode.JUMP_LABEL:
+            name = self._expect_name(operand, opcode)
+            if self._labels_stream_id != id(self._instructions) or name not in self._labels:
+                self._labels = self._scan_labels()
+                self._labels_stream_id = id(self._instructions)
+            target = self._labels.get(name)
+            if target is None:
+                raise RuntimeSanskriptError(f"Unknown label target: {name!r}")
+            return target
+
+        if opcode == OpCode.JUMP_IF_ZERO_LABEL:
+            name = self._expect_name(operand, opcode)
+            if not is_truthy(self._pop()):
+                if self._labels_stream_id != id(self._instructions) or name not in self._labels:
+                    self._labels = self._scan_labels()
+                    self._labels_stream_id = id(self._instructions)
+                target = self._labels.get(name)
+                if target is None:
+                    raise RuntimeSanskriptError(f"Unknown label target: {name!r}")
+                return target
+            return None
+
+        if opcode == OpCode.JUMP_INDIRECT:
+            return self._expect_jump_target(self._pop_int(), opcode)
+
+        if opcode == OpCode.CALL_INDIRECT:
+            target = self._pop()
+            if not isinstance(target, str):
+                raise RuntimeSanskriptError("call_indirect expects string function target on stack")
+            return self._execute_instruction(Instruction(OpCode.CALL, target), ip)
+
+        if opcode == OpCode.SYSCALL:
+            if self._program is None:
+                raise RuntimeSanskriptError("syscall requires a full BytecodeProgram context")
+            if self._program.safety_tier != "arakshita":
+                raise RuntimeSanskriptError("syscall is only allowed in arakṣita programs")
+            raise RuntimeSanskriptError(
+                "syscall is not implemented in the host VM backend",
+                hint="Use native backend lowering for platform syscalls, or gate this path.",
+            )
+
+        if opcode == OpCode.TRAP:
+            trap_no = self._expect_int(operand, opcode)
+            raise RuntimeSanskriptError(f"Trap invoked: {trap_no}")
+
+        if opcode == OpCode.MMIO_READ:
+            self._require_arakshita(opcode)
+            address = self._pop_int()
+            self.stack.append(self._mmio.get(address, 0))
+            return None
+
+        if opcode == OpCode.MMIO_WRITE:
+            self._require_arakshita(opcode)
+            value = self._pop_int()
+            address = self._pop_int()
+            self._mmio[address] = value
+            return None
+
+        if opcode == OpCode.ATOMIC_CAS_U32_LE:
+            self._require_heap_access(opcode)
+            new_value = self._pop_int()
+            expected = self._pop_int()
+            address = self._pop_int()
+            current = self._load_bytes(address, 4, little_endian=True)
+            if current == (expected & 0xFFFFFFFF):
+                self._store_bytes(address, new_value, 4, little_endian=True)
+                self.stack.append(1)
+            else:
+                self.stack.append(0)
+            return None
+
+        if opcode == OpCode.FENCE:
+            _ = self._expect_name(operand, opcode)
             return None
 
         if opcode == OpCode.COMPARE_EQ:
@@ -712,11 +1057,11 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.JUMP:
-            return self._expect_int(operand, opcode)
+            return self._expect_jump_target(self._expect_int(operand, opcode), opcode)
 
         if opcode == OpCode.JUMP_IF_ZERO:
             if not is_truthy(self._pop()):
-                return self._expect_int(operand, opcode)
+                return self._expect_jump_target(self._expect_int(operand, opcode), opcode)
             return None
 
         if opcode == OpCode.CALL:
@@ -731,8 +1076,14 @@ class SanskriptVM:
                 raise RuntimeSanskriptError("CALL requires a full BytecodeProgram context")
             callable_value = self.locals.get(target, self.globals.get(target))
             if callable_value is not None:
-                return self._invoke_callable_frame(callable_value, ip)
-            function = resolve_call_target(self._program, target)
+                return self._invoke_callable_frame(callable_value, ip, tail=False)
+            try:
+                function = resolve_call_target(self._program, target)
+            except BytecodeValidationError as exc:
+                raise RuntimeSanskriptError(f"Unknown callable target: {target!r}") from exc
+            self._check_callable_linkage(function)
+            if getattr(function, "is_memoized", False):
+                return self._invoke_memoized_call(function)
             return self._invoke_call_frame(function, ip)
         if opcode == OpCode.TAIL_CALL:
             target = self._expect_name(operand, opcode)
@@ -749,8 +1100,14 @@ class SanskriptVM:
                 raise RuntimeSanskriptError("TAIL_CALL requires a full BytecodeProgram context")
             callable_value = self.locals.get(target, self.globals.get(target))
             if callable_value is not None:
-                return self._invoke_callable_frame(callable_value, ip)
-            function = resolve_call_target(self._program, target)
+                return self._invoke_callable_frame(callable_value, ip, tail=True)
+            try:
+                function = resolve_call_target(self._program, target)
+            except BytecodeValidationError as exc:
+                raise RuntimeSanskriptError(f"Unknown callable target: {target!r}") from exc
+            self._check_callable_linkage(function)
+            if getattr(function, "is_memoized", False):
+                return self._invoke_memoized_call(function)
             return self._invoke_tail_call_frame(function, ip)
 
         if opcode == OpCode.PUSH_FUNC:
@@ -758,8 +1115,10 @@ class SanskriptVM:
             capture_mut = frozenset()
             if self._program is not None:
                 try:
-                    capture_mut = resolve_call_target(self._program, target).capture_mut
-                except Exception:
+                    function = resolve_call_target(self._program, target)
+                    self._check_callable_linkage(function)
+                    capture_mut = function.capture_mut
+                except BytecodeValidationError:
                     capture_mut = frozenset()
             self._promote_mutable_captures(capture_mut)
             self.stack.append(
@@ -1003,7 +1362,7 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.TEXT_GRAPHEME_LEN:
-            self.stack.append(text_grapheme_len_stub(expect_text(self._pop())))
+            self.stack.append(text_grapheme_len(expect_text(self._pop())))
             return None
 
         if opcode == OpCode.FLOAT_IS_NAN:
@@ -1045,19 +1404,28 @@ class SanskriptVM:
             return None
 
         if opcode == OpCode.THROW:
-            from .errors import ThrownError
             msg = self._pop()
-            raise ThrownError(str(msg) if not isinstance(msg, str) else msg)
+            exc = ThrownError(str(msg) if not isinstance(msg, str) else msg)
+            self._attach_error_context(exc, instruction=instruction, ip=ip)
+            raise exc
 
         if opcode == OpCode.PANIC:
-            from .errors import PanicError
             msg = self._pop()
-            raise PanicError(str(msg) if not isinstance(msg, str) else msg)
+            exc = PanicError(str(msg) if not isinstance(msg, str) else msg)
+            self._attach_error_context(exc, instruction=instruction, ip=ip)
+            raise exc
 
         if opcode == OpCode.TRY_BEGIN:
-            handler_ip = self._expect_int(operand, opcode)
+            handler_ip = self._expect_jump_target(self._expect_int(operand, opcode), opcode)
             self._try_stack.append(
-                (handler_ip, len(self.stack), len(self._call_stack), self._instructions, dict(self.locals))
+                (
+                    handler_ip,
+                    len(self.stack),
+                    len(self._call_stack),
+                    self._instructions,
+                    dict(self.locals),
+                    self._unsafe_depth,
+                )
             )
             return None
 
@@ -1102,9 +1470,11 @@ class SanskriptVM:
             return self._unwrap_cell(self.globals[name])
         if self._program is not None:
             try:
-                resolve_call_target(self._program, name)
-                return FunctionValue(target=name, closure=dict(self.locals))
-            except Exception:
+                function = resolve_call_target(self._program, name)
+                self._check_callable_linkage(function)
+                self._promote_mutable_captures(function.capture_mut)
+                return FunctionValue(target=name, closure=self._build_closure(function.capture_mut))
+            except BytecodeValidationError:
                 _unknown_callable = name
         raise RuntimeSanskriptError(
             f"Unknown stored value: {name!r}",
@@ -1127,12 +1497,14 @@ class SanskriptVM:
             self.globals[name] = value
 
     def _invoke_call_frame(self, function, ip: int) -> int:
+        self._check_callable_linkage(function)
         args = self._bind_call_args(function.params, function.defaults, function.variadic_param)
         self._call_stack.append(
             _CallFrame(
                 ip + 1,
                 self._instructions,
                 dict(self.locals),
+                function_name=function.name,
                 capture_mut=function.capture_mut,
             )
         )
@@ -1151,22 +1523,28 @@ class SanskriptVM:
             return 0
         return self._invoke_call_frame(function, ip)
 
-    def _invoke_callable_frame(self, callable_value: SanskriptValue, ip: int) -> int:
+    def _invoke_callable_frame(self, callable_value: SanskriptValue, ip: int, *, tail: bool) -> int:
         if isinstance(callable_value, RecordValue) and "__call__" in callable_value.fields:
-            return self._invoke_callable_frame(callable_value.fields["__call__"], ip)
+            return self._invoke_callable_frame(callable_value.fields["__call__"], ip, tail=tail)
         if not isinstance(callable_value, FunctionValue):
             raise RuntimeSanskriptError(f"Value is not callable: {callable_value!r}")
         if self._program is None:
             raise RuntimeSanskriptError("Callable invocation requires a full BytecodeProgram context")
         function = resolve_call_target(self._program, callable_value.target)
+        self._check_callable_linkage(function)
         args = self._bind_call_args(function.params, function.defaults, function.variadic_param)
         locals_with_capture = dict(callable_value.closure)
         locals_with_capture.update(args)
+        if tail and self._call_stack:
+            self.locals = locals_with_capture
+            self._instructions = function.instructions
+            return 0
         self._call_stack.append(
             _CallFrame(
                 ip + 1,
                 self._instructions,
                 dict(self.locals),
+                function_name=callable_value.target,
                 capture_mut=function.capture_mut,
             )
         )
@@ -1176,6 +1554,38 @@ class SanskriptVM:
         self.locals = locals_with_capture
         self._instructions = function.instructions
         return 0
+
+    def _check_callable_linkage(self, function) -> None:
+        if self._program is None:
+            return
+        tier = self._program.safety_tier
+        if tier in {"surakshita", "rakshita"} and getattr(function, "is_naked", False):
+            raise RuntimeSanskriptError(
+                f"Cannot invoke arakṣita nagnā callable {function.name!r} from {tier}",
+            )
+        if tier == "surakshita" and getattr(function, "abi_name", None):
+            raise RuntimeSanskriptError(
+                f"Cannot invoke ABI-linked callable {function.name!r} from surakṣita",
+            )
+
+    def _invoke_memoized_call(self, function) -> int | None:
+        bound = self._bind_call_args(function.params, function.defaults, function.variadic_param)
+        ordered_args: list[SanskriptValue] = [bound[name] for name in function.params]
+        if function.variadic_param is not None:
+            variadic = bound.get(function.variadic_param, [])
+            if isinstance(variadic, list):
+                ordered_args.extend(variadic)
+            else:
+                ordered_args.append(variadic)
+        cache = memo_cache_for(function.name)
+        key = memo_cache_key(function.name, ordered_args)
+        if key in cache:
+            self.stack.append(cache[key])
+            return None
+        result = self._invoke_function(function.name, ordered_args)
+        cache[key] = result
+        self.stack.append(result)
+        return None
 
     def _bind_call_args(
         self,
@@ -1245,6 +1655,14 @@ class SanskriptVM:
                 f"{opcode.value} in rakṣita (rakshita) programs requires unsafe_enter"
             )
 
+    def _require_arakshita(self, opcode: OpCode) -> None:
+        if self._program is None:
+            raise RuntimeSanskriptError(f"{opcode.value} requires a full BytecodeProgram context")
+        if self._program.safety_tier != "arakshita":
+            raise RuntimeSanskriptError(
+                f"{opcode.value} is only allowed in arakṣita (arakshita) programs"
+            )
+
     def _heap_store(self, address: int, value: int) -> None:
         if address not in self._heap:
             raise RuntimeSanskriptError(f"Invalid heap address: {address}")
@@ -1254,6 +1672,31 @@ class SanskriptVM:
         if address not in self._heap:
             raise RuntimeSanskriptError(f"Invalid heap address: {address}")
         return self._heap[address]
+
+    def _load_bytes(self, address: int, width: int, *, little_endian: bool) -> int:
+        raw: list[int] = []
+        for offset in range(width):
+            raw.append(self._heap_load(address + offset) & 0xFF)
+        if not little_endian:
+            raw.reverse()
+        value = 0
+        for shift, byte in enumerate(raw):
+            value |= byte << (8 * shift)
+        return value
+
+    def _store_bytes(self, address: int, value: int, width: int, *, little_endian: bool) -> None:
+        masked = value & ((1 << (width * 8)) - 1)
+        bytes_le = [(masked >> (8 * idx)) & 0xFF for idx in range(width)]
+        byte_order = bytes_le if little_endian else list(reversed(bytes_le))
+        for offset, byte in enumerate(byte_order):
+            self._heap_store(address + offset, byte)
+
+    def _scan_labels(self) -> dict[str, int]:
+        labels: dict[str, int] = {}
+        for index, inst in enumerate(self._instructions):
+            if inst.opcode == OpCode.LABEL and isinstance(inst.operand, str):
+                labels[inst.operand] = index
+        return labels
 
     def _resolve_loop_frame(self, label: str | None, *, for_continue: bool) -> _LoopFrame:
         if not self._loop_stack:
@@ -1273,8 +1716,10 @@ class SanskriptVM:
         saved_instructions = self._instructions
         saved_locals = self.locals
         saved_stack_len = len(self.stack)
+        saved_effect = self._current_effect
         self._instructions = function.instructions
         self.locals = dict(gen.bound)
+        self._current_effect = getattr(function, "effect", None)
         ip = gen.ip
         self._generator_yield_value = None
         try:
@@ -1298,6 +1743,7 @@ class SanskriptVM:
             del self.stack[saved_stack_len:]
             self._instructions = saved_instructions
             self.locals = saved_locals
+            self._current_effect = saved_effect
 
     def _invoke_function(self, target: str, args: list[SanskriptValue]) -> SanskriptValue:
         if self._program is None:
@@ -1330,8 +1776,10 @@ class SanskriptVM:
         saved_locals = self.locals
         saved_stack_len = len(self.stack)
         base_call_depth = len(self._call_stack)
+        saved_effect = self._current_effect
         self._instructions = function.instructions
         self.locals = bound
+        self._current_effect = getattr(function, "effect", None)
         result: SanskriptValue = 0
         ip = 0
         try:
@@ -1352,6 +1800,7 @@ class SanskriptVM:
             del self.stack[saved_stack_len:]
             self._instructions = saved_instructions
             self.locals = saved_locals
+            self._current_effect = saved_effect
 
     def _expect_int(self, operand: object, opcode: OpCode) -> int:
         if not isinstance(operand, int) or isinstance(operand, bool):
@@ -1368,9 +1817,88 @@ class SanskriptVM:
             raise RuntimeSanskriptError(f"{opcode.value} expected a name operand, got {operand!r}")
         return operand
 
+    def _expect_jump_target(self, target: int, opcode: OpCode) -> int:
+        if target < 0 or target >= len(self._instructions):
+            raise RuntimeSanskriptError(
+                f"{opcode.value} target {target} out of range for instruction stream length {len(self._instructions)}"
+            )
+        return target
+
+    def _current_class_name(self) -> str | None:
+        if not self._call_stack:
+            return None
+        name = self._call_stack[-1].function_name
+        if "__static__" in name:
+            return name.split("__static__", 1)[0]
+        if "__" in name:
+            return name.split("__", 1)[0]
+        return None
+
+    def _check_object_field_access(self, record: RecordValue, field: str, *, write: bool) -> None:
+        class_name = record.fields.get("__class__")
+        if not isinstance(class_name, str):
+            return
+        if record.fields.get("__finalized__") == 1:
+            action = "write" if write else "read"
+            raise RuntimeSanskriptError(
+                f"Cannot {action} field {field!r} on finalized instance of {class_name!r}",
+            )
+        visibility = record.fields.get(f"__vis__{field}")
+        if not isinstance(visibility, str) or visibility == "public":
+            return
+        caller_class = self._current_class_name()
+        action = "write" if write else "read"
+        if visibility == "private" and caller_class != class_name:
+            raise RuntimeSanskriptError(
+                f"Cannot {action} private field {field!r} on class {class_name!r} from {caller_class!r}",
+            )
+        if visibility == "protected":
+            mro_raw = record.fields.get("__mro__")
+            mro: tuple[str, ...]
+            if isinstance(mro_raw, str) and mro_raw.strip():
+                mro = tuple(part.strip() for part in mro_raw.split(",") if part.strip())
+            else:
+                mro = (class_name,)
+            if caller_class not in mro:
+                raise RuntimeSanskriptError(
+                    f"Cannot {action} protected field {field!r} on class {class_name!r} from {caller_class!r}",
+                )
+
     @property
     def environment(self) -> dict[str, SanskriptValue]:
         """Merged view used by tests: locals shadow globals."""
         merged = dict(self.globals)
         merged.update(self.locals)
         return merged
+
+    def _build_stack_trace(self, *, instruction: Instruction, ip: int) -> tuple[str, ...]:
+        trace: list[str] = [f"<main>:{instruction.opcode.value}@{ip}"]
+        for frame in self._call_stack:
+            trace.append(f"{frame.function_name}@{frame.return_ip}")
+        return tuple(trace)
+
+    def _attach_error_context(self, exc: SanskriptError, *, instruction: Instruction, ip: int) -> None:
+        notes = (
+            f"opcode={instruction.opcode.value}",
+            f"ip={ip}",
+            f"stack_depth={len(self.stack)}",
+            f"call_depth={len(self._call_stack)}",
+        )
+        if exc.notes:
+            notes = self._merge_diagnostic_notes(exc.notes, notes)
+        stack_trace = self._build_stack_trace(instruction=instruction, ip=ip)
+        exc.with_context(stack_trace=stack_trace, notes=notes)
+
+    @staticmethod
+    def _merge_diagnostic_notes(
+        existing: tuple[str, ...],
+        generated: tuple[str, ...],
+    ) -> tuple[str, ...]:
+        merged: list[str] = []
+        seen: set[str] = set()
+        for note in (*existing, *generated):
+            if note in seen:
+                continue
+            merged.append(note)
+            seen.add(note)
+        return tuple(merged)

@@ -1,0 +1,553 @@
+{
+  "phase": 24,
+  "spec_version": 2,
+  "catalog_size": 27,
+  "functional_count": 25,
+  "partial_count": 2,
+  "scaffold_count": 0,
+  "smoke_verified_count": 27,
+  "anti_fake_violations": [],
+  "rows": [
+    {
+      "id": "compiler",
+      "cli_command": "compile",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "emits_portable_sskbc"
+      ],
+      "smoke_ok": true,
+      "artifact": "artifacts\\phase24\\smoke\\sample.sskbc"
+    },
+    {
+      "id": "runner",
+      "cli_command": "run",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "executes_ssk_sskbc_sskyp"
+      ],
+      "smoke_ok": true,
+      "executed": true
+    },
+    {
+      "id": "repl",
+      "cli_command": "repl",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "single_line_eval"
+      ],
+      "smoke_ok": true,
+      "executed": true
+    },
+    {
+      "id": "formatter",
+      "cli_command": "format",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "layout_not_semantic",
+        "roundtrip_safe"
+      ],
+      "smoke_ok": true,
+      "artifact": "artifacts\\phase24\\smoke\\formatted.ssk"
+    },
+    {
+      "id": "linter",
+      "cli_command": "lint",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "warning_and_error_levels"
+      ],
+      "smoke_ok": true,
+      "finding_count": 10
+    },
+    {
+      "id": "test_runner",
+      "cli_command": "test",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "discovers_std_test_calls"
+      ],
+      "smoke_ok": true,
+      "discovered": 1,
+      "passed": 1
+    },
+    {
+      "id": "benchmark",
+      "cli_command": "bench",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "example_dir_timing"
+      ],
+      "smoke_ok": true,
+      "within_budget": true,
+      "example_count": 2
+    },
+    {
+      "id": "package_manager",
+      "cli_command": "install",
+      "implementation_state": "partial",
+      "truth_claims": [
+        "local_vendor_install_only"
+      ],
+      "smoke_ok": true,
+      "vendor_path": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase24\\smoke\\install-project-1a86a7ad\\vendor\\helper",
+      "lock": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase24\\smoke\\install-project-1a86a7ad\\ssk.lock"
+    },
+    {
+      "id": "build_tool",
+      "cli_command": "build",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "manifest_aware_compile_all"
+      ],
+      "smoke_ok": true,
+      "compiled": 1
+    },
+    {
+      "id": "docs_generator",
+      "cli_command": "docs",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "module_function_index"
+      ],
+      "smoke_ok": true,
+      "artifact": "artifacts\\phase24\\smoke\\api.docs.md"
+    },
+    {
+      "id": "coverage",
+      "cli_command": "coverage",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "opcode_ip_coverage"
+      ],
+      "smoke_ok": true,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "profiler",
+      "cli_command": "profile",
+      "implementation_state": "partial",
+      "truth_claims": [
+        "wall_clock_per_opcode_bucket"
+      ],
+      "smoke_ok": true,
+      "total_ms": 0.1168
+    },
+    {
+      "id": "debugger",
+      "cli_command": "debug",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "breakpoints_and_step_in_tracing_vm"
+      ],
+      "smoke_ok": true,
+      "steps_recorded": 1,
+      "paused": true
+    },
+    {
+      "id": "language_server",
+      "cli_command": "lsp",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "stdio_jsonrpc_initialize_and_hover"
+      ],
+      "smoke_ok": true,
+      "capabilities": [
+        "textDocumentSync",
+        "completionProvider",
+        "definitionProvider",
+        "documentFormattingProvider",
+        "hoverProvider",
+        "diagnosticProvider"
+      ],
+      "initialize_ok": true,
+      "hover_ok": true
+    },
+    {
+      "id": "syntax_highlighter",
+      "cli_command": "highlight",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "textmate_grammar_json"
+      ],
+      "smoke_ok": true,
+      "grammar_scope": "source.sanskript"
+    },
+    {
+      "id": "editor_integration",
+      "cli_command": "editor-integration",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "vscode_bundle_with_lsp_launch"
+      ],
+      "smoke_ok": true,
+      "bundle_dir": "artifacts\\phase24\\smoke\\editor"
+    },
+    {
+      "id": "project_templates",
+      "cli_command": "new",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "writes_ssk_toml_skeleton"
+      ],
+      "smoke_ok": true,
+      "files": [
+        "artifacts\\phase24\\smoke\\template-app\\main.ssk",
+        "artifacts\\phase24\\smoke\\template-app\\ssk.toml"
+      ]
+    },
+    {
+      "id": "dependency_updater",
+      "cli_command": "deps-update",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "refreshes_ssk_lock"
+      ],
+      "smoke_ok": true,
+      "lock": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase24\\smoke\\deps-project\\ssk.lock"
+    },
+    {
+      "id": "release_builder",
+      "cli_command": "release",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "zip_plus_manifest"
+      ],
+      "smoke_ok": true,
+      "sidecar": "artifacts\\phase24\\smoke\\release.release.json"
+    },
+    {
+      "id": "installer",
+      "cli_command": "installer",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "zip_installer_artifact"
+      ],
+      "smoke_ok": true,
+      "artifact": "artifacts\\phase24\\smoke\\installer-linux.zip",
+      "plan_format": "zip-linux"
+    },
+    {
+      "id": "playground",
+      "cli_command": "playground",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "local_html_runner"
+      ],
+      "smoke_ok": true,
+      "html": "artifacts\\phase24\\smoke\\playground.html"
+    },
+    {
+      "id": "web_playground",
+      "cli_command": "web-playground",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "static_browser_bundle"
+      ],
+      "smoke_ok": true,
+      "html": "artifacts\\phase24\\smoke\\web-playground.html"
+    },
+    {
+      "id": "trace_viewer",
+      "cli_command": "trace-view",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "html_from_trace_json"
+      ],
+      "smoke_ok": true,
+      "html": "artifacts\\phase24\\smoke\\trace.html"
+    },
+    {
+      "id": "bytecode_inspector",
+      "cli_command": "inspect-bytecode",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "structured_opcode_report"
+      ],
+      "smoke_ok": true,
+      "instruction_count": 8
+    },
+    {
+      "id": "sskyp_inspector",
+      "cli_command": "inspect-sskyp",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "prose_opcode_inventory"
+      ],
+      "smoke_ok": true,
+      "line_count": 12,
+      "roundtrip_source": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\examples\\caturtha.ssk"
+    },
+    {
+      "id": "migrate_python",
+      "cli_command": "migrate-python",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "writes_ssk_skeleton_output"
+      ],
+      "smoke_ok": true,
+      "hint_count": 3,
+      "skeleton_file": "artifacts\\phase24\\smoke\\migrated-from-python.ssk"
+    },
+    {
+      "id": "migrate_rust",
+      "cli_command": "migrate-rust",
+      "implementation_state": "functional",
+      "truth_claims": [
+        "writes_ssk_skeleton_output"
+      ],
+      "smoke_ok": true,
+      "hint_count": 0,
+      "skeleton_file": "artifacts\\phase24\\smoke\\migrated-from-rust.ssk"
+    }
+  ],
+  "spec": {
+    "phase": 24,
+    "version": 2,
+    "tools": [
+      {
+        "id": "compiler",
+        "name": "Command-line compiler",
+        "cli_command": "compile",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "emits_portable_sskbc"
+        ]
+      },
+      {
+        "id": "runner",
+        "name": "Command-line runner",
+        "cli_command": "run",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "executes_ssk_sskbc_sskyp"
+        ]
+      },
+      {
+        "id": "repl",
+        "name": "REPL",
+        "cli_command": "repl",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "single_line_eval"
+        ]
+      },
+      {
+        "id": "formatter",
+        "name": "Formatter",
+        "cli_command": "format",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "layout_not_semantic",
+          "roundtrip_safe"
+        ]
+      },
+      {
+        "id": "linter",
+        "name": "Linter",
+        "cli_command": "lint",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "warning_and_error_levels"
+        ]
+      },
+      {
+        "id": "test_runner",
+        "name": "Test runner",
+        "cli_command": "test",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "discovers_std_test_calls"
+        ]
+      },
+      {
+        "id": "benchmark",
+        "name": "Benchmark runner",
+        "cli_command": "bench",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "example_dir_timing"
+        ]
+      },
+      {
+        "id": "package_manager",
+        "name": "Package manager",
+        "cli_command": "install",
+        "implementation_state": "partial",
+        "truth_claims": [
+          "local_vendor_install_only"
+        ]
+      },
+      {
+        "id": "build_tool",
+        "name": "Build tool",
+        "cli_command": "build",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "manifest_aware_compile_all"
+        ]
+      },
+      {
+        "id": "docs_generator",
+        "name": "Documentation generator",
+        "cli_command": "docs",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "module_function_index"
+        ]
+      },
+      {
+        "id": "coverage",
+        "name": "Coverage tool",
+        "cli_command": "coverage",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "opcode_ip_coverage"
+        ]
+      },
+      {
+        "id": "profiler",
+        "name": "Profiler",
+        "cli_command": "profile",
+        "implementation_state": "partial",
+        "truth_claims": [
+          "wall_clock_per_opcode_bucket"
+        ]
+      },
+      {
+        "id": "debugger",
+        "name": "Debugger",
+        "cli_command": "debug",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "breakpoints_and_step_in_tracing_vm"
+        ]
+      },
+      {
+        "id": "language_server",
+        "name": "Language server",
+        "cli_command": "lsp",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "stdio_jsonrpc_initialize_and_hover"
+        ]
+      },
+      {
+        "id": "syntax_highlighter",
+        "name": "Syntax highlighter",
+        "cli_command": "highlight",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "textmate_grammar_json"
+        ]
+      },
+      {
+        "id": "editor_integration",
+        "name": "Editor integration",
+        "cli_command": "editor-integration",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "vscode_bundle_with_lsp_launch"
+        ]
+      },
+      {
+        "id": "project_templates",
+        "name": "Project templates",
+        "cli_command": "new",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "writes_ssk_toml_skeleton"
+        ]
+      },
+      {
+        "id": "dependency_updater",
+        "name": "Dependency updater",
+        "cli_command": "deps-update",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "refreshes_ssk_lock"
+        ]
+      },
+      {
+        "id": "release_builder",
+        "name": "Release builder",
+        "cli_command": "release",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "zip_plus_manifest"
+        ]
+      },
+      {
+        "id": "installer",
+        "name": "Cross-platform installer",
+        "cli_command": "installer",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "zip_installer_artifact"
+        ]
+      },
+      {
+        "id": "playground",
+        "name": "Playground",
+        "cli_command": "playground",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "local_html_runner"
+        ]
+      },
+      {
+        "id": "web_playground",
+        "name": "Web playground",
+        "cli_command": "web-playground",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "static_browser_bundle"
+        ]
+      },
+      {
+        "id": "trace_viewer",
+        "name": "Trace viewer",
+        "cli_command": "trace-view",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "html_from_trace_json"
+        ]
+      },
+      {
+        "id": "bytecode_inspector",
+        "name": "Bytecode inspector",
+        "cli_command": "inspect-bytecode",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "structured_opcode_report"
+        ]
+      },
+      {
+        "id": "sskyp_inspector",
+        "name": ".sskyp inspector",
+        "cli_command": "inspect-sskyp",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "prose_opcode_inventory"
+        ]
+      },
+      {
+        "id": "migrate_python",
+        "name": "Python migration tool",
+        "cli_command": "migrate-python",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "writes_ssk_skeleton_output"
+        ]
+      },
+      {
+        "id": "migrate_rust",
+        "name": "Rust migration tool",
+        "cli_command": "migrate-rust",
+        "implementation_state": "functional",
+        "truth_claims": [
+          "writes_ssk_skeleton_output"
+        ]
+      }
+    ]
+  }
+}

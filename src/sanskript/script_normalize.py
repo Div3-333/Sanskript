@@ -140,6 +140,12 @@ _SLP1_SINGLE = {
     "T": "ṭ",
     "D": "ḍ",
     "N": "ṇ",
+    "f": "ṛ",
+    "F": "ṝ",
+    "x": "ḷ",
+    "X": "ḹ",
+    "q": "ḷ",
+    "Q": "ḹ",
 }
 
 
@@ -181,7 +187,7 @@ def detect_script(text: str) -> Script:
     has_dev = any("\u0900" <= ch <= "\u097f" for ch in text)
     has_iast = bool(re.search(r"[āīūṛṝḷḹṅñṭḍṇśṣṃḥ]", text))
     has_hk = bool(re.search(r"[TDN]|~[nmhN]|R\^", text))
-    has_slp1 = "." in text and bool(re.search(r"\.[ntdsmh]", text))
+    has_slp1 = bool(re.search(r"\.[ntdsmh]|[fFxXEOWwqQz]", text))
     flags = sum((has_dev, has_iast, has_hk, has_slp1))
     if flags > 1:
         return Script.MIXED
@@ -224,6 +230,7 @@ def slp1_to_iast(text: str) -> str:
     output: list[str] = []
     index = 0
     keys = sorted({k for k, _ in _SLP1_MULTI} | set(_SLP1_SINGLE), key=len, reverse=True)
+    multi_map = dict(_SLP1_MULTI)
     while index < len(text):
         ch = text[index]
         if not (ch.isalpha() or ch == "."):
@@ -233,7 +240,7 @@ def slp1_to_iast(text: str) -> str:
         matched = False
         for key in keys:
             if text.startswith(key, index):
-                replacement = dict(_SLP1_MULTI).get(key) or _SLP1_SINGLE.get(key)
+                replacement = multi_map.get(key) or _SLP1_SINGLE.get(key)
                 if replacement:
                     output.append(replacement)
                     index += len(key)
@@ -295,28 +302,34 @@ def iast_to_harvard_kyoto(text: str) -> str:
 
 def iast_to_slp1(text: str) -> str:
     pairs = (
-        ("ai", ".ai"),
-        ("au", ".au"),
+        ("ai", "E"),
+        ("au", "O"),
         ("ā", "A"),
         ("ī", "I"),
         ("ū", "U"),
-        ("ṛ", ".r"),
-        ("ḷ", ".l"),
-        ("ṃ", ".m"),
-        ("ḥ", ".h"),
+        ("ṛ", "f"),
+        ("ṝ", "F"),
+        ("ḷ", "x"),
+        ("ḹ", "X"),
+        ("ṃ", "M"),
+        ("ḥ", "H"),
         ("kh", "kh"),
         ("gh", "gh"),
         ("ch", "ch"),
         ("jh", "jh"),
-        ("ṭh", "th"),
-        ("ḍh", "dh"),
+        ("ṭh", "W"),
+        ("ḍh", "Q"),
+        ("th", "T"),
+        ("dh", "D"),
         ("ph", "ph"),
         ("bh", "bh"),
         ("ñ", "J"),
         ("ṅ", "G"),
-        ("ṭ", "T"),
-        ("ḍ", "D"),
-        ("ṇ", ".n"),
+        ("ṭ", "w"),
+        ("ḍ", "q"),
+        ("ṇ", "N"),
+        ("c", "c"),
+        ("j", "j"),
         ("ś", "z"),
         ("ṣ", "S"),
     )

@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 10
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "call",
+      "operand": "yogaḥ"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "functions": [
+    {
+      "name": "yogaḥ",
+      "instructions": [
+        {
+          "op": "load_name",
+          "operand": "a"
+        },
+        {
+          "op": "load_name",
+          "operand": "b"
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "a",
+        "b"
+      ],
+      "defaults": [
+        null,
+        null
+      ]
+    }
+  ]
+}

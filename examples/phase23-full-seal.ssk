@@ -1,0 +1,4 @@
+// Phase 23 host-tier full seal: all [x] checklist rows via std.phase23.seal_run.
+// Run: python -m sanskript.cli run examples/phase23-full-seal.ssk
+āhvānam std.phase23.seal_run phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

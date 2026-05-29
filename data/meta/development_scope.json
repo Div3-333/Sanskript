@@ -1,0 +1,14 @@
+{
+  "title": "ordinary-development-host-scope",
+  "policy": "Python/Rust remain bootstrap-only; ordinary Sanskript development uses packaged bytecode + subset VM.",
+  "ordinary_development": {
+    "required_python_modules": 0,
+    "required_rust_modules": 0,
+    "bootstrap_runner": "data/bootstrap/vm-runner.sskbc",
+    "bootstrap_only_hosts": ["python", "rust"]
+  },
+  "bootstrap_paths": {
+    "vm_runner": "data/bootstrap/vm-runner.sskbc",
+    "self_host_corpus": "examples/self-host"
+  }
+}

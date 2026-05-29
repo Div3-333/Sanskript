@@ -1,0 +1,17 @@
+rakṣitam.
+
+āhvānam std.memory.alloc.heap aṣṭa catur vākyam abi iti asatyam vākyam sysv64 iti vākyam global iti block nidadhāti.
+āhvānam std.memory.layout.describe block varṇanam nidadhāti.
+
+āhvānam std.memory.borrow.shared block vākyam a iti s1 nidadhāti.
+āhvānam std.memory.alias.state block darśayati.
+āhvānam std.memory.borrow.release s1.
+
+āhvānam std.memory.ref block śūnya ptr nidadhāti.
+āhvānam std.memory.store_u8 ptr pañca.
+āhvānam std.memory.load_u8 ptr darśayati.
+
+āhvānam std.memory.atomic.new 9 atom nidadhāti.
+āhvānam std.memory.atomic.fetch_add atom trīṇi darśayati.
+āhvānam std.memory.atomic.load atom darśayati.
+āhvānam std.memory.atomic.fence vākyam seq_cst iti smṛti-cihnam nidadhāti.

@@ -136,7 +136,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
     const outputElement = document.getElementById("output");
     const statusElement = document.getElementById("status");
 
-    function runSanskript(program) {{
+    const runSanskript = (program) => {{
       const state = {{
         globals: Object.create(null),
         locals: Object.create(null),
@@ -548,7 +548,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
           case "return": {{
             const value = pop();
             const frame = state.callStack.pop();
-            if (!frame) throw new Error("RETURN outside of a function call");
+            if (!frame) throw new Error("RETURN outside of call frame");
             state.instructions = frame.instructions;
             state.locals = frame.locals;
             state.stack.push(value);
@@ -894,7 +894,7 @@ def render_web_app(program: BytecodeProgram, *, title: str = "Sanskript App") ->
       return state.output;
     }}
 
-    function render() {{
+    const render = () => {{
       statusElement.className = "status";
       statusElement.textContent = "Running...";
       try {{

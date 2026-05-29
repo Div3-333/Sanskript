@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "symbols": [
+    {
+      "name": "_sanskript_main",
+      "kind": "function",
+      "address_hint": 0
+    }
+  ]
+}

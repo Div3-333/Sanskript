@@ -1,0 +1,19 @@
+rakṣitam.
+
+arakṣitaḥ adhikāraḥ ārabhyate pramāṇam vākyam owner-lifetime-reviewed iti.
+avakāśaḥ sthāna eka.
+smṛtisthāpanam sthāna sapta.
+smṛtyāharaṇam phala sthāna.
+smṛtimokṣaḥ sthāna.
+arakṣitaḥ adhikāraḥ samāpyate.
+
+āhvānam std.sync.atomic.new phala a nidadhāti.
+āhvānam std.sync.atomic.fetch_add a dvi pūrva nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+āhvānam std.sync.atomic.load a darśayati.
+
+āhvānam std.sync.channel.new eka c nidadhāti.
+āhvānam std.sync.channel.send c phala.
+āhvānam std.sync.channel.recv c daśa darśayati.
+
+āhvānam std.net.resolve_host vākyam localhost iti darśayati.

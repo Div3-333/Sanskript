@@ -1,0 +1,47 @@
+## Phase 28: Independence Milestones
+
+- [x] M0: Current host implementation can run all existing examples
+- [x] M1: Sanskript can express all current bytecode examples in source prose
+- [~] M10: Sanskript can implement bytecode verification in Sanskript
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Bytecode verification is expressed as a Sanskript corpus example, not yet the production verifier replacing the host verifier.
+- [~] M11: Sanskript can implement the compiler frontend in Sanskript
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Compiler frontend corpus is bootstrap evidence, not the production frontend compiled and executed independently of the host compiler.
+- [~] M12: Sanskript can implement the compiler backend in Sanskript
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Compiler backend corpus is bootstrap evidence, not the production backend replacing host lowering.
+- [~] M13: Sanskript can compile its own compiler
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: S1 proves deterministic bootstrap parity for a subset; it is not a Sanskript-authored compiler binary compiling the full compiler.
+- [~] M14: Sanskript can run its own VM
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: SanskriptSubsetVM evidence is bootstrap/subset execution, not the full Sanskript VM running itself.
+- [~] M15: Sanskript can build and test itself
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Bootstrap test-runner example runs under the host CLI; it is not yet a native Sanskript build-and-test loop for the full repository.
+- [~] M16: Sanskript can emit native binaries for at least one platform
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Native probe emits a minimal executable artifact; full Sanskript bytecode lowering to a native binary remains open.
+- [~] M17: Sanskript can emit native binaries for Windows, macOS, and Linux
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Cross-platform native probes are minimal executable artifacts, not complete native lowering for arbitrary Sanskript programs.
+- [x] M18: Sanskript can target web without handwritten JavaScript application code
+- [~] M19: The repo no longer requires Python/Rust for ordinary Sanskript development
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Development scope records a packaged bootstrap path, but repository tooling and verification still run through the host Python implementation.
+- [x] M2: Sanskript can express all current .sskyp examples in machine prose
+- [~] M20: Python/Rust remain only optional bootstrap, compatibility, or contributor convenience paths
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: M19 is bootstrap-scoped only, so Python/Rust are not yet optional-only for the real repository workflow.
+- [x] M3: Sanskript standard library covers text, collections, files, JSON, CLI, HTTP, and tests
+- [x] M4: Sanskript can implement a useful CLI app without Python/Rust code
+- [x] M5: Sanskript can implement a useful web app without Python/Rust app code
+- [x] M6: Sanskript can implement a useful desktop/productivity app
+- [x] M7: Sanskript can implement a useful game loop and asset pipeline
+- [x] M8: Sanskript can implement research/data scripts
+- [~] M9: Sanskript can implement the VM core in rakṣita
+      - evidence: bootstrap/scaffold proof only; full independence claim blocked
+      - boundary: Subset corpus proves a Sanskript-authored VM-core sketch runs under the current host VM; it is not a retired native rakshita VM.
+
+_Automated audit: 21/21 milestones pass as evidence; full independence allowed: False. Use `python -m sanskript.cli milestone-check --allow-partial` until all `[~]` rows become `[x]`._

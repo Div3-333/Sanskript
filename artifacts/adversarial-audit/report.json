@@ -1,0 +1,551 @@
+{
+  "generated_at": "2026-05-29T05:09:40.881307+00:00",
+  "root": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript",
+  "summary": {
+    "total": 31,
+    "passed": 31,
+    "failed": 0
+  },
+  "steps": [
+    {
+      "name": "gate_no_placeholder",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "tools/check_no_placeholder_completion.py"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "No-placeholder completion gate (language runtime scope)\nOK: bytecode opcodes have VM handlers; catalog 'implemented' types have test references.",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "gate_feature_completion",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "tools/check_feature_completion.py"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "Feature completion gate\nFeatures: 336\nOK: no feature is marked complete without docs, tests, examples, and handlers.",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "gate_register_docs",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_register_docs.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": ".                                                                        [100%]\n1 passed in 2.18s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "gate_completion",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_completion_gate.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": ".                                                                        [100%]\n1 passed in 0.14s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "gate_phase0_truth",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase0_truth_gates.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........                                                                 [100%]\n8 passed in 108.16s (0:01:48)",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "phases_1_5",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase1_source_surface.py",
+        "tests/test_phase2_core_syntax.py",
+        "tests/test_phase3_data_types.py",
+        "tests/test_phase4_type_system.py",
+        "tests/test_phase5_control_flow.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........................................................................ [ 20%]\n........................................................................ [ 41%]\n........................................................................ [ 62%]\n........................................................................ [ 82%]\n............................................................             [100%]\n348 passed in 3.56s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "phases_6_10",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase6_functions.py",
+        "tests/test_phase7_oop.py",
+        "tests/test_phase8_functional_declarative.py",
+        "tests/test_phase9_modules.py",
+        "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase_examples.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........................................................................ [ 41%]\n........................................................................ [ 82%]\n..............................                                           [100%]\n174 passed in 4.02s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "phases_11_15",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "...............................................................          [100%]\n63 passed in 6.58s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "phases_16_20",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_native_backends.py",
+        "tests/test_native_levels.py",
+        "tests/test_vm_numeric_heap.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "..............................................................           [100%]\n62 passed in 6.18s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "phases_21_28",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........................................................................ [ 12%]\n........................................................................ [ 24%]\n........................................................................ [ 36%]\n........................................................................ [ 48%]\n........................................................................ [ 60%]\n........................................................................ [ 72%]\n........................................................................ [ 84%]\n........................................................................ [ 96%]\n..................                                                       [100%]\n594 passed in 235.63s (0:03:55)",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "supporting_core",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_cli_toolchain.py",
+        "tests/test_compiler_vm.py",
+        "tests/test_bytecode_conformance.py",
+        "tests/test_errors.py",
+        "tests/test_performance_baseline.py",
+        "tests/test_webapp_export.py",
+        "-q",
+        "--tb=no"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........................................                                 [100%]\n40 passed in 25.50s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase21_seal",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase21-seal-check"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "    },\n    {\n      \"id\": \"test_matrix\",\n      \"needle\": \"Cross-platform test matrix\",\n      \"checklist_checked\": true,\n      \"evidence_ok\": true,\n      \"detail\": \"test_matrix json\"\n    },\n    {\n      \"id\": \"release_artifacts\",\n      \"needle\": \"Cross-platform release artifacts\",\n      \"checklist_checked\": true,\n      \"evidence_ok\": true,\n      \"detail\": \"release_artifacts/all families\"\n    }\n  ],\n  \"blockers\": [],\n  \"host_platform\": \"windows\",\n  \"policy\": \"Phase 21 full seal requires all 23 checklist rows [x], functional evidence per row, and zero inflation (no functional without did_real_work except algorithmic path rows).\"\n}",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase23_seal",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase23-seal"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "      ],\n      \"blockers\": [],\n      \"atomics_thread_safe\": true,\n      \"channels_thread_safe\": true\n    },\n    \"vm_tier\": {\n      \"sealed\": false,\n      \"blockers\": [\n        \"Bytecode VM has no OP_AWAIT / in-language await lowering\",\n        \"async_future functions are type-check only (no async fn bytecode)\",\n        \"std.async.event_loop.* drains host ThreadPoolExecutor, not a Sanskript scheduler\",\n        \"std.web.worker.* is host-thread simulation, not browser Worker\"\n      ]\n    },\n    \"anti_fake_violations\": [],\n    \"no_fake_async\": true\n  },\n  \"violations\": []\n}\nphase23-seal: full_seal_ready=True status=dual_tier_host_seal atomics_thread_safe=True channels_thread_safe=True violations=0",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase24_check",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase24-check",
+        "--out-dir",
+        "artifacts/phase24",
+        "--sample-source",
+        "examples/phase24-tooling.ssk"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "artifacts\\phase24\\phase24-evidence.json",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase25_evidence",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase25-evidence"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "    \"exhaustive_suites_ready\": true,\n    \"coverage_thresholds_met\": true,\n    \"blockers\": [],\n    \"warnings\": [\n      \"No independent Sanskript VM differential proof (host Python + optional Rust ssk-vm only).\",\n      \"Self-hosted compiler proof is S0 host-replay only, not independent.\",\n      \"Fuzz trial budget is smoke-only (default 48); not production/continuous fuzz CI.\",\n      \"Phase 25 checklist items still not_met: 1 (e.g. Round-trip tests for source formatting).\"\n    ],\n    \"repro_commands\": [\n      \"PYTHONPATH=src python tools/generate_phase25_tests.py\",\n      \"PYTHONPATH=src python tools/generate_phase25_golden.py\",\n      \"PYTHONPATH=src python -m pytest tests/test_phase25_exhaustive_coverage.py tests/test_phase25_borrow_negatives.py tests/test_phase25_testing_verification.py -q\",\n      \"PYTHONPATH=src python -m sanskript.cli phase25-evidence\",\n      \"PYTHONPATH=src python tools/phase25_coverage_map.py\"\n    ]\n  },\n  \"evidence_path\": \"artifacts\\\\phase25\\\\evidence\\\\phase25-evidence.json\"\n}\nartifacts\\phase25\\evidence\\phase25-evidence.json",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase26_evidence",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase26-evidence"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"seal_ready\": true,\n  \"harness_ready\": true,\n  \"blockers\": [],\n  \"warnings\": [],\n  \"checked_guide_count\": 28,\n  \"expected_guide_count\": 28,\n  \"repro_commands\": [\n    \"PYTHONPATH=src python -m unittest tests.test_phase26_documentation -v\",\n    \"PYTHONPATH=src python -m sanskript.cli phase26-evidence\"\n  ]\n}\nartifacts\\phase26\\evidence\\phase26-evidence.json",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_migration_report",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "migration-report"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\data\\meta\\migration_report.json\nmigration-report: seal=full_seal honest_tracking=True full_seal=True python_files=257 blockers=17",
+      "stderr_tail": "INFO: phase10 cli-io example\nINFO: phase10 cli-io example\nINFO: phase10 cli-io example",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_migration_seal",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "migration-seal"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "        \"purpose\": \"diagnostics + error paths\",\n        \"ok\": true,\n        \"execution_host\": \"python\",\n        \"output_line_count\": 2,\n        \"error\": null\n      },\n      {\n        \"id\": \"phase18-vm-bootstrap\",\n        \"path\": \"examples/phase18-vm-bootstrap.sskbc\",\n        \"purpose\": \"VM bootstrap bytecode evidence\",\n        \"ok\": true,\n        \"execution_host\": \"python\",\n        \"output_line_count\": 1,\n        \"error\": null\n      }\n    ],\n    \"note\": \"Host pytest/CLI still owns discovery; canonical manifest row count comes from examples/phase27-port-examples-runner.sskbc.\"\n  }\n}\nmigration-seal: full_seal_ready=True violations=0 manifest_passed=7/7",
+      "stderr_tail": "INFO: phase10 cli-io example\nINFO: phase10 cli-io example\nINFO: phase10 cli-io example",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_milestone_check_partial_honesty",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "milestone-check",
+        "--artifact-dir",
+        "artifacts/phase28",
+        "--allow-partial"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "{\"milestone_id\": \"M1\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M10\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M11\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M12\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M13\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M14\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M15\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M16\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M17\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M18\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M19\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M2\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M20\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}\n{\"milestone_id\": \"M3\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M4\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M5\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M6\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M7\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M8\", \"passed\": true, \"claim_allowed\": true, \"blockers\": []}\n{\"milestone_id\": \"M9\", \"passed\": true, \"claim_allowed\": false, \"blockers\": []}",
+      "stderr_tail": "INFO: phase10 cli-io example\nINFO: phase10 stdlib source example\nINFO: phase10 cli-io example",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_self_host_check",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "self-host-check",
+        "examples/phase3-data-types.ssk",
+        "--allow-host-replay"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "{\"source\": \"examples\\\\phase3-data-types.ssk\", \"stage\": \"S0-host-replay\", \"proof_method\": \"sha256-canonical-bytecode-and-sskyp\", \"independent_self_compile\": false, \"sskyp_supported\": true, \"bytecode_match\": true, \"sskyp_match\": true, \"host_repeat_match\": true, \"self_repeat_match\": true, \"host_bytecode_sha256\": \"08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6\", \"self_bytecode_sha256\": \"08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6\", \"host_sskyp_sha256\": \"d0b6cecee50d888032200cb77d103939eb1ded8dc8912ef0c590d22c3379c920\", \"self_sskyp_sha256\": \"d0b6cecee50d888032200cb77d103939eb1ded8dc8912ef0c590d22c3379c920\"}\nbootstrap\\phase19\\bootstrap_seed.json",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase18_vm_check",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase18-vm-check",
+        "examples/phase3-data-types.ssk",
+        "--artifact-dir",
+        "artifacts/phase18",
+        "--allow-host-fallback"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "artifacts\\phase18\\phase18-bootstrap-evidence.json\n{\"program_index\": 0, \"s1_match\": true, \"s2_match\": true, \"independent_vm\": false, \"host_fallbacks\": [\"vm-dispatch:python-host\"], \"s1_program_sha256\": \"d293e034970e3e4e796333abcdd5bd5eecd88f662f46f9ac272e6169b5400b7b\", \"s2_program_sha256\": \"d293e034970e3e4e796333abcdd5bd5eecd88f662f46f9ac272e6169b5400b7b\"}",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "cli_phase20_evidence",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "phase20-evidence",
+        "examples/phase6-functions.ssk",
+        "--out-dir",
+        "artifacts/phase20/evidence",
+        "--plan-json",
+        "artifacts/phase20/evidence/phase20-evidence.json"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "        \"dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer\",\n        \"link-skipped: dry-run mode\"\n      ],\n      \"evidence_files_exist\": {\n        \"stack_map\": true,\n        \"debug_symbols\": true,\n        \"symbol_table\": true,\n        \"relocations\": true,\n        \"linker_io\": true,\n        \"linker_stdout\": false,\n        \"linker_stderr\": false,\n        \"object\": true,\n        \"wasm_plan\": false,\n        \"bytecode\": false,\n        \"linked_output\": false\n      }\n    }\n  ]\n}\nartifacts\\phase20\\evidence\\phase20-evidence.json",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase21_anti_fake",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase21_cross_platform.py::Phase21AntiFakeTests",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": ".....                                                                    [100%]\n5 passed in 2.85s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase22_seal_run",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "run",
+        "examples/phase22-full-seal.ssk"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "{\"checklist_count\":46,\"errors\":[],\"marker_count\":46,\"markers\":[\"P22_SEAL:http_client:ok\",\"P22_SEAL:http_server:ok\",\"P22_SEAL:router:ok\",\"P22_SEAL:middleware:ok\",\"P22_SEAL:request_response_types:ok\",\"P22_SEAL:cookies:ok\",\"P22_SEAL:sessions:ok\",\"P22_SEAL:authentication_helpers:ok\",\"P22_SEAL:html_generation:ok\",\"P22_SEAL:template_engine:ok\",\"P22_SEAL:css_asset_pipeline:ok\",\"P22_SEAL:javascript_wasm_bridge:ok\",\"P22_SEAL:dom_access:ok\",\"P22_SEAL:event_handling:ok\",\"P22_SEAL:canvas_2d:ok\",\"P22_SEAL:webgl_webgpu_bridge:ok\",\"P22_SEAL:desktop_windowing:ok\",\"P22_SEAL:gui_widgets:ok\",\"P22_SEAL:menus_shortcuts:ok\",\"P22_SEAL:clipboard:ok\",\"P22_SEAL:notifications:ok\",\"P22_SEAL:file_dialogs:ok\",\"P22_SEAL:game_loop:ok\",\"P22_SEAL:input_handling:ok\",\"P22_SEAL:audio_playback:ok\",\"P22_SEAL:asset_loading:ok\",\"P22_SEAL:sprite_support:ok\",\"P22_SEAL:physics_2d:ok\",\"P22_SEAL:scene_3d:ok\",\"P22_SEAL:database_client:ok\",\"P22_SEAL:sqlite_support:ok\",\"P22_SEAL:postgres_support:ok\",\"P22_SEAL:dataframe_tables:ok\",\"P22_SEAL:csv_parquet_readers:ok\",\"P22_SEAL:plotting:ok\",\"P22_SEAL:linear_algebra:ok\",\"P22_SEAL:tensor_basics:ok\",\"P22_SEAL:automatic_differentiation_plan:ok\",\"P22_SEAL:model_serialization:ok\",\"P22_SEAL:python_ml_interop:ok\",\"P22_SEAL:native_ml_kernels_roadmap:ok\",\"P22_SEAL:notebook_literate:ok\",\"P22_SEAL:research_script_templates:ok\",\"P22_SEAL:reproducible_environment:ok\",\"P22_SEAL:static_web_cli:ok\",\"P22_SEAL:registry_inventory:ok\"],\"verdict\":\"SEAL-READY\"}",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase23_full_seal",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "sanskript.cli",
+        "run",
+        "examples/phase23-full-seal.ssk"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "{\"checklist_count\":19,\"errors\":[],\"host_tier\":\"sealed\",\"marker_count\":19,\"markers\":[\"P23_SEAL:threads:ok\",\"P23_SEAL:fibers_coroutines:ok\",\"P23_SEAL:futures_promises:ok\",\"P23_SEAL:timers:ok\",\"P23_SEAL:async_file_io:ok\",\"P23_SEAL:async_networking:ok\",\"P23_SEAL:cancellation:ok\",\"P23_SEAL:channels:ok\",\"P23_SEAL:queues:ok\",\"P23_SEAL:mutexes:ok\",\"P23_SEAL:read_write_locks:ok\",\"P23_SEAL:semaphores:ok\",\"P23_SEAL:atomics:ok\",\"P23_SEAL:thread_pools:ok\",\"P23_SEAL:work_stealing:ok\",\"P23_SEAL:data_race_rakshita:ok\",\"P23_SEAL:arakshita_unsafe_rules:ok\",\"P23_SEAL:browser_workers:ok\",\"P23_SEAL:gatekeeper:ok\"],\"verdict\":\"SEALED_AT_HOST_TIER\",\"vm_tier\":\"vm_missing\"}",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase24_anti_fake",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase24_tooling.py::Phase24ChecklistSealTests",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "..                                                                       [100%]\n2 passed in 1.90s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase25_exhaustive",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "-q",
+        "--maxfail=1"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........................................................................ [ 19%]\n........................................................................ [ 39%]\n........................................................................ [ 59%]\n........................................................................ [ 78%]\n........................................................................ [ 98%]\n.....                                                                    [100%]\n365 passed in 2.66s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase27_no_ported",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase27_migration.py::Phase27MigrationReportTests::test_no_component_marked_ported",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": ".                                                                        [100%]\n1 passed in 10.47s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_phase28_inflation",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_phase28_independence_milestones.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "..........                                                               [100%]\n10 passed in 28.84s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "adv_all_examples_compile",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_cli_toolchain.py::CliToolchainTests::test_all_examples_compile_to_portable_bytecode",
+        "-q"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": ".                                                                        [100%]\n1 passed in 10.81s",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "full_pytest_suite",
+      "command": [
+        "C:\\Users\\divya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--tb=line"
+      ],
+      "exit_code": 0,
+      "ok": true,
+      "stdout_tail": "........................................................................ [ 22%]\n........................................................................ [ 26%]\n........................................................................ [ 30%]\n........................................................................ [ 35%]\n........................................................................ [ 39%]\n........................................................................ [ 44%]\n........................................................................ [ 48%]\n........................................................................ [ 53%]\n........................................................................ [ 57%]\n........................................................................ [ 61%]\n........................................................................ [ 66%]\n........................................................................ [ 70%]\n........................................................................ [ 75%]\n........................................................................ [ 79%]\n........................................................................ [ 84%]\n........................................................................ [ 88%]\n..........................................s............................. [ 92%]\n........................................................................ [ 97%]\n............................................                             [100%]\n1627 passed, 1 skipped in 336.40s (0:05:36)",
+      "stderr_tail": "",
+      "timed_out": false,
+      "timeout_seconds": 900
+    }
+  ],
+  "failures": []
+}

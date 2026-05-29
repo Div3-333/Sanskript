@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-27T12:44:21+00:00",
+  "generated_at": "2026-05-29T05:05:30+00:00",
   "generator": "tools/generate_feature_matrix.py",
-  "feature_count": 306,
+  "feature_count": 336,
   "status_counts": {
     "foundation": 182,
     "planned": 52,
-    "partial": 70,
-    "complete": 2
+    "partial": 97,
+    "complete": 5
   },
   "features": [
     {
@@ -31,9 +31,11 @@
         "data/bytecode/conformance/if_branch_emit.json",
         "data/bytecode/conformance/list_append_emit.json",
         "src/sanskript/bytecode.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/webapp.py",
         "tests/test_bytecode_conformance.py",
-        "tests/test_phase0_truth_gates.py"
+        "tests/test_phase0_truth_gates.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -57,6 +59,7 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
         "tests/test_bytecode_conformance.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_webapp_export.py"
       ]
     },
@@ -78,7 +81,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -100,7 +104,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -123,7 +128,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/stdlib_impl.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -145,7 +151,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -167,7 +174,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -193,7 +201,8 @@
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/stdlib_impl.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -217,7 +226,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -243,7 +253,8 @@
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -268,7 +279,8 @@
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -290,9 +302,12 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py"
       ]
     },
     {
@@ -314,6 +329,9 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase2_core_syntax.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -335,7 +353,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -356,7 +375,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -377,7 +397,10 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase26_documentation.py"
       ]
     },
     {
@@ -400,7 +423,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -423,7 +447,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -446,7 +471,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -469,7 +495,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -492,7 +519,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -514,7 +542,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -537,7 +566,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -549,7 +579,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": null,
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -559,7 +589,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -571,7 +602,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": null,
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -581,7 +612,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -604,7 +636,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -627,7 +660,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -650,7 +684,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py"
       ]
     },
     {
@@ -673,7 +709,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py"
       ]
     },
     {
@@ -696,7 +734,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
-        "src/sanskript/vm.py"
+        "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -719,7 +758,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -742,7 +782,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -765,7 +806,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -787,7 +830,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -810,7 +854,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -832,7 +878,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/phase8_functional.py",
-        "src/sanskript/phase8_opcodes.py"
+        "src/sanskript/phase8_opcodes.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -853,9 +900,13 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/compiler.py",
+        "src/sanskript/parser.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -877,10 +928,13 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/compiler.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_collections.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -904,9 +958,12 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/grammar.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -931,6 +988,7 @@
         "src/sanskript/grammar.py",
         "src/sanskript/parser.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_source_collections.py"
       ]
     },
@@ -953,7 +1011,8 @@
       "tests": [
         "data/bytecode/conformance/record_set_get_emit.json",
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -975,7 +1034,8 @@
       "tests": [
         "data/bytecode/conformance/record_set_get_emit.json",
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -997,7 +1057,8 @@
       "tests": [
         "data/bytecode/conformance/record_set_get_emit.json",
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1018,7 +1079,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1040,6 +1102,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -1063,6 +1126,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -1085,7 +1150,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1107,6 +1173,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1128,7 +1195,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1149,7 +1217,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1170,7 +1239,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1191,7 +1261,9 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/parser.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1213,7 +1285,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1234,7 +1307,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1261,6 +1335,8 @@
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1286,6 +1362,8 @@
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1310,8 +1388,11 @@
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase3_opcodes.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1333,11 +1414,14 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/compiler.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1359,7 +1443,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1383,6 +1468,8 @@
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1406,17 +1493,18 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
       "id": "opcode:deque_push_back",
       "feature": "deque_push_back",
       "category": "bytecode_opcode",
-      "status": "partial",
+      "status": "foundation",
       "owning_file": "src/sanskript/bytecode.py",
       "parser_rule": null,
-      "compiler_lowering": null,
+      "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
       "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
@@ -1428,6 +1516,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1450,6 +1539,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1472,7 +1562,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1494,7 +1585,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1516,6 +1608,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1540,6 +1633,7 @@
         "src/sanskript/compiler.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1564,6 +1658,7 @@
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py"
       ]
@@ -1586,7 +1681,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1609,6 +1705,7 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1632,7 +1729,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1656,7 +1755,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1678,7 +1779,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1701,6 +1803,7 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1724,6 +1827,7 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1751,6 +1855,7 @@
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1774,6 +1879,7 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1797,6 +1903,7 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1819,6 +1926,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1840,8 +1948,10 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/parser.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -1864,7 +1974,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1886,6 +1997,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_vm_numeric_heap.py"
       ]
     },
@@ -1910,7 +2022,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1934,7 +2047,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1958,7 +2072,9 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -1981,7 +2097,9 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -2005,7 +2123,10 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2029,7 +2150,727 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:ptr_from_int",
+      "feature": "ptr_from_int",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:ptr_to_int",
+      "feature": "ptr_to_int",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:ptr_add",
+      "feature": "ptr_add",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:ptr_sub",
+      "feature": "ptr_sub",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:bit_and",
+      "feature": "bit_and",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:bit_or",
+      "feature": "bit_or",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:bit_xor",
+      "feature": "bit_xor",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:bit_not",
+      "feature": "bit_not",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:shift_left",
+      "feature": "shift_left",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:shift_right",
+      "feature": "shift_right",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:reg_set",
+      "feature": "reg_set",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:reg_get",
+      "feature": "reg_get",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:sp_set",
+      "feature": "sp_set",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:sp_get",
+      "feature": "sp_get",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:fp_set",
+      "feature": "fp_set",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:fp_get",
+      "feature": "fp_get",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:call_conv",
+      "feature": "call_conv",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:prologue",
+      "feature": "prologue",
+      "category": "bytecode_opcode",
+      "status": "foundation",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": "src/sanskript/compiler.py",
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "src/sanskript/compiler.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:epilogue",
+      "feature": "epilogue",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:inline_asm",
+      "feature": "inline_asm",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:label",
+      "feature": "label",
+      "category": "bytecode_opcode",
+      "status": "foundation",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": "src/sanskript/compiler.py",
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/adhyaya123_engines.py",
+        "src/sanskript/adhyaya45_engines.py",
+        "src/sanskript/adhyaya678_engines.py",
+        "src/sanskript/ast.py",
+        "src/sanskript/bytecode.py",
+        "src/sanskript/compiler.py",
+        "src/sanskript/ir.py",
+        "src/sanskript/morphology_validate.py",
+        "src/sanskript/paninian_effects.py",
+        "src/sanskript/paninian_engine.py",
+        "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_self_host.py",
+        "src/sanskript/predicate_audit.py",
+        "src/sanskript/stdlib_impl.py",
+        "src/sanskript/sutra_handlers_adhyaya23.py",
+        "src/sanskript/sutra_impl_1_rest.py",
+        "src/sanskript/sutra_impl_6_3.py",
+        "src/sanskript/sutra_impl_7_2.py",
+        "src/sanskript/sutra_impl_7_3.py",
+        "src/sanskript/sutra_impl_7_4.py",
+        "src/sanskript/sutra_impl_8_3.py",
+        "src/sanskript/sutra_impl_8_4.py",
+        "src/sanskript/sutra_logic.py",
+        "src/sanskript/vm.py",
+        "src/sanskript/webapp.py",
+        "tests/test_paninian_engine.py",
+        "tests/test_paninian_real_effect_gate.py",
+        "tests/test_phase0_truth_gates.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase5_control_flow.py"
+      ]
+    },
+    {
+      "id": "opcode:jump_label",
+      "feature": "jump_label",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:jump_if_zero_label",
+      "feature": "jump_if_zero_label",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:jump_indirect",
+      "feature": "jump_indirect",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_vm_numeric_heap.py"
+      ]
+    },
+    {
+      "id": "opcode:call_indirect",
+      "feature": "call_indirect",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_vm_numeric_heap.py"
+      ]
+    },
+    {
+      "id": "opcode:syscall",
+      "feature": "syscall",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "src/sanskript/native_minimal_exe.py",
+        "src/sanskript/vm.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_vm_numeric_heap.py"
+      ]
+    },
+    {
+      "id": "opcode:trap",
+      "feature": "trap",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [
+        "examples/phase27-migration-test-manifest.ssk",
+        "examples/phase28-desktop-gui.ssk",
+        "examples/phase28-game-loop.ssk"
+      ],
+      "tests": [
+        "examples/phase27-migration-test-manifest.ssk",
+        "examples/phase28-desktop-gui.ssk",
+        "examples/phase28-game-loop.ssk",
+        "src/sanskript/bytecode.py",
+        "src/sanskript/cli.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/native_minimal_exe.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
+        "src/sanskript/self_hosting.py",
+        "src/sanskript/stdlib_impl.py",
+        "src/sanskript/sutra_impl_3_1.py",
+        "src/sanskript/sutra_impl_3_2.py",
+        "src/sanskript/sutra_impl_4.py",
+        "src/sanskript/sutra_impl_5.py",
+        "src/sanskript/sutra_impl_6_1.py",
+        "src/sanskript/sutra_impl_6_4.py",
+        "src/sanskript/vm.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_cli_toolchain.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase28_independence_milestones.py",
+        "tests/test_vm_numeric_heap.py"
+      ]
+    },
+    {
+      "id": "opcode:mmio_read",
+      "feature": "mmio_read",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:mmio_write",
+      "feature": "mmio_write",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [],
+      "tests": [
+        "src/sanskript/bytecode.py",
+        "tests/test_phase25_exhaustive_coverage.py"
+      ]
+    },
+    {
+      "id": "opcode:fence",
+      "feature": "fence",
+      "category": "bytecode_opcode",
+      "status": "partial",
+      "owning_file": "src/sanskript/bytecode.py",
+      "parser_rule": null,
+      "compiler_lowering": null,
+      "vm_handler": "src/sanskript/vm.py",
+      "yantra_patha": "src/sanskript/yantra_patha.py",
+      "rust_vm_handler": null,
+      "docs": [
+        "docs/bytecode-v2.md",
+        "docs/bytecode-v1.md"
+      ],
+      "examples": [
+        "examples/phase13-memory-model.ssk"
+      ],
+      "tests": [
+        "examples/phase13-memory-model.ssk",
+        "src/sanskript/bytecode.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase26_documentation.py"
       ]
     },
     {
@@ -2054,7 +2895,8 @@
         "data/bytecode/conformance/if_branch_emit.json",
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2080,7 +2922,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2099,11 +2942,17 @@
         "docs/bytecode-v1.md"
       ],
       "examples": [
+        "examples/phase13-memory-model.ssk",
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase23-concurrency-async.ssk",
         "examples/phase7-oop.ssk"
       ],
       "tests": [
         "data/bytecode/conformance/assign_increment_emit.json",
         "data/bytecode/conformance/if_branch_emit.json",
+        "examples/phase13-memory-model.ssk",
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase23-concurrency-async.ssk",
         "examples/phase7-oop.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya123_engines.py",
@@ -2128,13 +2977,25 @@
         "src/sanskript/metarules.py",
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
+        "src/sanskript/package_manifest.py",
         "src/sanskript/package_resolver.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_independence_milestones.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/phonology.py",
@@ -2170,7 +3031,15 @@
         "tests/test_grammar_canon.py",
         "tests/test_morphology_synth.py",
         "tests/test_paninian_engine.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
@@ -2202,7 +3071,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
         "tests/test_phase6_functions.py"
       ]
     },
@@ -2230,7 +3102,11 @@
         "src/sanskript/grammar.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase8_functional_declarative.py"
       ]
@@ -2258,7 +3134,8 @@
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
         "src/sanskript/sutra_impl_2.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2280,7 +3157,10 @@
       "tests": [
         "data/bytecode/conformance/if_branch_emit.json",
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py"
       ]
     },
     {
@@ -2292,7 +3172,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2301,7 +3181,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2322,7 +3203,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2334,7 +3216,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2343,7 +3225,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2355,7 +3238,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2364,7 +3247,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2376,7 +3260,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2385,7 +3269,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2397,7 +3282,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2406,7 +3291,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2418,7 +3304,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2428,7 +3314,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2440,7 +3327,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2450,7 +3337,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2462,7 +3350,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2471,7 +3359,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2483,7 +3372,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2492,7 +3381,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2504,7 +3394,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2514,7 +3404,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2526,7 +3417,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2536,6 +3427,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -2548,7 +3440,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2557,7 +3449,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2569,7 +3462,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2578,7 +3471,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2590,7 +3484,7 @@
       "parser_rule": null,
       "compiler_lowering": null,
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2599,14 +3493,15 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
       "id": "opcode:emit",
       "feature": "emit",
       "category": "bytecode_opcode",
-      "status": "foundation",
+      "status": "complete",
       "owning_file": "src/sanskript/bytecode.py",
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
@@ -2617,19 +3512,49 @@
         "docs/bytecode-v2.md",
         "docs/bytecode-v1.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase27-port-controlled-lexicon.ssk",
+        "examples/phase27-port-examples-runner.ssk",
+        "examples/phase27-port-sutra-registry.ssk"
+      ],
       "tests": [
         "data/bytecode/conformance/assign_increment_emit.json",
         "data/bytecode/conformance/function_return_emit.json",
         "data/bytecode/conformance/if_branch_emit.json",
         "data/bytecode/conformance/list_append_emit.json",
         "data/bytecode/conformance/record_set_get_emit.json",
+        "examples/phase27-port-controlled-lexicon.ssk",
+        "examples/phase27-port-examples-runner.ssk",
+        "examples/phase27-port-sutra-registry.ssk",
         "src/sanskript/bytecode.py",
+        "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/sutra_impl_3_1.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
         "tests/test_bytecode_conformance.py",
+        "tests/test_cli_toolchain.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase27_migration.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase8_functional_declarative.py",
         "tests/test_vocabulary_balance.py",
@@ -2656,11 +3581,17 @@
         "data/bytecode/conformance/if_branch_emit.json",
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
         "tests/test_bytecode_conformance.py",
         "tests/test_collections.py",
         "tests/test_control_flow.py",
-        "tests/test_phase3_data_types.py"
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase3_data_types.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -2682,14 +3613,16 @@
       "tests": [
         "data/bytecode/conformance/if_branch_emit.json",
         "src/sanskript/bytecode.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
       "id": "opcode:call",
       "feature": "call",
       "category": "bytecode_opcode",
-      "status": "foundation",
+      "status": "complete",
       "owning_file": "src/sanskript/bytecode.py",
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
@@ -2700,9 +3633,14 @@
         "docs/bytecode-v2.md",
         "docs/bytecode-v1.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase6-functions.ssk",
+        "examples/phase8-functional.ssk"
+      ],
       "tests": [
         "data/bytecode/conformance/function_return_emit.json",
+        "examples/phase6-functions.ssk",
+        "examples/phase8-functional.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya2_atomic.py",
         "src/sanskript/ast.py",
@@ -2711,11 +3649,24 @@
         "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/errors.py",
         "src/sanskript/karaka.py",
         "src/sanskript/metarules.py",
+        "src/sanskript/module_loader.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/native_minimal_exe.py",
         "src/sanskript/package_signing.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
@@ -2738,12 +3689,27 @@
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
         "tests/test_functions.py",
+        "tests/test_native_backends.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase26_documentation.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase7_oop.py",
+        "tests/test_phase8_functional_declarative.py",
         "tests/test_phase9_modules.py",
-        "tests/test_source_directives.py"
+        "tests/test_sandhi.py",
+        "tests/test_source_directives.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -2765,6 +3731,7 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/vm.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase6_functions.py"
       ]
     },
@@ -2777,7 +3744,7 @@
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
       "vm_handler": "src/sanskript/vm.py",
-      "yantra_patha": null,
+      "yantra_patha": "src/sanskript/yantra_patha.py",
       "rust_vm_handler": null,
       "docs": [
         "docs/bytecode-v2.md",
@@ -2786,7 +3753,8 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
-        "src/sanskript/compiler.py"
+        "src/sanskript/compiler.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -2826,6 +3794,7 @@
         "src/sanskript/comments.py",
         "src/sanskript/compiler.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
         "src/sanskript/errors.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/formatter.py",
@@ -2846,6 +3815,8 @@
         "src/sanskript/morphology_synth.py",
         "src/sanskript/morphology_text.py",
         "src/sanskript/morphology_validate.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/native_minimal_exe.py",
         "src/sanskript/oop.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
@@ -2856,6 +3827,23 @@
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/phase3_values.py",
@@ -2869,6 +3857,7 @@
         "src/sanskript/sandhi.py",
         "src/sanskript/scope.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/source_context.py",
         "src/sanskript/source_pipeline.py",
         "src/sanskript/stdlib_common.py",
@@ -2920,7 +3909,19 @@
         "tests/test_paninian_engine.py",
         "tests/test_paninian_real_effect_gate.py",
         "tests/test_phase0_truth_gates.py",
+        "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase27_migration.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
@@ -2929,6 +3930,7 @@
         "tests/test_phase7_oop.py",
         "tests/test_phase8_functional_declarative.py",
         "tests/test_rust_vm.py",
+        "tests/test_sandhi.py",
         "tests/test_sutra_logic.py"
       ]
     },
@@ -2953,18 +3955,30 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/module_loader.py",
+        "src/sanskript/package_signing.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/scope.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_impl_base.py",
+        "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase9_modules.py"
       ]
@@ -2992,9 +4006,13 @@
         "data/bytecode/conformance/list_append_emit.json",
         "data/bytecode/conformance/record_set_get_emit.json",
         "src/sanskript/bytecode.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
         "tests/test_bytecode_conformance.py",
         "tests/test_phase0_truth_gates.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
         "tests/test_webapp_export.py"
       ]
     },
@@ -3002,7 +4020,7 @@
       "id": "opcode:throw",
       "feature": "throw",
       "category": "bytecode_opcode",
-      "status": "foundation",
+      "status": "complete",
       "owning_file": "src/sanskript/bytecode.py",
       "parser_rule": null,
       "compiler_lowering": "src/sanskript/compiler.py",
@@ -3013,12 +4031,17 @@
         "docs/bytecode-v2.md",
         "docs/bytecode-v1.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase12-diagnostics.ssk"
+      ],
       "tests": [
+        "examples/phase12-diagnostics.ssk",
         "src/sanskript/ast.py",
         "src/sanskript/bytecode.py",
+        "src/sanskript/errors.py",
         "src/sanskript/parser.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3041,9 +4064,13 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
+        "src/sanskript/errors.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_opcode_smoke.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase5_control_flow.py"
       ]
@@ -3068,7 +4095,8 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/vm.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3090,7 +4118,8 @@
       "tests": [
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3110,7 +4139,9 @@
       "examples": [],
       "tests": [
         "src/sanskript/ast.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3133,6 +4164,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_opcode_smoke.py",
         "src/sanskript/sutra_impl_6_3.py",
         "src/sanskript/sutra_impl_6_4.py",
         "src/sanskript/sutra_impl_7_1.py",
@@ -3144,6 +4177,9 @@
         "src/sanskript/sutra_impl_8_3.py",
         "src/sanskript/sutra_impl_8_4.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3169,6 +4205,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/interpreter.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "tests/test_bytecode_conformance.py",
@@ -3178,6 +4216,7 @@
         "tests/test_frame_registry.py",
         "tests/test_functions.py",
         "tests/test_phase0_truth_gates.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
@@ -3208,8 +4247,13 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase26_docs.py",
         "src/sanskript/scope.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase4_type_system.py"
       ]
@@ -3233,7 +4277,12 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_impl_8_3.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py"
       ]
     },
@@ -3257,7 +4306,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3284,9 +4335,17 @@
         "src/sanskript/compiler.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/ir.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/phase8_functional.py",
+        "src/sanskript/sandhi.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_6_4.py",
         "src/sanskript/sutra_impl_base.py",
@@ -3295,12 +4354,14 @@
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "tests/test_functions.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase7_oop.py",
         "tests/test_phase8_functional_declarative.py",
-        "tests/test_source_directives.py"
+        "tests/test_source_directives.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -3323,7 +4384,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -3347,7 +4410,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -3371,7 +4437,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -3394,7 +4462,9 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -3418,7 +4488,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3442,7 +4514,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3466,7 +4540,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -3489,7 +4566,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "tests/test_frame_registry.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_frame_registry.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3512,7 +4591,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3533,7 +4614,10 @@
       "examples": [],
       "tests": [
         "src/sanskript/ast.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3555,6 +4639,7 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
         "tests/test_bytecode_conformance.py",
         "tests/test_compiler_vm.py",
@@ -3563,6 +4648,9 @@
         "tests/test_frame_registry.py",
         "tests/test_functions.py",
         "tests/test_phase0_truth_gates.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
@@ -3593,6 +4681,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_records.py"
       ]
     },
@@ -3616,6 +4706,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py",
         "tests/test_records.py"
       ]
@@ -3640,6 +4733,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase7_oop.py",
@@ -3666,7 +4762,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3690,6 +4788,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3711,7 +4811,9 @@
       "tests": [
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3733,8 +4835,11 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase26_docs.py",
         "src/sanskript/type_checker.py",
         "tests/test_functions.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
@@ -3763,7 +4868,11 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -3785,7 +4894,12 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -3806,7 +4920,9 @@
       "tests": [
         "src/sanskript/ast.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -3829,7 +4945,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -3853,7 +4972,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3875,7 +4996,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3897,7 +5021,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3920,7 +5047,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -3944,10 +5073,12 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_4.py",
         "src/sanskript/type_checker.py",
         "tests/test_control_flow.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
@@ -3976,7 +5107,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4000,7 +5133,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4024,10 +5159,12 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "tests/test_bytecode_conformance.py",
         "tests/test_compiler_vm.py",
         "tests/test_control_flow.py",
         "tests/test_frame_registry.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py"
       ]
@@ -4052,7 +5189,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4076,7 +5215,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -4099,6 +5240,8 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4122,7 +5265,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4144,7 +5289,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4167,7 +5315,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4191,7 +5341,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4215,7 +5367,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase8_functional_declarative.py",
         "tests/test_source_collections.py"
@@ -4241,7 +5395,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4265,7 +5421,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4289,7 +5447,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4313,6 +5473,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4336,7 +5498,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase8_functional_declarative.py",
         "tests/test_source_collections.py"
@@ -4362,7 +5527,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4385,7 +5552,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4409,7 +5579,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4433,7 +5605,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4457,7 +5631,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4481,6 +5657,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_source_collections.py"
       ]
     },
@@ -4504,6 +5682,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_source_collections.py"
       ]
     },
@@ -4527,6 +5707,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_source_collections.py"
       ]
     },
@@ -4550,6 +5732,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_source_collections.py"
       ]
     },
@@ -4573,8 +5757,11 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4598,7 +5785,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4618,7 +5807,9 @@
       "examples": [],
       "tests": [
         "src/sanskript/ast.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4641,7 +5832,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -4665,7 +5859,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -4688,7 +5884,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase26_docs.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4710,7 +5909,9 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -4735,7 +5936,11 @@
         "src/sanskript/errors.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/vm.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4758,7 +5963,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4781,7 +5989,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase8_functional_declarative.py"
       ]
     },
@@ -4804,7 +6014,9 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4826,6 +6038,8 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4848,6 +6062,8 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4871,7 +6087,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -4895,7 +6114,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -4919,6 +6140,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase6_functions.py",
         "tests/test_records.py"
@@ -4943,7 +6166,9 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -4967,7 +6192,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -4993,6 +6221,12 @@
         "src/sanskript/morphology_synth.py",
         "src/sanskript/morphology_validate.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
         "src/sanskript/phonology.py",
         "src/sanskript/subanta.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
@@ -5002,6 +6236,7 @@
         "src/sanskript/tinanta_grades.py",
         "src/sanskript/type_checker.py",
         "tests/test_functions.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
@@ -5028,7 +6263,11 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -5051,7 +6290,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -5074,7 +6316,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase7_oop.py"
       ]
     },
@@ -5098,6 +6343,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_text_primitives.py"
       ]
     },
@@ -5121,6 +6368,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_text_primitives.py"
       ]
     },
@@ -5144,6 +6393,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_text_primitives.py"
       ]
     },
@@ -5167,6 +6418,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_text_primitives.py"
       ]
     },
@@ -5190,6 +6443,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_text_primitives.py"
       ]
     },
@@ -5214,8 +6469,12 @@
         "src/sanskript/errors.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -5237,7 +6496,9 @@
       "tests": [
         "src/sanskript/ast.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase7_oop.py"
       ]
@@ -5260,7 +6521,9 @@
       "tests": [
         "src/sanskript/ast.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -5284,6 +6547,8 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -5306,7 +6571,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -5329,7 +6597,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -5352,7 +6623,9 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -5375,7 +6648,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -5397,7 +6673,10 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
-        "src/sanskript/parser.py"
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -5420,7 +6699,9 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py"
       ]
     },
@@ -5444,8 +6725,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/type_checker.py",
         "tests/test_control_flow.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_source_directives.py"
       ]
@@ -5470,7 +6753,10 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py"
       ]
     },
     {
@@ -5490,6 +6776,7 @@
       "examples": [],
       "tests": [
         "tests/test_adhyaya678_engines.py",
+        "tests/test_phase22_web_apps_games_research.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py"
       ]
@@ -5524,8 +6811,11 @@
         "src/sanskript/avyaya.py",
         "src/sanskript/bytecode.py",
         "src/sanskript/categories.py",
+        "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
+        "src/sanskript/errors.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/grammar_register.py",
         "src/sanskript/identifiers.py",
@@ -5538,6 +6828,7 @@
         "src/sanskript/morphology_lexicon.py",
         "src/sanskript/morphology_synth.py",
         "src/sanskript/morphology_validate.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
         "src/sanskript/package_manifest.py",
         "src/sanskript/package_signing.py",
@@ -5546,14 +6837,32 @@
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phonology.py",
         "src/sanskript/predicate_audit.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
+        "src/sanskript/sandhi.py",
         "src/sanskript/scope.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/source_pipeline.py",
         "src/sanskript/stdlib_common.py",
         "src/sanskript/stdlib_core.py",
@@ -5595,9 +6904,13 @@
         "src/sanskript/yantra_patha.py",
         "tests/test_collections.py",
         "tests/test_paninian_real_effect_gate.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase4_type_system.py",
         "tests/test_rust_vm.py",
+        "tests/test_sandhi.py",
         "tests/test_type_catalog.py"
       ]
     },
@@ -5621,15 +6934,23 @@
         "src/sanskript/adhyaya45_engines.py",
         "src/sanskript/adhyaya678_engines.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
         "src/sanskript/identifiers.py",
         "src/sanskript/karaka.py",
         "src/sanskript/morphology_validate.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/phonology.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_2.py",
         "src/sanskript/sutra_logic.py",
         "src/sanskript/transliteration.py",
-        "src/sanskript/webapp.py"
+        "src/sanskript/webapp.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase24_tooling.py"
       ]
     },
     {
@@ -5647,19 +6968,43 @@
         "docs/type-system.md"
       ],
       "examples": [
+        "examples/phase27-port-controlled-lexicon.ssk",
+        "examples/phase27-port-examples-runner.ssk",
+        "examples/phase27-port-sutra-registry.ssk",
         "examples/phase3-data-types.ssk"
       ],
       "tests": [
+        "examples/phase13-memory-model.ssk",
+        "src/sanskript/bytecode.py",
         "src/sanskript/phase3_source.py",
+        "src/sanskript/stdlib_impl.py",
         "tests/test_bytecode_conformance.py",
         "tests/test_cli_toolchain.py",
         "tests/test_collections.py",
         "tests/test_compiler_vm.py",
         "tests/test_control_flow.py",
         "tests/test_functions.py",
+        "tests/test_native_backends.py",
         "tests/test_native_levels.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
@@ -5743,14 +7088,22 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_opcode_smoke.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase26_documentation.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
+        "tests/test_phase6_functions.py",
         "tests/test_phase7_oop.py",
         "tests/test_phase8_functional_declarative.py",
         "tests/test_type_catalog.py"
@@ -5774,6 +7127,7 @@
       "tests": [
         "src/sanskript/parser.py",
         "src/sanskript/phase3_source.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/type_checker.py",
         "tests/test_phase4_type_system.py"
       ]
@@ -5813,9 +7167,17 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase13-memory-model.ssk"
+      ],
       "tests": [
-        "src/sanskript/phase3_source.py"
+        "examples/phase13-memory-model.ssk",
+        "src/sanskript/bytecode.py",
+        "src/sanskript/phase3_source.py",
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase3_data_types.py"
       ]
     },
     {
@@ -5834,7 +7196,9 @@
       ],
       "examples": [],
       "tests": [
-        "src/sanskript/phase3_source.py"
+        "src/sanskript/bytecode.py",
+        "src/sanskript/phase3_source.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -5858,11 +7222,15 @@
         "src/sanskript/parser.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
-        "tests/test_phase3_data_types.py"
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase3_data_types.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -5882,6 +7250,7 @@
       "examples": [],
       "tests": [
         "src/sanskript/fixed_width.py",
+        "src/sanskript/phase17_toolchain.py",
         "src/sanskript/phase3_source.py",
         "tests/test_phase3_data_types.py"
       ]
@@ -5943,6 +7312,7 @@
       "examples": [],
       "tests": [
         "src/sanskript/parser.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/type_checker.py",
         "tests/test_phase4_type_system.py",
         "tests/test_type_catalog.py"
@@ -5963,10 +7333,22 @@
         "docs/type-system.md"
       ],
       "examples": [
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/phase10-stdlib-source.ssk",
+        "examples/phase14-surakshita.ssk",
+        "examples/phase27-port-controlled-lexicon.ssk",
+        "examples/phase27-port-examples-runner.ssk",
+        "examples/phase27-port-sutra-registry.ssk",
         "examples/phase4-types.ssk"
       ],
       "tests": [
         "data/bytecode/conformance/record_set_get_emit.json",
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/phase10-stdlib-source.ssk",
+        "examples/phase14-surakshita.ssk",
+        "examples/phase27-port-controlled-lexicon.ssk",
+        "examples/phase27-port-examples-runner.ssk",
+        "examples/phase27-port-sutra-registry.ssk",
         "examples/phase4-types.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya123_engines.py",
@@ -5999,14 +7381,32 @@
         "src/sanskript/morphology_lexicon.py",
         "src/sanskript/morphology_text.py",
         "src/sanskript/morphology_validate.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/native_minimal_exe.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
         "src/sanskript/package_resolver.py",
+        "src/sanskript/package_signing.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/phase8_functional.py",
@@ -6016,6 +7416,7 @@
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/source_context.py",
         "src/sanskript/source_pipeline.py",
         "src/sanskript/stdlib_common.py",
@@ -6070,7 +7471,24 @@
         "tests/test_paninian_real_effect_gate.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase19_self_hosting.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
@@ -6143,6 +7561,7 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/parser.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/runtime_values.py",
@@ -6171,6 +7590,7 @@
         "src/sanskript/parser.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6197,11 +7617,19 @@
         "src/sanskript/adhyaya678_engines.py",
         "src/sanskript/anga.py",
         "src/sanskript/ast.py",
+        "src/sanskript/bytecode.py",
+        "src/sanskript/cli.py",
         "src/sanskript/comments.py",
         "src/sanskript/metarules.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
@@ -6265,16 +7693,25 @@
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_lexicon.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase27_ports.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
         "src/sanskript/sandhi.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/subanta.py",
         "src/sanskript/sutra_logic.py",
         "src/sanskript/type_checker.py",
@@ -6291,6 +7728,12 @@
         "tests/test_paninian_adhyaya678_real_effects.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase27_migration.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
@@ -6328,9 +7771,12 @@
         "src/sanskript/avyaya.py",
         "src/sanskript/bytecode.py",
         "src/sanskript/canon_topics.py",
+        "src/sanskript/cli.py",
         "src/sanskript/comments.py",
         "src/sanskript/compiler.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
+        "src/sanskript/errors.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/grammar.py",
         "src/sanskript/grammar_register.py",
@@ -6341,6 +7787,7 @@
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_lexicon.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
@@ -6348,6 +7795,22 @@
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/phase3_values.py",
@@ -6357,6 +7820,7 @@
         "src/sanskript/predicate_audit.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
+        "src/sanskript/sandhi.py",
         "src/sanskript/script_normalize.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/subanta.py",
@@ -6399,6 +7863,10 @@
         "tests/test_paninian_adhyaya3_real_effects.py",
         "tests/test_paninian_engine.py",
         "tests/test_paninian_real_effect_gate.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase26_documentation.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_sutra_logic.py"
@@ -6418,27 +7886,47 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase8-functional.ssk"
+      ],
       "tests": [
         "data/bytecode/conformance/assign_increment_emit.json",
         "data/bytecode/conformance/function_return_emit.json",
         "data/bytecode/conformance/if_branch_emit.json",
         "data/bytecode/conformance/list_append_emit.json",
         "data/bytecode/conformance/record_set_get_emit.json",
+        "examples/phase8-functional.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya23.py",
         "src/sanskript/adhyaya45_engines.py",
         "src/sanskript/ast.py",
         "src/sanskript/bytecode.py",
         "src/sanskript/canon_topics.py",
+        "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
         "src/sanskript/grammar.py",
         "src/sanskript/grammar_register.py",
         "src/sanskript/identifiers.py",
         "src/sanskript/ir.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/package_manifest.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/register_docs.py",
+        "src/sanskript/sandhi.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_impl_1_rest.py",
         "src/sanskript/sutra_impl_3_1.py",
@@ -6455,13 +7943,29 @@
         "src/sanskript/webapp.py",
         "src/sanskript/yantra_patha.py",
         "tests/test_bytecode_conformance.py",
+        "tests/test_cli_toolchain.py",
         "tests/test_collections.py",
         "tests/test_compiler_vm.py",
         "tests/test_control_flow.py",
         "tests/test_frame_registry.py",
         "tests/test_grammar.py",
+        "tests/test_native_backends.py",
         "tests/test_native_levels.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
@@ -6469,6 +7973,7 @@
         "tests/test_phase7_oop.py",
         "tests/test_phase8_functional_declarative.py",
         "tests/test_records.py",
+        "tests/test_sandhi.py",
         "tests/test_source_collections.py",
         "tests/test_text_primitives.py",
         "tests/test_type_catalog.py",
@@ -6495,10 +8000,15 @@
       "tests": [
         "src/sanskript/ast.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_impl_3_1.py",
         "src/sanskript/vm_phase3.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py"
       ]
@@ -6517,8 +8027,11 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase8-functional.ssk"
+      ],
       "tests": [
+        "examples/phase8-functional.ssk",
         "src/sanskript/accent.py",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya23.py",
@@ -6537,16 +8050,26 @@
         "src/sanskript/metarules.py",
         "src/sanskript/morphology_lexicon.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
         "src/sanskript/phonology.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
+        "src/sanskript/sandhi.py",
         "src/sanskript/script_normalize.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/subanta.py",
@@ -6558,7 +8081,11 @@
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_frame_registry.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase8_functional_declarative.py"
       ]
@@ -6597,9 +8124,17 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6617,13 +8152,20 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase27-port-sutra-registry.ssk"
+      ],
       "tests": [
+        "examples/phase27-port-sutra-registry.ssk",
         "src/sanskript/bytecode.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/sutra_logic.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6642,10 +8184,18 @@
         "docs/type-system.md"
       ],
       "examples": [
+        "examples/phase22-full-seal.ssk",
+        "examples/phase22-http-router-auth.ssk",
+        "examples/phase22-http-service.ssk",
+        "examples/phase23-full-seal.ssk",
         "examples/phase8-functional.ssk"
       ],
       "tests": [
         "data/bytecode/conformance/list_append_emit.json",
+        "examples/phase22-full-seal.ssk",
+        "examples/phase22-http-router-auth.ssk",
+        "examples/phase22-http-service.ssk",
+        "examples/phase23-full-seal.ssk",
         "examples/phase8-functional.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya123_engines.py",
@@ -6660,6 +8210,8 @@
         "src/sanskript/comments.py",
         "src/sanskript/compiler.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
+        "src/sanskript/errors.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/formatter.py",
         "src/sanskript/grammar.py",
@@ -6672,15 +8224,33 @@
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_synth.py",
         "src/sanskript/morphology_text.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
         "src/sanskript/package_resolver.py",
+        "src/sanskript/package_signing.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_source.py",
         "src/sanskript/phase3_values.py",
@@ -6693,6 +8263,7 @@
         "src/sanskript/sandhi.py",
         "src/sanskript/scope.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/source_pipeline.py",
         "src/sanskript/stdlib_common.py",
         "src/sanskript/stdlib_core.py",
@@ -6736,8 +8307,23 @@
         "tests/test_paninian_engine.py",
         "tests/test_paninian_real_effect_gate.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
+        "tests/test_phase4_type_system.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase8_functional_declarative.py",
@@ -6761,8 +8347,14 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
-      "tests": []
+      "examples": [
+        "examples/phase11-algorithms-data-structures.ssk"
+      ],
+      "tests": [
+        "examples/phase11-algorithms-data-structures.ssk",
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase11_algorithms_data_structures.py"
+      ]
     },
     {
       "id": "type:TY-LINKED-LIST",
@@ -6798,8 +8390,18 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
+        "src/sanskript/diagnostics.py",
+        "src/sanskript/errors.py",
         "src/sanskript/fixed_width.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
@@ -6809,10 +8411,14 @@
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_bytecode_conformance.py",
         "tests/test_compiler_vm.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase20_native_backends.py",
         "tests/test_phase3_data_types.py",
-        "tests/test_phase4_type_system.py"
+        "tests/test_phase4_type_system.py",
+        "tests/test_phase5_control_flow.py"
       ]
     },
     {
@@ -6829,12 +8435,22 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase23-concurrency-async.ssk"
+      ],
       "tests": [
+        "examples/phase23-concurrency-async.ssk",
         "src/sanskript/canon_topics.py",
+        "src/sanskript/compiler.py",
+        "src/sanskript/parser.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/vm_phase3.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase23_concurrency_async.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6852,17 +8468,26 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase23-concurrency-async.ssk"
+      ],
       "tests": [
+        "examples/phase23-concurrency-async.ssk",
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6903,8 +8528,11 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/compiler.py",
+        "src/sanskript/parser.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6958,8 +8586,11 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/compiler.py",
+        "src/sanskript/parser.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/vm_phase3.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -6978,7 +8609,10 @@
         "docs/type-system.md"
       ],
       "examples": [],
-      "tests": []
+      "tests": [
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase11_algorithms_data_structures.py"
+      ]
     },
     {
       "id": "type:TY-BYTES",
@@ -7001,11 +8635,20 @@
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/native_minimal_exe.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_signing.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/source_context.py",
         "src/sanskript/stdlib_common.py",
         "src/sanskript/stdlib_impl.py",
@@ -7013,6 +8656,10 @@
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
@@ -7036,9 +8683,16 @@
       "examples": [],
       "tests": [
         "src/sanskript/bytecode.py",
+        "src/sanskript/parser.py",
+        "src/sanskript/phase25_testing_verification.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -7074,7 +8728,9 @@
         "docs/type-system.md"
       ],
       "examples": [],
-      "tests": []
+      "tests": [
+        "src/sanskript/phase21_cross_platform.py"
+      ]
     },
     {
       "id": "type:TY-ITERATOR",
@@ -7090,15 +8746,19 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase8-functional.ssk"
+      ],
       "tests": [
+        "examples/phase8-functional.ssk",
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/type_checker.py",
-        "src/sanskript/yantra_patha.py"
+        "src/sanskript/yantra_patha.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -7115,19 +8775,30 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase8-functional.ssk"
+      ],
       "tests": [
+        "examples/phase8-functional.ssk",
         "src/sanskript/ast.py",
         "src/sanskript/bytecode.py",
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "tests/test_phase0_truth_gates.py",
-        "tests/test_phase4_type_system.py"
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase4_type_system.py",
+        "tests/test_phase8_functional_declarative.py"
       ]
     },
     {
@@ -7144,12 +8815,16 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase6-functions.ssk"
+      ],
       "tests": [
+        "examples/phase6-functions.ssk",
         "src/sanskript/ast.py",
         "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
         "src/sanskript/package_signing.py",
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/stdlib_common.py",
         "src/sanskript/stdlib_impl.py",
@@ -7176,7 +8851,12 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/cli.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase8_functional.py",
         "src/sanskript/runtime_values.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/vm.py",
         "tests/test_phase6_functions.py"
       ]
@@ -7206,17 +8886,28 @@
         "src/sanskript/adhyaya8.py",
         "src/sanskript/anga.py",
         "src/sanskript/bytecode.py",
+        "src/sanskript/compiler.py",
+        "src/sanskript/diagnostics.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/markers.py",
         "src/sanskript/metarules.py",
         "src/sanskript/morphology_validate.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
+        "src/sanskript/parser_core.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/source_context.py",
-        "src/sanskript/source_pipeline.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_1_rest.py",
@@ -7243,7 +8934,12 @@
         "tests/test_metarules.py",
         "tests/test_paninian_engine.py",
         "tests/test_paninian_real_effect_gate.py",
-        "tests/test_phase3_data_types.py"
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase3_data_types.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -7266,6 +8962,7 @@
         "src/sanskript/parser.py",
         "src/sanskript/sutra_impl_base.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase25_borrow_negatives.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -7283,11 +8980,22 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase13-memory-model.ssk"
+      ],
       "tests": [
+        "examples/phase13-memory-model.ssk",
         "src/sanskript/ast.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/stdlib_impl.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase4_type_system.py"
       ]
     },
     {
@@ -7308,7 +9016,10 @@
       "tests": [
         "src/sanskript/ast.py",
         "src/sanskript/parser.py",
-        "src/sanskript/type_checker.py"
+        "src/sanskript/stdlib_impl.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase4_type_system.py"
       ]
     },
     {
@@ -7373,11 +9084,19 @@
         "src/sanskript/compiler.py",
         "src/sanskript/ir.py",
         "src/sanskript/karaka.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_impl_2.py",
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "src/sanskript/webapp.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
         "tests/test_phase4_type_system.py",
         "tests/test_vm_numeric_heap.py"
       ]
@@ -7437,13 +9156,27 @@
         "src/sanskript/adhyaya23.py",
         "src/sanskript/ast.py",
         "src/sanskript/bytecode.py",
+        "src/sanskript/cli.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
+        "src/sanskript/errors.py",
         "src/sanskript/grammar.py",
         "src/sanskript/ir.py",
         "src/sanskript/karaka.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
+        "src/sanskript/package_lock.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/phonology.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/stdlib_common.py",
@@ -7461,6 +9194,13 @@
         "src/sanskript/yantra_patha.py",
         "tests/test_adhyaya1.py",
         "tests/test_grammar.py",
+        "tests/test_native_backends.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase7_oop.py",
         "tests/test_records.py"
@@ -7500,9 +9240,11 @@
         "src/sanskript/avyaya.py",
         "src/sanskript/bytecode.py",
         "src/sanskript/canon_topics.py",
+        "src/sanskript/cli.py",
         "src/sanskript/comments.py",
         "src/sanskript/compiler.py",
         "src/sanskript/derivation.py",
+        "src/sanskript/diagnostics.py",
         "src/sanskript/errors.py",
         "src/sanskript/fixed_width.py",
         "src/sanskript/grammar.py",
@@ -7519,6 +9261,7 @@
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_lexicon.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
@@ -7528,6 +9271,22 @@
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phonology.py",
@@ -7538,9 +9297,11 @@
         "src/sanskript/sandhi.py",
         "src/sanskript/scope.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/source_context.py",
         "src/sanskript/source_pipeline.py",
         "src/sanskript/stdlib_common.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/subanta.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_1_1.py",
@@ -7601,6 +9362,7 @@
         "tests/test_interpreter.py",
         "tests/test_metarules.py",
         "tests/test_morphology_synth.py",
+        "tests/test_native_backends.py",
         "tests/test_native_levels.py",
         "tests/test_paninian_adhyaya12_real_effects.py",
         "tests/test_paninian_adhyaya3_real_effects.py",
@@ -7610,7 +9372,28 @@
         "tests/test_performance_baseline.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
@@ -7661,7 +9444,9 @@
         "docs/type-system.md"
       ],
       "examples": [],
-      "tests": []
+      "tests": [
+        "src/sanskript/phase17_toolchain.py"
+      ]
     },
     {
       "id": "type:TY-MODULE",
@@ -7689,11 +9474,27 @@
         "src/sanskript/identifiers.py",
         "src/sanskript/ir.py",
         "src/sanskript/module_loader.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
         "src/sanskript/package_manifest.py",
         "src/sanskript/package_resolver.py",
         "src/sanskript/parser.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_1_1.py",
         "src/sanskript/sutra_impl_1_rest.py",
@@ -7725,6 +9526,14 @@
         "tests/test_adhyaya678_engines.py",
         "tests/test_functions.py",
         "tests/test_phase0_truth_gates.py",
+        "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase19_self_hosting.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase27_migration.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase9_modules.py",
         "tests/test_source_directives.py",
@@ -7745,20 +9554,36 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase13-memory-model.ssk",
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase23-concurrency-async.ssk"
+      ],
       "tests": [
+        "examples/phase13-memory-model.ssk",
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase23-concurrency-async.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya23.py",
         "src/sanskript/adhyaya456.py",
         "src/sanskript/adhyaya7.py",
         "src/sanskript/adhyaya8.py",
+        "src/sanskript/bytecode.py",
+        "src/sanskript/cli.py",
         "src/sanskript/parser_core.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_logic.py",
         "tests/test_adhyaya23.py",
         "tests/test_adhyaya456.py",
         "tests/test_adhyaya7.py",
-        "tests/test_adhyaya8.py"
+        "tests/test_adhyaya8.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py"
       ]
     },
     {
@@ -7775,8 +9600,15 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
-      "tests": []
+      "examples": [
+        "examples/phase23-concurrency-async.ssk"
+      ],
+      "tests": [
+        "examples/phase23-concurrency-async.ssk",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase23_concurrency_async.py"
+      ]
     },
     {
       "id": "type:TY-RWLOCK",
@@ -7792,8 +9624,15 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
-      "tests": []
+      "examples": [
+        "examples/phase23-concurrency-async.ssk"
+      ],
+      "tests": [
+        "examples/phase23-concurrency-async.ssk",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase23_concurrency_async.py"
+      ]
     },
     {
       "id": "type:TY-CHANNEL",
@@ -7809,13 +9648,24 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase23-concurrency-async.ssk"
+      ],
       "tests": [
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase23-concurrency-async.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya123_engines.py",
+        "src/sanskript/cli.py",
         "src/sanskript/paninian_effects.py",
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/phonology.py",
-        "src/sanskript/sutra_logic.py"
+        "src/sanskript/stdlib_impl.py",
+        "src/sanskript/sutra_logic.py",
+        "src/sanskript/type_checker.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase23_concurrency_async.py"
       ]
     },
     {
@@ -7834,6 +9684,13 @@
       ],
       "examples": [],
       "tests": [
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/phase10-stdlib-source.ssk",
+        "examples/phase14-surakshita.ssk",
+        "examples/phase27-migration-test-manifest.ssk",
+        "examples/phase27-port-controlled-lexicon.ssk",
+        "examples/phase27-port-examples-runner.ssk",
+        "examples/phase27-port-sutra-registry.ssk",
         "src/sanskript/accent.py",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya456.py",
@@ -7844,15 +9701,32 @@
         "src/sanskript/grammar.py",
         "src/sanskript/module_loader.py",
         "src/sanskript/morphology_lexicon.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
         "src/sanskript/package_resolver.py",
         "src/sanskript/package_signing.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/predicate_audit.py",
         "src/sanskript/register_docs.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_4.py",
@@ -7876,9 +9750,27 @@
         "tests/test_docs.py",
         "tests/test_grammar_canon.py",
         "tests/test_morphology_synth.py",
+        "tests/test_native_backends.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase5_control_flow.py",
@@ -7912,7 +9804,13 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/phase3_values.py",
+        "src/sanskript/stdlib_impl.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
         "tests/test_phase3_data_types.py"
       ]
     },
@@ -7930,8 +9828,11 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase21-cross-platform.ssk"
+      ],
       "tests": [
+        "examples/phase21-cross-platform.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya2_atomic.py",
         "src/sanskript/ast.py",
@@ -7944,6 +9845,8 @@
         "src/sanskript/morphology.py",
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_lexicon.py",
+        "src/sanskript/native_backends.py",
+        "src/sanskript/native_minimal_exe.py",
         "src/sanskript/package_lock.py",
         "src/sanskript/package_manifest.py",
         "src/sanskript/package_resolver.py",
@@ -7951,8 +9854,24 @@
         "src/sanskript/paninian_effects.py",
         "src/sanskript/parser.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase20_native_evidence.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/predicate_audit.py",
         "src/sanskript/register_docs.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_1_rest.py",
@@ -7967,6 +9886,7 @@
         "src/sanskript/sutra_logic.py",
         "src/sanskript/type_catalog.py",
         "src/sanskript/type_checker.py",
+        "src/sanskript/vm.py",
         "src/sanskript/vocabulary_catalog.py",
         "src/sanskript/webapp.py",
         "src/sanskript/yantra_patha.py",
@@ -7981,10 +9901,28 @@
         "tests/test_docs.py",
         "tests/test_grammar_canon.py",
         "tests/test_morphology_synth.py",
+        "tests/test_native_backends.py",
         "tests/test_performance_baseline.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase5_control_flow.py",
@@ -8020,12 +9958,16 @@
         "docs/type-system.md"
       ],
       "examples": [
-        "examples/phase3-data-types.ssk",
-        "examples/phase4-types.ssk"
-      ],
-      "tests": [
+        "examples/phase27-migration-test-manifest.ssk",
         "examples/phase3-data-types.ssk",
         "examples/phase4-types.ssk",
+        "examples/phase8-functional.ssk"
+      ],
+      "tests": [
+        "examples/phase27-migration-test-manifest.ssk",
+        "examples/phase3-data-types.ssk",
+        "examples/phase4-types.ssk",
+        "examples/phase8-functional.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya123_engines.py",
         "src/sanskript/adhyaya23.py",
@@ -8033,6 +9975,7 @@
         "src/sanskript/canon_topics.py",
         "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
+        "src/sanskript/diagnostics.py",
         "src/sanskript/errors.py",
         "src/sanskript/grammar_register.py",
         "src/sanskript/ir.py",
@@ -8040,11 +9983,26 @@
         "src/sanskript/module_loader.py",
         "src/sanskript/morphology_facade.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/native_backends.py",
         "src/sanskript/oop.py",
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
         "src/sanskript/performance.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase21_cross_platform.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase27_ports.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/phase28_self_host.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase3_values.py",
         "src/sanskript/phase8_functional.py",
@@ -8054,6 +10012,7 @@
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
         "src/sanskript/stdlib_common.py",
+        "src/sanskript/stdlib_impl.py",
         "src/sanskript/subanta.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
         "src/sanskript/sutra_impl_1_1.py",
@@ -8074,6 +10033,7 @@
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/webapp.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_adhyaya1.py",
         "tests/test_adhyaya123_engines.py",
         "tests/test_adhyaya23.py",
@@ -8082,8 +10042,22 @@
         "tests/test_paninian_adhyaya12_real_effects.py",
         "tests/test_paninian_real_effect_gate.py",
         "tests/test_phase0_truth_gates.py",
+        "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase19_self_hosting.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
+        "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase7_oop.py",
         "tests/test_phase8_functional_declarative.py",
@@ -8118,9 +10092,13 @@
         "src/sanskript/compiler.py",
         "src/sanskript/module_loader.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase25_ast_smoke.py",
+        "src/sanskript/phase28_independence_milestones.py",
         "src/sanskript/sutra_logic.py",
         "src/sanskript/type_checker.py",
         "tests/test_paninian_engine.py",
+        "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase25_exhaustive_coverage.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -8161,6 +10139,13 @@
       "examples": [],
       "tests": [
         "src/sanskript/ast.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase25_exhaustive_registry.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_milestones.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/sutra_impl_1_1.py",
         "src/sanskript/sutra_impl_8_1.py",
         "tests/test_accent.py",
@@ -8192,6 +10177,7 @@
         "tests/test_interpreter.py",
         "tests/test_metarules.py",
         "tests/test_morphology_synth.py",
+        "tests/test_native_backends.py",
         "tests/test_native_levels.py",
         "tests/test_paninian_adhyaya12_real_effects.py",
         "tests/test_paninian_adhyaya3_real_effects.py",
@@ -8201,7 +10187,28 @@
         "tests/test_performance_baseline.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase13_memory_model.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase19_self_hosting.py",
         "tests/test_phase1_source_surface.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase22_web_apps_games_research_ml.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase24_tooling.py",
+        "tests/test_phase25_borrow_negatives.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase26_documentation.py",
+        "tests/test_phase27_migration.py",
+        "tests/test_phase28_independence_milestones.py",
         "tests/test_phase2_core_syntax.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
@@ -8253,10 +10260,15 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_independence_milestones.py",
         "src/sanskript/phonology.py",
         "src/sanskript/sutra_impl_2.py",
         "src/sanskript/sutra_impl_3_1.py",
-        "tests/test_phase8_functional_declarative.py"
+        "tests/test_phase18_vm_runtime.py",
+        "tests/test_phase8_functional_declarative.py",
+        "tests/test_vm_numeric_heap.py"
       ]
     },
     {
@@ -8274,10 +10286,12 @@
         "docs/type-system.md"
       ],
       "examples": [
+        "examples/phase12-diagnostics.ssk",
         "examples/shashṭha-if.ssk",
         "examples/ṣoḍaśa-control-flow.ssk"
       ],
       "tests": [
+        "examples/phase12-diagnostics.ssk",
         "examples/shashṭha-if.ssk",
         "examples/ṣoḍaśa-control-flow.ssk",
         "src/sanskript/adhyaya1.py",
@@ -8288,18 +10302,33 @@
         "src/sanskript/avyaya.py",
         "src/sanskript/bytecode.py",
         "src/sanskript/categories.py",
+        "src/sanskript/cli.py",
         "src/sanskript/compiler.py",
         "src/sanskript/karaka.py",
         "src/sanskript/metarules.py",
         "src/sanskript/morphology_synth.py",
+        "src/sanskript/package_lock.py",
+        "src/sanskript/package_resolver.py",
+        "src/sanskript/package_signing.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase23_concurrency.py",
+        "src/sanskript/phase24_tooling.py",
+        "src/sanskript/phase25_opcode_smoke.py",
+        "src/sanskript/phase25_testing_verification.py",
+        "src/sanskript/phase26_docs.py",
+        "src/sanskript/phase27_migration_report.py",
+        "src/sanskript/phase28_independence_milestones.py",
+        "src/sanskript/phase28_milestones.py",
         "src/sanskript/phase8_functional.py",
         "src/sanskript/phase8_opcodes.py",
         "src/sanskript/phonology.py",
         "src/sanskript/runtime_values.py",
         "src/sanskript/samasa.py",
         "src/sanskript/script_normalize.py",
+        "src/sanskript/self_hosting.py",
         "src/sanskript/stdlib_impl.py",
         "src/sanskript/subanta.py",
         "src/sanskript/sutra_handlers_adhyaya23.py",
@@ -8322,14 +10351,29 @@
         "src/sanskript/sutra_logic.py",
         "src/sanskript/syntax.py",
         "src/sanskript/tinanta.py",
+        "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "src/sanskript/vm_phase3.py",
         "src/sanskript/voice.py",
+        "src/sanskript/yantra_patha.py",
         "tests/test_adhyaya1.py",
+        "tests/test_native_backends.py",
         "tests/test_paninian_adhyaya3_real_effects.py",
         "tests/test_paninian_real_effect_gate.py",
         "tests/test_phase0_truth_gates.py",
         "tests/test_phase10_stdlib_core.py",
+        "tests/test_phase11_algorithms_data_structures.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase15_rakshita_systems.py",
+        "tests/test_phase16_arakshita.py",
+        "tests/test_phase17_toolchain.py",
+        "tests/test_phase20_native_backends.py",
+        "tests/test_phase21_cross_platform.py",
+        "tests/test_phase22_web_apps_games_research.py",
+        "tests/test_phase23_concurrency_async.py",
+        "tests/test_phase25_exhaustive_coverage.py",
+        "tests/test_phase25_testing_verification.py",
+        "tests/test_phase27_migration.py",
         "tests/test_phase5_control_flow.py",
         "tests/test_phase6_functions.py",
         "tests/test_phase8_functional_declarative.py",
@@ -8372,7 +10416,9 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase23_concurrency_async.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -8392,7 +10438,9 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/phase23_concurrency.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase23_concurrency_async.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -8410,8 +10458,11 @@
       "docs": [
         "docs/type-system.md"
       ],
-      "examples": [],
+      "examples": [
+        "examples/phase8-functional.ssk"
+      ],
       "tests": [
+        "examples/phase8-functional.ssk",
         "src/sanskript/adhyaya1.py",
         "src/sanskript/adhyaya123_engines.py",
         "src/sanskript/adhyaya23.py",
@@ -8429,6 +10480,9 @@
         "src/sanskript/paninian_effects.py",
         "src/sanskript/paninian_engine.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
+        "src/sanskript/phase27_migration_report.py",
         "src/sanskript/phase3_opcodes.py",
         "src/sanskript/phase8_opcodes.py",
         "src/sanskript/sutra_impl_3_3.py",
@@ -8445,6 +10499,9 @@
         "tests/test_paninian_adhyaya3_real_effects.py",
         "tests/test_paninian_engine.py",
         "tests/test_paninian_real_effect_gate.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase14_surakshita.py",
+        "tests/test_phase24_tooling.py",
         "tests/test_phase3_data_types.py",
         "tests/test_phase4_type_system.py",
         "tests/test_phase6_functions.py",
@@ -8470,7 +10527,11 @@
         "src/sanskript/ast.py",
         "src/sanskript/compiler.py",
         "src/sanskript/parser.py",
+        "src/sanskript/phase17_toolchain.py",
+        "src/sanskript/phase18_vm_runtime.py",
         "src/sanskript/type_checker.py",
+        "tests/test_phase12_diagnostics.py",
+        "tests/test_phase25_borrow_negatives.py",
         "tests/test_phase4_type_system.py"
       ]
     },
@@ -8490,6 +10551,8 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/phase22_web_apps.py",
+        "src/sanskript/phase26_docs.py",
         "src/sanskript/type_checker.py",
         "src/sanskript/vm.py",
         "tests/test_bytecode_conformance.py",
@@ -8531,8 +10594,12 @@
       ],
       "examples": [],
       "tests": [
+        "src/sanskript/ast.py",
+        "src/sanskript/oop.py",
+        "src/sanskript/parser.py",
         "src/sanskript/type_checker.py",
-        "tests/test_phase4_type_system.py"
+        "tests/test_phase4_type_system.py",
+        "tests/test_phase7_oop.py"
       ]
     },
     {

@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "a"
+    },
+    {
+      "op": "load_name",
+      "operand": "a"
+    },
+    {
+      "op": "load_name",
+      "operand": "a"
+    },
+    {
+      "op": "call",
+      "operand": "std.linalg.dot"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -87,6 +87,11 @@ Conditions in `yadi` / `punaḥ` use explicit comparisons or boolean combination
 | `vastulakṣaṇaḥ NAME f1 v1 f2 v2 …` | Record literal (field/value pairs) |
 | `pariveṣṭanam … antam` | Explicit grouping |
 
+Grouping rules:
+- `pariveṣṭanam … antam` must be balanced.
+- Nested groups are valid in list/map/record literal directives.
+- Extra trailing `antam` or missing closing `antam` is rejected at parse/compile time.
+
 ## Statement-only
 
 | Form | Meaning |
@@ -96,8 +101,19 @@ Conditions in `yadi` / `punaḥ` use explicit comparisons or boolean combination
 
 ## Examples
 
-- `examples/dvādaśa-phase2-boolean.ssk` — conditionals and booleans
-- `examples/dvādaśa-phase2-kṣetram.ssk` — module export
+- [examples/dvādaśa-phase2-boolean.ssk](../examples/dvādaśa-phase2-boolean.ssk) — conditionals and booleans
+- [examples/dvādaśa-phase2-kṣetram.ssk](../examples/dvādaśa-phase2-kṣetram.ssk) — module export
+
+### Runnable proof (boolean + scope)
+
+```powershell
+$env:PYTHONPATH='src'
+python -m sanskript run examples/dvādaśa-phase2-boolean.ssk
+python -m sanskript compile examples/dvādaśa-phase2-kṣetram.ssk
+```
+
+The boolean example exercises `yadi`, `samam`, and short-circuit `ca`/`vā` in one file.
+The kṣetram example shows `kṣetram`, `niḥsāram`, and `ānayanam` without leaving Phase 2 syntax.
 
 ## Migration Notes
 

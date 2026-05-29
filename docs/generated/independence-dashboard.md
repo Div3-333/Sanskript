@@ -1,8 +1,8 @@
 # Sanskript Independence Dashboard
 
-_Generated at 2026-05-27T12:44:21+00:00 by `tools/generate_independence_dashboard.py`._
+_Generated at 2026-05-29T05:05:30+00:00 by `tools/generate_independence_dashboard.py`._
 
-**Overall independence readiness: 34.3%** (blended feature + module signals).
+**Overall independence readiness: 34.8%** (blended feature + module signals).
 
 ## Phase 0 checklist
 
@@ -12,11 +12,11 @@ _Generated at 2026-05-27T12:44:21+00:00 by `tools/generate_independence_dashboar
 
 | Axis | % complete |
 | --- | ---: |
-| authoring | 19.6 |
-| compiling | 42.6 |
-| execution | 50.0 |
-| testing | 64.8 |
-| documentation | 51.2 |
+| authoring | 18.7 |
+| compiling | 44.1 |
+| execution | 50.9 |
+| testing | 66.8 |
+| documentation | 51.0 |
 | packaging | 6.5 |
 | deployment | 5.5 |
 
@@ -24,15 +24,15 @@ _Generated at 2026-05-27T12:44:21+00:00 by `tools/generate_independence_dashboar
 
 | Status | Count |
 | --- | ---: |
-| complete | 2 |
+| complete | 5 |
 | foundation | 182 |
-| partial | 70 |
+| partial | 97 |
 | planned | 52 |
 
 ## Module inventory signals
 
-- Modules inventoried: **212**
-- Average replaceability score: **28.2** / 100
+- Modules inventoried: **262**
+- Average replaceability score: **28.8** / 100
 
 ## How to refresh
 

@@ -100,7 +100,18 @@ def render_markdown(inventory: dict[str, Any]) -> str:
     for milestone, count in sorted(inventory["milestone_counts"].items(), key=lambda x: (int(x[0][1:]), x[0])):
         lines.append(f"| {milestone} | {count} |")
 
-    lines.extend(["", "## By migration label", "", "| Label | Modules |", "| --- | ---: |"])
+    lines.extend(
+        [
+            "",
+            "## By migration label",
+            "",
+            "_`port_directly` is a replacement strategy, not evidence that logic already runs in native Sanskript. "
+            "See `data/meta/migration_report.json` (Phase 27) for honest port status._",
+            "",
+            "| Label | Modules |",
+            "| --- | ---: |",
+        ]
+    )
     for label, count in sorted(inventory["migration_label_counts"].items()):
         lines.append(f"| {label} | {count} |")
 

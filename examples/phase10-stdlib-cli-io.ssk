@@ -1,0 +1,10 @@
+āhvānam std.cli.program_name darśayati.
+āhvānam std.env.keys darśayati.
+
+āhvānam std.file.write_text vākyam ./tmp-phase10-cli.txt iti vākyam namaste iti.
+āhvānam std.file.append_text vākyam ./tmp-phase10-cli.txt iti vākyam  mitra iti.
+āhvānam std.file.read_text vākyam ./tmp-phase10-cli.txt iti darśayati.
+āhvānam std.io.read_lines vākyam ./tmp-phase10-cli.txt iti darśayati.
+
+āhvānam std.log.set_level vākyam INFO iti.
+āhvānam std.log.info vākyam phase10 cli-io example iti.

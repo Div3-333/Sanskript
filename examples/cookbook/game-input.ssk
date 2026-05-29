@@ -1,0 +1,4 @@
+// Cookbook: game input snapshot (host-backed).
+samūhalakṣaṇaḥ keys vākyam jump iti.
+āhvānam std.game.input_state keys phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

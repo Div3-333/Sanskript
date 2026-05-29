@@ -21,6 +21,7 @@ def split_sentences(text: str) -> list[str]:
     normalized = normalize(text)
     protected = re.sub(r"(?<=\s)\./", f" {_PATH_DOT}/", normalized)
     protected = re.sub(r"(?<=\s)\.\./", f" {_PATH_DOT}{_PATH_DOT}/", protected)
+    protected = re.sub(r"(?<=\w)\.(?=\w)", _PATH_DOT, protected, flags=re.UNICODE)
     parts = re.split(r"[.?]+", protected)
     return [
         part.strip().replace(_PATH_DOT, ".")

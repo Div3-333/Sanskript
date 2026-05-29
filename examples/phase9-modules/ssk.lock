@@ -1,0 +1,16 @@
+{
+  "lock_version": 1,
+  "package": {
+    "name": "phase9-demo",
+    "version": "1.0.0"
+  },
+  "dependencies": {
+    "helper": {
+      "kind": "local",
+      "resolved": "lib/helper.ssk",
+      "version": null,
+      "sha256": "bb9f6d4c30bcfa34d352f7bab83017c220695b1dfafdd74e8e495231bd6c1ee6"
+    }
+  },
+  "signature": null
+}

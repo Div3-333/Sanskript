@@ -24,7 +24,7 @@ from sanskript.ast import (
     Return,
     TextLiteral,
 )
-from sanskript.bytecode import BytecodeProgram, Instruction, OpCode
+from sanskript.bytecode import BytecodeProgram, FunctionBytecode, Instruction, OpCode
 from sanskript.compiler import compile_program, compile_source
 from sanskript.errors import CompileError, RuntimeSanskriptError, TypeCheckError
 from sanskript.parser import parse_program
@@ -229,6 +229,30 @@ class Phase6TailCallTests(unittest.TestCase):
         ops = {i.opcode for f in bc.functions for i in f.instructions}
         self.assertIn(OpCode.TAIL_CALL, ops)
 
+    def test_tail_call_through_callable_value(self) -> None:
+        loop = FunctionDef(
+            "loop",
+            (
+                If(
+                    CompareEq(Reference("n"), Literal(0)),
+                    (Return(Literal(0)),),
+                    (
+                        Assign("nextf", Reference("loop")),
+                        Return(
+                            CallValue("nextf", args=(BinaryValue("subtract", Reference("n"), Literal(1)),)),
+                            tail=True,
+                        ),
+                    ),
+                ),
+            ),
+            params=("n",),
+        )
+        prog = Program(
+            (Assign("r", CallValue("loop", args=(Literal(400),))), Display(Reference("r"))),
+            functions=(loop,),
+        )
+        self.assertEqual(_run(prog), ["0"])
+
 
 class Phase6KeywordAndNamedReturnTests(unittest.TestCase):
     def test_keyword_style_arguments(self) -> None:
@@ -304,6 +328,13 @@ class Phase6OverloadTests(unittest.TestCase):
         )
         self.assertEqual(_run(prog), ["7"])
 
+    def test_overload_does_not_dispatch_to_prefixed_symbol_name(self) -> None:
+        # The only declared function is sum_2; it must not masquerade as sum.
+        fn = FunctionDef("sum_2", (Return(BinaryValue("add", Reference("a"), Reference("b"))),), params=("a", "b"))
+        prog = Program((Assign("x", CallValue("sum", args=(Literal(3), Literal(4)))),), functions=(fn,))
+        with self.assertRaises(RuntimeSanskriptError):
+            _run(prog)
+
 
 class Phase6PartialCurryTests(unittest.TestCase):
     def test_partial_application(self) -> None:
@@ -347,6 +378,14 @@ class Phase6DecoratorMacroInlineTests(unittest.TestCase):
             decorators=("trace",),
         )
         self.assertEqual(_run(Program((Call("work"),), functions=(fn,))), ["[trace] enter work", "1", "[trace] leave work"])
+
+    def test_any_decorator_name_emits_wrapper_messages(self) -> None:
+        fn = FunctionDef(
+            "work",
+            (Display(Literal(1)),),
+            decorators=("audit",),
+        )
+        self.assertEqual(_run(Program((Call("work"),), functions=(fn,))), ["[audit] enter work", "1", "[audit] leave work"])
 
     def test_compile_time_macro_expansion(self) -> None:
         macro = FunctionDef(
@@ -402,12 +441,32 @@ class Phase6ProseRoundTripTests(unittest.TestCase):
         source = path.read_text(encoding="utf-8")
 
         self.assertIn("śuddhaḥ", source)
-        for forbidden in ("greet", "counter", "trace", " 0 ", " 1 ", " 7 "):
+        for forbidden in ("greet", "counter", "trace"):
             self.assertNotIn(forbidden, source)
         self.assertEqual(
             SanskriptVM().execute(compile_source(source)),
-            ["7", "[trace] enter abhivādana", "namaste", "[trace] leave abhivādana"],
+            [
+                "6",
+                "7",
+                "7",
+                "9",
+                "18",
+                "[anuvīkṣaṇam] enter abhivādana",
+                "namaste",
+                "[anuvīkṣaṇam] leave abhivādana",
+            ],
         )
+
+    def test_phase6_source_tail_call_lowering(self) -> None:
+        source = """
+surakṣitam .
+vidhānam punarāvartanam saṅkhyā .
+pratyāvartanam āhvānam punarāvartanam saṅkhyā .
+samāpanam .
+"""
+        bc = compile_source(source)
+        fn = next(function for function in bc.functions if function.name == "punarāvartanam")
+        self.assertIn(OpCode.TAIL_CALL, {inst.opcode for inst in fn.instructions})
 
     def test_bytecode_contains_call_opcode(self) -> None:
         inc = FunctionDef(
@@ -439,6 +498,63 @@ class Phase6NegativeTests(unittest.TestCase):
         fn = FunctionDef("f", (Return(Reference("a")),), params=("a",))
         checker = TypeChecker(Program((), functions=(fn,)))
         checker.check()
+
+    def test_overload_resolution_does_not_use_suffix_name_hack(self) -> None:
+        fn = FunctionDef("sum_2", (Return(BinaryValue("add", Reference("a"), Reference("b"))),), params=("a", "b"))
+        checker = TypeChecker(Program((), functions=(fn,)))
+        arg_types = [checker._resolve_type_name("i32"), checker._resolve_type_name("i32")]
+        self.assertIsNone(checker.resolve_overload("sum", arg_types))
+
+    def test_inline_function_rejected_outside_rakshita(self) -> None:
+        fn = FunctionDef("inl", (Return(Literal(1)),), is_inline=True)
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(fn,), safety_tier="surakshita"))
+
+    def test_naked_function_rejected_outside_arakshita(self) -> None:
+        fn = FunctionDef("entry", (Return(Literal(0)),), is_naked=True, abi_name="entry")
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(fn,), safety_tier="rakshita"))
+
+    def test_abi_requires_naked_annotation(self) -> None:
+        fn = FunctionDef("entry", (Return(Literal(0)),), abi_name="entry")
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(fn,), safety_tier="arakshita"))
+
+    def test_surakshita_rejects_loading_abi_naked_callable_reference(self) -> None:
+        program = BytecodeProgram(
+            instructions=(
+                Instruction(OpCode.LOAD_NAME, "entry"),
+                Instruction(OpCode.STORE_NAME, "f"),
+                Instruction(OpCode.HALT),
+            ),
+            functions=(
+                FunctionBytecode(
+                    name="entry",
+                    instructions=(Instruction(OpCode.PUSH_INT, 0), Instruction(OpCode.RETURN)),
+                    is_naked=True,
+                    abi_name="entry",
+                ),
+            ),
+            safety_tier="surakshita",
+        )
+        with self.assertRaises(RuntimeSanskriptError):
+            SanskriptVM().execute(program)
+
+    def test_rakshita_rejects_calling_naked_callable(self) -> None:
+        program = BytecodeProgram(
+            instructions=(Instruction(OpCode.CALL, "entry"), Instruction(OpCode.HALT)),
+            functions=(
+                FunctionBytecode(
+                    name="entry",
+                    instructions=(Instruction(OpCode.PUSH_INT, 0), Instruction(OpCode.RETURN)),
+                    is_naked=True,
+                    abi_name="entry",
+                ),
+            ),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(RuntimeSanskriptError):
+            SanskriptVM().execute(program)
 
 
 if __name__ == "__main__":

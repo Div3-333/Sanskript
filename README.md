@@ -108,8 +108,15 @@ The morphology-to-semantics plan lives at [docs/feature-lattice.md](docs/feature
 The PDF-derived grammar canon lives at [docs/grammar-canon.md](docs/grammar-canon.md).
 The canon implementation roadmap lives at [docs/implementation-plan.md](docs/implementation-plan.md).
 The stable engine API boundary lives at [docs/engine-api-stability.md](docs/engine-api-stability.md).
+The current Phase 19 bootstrap self-hosting path lives at [docs/phase19-compiler-self-hosting.md](docs/phase19-compiler-self-hosting.md).
 The visual beginner guide lives at [docs/guide/index.html](docs/guide/index.html).
 The granular reference guide lives at [docs/guide/reference.html](docs/guide/reference.html).
+The prose beginner tutorial lives at [docs/tutorial-beginner.md](docs/tutorial-beginner.md).
+The runnable cookbook and Phase 26 learning inventory live at [docs/cookbook.md](docs/cookbook.md) and [docs/phase26-documentation-learning-path.md](docs/phase26-documentation-learning-path.md).
+The Phase 26 learning path and documentation inventory lives at
+[docs/phase26-documentation-learning-path.md](docs/phase26-documentation-learning-path.md)
+(prose tutorial: [docs/tutorial-beginner.md](docs/tutorial-beginner.md), cookbook:
+[docs/cookbook.md](docs/cookbook.md)).
 
 Current grammar infrastructure includes phonology, transliteration, first-pass sandhi modules, and a strict real-handler truth gate for sutras.
 

@@ -9,8 +9,11 @@ from sanskript.ast import (
     BinaryValue,
     Call,
     CompareGt,
+    DataQuery,
     Display,
     FunctionDef,
+    GeneratorNew,
+    GeneratorNext,
     If,
     ImmutableListAppend,
     ImmutableListInit,
@@ -28,6 +31,8 @@ from sanskript.ast import (
     ListZip,
     Literal,
     PipelineChain,
+    RuleDecl,
+    RuleInvoke,
     Program,
     Reference,
     Return,
@@ -257,6 +262,75 @@ darśanam saṅkṣepaḥ.
                 )
             )
 
+    def test_memoized_function_caches_repeated_calls(self) -> None:
+        prog = Program(
+            statements=(
+                Assign("counter", Literal(0)),
+                Call("gaṇanam", args=(Literal(3),)),
+                Call("gaṇanam", args=(Literal(3),)),
+                Display(Reference("counter")),
+            ),
+            functions=(
+                FunctionDef(
+                    "gaṇanam",
+                    (
+                        Assign("counter", BinaryValue("add", Reference("counter"), Literal(1))),
+                        Return(BinaryValue("multiply", Reference("x"), Literal(2))),
+                    ),
+                    params=("x",),
+                    decorators=("smaraṇa",),
+                ),
+            ),
+        )
+        self.assertEqual(_run(prog)[-1], "1")
+
+    def test_memoized_effectful_function_rejected(self) -> None:
+        src = """
+saṃskāraṃ smaraṇa.
+vidhānam sādhanaṃ doṣaḥ x.
+pratyāvartanam x.
+samāpanam.
+āhvānam phalam doṣaḥ eka.
+"""
+        with self.assertRaises(TypeCheckError):
+            compile_source(src)
+
+    def test_lazy_iterator_and_generator_source(self) -> None:
+        src = """
+samūhaḥ saṅkhyāḥ.
+yojanam saṅkhyāḥ eka.
+yojanam saṅkhyāḥ dvi.
+alasaḥ it saṅkhyāḥ.
+alasāt adhika mūlya it.
+darśanam adhika.
+darśanam mūlya.
+alasāt adhika2 mūlya2 it.
+darśanam adhika2.
+darśanam mūlya2.
+alasāt adhika3 mūlya3 it.
+darśanam adhika3.
+darśanam mūlya3.
+
+saṃskāraṃ utpadaka.
+vidhānam krama.
+pradānam eka.
+pradānam dvi.
+samāpanam.
+utpādakaḥ g krama.
+utpādakāt asti v g.
+darśanam asti.
+darśanam v.
+utpādakāt asti2 v2 g.
+darśanam asti2.
+darśanam v2.
+utpādakāt asti3 v3 g.
+darśanam asti3.
+darśanam v3.
+"""
+        out = SanskriptVM().execute(compile_source(src))
+        self.assertTrue(out[:5] == ["1", "1", "1", "2", "0"])
+        self.assertEqual(out[-2:], ["0", "0"])
+
 
 class FunctionalNegativeTests(unittest.TestCase):
     def test_map_requires_list_container(self) -> None:
@@ -276,7 +350,7 @@ class FunctionalNegativeTests(unittest.TestCase):
         with self.assertRaises(TypeCheckError):
             compile_program(prog)
 
-    def test_reduce_arity_mismatch_raises_runtime_error(self) -> None:
+    def test_reduce_arity_mismatch_rejected_by_type_checker(self) -> None:
         prog = Program(
             (
                 ListInit("items"),
@@ -291,8 +365,153 @@ class FunctionalNegativeTests(unittest.TestCase):
                 ),
             ),
         )
-        with self.assertRaises(RuntimeSanskriptError):
-            _run(prog)
+        with self.assertRaises(TypeCheckError):
+            compile_program(prog)
+
+    def test_generator_requires_parameterless_function(self) -> None:
+        prog = Program(
+            (
+                GeneratorNew("g", "make"),
+                GeneratorNext("has_more", "value", "g"),
+            ),
+            functions=(
+                FunctionDef("make", (Return(Literal(0)),), params=("x",)),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(prog)
+
+    def test_match_expression_initializes_target_with_subject(self) -> None:
+        src = """
+yathā-artham phalam tri.
+yathā pañca.
+darśanam śūnya.
+antam.
+darśanam phalam.
+"""
+        out = SanskriptVM().execute(compile_source(src))
+        self.assertEqual(out, ["3"])
+
+    def test_rule_query_and_bind_end_to_end(self) -> None:
+        prog = Program(
+            statements=(
+                ListInit("rows"),
+                DataQuery("hits", "rows", "score", "gt4"),
+                RuleInvoke("x", "raise-rule", Literal(3)),
+                Display(Reference("hits")),
+                Display(Reference("x")),
+            ),
+            functions=(
+                FunctionDef(
+                    "gt4",
+                    (Return(Literal(1)),),
+                    params=("x",),
+                ),
+                FunctionDef(
+                    "when_small",
+                    (Return(Literal(1)),),
+                    params=("ctx",),
+                ),
+                FunctionDef(
+                    "raise_score",
+                    (
+                        Return(Literal(8)),
+                    ),
+                    params=("ctx",),
+                ),
+            ),
+            rules=(RuleDecl("raise-rule", "when_small", "raise_score"),),
+        )
+        out = _run(prog)
+        self.assertEqual(len(out), 2)
+
+    def test_pipeline_step_requires_unary_function(self) -> None:
+        prog = Program(
+            statements=(
+                ListInit("items"),
+                ListAppend("items", Literal(1)),
+                PipelineChain("out", "items", ("needs_two",)),
+            ),
+            functions=(
+                FunctionDef(
+                    "needs_two",
+                    (Return(BinaryValue("add", Reference("a"), Reference("b"))),),
+                    params=("a", "b"),
+                ),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(prog)
+
+    def test_data_query_predicate_requires_unary_function(self) -> None:
+        prog = Program(
+            statements=(
+                ListInit("rows"),
+                ListAppend("rows", Literal({"score": 1})),
+                DataQuery("hits", "rows", "score", "bad_pred"),
+            ),
+            functions=(
+                FunctionDef(
+                    "bad_pred",
+                    (Return(Literal(1)),),
+                    params=("x", "y"),
+                ),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(prog)
+
+    def test_rule_invoke_requires_declared_rule(self) -> None:
+        prog = Program(
+            statements=(
+                RuleInvoke("out", "missing-rule", Literal({"x": 1})),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(prog)
+
+    def test_duplicate_rule_id_rejected(self) -> None:
+        prog = Program(
+            statements=(Display(Literal(1)),),
+            functions=(
+                FunctionDef("when_true", (Return(Literal(1)),), params=("ctx",)),
+                FunctionDef("then_same", (Return(Reference("ctx")),), params=("ctx",)),
+            ),
+            rules=(
+                RuleDecl("r1", "when_true", "then_same"),
+                RuleDecl("r1", "when_true", "then_same"),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(prog)
+
+    def test_adt_enum_variant_must_be_declared(self) -> None:
+        src = """
+prakāra-vikalpaḥ phalam sat asat.
+gaṇavikalpaḥ x phalam anyat eka.
+"""
+        with self.assertRaises(TypeCheckError):
+            compile_source(src)
+
+    def test_adt_enum_type_must_be_declared(self) -> None:
+        src = """
+gaṇavikalpaḥ x ajñāta sat eka.
+"""
+        with self.assertRaises(TypeCheckError):
+            compile_source(src)
+
+    def test_adt_enum_valid_variant_round_trip(self) -> None:
+        src = """
+prakāra-vikalpaḥ phalam sat asat.
+gaṇavikalpaḥ x phalam sat eka.
+darśanam x.
+"""
+        program = compile_source(src)
+        payload = encode_program(program)
+        restored = decode_program(payload)
+        out = SanskriptVM().execute(restored)
+        self.assertEqual(len(out), 1)
+        self.assertIn("enum(phalam.sat)", out[0])
 
 
 class FunctionalBytecodeRoundTripTests(unittest.TestCase):
@@ -317,6 +536,20 @@ class FunctionalBytecodeRoundTripTests(unittest.TestCase):
         payload = encode_program(prog)
         restored = decode_program(payload)
         self.assertEqual(restored.instructions[0].opcode, OpCode.LIST_NEW)
+
+    def test_bytecode_round_trip_memoized_function_metadata(self) -> None:
+        src = """
+saṃskāraṃ smaraṇa.
+vidhānam śuddhaḥ dvi-guṇa x.
+pratyāvartanam x guṇanam dvi.
+samāpanam.
+āhvānam phalam dvi-guṇa tri.
+darśanam phalam.
+"""
+        program = compile_source(src)
+        payload = encode_program(program)
+        restored = decode_program(payload)
+        self.assertTrue(any(getattr(f, "is_memoized", False) for f in restored.functions))
 
 
 if __name__ == "__main__":

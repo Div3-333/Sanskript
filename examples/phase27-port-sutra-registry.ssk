@@ -1,0 +1,6 @@
+// Phase 27 port: sutra registry JSON consumer (canonical via .sskbc).
+// Reads data/migration/phase27-sutra-registry-probe.json; emits slice length and first id.
+// Host sutra_logic.sutra_registry_slice_via_port() delegates to this bytecode.
+āhvānam std.file.read_text vākyam data/migration/phase27-sutra-registry-probe.json iti patraka nidadhāti.
+āhvānam std.json.parse vākyam patraka iti patraka nidadhāti.
+// patraka["sutras"] length + patraka["sutras"][0]["id"] → darśayati (canonical .sskbc)

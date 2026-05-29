@@ -94,6 +94,20 @@ Programs that relied on Devanagari or Harvard-Kyoto source reaching the parser v
 through `prepare_source` first. Normalisation is **idempotent** and **reversible**; no source
 semantics change.
 
+### Expanded transliteration/sandhi coverage
+
+Phase 1 strict mode now recovers more joined forms (vowel joins, visarga-vowel, visarga-sibilant)
+before morphology. Segmentation is conservative: known registered surfaces are left untouched, and
+candidate splits are accepted only when they are re-joinable and lexically valid in the controlled
+register. Tooling transliteration coverage is also widened for Devanagari clusters and
+diagnostic round-trips across Devanagari, Harvard-Kyoto, and SLP1.
+
+Migration impact: if older examples depended on hand-spaced tokens to avoid parser failures, keep
+the source grammatical and prefer `sandhīnam.` in strict manuscripts rather than adding punctuation.
+The compiler still canonicalizes to IAST internally.
+
+Reference example: `examples/phase1-broad-script-sandhi.ssk` (SLP1 + strict sandhi segmentation).
+
 ### Comment syntax
 
 `//`-style line comments are stripped before parsing; they are not valid tokens inside expressions.
@@ -109,6 +123,12 @@ any executable vākya. Directives inside function bodies are ignored.
 Formatted output from `format_source` is guaranteed to re-parse identically. If a round-trip fails,
 it is a bug in the formatter — file an issue.
 
+### Identifier discipline unchanged
+
+This Phase 1 expansion does **not** widen avyaya or parser keyword registers. Identifier acceptance
+remains owned by `sanskript.identifiers` (`letter/mark/digit-after-first` with `_`, `-`, `.`),
+and invalid symbolic/operator names remain parse errors.
+
 ### Linter warnings
 
 The linter is **non-blocking** (warnings only). CI will not fail on lint findings. Three key rules:
@@ -118,3 +138,16 @@ The linter is **non-blocking** (warnings only). CI will not fail on lint finding
 | `MISSING_VERB` | Sentence has no finite verbal predicate |
 | `MULTIPLE_VERBS` | More than one finite verb in one vākya |
 | `CHOPPY_SENTENCE` | Fewer than three words — prefer full vākyas |
+
+## Runnable proof (canonical style samples)
+
+```powershell
+$env:PYTHONPATH='src'
+python -m sanskript run examples/prathama.ssk
+python -m sanskript run examples/phase1-broad-script-sandhi.ssk
+```
+
+[examples/prathama.ssk](../examples/prathama.ssk) is the smallest grammatical program in the
+repository. [examples/phase1-broad-script-sandhi.ssk](../examples/phase1-broad-script-sandhi.ssk)
+shows strict sandhi segmentation with SLP1 input — run it after changing `prepare_source` or
+transliteration tables.

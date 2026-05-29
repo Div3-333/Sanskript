@@ -1,0 +1,120 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "push_text",
+      "operand": "python"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "push_text",
+      "operand": "-c"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "push_text",
+      "operand": "print('phase10')"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "call",
+      "operand": "std.process.run"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_text",
+      "operand": "stdout"
+    },
+    {
+      "op": "map_get"
+    },
+    {
+      "op": "store_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "load_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.test.assert_eq"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_bool",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.test.assert_true"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -2,6 +2,11 @@
 
 Phase 8 adds higher-order collection operations, immutable data, lazy iterators, generators, pipelines, pattern matching expressions, algebraic types, result helpers, declarative queries, grammar rules, memoization, and pure/effect separation — all in grammatical Sanskrit prose.
 
+Validation is now strict end-to-end:
+- pipeline/list/query steps must reference declared functions with correct unary/binary arity.
+- rule ids must be unique and invocations must target declared rules.
+- `gaṇavikalpaḥ` construction must reference a declared `prakāra-vikalpaḥ` type and a declared variant.
+
 ## Collection operations
 
 | Directive | Meaning |
@@ -50,6 +55,9 @@ Mark generator functions with `saṃskāraṃ utpādaka` before `vidhānam`.
 | `yathā subject` … arms … | Statement match |
 | `yathā-artham target subject` … arms … | Expression match (arms assign `target`) |
 
+`yathā-artham` initializes `target` with `subject` before arm execution, so
+unmatched or pass-through arms preserve the original value.
+
 ## Algebraic types and results
 
 | Directive | Meaning |
@@ -74,9 +82,37 @@ Mark generator functions with `saṃskāraṃ utpādaka` before `vidhānam`.
 | `śuddhaḥ vidhānam` | Pure function (no `darśanam`) |
 | `sādhanaṃ vidhānam` | Effectful function |
 
+Memoization is call-site transparent: normal `āhvānam` uses memo caches when
+the callee is marked with `saṃskāraṃ smaraṇa`. Memoized functions must not be
+declared `sādhanaṃ` and must not capture mutable state.
+
 ## Example
 
-See [`examples/phase8-functional.ssk`](../examples/phase8-functional.ssk).
+Map, filter, and fold over a list (from [`examples/phase8-functional.ssk`](../examples/phase8-functional.ssk)):
+
+```text
+samūhaḥ saṅkhyāḥ.
+yojanam saṅkhyāḥ eka.
+yojanam saṅkhyāḥ dvi.
+
+vidhānam dviguṇa mūlya.
+pratyāvartanam mūlya guṇanam dvi.
+samāpanam.
+
+vidhānam catvārāt-adhikaḥ mūlya.
+pratyāvartanam mūlya.
+samāpanam.
+
+vidhānam saṅkalanam prathama dvitīya.
+pratyāvartanam prathama yoga dvitīya.
+samāpanam.
+
+māpanam dviguṇitaṃ saṅkhyāḥ dviguṇa.
+śodhanam cayanam dviguṇitaṃ catvārāt-adhikaḥ.
+saṅkocanam yogaḥ cayanam saṅkalanam śūnya.
+```
+
+Run: `python -m sanskript run examples/phase8-functional.ssk` (host VM).
 
 ## Migration from Python
 
@@ -95,5 +131,11 @@ See [`examples/phase8-functional.ssk`](../examples/phase8-functional.ssk).
 | `@dataclass` variants | `prakāra-vikalpaḥ` |
 | `Result` bind | `bandhanam` |
 | `@lru_cache` | `saṃskāraṃ smaraṇa` |
+
+### Migration notes (hardening)
+
+- Replace ad-hoc pipeline helper names with explicit unary helpers; multi-argument reducers remain `saṅkocanam`/`avalokanam` only.
+- Declare rules before `niyama-āhvānam`, and keep ids unique in each compilation unit.
+- Add `prakāra-vikalpaḥ` before any `gaṇavikalpaḥ` construction, and use only declared variant names.
 
 Bytecode and `.sskyp` machine prose: see `yantra_patha.py` renderers for `list_*`, `immutable_list_*`, `lazy_iter_*`, `generator_*`, `pipeline_chain`, `result_bind`, `data_query`, `rule_*`, `memo_call`.

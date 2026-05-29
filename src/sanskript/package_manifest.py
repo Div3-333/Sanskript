@@ -48,6 +48,8 @@ class PackageManifest:
     user_namespace: str = "lib"
     vendor_dir: str = "vendor"
     signature: str | None = None
+    lock_required: bool = False
+    signature_required: bool = False
 
     def enabled_features(self) -> frozenset[str]:
         return frozenset(name for name, on in self.features.items() if on)
@@ -68,8 +70,11 @@ def find_manifest_path(start: Path) -> Path | None:
 def load_manifest(path: Path) -> PackageManifest:
     text = path.read_text(encoding="utf-8")
     if path.name.endswith(".toml"):
-        return _parse_toml_manifest(text)
-    return _parse_prose_manifest(text)
+        manifest = _parse_toml_manifest(text)
+    else:
+        manifest = _parse_prose_manifest(text)
+    _validate_manifest_structure(manifest)
+    return manifest
 
 
 def default_manifest(package_name: str = "anonymous") -> PackageManifest:
@@ -105,6 +110,7 @@ def _parse_toml_manifest(text: str) -> PackageManifest:
     name = package.get("name", "anonymous")
     version = package.get("version", "0.0.0")
     signature = package.get("signature") or sections.get("signing", {}).get("signature")
+    security = sections.get("security", {})
 
     dependencies: list[DependencySpec] = []
     for key, value in sections.get("dependencies.local", {}).items():
@@ -146,6 +152,8 @@ def _parse_toml_manifest(text: str) -> PackageManifest:
         user_namespace=namespace.get("user", "lib"),
         vendor_dir=sections.get("package", {}).get("vendor_dir", "vendor"),
         signature=signature,
+        lock_required=_as_bool(security.get("lock_required")),
+        signature_required=_as_bool(security.get("signature_required")),
     )
 
 
@@ -160,6 +168,8 @@ def _parse_prose_manifest(text: str) -> PackageManifest:
     user_namespace = "lib"
     vendor_dir = "vendor"
     signature: str | None = None
+    lock_required = False
+    signature_required = False
     active_profile: dict[str, str] | None = None
 
     for sentence in re.split(r"(?:\n|।)|\.\s+", text):
@@ -202,6 +212,11 @@ def _parse_prose_manifest(text: str) -> PackageManifest:
             vendor_dir = tokens[1]
         elif first in {"mudrā", "mudra", "signature"} and len(tokens) >= 2:
             signature = tokens[1]
+        elif first in {"rakṣā", "raksha", "security"} and len(tokens) >= 3:
+            if tokens[1] in {"bandha-avaśyaka", "bandha-avashyaka", "lock-required"}:
+                lock_required = tokens[2].lower() in {"sat", "true", "1", "yes"}
+            elif tokens[1] in {"mudrā-avaśyaka", "mudra-avashyaka", "signature-required"}:
+                signature_required = tokens[2].lower() in {"sat", "true", "1", "yes"}
 
     return PackageManifest(
         name=name,
@@ -214,6 +229,8 @@ def _parse_prose_manifest(text: str) -> PackageManifest:
         user_namespace=user_namespace,
         vendor_dir=vendor_dir,
         signature=signature,
+        lock_required=lock_required,
+        signature_required=signature_required,
     )
 
 
@@ -237,6 +254,39 @@ def _registry_fields(value: str) -> tuple[str | None, str]:
     version = version_match.group(1) if version_match else (value if not value.startswith("{") else None)
     registry = registry_match.group(1) if registry_match else "ssk"
     return version, registry
+
+
+def _as_bool(value: str | None) -> bool:
+    if value is None:
+        return False
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _validate_manifest_structure(manifest: PackageManifest) -> None:
+    seen: set[str] = set()
+    for dep in manifest.dependencies:
+        key = dep.name.strip()
+        if not key:
+            raise CompileError("Manifest dependency names must be non-empty")
+        canonical_key = key.casefold()
+        if canonical_key in seen:
+            raise CompileError(
+                f"Duplicate dependency declaration for {dep.name!r}",
+                hint="Declare each dependency name once across local/registry/vendored tables.",
+            )
+        seen.add(canonical_key)
+    supported_platforms = {"windows", "linux", "macos"}
+    invalid_platforms = sorted(
+        spec.platform
+        for spec in manifest.platform_modules
+        if spec.platform not in supported_platforms
+    )
+    if invalid_platforms:
+        joined = ", ".join(invalid_platforms)
+        raise CompileError(
+            f"Unsupported platform module key(s): {joined}",
+            hint="Use only windows/linux/macos keys in [platform].",
+        )
 
 
 def validate_manifest_features(manifest: PackageManifest, required: frozenset[str]) -> None:

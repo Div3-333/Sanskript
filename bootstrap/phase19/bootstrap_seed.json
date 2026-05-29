@@ -1,0 +1,81 @@
+{
+  "phase": 19,
+  "title": "compiler-self-hosting-bootstrap-seed",
+  "sources": [
+    "examples\\phase3-data-types.ssk"
+  ],
+  "artifacts_dir": "artifacts\\phase19",
+  "determinism_contract": {
+    "stage": "S0-host-replay",
+    "claim_level": "host-replay-only",
+    "independent_self_hosting": false,
+    "independence_blockers": [
+      "self compiler frontend/lowering not yet executing from Sanskript sources (S1 pending)",
+      "self-compiled compiler replay closure not yet proven (S2 pending)"
+    ]
+  },
+  "runtime_context": {
+    "python_version": "3.13.5",
+    "platform": "Windows-11-10.0.22631-SP0"
+  },
+  "porting_path": {
+    "current_stage": "S0-host-replay",
+    "independent_self_hosting": false,
+    "stages": [
+      {
+        "id": "S0-host-replay",
+        "status": "implemented",
+        "description": "Host compiler compiles source twice and validates canonical bytecode/.sskyp equivalence hashes."
+      },
+      {
+        "id": "S1-self-parser-lowering",
+        "status": "implemented",
+        "description": "Sanskript-authored self-host corpus under examples/self-host/ compiles with deterministic bytecode parity (bootstrap subset)."
+      },
+      {
+        "id": "S2-self-compiler",
+        "status": "planned",
+        "description": "Compiler binary produced by S1 compiles compiler sources; artifacts must match S1 output."
+      },
+      {
+        "id": "S3-seed-minimization",
+        "status": "planned",
+        "description": "Bootstrap seed is minimized to a documented, reproducible artifact set required to rebuild S2 from a fresh checkout."
+      }
+    ]
+  },
+  "reproducible_steps": [
+    "set PYTHONPATH=src",
+    "python -m sanskript.cli self-host-check \"examples\\\\phase3-data-types.ssk\" --artifact-dir \"artifacts\\\\phase19\" --seed \"bootstrap\\\\phase19\\\\bootstrap_seed.json\" --allow-host-replay",
+    "python -m unittest tests/test_phase19_self_hosting.py"
+  ],
+  "evidence": [
+    {
+      "source": "examples\\phase3-data-types.ssk",
+      "source_sha256": "528c8f762672e00f76a8bbf043da6f445d192e756ad2eeb52c39b15a869da8db",
+      "host_compile_engine": "python-host-compiler",
+      "self_compile_engine": "python-host-compiler-replay",
+      "independent_self_compile": false,
+      "stage": "S0-host-replay",
+      "proof_method": "sha256-canonical-bytecode-and-sskyp",
+      "sskyp_supported": true,
+      "host_bytecode_sha256": "08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6",
+      "self_bytecode_sha256": "08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6",
+      "host_sskyp_sha256": "d0b6cecee50d888032200cb77d103939eb1ded8dc8912ef0c590d22c3379c920",
+      "self_sskyp_sha256": "d0b6cecee50d888032200cb77d103939eb1ded8dc8912ef0c590d22c3379c920",
+      "bytecode_match": true,
+      "sskyp_match": true,
+      "host_repeat_match": true,
+      "self_repeat_match": true
+    }
+  ],
+  "equivalence_proof": {
+    "method": "differential-hash",
+    "all_match": true,
+    "sources_verified": 1,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "overall_equivalence_sha256": "91d550f774639f5fb9b120c69c6acd02affd3d0816ba40dd1c73b7f0e89c5785",
+    "notes": "This verifies host-vs-self replay equivalence for current stage S0-host-replay; it is not evidence of independent self-hosting yet."
+  }
+}

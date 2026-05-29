@@ -1,0 +1,155 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "unsafe_enter",
+      "operand": "owner-lifetime-reviewed"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "heap_alloc"
+    },
+    {
+      "op": "store_name",
+      "operand": "sthāna"
+    },
+    {
+      "op": "load_name",
+      "operand": "sthāna"
+    },
+    {
+      "op": "push_int",
+      "operand": 7
+    },
+    {
+      "op": "heap_store"
+    },
+    {
+      "op": "load_name",
+      "operand": "sthāna"
+    },
+    {
+      "op": "heap_load"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "sthāna"
+    },
+    {
+      "op": "heap_free"
+    },
+    {
+      "op": "unsafe_exit"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "std.sync.atomic.new"
+    },
+    {
+      "op": "store_name",
+      "operand": "a"
+    },
+    {
+      "op": "load_name",
+      "operand": "a"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "call",
+      "operand": "std.sync.atomic.fetch_add"
+    },
+    {
+      "op": "store_name",
+      "operand": "pūrva"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "a"
+    },
+    {
+      "op": "call",
+      "operand": "std.sync.atomic.load"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.sync.channel.new"
+    },
+    {
+      "op": "store_name",
+      "operand": "c"
+    },
+    {
+      "op": "load_name",
+      "operand": "c"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "std.sync.channel.send"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "c"
+    },
+    {
+      "op": "push_int",
+      "operand": 10
+    },
+    {
+      "op": "call",
+      "operand": "std.sync.channel.recv"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "localhost"
+    },
+    {
+      "op": "call",
+      "operand": "std.net.resolve_host"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "safety_tier": "rakshita"
+}

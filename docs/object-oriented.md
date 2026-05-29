@@ -25,6 +25,7 @@ Extended forms:
 | `miśra M₁ M₂` | Mixins (composition-first; fields/methods merged) |
 | `sādhayati Trait` | Trait/protocol implementation |
 | `T paribaddha Trait` | Generic type-parameter trait bound |
+| `adhivarga Meta` | Metaclass for class/static dispatch fallback |
 | `saha Component field` | Composition-first field embedding |
 
 ## Instance Construction (`nirmāṇam`)
@@ -42,6 +43,7 @@ paddhati-āhvānam phalam dīpaḥ darśaya.
 ```
 
 Dynamic dispatch walks `__mro__` and resolves overload-suffixed symbols (e.g. `Dīpakaḥ__vardhaya_2`).
+Unknown dispatch now reports class, MRO, and arity context to speed debugging.
 
 ## Static and Class Methods
 
@@ -49,6 +51,9 @@ Dynamic dispatch walks `__mro__` and resolves overload-suffixed symbols (e.g. `D
 sthira-paddhati-āhvānam z Counter zero.
 varga-paddhati-āhvānam c Counter make 3.
 ```
+
+When the class does not declare a static/class method directly, lookup falls
+back through its `adhivarga` metaclass chain.
 
 ## Computed Properties
 
@@ -65,6 +70,16 @@ antima-saṃskāraṃ dīpaḥ.
 ```
 
 Calls `Class__finalize__` when defined; missing finalizer is a no-op.
+Instances are marked finalized after this call; later instance method calls fail.
+Finalized instances also reject direct field reads and writes.
+
+## Visibility Enforcement
+
+`gopita` and `rakṣita` are enforced at runtime for object instances:
+
+- `gopita`: accessible only from methods of the declaring class.
+- `rakṣita`: accessible only from methods on the class or its inheritance chain.
+- direct class-instance record field operations (`aṅgāharaṇam`, `aṅgasthāpanam`) now honor these rules.
 
 ## Reflection
 
@@ -115,4 +130,18 @@ Declare with `abhilakṣaṇaṃ` and assert implementation via `sādhayati` on 
 | Rust `trait` | `abhilakṣaṇaṃ` + `sādhayati` |
 | Rust `Drop` | `antima-saṃskāraṃ` / `__finalize__` |
 
-Implementation module: `src/sanskript/oop.py`. Tests: `tests/test_phase7_oop.py`. Example: `examples/phase7-oop.ssk`.
+Implementation module: `src/sanskript/oop.py`. Tests: `tests/test_phase7_oop.py`.
+
+## Runnable proof
+
+Source: [examples/phase7-oop.ssk](../examples/phase7-oop.ssk)
+
+```powershell
+$env:PYTHONPATH='src'
+python -m sanskript run examples/phase7-oop.ssk
+python -m sanskript compile examples/phase7-oop.ssk
+```
+
+The program declares a `vargaḥ`, constructs instances, dispatches instance and static
+methods, and exercises `abhilakṣaṇaṃ` protocol checks. Output lines are asserted in
+`tests/test_phase7_oop.py`; use that test file when you need exact expected strings.

@@ -1,0 +1,11 @@
+{
+  "instruction_count": 3,
+  "stack_depth": 0,
+  "call_depth": 0,
+  "locals": {},
+  "globals": {},
+  "stack_preview": [],
+  "output": [
+    "1"
+  ]
+}

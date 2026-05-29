@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "compare_lt"
+    },
+    {
+      "op": "jump_if_zero",
+      "operand": 11
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "add"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "jump",
+      "operand": 2
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "load_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "load_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "push_int",
+      "operand": 10
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "load_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_get"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "gaṇā"
+    },
+    {
+      "op": "list_len"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

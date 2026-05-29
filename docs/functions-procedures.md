@@ -18,8 +18,8 @@ samāpanam .
 | `sādhanaṃ` | Effectful procedure |
 | `parivartanīya-gṛhī x y` | Mutable shared capture for closure variables |
 | `pratyāvartana-nāmāni a b` | Named return slots |
-| `antarbhūtam` | Inline body at call sites (`rakṣita` tier) |
-| `nagnā` + `abi name` | Naked/ABI export (`arakṣita` tier) |
+| `antarbhūtam` | Inline body at call sites (`rakṣita` tier only) |
+| `nagnā` + `abi name` | Naked/ABI export (`arakṣita` tier only) |
 | `kālavyāpāre` | Compile-time macro (literal arguments only) |
 | `saṃskāraṃ name` | Decorator applied before `vidhānam` (`trace` built-in) |
 
@@ -58,6 +58,20 @@ anukrameṇa āṃśikam āhvānam pair 5 .
 Multiple `vidhānam` declarations with the same name and different arity resolve
 at compile time (`sum` / `sum_2` bytecode names). Method overloading uses the same
 arity/suffix rules in `TypeChecker.resolve_overload` for `MethodCall`.
+Only same-base declarations participate in overload matching; name-suffix lookups
+do not create implicit overloads.
+
+## Tier linkage boundaries
+
+- `antarbhūtam` is validated as `rakṣita`-only.
+- `nagnā` and `abi` exports are validated as `arakṣita`-only.
+- `abi` requires `nagnā` on the same function.
+- Runtime callable linkage gates are enforced both when invoking and when loading
+  function references into first-class callables.
+- `surakṣita` rejects ABI-linked (`abi`) and naked callables; `rakṣita` rejects
+  naked callables; `arakṣita` permits the full callable linkage set.
+- These checks run in static validation (`TypeChecker`) and VM call/reference
+  paths (`CALL`, `TAIL_CALL`, `PUSH_FUNC`, and callable lookup).
 
 ## Mutable capture
 
@@ -73,7 +87,9 @@ outer updates.
 
 ## Example program
 
-See `examples/phase6-functions.ssk`.
+See `examples/phase6-functions.ssk` for a single source program that exercises
+closures, overloading, decorators, currying, compile-time macros, and tail-call
+lowering (including closure factory invocation and callable linkage-safe paths).
 
 ## Migration notes (Python / Rust)
 
@@ -88,10 +104,10 @@ See `examples/phase6-functions.ssk`.
 | Partial | `functools.partial` | closures | `āṃśikam āhvānam …` |
 | Decorator | `@decorator` | attributes/proc macros | `saṃskāraṃ` + `vidhānam` |
 | Macro | `def macro` / template | `macro_rules!` | `kālavyāpāre vidhānam` |
-| Inline | hint | `#[inline]` | `antarbhūtam vidhānam` (`rakṣita`) |
-| ABI export | `extern "C"` | `extern "C"` | `nagnā vidhānam … abi sym` (`arakṣita`) |
+| Inline | hint | `#[inline]` | `antarbhūtam vidhānam` (`rakṣita` only) |
+| ABI export | `extern "C"` | `extern "C"` | `nagnā vidhānam … abi sym` (`arakṣita` only; `abi` requires `nagnā`) |
 
 ## Tests
 
-`tests/test_phase6_functions.py` — 28 tests covering runtime, parser tokens,
+`tests/test_phase6_functions.py` — callable/runtime/parser/tier-boundary tests covering runtime, parser tokens,
 type-check negatives, bytecode opcodes, and tier metadata.

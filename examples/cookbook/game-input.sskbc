@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "push_text",
+      "operand": "jump"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "keys"
+    },
+    {
+      "op": "load_name",
+      "operand": "keys"
+    },
+    {
+      "op": "call",
+      "operand": "std.game.input_state"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

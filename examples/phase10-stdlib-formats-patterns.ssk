@@ -1,0 +1,12 @@
+āhvānam std.json.parse vākyam {"a":1} iti jdata nidadhāti.
+āhvānam std.serialize vākyam json iti jdata darśayati.
+
+āhvānam std.csv.parse vākyam name,age iti darśayati.
+
+āhvānam std.toml.stringify jdata darśayati.
+āhvānam std.yaml.stringify jdata darśayati.
+
+kośaḥ sandarbhe.
+sthāpanam sandarbhe name vākyam mitra iti.
+āhvānam std.template.render vākyam namaste {{ name }} iti sandarbhe darśayati.
+āhvānam std.regex.match vākyam ^\\d+$ iti vākyam 108 iti darśayati.

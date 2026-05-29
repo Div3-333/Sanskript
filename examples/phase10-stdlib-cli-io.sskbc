@@ -1,0 +1,96 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "call",
+      "operand": "std.cli.program_name"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "call",
+      "operand": "std.env.keys"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10-cli.txt"
+    },
+    {
+      "op": "push_text",
+      "operand": "namaste"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.write_text"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10-cli.txt"
+    },
+    {
+      "op": "push_text",
+      "operand": "mitra"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.append_text"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10-cli.txt"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.read_text"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10-cli.txt"
+    },
+    {
+      "op": "call",
+      "operand": "std.io.read_lines"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "INFO"
+    },
+    {
+      "op": "call",
+      "operand": "std.log.set_level"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "phase10 cli-io example"
+    },
+    {
+      "op": "call",
+      "operand": "std.log.info"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

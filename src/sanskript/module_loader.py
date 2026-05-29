@@ -104,9 +104,9 @@ def _merge_programs(programs: list[Program]) -> Program:
         for module in current.modules:
             if all(existing.name != module.name for existing in merged_modules):
                 merged_modules.append(module)
-        for fn in current.functions:
-            if all(existing.name != fn.name for existing in merged_functions):
-                merged_functions.append(fn)
+        # Preserve function overload sets (same logical name, different arity/signature).
+        # Deduplicating by name drops valid overloads and changes call resolution.
+        merged_functions.extend(current.functions)
         merged_statements.extend(current.statements)
         merged_aliases.extend(current.type_aliases)
         merged_newtypes.extend(current.newtypes)

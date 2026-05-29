@@ -1,0 +1,10 @@
+// Phase 27 extraction boundary: Sanskript-authored regression manifest.
+// Host pytest/CLI still executes these sources; this file records the contract.
+// kṣetram saṃskaraṇa.
+// parīkṣā: examples/phase1-script-sandhi.ssk
+// parīkṣā: examples/phase3-data-types.ssk
+// parīkṣā: examples/phase6-functions.ssk
+// parīkṣā: examples/phase7-oop.ssk
+// parīkṣā: examples/phase10-stdlib-cli-io.ssk
+// parīkṣā: examples/phase12-diagnostics.ssk
+// parīkṣā: examples/phase18-vm-bootstrap.sskbc

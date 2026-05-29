@@ -11,8 +11,9 @@ from sanskript.ast import (
     RecordInit,
 )
 from sanskript.compiler import compile_program, compile_source
-from sanskript.errors import CompileError, RuntimeSanskriptError
+from sanskript.errors import CompileError, MorphologyError, ParseError, RuntimeSanskriptError
 from sanskript.parser import parse_program
+from sanskript.bytecode import OpCode
 from sanskript.vm import SanskriptVM
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -246,6 +247,157 @@ class Phase2CoreSyntaxTests(unittest.TestCase):
         )
         self.assertEqual(_run(source), ["10"])
 
+    def test_grouped_literal_combinations_cover_ast_bytecode_and_vm(self) -> None:
+        source = """
+        samūhalakṣaṇaḥ items pariveṣṭanam pañca antam sapta.
+        kośalakṣaṇaḥ table pariveṣṭanam eka antam pariveṣṭanam daśa antam.
+        vastulakṣaṇaḥ vastu vākyam pūrṇa nāma iti pariveṣṭanam daśa antam.
+        aṅgāharaṇam name_value vastu vākyam pūrṇa nāma iti.
+        darśanam items.
+        darśanam table.
+        darśanam name_value.
+        """
+        program = parse_program(source)
+        list_bind = next(stmt for stmt in program.statements if isinstance(stmt, Bind) and stmt.target == "items")
+        map_bind = next(stmt for stmt in program.statements if isinstance(stmt, Bind) and stmt.target == "table")
+        record_init = next(stmt for stmt in program.statements if isinstance(stmt, RecordInit))
+
+        self.assertEqual(list_bind.value.__class__.__name__, "ListLiteral")
+        self.assertEqual(list_bind.value.elements[0].__class__.__name__, "GroupValue")
+        self.assertEqual(map_bind.value.__class__.__name__, "MapLiteral")
+        self.assertEqual(map_bind.value.entries[0][0].__class__.__name__, "GroupValue")
+        self.assertIsInstance(record_init, RecordInit)
+
+        bytecode = compile_program(program)
+        opcodes = [inst.opcode for inst in bytecode.instructions]
+        self.assertIn(OpCode.LIST_NEW, opcodes)
+        self.assertIn(OpCode.MAP_NEW, opcodes)
+        self.assertIn(OpCode.MAP_SET, opcodes)
+        self.assertIn(OpCode.RECORD_NEW, opcodes)
+        self.assertIn(OpCode.RECORD_SET, opcodes)
+        self.assertIn(OpCode.RECORD_GET, opcodes)
+
+        self.assertEqual(SanskriptVM().execute(bytecode), ["[5, 7]", "{1:10}", "10"])
+
+    def test_module_scope_with_grouped_literals_runs_through_vm(self) -> None:
+        source = """
+        kṣetram gaṇita.
+        vidhānam nirmā.
+        kośalakṣaṇaḥ table pariveṣṭanam eka antam pariveṣṭanam sapta antam.
+        vastulakṣaṇaḥ vastu nāma vākyam śubha iti.
+        aṅgāharaṇam phala vastu nāma.
+        pratyāvartanam phala.
+        samāpanam.
+        niḥsāram nirmā.
+        samāpanam.
+        āhvānam gaṇita nirmā phale nidadhāti.
+        darśanam phala.
+        """
+        program = parse_program(source)
+        self.assertEqual(program.modules[0].name, "gaṇita")
+        self.assertEqual(program.modules[0].exports, frozenset({"nirmā"}))
+        self.assertEqual(SanskriptVM().execute(compile_program(program)), ["śubha"])
+
+    def test_record_and_map_missing_member_raise_runtime_errors(self) -> None:
+        with self.assertRaises(RuntimeSanskriptError):
+            _run("kośalakṣaṇaḥ table eka pañca.\nāharaṇam phala table dvi.")
+        with self.assertRaises(RuntimeSanskriptError):
+            _run("vastulakṣaṇaḥ vastu nāma pañca.\naṅgāharaṇam phala vastu vayaḥ.")
+
+    def test_grouped_literal_matrix_compiles_and_runs_across_directives(self) -> None:
+        cases = (
+            (
+                "samūhalakṣaṇaḥ",
+                "samūhalakṣaṇaḥ items pariveṣṭanam pañca antam sapta.\ndarśanam items.",
+                Bind,
+                "items",
+                OpCode.LIST_NEW,
+                "[5, 7]",
+            ),
+            (
+                "kośalakṣaṇaḥ",
+                "kośalakṣaṇaḥ table pariveṣṭanam eka antam pariveṣṭanam daśa antam.\ndarśanam table.",
+                Bind,
+                "table",
+                OpCode.MAP_NEW,
+                "{1:10}",
+            ),
+            (
+                "vastulakṣaṇaḥ",
+                (
+                    "vastulakṣaṇaḥ vastu vākyam nāma iti pariveṣṭanam daśa antam.\n"
+                    "aṅgāharaṇam out vastu vākyam nāma iti.\n"
+                    "darśanam out."
+                ),
+                RecordInit,
+                "vastu",
+                OpCode.RECORD_NEW,
+                "10",
+            ),
+        )
+        for directive_name, source, stmt_type, target, required_opcode, expected in cases:
+            with self.subTest(directive=directive_name):
+                program = parse_program(source)
+                first = program.statements[0]
+                self.assertIsInstance(first, stmt_type)
+                if isinstance(first, Bind):
+                    self.assertEqual(first.target, target)
+                    self.assertEqual(first.value.__class__.__name__, "ListLiteral" if directive_name == "samūhalakṣaṇaḥ" else "MapLiteral")
+                else:
+                    self.assertEqual(first.record, target)
+                bytecode = compile_program(program)
+                opcodes = [inst.opcode for inst in bytecode.instructions]
+                self.assertIn(required_opcode, opcodes)
+                self.assertEqual(SanskriptVM().execute(bytecode), [expected])
+
+    def test_nested_grouped_literals_across_list_map_record_and_module_scope(self) -> None:
+        source = """
+        kṣetram gaṇita.
+        vidhānam nirmā.
+        samūhalakṣaṇaḥ items pariveṣṭanam pariveṣṭanam eka antam antam sapta.
+        kośalakṣaṇaḥ table pariveṣṭanam pariveṣṭanam eka antam antam pariveṣṭanam daśa antam.
+        vastulakṣaṇaḥ vastu nāma pariveṣṭanam pariveṣṭanam daśa antam antam.
+        aṅgāharaṇam name_value vastu nāma.
+        pratyāvartanam name_value.
+        samāpanam.
+        niḥsāram nirmā.
+        samāpanam.
+        āhvānam gaṇita nirmā phale nidadhāti.
+        darśanam phala.
+        """
+        program = parse_program(source)
+        module = program.modules[0]
+        self.assertEqual(module.name, "gaṇita")
+        function = module.functions[0]
+        list_bind = next(stmt for stmt in function.body if isinstance(stmt, Bind) and stmt.target == "items")
+        map_bind = next(stmt for stmt in function.body if isinstance(stmt, Bind) and stmt.target == "table")
+        self.assertEqual(list_bind.value.elements[0].__class__.__name__, "GroupValue")
+        self.assertEqual(map_bind.value.entries[0][0].__class__.__name__, "GroupValue")
+
+        bytecode = compile_program(program)
+        module_opcodes = [inst.opcode for inst in bytecode.modules[0].functions[0].instructions]
+        self.assertIn(OpCode.LIST_NEW, module_opcodes)
+        self.assertIn(OpCode.MAP_NEW, module_opcodes)
+        self.assertIn(OpCode.RECORD_NEW, module_opcodes)
+        self.assertIn(OpCode.RECORD_GET, module_opcodes)
+        self.assertEqual(SanskriptVM().execute(bytecode), ["10"])
+
+    def test_grouping_and_literal_directive_negatives(self) -> None:
+        invalid_sources = (
+            "kośalakṣaṇaḥ table eka pañca dvi.\ndarśanam table.",
+            "vastulakṣaṇaḥ vastu pariveṣṭanam pañca antam.\ndarśanam vastu.",
+            "samūhalakṣaṇaḥ items pariveṣṭanam pañca.\ndarśanam items.",
+            "kośalakṣaṇaḥ table pariveṣṭanam eka antam.\ndarśanam table.",
+            "samūhalakṣaṇaḥ items pariveṣṭanam pariveṣṭanam eka antam antam antam.\ndarśanam items.",
+            "kośalakṣaṇaḥ table pariveṣṭanam pariveṣṭanam eka antam antam pariveṣṭanam daśa antam antam.\ndarśanam table.",
+            "vastulakṣaṇaḥ vastu nāma pariveṣṭanam pariveṣṭanam daśa antam antam antam.\ndarśanam vastu.",
+            "samūhalakṣaṇaḥ items pariveṣṭanam pariveṣṭanam eka antam.\ndarśanam items.",
+        )
+        for source in invalid_sources:
+            with self.subTest(source=source):
+                with self.assertRaises((ParseError, CompileError, MorphologyError)):
+                    compile_source(source)
+
     # ------------------------------------------------------------------
     # void / tyāgaḥ
     # ------------------------------------------------------------------
@@ -281,6 +433,13 @@ class Phase2CoreSyntaxTests(unittest.TestCase):
         self.assertEqual(
             SanskriptVM().execute(compile_program(parse_program(path.read_text(encoding="utf-8")))),
             ["5"],
+        )
+
+    def test_phase2_grouped_literal_example_runs(self) -> None:
+        path = EXAMPLES / "dvādaśa-phase2-grouping-matrix.ssk"
+        self.assertEqual(
+            SanskriptVM().execute(compile_program(parse_program(path.read_text(encoding="utf-8")))),
+            ["10"],
         )
 
 

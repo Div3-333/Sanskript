@@ -77,6 +77,7 @@ class Phase7ParserTests(unittest.TestCase):
                     class_methods=("factory",),
                     base_class="Shape",
                     computed_properties=("magnitude",),
+                    metaclass="MetaShape",
                 ),
             ),
         )
@@ -86,6 +87,7 @@ class Phase7ParserTests(unittest.TestCase):
         self.assertIn("zero", child.static_methods)
         self.assertIn("factory", child.class_methods)
         self.assertIn("magnitude", child.computed_properties)
+        self.assertEqual(child.metaclass, "MetaShape")
 
 
 class Phase7RuntimeTests(unittest.TestCase):
@@ -185,6 +187,51 @@ class Phase7RuntimeTests(unittest.TestCase):
         self.assertEqual(vm.environment["z"], 0)
         self.assertEqual(vm.environment["c"], 3)
 
+    def test_inherited_static_and_class_methods(self) -> None:
+        program = Program(
+            statements=(
+                StaticMethodCall("z", "ChildCounter", "zero"),
+                ClassMethodCall("c", "ChildCounter", "make", (Literal(9),)),
+            ),
+            functions=(
+                FunctionDef("Counter__static__zero", (Return(Literal(0)),), params=()),
+                FunctionDef("Counter__make", (Return(Reference("n")),), params=("cls", "n")),
+            ),
+            classes=(
+                ClassDecl(
+                    "Counter",
+                    None,
+                    (),
+                    (),
+                    static_methods=("zero",),
+                    class_methods=("make",),
+                ),
+                ClassDecl("ChildCounter", None, (), (), base_class="Counter"),
+            ),
+        )
+        vm = _run(program)
+        self.assertEqual(vm.environment["z"], 0)
+        self.assertEqual(vm.environment["c"], 9)
+
+    def test_metaclass_dispatch_for_static_and_class_methods(self) -> None:
+        program = Program(
+            statements=(
+                StaticMethodCall("s", "Widget", "meta_zero"),
+                ClassMethodCall("c", "Widget", "meta_make", (Literal(6),)),
+            ),
+            functions=(
+                FunctionDef("Meta__static__meta_zero", (Return(Literal(0)),), params=()),
+                FunctionDef("Meta__meta_make", (Return(Reference("n")),), params=("cls", "n")),
+            ),
+            classes=(
+                ClassDecl("Meta", None, (), (), static_methods=("meta_zero",), class_methods=("meta_make",)),
+                ClassDecl("Widget", None, (), (), metaclass="Meta"),
+            ),
+        )
+        vm = _run(program)
+        self.assertEqual(vm.environment["s"], 0)
+        self.assertEqual(vm.environment["c"], 6)
+
     def test_computed_property_and_reflection(self) -> None:
         program = Program(
             statements=(
@@ -218,6 +265,23 @@ class Phase7RuntimeTests(unittest.TestCase):
         self.assertEqual(vm.environment["cn"], "Box")
         self.assertEqual(vm.environment["mn"], "size")
 
+    def test_computed_property_dynamic_dispatch_across_inheritance(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("b", "ChildBox", ()),
+                PropertyGet("m", "b", "size"),
+            ),
+            functions=(
+                FunctionDef("BaseBox__get_size", (Return(Literal(42)),), params=("self",)),
+            ),
+            classes=(
+                ClassDecl("BaseBox", None, (), (), computed_properties=("size",)),
+                ClassDecl("ChildBox", None, (), (), base_class="BaseBox"),
+            ),
+        )
+        vm = _run(program)
+        self.assertEqual(vm.environment["m"], 42)
+
     def test_finalize_optional(self) -> None:
         program = Program(
             statements=(ClassNew("p", "Bare", ()), InstanceFinalize("p")),
@@ -236,6 +300,120 @@ class Phase7RuntimeTests(unittest.TestCase):
         with self.assertRaises(RuntimeSanskriptError):
             _run(program)
 
+    def test_negative_unknown_method_diagnostic_includes_dispatch_context(self) -> None:
+        program = Program(
+            statements=(ClassNew("p", "Point", ()), MethodCall("x", "p", "missing")),
+            classes=(ClassDecl("Point", None, (), ("missing",)),),
+        )
+        with self.assertRaises(RuntimeSanskriptError) as cm:
+            _run(program)
+        text = str(cm.exception)
+        self.assertIn("argc=", text)
+        self.assertIn("mro=", text)
+
+    def test_negative_private_field_access_rejected_at_runtime(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("p", "Vault", (Literal(7),)),
+                ClassNew("h", "Hacker", ()),
+                MethodCall("x", "h", "steal", (Reference("p"),)),
+            ),
+            functions=(
+                FunctionDef(
+                    "Vault__init__",
+                    (
+                        FieldSet("self", TextLiteral("secret"), Reference("v")),
+                        Return(Reference("self")),
+                    ),
+                    params=("self", "v"),
+                ),
+                FunctionDef(
+                    "Hacker__steal",
+                    (
+                        FieldGet("x", "obj", TextLiteral("secret")),
+                        Return(Reference("x")),
+                    ),
+                    params=("self", "obj"),
+                ),
+            ),
+            classes=(
+                ClassDecl("Vault", None, (("secret", "i32"),), (), field_visibility=(("secret", "private"),)),
+                ClassDecl("Hacker", None, (), ("steal",)),
+            ),
+        )
+        with self.assertRaises(RuntimeSanskriptError):
+            _run(program)
+
+    def test_negative_protected_field_access_rejected_at_runtime(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("b", "Base", (Literal(7),)),
+                ClassNew("h", "Hacker", ()),
+                MethodCall("x", "h", "steal", (Reference("b"),)),
+            ),
+            functions=(
+                FunctionDef(
+                    "Base__init__",
+                    (
+                        FieldSet("self", TextLiteral("k"), Reference("v")),
+                        Return(Reference("self")),
+                    ),
+                    params=("self", "v"),
+                ),
+                FunctionDef(
+                    "Hacker__steal",
+                    (
+                        FieldGet("x", "obj", TextLiteral("k")),
+                        Return(Reference("x")),
+                    ),
+                    params=("self", "obj"),
+                ),
+            ),
+            classes=(
+                ClassDecl("Base", None, (("k", "i32"),), (), field_visibility=(("k", "protected"),)),
+                ClassDecl("Hacker", None, (), ("steal",)),
+            ),
+        )
+        with self.assertRaises(RuntimeSanskriptError):
+            _run(program)
+
+    def test_negative_method_call_on_finalized_instance(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("r", "Res", ()),
+                InstanceFinalize("r"),
+                MethodCall("x", "r", "ping"),
+            ),
+            functions=(
+                FunctionDef("Res__ping", (Return(Literal(1)),), params=("self",)),
+            ),
+            classes=(ClassDecl("Res", None, (), ("ping",)),),
+        )
+        with self.assertRaises(RuntimeSanskriptError):
+            _run(program)
+
+    def test_negative_field_read_on_finalized_instance(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("r", "Res", (Literal(3),)),
+                InstanceFinalize("r"),
+                FieldGet("x", "r", TextLiteral("k")),
+            ),
+            functions=(
+                FunctionDef(
+                    "Res__init__",
+                    (
+                        FieldSet("self", TextLiteral("k"), Reference("v")),
+                        Return(Reference("self")),
+                    ),
+                    params=("self", "v"),
+                ),
+            ),
+            classes=(ClassDecl("Res", None, (("k", "i32"),), ()),),
+        )
+        with self.assertRaises(RuntimeSanskriptError):
+            _run(program)
+
     def test_negative_typecheck_rejects_method_not_declared(self) -> None:
         program = Program(
             statements=(
@@ -246,6 +424,73 @@ class Phase7RuntimeTests(unittest.TestCase):
         )
         with self.assertRaises(TypeCheckError):
             compile_program(program)
+
+    def test_negative_typecheck_rejects_private_field_access(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("p", "Vault", (Literal(7),)),
+                ClassNew("h", "Hacker", ()),
+                MethodCall("x", "h", "steal", (Reference("p"),)),
+            ),
+            functions=(
+                FunctionDef(
+                    "Vault__init__",
+                    (
+                        FieldSet("self", TextLiteral("secret"), Reference("v")),
+                        Return(Reference("self")),
+                    ),
+                    params=("self", "v"),
+                ),
+                FunctionDef(
+                    "Hacker__steal",
+                    (
+                        FieldGet("x", "obj", TextLiteral("secret")),
+                        Return(Reference("x")),
+                    ),
+                    params=("self", "obj"),
+                    param_types=("Hacker", "Vault"),
+                ),
+            ),
+            classes=(
+                ClassDecl("Vault", None, (("secret", "i32"),), (), field_visibility=(("secret", "private"),)),
+                ClassDecl("Hacker", None, (), ("steal",)),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(program)
+
+    def test_typecheck_allows_protected_field_access_from_subclass_method(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("c", "Child", (Literal(5),)),
+                MethodCall("out", "c", "read"),
+            ),
+            functions=(
+                FunctionDef(
+                    "Base__init__",
+                    (
+                        FieldSet("self", TextLiteral("k"), Reference("v")),
+                        Return(Reference("self")),
+                    ),
+                    params=("self", "v"),
+                ),
+                FunctionDef(
+                    "Child__read",
+                    (
+                        FieldGet("x", "self", TextLiteral("k")),
+                        Return(Reference("x")),
+                    ),
+                    params=("self",),
+                ),
+            ),
+            classes=(
+                ClassDecl("Base", None, (("k", "i32"),), (), field_visibility=(("k", "protected"),)),
+                ClassDecl("Child", None, (), ("read",), base_class="Base"),
+            ),
+        )
+        compile_program(program)
+        vm = _run(program)
+        self.assertEqual(vm.environment["out"], 5)
 
     def test_negative_abstract_class_construction(self) -> None:
         program = Program(
@@ -262,6 +507,62 @@ class Phase7RuntimeTests(unittest.TestCase):
         )
         with self.assertRaises(TypeCheckError):
             compile_program(Program((), classes=classes))
+
+    def test_negative_unknown_metaclass_rejected(self) -> None:
+        program = Program(
+            (),
+            classes=(ClassDecl("Widget", None, (), (), metaclass="MissingMeta"),),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(program)
+
+    def test_typecheck_accepts_inherited_class_and_static_methods(self) -> None:
+        program = Program(
+            statements=(
+                StaticMethodCall("z", "ChildCounter", "zero"),
+                ClassMethodCall("c", "ChildCounter", "make", (Literal(3),)),
+            ),
+            classes=(
+                ClassDecl("Counter", None, (), (), static_methods=("zero",), class_methods=("make",)),
+                ClassDecl("ChildCounter", None, (), (), base_class="Counter"),
+            ),
+            functions=(
+                FunctionDef("Counter__static__zero", (Return(Literal(0)),), params=()),
+                FunctionDef("Counter__make", (Return(Reference("n")),), params=("cls", "n")),
+            ),
+        )
+        compile_program(program)
+
+    def test_typecheck_resolves_inherited_instance_method_signature(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("c", "Child", ()),
+                MethodCall("x", "c", "area", (TextLiteral("bad"),)),
+            ),
+            classes=(
+                ClassDecl("Base", None, (), ("area",)),
+                ClassDecl("Child", None, (), (), base_class="Base"),
+            ),
+            functions=(
+                FunctionDef(
+                    "Base__area",
+                    (Return(Reference("n")),),
+                    params=("self", "n"),
+                    param_types=("Base", "i32"),
+                    return_type="i32",
+                ),
+            ),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(program)
+
+    def test_negative_trait_impl_missing_required_method(self) -> None:
+        program = Program(
+            (),
+            classes=(ClassDecl("Box", None, (), ("darśaya",), trait_impls=("Samānatā",)),),
+        )
+        with self.assertRaises(TypeCheckError):
+            compile_program(program)
 
 
 class Phase7YantraPathaTests(unittest.TestCase):

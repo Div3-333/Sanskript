@@ -1,0 +1,3 @@
+// Phase 22: HTTP client (loopback roundtrip).
+āhvānam std.http.client_roundtrip phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

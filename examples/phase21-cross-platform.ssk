@@ -1,0 +1,39 @@
+// Phase 21: cross-platform system APIs (host-executable + honest web simulation).
+
+āhvānam std.platform.detect phala nidadhāti.
+āhvānam std.serialize vākyam json iti phala darśayati.
+
+samūhaḥ bhāga.
+yojanam bhāga vākyam sādhyakāraḥ iti.
+yojanam bhāga vākyam antaḥ iti.
+yojanam bhāga vākyam pradhāna.ssk iti.
+āhvānam std.path.for_platform vākyam windows iti bhāga mūlya nidadhāti.
+gaṇakaḥ mūlyaṃ darśayati.
+
+samūhaḥ antima.
+yojanam antima vākyam antaḥ iti.
+yojanam antima vākyam bin iti.
+yojanam antima vākyam pradhāna.ssk iti.
+āhvānam std.path.for_platform vākyam web iti antima mūlya nidadhāti.
+āhvānam std.path.web_normalize vākyam antima iti phala nidadhāti.
+gaṇakaḥ mūlyaṃ darśayati.
+gaṇakaḥ phalaṃ darśayati.
+
+āhvānam std.storage.web_set vākyam ekaviṃśati iti vākyam sūci iti vākyam abc iti.
+āhvānam std.storage.web_get vākyam ekaviṃśati iti vākyam sūci iti mūlya nidadhāti.
+gaṇakaḥ mūlyaṃ darśayati.
+
+āhvānam std.process.web_worker_new sthāna nidadhāti.
+āhvānam std.process.web_post_message sthāna vākyam namaste iti.
+āhvānam std.process.web_recv sthāna mūlya nidadhāti.
+gaṇakaḥ mūlyaṃ darśayati.
+
+āhvānam std.net.dns_lookup vākyam localhost iti vākyam A iti phala nidadhāti.
+āhvānam std.net.tls_available phala nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+
+āhvānam std.console.log vākyam info iti vākyam ekaviṃśati-saṃvadana iti.
+āhvānam std.terminal.is_tty vākyam stdout iti phala nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+
+āhvānam std.test.assert_true satyam.

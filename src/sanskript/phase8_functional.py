@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Callable
 
 from .errors import RuntimeSanskriptError
+from .runtime_values import RecordValue, TupleValue
 from .runtime_values import SanskriptValue, is_truthy, values_equal
 
 if TYPE_CHECKING:
@@ -61,7 +62,40 @@ _RULE_REGISTRY: dict[str, RuleValue] = {}
 _MEMO_CACHES: dict[str, dict[tuple[Any, ...], SanskriptValue]] = {}
 
 
+def _memo_key(value: Any) -> Any:
+    """Convert runtime values into a stable, hashable memoization key."""
+    if isinstance(value, (int, float, str, bool, type(None))):
+        return value
+    if isinstance(value, ImmutableListValue):
+        return ("immutable_list", tuple(_memo_key(item) for item in value.items))
+    if isinstance(value, list):
+        return ("list", tuple(_memo_key(item) for item in value))
+    if isinstance(value, tuple):
+        return ("tuple", tuple(_memo_key(item) for item in value))
+    if isinstance(value, dict):
+        return ("dict", tuple(sorted((str(k), _memo_key(v)) for k, v in value.items())))
+    if isinstance(value, RecordValue):
+        return ("record", tuple(sorted((k, _memo_key(v)) for k, v in value.fields.items())))
+    if isinstance(value, TupleValue):
+        return ("tuple_value", tuple(_memo_key(item) for item in value.items))
+    if isinstance(value, LazyIteratorValue):
+        return ("lazy_iter", value.index, tuple(_memo_key(item) for item in value.items))
+    if isinstance(value, GeneratorValue):
+        return ("generator", value.function_name, value.ip, value.done)
+    return ("opaque", repr(value))
+
+
+def memo_cache_key(function_name: str, args: list[SanskriptValue]) -> tuple[Any, ...]:
+    return (function_name, tuple(_memo_key(arg) for arg in args))
+
+
+def memo_cache_for(function_name: str) -> dict[tuple[Any, ...], SanskriptValue]:
+    return _MEMO_CACHES.setdefault(function_name, {})
+
+
 def register_rule(rule: RuleValue) -> None:
+    if rule.rule_id in _RULE_REGISTRY:
+        raise RuntimeSanskriptError(f"Duplicate rule registration {rule.rule_id!r}")
     _RULE_REGISTRY[rule.rule_id] = rule
 
 
@@ -236,6 +270,10 @@ def _generator_new(vm: SanskriptVM, instruction: Instruction) -> None:
     from .bytecode import resolve_call_target
 
     function = resolve_call_target(vm._program, function_name)
+    if function.params:
+        raise RuntimeSanskriptError(
+            f"Generator {function_name!r} must be parameterless; wrap parameters in an outer closure."
+        )
     vm.stack.append(
         GeneratorValue(
             function_name=function_name,
@@ -337,8 +375,8 @@ def _memo_call(vm: SanskriptVM, instruction: Instruction) -> None:
     args = vm._pop()
     if not isinstance(args, list):
         args = [args]
-    key = (function_name, tuple(args))
-    cache = _MEMO_CACHES.setdefault(function_name, {})
+    key = memo_cache_key(function_name, list(args))
+    cache = memo_cache_for(function_name)
     if key in cache:
         vm.stack.append(cache[key])
         return

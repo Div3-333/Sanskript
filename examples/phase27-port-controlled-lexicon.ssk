@@ -1,0 +1,6 @@
+// Phase 27 port: controlled lexicon loader manifest (canonical via .sskbc).
+// Reads data/controlled_lexicon.json and emits entry_count for migration tracking.
+// Host morphology_lexicon.lexicon_entry_count_manifest() delegates to this bytecode.
+āhvānam std.file.read_text vākyam data/controlled_lexicon.json iti patraka nidadhāti.
+āhvānam std.json.parse vākyam patraka iti patraka nidadhāti.
+// patraka["entry_count"] → darśayati (MAP_GET in canonical .sskbc)

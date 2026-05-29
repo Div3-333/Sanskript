@@ -1,0 +1,8 @@
+// Phase 22 seal: HTML generation + template engine (stdout artifact).
+// Run: python -m sanskript.cli run examples/phase22-html-template.ssk
+kośaḥ pṛṣṭha-sandarbhaḥ.
+sthāpanam pṛṣṭha-sandarbhaḥ title vākyam Phase22 iti.
+āhvānam std.web.render vākyam <h1>{{title}}</h1> iti pṛṣṭha-sandarbhaḥ darśayati.
+kośaḥ nāma-sandarbhaḥ.
+sthāpanam nāma-sandarbhaḥ name vākyam phase22-html iti.
+āhvānam std.template.render vākyam package={{name}} iti nāma-sandarbhaḥ darśayati.

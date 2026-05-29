@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "data/controlled_lexicon.json"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.read_text"
+    },
+    {
+      "op": "call",
+      "operand": "std.json.parse"
+    },
+    {
+      "op": "store_name",
+      "operand": "patraka"
+    },
+    {
+      "op": "load_name",
+      "operand": "patraka"
+    },
+    {
+      "op": "push_text",
+      "operand": "entry_count"
+    },
+    {
+      "op": "map_get"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

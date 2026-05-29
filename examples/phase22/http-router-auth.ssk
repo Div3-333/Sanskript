@@ -1,0 +1,8 @@
+// Phase 22: router + middleware + cookies + sessions + auth.
+kośaḥ mārga-saṃyojane.
+sthāpanam mārga-saṃyojane /users/{id} vākyam show iti.
+samūhalakṣaṇaḥ madhyavartinaḥ vākyam log iti vākyam cors iti.
+āhvānam std.http.session_create sthāna nidadhāti.
+āhvānam std.http.session_set sthāna vākyam user iti vākyam dev iti.
+āhvānam std.http.router_dispatch vākyam /users/9 iti mārga-saṃyojane madhyavartinaḥ phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

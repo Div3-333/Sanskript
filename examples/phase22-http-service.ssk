@@ -1,0 +1,14 @@
+// Phase 22 seal: Sanskript HTTP micro-service (listen → route → respond).
+// Run: python -m sanskript.cli run examples/phase22-http-service.ssk
+// Integration tests substitute __P22_PORT__ with a free TCP port.
+kośaḥ mārga-saṃyojane.
+sthāpanam mārga-saṃyojane /health vākyam health iti.
+sthāpanam mārga-saṃyojane /api/users/{id} vākyam user iti.
+kośaḥ pratyuttara-saṃyojane.
+sthāpanam pratyuttara-saṃyojane health vākyam ok iti.
+sthāpanam pratyuttara-saṃyojane user vākyam user:42 iti.
+samūhalakṣaṇaḥ madhyavartinaḥ vākyam log iti vākyam cors iti.
+āhvānam std.http.session_create sthāna nidadhāti.
+āhvānam std.http.session_set sthāna vākyam user iti vākyam dev iti.
+āhvānam std.http.server_route_once vākyam 127.0.0.1 iti __P22_PORT__ mārga-saṃyojane madhyavartinaḥ pratyuttara-saṃyojane phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

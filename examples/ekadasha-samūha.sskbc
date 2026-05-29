@@ -1,0 +1,100 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 10
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "load_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "push_text",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "load_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "push_text",
+      "operand": "phala"
+    },
+    {
+      "op": "map_get"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "surakṣita"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "record_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "jana"
+    },
+    {
+      "op": "load_name",
+      "operand": "jana"
+    },
+    {
+      "op": "push_text",
+      "operand": "nāma"
+    },
+    {
+      "op": "push_text",
+      "operand": "rāma"
+    },
+    {
+      "op": "record_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "jana"
+    },
+    {
+      "op": "load_name",
+      "operand": "jana"
+    },
+    {
+      "op": "push_text",
+      "operand": "aṅka"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "record_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "jana"
+    },
+    {
+      "op": "load_name",
+      "operand": "jana"
+    },
+    {
+      "op": "push_text",
+      "operand": "nāma"
+    },
+    {
+      "op": "record_get"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "jana"
+    },
+    {
+      "op": "push_text",
+      "operand": "aṅka"
+    },
+    {
+      "op": "record_get"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "jana"
+    },
+    {
+      "op": "push_text",
+      "operand": "nāma"
+    },
+    {
+      "op": "record_contains"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

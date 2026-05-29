@@ -36,6 +36,8 @@ AVYAYA_FORMS: tuple[Avyaya, ...] = (
     Avyaya("tarhi", "tarhi", IndeclinableKind.CORRELATIVE, "then", "marks the consequent clause"),
     Avyaya("anyathā", "anyathā", IndeclinableKind.ALTERNATIVE, "otherwise", "marks the alternate branch"),
     Avyaya("samam", "samam", IndeclinableKind.ADVERB, "equally", "marks equality in a condition"),
+    Avyaya("pūrvaṃ", "pūrva", IndeclinableKind.ADVERB, "previous value", "used in examples for previous-state variables"),
+    Avyaya("purvam", "pūrva", IndeclinableKind.ADVERB, "previous value", "ASCII form used in examples for previous-state variables"),
     Avyaya("vidhānam", "vidhāna", IndeclinableKind.SEQUENCER, "procedure", "declares a named procedure"),
     Avyaya("samāpanam", "samāpana", IndeclinableKind.SEQUENCER, "completion", "closes a procedure or module"),
     Avyaya("āhvānam", "āhvāna", IndeclinableKind.SEQUENCER, "invocation", "calls a named procedure"),

@@ -89,6 +89,21 @@ _COMPARE_MARKERS: dict[str, str] = {
 _TEXT_MARKERS = frozenset({"vākyam", "vakyam", "śabdam", "shabdam"})
 
 
+def _split_qualified_call_target(
+    token: str,
+    *,
+    known_modules: set[str] | frozenset[str],
+) -> tuple[str | None, str]:
+    if token in known_modules:
+        return token, ""
+    if "." not in token:
+        return None, token
+    parts = [part for part in token.split(".") if part]
+    if len(parts) < 2:
+        return None, token
+    return ".".join(parts[:-1]), parts[-1]
+
+
 def _parse_atomic_condition(
     tokens: list[str],
     *,
@@ -255,6 +270,14 @@ def parse_call_arg_tokens(
     kwargs: list[tuple[str, Value]] = []
     index = 0
     while index < len(tokens):
+        if tokens[index] in {"pariveṣṭanam", "parivestanam"}:
+            end = _find_group_end(tokens, start=index)
+            if end is not None:
+                grouped = parse_value_tokens(tokens[index : end + 1], known_modules=known_modules)
+                if grouped is not None:
+                    positional.append(grouped)
+                    index = end + 1
+                    continue
         # Support natural text literals written with a "source" marker,
         # e.g. "likha vākyam <words> iti" where the marker itself becomes a
         # dynamic text value.
@@ -316,8 +339,10 @@ def _parse_value_tokens_core(
             )
         return PartialApply(inner, curry=curry)
 
-    if tokens[0] in {"pariveṣṭanam", "parivestanam"} and "antam" in tokens:
-        end = tokens.index("antam")
+    if tokens[0] in {"pariveṣṭanam", "parivestanam"}:
+        end = _find_group_end(tokens)
+        if end is None or end != len(tokens) - 1:
+            return None
         inner = _parse_value_tokens_core(tokens[1:end], known_modules=known_modules)
         if inner is None:
             return None
@@ -345,17 +370,18 @@ def _parse_value_tokens_core(
             return BoolLiteral(token == "satyam")
         if re.fullmatch(r"\d+\.\d+", token):
             return FloatLiteral(float(token))
-    facade = get_default_facade()
-    for token in tokens:
+    if len(tokens) == 1:
+        facade = get_default_facade()
+        token = tokens[0]
         try:
             analysis = facade.analyze_token(token)
         except Exception:
-            continue
-        if analysis.value is not None:
-            return Literal(analysis.value)
-        if analysis.pos == PartOfSpeech.NOUN:
-            return Reference(analysis.lemma)
-    if len(tokens) == 1:
+            analysis = None
+        if analysis is not None:
+            if analysis.value is not None:
+                return Literal(analysis.value)
+            if analysis.pos == PartOfSpeech.NOUN:
+                return Reference(analysis.lemma)
         try:
             return Reference(canonical_identifier(tokens[0], facade=facade))
         except IdentifierError:
@@ -391,6 +417,31 @@ def _split_value_bool_tokens(
     return values
 
 
+def _find_group_end(tokens: list[str], *, start: int = 0) -> int | None:
+    depth = 0
+    in_text = False
+    for index in range(start, len(tokens)):
+        token = tokens[index]
+        if token in _TEXT_MARKERS:
+            in_text = True
+            continue
+        if token == "iti":
+            in_text = False
+            continue
+        if in_text:
+            continue
+        if token in {"pariveṣṭanam", "parivestanam"}:
+            depth += 1
+            continue
+        if token == "antam":
+            depth -= 1
+            if depth == 0:
+                return index
+            if depth < 0:
+                return None
+    return None
+
+
 def _binary_value_from_tokens(
     tokens: list[str],
     *,
@@ -416,11 +467,12 @@ def _call_value_from_tokens(
 ) -> CallValue | None:
     if len(tokens) < 2 or tokens[0] not in {"āhvānam", "ahvanam"}:
         return None
-    if len(tokens) >= 3 and tokens[1] in known_modules:
+    module_name, fn_name = _split_qualified_call_target(tokens[1], known_modules=known_modules)
+    if module_name and len(tokens) >= 3 and not fn_name:
         args, kwargs = parse_call_arg_tokens(tokens[3:], known_modules=known_modules)
-        return CallValue(tokens[2], module=tokens[1], args=args, kwargs=kwargs)
+        return CallValue(tokens[2], module=module_name, args=args, kwargs=kwargs)
     args, kwargs = parse_call_arg_tokens(tokens[2:], known_modules=known_modules)
-    return CallValue(tokens[1], args=args, kwargs=kwargs)
+    return CallValue(fn_name, module=module_name, args=args, kwargs=kwargs)
 
 
 def _text_literal_from_tokens(tokens: list[str]) -> TextLiteral | None:
@@ -440,6 +492,16 @@ def _values_from_tokens(
     index = 0
     while index < len(tokens):
         token = tokens[index]
+        if token in {"pariveṣṭanam", "parivestanam"}:
+            end = _find_group_end(tokens, start=index)
+            if end is None:
+                index += 1
+                continue
+            grouped = parse_value_tokens(tokens[index : end + 1], known_modules=known_modules)
+            if grouped is not None:
+                values.append(grouped)
+                index = end + 1
+                continue
         if token in _TEXT_MARKERS and "iti" in tokens[index + 1 :]:
             end = tokens.index("iti", index + 1)
             text = _text_literal_from_tokens(tokens[index : end + 1])

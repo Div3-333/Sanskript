@@ -1,0 +1,26 @@
+// Phase 14: surakshita end-user flow baseline.
+āhvānam std.file.write_text vākyam ./tmp-phase14.txt iti vākyam namaste iti.
+āhvānam std.file.append_text vākyam ./tmp-phase14.txt iti vākyam  mitra iti.
+āhvānam std.file.read_text vākyam ./tmp-phase14.txt iti pāṭhaḥ nidadhāti.
+āhvānam std.text.upper pāṭhaḥ darśayati.
+
+samūhalakṣaṇaḥ saṃkhyāḥ eka trīṇi pañca sapta.
+āhvānam std.data.describe saṃkhyāḥ saṃkhyā-saṅkṣepaḥ nidadhāti.
+āhvānam std.serialize vākyam json iti saṃkhyā-saṅkṣepaḥ darśayati.
+
+samūhalakṣaṇaḥ citra-saṃkhyāḥ eka catvāri dve ṣaṭ trīṇi.
+āhvānam std.plot.ascii citra-saṃkhyāḥ 5 4 phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+
+kośaḥ mārga-saṃyojane.
+sthāpanam mārga-saṃyojane /users/{id} vākyam user_show iti.
+āhvānam std.web.route_match vākyam /users/108 iti mārga-saṃyojane phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.
+kośaḥ pṛṣṭha-sandarbhaḥ.
+sthāpanam pṛṣṭha-sandarbhaḥ title vākyam Surakshita iti.
+āhvānam std.web.render vākyam <h1>{{title}}</h1> iti pṛṣṭha-sandarbhaḥ darśayati.
+kośaḥ nāma-sandarbhaḥ.
+sthāpanam nāma-sandarbhaḥ name vākyam phase14-demo iti.
+āhvānam std.template.render vākyam package={{name}} iti nāma-sandarbhaḥ darśayati.
+āhvānam std.async.sleep_ms 1 darśayati.
+āhvānam std.task.run_after_ms 1 vākyam build iti darśayati.

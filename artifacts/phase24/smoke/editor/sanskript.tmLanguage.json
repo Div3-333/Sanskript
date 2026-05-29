@@ -1,0 +1,30 @@
+{
+  "name": "Sanskript",
+  "scopeName": "source.sanskript",
+  "fileTypes": [
+    "ssk",
+    "sskm"
+  ],
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.sanskript",
+      "match": "//.*$"
+    },
+    {
+      "name": "constant.language.boolean.sanskript",
+      "match": "\\b(satyam|asatyam)\\b"
+    },
+    {
+      "name": "keyword.control.sanskript",
+      "match": "\\b(yadi|anyathā|āgrahītvā|antam|vikṣepaḥ)\\b"
+    },
+    {
+      "name": "keyword.other.sanskript",
+      "match": "\\b(gaṇakaḥ|āhvānam|samūhaḥ|vargaḥ)\\b"
+    },
+    {
+      "name": "punctuation.terminator.sanskript",
+      "match": "[.।]"
+    }
+  ]
+}

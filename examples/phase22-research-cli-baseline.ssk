@@ -1,0 +1,7 @@
+// Phase 22 honesty baseline: CLI research script (no ML, no web server).
+// Run: python -m sanskript.cli run examples/phase22-research-cli-baseline.ssk
+samūhalakṣaṇaḥ citra-saṃkhyāḥ eka dve trīṇi catvāri pañca.
+āhvānam std.data.describe citra-saṃkhyāḥ phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+āhvānam std.plot.ascii citra-saṃkhyāḥ 8 4 phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.

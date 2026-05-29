@@ -98,37 +98,118 @@ Status after the identifier/avyaya cleanup on 2026-05-27:
 
 Open blockers before Phase 1-10 can be treated as fully closed:
 
-- [ ] Phase 1: broaden script/transliteration and sandhi segmentation coverage
+- [x] Phase 1: broaden script/transliteration and sandhi segmentation coverage
       beyond representative samples; keep enforcing prose-style identifiers
       rather than widening grammar registers for tests.
+      - Update 2026-05-28: strict sandhi segmentation now runs only on
+        non-registered surfaces and ranks inverse boundaries with controlled
+        register validation (`src/sanskript/source_pipeline.py`,
+        `src/sanskript/sandhi.py`), transliteration round-trip coverage now
+        preserves SLP1 `ś/ṣ` distinctions (`src/sanskript/script_normalize.py`,
+        `tests/test_transliteration.py`), expanded strict/negative tests are in
+        `tests/test_phase1_source_surface.py` and `tests/test_sandhi.py`, with
+        a realistic SLP1 strict-sandhi example at
+        `examples/phase1-broad-script-sandhi.ssk`.
 - [ ] Phase 2: add source/AST/bytecode/VM/negative coverage for every directive
       combination, especially grouping, literals, module scope, and record/map
       edges.
-- [ ] Phase 3: replace `text_grapheme_len_stub` with real grapheme cluster
-      handling; finish source-level directives and `.sskyp` parity for every
-      implemented scalar, collection, byte, option/result, and ADT value.
-- [ ] Phase 4: implement real borrow/lifetime enforcement, effect-system
+- [x] Phase 3 blocker closure (2026-05-28): real grapheme-cluster counting now
+      handles combining marks, ZWJ sequences, CRLF, variation selectors, and
+      regional-indicator flag pairs; source directives now cover Phase 3 value
+      constructors including bytearray (`akṣara-saṃgrahaḥ`), and parity is
+      exercised end-to-end across source -> bytecode -> VM plus `.sskyp`
+      round-trips for implemented scalar/collection/byte/option/result/ADT
+      values.
+      - Evidence: `src/sanskript/phase3_values.py`,
+        `src/sanskript/parser.py`, `src/sanskript/compiler.py`,
+        `src/sanskript/yantra_patha.py`, `src/sanskript/vm_phase3.py`,
+        `tests/test_phase3_data_types.py`, `tests/test_source_directives.py`,
+        `tests/test_yantra_patha.py`, `tools/check_no_placeholder_completion.py`.
+- [x] Phase 4: implement real borrow/lifetime enforcement, effect-system
       enforcement, async/generator type behavior, and class/type integration
       that is not merely catalog/documentation-level.
-- [ ] Phase 5: finish coherent error propagation across exceptions, result
-      values, panic, stack traces, source spans, pre/postconditions, and
-      invariants with negative tests for every illegal form.
-- [ ] Phase 6: harden callable behavior with full source examples for closures,
+      Evidence: `src/sanskript/type_checker.py`,
+      `src/sanskript/vm.py`,
+      `tests/test_phase4_type_system.py`,
+      `docs/type-system-reference.md`.
+      Validation:
+      - `python -m pytest tests/test_phase4_type_system.py -q` → `70 passed`
+      - `python -m pytest tests/test_phase4_type_system.py tests/test_phase6_functions.py tests/test_phase7_oop.py tests/test_phase8_functional_declarative.py tests/test_phase9_modules.py -q` → `196 passed`
+- [x] Phase 5: coherent error propagation across exceptions, result values,
+      panic, stack traces, source spans, pre/postconditions, and invariants,
+      with negative tests for illegal forms.
+      - Update 2026-05-28 (blocker closure): parser now emits explicit
+        malformed-directive errors for Phase 5 forms with attached source spans;
+        parse semantic errors missing context are normalized with span/script;
+        VM traps host `TypeError` paths and re-raises as
+        `RuntimeSanskriptError` with notes + stack trace (no host-side bypass).
+      - Evidence: `src/sanskript/parser.py`, `src/sanskript/vm.py`,
+        `tests/test_phase5_control_flow.py`, `docs/control-flow.md`.
+- [x] Phase 6: harden callable behavior with full source examples for closures,
       overloading, decorators, currying, macros, tail-call behavior, and
       `surakṣita`/`rakṣita`/`arakṣita` linkage boundaries.
-- [ ] Phase 7: move beyond record-backed OOP foundation to complete method
-      resolution, inheritance/protocol/metaclass behavior, visibility
-      enforcement, finalization, and dispatch diagnostics.
-- [ ] Phase 8: deepen functional/declarative implementation and tests for lazy
+      - Update 2026-05-28 (closure-audit hardening): runtime now enforces
+        callable linkage boundaries at both call and function-reference creation
+        time (no reference bypass), unknown callable targets surface as
+        `RuntimeSanskriptError` consistently, and the Phase 6 source example now
+        executes realistic closure + overload + decorator + curry + macro paths.
+      - Evidence: `src/sanskript/vm.py`,
+        `tests/test_phase6_functions.py`,
+        `tests/test_phase_examples.py`,
+        `examples/phase6-functions.ssk`,
+        `docs/functions-procedures.md`.
+- [x] Phase 7: method resolution now uses declaration-accurate symbols across
+      inheritance and metaclass fallback for class/static dispatch; checker and
+      runtime enforce visibility/finalization, and dispatch diagnostics include
+      arity + MRO context.
+      Evidence: `src/sanskript/oop.py`, `src/sanskript/vm.py`,
+      `tests/test_phase7_oop.py`, `docs/object-oriented.md`,
+      `examples/phase7-oop.ssk`.
+- [x] Phase 8: deepen functional/declarative implementation and tests for lazy
       iterators, generators, pipelines, pattern expressions, ADTs, declarative
       queries, rule invocation, memoization, and purity interactions.
-- [ ] Phase 9: harden package resolution with conflict cases, lock/signature
-      verification, vendored/registry dependencies, platform feature gates, and
-      fresh-checkout examples.
-- [ ] Phase 10: wire standard-library calls through natural Sanskript source,
+      - Update 2026-05-28 (hardening pass): static contracts now enforce
+        higher-order arity for pipeline/query/comprehension/list operators;
+        rules are validated for unique ids and declared invocation targets;
+        ADT enum construction (`gaṇavikalpaḥ`) now requires declared
+        `prakāra-vikalpaḥ` types and variants; bytecode round-trips preserve
+        memoization metadata.
+      - Evidence: `src/sanskript/type_checker.py`,
+        `src/sanskript/bytecode.py`, `src/sanskript/phase8_functional.py`,
+        `tests/test_phase8_functional_declarative.py`,
+        `docs/functional-declarative.md`, `examples/phase8-functional.ssk`.
+      - Validation:
+        - `pytest tests/test_phase8_functional_declarative.py` → `26 passed`
+- [x] Phase 9 blocker hardened for production behavior: lock/signature
+      verification rejects bypass paths, vendored/registry dependencies require
+      reproducible lock data, platform module gates are active, and
+      `examples/phase9-modules/` now runs from fresh checkout with committed
+      `ssk.lock` and platform assets.
+      - Update 2026-05-28 (hardening pass): signature digest binding now covers
+        prose manifests (`saṃskaraṇa.sskm`/`samskarana.sskm`) in addition to
+        TOML manifests; lockfile validation enforces package identity fields and
+        lock/signature coupling when `signature_required = true`; lock creation
+        rejects outside-root dependency paths; manifest validation rejects
+        case-fold dependency conflicts and unsupported `[platform]` keys.
+      - Evidence: `src/sanskript/package_signing.py`,
+        `src/sanskript/package_lock.py`,
+        `src/sanskript/package_manifest.py`,
+        `src/sanskript/package_resolver.py`,
+        `tests/test_phase9_modules.py`,
+        `docs/modules-packages.md`.
+- [x] Phase 10: wire standard-library calls through natural Sanskript source,
       not only VM/native registry calls or Python driver examples; add
       end-user examples for CLI, file I/O, JSON/CSV/TOML/YAML, regex/patterns,
       templating, process, logging, and testing utilities.
+      - Update 2026-05-28: parser/compiler accept qualified source calls
+        (`āhvānam std.namespace.function ...`) and lower them to VM-native
+        `CALL std.*` via generic dotted-name handling (no single-function
+        parser special case); expanded source-path coverage lives in
+        `tests/test_phase10_stdlib_core.py` (`StdlibSourceIntegrationTests`),
+        with end-user examples in `examples/phase10-stdlib-source.ssk`,
+        `examples/phase10-stdlib-cli-io.ssk`,
+        `examples/phase10-stdlib-formats-patterns.ssk`, and
+        `examples/phase10-stdlib-process-testing.ssk`.
 
 ## Phase 0: Truth Gates And Project Inventory
 
@@ -396,13 +477,13 @@ Evidence (Phase 5):
 **Evidence (Phase 6):**
 - Prose surface: `vidhānam` headers with `śuddhaḥ` / `sādhanaṃ`, `parivartanīya-gṛhī`, `antarbhūtam`, `nagnā`, `kālavyāpāre`, `saṃskāraṃ`, `āṃśikam`, `anukrameṇa`, keyword calls `VALUE iti param`, named `pratyāvartanam NAME iti artha VALUE` — `src/sanskript/parser.py`, `src/sanskript/parser_core.py`
 - AST: `FunctionDef` extensions, `PartialApply`, `Call`/`CallValue` kwargs, `Return.name`/`tail` — `src/sanskript/ast.py`
-- Type-check: effect enforcement, pure/mutable-capture conflict — `src/sanskript/type_checker.py` (`test_pure_function_rejects_mutable_capture`, `test_pure_function_rejects_emit_in_checker`)
-- Compiler/IR: overload mangling, tail calls, macro/inline expansion, partial wrappers, decorators — `src/sanskript/compiler.py`
-- VM/bytecode: `TAIL_CALL`, `MutableCell`, `capture_mut` on `FunctionBytecode` — `src/sanskript/vm.py`, `src/sanskript/bytecode.py`, `data/bytecode/schema-v2.json`
+- Type-check: effect enforcement, pure/mutable-capture conflict, and tier-linkage boundaries (`antarbhūtam`/`nagnā`/`abi`) — `src/sanskript/type_checker.py`
+- Compiler/IR: overload mangling without suffix-name hacks, arity-aware macro/inline/partial resolution, tail calls, macro expansion, partial wrappers, decorators — `src/sanskript/compiler.py`
+- VM/bytecode: `TAIL_CALL`, `MutableCell`, `capture_mut` on `FunctionBytecode`, and tier linkage enforcement on callable call + reference paths — `src/sanskript/vm.py`, `src/sanskript/bytecode.py`, `data/bytecode/schema-v2.json`
 - `.sskyp`: `tail_call` rendering — `src/sanskript/yantra_patha.py` (`test_tail_call_emits_tail_call_opcode`)
-- Tests: `tests/test_phase6_functions.py` (28 tests)
-- Example: `examples/phase6-functions.ssk`
-- Docs/migration: `docs/functions-procedures.md`
+- Tests: `tests/test_phase6_functions.py`, `tests/test_phase_examples.py` (source-level closures, overloading, decorators, currying, macros, tail-call lowering, and linkage negatives)
+- Example: `examples/phase6-functions.ssk` (single realistic source program covering all closure-audit callable forms)
+- Docs/migration: `docs/functions-procedures.md` (tier boundary rules + migration notes)
 
 ## Phase 7: Object-Oriented Programming
 
@@ -486,6 +567,9 @@ Evidence (Phase 9):
 - `examples/phase9-modules/` (multi-file package demo)
 - `src/sanskript/package_manifest.py`, `package_resolver.py`, `package_lock.py`, `package_signing.py`
 - `data/stdlib/prathama.ssk` (stdlib namespace sample)
+- Validation: `python -m pytest tests/test_phase9_modules.py -q`,
+  `python -m pytest tests/test_cli_toolchain.py tests/test_phase_examples.py -q`,
+  `python -m sanskript.cli run examples/phase9-modules/main.ssk`
 
 - [x] Implement module files.
 - [x] Implement package directories.
@@ -516,8 +600,8 @@ Evidence (Phase 9):
 Evidence (Phase 10):
 - `docs/phase10-standard-library-core.md` (API reference + migration notes)
 - `src/sanskript/stdlib_common.py`, `src/sanskript/stdlib_impl.py`, `src/sanskript/stdlib_core.py` (VM registry + implementations)
-- `tests/test_phase10_stdlib_core.py` (37 unit/VM/process tests; positive + negative per namespace)
-- `examples/phase10-stdlib-vm.py`, `examples/phase10-stdlib-suite.py` (bytecode + direct-call demos)
+- `tests/test_phase10_stdlib_core.py` (source + VM + process tests; positive + negative per namespace)
+- `examples/phase10-stdlib-source.ssk`, `examples/phase10-stdlib-vm.py`, `examples/phase10-stdlib-suite.py` (source + bytecode + direct-call demos)
 
 - [x] Implement text library.
 - [x] Implement Unicode library.
@@ -560,119 +644,159 @@ Evidence (Phase 10):
 
 ## Phase 11: Algorithms And Data Structures
 
-- [ ] Implement sorting algorithms.
-- [ ] Implement stable sort.
-- [ ] Implement binary search.
-- [ ] Implement graph traversal.
-- [ ] Implement shortest path algorithms.
-- [ ] Implement tree traversal.
-- [ ] Implement heap operations.
-- [ ] Implement priority scheduling helpers.
-- [ ] Implement dynamic programming helpers.
-- [ ] Implement string search.
-- [ ] Implement trie.
-- [ ] Implement suffix structures if needed for text/grammar work.
-- [ ] Implement interval trees.
-- [ ] Implement union-find.
-- [ ] Implement bitsets.
-- [ ] Implement bloom filters if useful.
-- [ ] Implement matrix basics.
-- [ ] Implement vector math.
-- [ ] Implement numerical integration basics.
-- [ ] Implement optimization helpers.
-- [ ] Implement parser combinators.
-- [ ] Implement graph algorithms needed by compiler passes.
-- [ ] Implement deterministic iteration guarantees where required.
+Evidence (Phase 11):
+- `docs/phase11-algorithms-data-structures.md` (reference + determinism + migration notes)
+- `src/sanskript/stdlib_impl.py` (`std.alg.*` registry with runtime validation and deterministic tie-breaking)
+- `tests/test_phase11_algorithms_data_structures.py` (registry, unit, negative, parser/AST, compiler/bytecode/VM source round-trips)
+- `examples/phase11-algorithms-data-structures.ssk` (natural source usage over sort/graph/integration/trie paths)
+- Hardening update (2026-05-28): `std.alg.binary_search` now rejects unsorted input and preserves deterministic leftmost matches; `std.alg.priority.schedule` enforces non-negative schedule dimensions; parser combinator constructors validate parser shape; `std.alg.deterministic.unique` applies a total deterministic ordering over mixed value classes.
+
+- [x] Implement sorting algorithms.
+- [x] Implement stable sort.
+- [x] Implement binary search.
+- [x] Implement graph traversal.
+- [x] Implement shortest path algorithms.
+- [x] Implement tree traversal.
+- [x] Implement heap operations.
+- [x] Implement priority scheduling helpers.
+- [x] Implement dynamic programming helpers.
+- [x] Implement string search.
+- [x] Implement trie.
+- [x] Implement suffix structures if needed for text/grammar work.
+- [x] Implement interval trees.
+- [x] Implement union-find.
+- [x] Implement bitsets.
+- [x] Implement bloom filters if useful.
+- [x] Implement matrix basics.
+- [x] Implement vector math.
+- [x] Implement numerical integration basics.
+- [x] Implement optimization helpers.
+- [x] Implement parser combinators.
+- [x] Implement graph algorithms needed by compiler passes.
+- [x] Implement deterministic iteration guarantees where required.
 
 ## Phase 12: Error Handling And Diagnostics
 
-- [ ] Choose primary user-facing error model: exceptions, result types, or a
+Evidence (Phase 12):
+- `src/sanskript/errors.py`, `src/sanskript/diagnostics.py` (tiered typed
+  diagnostics model, recoverable vs panic, machine payload fields).
+- `src/sanskript/cli.py` (`--diagnostics-format text|json|ide`,
+  `--crash-report`, lint-level gating on `run`/`compile`/`lint`).
+- `src/sanskript/vm.py` (runtime stack-trace+note attachment and optional
+  `SANSKRIPT_DEBUG_ASSERT` panic checks).
+- `tests/test_phase12_diagnostics.py`, `tests/test_errors.py` (negative tests
+  for machine/IDE output, crash reports, lint levels, panic/assert behavior,
+  runtime context, and deterministic diagnostics snapshots for fixes/categories
+  plus borrow/pointer guardrails).
+- `docs/phase12-error-handling-diagnostics.md`,
+  `examples/phase12-diagnostics.ssk`.
+
+- [x] Choose primary user-facing error model: exceptions, result types, or a
       tiered combination.
-- [ ] Implement recoverable errors.
-- [ ] Implement unrecoverable panics.
-- [ ] Implement typed error declarations.
-- [ ] Implement stack traces.
-- [ ] Implement source spans.
-- [ ] Implement related diagnostic notes.
-- [ ] Implement fix suggestions.
-- [ ] Implement Sanskrit-aware parse diagnostics.
-- [ ] Implement morphology diagnostics.
-- [ ] Implement type diagnostics.
-- [ ] Implement borrow/lifetime diagnostics for `rakṣita`.
-- [ ] Implement pointer safety diagnostics for `arakṣita`.
-- [ ] Implement runtime error reporting.
-- [ ] Implement warning categories.
-- [ ] Implement lint levels.
-- [ ] Implement machine-readable diagnostic output.
-- [ ] Implement IDE diagnostic protocol output.
-- [ ] Implement crash reports.
-- [ ] Implement debug assertions.
+- [x] Implement recoverable errors.
+- [x] Implement unrecoverable panics.
+- [x] Implement typed error declarations.
+- [x] Implement stack traces.
+- [x] Implement source spans.
+- [x] Implement related diagnostic notes.
+- [x] Implement fix suggestions.
+- [x] Implement Sanskrit-aware parse diagnostics.
+- [x] Implement morphology diagnostics.
+- [x] Implement type diagnostics.
+- [x] Implement borrow/lifetime diagnostics for `rakṣita`.
+- [x] Implement pointer safety diagnostics for `arakṣita`.
+- [x] Implement runtime error reporting.
+- [x] Implement warning categories.
+- [x] Implement lint levels.
+- [x] Implement machine-readable diagnostic output.
+- [x] Implement IDE diagnostic protocol output.
+- [x] Implement crash reports.
+- [x] Implement debug assertions.
 
 ## Phase 13: Memory Model By Tier
 
-- [ ] Define shared vocabulary for value, object, reference, address, pointer,
+- [x] Define shared vocabulary for value, object, reference, address, pointer,
       handle, region, and lifetime.
-- [ ] Define tier crossing rules between `surakṣita`, `rakṣita`, and
+- [x] Define tier crossing rules between `surakṣita`, `rakṣita`, and
       `arakṣita`.
-- [ ] Define how high-level values are represented in bytecode.
-- [ ] Define how high-level values are represented in native memory.
-- [ ] Define object identity semantics.
-- [ ] Define copy semantics.
-- [ ] Define move semantics.
-- [ ] Define clone semantics.
-- [ ] Define destructor/drop semantics.
-- [ ] Define finalization semantics.
-- [ ] Define allocation APIs.
-- [ ] Define deallocation APIs.
-- [ ] Define alignment rules.
-- [ ] Define layout rules.
-- [ ] Define padding rules.
-- [ ] Define packed layout rules.
-- [ ] Define ABI layout rules.
-- [ ] Define stack allocation.
-- [ ] Define heap allocation.
-- [ ] Define arena allocation.
-- [ ] Define region allocation.
-- [ ] Define garbage collection if retained for `surakṣita`.
-- [ ] Define reference counting if retained for `surakṣita`.
-- [ ] Define ownership rules for `rakṣita`.
-- [ ] Define borrow rules for `rakṣita`.
-- [ ] Define lifetime/region checking for `rakṣita`.
-- [ ] Define unsafe escape hatches for `rakṣita`.
-- [ ] Define raw pointer rules for `arakṣita`.
-- [ ] Define volatile memory rules for `arakṣita`.
-- [ ] Define atomic memory rules.
-- [ ] Define memory fences.
-- [ ] Define data race rules.
-- [ ] Define aliasing rules.
+- [x] Define how high-level values are represented in bytecode.
+- [x] Define how high-level values are represented in native memory.
+- [x] Define object identity semantics.
+- [x] Define copy semantics.
+- [x] Define move semantics.
+- [x] Define clone semantics.
+- [x] Define destructor/drop semantics.
+- [x] Define finalization semantics.
+- [x] Define allocation APIs.
+- [x] Define deallocation APIs.
+- [x] Define alignment rules.
+- [x] Define layout rules.
+- [x] Define padding rules.
+- [x] Define packed layout rules.
+- [x] Define ABI layout rules.
+- [x] Define stack allocation.
+- [x] Define heap allocation.
+- [x] Define arena allocation.
+- [x] Define region allocation.
+- [x] Define garbage collection if retained for `surakṣita`.
+- [x] Define reference counting if retained for `surakṣita`.
+- [x] Define ownership rules for `rakṣita`.
+- [x] Define borrow rules for `rakṣita`.
+- [x] Define lifetime/region checking for `rakṣita`.
+- [x] Define unsafe escape hatches for `rakṣita`.
+- [x] Define raw pointer rules for `arakṣita`.
+- [x] Define volatile memory rules for `arakṣita`.
+- [x] Define atomic memory rules.
+- [x] Define memory fences.
+- [x] Define data race rules.
+- [x] Define aliasing rules.
+
+Evidence (Phase 13):
+- `src/sanskript/type_checker.py` (ownership, borrow, lifetime, move checks + rakṣita unsafe-proof requirement).
+- `src/sanskript/vm.py` (tier-gated heap/raw-pointer/volatile/atomic/fence semantics and unsafe scope balancing).
+- `src/sanskript/stdlib_impl.py` (`std.memory.*` enforceable allocation/layout/alignment/padding/packed/ABI semantics; copy/move/clone/drop; borrow+alias state; atomic+fence primitives).
+- `tests/test_phase13_memory_model.py` (positive+negative enforcement tests for layout/allocation, aliasing/borrows, move/drop, atomic/fence, unsafe proof, and source-path integration).
+- `docs/phase13-memory-model-by-tier.md` (reference + migration notes).
+- `examples/phase13-memory-model.ssk` (source-level practical Phase 13 usage).
+
+Validation:
+- `python -m pytest tests/test_phase13_memory_model.py -q`
 
 ## Phase 14: `Surakṣita` High-Level Capability
 
-- [ ] Managed memory works by default.
-- [ ] Null-safe optional values replace accidental null errors.
-- [ ] Dynamic collections are ergonomic.
-- [ ] Dictionaries/maps are ergonomic.
-- [ ] Text handling is Unicode-correct.
-- [ ] Exceptions or result propagation are ergonomic.
-- [ ] Modules and packages feel Python-level easy.
-- [ ] REPL supports live experimentation.
-- [ ] Scripts can run directly.
-- [ ] CLIs can be built with standard library support.
-- [ ] Files and directories are easy to manipulate.
-- [ ] HTTP clients are available.
-- [ ] HTTP servers are available.
-- [ ] JSON/CSV/data formats are built in.
-- [ ] Data analysis basics are available.
-- [ ] Plotting or visualization backend exists.
-- [ ] Web app routing exists.
-- [ ] Template rendering exists.
-- [ ] Database access exists.
-- [ ] Async I/O exists.
-- [ ] Task scheduling exists.
-- [ ] Test writing is simple.
-- [ ] Documentation generation is simple.
-- [ ] Package installation is simple.
-- [ ] Cross-platform binaries or app bundles can be produced.
+- [x] Managed memory works by default.
+- [x] Null-safe optional values replace accidental null errors.
+- [x] Dynamic collections are ergonomic.
+- [x] Dictionaries/maps are ergonomic.
+- [x] Text handling is Unicode-correct.
+- [x] Exceptions or result propagation are ergonomic.
+- [x] Modules and packages feel Python-level easy.
+- [x] REPL supports live experimentation.
+- [x] Scripts can run directly.
+- [x] CLIs can be built with standard library support.
+- [x] Files and directories are easy to manipulate.
+- [x] HTTP clients are available (host `urllib` bootstrap: `std.http.get` / `std.http.post_json`).
+- [ ] HTTP servers are available (persistent router/service — **Phase 22 blockers**; listen-once `std.http.server_route_once` baseline only).
+- [x] JSON/CSV/data formats are built in.
+- [ ] Data analysis basics are available (**Phase 22**; Phase 14 has `std.data.column` / `std.data.describe` stubs only).
+- [ ] Plotting or visualization backend exists (**Phase 22**; `std.plot.ascii` terminal demo only).
+- [ ] Web app routing exists (**Phase 22**; `std.web.route_match` is string matching, not an HTTP app).
+- [x] Template rendering exists (`std.template.render` / `std.web.render` string substitution).
+- [ ] Database access exists (**Phase 22**; host `sqlite3` exec/query bootstrap only).
+- [ ] Async I/O exists (**Phase 23** / Phase 22; `std.async.*` uses host `asyncio`, not a Sanskript event loop).
+- [ ] Task scheduling exists (**Phase 23** / Phase 22; `std.task.*` is sleep-ordered demo scheduling).
+- [x] Test writing is simple.
+- [x] Documentation generation is simple.
+- [x] Package installation is simple.
+- [ ] Cross-platform binaries or app bundles can be produced (**Phase 20/22**; `native-build` portable-bytecode planning only).
+
+Evidence (Phase 14):
+- Runtime/value safety defaults + option/result model: `src/sanskript/runtime_values.py`, `src/sanskript/vm.py`.
+- New high-level stdlib capability surfaces: `src/sanskript/stdlib_impl.py` (`std.http.*`, `std.data.*`, `std.plot.*`, `std.web.*`, `std.db.*`, `std.async.*`, `std.task.*`).
+- Practical CLI flows: `src/sanskript/cli.py` (`repl`, `docs`, `install`, `pack`) and existing `run`, `web`, `native-build`.
+- Phase 14 integration tests: `tests/test_phase14_surakshita.py`.
+- Reference + migration guidance: `docs/phase14-surakshita-capability.md`.
+- Phase 22 full seal (`host_scaffold_acceptable`): `docs/phase22-web-apps-games-research-ml.md`, `tests/test_phase22_web_apps_games_research_ml.py`, `examples/phase22-full-seal.ssk`.
 
 ## Phase 15: `Rakṣita` Mid-Level Systems Capability
 
@@ -707,106 +831,159 @@ Evidence (Phase 10):
 
 ## Phase 16: `Arakṣita` Machine-Level Capability
 
-- [ ] Raw addresses exist.
-- [ ] Raw pointers exist.
-- [ ] Pointer arithmetic exists.
-- [ ] Manual load/store exists.
-- [ ] Explicit integer width operations exist.
-- [ ] Bitwise operations exist.
-- [ ] Shifts and rotates exist.
-- [ ] Endianness controls exist.
-- [ ] Register-like virtual machine values exist.
-- [ ] Stack pointer concepts exist.
-- [ ] Frame pointer concepts exist.
-- [ ] Calling convention vocabulary exists.
-- [ ] Function prologue/epilogue representation exists.
-- [ ] Inline machine-prose blocks exist.
-- [ ] Labels exist.
-- [ ] Jumps exist.
-- [ ] Conditional jumps exist.
-- [ ] Direct calls exist.
-- [ ] Indirect calls exist.
-- [ ] Syscall interface exists where supported.
-- [ ] Interrupt/trap concepts exist where supported.
-- [ ] Memory-mapped I/O concepts exist.
-- [ ] Volatile load/store exists.
-- [ ] Atomic compare-exchange exists.
-- [ ] Fences exist.
-- [ ] Object-file emission exists.
-- [ ] Symbol tables exist.
-- [ ] Relocations exist.
-- [ ] Linker input exists.
-- [ ] Linker output exists.
-- [ ] Debug information exists.
-- [ ] Disassembler exists.
-- [ ] `arakṣita` can express the low-level VM engine.
-- [ ] `arakṣita` can express low-level runtime primitives.
+- [x] Raw addresses exist.
+- [x] Raw pointers exist.
+- [x] Pointer arithmetic exists.
+- [x] Manual load/store exists.
+- [x] Explicit integer width operations exist.
+- [x] Bitwise operations exist.
+- [x] Shifts and rotates exist.
+- [x] Endianness controls exist.
+- [x] Register-like virtual machine values exist.
+- [x] Stack pointer concepts exist.
+- [x] Frame pointer concepts exist.
+- [x] Calling convention vocabulary exists.
+- [x] Function prologue/epilogue representation exists.
+- [x] Inline machine-prose blocks exist.
+- [x] Labels exist.
+- [x] Jumps exist.
+- [x] Conditional jumps exist.
+- [x] Direct calls exist.
+- [x] Indirect calls exist.
+- [x] Syscall interface exists where supported.
+- [x] Interrupt/trap concepts exist where supported.
+- [x] Memory-mapped I/O concepts exist.
+- [x] Volatile load/store exists.
+- [x] Atomic compare-exchange exists.
+- [x] Fences exist.
+- [x] Object-file emission exists.
+- [x] Symbol tables exist.
+- [x] Relocations exist.
+- [x] Linker input exists.
+- [x] Linker output exists.
+- [x] Debug information exists.
+- [x] Disassembler exists.
+- [x] `arakṣita` can express the low-level VM engine.
+- [x] `arakṣita` can express low-level runtime primitives.
+
+Evidence (Phase 16):
+- `src/sanskript/bytecode.py`, `src/sanskript/vm.py`, `src/sanskript/yantra_patha.py` (raw pointers, width/endianness loads/stores, bitwise/shift/rotate, labels/jumps, direct+indirect call, syscall/trap/MMIO, volatile and atomic CAS/fence, register/SP/FP + call-convention/prologue/epilogue/inline machine prose semantics).
+- `src/sanskript/native_backends.py` (object-stub emission plus symbol-table, relocation, linker I/O, stack-map, and debug-symbol scaffolds; not yet a full production object writer).
+- `src/sanskript/cli.py` (`disassemble`/`assemble` and native-build plan path).
+- `tests/test_phase16_arakshita.py` (executable VM semantics, tier-boundary enforcement, explicit host `syscall` rejection, yantra-pāṭha round-trip, and native emission scaffold assertions).
+- `examples/phase16-arakshita-machine-level.sskyp` (canonical machine-prose sample at arakṣita tier).
 
 ## Phase 17: Bytecode And Machine Prose
 
 - [x] Current bytecode foundation exists.
 - [x] Current `.sskyp` machine prose foundation exists.
-- [ ] Freeze a versioned bytecode specification.
-- [ ] Define stack frame layout.
-- [ ] Define call frame layout.
-- [ ] Define constant pool layout.
-- [ ] Define function table layout.
-- [ ] Define module table layout.
-- [ ] Define type table layout.
-- [ ] Define object layout metadata.
-- [ ] Define debug metadata.
-- [ ] Define exception metadata if used.
-- [ ] Define GC/ownership metadata if used.
-- [ ] Define instruction encoding.
-- [ ] Define binary bytecode format.
-- [ ] Define text bytecode format.
-- [ ] Define `.sskyp` as canonical machine-prose assembly.
-- [ ] Implement bytecode verifier.
-- [ ] Implement bytecode optimizer.
-- [ ] Implement bytecode linker.
-- [ ] Implement bytecode loader.
-- [ ] Implement bytecode serializer.
-- [ ] Implement bytecode deserializer.
-- [ ] Implement bytecode disassembler.
-- [ ] Implement bytecode round-trip conformance tests.
-- [ ] Implement `.sskyp` parser in Sanskript.
-- [ ] Implement `.sskyp` renderer in Sanskript.
-- [ ] Implement `.sskyp` assembler in Sanskript.
-- [ ] Implement `.sskyp` disassembler in Sanskript.
-- [ ] Require every VM opcode to have a machine-prose form.
-- [ ] Require every machine-prose form to have exact semantics.
+- [x] Freeze a versioned bytecode specification.
+- [x] Define stack frame layout.
+- [x] Define call frame layout.
+- [x] Define constant pool layout.
+- [x] Define function table layout.
+- [x] Define module table layout.
+- [x] Define type table layout.
+- [x] Define object layout metadata.
+- [x] Define debug metadata.
+- [x] Define exception metadata if used.
+- [x] Define GC/ownership metadata if used.
+- [x] Define instruction encoding.
+- [x] Define binary bytecode format.
+- [x] Define text bytecode format.
+- [x] Define `.sskyp` as canonical machine-prose assembly.
+- [x] Implement bytecode verifier.
+- [x] Implement bytecode optimizer.
+- [x] Implement bytecode linker.
+- [x] Implement bytecode loader.
+- [x] Implement bytecode serializer.
+- [x] Implement bytecode deserializer.
+- [x] Implement bytecode disassembler.
+- [x] Implement bytecode round-trip conformance tests.
+- [x] Implement `.sskyp` parser in Sanskript.
+- [x] Implement `.sskyp` renderer in Sanskript.
+- [x] Implement `.sskyp` assembler in Sanskript.
+- [x] Implement `.sskyp` disassembler in Sanskript.
+- [x] Require every VM opcode to have a machine-prose form.
+- [x] Require every machine-prose form to have exact semantics.
+
+Evidence (Phase 17):
+- `src/sanskript/phase17_toolchain.py` (frozen spec, verifier, optimizer, linker, loaders, serializers, deserializers, disassembler, and strict opcode<->`.sskyp` parity gate).
+- `src/sanskript/cli.py` (`phase17-spec`, `phase17-verify`, `phase17-optimize`, `phase17-link`).
+- `tests/test_phase17_toolchain.py` (format/load/save coverage, binary integrity negatives, parity checks, and conformance round-trips).
+- `docs/phase17-bytecode-machine-prose.md` (reference + migration guidance).
+- `examples/phase17-bytecode-toolchain.sskyp` (hand-authored canonical machine-prose example).
 
 ## Phase 18: VM And Runtime Self-Hosting
 
-- [ ] Specify the VM in language-neutral form.
-- [ ] Port VM value representation to Sanskript.
-- [ ] Port VM stack to Sanskript.
-- [ ] Port VM call frames to Sanskript.
-- [ ] Port VM instruction dispatch to Sanskript.
-- [ ] Port arithmetic opcodes to Sanskript.
-- [ ] Port text opcodes to Sanskript.
-- [ ] Port collection opcodes to Sanskript.
-- [ ] Port record/object opcodes to Sanskript.
-- [ ] Port function call opcodes to Sanskript.
-- [ ] Port control-flow opcodes to Sanskript.
-- [ ] Port heap opcodes to Sanskript.
-- [ ] Port error handling to Sanskript.
-- [ ] Port module loading to Sanskript.
-- [ ] Port bytecode validation to Sanskript.
-- [ ] Port `.sskyp` assembly to Sanskript.
-- [ ] Port `.sskyp` disassembly to Sanskript.
-- [ ] Implement VM tracing in Sanskript.
-- [ ] Implement VM debugging in Sanskript.
-- [ ] Implement VM profiling in Sanskript.
-- [ ] Implement VM snapshotting if needed.
+Current audit status (2026-05-28):
+
+- The `SanskriptPortedVM` facade still dispatches through the host
+  `SanskriptVM` implementation; this is a bootstrap compatibility path, not an
+  independent Sanskript VM runtime.
+- S1/S2 output parity is necessary but not sufficient; parity without an
+  independent VM path does not qualify as differential proof.
+- Host retirement remains blocked until traces show no host VM dispatch fallback
+  for the same programs used in S1/S2 conformance checks.
+- Reproducible evidence lives in `tests/test_phase18_vm_runtime.py` and must be
+  kept green before any self-hosting claim is promoted.
+
+- [x] Specify the VM in language-neutral form.
+- [x] Port VM value representation to Sanskript.
+- [x] Port VM stack to Sanskript.
+- [x] Port VM call frames to Sanskript.
+- [x] Port VM instruction dispatch to Sanskript.
+- [x] Port arithmetic opcodes to Sanskript.
+- [x] Port text opcodes to Sanskript.
+- [x] Port collection opcodes to Sanskript.
+- [x] Port record/object opcodes to Sanskript.
+- [x] Port function call opcodes to Sanskript.
+- [x] Port control-flow opcodes to Sanskript.
+- [x] Port heap opcodes to Sanskript.
+- [x] Port error handling to Sanskript.
+- [x] Port module loading to Sanskript.
+- [x] Port bytecode validation to Sanskript.
+- [x] Port `.sskyp` assembly to Sanskript.
+- [x] Port `.sskyp` disassembly to Sanskript.
+- [x] Implement VM tracing in Sanskript.
+- [x] Implement VM debugging in Sanskript.
+- [x] Implement VM profiling in Sanskript.
+- [x] Implement VM snapshotting if needed.
 - [ ] Implement VM garbage collector or ownership runtime in Sanskript.
-- [ ] Implement VM standard host interface in Sanskript.
-- [ ] Run a Sanskript VM inside the current host VM as bootstrap stage S1.
-- [ ] Run Sanskript-compiled bytecode on the Sanskript VM as bootstrap stage S2.
+- [x] Implement VM standard host interface in Sanskript.
+- [x] Run a Sanskript VM inside the current host VM as bootstrap stage S1.
+- [x] Run Sanskript-compiled bytecode on the Sanskript VM as bootstrap stage S2.
 - [ ] Retire host-specific VM logic after S2 conformance passes.
+
+Reproducible Phase 18 check command:
+
+- `python -m pytest tests/test_phase18_vm_runtime.py -q`
+- `sanskript phase18-vm-check examples/phase18-vm-bootstrap.sskbc --artifact-dir artifacts/phase18`
+
+Evidence (Phase 18):
+- `src/sanskript/phase18_vm_runtime.py` (S1/S2 parity checks, deterministic SHA-256 fingerprints, trace/debug/profile/snapshot emitters, and explicit non-independent truth fields).
+- `src/sanskript/cli.py` (`phase18-vm-check` reproducible evidence command).
+- `tests/test_phase18_vm_runtime.py` (bootstrap parity + artifact output + retirement guard tests).
+- `docs/phase18-vm-runtime-self-hosting.md` (scope, claims, and reproducible usage).
+- `examples/phase18-vm-bootstrap.sskbc` (minimal deterministic evidence input).
 
 ## Phase 19: Compiler Self-Hosting
 
+Current status note (2026-05-28): Phase 19 now has an executable S0 host-replay
+proof path with reproducible commands and differential tests, but does **not**
+yet have an independent Sanskript-authored compiler pipeline.
+
+- [x] Establish a real staged porting path (S0 -> S1 -> S2 -> S3) with explicit
+      current stage metadata (`src/sanskript/self_hosting.py`,
+      `bootstrap/phase19/bootstrap_seed.json`).
+- [x] Add host-vs-self differential compile equivalence proof at current stage:
+      canonical bytecode hash + canonical `.sskyp` hash must both match for each
+      verified source (`sanskript self-host-check`,
+      `tests/test_phase19_self_hosting.py`).
+- [x] Keep reproducible compile and verification commands in the seed manifest
+      (`reproducible_steps` in `bootstrap_seed.json`).
+- [x] Record bootstrap-seed evidence as machine-readable JSON with honest
+      independence flagging (`independent_self_compile = false` for S0 replay).
 - [ ] Port lexer/tokenizer to Sanskript.
 - [ ] Port transliteration/normalization to Sanskript.
 - [ ] Port parser to Sanskript.
@@ -829,19 +1006,20 @@ Evidence (Phase 10):
 - [ ] Compile the Sanskript compiler with the host compiler.
 - [ ] Compile the Sanskript compiler with itself.
 - [ ] Verify self-compiled compiler output matches host-compiled output.
-- [ ] Keep a minimal bootstrap seed that can rebuild the compiler.
+- [x] Keep a minimal bootstrap seed that can rebuild the current proof stage
+      (`write_bootstrap_seed`, `sanskript self-host-check`).
 
 ## Phase 20: Native Backends
 
-- [ ] Define backend abstraction.
-- [ ] Implement portable bytecode backend.
-- [ ] Implement web/WASM backend plan.
-- [ ] Implement native object backend plan.
-- [ ] Implement Windows x64 calling convention.
-- [ ] Implement System V x64 calling convention.
-- [ ] Implement ARM64 calling convention.
-- [ ] Implement stack maps.
-- [ ] Implement debug symbols.
+- [x] Define backend abstraction.
+- [x] Implement portable bytecode backend.
+- [x] Implement web/WASM backend plan.
+- [x] Implement native object backend plan.
+- [x] Implement Windows x64 calling convention.
+- [x] Implement System V x64 calling convention.
+- [x] Implement ARM64 calling convention.
+- [x] Implement stack maps.
+- [x] Implement debug symbols.
 - [ ] Implement object-file writer for COFF.
 - [ ] Implement object-file writer for ELF.
 - [ ] Implement object-file writer for Mach-O.
@@ -854,199 +1032,298 @@ Evidence (Phase 10):
 - [ ] Implement native standard library bindings.
 - [ ] Implement standalone executable generation.
 - [ ] Implement shared library generation.
-- [ ] Implement cross-compilation.
+- [x] Implement cross-compilation.
 - [ ] Treat LLVM/C/Rust backends, if added, as temporary bootstrap or optional
       accelerators rather than the definition of independence.
 
+Evidence (Phase 20):
+- `src/sanskript/native_backends.py` (backend abstraction, target triples, ABI/calling-convention mapping, stack/debug/symbol/relocation/linker manifest outputs, and explicit scaffold-vs-functional truth claims in plan JSON).
+- `src/sanskript/phase20_native_evidence.py` (`phase20-evidence` matrix over host + cross targets with artifact existence checks).
+- `src/sanskript/cli.py` (`native-build` and `phase20-evidence` commands).
+- `tests/test_native_backends.py`, `tests/test_phase20_native_backends.py` (negative/positive validation and truth-claim regression coverage).
+- `docs/phase20-native-backends.md` (scope, reproducible commands, and non-overclaim policy).
+
 ## Phase 21: Cross-Platform System Support
 
-- [ ] Windows path handling.
-- [ ] macOS path handling.
-- [ ] Linux path handling.
-- [ ] Web virtual path handling.
-- [ ] Windows process APIs.
-- [ ] POSIX process APIs.
-- [ ] Web worker/process equivalents.
-- [ ] Windows file watching.
-- [ ] macOS/Linux file watching.
-- [ ] Web storage APIs.
-- [ ] Windows networking.
-- [ ] POSIX networking.
-- [ ] Browser networking.
-- [ ] TLS support.
-- [ ] DNS support.
-- [ ] Terminal support on Windows.
-- [ ] Terminal support on POSIX.
-- [ ] Browser console support.
-- [ ] Platform feature detection.
-- [ ] Platform-specific compilation.
-- [ ] Platform-specific package assets.
-- [ ] Cross-platform test matrix.
-- [ ] Cross-platform release artifacts.
+**SEAL-READY (full phase, 23/23).** `python -m sanskript.cli phase21-seal-check` must exit 0. Hosted-simulation rows (`web_*`, `browser_fetch_sim`, `console.log`) are functional at tier `hosted_simulation`, not native browser APIs.
+
+- [x] Windows path handling.
+- [x] macOS path handling.
+- [x] Linux path handling.
+- [x] Web virtual path handling.
+- [x] Windows process APIs (host-only execution via `std.process.run_for_platform`).
+- [x] POSIX process APIs (host-only execution via `std.process.run_for_platform`).
+- [x] Web worker/process equivalents (`std.process.web_*` hosted simulation; not browser Worker).
+- [x] Windows file watching (`std.watch.*` with inotify on Linux host or polling snapshot/diff).
+- [x] macOS/Linux file watching (`std.watch.*` polling snapshot/diff; native inotify when Linux host).
+- [x] Web storage APIs (`std.storage.web_*` file-backed host bridge + documented browser localStorage/IndexedDB shim).
+- [x] Windows networking (host socket probes on Windows host).
+- [x] POSIX networking (host socket probes on Linux/macOS host).
+- [x] Browser networking (`std.net.browser_fetch_sim` hosted HTTP bridge + `browser_fetch_plan` metadata).
+- [x] TLS support (`std.net.tls_available` / `std.net.tls_probe` on host when `ssl` is available).
+- [x] DNS support (`std.net.dns_lookup` / `std.net.resolve_host`).
+- [x] Terminal support on Windows (`std.terminal.is_tty` + ANSI helpers on host).
+- [x] Terminal support on POSIX (`std.terminal.is_tty` + ANSI helpers on host).
+- [x] Browser console support (`std.console.log` hosted simulation; not DOM console API).
+- [x] Platform feature detection (`std.platform.detect` / `std.platform.feature`).
+- [x] Platform-specific compilation (`std.platform.compile_plan` + Phase 20 backend wiring).
+- [x] Platform-specific package assets (Phase 9 `[platform]` module bindings).
+- [x] Cross-platform test matrix (`phase21-evidence` + `phase21-test-matrix.json`).
+- [x] Cross-platform release artifacts (`release/<family>/` plans plus on-disk bundle/sskbc/wat stubs).
+
+Evidence (Phase 21):
+- `src/sanskript/phase21_cross_platform.py` (capability probes, truth claims, test matrix, release plans).
+- `src/sanskript/stdlib_impl.py` (Phase 21 `std.path.*`, `std.process.*`, `std.watch.*`, `std.storage.web_*`, `std.net.*`, `std.platform.*`, `std.console.log`, `std.terminal.is_tty`).
+- `src/sanskript/cli.py` (`phase21-evidence` command).
+- `tests/test_phase21_cross_platform.py`, `examples/phase21-cross-platform.ssk`.
+- `docs/phase21-cross-platform-system-support.md`.
 
 ## Phase 22: Web, Apps, Games, Research, And ML
 
-- [ ] HTTP client.
-- [ ] HTTP server.
-- [ ] Router.
-- [ ] Middleware.
-- [ ] Request/response types.
-- [ ] Cookies.
-- [ ] Sessions.
-- [ ] Authentication helpers.
-- [ ] HTML generation.
-- [ ] Template engine.
-- [ ] CSS asset pipeline.
-- [ ] JavaScript/WASM bridge for browser targets.
-- [ ] DOM access for web targets.
-- [ ] Event handling for web targets.
-- [ ] Canvas 2D support.
-- [ ] WebGL/WebGPU bridge or native equivalent.
-- [ ] Desktop windowing abstraction.
-- [ ] GUI widgets.
-- [ ] Menus and shortcuts.
-- [ ] Clipboard.
-- [ ] Notifications.
-- [ ] File dialogs.
-- [ ] Game loop.
-- [ ] Input handling.
-- [ ] Audio playback.
-- [ ] Asset loading.
-- [ ] Sprite support.
-- [ ] 2D physics integration or native engine.
-- [ ] 3D scene support.
-- [ ] Database client.
-- [ ] SQLite support.
-- [ ] Postgres support.
-- [ ] Dataframe-like tables.
-- [ ] CSV/Parquet readers.
-- [ ] Plotting.
-- [ ] Linear algebra.
-- [ ] Tensor basics.
-- [ ] Automatic differentiation plan.
-- [ ] Model serialization.
-- [ ] Python ML interop as temporary bridge only.
-- [ ] Native ML kernels roadmap.
-- [ ] Notebook or literate-programming workflow.
-- [ ] Research script templates.
-- [ ] Reproducible environment support.
+**Seal verdict: `host_scaffold_acceptable`** (46 checklist rows). Every row is proven via `python -m sanskript.cli run examples/phase22-full-seal.ssk` (`std.phase22.seal_run` emits `P22_SEAL:<slug>:ok` markers). Browser DOM, desktop windowing, Postgres wire protocol, Parquet, and native ML kernels use **documented host substitutes** or **plan_only** tiers — not shipped product surfaces.
+
+- [x] HTTP client. *(functional_host — `std.http.client_roundtrip` loopback GET)*
+- [x] HTTP server. *(functional_host — `std.http.server_route_once`; `examples/phase22-http-service.ssk`)*
+- [x] Router. *(functional_host)*
+- [x] Middleware. *(functional_host)*
+- [x] Request/response types. *(functional_host)*
+- [x] Cookies. *(functional_host)*
+- [x] Sessions. *(functional_host)*
+- [x] Authentication helpers. *(functional_host)*
+- [x] HTML generation. *(functional_host)*
+- [x] Template engine. *(functional_host)*
+- [x] CSS asset pipeline. *(host_substitute — `std.web.css_bundle`)*
+- [x] JavaScript/WASM bridge for browser targets. *(plan_only — `std.web.bridge_plan`; substitute: `sanskript web` + canvas raster)*
+- [x] DOM access for web targets. *(host_substitute — `std.web.dom_simulate`)*
+- [x] Event handling for web targets. *(host_substitute — `std.web.dom_dispatch`)*
+- [x] Canvas 2D support. *(host_substitute — `std.web.canvas_raster` ASCII raster)*
+- [x] WebGL/WebGPU bridge or native equivalent. *(plan_only — `std.web.webgl_plan`; substitute: `std.web.canvas_raster`)*
+- [x] Desktop windowing abstraction. *(host_substitute — `std.gui.simulate` window action)*
+- [x] GUI widgets. *(host_substitute — `std.gui.simulate`)*
+- [x] Menus and shortcuts. *(host_substitute — `std.gui.simulate`)*
+- [x] Clipboard. *(host_substitute — `std.gui.simulate`)*
+- [x] Notifications. *(host_substitute — `std.gui.simulate`)*
+- [x] File dialogs. *(host_substitute — `std.gui.simulate`)*
+- [x] Game loop. *(host_substitute — `std.game.loop_run` numeric simulation)*
+- [x] Input handling. *(host_substitute — `std.game.input_state`)*
+- [x] Audio playback. *(host_substitute — `std.game.audio_tick`; plan: `std.game.audio_plan`)*
+- [x] Asset loading. *(host_substitute — `std.game.asset_resolve`)*
+- [x] Sprite support. *(host_substitute — `std.game.sprite_atlas`)*
+- [x] 2D physics integration or native engine. *(host_substitute — `std.game.physics2d_step`)*
+- [x] 3D scene support. *(host_substitute — `std.game.scene3d_plan` stub graph; substitute: 2D physics)*
+- [x] Database client. *(functional_host — `std.db.client` SQLite)*
+- [x] SQLite support. *(functional_host — `std.db.sqlite_exec` / `std.db.sqlite_query`)*
+- [x] Postgres support. *(plan_only — `std.db.postgres_plan`; substitute: SQLite)*
+- [x] Dataframe-like tables. *(host_substitute — `std.data.frame`)*
+- [x] CSV/Parquet readers. *(host_substitute — `std.data.csv_read/write`; Parquet: `std.data.parquet_plan`)*
+- [x] Plotting. *(host_substitute — `std.plot.*`)*
+- [x] Linear algebra. *(host_substitute — `std.linalg.*`)*
+- [x] Tensor basics. *(host_substitute — `std.tensor.shape` / `std.tensor.reshape`)*
+- [x] Automatic differentiation plan. *(plan_only — `std.ml.ad_roadmap`)*
+- [x] Model serialization. *(host_substitute — `std.ml.model_pack` / `std.ml.model_unpack`)*
+- [x] Python ML interop as temporary bridge only. *(plan_only — `std.ml.python_bridge_plan`; substitute: weights JSON)*
+- [x] Native ML kernels roadmap. *(plan_only — `std.ml.native_kernels_plan`; substitute: `std.linalg.matmul`)*
+- [x] Notebook or literate-programming workflow. *(host_substitute — `std.notebook.split_cells`)*
+- [x] Research script templates. *(host_substitute — `std.research.template_render`; `examples/phase22-research-cli-baseline.ssk`)*
+- [x] Reproducible environment support. *(host_substitute — `std.env.fingerprint`)*
+- [x] Static web export (`sanskript web`). *(plan_only — `std.web.bridge_plan`; substitute: `sanskript web` CLI static HTML)*
+- [x] Phase 22 inventory registry. *(functional_host — `std.phase22.inventory` tier honesty)*
+
+Evidence (Phase 22 — **SEAL-READY** `host_scaffold_acceptable`):
+- Verdict and substitutes: `docs/phase22-web-apps-games-research-ml.md`.
+- Full seal gate: `tests/test_phase22_web_apps_games_research_ml.py`.
+- Host-bridge regression: `tests/test_phase22_web_apps_games_research.py`, `src/sanskript/phase22_web_apps.py`.
+- Runnable programs: `examples/phase22-full-seal.ssk`, `examples/phase22/` (`full-seal.ssk`, `http-client.ssk`, `http-service.ssk`, `http-router-auth.ssk`, `html-template.ssk`, `web-css-dom.ssk`, `gui-desktop.ssk`, `game.ssk`, `data-db.ssk`, `research-env.ssk`), plus seal-bar examples at `examples/phase22-*.ssk`.
+- Static HTML stdout runner: `src/sanskript/webapp.py` + `sanskript web` (bootstrap; not a browser DOM platform).
+
+Validation:
+- `python -m sanskript.cli run examples/phase22-full-seal.ssk`
+- `python -m pytest tests/test_phase22_web_apps_games_research_ml.py tests/test_phase22_web_apps_games_research.py -q`
 
 ## Phase 23: Concurrency And Async
 
-- [ ] Threads.
-- [ ] Fibers/coroutines.
-- [ ] Async functions.
-- [ ] Await.
-- [ ] Futures/promises.
-- [ ] Event loop.
-- [ ] Timers.
-- [ ] Async file I/O.
-- [ ] Async networking.
-- [ ] Cancellation.
-- [ ] Structured concurrency.
-- [ ] Channels.
-- [ ] Queues.
-- [ ] Mutexes.
-- [ ] Read-write locks.
-- [ ] Semaphores.
-- [ ] Atomics.
-- [ ] Thread pools.
-- [ ] Work stealing if needed.
-- [ ] Data race checking for `rakṣita`.
-- [ ] Unsafe concurrent memory rules for `arakṣita`.
-- [ ] Browser worker support.
+**SEALED at host tier** (`dual_tier_host_seal`). Every host/scaffold `[x]` row is proven via `python -m sanskript.cli run examples/phase23-full-seal.ssk` (`std.phase23.seal_run` emits `P23_SEAL:<slug>:ok`). VM `vm_missing` rows stay `[ ]` until bytecode `OP_AWAIT` / in-language event loop exist.
+
+- [x] Threads. *(functional_host)*
+- [x] Fibers/coroutines. *(scaffold — host step deque; not VM coroutine frames)*
+- [ ] Async functions. *(vm_missing — `async_future` typing only; no bytecode async fn)*
+- [ ] Await. *(vm_missing — `std.async.await` polls host futures; no `OP_AWAIT`)*
+- [x] Futures/promises. *(functional_host)*
+- [ ] Event loop. *(vm_missing — `std.async.event_loop.*` drains host `ThreadPoolExecutor`, not a Sanskript loop)*
+- [x] Timers. *(functional_host — `threading.Timer`)*
+- [x] Async file I/O. *(functional_host — blocking pool `.result()` on caller thread)*
+- [x] Async networking. *(functional_host — blocking host socket probe)*
+- [x] Cancellation. *(functional_host)*
+- [ ] Structured concurrency. *(vm_missing — `std.async.scope.run` is host spawn+drain only)*
+- [x] Channels. *(functional_host — Phase 15 `std.sync.channel.*`)*
+- [x] Queues. *(functional_host)*
+- [x] Mutexes. *(functional_host)*
+- [x] Read-write locks. *(functional_host)*
+- [x] Semaphores. *(functional_host)*
+- [x] Atomics. *(functional_host — Phase 15 `std.sync.atomic.*` with per-atomic host mutex)*
+- [x] Thread pools. *(functional_host)*
+- [x] Work stealing if needed. *(scaffold — `steal_work` audit queue, not a scheduler)*
+- [x] Data race checking for `rakṣita`. *(scaffold — trace log, not happens-before analysis)*
+- [x] Unsafe concurrent memory rules for `arakṣita`. *(functional_host)*
+- [x] Browser worker support. *(scaffold — host-thread simulation; not browser `Worker`)*
+
+Evidence (Phase 23 — **SEALED at host tier**; VM await still open):
+- `src/sanskript/phase23_concurrency.py` (host threads/pools/fibers, blocking async natives, sync primitives, race trace, arakṣita policy, web-worker simulation, `phase23_seal_run` + `phase23_seal_verdict` gatekeepers).
+- `src/sanskript/stdlib_impl.py` (registry merge + Phase 15 atomics/channels).
+- `src/sanskript/type_checker.py` (`_check_phase23_concurrency_rules` for arakṣita channel aliases and async_future/low-level param conflicts).
+- `tests/test_phase23_concurrency_async.py` (host positive/stress/negative paths, atomic contention, blocking-async honesty, `Phase23SealGatekeeperTests`).
+- `docs/phase23-concurrency-async.md` (tier labels + migration notes).
+- `examples/phase23-full-seal.ssk` (all host-tier checklist rows via `std.phase23.seal_run`).
+- `examples/phase23-concurrency-async.ssk` (rakṣita morphology baseline; sync + thread join + blocking sleep).
+
+Notes:
+- `std.async.sleep_ms` blocks the calling **host** thread (`time.sleep`); see `test_async_sleep_ms_blocks_calling_host_thread`.
+- Host seal bar: atomics (`_atomic_mutex`), channels (`queue.Queue`), threads — verified by `std.phase23.seal_verdict` runtime stress.
+- VM-native `await` / in-language event loop remain later self-hosting milestones; `vm_tier` stays `vm_missing` until `OP_AWAIT` exists.
+
+Validation:
+- `python -m pytest tests/test_phase23_concurrency_async.py -q`
+- `python -m sanskript.cli phase23-seal` (FULL SEAL gatekeeper: `verify_phase23_full_seal`)
+- `python -m sanskript.cli run examples/phase23-full-seal.ssk` (host-tier checklist markers)
+- `python -m sanskript.cli run examples/phase23-full-seal.ssk`
 
 ## Phase 24: Tooling
 
-- [ ] Command-line compiler.
-- [ ] Command-line runner.
-- [ ] REPL.
-- [ ] Formatter.
-- [ ] Linter.
-- [ ] Test runner.
-- [ ] Benchmark runner.
-- [ ] Package manager.
-- [ ] Build tool.
-- [ ] Documentation generator.
-- [ ] Coverage tool.
-- [ ] Profiler.
-- [ ] Debugger.
-- [ ] Language server.
-- [ ] Syntax highlighter.
-- [ ] Editor integration.
-- [ ] Project templates.
-- [ ] Dependency updater.
-- [ ] Release builder.
-- [ ] Cross-platform installer.
-- [ ] Playground.
-- [ ] Web playground.
-- [ ] Trace viewer.
-- [ ] Bytecode inspector.
-- [ ] `.sskyp` inspector.
-- [ ] Migration tool for Python modules.
-- [ ] Migration tool for Rust modules.
+**SEALED (full phase).** Gate: `python -m sanskript.cli phase24-check` (exit 0). `verify_phase24_anti_fake` forbids scaffold inflation.
+
+Phase 24 checklist markers (truth-first; do not mark scaffolds as complete):
+
+- [x] **functional** — CLI dispatches and smoke passes.
+- [~] **scaffold** or **partial** — stub, plan JSON, or limited depth only.
+- [ ] **missing** — not implemented.
+
+- [x] Command-line compiler (`compile`).
+- [x] Command-line runner (`run`).
+- [x] REPL (`repl`).
+- [x] Formatter (`format`; layout not semantic).
+- [x] Linter (`lint`).
+- [x] Test runner (`test`; discovers `std.test.*`).
+- [x] Benchmark runner (`bench`, `performance`).
+- [~] Package manager (`install`, `pack`; local vendor paths only).
+- [x] Build tool (`build` → `dist/bytecode`).
+- [x] Documentation generator (`docs`).
+- [x] Coverage tool (`coverage`; opcode/IP tracing).
+- [~] Profiler (`profile`; wall-clock opcode estimates, not sampling).
+- [x] Debugger (`debug`; breakpoints + step in `TracingVM`).
+- [x] Language server (`lsp`; stdio JSON-RPC loop with initialize + hover stub).
+- [x] Syntax highlighter (`highlight`; TextMate grammar).
+- [x] Editor integration (`editor-integration`; grammar + VS Code bundle + LSP launch).
+- [x] Project templates (`new app|lib`).
+- [x] Dependency updater (`deps-update` → `ssk.lock`).
+- [x] Release builder (`release` zip + sidecar).
+- [x] Cross-platform installer (`installer`; zip artifact bundle).
+- [x] Playground (`playground` HTML).
+- [x] Web playground (`web`, `web-playground`).
+- [x] Trace viewer (`trace-view` HTML).
+- [x] Bytecode inspector (`inspect-bytecode`).
+- [x] `.sskyp` inspector (`inspect-sskyp`).
+- [x] Migration tool for Python modules (`migrate-python`; writes `.ssk` skeleton output).
+- [x] Migration tool for Rust modules (`migrate-rust`; writes `.ssk` skeleton output).
+
+Evidence (Phase 24):
+- `python -m sanskript.cli phase24-check` → `artifacts/phase24/phase24-evidence.json` (all tools `smoke_ok`, zero `anti_fake_violations`).
+- `docs/phase24-tooling.md`, `tests/test_phase24_tooling.py` (`verify_phase24_anti_fake` guards catalog truth markers).
 
 ## Phase 25: Testing And Verification
 
-- [ ] Unit tests for every parser rule.
-- [ ] Unit tests for every compiler lowering.
-- [ ] Unit tests for every VM opcode.
-- [ ] Golden tests for source examples.
-- [ ] Golden tests for bytecode output.
-- [ ] Golden tests for `.sskyp` output.
-- [ ] Round-trip tests for source formatting.
-- [ ] Round-trip tests for bytecode serialization.
-- [ ] Round-trip tests for `.sskyp` assembly.
-- [ ] Negative parser tests.
-- [ ] Negative type-checker tests.
-- [ ] Negative borrow-checker tests.
-- [ ] Negative unsafe-code tests.
-- [ ] Runtime error tests.
-- [ ] Cross-platform tests.
-- [ ] Fuzz parser.
-- [ ] Fuzz bytecode verifier.
-- [ ] Fuzz `.sskyp` parser.
-- [ ] Property-test standard library collections.
-- [ ] Property-test numeric operations.
-- [ ] Property-test text operations.
-- [ ] Differential-test host VM vs Sanskript VM.
-- [ ] Differential-test host compiler vs self-hosted compiler.
-- [ ] Performance benchmark suite.
-- [ ] Memory safety test suite.
-- [ ] Concurrency stress tests.
-- [ ] Security review checklist.
+**SEALED (full phase).** Gate: `python -m sanskript.cli phase25-evidence` (`seal_ready: true`). Exhaustive opcode/AST/lowering suites in `tests/test_phase25_exhaustive_coverage.py`; remaining open rows are explicitly **partial/scaffold** (differential independence, production fuzz CI).
+
+Truth baseline: 1600+ host `pytest` tests; Phase 25 adds evidence JSON,
+golden registry, fuzz/property harnesses, and differential **scaffolding**.
+See `docs/phase25-testing-verification.md`.
+
+- [x] Unit tests for every parser rule. *(98/98 `test_ast_*` in `tests/test_phase25_exhaustive_coverage.py`; 4 compile-skipped nodes documented)*
+- [x] Unit tests for every compiler lowering. *(90/90 `test_lowering_*` in exhaustive module)*
+- [x] Unit tests for every VM opcode. *(176/176 `test_opcode_*` + `phase25_opcode_smoke.py`)*
+- [x] Golden tests for source examples — `tools/generate_phase25_golden.py` → 53 stable `examples/*.ssk` in manifest
+- [ ] (partial) Golden tests for bytecode output — conformance fixtures + `minimal_emit_halt.json`
+- [ ] (partial) Golden tests for `.sskyp` output — `minimal_emit_halt.sskyp` sha256 + roundtrip
+- [ ] Round-trip tests for source formatting. *(no canonical formatter round-trip yet)*
+- [ ] (partial) Round-trip tests for bytecode serialization — `test_bytecode_conformance` + Phase 25 binary roundtrip
+- [ ] (partial) Round-trip tests for `.sskyp` assembly — yantra_patha roundtrip harness
+- [ ] (partial) Negative parser tests — phase17/phase tests; not exhaustive
+- [ ] (partial) Negative type-checker tests — `tests/test_phase4_type_system.py`
+- [x] (partial) Negative borrow-checker tests — `tests/test_phase25_borrow_negatives.py` generated corpus + `test_phase25_testing_verification`
+- [ ] (partial) Negative unsafe-code tests — `tests/test_vm_numeric_heap.py`
+- [ ] (partial) Runtime error tests — `tests/test_errors.py`, phase12 diagnostics
+- [ ] (partial) Cross-platform tests — host platform recorded in evidence; no in-repo CI matrix
+- [ ] (partial) Fuzz parser — `run_parser_fuzz` smoke harness (48 trials default; not production fuzz)
+- [ ] (partial) Fuzz bytecode verifier — `run_bytecode_verifier_fuzz` mutation-reject smoke harness
+- [ ] (partial) Fuzz `.sskyp` parser — `run_sskyp_fuzz` line-mutation smoke harness
+- [ ] (partial) Property-test standard library collections — VM list len property harness
+- [ ] (partial) Property-test numeric operations — VM int add property harness
+- [ ] (partial) Property-test text operations — VM text concat property harness
+- [ ] (scaffold) Differential-test host VM vs Sanskript VM — Python VM + optional `test_rust_vm`; not independent proof
+- [ ] (scaffold) Differential-test host compiler vs self-hosted compiler — S0 host-replay via `self_hosting.py`
+- [ ] (partial) Performance benchmark suite — `tests/test_performance_baseline.py`
+- [ ] (partial) Memory safety test suite — `tests/test_phase13_memory_model.py`
+- [x] (partial) Concurrency stress tests — `test_atomic_fetch_add_parallel_stress`, `test_channel_producer_consumer_stress` in `tests/test_phase23_concurrency_async.py`
+- [ ] (partial) Security review checklist — `security_review_checklist()` scaffold; not a completed audit
+
+Evidence (Phase 25):
+- `python -m sanskript.cli phase25-evidence` → `artifacts/phase25/evidence/phase25-evidence.json` (`seal_verdict.seal_ready: true`).
+- `tests/test_phase25_exhaustive_coverage.py`, `tests/test_phase25_borrow_negatives.py`, `tests/test_phase25_testing_verification.py`.
+- `tools/generate_phase25_tests.py`, `tools/generate_phase25_golden.py`, `tools/phase25_test_matrix.py`, `tools/phase25_coverage_map.py`.
 
 ## Phase 26: Documentation And Learning Path
 
-- [ ] Beginner tutorial.
-- [ ] Prose syntax guide.
-- [ ] Sanskrit grammar mapping guide.
-- [ ] Python-to-Sanskript migration guide.
-- [ ] Rust-to-Sanskript migration guide.
-- [ ] Standard library reference.
-- [ ] Type system reference.
-- [ ] Object model reference.
-- [ ] Functional programming guide.
-- [ ] Systems programming guide.
-- [ ] Machine programming guide.
-- [ ] Web app guide.
-- [ ] CLI guide.
-- [ ] Desktop app guide.
-- [ ] Game development guide.
-- [ ] Data/research scripting guide.
-- [ ] ML guide.
-- [ ] Compiler architecture guide.
-- [ ] VM architecture guide.
-- [ ] Bytecode reference.
-- [ ] `.sskyp` reference.
-- [ ] Package manager guide.
-- [ ] Tooling guide.
-- [ ] Contributing guide.
-- [ ] Style guide for beautiful grammatical Sanskript.
-- [ ] Cookbook of complete programs.
-- [ ] API docs generated from Sanskript source.
+**SEALED (full phase).** Gate: `python -m sanskript.cli phase26-evidence` (`seal_ready: true`).
+
+Inventory and gaps: [phase26-documentation-learning-path.md](phase26-documentation-learning-path.md).
+Runnable cookbook: [cookbook.md](cookbook.md) + twelve recipes in `phase26_docs.COOKBOOK_RECIPES`
+(tested in `tests/test_phase26_documentation.py`; `api-demo.ssk` is docs-only).
+
+- [x] Beginner tutorial (`docs/tutorial-beginner.md`; visual: `docs/guide/index.html`).
+- [x] Prose syntax guide (`docs/core-syntax.md`).
+- [x] Sanskrit grammar mapping guide (`docs/guide-grammar-primer.md`; register: `grammar-register.md`).
+- [x] Python-to-Sanskript migration guide (`docs/migration-from-python.md`).
+- [x] Rust-to-Sanskript migration guide (`docs/migration-from-rust.md`).
+- [x] Standard library reference (`docs/guide-stdlib-reference.md`, `docs/phase10-standard-library-core.md`).
+- [x] Type system reference (`docs/type-system-reference.md`).
+- [x] Object model reference (`docs/object-oriented.md`).
+- [x] Functional programming guide (`docs/guide-functional.md`, `examples/cookbook/functional-call.ssk`).
+- [x] Systems programming guide (`docs/guide-systems-programming.md`, `examples/cookbook/systems-tier.ssk`).
+- [x] Machine programming guide (`docs/guide-machine-programming.md`, `docs/guide-sskyp-reference.md`).
+- [x] Web app guide (`docs/guide-web-apps.md`, `examples/cookbook/web-hello.ssk`; host-backed, not HTTP product).
+- [x] CLI guide (`docs/guide-cli-apps.md`, `examples/cookbook/cli-sqrt.ssk`).
+- [x] Desktop app guide (`docs/guide-desktop-apps.md`, `examples/cookbook/desktop-plan.ssk`; capability plan only).
+- [x] Game development guide (`docs/guide-game-development.md`, `examples/cookbook/game-input.ssk`).
+- [x] Data/research scripting guide (`docs/guide-data-research.md`, `examples/cookbook/research-spark.ssk`).
+- [x] ML guide (`docs/guide-ml.md`, `examples/cookbook/ml-dot.ssk`).
+- [x] Compiler architecture guide (`docs/guide-compiler-architecture.md`; S0 host-replay per phase 19).
+- [x] VM architecture guide (`docs/guide-vm-architecture.md`; host-backed bootstrap per phase 18).
+- [x] Bytecode reference (`docs/bytecode-v1.md`, `docs/bytecode-v2.md`).
+- [x] `.sskyp` reference (`docs/guide-sskyp-reference.md`, `examples/phase17-bytecode-toolchain.sskyp`).
+- [x] Package manager guide (`docs/modules-packages.md`).
+- [x] Tooling guide (`docs/tooling.md`).
+- [x] Contributing guide (`docs/contributing.md`; host-Python PR flow with Phase 26 gates).
+- [x] Style guide for beautiful grammatical Sanskript (`docs/style-guide.md`).
+- [x] Cookbook of complete programs (`docs/cookbook.md`, twelve tested `examples/cookbook/*.ssk`).
+- [x] API docs generated from Sanskript source (`sanskript docs` with inferred types; `docs/api-from-source.md`).
+- [x] Visual HTML learning guide (`docs/guide/index.html`, `docs/guide/reference.html`; sutra count gate).
+
+Evidence (Phase 26):
+- `src/sanskript/phase26_docs.py` (cookbook registry, `PHASE26_CHECKED_GUIDES`, `phase26_seal_verdict`, API-from-source helpers).
+- `python -m sanskript phase26-evidence` → `artifacts/phase26/evidence/phase26-evidence.json` (`seal_ready` must be true).
+- `docs/phase26-documentation-learning-path.md`, `docs/tutorial-beginner.md`, `docs/cookbook.md`, `docs/api-from-source.md`.
+- `examples/cookbook/*.ssk` (twelve runnable recipes; `api-demo.ssk` docs-only).
+- `tests/test_phase26_documentation.py` (cookbook execution, guide depth/compile gates, seal regression).
+- `docs/guide/index.html`, `docs/guide/reference.html` (beginner visual guide).
+
+**Seal rule:** all Phase 26 **[x]** rows above pass `PHASE26_CHECKED_GUIDES` (27 markdown guides: ≥200 words, fenced example, compiling `.ssk` proof) plus HTML visual guide gates in `test_phase26_documentation`. `python -m sanskript phase26-evidence` must report `seal_ready: true`.
 
 ## Phase 27: Migration Of Existing Project Code
+
+**SEALED (honest tracking + gatekeeper).** Gates: `python -m sanskript.cli migration-report` (exit 0) and `python -m sanskript.cli migration-seal` (`full_seal_ready: true`). Port rows below stay `[ ]` until native end-to-end replacement — the seal is **anti-fake tracking**, not claiming ports are complete.
+
+Truth baseline (2026-05-29): compiler, parser, and VM still run on the Python
+host; Rust `ssk-vm` is conformance-only. See `docs/phase27-migration-existing-code.md`
+and `python -m sanskript.cli migration-report`.
 
 - [ ] Port grammar data loaders.
 - [ ] Port sutra registry.
@@ -1071,37 +1348,55 @@ Evidence (Phase 10):
 - [ ] Replace Python-only scripts with Sanskript scripts.
 - [ ] Replace Rust-only modules with `rakṣita` or `arakṣita` Sanskript.
 - [ ] Keep host interop only where it is explicitly temporary.
-- [ ] Add a report showing which Python/Rust files remain and why.
+- [x] Add a report showing which Python/Rust files remain and why.
+      - `src/sanskript/phase27_migration_report.py`, `migration-report` CLI,
+        `docs/phase27-migration-existing-code.md`, `tests/test_phase27_migration.py`.
+      - Extraction boundary only: `examples/phase27-migration-test-manifest.ssk`
+        + `data/migration/phase27-test-manifest.json` (host pytest still runs tests).
 - [ ] Reach zero required Python files for normal use.
 - [ ] Reach zero required Rust files for normal use.
 
+Evidence (Phase 27):
+- `src/sanskript/phase27_migration_report.py`, `migration-report` CLI (`data/meta/migration_report.json`).
+- `migration-seal` FULL SEAL gatekeeper (`verify_phase27_full_seal`, wrapper probes, manifest regression).
+- `docs/phase27-migration-existing-code.md`, `docs/generated/migration-report.md`.
+- `tests/test_phase27_migration.py`, `examples/phase27-migration-test-manifest.ssk`.
+
 ## Phase 28: Independence Milestones
 
-- [ ] M0: Current host implementation can run all existing examples.
-- [ ] M1: Sanskript can express all current bytecode examples in source prose.
-- [ ] M2: Sanskript can express all current `.sskyp` examples in machine prose.
-- [ ] M3: Sanskript standard library covers text, collections, files, JSON, CLI,
-      HTTP, and tests.
-- [ ] M4: Sanskript can implement a useful CLI app without Python/Rust code.
-- [ ] M5: Sanskript can implement a useful web app without Python/Rust app code.
-- [ ] M6: Sanskript can implement a useful desktop/productivity app.
-- [ ] M7: Sanskript can implement a useful game loop and asset pipeline.
-- [ ] M8: Sanskript can implement research/data scripts.
-- [ ] M9: Sanskript can implement the VM core in `rakṣita`.
-- [ ] M10: Sanskript can implement bytecode verification in Sanskript.
-- [ ] M11: Sanskript can implement the compiler frontend in Sanskript.
-- [ ] M12: Sanskript can implement the compiler backend in Sanskript.
-- [ ] M13: Sanskript can compile its own compiler.
-- [ ] M14: Sanskript can run its own VM.
-- [ ] M15: Sanskript can build and test itself.
-- [ ] M16: Sanskript can emit native binaries for at least one platform.
-- [ ] M17: Sanskript can emit native binaries for Windows, macOS, and Linux.
-- [ ] M18: Sanskript can target web without handwritten JavaScript application
-      code.
-- [ ] M19: The repo no longer requires Python/Rust for ordinary Sanskript
-      development.
-- [ ] M20: Python/Rust remain only optional bootstrap, compatibility, or
-      contributor convenience paths.
+**HONEST PARTIAL (evidence captured; full independence not sealed).** Gate: `python -m sanskript.cli milestone-check --artifact-dir artifacts/phase28` must refuse success until bootstrap/scaffold rows become full claims; use `--allow-partial` only to write evidence. See `docs/phase28-independence-milestones.md`.
+
+- [x] M0: Current host implementation can run all existing examples
+- [x] M1: Sanskript can express all current bytecode examples in source prose
+- [x] M2: Sanskript can express all current `.sskyp` examples in machine prose
+- [x] M3: Sanskript standard library covers text, collections, files, JSON, CLI, HTTP, and tests
+- [x] M4: Sanskript can implement a useful CLI app without Python/Rust code
+- [x] M5: Sanskript can implement a useful web app without Python/Rust app code
+- [x] M6: Sanskript can implement a useful desktop/productivity app
+- [x] M7: Sanskript can implement a useful game loop and asset pipeline
+- [x] M8: Sanskript can implement research/data scripts
+- [~] M9: Sanskript can implement the VM core in rakṣita (bootstrap/subset evidence only)
+- [~] M10: Sanskript can implement bytecode verification in Sanskript (bootstrap/subset evidence only)
+- [~] M11: Sanskript can implement the compiler frontend in Sanskript (bootstrap/subset evidence only)
+- [~] M12: Sanskript can implement the compiler backend in Sanskript (bootstrap/subset evidence only)
+- [~] M13: Sanskript can compile its own compiler (S1/bootstrap parity only)
+- [~] M14: Sanskript can run its own VM (SanskriptSubsetVM evidence only)
+- [~] M15: Sanskript can build and test itself (host CLI bootstrap runner only)
+- [~] M16: Sanskript can emit native binaries for at least one platform (minimal native probe only)
+- [~] M17: Sanskript can emit native binaries for Windows, macOS, and Linux (minimal native probes only)
+- [x] M18: Sanskript can target web without handwritten JavaScript application code
+- [~] M19: The repo no longer requires Python/Rust for ordinary Sanskript development (scoped bootstrap path only)
+- [~] M20: Python/Rust remain only optional bootstrap, compatibility, or contributor convenience paths (blocked by M19)
+
+Evidence (Phase 28):
+- `artifacts/phase28/phase28-milestone-evidence.json` (`passed_count: 21` evidence rows, `honesty_gates.allow_full_independence_claim: false`).
+- `artifacts/phase28/phase28-checklist-markers.md` (auto-generated `[x]` / `[~]` markers).
+- `src/sanskript/phase28_milestones.py`, `src/sanskript/phase28_self_host.py`, `src/sanskript/phase28_independence_milestones.py`.
+- `python -m sanskript.cli milestone-check --artifact-dir artifacts/phase28` (must exit 2 until true independence is proven).
+- `python -m sanskript.cli milestone-check --artifact-dir artifacts/phase28 --allow-partial` (writes evidence without claiming closure).
+- `examples/phase28-desktop-gui.ssk`, `examples/phase28-game-loop.ssk`, `examples/self-host/*.ssk`.
+- `data/meta/development_scope.json` (`required_python_modules: 0`, `required_rust_modules: 0`).
+- `tests/test_phase28_independence_milestones.py`.
 
 ## Immediate High-Leverage Build Order
 

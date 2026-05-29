@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "target": "x86_64-pc-windows-msvc",
+  "inputs": [
+    "program.*.o",
+    "symbols.json",
+    "relocations.json"
+  ],
+  "output_kind": "shared",
+  "outputs": [
+    "linked-image"
+  ]
+}

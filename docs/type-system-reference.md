@@ -76,8 +76,16 @@ Multiple `FunctionDef` nodes may share a logical name. `TypeChecker.resolve_over
 ## Lifetimes and regions (rakṣita)
 
 `LifetimeDecl` registers region names. `Bind(..., lifetime="a")` requires `rakṣita` or
-`arakṣita` tier. Lifetime checking records names; full borrow/lifetime diagnostics are
-deferred to rakṣita tooling.
+`arakṣita` tier. Borrow bindings now enforce lifetime compatibility with owners:
+
+- Borrow/borrow_mut must originate from a named reference.
+- Borrow lifetimes must be declared up front (`āyuḥ`) before use on bindings.
+- Mutable borrow is exclusive (no active shared/mutable borrows on the same owner).
+- Shared borrow is rejected while mutable borrow is active.
+- Borrow lifetime must match the owner's declared lifetime when both are explicit.
+- Borrow regions (when declared on both lifetimes) must match.
+- Borrow aliases are scope-bound: branch/loop-local borrows expire at scope exit.
+- Moved values cannot be borrowed or read again.
 
 ---
 
@@ -236,8 +244,7 @@ Declaring a `safe_ref` alias in `surakṣita` raises `TypeCheckError`.
 
 ## Ownership / borrow vocabulary
 
-Vocabulary is **defined** at this phase; borrow rule enforcement is deferred to the
-rakṣita tooling phase.
+Ownership and borrow diagnostics are enforced in the checker.
 
 | Annotation | Sanskrit | Meaning |
 |---|---|---|
@@ -245,9 +252,8 @@ rakṣita tooling phase.
 | `borrow` / `uddhāram` | uddhāram | shared immutable borrow |
 | `borrow_mut` / `parivartanīya-uddhāram` | parivartanīya-uddhāram | exclusive mutable borrow |
 
-`TypeChecker.env.ownership: dict[str, str]` records the annotation string for each binding.
-
-> [x] Ownership vocabulary defined. Borrow checker enforcement deferred to rakṣita tooling phase.
+`TypeChecker.env.ownership` records ownership mode, while the checker also tracks
+`moved`, `borrow_source`, and binding lifetimes to enforce move/borrow constraints.
 
 ---
 
@@ -258,9 +264,12 @@ rakṣita tooling phase.
 | `pure` / `śuddhaḥ` | śuddhaḥ | no observable side effects |
 | `effectful` / `sādhanaṃ` | sādhanaṃ | may perform I/O, mutation, etc. |
 
-Set via `FunctionDef.effect`. The checker records but does not enforce purity.
+Set via `FunctionDef.effect` and enforced:
 
-> [x] Effect annotations (śuddhaḥ / sādhanaṃ) defined. Enforcement deferred to effect-system phase.
+- Pure functions reject `darśanam`, heap ops, and mutable capture.
+- Pure functions cannot call effectful functions.
+- Pure functions cannot call unknown/untyped functions (cannot prove purity).
+- Pure functions reject class construction and class/instance/static method calls.
 
 ---
 
@@ -278,8 +287,13 @@ the local environment. Useful for dynamic dispatch and debugging.
 
 ## Async / future / generator / coroutine types
 
-These type forms are **defined** in the catalog and checker vocabulary. Full scheduling
-and execution engines are deferred to the async runtime phase.
+These forms are checked at the type-system layer:
+
+- `yield` is only valid in functions that type-check as `generator`/`coroutine`.
+- Declaring `generator`/`coroutine` return without `yield` is rejected.
+- `async_future` return cannot be mixed with `yield`.
+- `generator_new` requires a real generator function (not just catalog type names).
+- `generator_next` requires generator-typed operands.
 
 | Name | Sanskrit | Catalog ID |
 |---|---|---|
@@ -293,11 +307,40 @@ and execution engines are deferred to the async runtime phase.
 
 ## Class instance types
 
-Records serve as the class-instance substrate: `record_new`, `record_set`, `record_get`,
-`record_contains` opcodes implement single-dispatch via field lookup. Full class identity,
-methods, and metaclass behaviour are planned for Phase 7.
+Checker integration now validates class calls against function signatures:
 
-> [x] Class instance types — records as class instances documented. Full OOP deferred to Phase 7.
+- Constructor calls validate against `Class__init__` signatures when present.
+- Instance/static/class method calls resolve class-qualified overloads and enforce parameter types.
+- Method/property result bindings use declared/inferred return types instead of `unknown` placeholders.
+
+Runtime continues to use the record-backed class substrate while type-checking is now tied to
+actual callable definitions.
+
+Class type compatibility also follows inheritance metadata for call-site checks:
+subclass instances are accepted where a base-class parameter is declared.
+
+---
+
+## Enforcement hardening notes (2026-05-28)
+
+- `CallValue` now validates parameter types the same way as statement-level `Call`.
+- Higher-order/runtime helper invocation (`list_map`, generator resume, etc.) now
+  switches effect context to the callee function, so pure/effectful checks are enforced
+  by actual executing function effect, not caller metadata.
+- Borrow enforcement is no longer metadata-only:
+  - mutable borrows of immutable bindings are rejected,
+  - borrow aliases cannot be moved as owned values,
+  - borrows from unknown bindings are rejected immediately.
+- Effect enforcement now covers higher-order callbacks in pure functions:
+  `ListMap`/`ListFilter`/`ListReduce`/`ListAll`/`ListScan`/`ListAny`,
+  pipeline steps, `ResultBind`, and `DataQuery` callback names must resolve to
+  non-effectful callables in `śuddhaḥ` functions.
+- Async/generator typing is enforced beyond catalog names:
+  - `async_future` + `pure` is rejected,
+  - `generator_new` requires real yielding behavior (not just declared type text),
+  - `generator_next` now propagates inferred yield type to the value binding.
+- Class/type overload integration now supports typed suffix overload sets
+  (for example `add_f64`) while rejecting non-type suffix hacks (for example `sum_2`).
 
 ---
 
@@ -467,3 +510,41 @@ The following types have VM + yantra-pātha substrate complete as of Phase 3. Th
 ## Errors
 
 Failures raise `TypeCheckError` (`SANSKRIPT_TYPE`) with a short hint when available.
+
+---
+
+## Migration notes (Phase 4 hardening)
+
+- Programs that previously relied on ownership metadata only must now satisfy move/borrow
+  constraints (especially `owned` transfer and borrow exclusivity).
+- Pure (`śuddhaḥ`) functions must call only resolvable non-effectful functions.
+- Generator usage now requires actual yielding functions; catalog-only type declarations are
+  not enough for `utpādaka` construction/advancement.
+- Class-method type checking now depends on real class-qualified function signatures
+  (`Class__method` / constructor forms), so mismatched method arguments fail at type-check time.
+- Programs relying on permissive pure higher-order callbacks must now annotate and keep
+  callback functions pure to remain callable from `śuddhaḥ` contexts.
+- Async declarations using `async_future` must be migrated from `śuddhaḥ` to
+  `sādhanaṃ` effect annotations.
+
+## Migration notes (Phase 15 rakṣita systems)
+
+- `rakṣita` unsafe entry now requires proof text:
+  `arakṣitaḥ adhikāraḥ ārabhyate pramāṇam vākyam ... iti.`
+- Send/share paths should use values accepted by `std.thread.marker.send/share`.
+- FFI calls should move to `std.ffi.call_checked` and ABI shape validation through
+  `std.ffi.abi_stable_struct`.
+
+## Runnable proof (Phase 3 type surface)
+
+Source: [examples/phase3-data-types.ssk](../examples/phase3-data-types.ssk)
+
+```powershell
+$env:PYTHONPATH='src'
+python -m sanskript run examples/phase3-data-types.ssk
+python -m sanskript compile examples/phase3-data-types.ssk
+```
+
+The example exercises fixed-width numerics, optional/result ADTs, and collection carriers
+documented in the Phase 3 seal section above. Pair output expectations with
+`tests/test_phase3_data_types.py` when updating directives or VM tags.

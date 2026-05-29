@@ -5,11 +5,12 @@ from __future__ import annotations
 import os
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 
 from .comments import strip_comments
 from .learning_mode import LearningSettings, parse_learning_directive
 from .morphology_text import TOKEN_RE
-from .sandhi import join_words
+from .sandhi import split_joined_token_chain
 from .script_normalize import NormalizedSource, Script, normalize_to_iast
 
 _STRICT_DIRECTIVE = re.compile(
@@ -86,14 +87,28 @@ def _apply_sandhi_segmentation(text: str) -> str:
 def _split_token_at_sandhi(token: str) -> str:
     if len(token) < 6 or " " in token:
         return token
-    for split in range(2, len(token) - 1):
-        left, right = token[:split], token[split:]
-        if not left or not right:
-            continue
-        joined = join_words(left, right)
-        if joined.rule != "identity" and joined.value == token:
-            return f"{left} {right}"
-    return token
+    if _is_registered_surface(token):
+        return token
+    segmented = split_joined_token_chain(token, part_validator=_is_registered_surface)
+    if len(segmented) <= 1:
+        return token
+    return " ".join(segmented)
+
+
+@lru_cache(maxsize=1)
+def _strict_sandhi_facade():
+    from .morphology_facade import get_default_facade
+
+    return get_default_facade()
+
+
+def _is_registered_surface(token: str) -> bool:
+    facade = _strict_sandhi_facade()
+    try:
+        facade.analyze_token(token)
+    except Exception:
+        return False
+    return True
 
 
 __all__ = ["PreparedSource", "prepare_source"]

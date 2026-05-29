@@ -13,11 +13,14 @@ from sanskript.ast import (
     Call,
     CallValue,
     ClassDecl,
+    ClassNew,
     CompareEq,
     ConstDecl,
     Display,
     FloatLiteral,
     FunctionDef,
+    GeneratorNew,
+    GeneratorNext,
     GenericRecordDecl,
     If,
     LifetimeDecl,
@@ -33,6 +36,11 @@ from sanskript.ast import (
     TypeAliasDecl,
     TypeConvert,
     TypeReflect,
+    MethodCall,
+    StaticMethodCall,
+    Yield,
+    ListInit,
+    ListMap,
 )
 from sanskript.parser import parse_program
 from sanskript.compiler import compile_program
@@ -436,6 +444,14 @@ class Phase4TypeSystemTests(unittest.TestCase):
         )
         check_program(program)
 
+    def test_unknown_lifetime_is_rejected(self) -> None:
+        program = Program(
+            (Bind("x", Literal(1), lifetime="missing"),),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
     def test_linear_forbidden_in_surakshita(self) -> None:
         program = Program(
             (),
@@ -656,6 +672,236 @@ class Phase4TypeSystemTests(unittest.TestCase):
         right = PrimitiveType("i64")
         result = checker._promote_numeric(left, right)
         self.assertEqual(checker._type_name(result), "i64")
+
+    # ---------------------------------------------------------------------------
+    # Phase 4 blocker hardening: borrow/lifetime/effects/generator/class typing
+    # ---------------------------------------------------------------------------
+
+    def test_borrow_requires_named_reference(self) -> None:
+        program = Program(
+            (Bind("b", Literal(1), ownership="borrow"),),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_cannot_use_moved_value(self) -> None:
+        program = Program(
+            (
+                Bind("x", Literal(1), ownership="owned"),
+                Bind("y", Reference("x"), ownership="owned"),
+                Display(Reference("x")),
+            ),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_mutable_borrow_conflicts_with_shared_borrow(self) -> None:
+        program = Program(
+            (
+                Bind("x", Literal(1), ownership="owned"),
+                Bind("a", Reference("x"), ownership="borrow"),
+                Bind("b", Reference("x"), ownership="borrow_mut"),
+            ),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_cannot_move_borrow_alias(self) -> None:
+        program = Program(
+            (
+                Bind("x", Literal(1), ownership="owned"),
+                Bind("b", Reference("x"), ownership="borrow"),
+                Bind("m", Reference("b"), ownership="owned"),
+            ),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_mutable_borrow_of_immutable_binding_rejected(self) -> None:
+        program = Program(
+            (
+                Bind("x", Literal(1), immutable=True, ownership="owned"),
+                Bind("b", Reference("x"), ownership="borrow_mut"),
+            ),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_borrow_lifetime_must_match_owner_lifetime(self) -> None:
+        program = Program(
+            (
+                Bind("x", Literal(1), ownership="owned", lifetime="a"),
+                Bind("b", Reference("x"), ownership="borrow", lifetime="b"),
+            ),
+            lifetimes=(LifetimeDecl("a"), LifetimeDecl("b")),
+            safety_tier="rakshita",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_borrow_expires_after_branch_scope(self) -> None:
+        program = Program(
+            (
+                Bind("x", Literal(1), ownership="owned"),
+                If(
+                    CompareEq(Literal(1), Literal(1)),
+                    (Bind("tmp", Reference("x"), ownership="borrow"),),
+                    (),
+                ),
+                Assign("x", Literal(2)),
+            ),
+            safety_tier="rakshita",
+        )
+        check_program(program)
+
+    def test_pure_function_cannot_call_effectful_function(self) -> None:
+        eff = FunctionDef("io", (Display(Literal(1)),), effect="effectful")
+        pure = FunctionDef("f", (Call("io"),), effect="pure")
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(eff, pure)))
+
+    def test_pure_function_cannot_call_unknown_function(self) -> None:
+        pure = FunctionDef("f", (Call("mystery"),), effect="pure")
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(pure,)))
+
+    def test_pure_function_cannot_use_effectful_list_map_callback(self) -> None:
+        callback = FunctionDef("cb", (Display(Reference("x")),), params=("x",), effect="effectful")
+        pure = FunctionDef(
+            "pure_map",
+            (
+                ListInit("items"),
+                ListMap("out", "items", "cb"),
+            ),
+            effect="pure",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(callback, pure)))
+
+    def test_generator_new_requires_generator_function(self) -> None:
+        fn = FunctionDef("plain", (Return(Literal(1)),))
+        program = Program((GeneratorNew("g", "plain"),), functions=(fn,))
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_yield_requires_generator_or_coroutine_return(self) -> None:
+        fn = FunctionDef("bad", (Yield(Literal(1)),), return_type="i32")
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(fn,)))
+
+    def test_generator_return_type_requires_yield(self) -> None:
+        fn = FunctionDef("bad", (Return(Literal(1)),), return_type="generator")
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(fn,)))
+
+    def test_generator_next_requires_generator_type(self) -> None:
+        program = Program(
+            (
+                Assign("x", Literal(1)),
+                GeneratorNext("more", "val", "x"),
+            )
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_generator_next_propagates_inferred_yield_type(self) -> None:
+        gen = FunctionDef(
+            "g",
+            (Yield(Literal(7)),),
+            return_type="generator",
+        )
+        program = Program(
+            (
+                GeneratorNew("it", "g"),
+                GeneratorNext("more", "val", "it"),
+            ),
+            functions=(gen,),
+        )
+        checker = TypeChecker(program)
+        checker.check()
+        self.assertEqual(checker._type_name(checker.env.locals["val"]), "i32")
+
+    def test_async_future_function_cannot_be_pure(self) -> None:
+        fn = FunctionDef(
+            "later",
+            (Return(Literal(1)),),
+            return_type="async_future",
+            effect="pure",
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(Program((), functions=(fn,)))
+
+    def test_class_method_call_uses_declared_return_type(self) -> None:
+        program = Program(
+            statements=(
+                ClassNew("p", "Point", ()),
+                MethodCall("d", "p", "distance"),
+            ),
+            functions=(
+                FunctionDef(
+                    "Point__distance",
+                    (Return(Literal(42)),),
+                    params=("self",),
+                    return_type="i32",
+                ),
+            ),
+            classes=(
+                ClassDecl("Point", None, (), ("distance",)),
+            ),
+        )
+        checker = TypeChecker(program)
+        checker.check()
+        self.assertEqual(checker._type_name(checker.env.locals["d"]), "i32")
+
+    def test_callvalue_argument_type_mismatch_raises(self) -> None:
+        callee = FunctionDef(
+            "mk",
+            (Return(Literal(1)),),
+            params=("x",),
+            param_types=("i32",),
+            return_type="i32",
+        )
+        program = Program(
+            (Assign("v", CallValue("mk", (TextLiteral("bad"),))),),
+            functions=(callee,),
+        )
+        with self.assertRaises(TypeCheckError):
+            check_program(program)
+
+    def test_class_subtype_is_accepted_for_base_parameter(self) -> None:
+        accept_base = FunctionDef(
+            "takes_base",
+            (Return(Literal(1)),),
+            params=("x",),
+            param_types=("Base",),
+            return_type="i32",
+        )
+        program = Program(
+            statements=(
+                ClassNew("d", "Derived", ()),
+                StaticMethodCall("out", "Harness", "run", (Reference("d"),)),
+            ),
+            functions=(
+                accept_base,
+                FunctionDef(
+                    "Harness__static__run",
+                    (Return(CallValue("takes_base", (Reference("x"),))),),
+                    params=("x",),
+                    return_type="i32",
+                ),
+            ),
+            classes=(
+                ClassDecl("Base", None, (), ()),
+                ClassDecl("Derived", None, (), (), base_class="Base"),
+                ClassDecl("Harness", None, (), (), static_methods=("run",)),
+            ),
+        )
+        check_program(program)
 
 
 if __name__ == "__main__":

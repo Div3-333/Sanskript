@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "main": [
+    {
+      "ip": 0,
+      "stack_depth": 0
+    },
+    {
+      "ip": 1,
+      "stack_depth": 0
+    },
+    {
+      "ip": 2,
+      "stack_depth": 0
+    },
+    {
+      "ip": 3,
+      "stack_depth": 0
+    },
+    {
+      "ip": 4,
+      "stack_depth": 0
+    },
+    {
+      "ip": 5,
+      "stack_depth": 0
+    },
+    {
+      "ip": 6,
+      "stack_depth": 0
+    },
+    {
+      "ip": 7,
+      "stack_depth": 0
+    },
+    {
+      "ip": 8,
+      "stack_depth": 0
+    },
+    {
+      "ip": 9,
+      "stack_depth": 0
+    },
+    {
+      "ip": 10,
+      "stack_depth": 0
+    },
+    {
+      "ip": 11,
+      "stack_depth": 0
+    },
+    {
+      "ip": 12,
+      "stack_depth": 0
+    },
+    {
+      "ip": 13,
+      "stack_depth": 0
+    },
+    {
+      "ip": 14,
+      "stack_depth": 0
+    },
+    {
+      "ip": 15,
+      "stack_depth": 0
+    },
+    {
+      "ip": 16,
+      "stack_depth": 0
+    },
+    {
+      "ip": 17,
+      "stack_depth": 0
+    },
+    {
+      "ip": 18,
+      "stack_depth": 0
+    },
+    {
+      "ip": 19,
+      "stack_depth": 0
+    },
+    {
+      "ip": 20,
+      "stack_depth": 0
+    },
+    {
+      "ip": 21,
+      "stack_depth": 0
+    },
+    {
+      "ip": 22,
+      "stack_depth": 0
+    },
+    {
+      "ip": 23,
+      "stack_depth": 0
+    },
+    {
+      "ip": 24,
+      "stack_depth": 0
+    },
+    {
+      "ip": 25,
+      "stack_depth": 0
+    },
+    {
+      "ip": 26,
+      "stack_depth": 0
+    },
+    {
+      "ip": 27,
+      "stack_depth": 0
+    },
+    {
+      "ip": 28,
+      "stack_depth": 0
+    },
+    {
+      "ip": 29,
+      "stack_depth": 0
+    },
+    {
+      "ip": 30,
+      "stack_depth": 0
+    },
+    {
+      "ip": 31,
+      "stack_depth": 0
+    }
+  ],
+  "functions": {
+    "\u1e63a\u1e6dkam": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      }
+    ],
+    "yoga\u1e25_1": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      }
+    ],
+    "yoga\u1e25_2": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      },
+      {
+        "ip": 4,
+        "stack_depth": 0
+      },
+      {
+        "ip": 5,
+        "stack_depth": 0
+      }
+    ],
+    "tri-yoga": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      },
+      {
+        "ip": 4,
+        "stack_depth": 0
+      },
+      {
+        "ip": 5,
+        "stack_depth": 0
+      },
+      {
+        "ip": 6,
+        "stack_depth": 0
+      },
+      {
+        "ip": 7,
+        "stack_depth": 0
+      }
+    ],
+    "dvigu\u1e47ana": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      },
+      {
+        "ip": 4,
+        "stack_depth": 0
+      },
+      {
+        "ip": 5,
+        "stack_depth": 0
+      }
+    ],
+    "abhiv\u0101dana": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      },
+      {
+        "ip": 4,
+        "stack_depth": 0
+      },
+      {
+        "ip": 5,
+        "stack_depth": 0
+      },
+      {
+        "ip": 6,
+        "stack_depth": 0
+      },
+      {
+        "ip": 7,
+        "stack_depth": 0
+      }
+    ],
+    "punar\u0101vartanam": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      }
+    ],
+    "__partial__tri-yoga__0": [
+      {
+        "ip": 0,
+        "stack_depth": 0
+      },
+      {
+        "ip": 1,
+        "stack_depth": 0
+      },
+      {
+        "ip": 2,
+        "stack_depth": 0
+      },
+      {
+        "ip": 3,
+        "stack_depth": 0
+      },
+      {
+        "ip": 4,
+        "stack_depth": 0
+      },
+      {
+        "ip": 5,
+        "stack_depth": 0
+      },
+      {
+        "ip": 6,
+        "stack_depth": 0
+      }
+    ]
+  }
+}

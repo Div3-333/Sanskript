@@ -38,7 +38,7 @@ Batch status:
 
 Truth-gated slice:
 
-- The current real-handler gate contributes 3613 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
+- The current real-handler gate contributes 3983 implemented sutras. The previous generated Adhyaya 1-6 metric is explicitly rejected.
 - Adhyaya 1-3 now have a shared dry runtime layer in `src/sanskript/adhyaya123_engines.py`: `SutraPredicateSelectionEngine`, `SamjnaTechnicalEngine`, `MetaruleGovernanceEngine`, `SamasaDerivationEngine`, `KarakaVibhaktiEngine`, `SubantaSupEngine`, `PratyayaLopaEngine`, `DhatuSanadiEngine`, `KrtDerivationEngine`, and `TinantaLakaraEngine`. This layer composes existing predicates into derivational behavior without re-counting metadata as sutra completion.
 - Runtime independence has begun: `ast.py`, `ir.py`, `compiler.py`, `bytecode.py`, and `vm.py` now form an explicit Sanskript-owned execution pipeline. The first VM is Python-hosted, but it executes Sanskript bytecode rather than treating Python control flow as the language semantics.
 - The source-language hot path now has a data-driven verb-frame registry in `data/verb_frames.json`. The parser maps frame operations to AST constructors through a dispatch table, so adding a new surface like `sthāpayati`, `yojayati`, `vyavakalayati`, or `prakāśayati` no longer requires another `if verb.surface == ...` branch.
@@ -141,6 +141,6 @@ Targets:
 Sutra batch status:
 
 - Every indexed Aṣṭādhyāyī sutra is now at least `partial` or `batch_partial`.
-- 3613 sutras have real-handler executable implementations; the rest remain partial or batch-partial.
+- 3983 sutras have real-handler executable implementations; the rest remain partial or batch-partial.
 - Every outline topic now has at least partial treatment or an explicit non-executable canon-topic treatment.
 - The next phase is adding real handlers sutra by sutra and upgrading Adhyaya 2-8 from partial or batch-partial to individual sutra implementations.

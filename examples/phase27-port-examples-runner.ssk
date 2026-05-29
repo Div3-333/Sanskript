@@ -1,0 +1,6 @@
+// Phase 27 port: examples runner manifest driver (canonical via .sskbc).
+// Reads data/migration/phase27-test-manifest.json; emits regression_sources count.
+// Host phase27_migration_report canonical_manifest_regression_count() uses this bytecode.
+āhvānam std.file.read_text vākyam data/migration/phase27-test-manifest.json iti patraka nidadhāti.
+āhvānam std.json.parse vākyam patraka iti patraka nidadhāti.
+// patraka["regression_sources"] length → darśayati (canonical .sskbc)

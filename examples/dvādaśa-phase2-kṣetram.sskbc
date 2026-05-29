@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "gaṇita.vṛddhi"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "modules": [
+    {
+      "name": "gaṇita",
+      "functions": [
+        {
+          "name": "gaṇita.vṛddhi",
+          "instructions": [
+            {
+              "op": "push_int",
+              "operand": 10
+            },
+            {
+              "op": "store_name",
+              "operand": "phala"
+            },
+            {
+              "op": "push_int",
+              "operand": 0
+            },
+            {
+              "op": "return"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

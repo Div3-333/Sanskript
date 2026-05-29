@@ -121,6 +121,70 @@
       "operand": "sarve-dhanāḥ"
     },
     {
+      "op": "immutable_list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "nityāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "nityāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "immutable_list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "nityā"
+    },
+    {
+      "op": "load_name",
+      "operand": "nityā"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "immutable_list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "nityā2"
+    },
+    {
+      "op": "load_name",
+      "operand": "nityā2"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "immutable_list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "nityā3"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "list_comprehension",
+      "operand": "catvārāt-adhikaḥ,dviguṇa"
+    },
+    {
+      "op": "store_name",
+      "operand": "samīkṛtam"
+    },
+    {
       "op": "load_name",
       "operand": "yogaḥ"
     },
@@ -130,6 +194,166 @@
     {
       "op": "load_name",
       "operand": "sarve-dhanāḥ"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "samīkṛtam"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "lazy_iter_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "mandaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "mandaḥ"
+    },
+    {
+      "op": "lazy_iter_next"
+    },
+    {
+      "op": "store_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "store_name",
+      "operand": "asti"
+    },
+    {
+      "op": "load_name",
+      "operand": "asti"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "generator_new",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "store_name",
+      "operand": "janakaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "janakaḥ"
+    },
+    {
+      "op": "generator_next"
+    },
+    {
+      "op": "store_name",
+      "operand": "janaka-mūlya"
+    },
+    {
+      "op": "store_name",
+      "operand": "janaka-asti"
+    },
+    {
+      "op": "load_name",
+      "operand": "janaka-asti"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "janaka-mūlya"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "store_name",
+      "operand": "gaṇanā"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "call",
+      "operand": "gaṇitam"
+    },
+    {
+      "op": "store_name",
+      "operand": "prathama"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "call",
+      "operand": "gaṇitam"
+    },
+    {
+      "op": "store_name",
+      "operand": "dvitīya"
+    },
+    {
+      "op": "load_name",
+      "operand": "prathama"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "dvitīya"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "gaṇanā"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "sat"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "enum_new",
+      "operand": "phalam"
+    },
+    {
+      "op": "store_name",
+      "operand": "avasthā"
+    },
+    {
+      "op": "load_name",
+      "operand": "avasthā"
     },
     {
       "op": "emit"
@@ -254,6 +478,109 @@
       "defaults": [
         null
       ]
+    },
+    {
+      "name": "kramaḥ",
+      "instructions": [
+        {
+          "op": "push_text",
+          "operand": "[utpādaka] enter kramaḥ"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "push_int",
+          "operand": 1
+        },
+        {
+          "op": "generator_yield"
+        },
+        {
+          "op": "push_int",
+          "operand": 2
+        },
+        {
+          "op": "generator_yield"
+        },
+        {
+          "op": "push_text",
+          "operand": "[utpādaka] leave kramaḥ"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "generator": true
+    },
+    {
+      "name": "gaṇitam",
+      "instructions": [
+        {
+          "op": "push_text",
+          "operand": "[smaraṇa] enter gaṇitam"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "load_name",
+          "operand": "gaṇanā"
+        },
+        {
+          "op": "push_int",
+          "operand": 1
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "store_name",
+          "operand": "gaṇanā"
+        },
+        {
+          "op": "load_name",
+          "operand": "x"
+        },
+        {
+          "op": "push_int",
+          "operand": 2
+        },
+        {
+          "op": "multiply"
+        },
+        {
+          "op": "return"
+        },
+        {
+          "op": "push_text",
+          "operand": "[smaraṇa] leave gaṇitam"
+        },
+        {
+          "op": "emit"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ],
+      "params": [
+        "x"
+      ],
+      "defaults": [
+        null
+      ],
+      "memoized": true
     }
   ]
 }

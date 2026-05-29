@@ -29,7 +29,7 @@ from .phase3_values import (
     TaggedUnionValue,
     TreeValue,
     TypedErrorValue,
-    text_grapheme_len,
+    text_grapheme_len as phase3_text_grapheme_len,
 )
 
 
@@ -640,9 +640,9 @@ def record_field_from_value(value: SanskriptValue) -> str:
     raise TypeError(f"record field must be non-empty text, got {value!r}")
 
 
-def text_grapheme_len_stub(text: str) -> int:
+def text_grapheme_len(text: str) -> int:
     """Grapheme cluster count (Phase 3)."""
-    return text_grapheme_len(text)
+    return phase3_text_grapheme_len(text)
 
 
 __all__ = [
@@ -709,7 +709,7 @@ __all__ = [
     "record_field_from_value",
     "runtime_type_id",
     "set_add_unique",
-    "text_grapheme_len_stub",
+    "text_grapheme_len",
     "to_display_string",
     "values_equal",
     "values_identical",

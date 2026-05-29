@@ -1,0 +1,992 @@
+{
+  "phase": 25,
+  "host_platform": "Windows-11-10.0.22631-SP0",
+  "python_version": "3.13.5",
+  "pytest_test_functions_estimated": 1628,
+  "coverage_audits": {
+    "parser_rules": {
+      "ast_statement_nodes": 98,
+      "parser_rules_documented": 17,
+      "nodes_with_dedicated_test": 98,
+      "nodes_referenced_in_tests_or_parser_map": 98,
+      "nodes_without_direct_test_reference": [],
+      "nodes_without_direct_test_reference_count": 0,
+      "dedicated_test_ratio": 1.0,
+      "min_dedicated_test_ratio": 0.95,
+      "per_rule_unit_tests": true,
+      "claim_level": "dedicated-ast-suite"
+    },
+    "opcodes": {
+      "opcode_enum_count": 176,
+      "opcodes_with_dedicated_test": 176,
+      "opcodes_with_test_file_token": 176,
+      "opcodes_without_test_file_token": 0,
+      "opcodes_without_test_file_token_sample": [],
+      "dedicated_test_ratio": 1.0,
+      "min_dedicated_test_ratio": 0.95,
+      "feature_matrix_opcodes_with_any_test_ref": 153,
+      "per_opcode_dedicated_unit_tests": true,
+      "claim_level": "dedicated-opcode-suite"
+    },
+    "compiler_lowerings": {
+      "compiler_referenced_opcodes": 90,
+      "lowerings_with_dedicated_test": 90,
+      "compiler_referenced_opcodes_with_test_mention": 90,
+      "dedicated_test_ratio": 1.0,
+      "min_dedicated_test_ratio": 0.95,
+      "per_lowering_unit_tests": true,
+      "claim_level": "dedicated-lowering-suite"
+    }
+  },
+  "golden": {
+    "source": [
+      {
+        "id": "golden-source-aṣṭama_vidhānam",
+        "path": "examples/aṣṭama-vidhānam.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-caturtha",
+        "path": "examples/caturtha.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-chaturdasha_algorithm",
+        "path": "examples/chaturdasha-algorithm.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-dashama_vakyam",
+        "path": "examples/dashama-vakyam.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-dvadasha_vastu",
+        "path": "examples/dvadasha-vastu.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-dvitiya",
+        "path": "examples/dvitiya.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-dvādaśa_phase2_boolean",
+        "path": "examples/dvādaśa-phase2-boolean.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-dvādaśa_phase2_grouping_matrix",
+        "path": "examples/dvādaśa-phase2-grouping-matrix.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-dvādaśa_phase2_kṣetram",
+        "path": "examples/dvādaśa-phase2-kṣetram.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-ekadasha_samuhah",
+        "path": "examples/ekadasha-samuhah.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-ekadasha_samūha",
+        "path": "examples/ekadasha-samūha.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-navama_kṣetram",
+        "path": "examples/navama-kṣetram.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-pancadasha_vakya_kriya",
+        "path": "examples/pancadasha-vakya-kriya.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-pancama",
+        "path": "examples/pancama.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase1_broad_script_sandhi",
+        "path": "examples/phase1-broad-script-sandhi.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase1_script_sandhi",
+        "path": "examples/phase1-script-sandhi.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase10_stdlib_cli_io",
+        "path": "examples/phase10-stdlib-cli-io.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase10_stdlib_formats_patterns",
+        "path": "examples/phase10-stdlib-formats-patterns.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase10_stdlib_process_testing",
+        "path": "examples/phase10-stdlib-process-testing.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase10_stdlib_source",
+        "path": "examples/phase10-stdlib-source.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase11_algorithms_data_structures",
+        "path": "examples/phase11-algorithms-data-structures.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase12_diagnostics",
+        "path": "examples/phase12-diagnostics.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase13_memory_model",
+        "path": "examples/phase13-memory-model.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase14_surakshita",
+        "path": "examples/phase14-surakshita.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase15_rakshita_systems",
+        "path": "examples/phase15-rakshita-systems.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase21_cross_platform",
+        "path": "examples/phase21-cross-platform.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase22_full_seal",
+        "path": "examples/phase22-full-seal.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase22_html_template",
+        "path": "examples/phase22-html-template.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase22_http_router_auth",
+        "path": "examples/phase22-http-router-auth.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase22_http_service",
+        "path": "examples/phase22-http-service.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase22_research_cli_baseline",
+        "path": "examples/phase22-research-cli-baseline.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase22_web_apps_games_research",
+        "path": "examples/phase22-web-apps-games-research.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase23_concurrency_async",
+        "path": "examples/phase23-concurrency-async.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase23_full_seal",
+        "path": "examples/phase23-full-seal.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase24_tooling",
+        "path": "examples/phase24-tooling.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase27_migration_test_manifest",
+        "path": "examples/phase27-migration-test-manifest.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase27_port_controlled_lexicon",
+        "path": "examples/phase27-port-controlled-lexicon.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase27_port_examples_runner",
+        "path": "examples/phase27-port-examples-runner.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase27_port_sutra_registry",
+        "path": "examples/phase27-port-sutra-registry.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": null
+      },
+      {
+        "id": "golden-source-phase28_desktop_gui",
+        "path": "examples/phase28-desktop-gui.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase28_milestones",
+        "path": "examples/phase28-milestones.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase3_data_types",
+        "path": "examples/phase3-data-types.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase4_types",
+        "path": "examples/phase4-types.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase6_functions",
+        "path": "examples/phase6-functions.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase7_oop",
+        "path": "examples/phase7-oop.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-phase8_functional",
+        "path": "examples/phase8-functional.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-prathama",
+        "path": "examples/prathama.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-saptama_while",
+        "path": "examples/saptama-while.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-shashṭha_if",
+        "path": "examples/shashṭha-if.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-shodasha_devanagari",
+        "path": "examples/shodasha-devanagari.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-trayodasha_rakshita",
+        "path": "examples/trayodasha-rakshita.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-trtiya",
+        "path": "examples/trtiya.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      },
+      {
+        "id": "golden-source-ṣoḍaśa_control_flow",
+        "path": "examples/ṣoḍaśa-control-flow.ssk",
+        "bytecode_match": true,
+        "sskyp_match": true,
+        "output_match": true
+      }
+    ],
+    "bytecode": [
+      {
+        "id": "golden-bytecode-minimal-emit",
+        "path": "data/testing/golden/bytecode/minimal_emit_halt.json",
+        "output_match": true
+      }
+    ],
+    "sskyp": [
+      {
+        "id": "golden-sskyp-minimal-emit",
+        "path": "data/testing/golden/sskyp/minimal_emit_halt.sskyp",
+        "sskyp_match": true,
+        "output_match": true
+      }
+    ]
+  },
+  "roundtrip": {
+    "bytecode_binary": {
+      "serialize_roundtrip": true,
+      "output_match": true
+    },
+    "sskyp": {
+      "sskyp_roundtrip": true,
+      "output_match": true
+    }
+  },
+  "fuzz_non_overclaim": {
+    "continuous_fuzz_ci": false,
+    "corpus_minimization": false,
+    "default_trials_are_smoke_only": true,
+    "smoke_trial_budget": 48,
+    "production_fuzz_min_trials": 10000,
+    "production_fuzz_claim_rejected": true
+  },
+  "fuzz": {
+    "parser": {
+      "name": "parser",
+      "trials": 48,
+      "rejected": 48,
+      "crashes": 0,
+      "accepted": 0,
+      "claim_level": "no-crash-harness",
+      "trial_budget_class": "smoke-harness",
+      "production_fuzz_claim_rejected": true,
+      "smoke_trial_budget": 48,
+      "production_fuzz_min_trials": 10000,
+      "notes": [
+        "Smoke harness (48 trials, seed-fixed); not production or continuous fuzz (requires >=10000 trials + CI corpus minimization).",
+        "Random prose fragments; acceptance includes parse success on partial wrappers.",
+        "Does not prove grammar completeness."
+      ]
+    },
+    "bytecode_verifier": {
+      "name": "bytecode-verifier",
+      "trials": 48,
+      "rejected": 48,
+      "crashes": 0,
+      "accepted": 0,
+      "claim_level": "binary-mutation-reject",
+      "trial_budget_class": "smoke-harness",
+      "production_fuzz_claim_rejected": true,
+      "smoke_trial_budget": 48,
+      "production_fuzz_min_trials": 10000,
+      "notes": [
+        "Smoke harness (48 trials, seed-fixed); not production or continuous fuzz (requires >=10000 trials + CI corpus minimization).",
+        "Uses Phase 17 binary serializer mutations."
+      ]
+    },
+    "sskyp": {
+      "name": "sskyp-parser",
+      "trials": 48,
+      "rejected": 41,
+      "crashes": 0,
+      "accepted": 0,
+      "claim_level": "line-mutation-reject",
+      "trial_budget_class": "smoke-harness",
+      "production_fuzz_claim_rejected": true,
+      "smoke_trial_budget": 48,
+      "production_fuzz_min_trials": 10000,
+      "notes": [
+        "Smoke harness (48 trials, seed-fixed); not production or continuous fuzz (requires >=10000 trials + CI corpus minimization).",
+        "Mutates valid yantra-patha text; does not prove assembler completeness."
+      ]
+    }
+  },
+  "golden_stability": {
+    "stable": true,
+    "mismatched_categories": [],
+    "source_count": 53,
+    "bytecode_count": 1,
+    "sskyp_count": 1
+  },
+  "differential_determinism": {
+    "deterministic": true,
+    "fingerprint": "3acb8907dac0fc191898a62fc43ab560e525ed1a370bca25ea597b5768c557ae",
+    "fingerprint_repeat": "3acb8907dac0fc191898a62fc43ab560e525ed1a370bca25ea597b5768c557ae"
+  },
+  "property": {
+    "numeric": {
+      "name": "numeric-add",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-int-add"
+    },
+    "numeric_subtract": {
+      "name": "numeric-subtract",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-int-subtract"
+    },
+    "numeric_multiply": {
+      "name": "numeric-multiply",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-int-multiply"
+    },
+    "compare_eq": {
+      "name": "compare-eq",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-compare-eq"
+    },
+    "collections": {
+      "name": "list-append-len",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-list-len"
+    },
+    "list_get": {
+      "name": "list-get",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-list-get"
+    },
+    "map_get": {
+      "name": "map-get",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-map-get"
+    },
+    "text": {
+      "name": "text-concat",
+      "trials": 64,
+      "failures": 0,
+      "claim_level": "vm-text-concat"
+    }
+  },
+  "coverage_proof": {
+    "passed": true,
+    "parser_ast": {
+      "ast_statement_nodes": 98,
+      "nodes_with_dedicated_test": 98,
+      "nodes_missing_dedicated_test": [],
+      "compile_failures": [],
+      "compile_skipped_nodes": [
+        "DestructureAssign",
+        "Guard",
+        "Propagate",
+        "ResultBind",
+        "TypeConvert"
+      ],
+      "per_rule_unit_tests": true,
+      "claim_level": "dedicated-ast-smoke-suite"
+    },
+    "vm_opcodes": {
+      "opcode_enum_count": 176,
+      "opcodes_with_dedicated_smoke": 176,
+      "opcodes_missing_smoke_spec": [],
+      "execution_failures": [],
+      "per_opcode_dedicated_unit_tests": true,
+      "claim_level": "dedicated-opcode-smoke-suite"
+    },
+    "compiler_lowerings": {
+      "compiler_referenced_opcodes": 90,
+      "lowerings_with_dedicated_test": 90,
+      "lowerings_missing_dedicated_test": [],
+      "per_lowering_unit_tests": true,
+      "claim_level": "dedicated-lowering-test-suite"
+    },
+    "exhaustive_test_module": "C:/Users/divya/OneDrive - Monash University/Desktop/sanskript/tests/test_phase25_exhaustive_coverage.py",
+    "failures": []
+  },
+  "coverage_thresholds": {
+    "met": true,
+    "checks": {
+      "opcodes": true,
+      "parser_ast": true,
+      "compiler_lowerings": true,
+      "golden_stable": true
+    },
+    "golden": {
+      "stable_example_count": 53,
+      "golden_source_count": 53,
+      "golden_stable_ratio": 1.0,
+      "min_golden_stable_ratio": 0.9,
+      "meets_threshold": true
+    },
+    "parser_ast_ratio": 1.0,
+    "opcode_ratio": 1.0,
+    "lowering_ratio": 1.0
+  },
+  "coverage_map_path": "data\\verification\\coverage_map.json",
+  "differential": {
+    "host_vm": {
+      "claim_level": "host-python-vm-scaffold",
+      "fixtures": 5,
+      "all_python_match": true,
+      "rows": [
+        {
+          "fixture": "assign_increment_emit.json",
+          "python_vm_output": [
+            "7"
+          ],
+          "expected_output": [
+            "7"
+          ],
+          "python_matches_fixture": true,
+          "rust_vm_checked": false,
+          "independent_differential_proof": false,
+          "note": "Rust ssk-vm differential requires cargo; see tests/test_rust_vm.py"
+        },
+        {
+          "fixture": "function_return_emit.json",
+          "python_vm_output": [
+            "12"
+          ],
+          "expected_output": [
+            "12"
+          ],
+          "python_matches_fixture": true,
+          "rust_vm_checked": false,
+          "independent_differential_proof": false,
+          "note": "Rust ssk-vm differential requires cargo; see tests/test_rust_vm.py"
+        },
+        {
+          "fixture": "if_branch_emit.json",
+          "python_vm_output": [
+            "13"
+          ],
+          "expected_output": [
+            "13"
+          ],
+          "python_matches_fixture": true,
+          "rust_vm_checked": false,
+          "independent_differential_proof": false,
+          "note": "Rust ssk-vm differential requires cargo; see tests/test_rust_vm.py"
+        },
+        {
+          "fixture": "list_append_emit.json",
+          "python_vm_output": [
+            "3"
+          ],
+          "expected_output": [
+            "3"
+          ],
+          "python_matches_fixture": true,
+          "rust_vm_checked": false,
+          "independent_differential_proof": false,
+          "note": "Rust ssk-vm differential requires cargo; see tests/test_rust_vm.py"
+        },
+        {
+          "fixture": "record_set_get_emit.json",
+          "python_vm_output": [
+            "Devadatta"
+          ],
+          "expected_output": [
+            "Devadatta"
+          ],
+          "python_matches_fixture": true,
+          "rust_vm_checked": false,
+          "independent_differential_proof": false,
+          "note": "Rust ssk-vm differential requires cargo; see tests/test_rust_vm.py"
+        }
+      ]
+    },
+    "rust_vm": {
+      "claim_level": "skipped-no-cargo",
+      "fixtures": 5,
+      "all_match": null,
+      "rust_vm_checked": false,
+      "rows": [],
+      "note": "Install Rust/cargo to enable host-Python vs ssk-vm differential rows."
+    },
+    "host_compiler": {
+      "claim_level": "S0-host-replay-not-independent",
+      "all_bytecode_match": false,
+      "rows": [
+        {
+          "source": "examples/prathama.ssk",
+          "stage": "S0-host-replay",
+          "independent_self_compile": false,
+          "bytecode_match": true,
+          "sskyp_match": true,
+          "proof_method": "sha256-canonical-bytecode-and-sskyp"
+        },
+        {
+          "source": "examples/phase3-data-types.ssk",
+          "stage": "S0-host-replay",
+          "independent_self_compile": false,
+          "bytecode_match": true,
+          "sskyp_match": true,
+          "proof_method": "sha256-canonical-bytecode-and-sskyp"
+        },
+        {
+          "source": "examples/phase6-functions.ssk",
+          "stage": "S0-host-replay",
+          "independent_self_compile": false,
+          "bytecode_match": false,
+          "sskyp_match": true,
+          "proof_method": "sha256-canonical-bytecode-and-sskyp"
+        },
+        {
+          "source": "examples/phase7-oop.ssk",
+          "stage": "S0-host-replay",
+          "independent_self_compile": false,
+          "bytecode_match": false,
+          "sskyp_match": true,
+          "proof_method": "sha256-canonical-bytecode-and-sskyp"
+        }
+      ]
+    }
+  },
+  "security_checklist": [
+    {
+      "id": "sec-input-validation",
+      "topic": "Parser and bytecode input validation",
+      "status": "partial",
+      "evidence": [
+        "tests/test_phase17_toolchain.py",
+        "phase25 bytecode/sskyp fuzz harness"
+      ]
+    },
+    {
+      "id": "sec-unsafe-tier",
+      "topic": "Unsafe / arakṣita tier gates",
+      "status": "partial",
+      "evidence": [
+        "tests/test_vm_numeric_heap.py",
+        "examples/phase14-surakshita.ssk"
+      ]
+    },
+    {
+      "id": "sec-package-signing",
+      "topic": "Package signing and lockfiles",
+      "status": "partial",
+      "evidence": [
+        "src/sanskript/package_signing.py",
+        "tests/test_phase9_modules.py"
+      ]
+    },
+    {
+      "id": "sec-concurrency",
+      "topic": "Concurrency stress and data races",
+      "status": "partial",
+      "evidence": [
+        "src/sanskript/phase23_concurrency.py",
+        "tests/test_phase23_concurrency_async.py"
+      ]
+    },
+    {
+      "id": "sec-fuzz-coverage",
+      "topic": "Smoke fuzz harness for parser/verifier/sskyp (not continuous CI fuzz)",
+      "status": "partial",
+      "evidence": [
+        "src/sanskript/phase25_testing_verification.py"
+      ]
+    },
+    {
+      "id": "sec-independent-vm",
+      "topic": "Independent VM/compiler differential proof",
+      "status": "not_met",
+      "evidence": [
+        "docs/phase18-vm-runtime-self-hosting.md",
+        "docs/phase19-compiler-self-hosting.md"
+      ]
+    }
+  ],
+  "checklist_truth": [
+    {
+      "item": "Unit tests for every parser rule",
+      "status": "met",
+      "harness": "tests/test_phase25_exhaustive_coverage.py",
+      "note": "98/98 AST dedicated tests"
+    },
+    {
+      "item": "Unit tests for every compiler lowering",
+      "status": "met",
+      "harness": "tests/test_phase25_exhaustive_coverage.py",
+      "note": "90/90 lowering tests"
+    },
+    {
+      "item": "Unit tests for every VM opcode",
+      "status": "met",
+      "harness": "tests/test_phase25_exhaustive_coverage.py",
+      "note": "176/176 opcode tests"
+    },
+    {
+      "item": "Golden tests for source examples",
+      "status": "met",
+      "harness": "tools/generate_phase25_golden.py",
+      "note": "53/53 stable examples in manifest"
+    },
+    {
+      "item": "Golden tests for bytecode output",
+      "status": "partial",
+      "harness": "data/bytecode/conformance + tests/test_phase25_testing_verification.py",
+      "note": "conformance + phase25 minimal fixture"
+    },
+    {
+      "item": "Golden tests for .sskyp output",
+      "status": "partial",
+      "harness": "tests/test_phase25_testing_verification.py",
+      "note": "sha256 fixtures + roundtrip harness"
+    },
+    {
+      "item": "Round-trip tests for source formatting",
+      "status": "not_met",
+      "note": "No canonical source formatter round-trip"
+    },
+    {
+      "item": "Round-trip tests for bytecode serialization",
+      "status": "partial",
+      "harness": "tests/test_bytecode_conformance.py",
+      "note": "tests/test_bytecode_conformance.py + phase25 binary roundtrip"
+    },
+    {
+      "item": "Round-trip tests for .sskyp assembly",
+      "status": "partial",
+      "harness": "tests/test_phase25_testing_verification.py",
+      "note": "yantra_patha roundtrip helper"
+    },
+    {
+      "item": "Negative parser tests",
+      "status": "partial",
+      "harness": "tests/test_phase17_toolchain.py",
+      "note": "tests/test_phase17_toolchain.py and phase files"
+    },
+    {
+      "item": "Negative type-checker tests",
+      "status": "partial",
+      "harness": "tests/test_phase4_type_system.py",
+      "note": "tests/test_phase4_type_system.py"
+    },
+    {
+      "item": "Negative borrow-checker tests",
+      "status": "met",
+      "harness": "tests/test_phase25_borrow_negatives.py",
+      "note": "tests/test_phase25_borrow_negatives.py generated corpus"
+    },
+    {
+      "item": "Negative unsafe-code tests",
+      "status": "partial",
+      "harness": "tests/test_vm_numeric_heap.py",
+      "note": "tests/test_vm_numeric_heap.py"
+    },
+    {
+      "item": "Runtime error tests",
+      "status": "partial",
+      "harness": "tests/test_errors.py",
+      "note": "tests/test_errors.py and phase12 diagnostics"
+    },
+    {
+      "item": "Cross-platform tests",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "host=Windows; CI matrix not in-repo"
+    },
+    {
+      "item": "Fuzz parser",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "run_parser_fuzz smoke harness (48 trials default; not production fuzz)"
+    },
+    {
+      "item": "Fuzz bytecode verifier",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "run_bytecode_verifier_fuzz smoke harness (48 trials default)"
+    },
+    {
+      "item": "Fuzz .sskyp parser",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "run_sskyp_fuzz smoke harness (48 trials default)"
+    },
+    {
+      "item": "Property-test standard library collections",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "VM list property harness"
+    },
+    {
+      "item": "Property-test numeric operations",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "add/subtract/multiply/compare_eq property harnesses"
+    },
+    {
+      "item": "Property-test text operations",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "VM text concat property harness"
+    },
+    {
+      "item": "Property-test map operations",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "VM map get/set property harness"
+    },
+    {
+      "item": "Differential-test host VM vs Sanskript VM",
+      "status": "scaffold",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "Python VM + rust_vm test; not independent"
+    },
+    {
+      "item": "Differential-test host compiler vs self-hosted compiler",
+      "status": "scaffold",
+      "harness": "src/sanskript/self_hosting.py",
+      "note": "S0 host-replay via self_hosting.py"
+    },
+    {
+      "item": "Performance benchmark suite",
+      "status": "partial",
+      "harness": "tests/test_performance_baseline.py",
+      "note": "tests/test_performance_baseline.py"
+    },
+    {
+      "item": "Memory safety test suite",
+      "status": "partial",
+      "harness": "tests/test_phase13_memory_model.py",
+      "note": "tests/test_phase13_memory_model.py"
+    },
+    {
+      "item": "Concurrency stress tests",
+      "status": "partial",
+      "harness": "tests/test_phase23_concurrency_async.py",
+      "note": "tests/test_phase23_concurrency_async.py + std.phase23.seal_verdict runtime gatekeeper"
+    },
+    {
+      "item": "Security review checklist",
+      "status": "partial",
+      "harness": "src/sanskript/phase25_testing_verification.py",
+      "note": "security_review_checklist() scaffold"
+    }
+  ],
+  "non_overclaim": {
+    "per_parser_rule_unit_tests": true,
+    "per_opcode_unit_tests": true,
+    "per_lowering_unit_tests": true,
+    "independent_vm_differential_proof": false,
+    "independent_self_hosted_compiler_proof": false,
+    "production_continuous_fuzz": false
+  },
+  "seal_verdict": {
+    "seal_ready": true,
+    "harness_ready": true,
+    "harness_green": true,
+    "coverage_proof_passed": true,
+    "exhaustive_suites_ready": true,
+    "coverage_thresholds_met": true,
+    "blockers": [],
+    "warnings": [
+      "No independent Sanskript VM differential proof (host Python + optional Rust ssk-vm only).",
+      "Self-hosted compiler proof is S0 host-replay only, not independent.",
+      "Fuzz trial budget is smoke-only (default 48); not production/continuous fuzz CI.",
+      "Phase 25 checklist items still not_met: 1 (e.g. Round-trip tests for source formatting)."
+    ],
+    "repro_commands": [
+      "PYTHONPATH=src python tools/generate_phase25_tests.py",
+      "PYTHONPATH=src python tools/generate_phase25_golden.py",
+      "PYTHONPATH=src python -m pytest tests/test_phase25_exhaustive_coverage.py tests/test_phase25_borrow_negatives.py tests/test_phase25_testing_verification.py -q",
+      "PYTHONPATH=src python -m sanskript.cli phase25-evidence",
+      "PYTHONPATH=src python tools/phase25_coverage_map.py"
+    ]
+  },
+  "evidence_path": "artifacts\\phase25\\evidence\\phase25-evidence.json"
+}

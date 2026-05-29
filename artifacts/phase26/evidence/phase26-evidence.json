@@ -1,0 +1,735 @@
+{
+  "phase": 26,
+  "checked_guides": [
+    {
+      "guide": "tutorial-beginner.md",
+      "doc_exists": true,
+      "word_count": 384,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/scaled-sum.ssk](../examples/cookbook/scaled-sum.ssk",
+        "examples/cookbook/conditional-branch.ssk](../examples/cookbook/conditional-branch.ssk",
+        "examples/cookbook/greet.ssk](../examples/cookbook/greet.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "core-syntax.md",
+      "doc_exists": true,
+      "word_count": 503,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/dvādaśa-phase2-boolean.ssk"
+      ],
+      "examples_compile": {
+        "examples/dvādaśa-phase2-boolean.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/dvādaśa-phase2-boolean.ssk](../examples/dvādaśa-phase2-boolean.ssk",
+        "examples/dvādaśa-phase2-kṣetram.ssk](../examples/dvādaśa-phase2-kṣetram.ssk",
+        "examples/dvādaśa-phase2-boolean.ssk",
+        "examples/dvādaśa-phase2-kṣetram.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-grammar-primer.md",
+      "doc_exists": true,
+      "word_count": 328,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase1-script-sandhi.ssk",
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "migration-from-python.md",
+      "doc_exists": true,
+      "word_count": 356,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/conditional-branch.ssk",
+        "examples/phase6-functions.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "migration-from-rust.md",
+      "doc_exists": true,
+      "word_count": 412,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/conditional-branch.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-stdlib-reference.md",
+      "doc_exists": true,
+      "word_count": 855,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/cli-sqrt.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/cli-sqrt.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/cli-sqrt.ssk",
+        "examples/phase10-stdlib-formats-patterns.ssk",
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/research-spark.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/game-input.ssk",
+        "examples/cookbook/desktop-plan.ssk",
+        "examples/cookbook/ml-dot.ssk",
+        "examples/cookbook/research-spark.ssk",
+        "examples/cookbook/cli-sqrt.ssk",
+        "examples/phase10-stdlib-formats-patterns.ssk",
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/phase10-stdlib-process-testing.ssk",
+        "examples/cookbook/desktop-plan.ssk",
+        "examples/phase22-research-cli-baseline.ssk",
+        "examples/cookbook/research-spark.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/desktop-plan.ssk",
+        "examples/cookbook/game-input.ssk",
+        "examples/cookbook/ml-dot.ssk",
+        "examples/phase23-concurrency-async.ssk",
+        "examples/phase22-http-service.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "type-system-reference.md",
+      "doc_exists": true,
+      "word_count": 2510,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/phase3-data-types.ssk"
+      ],
+      "examples_compile": {
+        "examples/phase3-data-types.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase3-data-types.ssk",
+        "examples/phase3-data-types.ssk](../examples/phase3-data-types.ssk",
+        "examples/phase3-data-types.ssk",
+        "examples/phase3-data-types.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "object-oriented.md",
+      "doc_exists": true,
+      "word_count": 585,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/phase7-oop.ssk"
+      ],
+      "examples_compile": {
+        "examples/phase7-oop.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase7-oop.ssk](../examples/phase7-oop.ssk",
+        "examples/phase7-oop.ssk",
+        "examples/phase7-oop.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-functional.md",
+      "doc_exists": true,
+      "word_count": 266,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/functional-call.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/functional-call.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase8-functional.ssk",
+        "examples/cookbook/functional-call.ssk",
+        "examples/cookbook/functional-call.ssk",
+        "examples/phase8-functional.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-systems-programming.md",
+      "doc_exists": true,
+      "word_count": 401,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/systems-tier.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/systems-tier.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase13-memory-model.ssk",
+        "examples/phase14-surakshita.ssk",
+        "examples/phase15-rakshita-systems.ssk",
+        "examples/phase16-arakshita-machine-level.ssk",
+        "examples/phase13-memory-model.ssk",
+        "examples/cookbook/systems-tier.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-machine-programming.md",
+      "doc_exists": true,
+      "word_count": 362,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase17-bytecode-toolchain.ssk",
+        "examples/phase16-arakshita-machine-level.ssk",
+        "examples/phase18-vm-bootstrap.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-web-apps.md",
+      "doc_exists": true,
+      "word_count": 307,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/web-hello.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/web-hello.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/phase22-web-apps-games-research.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-cli-apps.md",
+      "doc_exists": true,
+      "word_count": 262,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/cli-sqrt.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/cli-sqrt.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/cli-sqrt.ssk",
+        "examples/cookbook/cli-sqrt.ssk",
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/phase22-research-cli-baseline.ssk",
+        "examples/phase22-http-service.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-desktop-apps.md",
+      "doc_exists": true,
+      "word_count": 238,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/desktop-plan.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/desktop-plan.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/desktop-plan.ssk",
+        "examples/cookbook/desktop-plan.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-game-development.md",
+      "doc_exists": true,
+      "word_count": 245,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/game-input.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/game-input.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/game-input.ssk",
+        "examples/cookbook/game-input.ssk",
+        "examples/phase22-web-apps-games-research.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-data-research.md",
+      "doc_exists": true,
+      "word_count": 219,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/research-spark.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/research-spark.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/research-spark.ssk",
+        "examples/cookbook/research-spark.ssk",
+        "examples/phase22-research-cli-baseline.ssk",
+        "examples/phase22-research-cli-baseline.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-ml.md",
+      "doc_exists": true,
+      "word_count": 233,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/ml-dot.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/ml-dot.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/ml-dot.ssk",
+        "examples/cookbook/ml-dot.ssk",
+        "examples/phase22-web-apps-games-research.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-compiler-architecture.md",
+      "doc_exists": true,
+      "word_count": 258,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-vm-architecture.md",
+      "doc_exists": true,
+      "word_count": 236,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/phase18-vm-bootstrap.ssk",
+        "examples/cookbook/systems-tier.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "bytecode-v1.md",
+      "doc_exists": true,
+      "word_count": 514,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "bytecode-v2.md",
+      "doc_exists": true,
+      "word_count": 1250,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/caturtha.ssk"
+      ],
+      "examples_compile": {
+        "examples/caturtha.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/caturtha.ssk",
+        "examples/caturtha.ssk",
+        "examples/caturtha.ssk",
+        "examples/caturtha.ssk",
+        "examples/caturtha.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "guide-sskyp-reference.md",
+      "doc_exists": true,
+      "word_count": 259,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/phase17-bytecode-toolchain.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "modules-packages.md",
+      "doc_exists": true,
+      "word_count": 656,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/phase6-functions.ssk"
+      ],
+      "examples_compile": {
+        "examples/phase6-functions.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/phase6-functions.ssk",
+        "examples/phase6-functions.ssk",
+        "examples/phase6-functions.ssk",
+        "examples/phase9-modules/main.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "tooling.md",
+      "doc_exists": true,
+      "word_count": 591,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/phase12-diagnostics.ssk",
+        "examples/cookbook/api-demo.ssk](../examples/cookbook/api-demo.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/phase24-tooling.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "contributing.md",
+      "doc_exists": true,
+      "word_count": 375,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/api-demo.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/api-demo.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/*.ssk",
+        "examples/cookbook/*.ssk",
+        "examples/cookbook/api-demo.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "style-guide.md",
+      "doc_exists": true,
+      "word_count": 777,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/prathama.ssk"
+      ],
+      "examples_compile": {
+        "examples/prathama.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/prathama.ssk](../examples/prathama.ssk",
+        "examples/shodasha-devanagari.ssk](../examples/shodasha-devanagari.ssk",
+        "examples/phase1-broad-script-sandhi.ssk",
+        "examples/prathama.ssk",
+        "examples/phase1-broad-script-sandhi.ssk",
+        "examples/prathama.ssk](../examples/prathama.ssk",
+        "examples/phase1-broad-script-sandhi.ssk](../examples/phase1-broad-script-sandhi.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "cookbook.md",
+      "doc_exists": true,
+      "word_count": 420,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/scaled-sum.ssk",
+        "examples/cookbook/conditional-branch.ssk",
+        "examples/cookbook/greet.ssk",
+        "examples/cookbook/web-hello.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/hello-counter.ssk": true,
+        "examples/cookbook/scaled-sum.ssk": true,
+        "examples/cookbook/conditional-branch.ssk": true,
+        "examples/cookbook/greet.ssk": true,
+        "examples/cookbook/web-hello.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/<recipe>.ssk",
+        "examples/cookbook/hello-counter.ssk",
+        "examples/cookbook/scaled-sum.ssk",
+        "examples/cookbook/conditional-branch.ssk",
+        "examples/cookbook/greet.ssk",
+        "examples/cookbook/web-hello.ssk",
+        "examples/cookbook/cli-sqrt.ssk",
+        "examples/cookbook/desktop-plan.ssk",
+        "examples/cookbook/game-input.ssk",
+        "examples/cookbook/research-spark.ssk",
+        "examples/cookbook/ml-dot.ssk",
+        "examples/cookbook/functional-call.ssk",
+        "examples/cookbook/systems-tier.ssk",
+        "examples/phase6-functions.ssk",
+        "examples/phase7-oop.ssk",
+        "examples/phase10-stdlib-cli-io.ssk",
+        "examples/phase8-functional.ssk",
+        "examples/cookbook/api-demo.ssk",
+        "examples/cookbook/api-demo.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    },
+    {
+      "guide": "api-from-source.md",
+      "doc_exists": true,
+      "word_count": 369,
+      "min_words": 200,
+      "has_fenced_example": true,
+      "runnable_examples": [
+        "examples/cookbook/api-demo.ssk"
+      ],
+      "examples_compile": {
+        "examples/cookbook/api-demo.ssk": true
+      },
+      "example_paths_in_doc": [
+        "examples/cookbook/api-demo.ssk",
+        "examples/cookbook/api-demo.ssk"
+      ],
+      "ok": true,
+      "issues": []
+    }
+  ],
+  "cookbook": [
+    {
+      "slug": "hello-counter",
+      "source": "examples/cookbook/hello-counter.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "scaled-sum",
+      "source": "examples/cookbook/scaled-sum.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "conditional-branch",
+      "source": "examples/cookbook/conditional-branch.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "greet",
+      "source": "examples/cookbook/greet.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "web-hello",
+      "source": "examples/cookbook/web-hello.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "cli-sqrt",
+      "source": "examples/cookbook/cli-sqrt.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "desktop-plan",
+      "source": "examples/cookbook/desktop-plan.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "game-input",
+      "source": "examples/cookbook/game-input.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "research-spark",
+      "source": "examples/cookbook/research-spark.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "ml-dot",
+      "source": "examples/cookbook/ml-dot.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "functional-call",
+      "source": "examples/cookbook/functional-call.ssk",
+      "compiles": true
+    },
+    {
+      "slug": "systems-tier",
+      "source": "examples/cookbook/systems-tier.ssk",
+      "compiles": true
+    }
+  ],
+  "inventory_honesty": {
+    "inventory_path": "docs\\phase26-documentation-learning-path.md",
+    "inflated_done_rows": [],
+    "ok": true
+  },
+  "learning_path_files": [
+    "docs/phase26-documentation-learning-path.md",
+    "docs/tutorial-beginner.md",
+    "docs/migration-from-python.md",
+    "docs/migration-from-rust.md",
+    "docs/cookbook.md",
+    "docs/tooling.md",
+    "docs/api-from-source.md",
+    "docs/contributing.md",
+    "docs/guide-grammar-primer.md",
+    "docs/guide-stdlib-reference.md",
+    "docs/guide-functional.md",
+    "docs/guide-machine-programming.md",
+    "docs/guide-cli-apps.md",
+    "docs/guide-desktop-apps.md",
+    "docs/guide-game-development.md",
+    "docs/guide-data-research.md",
+    "docs/guide-ml.md",
+    "docs/guide-compiler-architecture.md",
+    "docs/guide-vm-architecture.md",
+    "docs/guide-sskyp-reference.md",
+    "docs/guide-web-apps.md",
+    "docs/guide-systems-programming.md"
+  ],
+  "seal_verdict": {
+    "seal_ready": true,
+    "harness_ready": true,
+    "blockers": [],
+    "warnings": [],
+    "checked_guide_count": 28,
+    "expected_guide_count": 28,
+    "repro_commands": [
+      "PYTHONPATH=src python -m unittest tests.test_phase26_documentation -v",
+      "PYTHONPATH=src python -m sanskript.cli phase26-evidence"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "load_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "push_text",
+      "operand": "/hello"
+    },
+    {
+      "op": "push_text",
+      "operand": "hello_page"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "push_text",
+      "operand": "/hello"
+    },
+    {
+      "op": "load_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "call",
+      "operand": "std.web.route_match"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "title"
+    },
+    {
+      "op": "push_text",
+      "operand": "Hello"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "<h1>{{title}}</h1>"
+    },
+    {
+      "op": "load_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.web.render"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

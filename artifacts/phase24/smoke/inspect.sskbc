@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.test.assert_eq"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_bool",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.test.assert_true"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

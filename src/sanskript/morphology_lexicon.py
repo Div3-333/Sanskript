@@ -159,6 +159,13 @@ def load_controlled_lexicon(path: Path | None = None, *, apply_overrides: bool =
     return base
 
 
+def lexicon_entry_count_manifest() -> int:
+    """Canonical entry_count via Phase 27 Sanskript bytecode port (not Python JSON parsing)."""
+    from .phase27_ports import canonical_lexicon_entry_count
+
+    return canonical_lexicon_entry_count()
+
+
 def save_controlled_lexicon(
     entries: dict[str, Analysis],
     path: Path | None = None,

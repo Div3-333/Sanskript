@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "call",
+      "operand": "std.gui.capabilities_plan"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

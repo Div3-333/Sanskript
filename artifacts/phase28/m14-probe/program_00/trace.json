@@ -1,0 +1,32 @@
+{
+  "trace": [
+    {
+      "ip": 0,
+      "opcode": "push_int",
+      "operand": 2
+    },
+    {
+      "ip": 1,
+      "opcode": "push_int",
+      "operand": 3
+    },
+    {
+      "ip": 2,
+      "opcode": "add",
+      "operand": null
+    },
+    {
+      "ip": 3,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 4,
+      "opcode": "halt",
+      "operand": null
+    }
+  ],
+  "output": [
+    "5"
+  ]
+}

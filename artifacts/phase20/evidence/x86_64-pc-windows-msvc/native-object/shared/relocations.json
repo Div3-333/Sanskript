@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "relocations": [
+    {
+      "owner": "\u1e63a\u1e6dkam",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "yoga\u1e25_1",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "yoga\u1e25_2",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "tri-yoga",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "dvigu\u1e47ana",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "abhiv\u0101dana",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "punar\u0101vartanam",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    },
+    {
+      "owner": "__partial__tri-yoga__0",
+      "kind": "call",
+      "target": "_sanskript_main",
+      "offset_hint": 0
+    }
+  ]
+}

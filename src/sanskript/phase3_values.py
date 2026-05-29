@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import heapq
 import math
+import unicodedata
 from collections import Counter, OrderedDict, deque
 from dataclasses import dataclass, field
 from decimal import Decimal
@@ -167,32 +168,49 @@ class NamedTupleValue:
 
 
 def text_grapheme_len(text: str) -> int:
-    """Grapheme cluster count using Unicode extended grapheme clusters (simplified)."""
+    """Count user-visible grapheme clusters with UAX#29-like boundaries."""
     if not text:
         return 0
-    count = 0
+    clusters = 0
     index = 0
     length = len(text)
     while index < length:
-        code = ord(text[index])
+        ch = text[index]
         index += 1
-        if 0xD800 <= code <= 0xDBFF and index < length:
-            next_code = ord(text[index])
-            if 0xDC00 <= next_code <= 0xDFFF:
+        clusters += 1
+        cp = ord(ch)
+        if _is_regional_indicator(cp):
+            # Regional indicators form flag pairs: RI RI is one grapheme.
+            if index < length and _is_regional_indicator(ord(text[index])):
                 index += 1
-        count += 1
-        while index < length:
-            ch = text[index]
-            cat = _grapheme_extend_category(ch)
-            if cat:
+            continue
+        if cp == 0x0D and index < length and ord(text[index]) == 0x0A:
+            index += 1
+            continue
+        while index < length and _is_grapheme_extend(text[index]):
+            index += 1
+        while index < length and ord(text[index]) == 0x200D:
+            index += 1
+            if index >= length:
+                break
+            index += 1
+            while index < length and _is_grapheme_extend(text[index]):
                 index += 1
-                continue
-            break
-    return count
+    return clusters
 
 
-def _grapheme_extend_category(ch: str) -> bool:
+def _is_grapheme_extend(ch: str) -> bool:
     o = ord(ch)
+    if unicodedata.combining(ch) != 0:
+        return True
+    if unicodedata.category(ch) in {"Mc", "Me"}:
+        return True
+    # Emoji modifiers.
+    if 0x1F3FB <= o <= 0x1F3FF:
+        return True
+    # Indic viramas frequently participate in conjunct grapheme clusters.
+    if o in {0x094D, 0x09CD, 0x0A4D, 0x0ACD, 0x0B4D, 0x0BCD, 0x0C4D, 0x0CCD, 0x0D4D}:
+        return True
     if 0x0300 <= o <= 0x036F:
         return True
     if 0x1AB0 <= o <= 0x1AFF:
@@ -203,9 +221,13 @@ def _grapheme_extend_category(ch: str) -> bool:
         return True
     if 0xFE00 <= o <= 0xFE0F:
         return True
-    if o == 0x200D:
+    if 0xE0100 <= o <= 0xE01EF:
         return True
     return False
+
+
+def _is_regional_indicator(code_point: int) -> bool:
+    return 0x1F1E6 <= code_point <= 0x1F1FF
 
 
 def ieee_float_add(left: float, right: float) -> float:

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "phase": 27,
+  "description": "Small sutra-registry slice for Phase 27 Sanskript bytecode consumer conformance.",
+  "expected_total": 3983,
+  "sutras": [
+    {
+      "id": "1.1.1",
+      "rule_type": "संज्ञा",
+      "term": "वृद्धिः",
+      "sutra_text_devanagari": "वृद्धिरादैच् ।"
+    },
+    {
+      "id": "1.1.2",
+      "rule_type": "संज्ञा",
+      "term": "गुणः",
+      "sutra_text_devanagari": "अदेङ् गुणः ।"
+    }
+  ]
+}

@@ -37,3 +37,37 @@ samīkaraṇam samīkṛtam saṅkhyāḥ catvārāt-adhikaḥ yathā dviguṇa.
 darśanam yogaḥ.
 darśanam sarve-dhanāḥ.
 darśanam samīkṛtam.
+
+# lazy iterator + generator
+alasaḥ mandaḥ saṅkhyāḥ.
+alasāt asti mūlya mandaḥ.
+darśanam asti.
+darśanam mūlya.
+
+saṃskāraṃ utpādaka.
+vidhānam kramaḥ.
+pradānam eka.
+pradānam dvi.
+samāpanam.
+utpādakaḥ janakaḥ kramaḥ.
+utpādakāt janaka-asti janaka-mūlya janakaḥ.
+darśanam janaka-asti.
+darśanam janaka-mūlya.
+
+# memoized call (no extra side effects on repeated input)
+gaṇitam gaṇanā śūnya.
+saṃskāraṃ smaraṇa.
+vidhānam gaṇitam x.
+gaṇitam gaṇanā gaṇanā yoga eka.
+pratyāvartanam x guṇanam dvi.
+samāpanam.
+āhvānam gaṇitam tri prathama nidadhāti.
+āhvānam gaṇitam tri dvitīya nidadhāti.
+darśanam prathama.
+darśanam dvitīya.
+darśanam gaṇanā.
+
+# algebraic type + enum construction
+prakāra-vikalpaḥ phalam sat asat.
+gaṇavikalpaḥ avasthā phalam sat eka.
+darśanam avasthā.

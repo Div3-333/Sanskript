@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
+import io
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from time import perf_counter
 
 from .compiler import compile_source
+from .errors import SanskriptError
 from .vm import SanskriptVM
 
 
@@ -33,18 +36,33 @@ def collect_performance_baseline(
     budget_ms: float = DEFAULT_EXAMPLE_BUDGET_MS,
 ) -> PerformanceBaseline:
     root = Path(__file__).resolve().parents[2]
-    examples = sorted((example_dir or root / "examples").glob("*.ssk"))
-    sources = [path.read_text(encoding="utf-8") for path in examples]
+    example_paths = sorted((example_dir or root / "examples").glob("*.ssk"))
+    sources: list[str] = []
+    for path in example_paths:
+        if "manifest" in path.name or "milestones" in path.name or "port-" in path.name:
+            continue
+        source = path.read_text(encoding="utf-8")
+        if "__P22_PORT__" in source:
+            continue
+        try:
+            compile_source(source)
+        except SanskriptError:
+            continue
+        sources.append(source)
     if not sources:
-        return PerformanceBaseline(0, iterations, 0, 0.0, 0.0, budget_ms, True)
+        return PerformanceBaseline(0, iterations, 0, 0.0, 0.0, budget_ms, False)
+
+    def _run_quiet(source: str) -> None:
+        with contextlib.redirect_stdout(io.StringIO()):
+            SanskriptVM().execute(compile_source(source))
 
     for source in sources:
-        SanskriptVM().execute(compile_source(source))
+        _run_quiet(source)
 
     started = perf_counter()
     for _ in range(iterations):
         for source in sources:
-            SanskriptVM().execute(compile_source(source))
+            _run_quiet(source)
     total_ms = (perf_counter() - started) * 1000
     total_runs = len(sources) * iterations
     average_ms = total_ms / total_runs

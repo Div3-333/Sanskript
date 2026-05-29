@@ -1,0 +1,118 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "sva"
+    },
+    {
+      "op": "push_text",
+      "operand": "gata"
+    },
+    {
+      "op": "text_concat"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "text_len"
+    },
+    {
+      "op": "store_name",
+      "operand": "māna"
+    },
+    {
+      "op": "load_name",
+      "operand": "māna"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "text_get"
+    },
+    {
+      "op": "store_name",
+      "operand": "akṣara"
+    },
+    {
+      "op": "load_name",
+      "operand": "akṣara"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "text_slice"
+    },
+    {
+      "op": "store_name",
+      "operand": "bhāga"
+    },
+    {
+      "op": "load_name",
+      "operand": "bhāga"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_text",
+      "operand": "gata"
+    },
+    {
+      "op": "text_contains"
+    },
+    {
+      "op": "store_name",
+      "operand": "tattvam"
+    },
+    {
+      "op": "load_name",
+      "operand": "tattvam"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

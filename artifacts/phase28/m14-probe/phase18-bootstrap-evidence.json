@@ -1,0 +1,166 @@
+{
+  "phase": 18,
+  "title": "vm-runtime-self-hosting-bootstrap-evidence",
+  "independent_vm_runtime": true,
+  "claim_boundary": "S1/S2 prove bootstrap output parity and reproducible artifacts only; they do not prove full host-dispatch retirement.",
+  "program_count": 1,
+  "results": [
+    {
+      "program_index": 0,
+      "s1": {
+        "stage": "S1",
+        "output": [
+          "5"
+        ],
+        "host_output": [
+          "5"
+        ],
+        "output_match": true,
+        "differential_proof": true,
+        "vm_impl": "SanskriptSubsetVM",
+        "independent_vm": true,
+        "host_fallbacks": [],
+        "instruction_count": 5,
+        "elapsed_ms": 0.05499999679159373,
+        "program_sha256": "91289c2999a9f8df4c82715c76821eebb095e7283005230d4b5e2a36ad79bc6a",
+        "sskyp_sha256": "30869110c0bcb006010c5501aa190467bedf3b1f028b01fb99ebd2a435a4ff7e",
+        "output_sha256": "5e3322c682b4e46a737ec3a18be48fc20ba87309ae7f942cef08eb51f2a6537e",
+        "host_output_sha256": "5e3322c682b4e46a737ec3a18be48fc20ba87309ae7f942cef08eb51f2a6537e",
+        "notes": [
+          "S1 executes via ported VM facade inside host runtime.",
+          "No native Sanskript VM binary claim is made at this stage.",
+          "S1 parity alone is not differential proof while host VM fallback is active."
+        ]
+      },
+      "s2": {
+        "stage": "S2",
+        "output": [
+          "5"
+        ],
+        "host_output": [
+          "5"
+        ],
+        "output_match": true,
+        "differential_proof": true,
+        "vm_impl": "SanskriptSubsetVM",
+        "independent_vm": true,
+        "host_fallbacks": [],
+        "instruction_count": 5,
+        "elapsed_ms": 0.0,
+        "program_sha256": "91289c2999a9f8df4c82715c76821eebb095e7283005230d4b5e2a36ad79bc6a",
+        "sskyp_sha256": "30869110c0bcb006010c5501aa190467bedf3b1f028b01fb99ebd2a435a4ff7e",
+        "output_sha256": "5e3322c682b4e46a737ec3a18be48fc20ba87309ae7f942cef08eb51f2a6537e",
+        "host_output_sha256": "5e3322c682b4e46a737ec3a18be48fc20ba87309ae7f942cef08eb51f2a6537e",
+        "notes": [
+          "S2 executes .sskyp-rebuilt bytecode through the ported VM facade.",
+          "S2 artifact pack includes trace/debug/profile/snapshot JSON files.",
+          "No claim is made that host VM dispatch is retired at this phase."
+        ]
+      }
+    }
+  ],
+  "retirement_report": {
+    "retirement_ready": true,
+    "checks": [
+      {
+        "program_index": 0,
+        "s1_match": true,
+        "s2_match": true,
+        "independent_vm": true,
+        "differential_proof": true,
+        "fallback_free": true,
+        "vm_impl": [
+          "SanskriptSubsetVM"
+        ],
+        "host_fallbacks": []
+      }
+    ],
+    "blocked_reasons": [],
+    "policy": "Phase 28 bootstrap: self-host VM corpus under examples/self-host/ provides reproducible S1/S2 parity evidence; host dispatch remains for full opcode surface."
+  },
+  "opcode_coverage": {
+    "arithmetic": [
+      "add",
+      "compare_eq",
+      "compare_gt",
+      "compare_identity",
+      "compare_le",
+      "compare_lt",
+      "compare_ne",
+      "divide",
+      "multiply",
+      "subtract"
+    ],
+    "text": [
+      "push_text",
+      "text_concat",
+      "text_contains",
+      "text_get",
+      "text_len",
+      "text_slice"
+    ],
+    "collections": [
+      "list_append",
+      "list_get",
+      "list_len",
+      "list_new",
+      "map_contains",
+      "map_get",
+      "map_new",
+      "map_set",
+      "set_add",
+      "set_contains",
+      "set_len",
+      "set_new",
+      "tuple_get",
+      "tuple_new"
+    ],
+    "records_objects": [
+      "class_new",
+      "method_call",
+      "record_contains",
+      "record_get",
+      "record_new",
+      "record_set"
+    ],
+    "functions_calls": [
+      "call",
+      "load_name",
+      "push_func",
+      "return",
+      "store_name",
+      "tail_call"
+    ],
+    "control_flow": [
+      "break_loop",
+      "continue_loop",
+      "jump",
+      "jump_if_zero",
+      "panic",
+      "throw",
+      "try_begin",
+      "try_end"
+    ],
+    "heap": [
+      "heap_alloc",
+      "heap_free",
+      "heap_load",
+      "heap_store",
+      "unsafe_enter",
+      "unsafe_exit"
+    ]
+  },
+  "reproducible_steps": [
+    "set PYTHONPATH=src",
+    "python -c \"from sanskript.cli import main; raise SystemExit(main(['phase18-vm-check','examples/phase18-vm-bootstrap.sskbc','--artifact-dir','artifacts/phase18']))\"",
+    "python -m unittest tests/test_phase18_vm_runtime.py"
+  ],
+  "honesty_gates": {
+    "retirement_ready": true,
+    "independent_vm_runtime": true,
+    "no_host_fallbacks": true,
+    "allow_independence_claim": true,
+    "unresolved_reasons": [],
+    "policy": "Independence claim is forbidden unless retirement readiness, independent VM runtime, and no host fallback paths are all true."
+  }
+}

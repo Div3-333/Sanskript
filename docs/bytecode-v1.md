@@ -91,6 +91,20 @@ The suite in `tests/test_bytecode_conformance.py` and fixtures under `data/bytec
 1. All conformance tests pass against the same JSON fixtures.
 2. Round-trip `encode → decode → execute` matches the reference output.
 
+## Runnable proof (v1 subset via host compile)
+
+v1 opcodes remain a subset of today's compiler output. Compile and run a minimal
+source program, then inspect the JSON `version` field:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m sanskript compile examples/cookbook/hello-counter.ssk
+python -m sanskript run examples/cookbook/hello-counter.sskbc
+```
+
+Expected stdout: `7`. For raw v1 JSON fixtures, run
+`python -m unittest tests.test_bytecode_conformance -v` against `data/bytecode/conformance/`.
+
 ## Versioning
 
 Future versions may add opcodes or optional metadata. Encoders must set `version` explicitly; decoders must reject unknown major versions.

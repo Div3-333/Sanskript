@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "call",
+      "operand": "std.cli.program_name"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "call",
+      "operand": "std.env.keys"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10.txt"
+    },
+    {
+      "op": "push_text",
+      "operand": "namaste"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.write_text"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10.txt"
+    },
+    {
+      "op": "push_text",
+      "operand": "world"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.append_text"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10.txt"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.read_text"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase10.txt"
+    },
+    {
+      "op": "call",
+      "operand": "std.io.read_lines"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "{\"a\":1}"
+    },
+    {
+      "op": "call",
+      "operand": "std.json.parse"
+    },
+    {
+      "op": "store_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "name age"
+    },
+    {
+      "op": "call",
+      "operand": "std.csv.parse"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "call",
+      "operand": "std.toml.stringify"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "call",
+      "operand": "std.yaml.stringify"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "load_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "push_text",
+      "operand": "name"
+    },
+    {
+      "op": "push_text",
+      "operand": "mitra"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "push_text",
+      "operand": "namaste {{ name }}"
+    },
+    {
+      "op": "load_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "call",
+      "operand": "std.template.render"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "^\\\\d+$"
+    },
+    {
+      "op": "push_text",
+      "operand": "108"
+    },
+    {
+      "op": "call",
+      "operand": "std.regex.match"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "push_text",
+      "operand": "python"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "push_text",
+      "operand": "-c"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "push_text",
+      "operand": "print('phase10')"
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "load_name",
+      "operand": "ādeśe"
+    },
+    {
+      "op": "call",
+      "operand": "std.process.run"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "INFO"
+    },
+    {
+      "op": "call",
+      "operand": "std.log.set_level"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "phase10 stdlib source example"
+    },
+    {
+      "op": "call",
+      "operand": "std.log.info"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.test.assert_eq"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_bool",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.test.assert_true"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

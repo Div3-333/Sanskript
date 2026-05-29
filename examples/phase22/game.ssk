@@ -1,0 +1,8 @@
+// Phase 22: game loop, input, audio tick, sprites, physics (valid Sanskript surface).
+krama-kośaḥ st x 0 vx 2.
+samūhaḥ keys.
+yojanam keys vākyam Space iti.
+āhvānam std.game.loop_run 10 3 st phalaṃ nidadhāti.
+āhvānam std.game.input_state keys phalaṃ nidadhāti.
+āhvānam std.game.audio_tick 44100 5 phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.

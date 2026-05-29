@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Sanskript LSP (stdio)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "sanskript.cli",
+        "lsp",
+        "--stdio"
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

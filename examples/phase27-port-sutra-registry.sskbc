@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "data/migration/phase27-sutra-registry-probe.json"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.read_text"
+    },
+    {
+      "op": "call",
+      "operand": "std.json.parse"
+    },
+    {
+      "op": "store_name",
+      "operand": "patraka"
+    },
+    {
+      "op": "load_name",
+      "operand": "patraka"
+    },
+    {
+      "op": "push_text",
+      "operand": "sutras"
+    },
+    {
+      "op": "map_get"
+    },
+    {
+      "op": "list_len"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "patraka"
+    },
+    {
+      "op": "push_text",
+      "operand": "sutras"
+    },
+    {
+      "op": "map_get"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "list_get"
+    },
+    {
+      "op": "push_text",
+      "operand": "id"
+    },
+    {
+      "op": "map_get"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

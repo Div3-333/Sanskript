@@ -1,5 +1,40 @@
 {
   "version": 1,
   "description": "Hand-maintained lexicon overrides merged after register synthesis.",
-  "entries": {}
+  "entries": {
+    "sthāpanam": {
+      "case": null,
+      "engine": "LexiconOverride",
+      "gender": null,
+      "indeclinable_kind": "quotative",
+      "lakara": null,
+      "lemma": "sthāpanam",
+      "number": null,
+      "pada": null,
+      "person": null,
+      "pos": "indeclinable",
+      "recipe_id": "OVERRIDE:sthāpanam",
+      "register_id": "OVERRIDE:sthāpanam",
+      "role": null,
+      "surface": "sthāpanam",
+      "value": null
+    },
+    "sthapanam": {
+      "case": null,
+      "engine": "LexiconOverride",
+      "gender": null,
+      "indeclinable_kind": "quotative",
+      "lakara": null,
+      "lemma": "sthapanam",
+      "number": null,
+      "pada": null,
+      "person": null,
+      "pos": "indeclinable",
+      "recipe_id": "OVERRIDE:sthapanam",
+      "register_id": "OVERRIDE:sthapanam",
+      "role": null,
+      "surface": "sthapanam",
+      "value": null
+    }
+  }
 }

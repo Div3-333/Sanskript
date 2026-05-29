@@ -310,3 +310,26 @@ SanskriptError
 ├── PanicError       (vipattim — unrecoverable, kills program)
 └── RuntimeSanskriptError  (VM errors)
 ```
+
+---
+
+## Diagnostics Coherence Guarantees
+
+- Parser diagnostics for malformed Phase 5 directives (`prasāraḥ`, `vikṣepaḥ`,
+  `vipattim`, `āgrahītvā`, `pūrvaśartam`, `uttaraśartam`, `nityaśartam`) now
+  fail with explicit `ParseError` messages and attached source spans.
+- Parse-time semantic errors raised during sentence analysis are normalized to
+  include sentence span + original-script context when missing.
+- VM now traps host-side type mismatches in opcode handlers and re-raises them
+  as `RuntimeSanskriptError` with stack trace and diagnostic notes, so no host
+  `TypeError` bypass leaks through Phase 5 execution paths.
+- Contract failures (`pūrvaśartam`, `uttaraśartam`, `nityaśartam`) continue to
+  lower to `panic` and carry runtime stack traces/notes.
+
+### Negative matrix (must fail)
+
+- Missing operand: `prasāraḥ.`, `vikṣepaḥ.`, `vipattim.`
+- Missing condition: `pūrvaśartam.`, `uttaraśartam.`, `nityaśartam.`
+- Invalid try header: `āgrahītvā.`
+- Illegal propagation context: `prasāraḥ <value>.` outside function
+- Runtime type misuse on result opcodes: `result_unwrap_ok` with non-result

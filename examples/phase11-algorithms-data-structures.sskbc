@@ -1,0 +1,194 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 8
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.alg.vector.norm"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "kramaḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "call",
+      "operand": "std.alg.binary_search"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṅkhyāḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.alg.deterministic.unique"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

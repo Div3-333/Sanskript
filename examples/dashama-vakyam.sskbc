@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "svāgatam mitra"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

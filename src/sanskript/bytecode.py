@@ -108,8 +108,53 @@ _OPERAND_KIND: dict[str, str | None] = {
     "heap_store": None,
     "heap_load": None,
     "heap_free": None,
-    "unsafe_enter": None,
+    "unsafe_enter": "optional_text",
     "unsafe_exit": None,
+    "ptr_from_int": None,
+    "ptr_to_int": None,
+    "ptr_add": None,
+    "ptr_sub": None,
+    "load_u8": None,
+    "load_u16_le": None,
+    "load_u16_be": None,
+    "load_u32_le": None,
+    "load_u32_be": None,
+    "store_u8": None,
+    "store_u16_le": None,
+    "store_u16_be": None,
+    "store_u32_le": None,
+    "store_u32_be": None,
+    "volatile_load_u32_le": None,
+    "volatile_store_u32_le": None,
+    "bit_and": None,
+    "bit_or": None,
+    "bit_xor": None,
+    "bit_not": None,
+    "shift_left": None,
+    "shift_right": None,
+    "rotate_left32": None,
+    "rotate_right32": None,
+    "reg_set": "name",
+    "reg_get": "name",
+    "sp_set": None,
+    "sp_get": None,
+    "fp_set": None,
+    "fp_get": None,
+    "call_conv": "name",
+    "prologue": None,
+    "epilogue": None,
+    "inline_asm": "text",
+    "label": "name",
+    "jump_label": "name",
+    "jump_if_zero_label": "name",
+    "jump_indirect": None,
+    "call_indirect": None,
+    "syscall": "name",
+    "trap": "int",
+    "mmio_read": None,
+    "mmio_write": None,
+    "atomic_cas_u32_le": None,
+    "fence": "name",
     "load_name": "name",
     "store_name": "name",
     "add": None,
@@ -211,7 +256,7 @@ _STACK_EFFECT: dict[str, tuple[int, int]] = {
     "bytearray_set": (3, 1),
     "bytearray_get": (2, 1),
     "tuple_new": (0, 0),  # pops operand-many values in VM (dynamic)
-    "tuple_get": (2, 1),
+    "tuple_get": (1, 1),
     "set_new": (0, 1),
     "set_add": (2, 1),
     "set_contains": (2, 1),
@@ -244,6 +289,51 @@ _STACK_EFFECT: dict[str, tuple[int, int]] = {
     "heap_free": (1, 0),
     "unsafe_enter": (0, 0),
     "unsafe_exit": (0, 0),
+    "ptr_from_int": (1, 1),
+    "ptr_to_int": (1, 1),
+    "ptr_add": (2, 1),
+    "ptr_sub": (2, 1),
+    "load_u8": (1, 1),
+    "load_u16_le": (1, 1),
+    "load_u16_be": (1, 1),
+    "load_u32_le": (1, 1),
+    "load_u32_be": (1, 1),
+    "store_u8": (2, 0),
+    "store_u16_le": (2, 0),
+    "store_u16_be": (2, 0),
+    "store_u32_le": (2, 0),
+    "store_u32_be": (2, 0),
+    "volatile_load_u32_le": (1, 1),
+    "volatile_store_u32_le": (2, 0),
+    "bit_and": (2, 1),
+    "bit_or": (2, 1),
+    "bit_xor": (2, 1),
+    "bit_not": (1, 1),
+    "shift_left": (2, 1),
+    "shift_right": (2, 1),
+    "rotate_left32": (2, 1),
+    "rotate_right32": (2, 1),
+    "reg_set": (1, 0),
+    "reg_get": (0, 1),
+    "sp_set": (1, 0),
+    "sp_get": (0, 1),
+    "fp_set": (1, 0),
+    "fp_get": (0, 1),
+    "call_conv": (0, 0),
+    "prologue": (0, 0),
+    "epilogue": (0, 0),
+    "inline_asm": (0, 0),
+    "label": (0, 0),
+    "jump_label": (0, 0),
+    "jump_if_zero_label": (1, 0),
+    "jump_indirect": (1, 0),
+    "call_indirect": (1, 0),
+    "syscall": (0, 1),
+    "trap": (0, 0),
+    "mmio_read": (1, 1),
+    "mmio_write": (2, 0),
+    "atomic_cas_u32_le": (3, 1),
+    "fence": (0, 0),
     "load_name": (0, 1),
     "store_name": (1, 0),
     "add": (2, 1),
@@ -383,6 +473,51 @@ class OpCode(str, Enum):
     HEAP_FREE = "heap_free"
     UNSAFE_ENTER = "unsafe_enter"
     UNSAFE_EXIT = "unsafe_exit"
+    PTR_FROM_INT = "ptr_from_int"
+    PTR_TO_INT = "ptr_to_int"
+    PTR_ADD = "ptr_add"
+    PTR_SUB = "ptr_sub"
+    LOAD_U8 = "load_u8"
+    LOAD_U16_LE = "load_u16_le"
+    LOAD_U16_BE = "load_u16_be"
+    LOAD_U32_LE = "load_u32_le"
+    LOAD_U32_BE = "load_u32_be"
+    STORE_U8 = "store_u8"
+    STORE_U16_LE = "store_u16_le"
+    STORE_U16_BE = "store_u16_be"
+    STORE_U32_LE = "store_u32_le"
+    STORE_U32_BE = "store_u32_be"
+    VOLATILE_LOAD_U32_LE = "volatile_load_u32_le"
+    VOLATILE_STORE_U32_LE = "volatile_store_u32_le"
+    BIT_AND = "bit_and"
+    BIT_OR = "bit_or"
+    BIT_XOR = "bit_xor"
+    BIT_NOT = "bit_not"
+    SHIFT_LEFT = "shift_left"
+    SHIFT_RIGHT = "shift_right"
+    ROTATE_LEFT32 = "rotate_left32"
+    ROTATE_RIGHT32 = "rotate_right32"
+    REG_SET = "reg_set"
+    REG_GET = "reg_get"
+    SP_SET = "sp_set"
+    SP_GET = "sp_get"
+    FP_SET = "fp_set"
+    FP_GET = "fp_get"
+    CALL_CONV = "call_conv"
+    PROLOGUE = "prologue"
+    EPILOGUE = "epilogue"
+    INLINE_ASM = "inline_asm"
+    LABEL = "label"
+    JUMP_LABEL = "jump_label"
+    JUMP_IF_ZERO_LABEL = "jump_if_zero_label"
+    JUMP_INDIRECT = "jump_indirect"
+    CALL_INDIRECT = "call_indirect"
+    SYSCALL = "syscall"
+    TRAP = "trap"
+    MMIO_READ = "mmio_read"
+    MMIO_WRITE = "mmio_write"
+    ATOMIC_CAS_U32_LE = "atomic_cas_u32_le"
+    FENCE = "fence"
     LOAD_NAME = "load_name"
     STORE_NAME = "store_name"
     ADD = "add"
@@ -488,6 +623,8 @@ def instruction_to_dict(instruction: Instruction) -> dict[str, Any]:
 
 
 def instruction_from_dict(raw: dict[str, Any], *, allowed: frozenset[str] | None = None) -> Instruction:
+    if not isinstance(raw, dict):
+        raise BytecodeValidationError("instruction entry must be an object")
     op_value = str(raw.get("op", ""))
     if allowed is not None and op_value not in allowed:
         raise BytecodeValidationError(f"Opcode not allowed in this bytecode version: {op_value!r}")
@@ -502,6 +639,13 @@ def instruction_from_dict(raw: dict[str, Any], *, allowed: frozenset[str] | None
         if "operand" in raw:
             raise BytecodeValidationError(f"{opcode.value} must not have an operand")
         return Instruction(opcode)
+
+    if kind == "optional_text":
+        if "operand" not in raw:
+            return Instruction(opcode)
+        if operand is not None and not isinstance(operand, str):
+            raise BytecodeValidationError(f"{opcode.value} optional operand must be a string")
+        return Instruction(opcode, operand)
 
     if operand is None:
         raise BytecodeValidationError(f"{opcode.value} requires an operand")
@@ -548,6 +692,10 @@ def _function_to_dict(function: FunctionBytecode) -> dict[str, Any]:
         payload["capture_mut"] = sorted(function.capture_mut)
     if function.effect:
         payload["effect"] = function.effect
+    if function.is_memoized:
+        payload["memoized"] = True
+    if function.is_generator:
+        payload["generator"] = True
     if function.is_inline:
         payload["inline"] = True
     if function.is_naked:
@@ -583,13 +731,29 @@ def _function_from_dict(raw: dict[str, Any], *, version: int) -> FunctionBytecod
         require_halt=False,
     )
     capture_mut_raw = raw.get("capture_mut", [])
-    capture_mut = frozenset(capture_mut_raw) if isinstance(capture_mut_raw, list) else frozenset()
+    if not isinstance(capture_mut_raw, list):
+        raise BytecodeValidationError(f"function {name!r} capture_mut must be a list")
+    capture_mut: frozenset[str] = frozenset()
+    if capture_mut_raw:
+        if any(not isinstance(item, str) or not item for item in capture_mut_raw):
+            raise BytecodeValidationError(
+                f"function {name!r} capture_mut entries must be non-empty strings"
+            )
+        capture_mut = frozenset(capture_mut_raw)
     effect = raw.get("effect")
     is_inline = bool(raw.get("inline", False))
     is_naked = bool(raw.get("naked", False))
+    is_memoized = bool(raw.get("memoized", False))
+    is_generator = bool(raw.get("generator", False))
     abi_name = raw.get("abi_name")
     named_returns_raw = raw.get("named_returns", [])
-    named_returns = tuple(named_returns_raw) if isinstance(named_returns_raw, list) else ()
+    if not isinstance(named_returns_raw, list):
+        raise BytecodeValidationError(f"function {name!r} named_returns must be a list")
+    if any(not isinstance(item, str) or not item for item in named_returns_raw):
+        raise BytecodeValidationError(
+            f"function {name!r} named_returns entries must be non-empty strings"
+        )
+    named_returns = tuple(named_returns_raw)
     return FunctionBytecode(
         name,
         instructions,
@@ -598,6 +762,8 @@ def _function_from_dict(raw: dict[str, Any], *, version: int) -> FunctionBytecod
         variadic_param=variadic_param,
         capture_mut=capture_mut,
         effect=str(effect) if effect else None,
+        is_generator=is_generator,
+        is_memoized=is_memoized,
         is_inline=is_inline,
         is_naked=is_naked,
         abi_name=str(abi_name) if abi_name else None,
@@ -649,12 +815,18 @@ def encode_program(
 
 
 def decode_program(payload: dict[str, Any]) -> BytecodeProgram:
+    if not isinstance(payload, dict):
+        raise BytecodeValidationError("program payload must be an object")
     version = payload.get("version")
     if version not in {BYTECODE_VERSION_1, BYTECODE_VERSION_2}:
         raise BytecodeValidationError(
             f"Unsupported bytecode version: {version!r} "
             f"(expected {BYTECODE_VERSION_1} or {BYTECODE_VERSION_2})"
         )
+    if version == BYTECODE_VERSION_1:
+        for field in ("functions", "modules", "safety_tier"):
+            if field in payload:
+                raise BytecodeValidationError(f"bytecode v1 does not permit field {field!r}")
     allowed = _V1_OPCODES if version == BYTECODE_VERSION_1 else None
     raw_instructions = payload.get("instructions")
     if not isinstance(raw_instructions, list) or not raw_instructions:
@@ -662,17 +834,33 @@ def decode_program(payload: dict[str, Any]) -> BytecodeProgram:
     instructions = tuple(instruction_from_dict(item, allowed=allowed) for item in raw_instructions)
 
     functions: list[FunctionBytecode] = []
-    for raw_fn in payload.get("functions", []):
+    raw_functions = payload.get("functions", [])
+    if not isinstance(raw_functions, list):
+        raise BytecodeValidationError("functions must be a list")
+    for raw_fn in raw_functions:
+        if not isinstance(raw_fn, dict):
+            raise BytecodeValidationError("function entries must be objects")
         functions.append(_function_from_dict(raw_fn, version=version))
 
     modules: list[ModuleBytecode] = []
-    for raw_mod in payload.get("modules", []):
+    raw_modules = payload.get("modules", [])
+    if not isinstance(raw_modules, list):
+        raise BytecodeValidationError("modules must be a list")
+    for raw_mod in raw_modules:
+        if not isinstance(raw_mod, dict):
+            raise BytecodeValidationError("module entries must be objects")
         mod_name = str(raw_mod.get("name", ""))
         if not mod_name:
             raise BytecodeValidationError("module name is required")
-        mod_fns = tuple(
-            _function_from_dict(item, version=version) for item in raw_mod.get("functions", [])
-        )
+        mod_fns_raw = raw_mod.get("functions", [])
+        if not isinstance(mod_fns_raw, list):
+            raise BytecodeValidationError(f"module {mod_name!r} functions must be a list")
+        for item in mod_fns_raw:
+            if not isinstance(item, dict):
+                raise BytecodeValidationError(
+                    f"module {mod_name!r} function entries must be objects"
+                )
+        mod_fns = tuple(_function_from_dict(item, version=version) for item in mod_fns_raw)
         modules.append(ModuleBytecode(mod_name, mod_fns))
 
     tier = str(payload.get("safety_tier", "surakshita"))
@@ -684,7 +872,10 @@ def decode_program(payload: dict[str, Any]) -> BytecodeProgram:
 
 
 def load_bytecode_file(path: Path | str) -> BytecodeProgram:
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    raw = Path(path).read_text(encoding="utf-8").strip()
+    if not raw:
+        raise BytecodeValidationError(f"Bytecode file is empty: {path}")
+    data = json.loads(raw)
     if not isinstance(data, dict):
         raise BytecodeValidationError("Bytecode file must contain a JSON object")
     return decode_program(data)
@@ -815,6 +1006,12 @@ def _validate_instruction_stream(
             raise BytecodeValidationError(
                 f"Instruction {index} ({opcode}) requires a string operand"
             )
+        if kind == "optional_text" and instruction.operand is not None and not isinstance(
+            instruction.operand, str
+        ):
+            raise BytecodeValidationError(
+                f"Instruction {index} ({opcode}) optional operand must be a string"
+            )
         if kind == "name" and (not isinstance(instruction.operand, str) or not instruction.operand):
             raise BytecodeValidationError(
                 f"Instruction {index} ({opcode}) requires a non-empty name operand"
@@ -888,6 +1085,7 @@ def resolve_method_target(
     """Resolve instance method to a function symbol (supports overload suffixes)."""
 
     order = mro if mro else (class_name,)
+    tried_symbols: list[str] = []
 
     def _symbol(cls: str) -> str:
         return f"{cls}{method_name}" if method_name.startswith("__") else f"{cls}__{method_name}"
@@ -895,6 +1093,7 @@ def resolve_method_target(
     expected_arity = 1 + argc
     for cls in order:
         base = _symbol(cls)
+        tried_symbols.append(base)
         exact = [fn for fn in program.functions if fn.name == base]
         if len(exact) == 1:
             if len(exact[0].params) == expected_arity:
@@ -907,13 +1106,15 @@ def resolve_method_target(
         prefixed = sorted(
             fn for fn in program.functions if fn.name.startswith(f"{base}_")
         )
+        tried_symbols.extend(fn.name for fn in prefixed)
         for fn in prefixed:
             if len(fn.params) == expected_arity:
                 return fn
         if len(prefixed) == 1:
             return prefixed[0]
     raise BytecodeValidationError(
-        f"Unknown method {method_name!r} on class {class_name!r}",
+        f"Unknown method {method_name!r} on class {class_name!r} "
+        f"(mro={order}, argc={argc}, expected_arity={expected_arity}, tried={tried_symbols})",
     )
 
 

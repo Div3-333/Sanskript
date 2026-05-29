@@ -1,0 +1,299 @@
+{
+  "phase": 28,
+  "title": "independence-milestones-evidence",
+  "generated_at": "2026-05-28T22:33:59+00:00",
+  "corpus": {
+    "program_count": 0,
+    "retirement_ready": false,
+    "policy": "host-specific VM logic can retire only after S1/S2 output parity, independent differential proof, and zero host fallback paths are true for all target programs in a non-empty corpus"
+  },
+  "evidence_bundle": {
+    "host_replay_active": true,
+    "phase18_honesty_gates": {
+      "retirement_ready": false,
+      "independent_vm_runtime": false,
+      "no_host_fallbacks": false,
+      "allow_independence_claim": false,
+      "unresolved_reasons": [
+        "empty_corpus=true",
+        "retirement_report.retirement_ready=false",
+        "independent_vm_runtime=false",
+        "host_fallbacks_present=true"
+      ],
+      "policy": "Independence claim is forbidden unless retirement readiness, independent VM runtime, and no host fallback paths are all true."
+    },
+    "phase19_stage": "S0-host-replay",
+    "inventory": {
+      "module_count": 249,
+      "python_count": 244,
+      "rust_count": 5
+    }
+  },
+  "milestones": [
+    {
+      "milestone_id": "M0",
+      "title": "Current host implementation can run all existing examples",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "host-compile-and-vm-run:examples/**/*.ssk"
+      ]
+    },
+    {
+      "milestone_id": "M1",
+      "title": "Sanskript can express all current bytecode examples in source prose",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "canonical-bytecode-sha256:ssk-vs-sskbc"
+      ]
+    },
+    {
+      "milestone_id": "M2",
+      "title": "Sanskript can express all current .sskyp examples in machine prose",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "yantra-patha-roundtrip:program-sha256-stable"
+      ]
+    },
+    {
+      "milestone_id": "M3",
+      "title": "Sanskript standard library covers text, collections, files, JSON, CLI, HTTP, and tests",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "stdlib-registry-and-smoke:required-domains"
+      ]
+    },
+    {
+      "milestone_id": "M4",
+      "title": "Sanskript can implement a useful CLI app without Python/Rust code",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "example-run:phase10-stdlib-cli-io.ssk"
+      ]
+    },
+    {
+      "milestone_id": "M5",
+      "title": "Sanskript can implement a useful web app without Python/Rust app code",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "webapp-html-emit:prathama.ssk"
+      ]
+    },
+    {
+      "milestone_id": "M6",
+      "title": "Sanskript can implement a useful desktop/productivity app",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "no example demonstrates desktop/productivity GUI surfaces (std.gui.*) end-to-end"
+      ],
+      "evidence_refs": [
+        "example-run:desktop-productivity-corpus"
+      ]
+    },
+    {
+      "milestone_id": "M7",
+      "title": "Sanskript can implement a useful game loop and asset pipeline",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "no example uses std.game.* loop/asset surfaces"
+      ],
+      "evidence_refs": [
+        "example-run:game-loop-and-assets"
+      ]
+    },
+    {
+      "milestone_id": "M8",
+      "title": "Sanskript can implement research/data scripts",
+      "status": "met",
+      "claim_allowed": true,
+      "blocked_reasons": [],
+      "evidence_refs": [
+        "example-run:phase11-algorithms-data-structures.ssk"
+      ]
+    },
+    {
+      "milestone_id": "M9",
+      "title": "Sanskript can implement the VM core in rak\u1e63ita",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "VM dispatch remains Python host (phase18 honesty gate)",
+        "no rak\u1e63ita-authored VM core source corpus in repo"
+      ],
+      "evidence_refs": [
+        "phase18-independent-rakshita-vm"
+      ]
+    },
+    {
+      "milestone_id": "M10",
+      "title": "Sanskript can implement bytecode verification in Sanskript",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "bytecode verification executes in Python host (phase17_toolchain / bytecode.py)",
+        "no Sanskript-source verifier module in repo"
+      ],
+      "evidence_refs": [
+        "sanskript-authored-bytecode-verifier"
+      ]
+    },
+    {
+      "milestone_id": "M11",
+      "title": "Sanskript can implement the compiler frontend in Sanskript",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "compiler frontend is Python host code",
+        "self-hosting stage is S0-host-replay (not S1 parser lowering)"
+      ],
+      "evidence_refs": [
+        "sanskript-authored-compiler-frontend"
+      ]
+    },
+    {
+      "milestone_id": "M12",
+      "title": "Sanskript can implement the compiler backend in Sanskript",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "compiler backend lowering remains Python host code"
+      ],
+      "evidence_refs": [
+        "sanskript-authored-compiler-backend"
+      ]
+    },
+    {
+      "milestone_id": "M13",
+      "title": "Sanskript can compile its own compiler",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "S0-host-replay cannot claim M13 (independent compiler self-compile required)",
+        "no Phase 19 bootstrap seed with S2+ independent self-compile evidence"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "milestone_id": "M14",
+      "title": "Sanskript can run its own VM",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "empty program corpus: M14 requires a non-empty reproducible corpus",
+        "empty_corpus=true",
+        "retirement_report.retirement_ready=false",
+        "independent_vm_runtime=false",
+        "host_fallbacks_present=true"
+      ],
+      "evidence_refs": [
+        "phase18/vm-runtime-self-hosting"
+      ]
+    },
+    {
+      "milestone_id": "M15",
+      "title": "Sanskript can build and test itself",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "host-replay cannot claim M15 (native Sanskript build+test loop required)",
+        "host pytest/tooling still required (244 Python modules inventoried)",
+        "native Sanskript test runner not yet executing the full regression matrix"
+      ],
+      "evidence_refs": [
+        "tests/",
+        "tools/generate_module_inventory.py"
+      ]
+    },
+    {
+      "milestone_id": "M16",
+      "title": "Sanskript can emit native binaries for at least one platform",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "Phase 20 native-object backend remains scaffold/plan-only",
+        "no functional linked native executable on any target"
+      ],
+      "evidence_refs": [
+        "phase20/native-backends"
+      ]
+    },
+    {
+      "milestone_id": "M17",
+      "title": "Sanskript can emit native binaries for Windows, macOS, and Linux",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "Phase 20 native-object backend remains scaffold/plan-only",
+        "no functional linked native executable on any target",
+        "linked native binaries required for Windows/macOS/Linux (targets seen: [])"
+      ],
+      "evidence_refs": [
+        "phase20/native-backends"
+      ]
+    },
+    {
+      "milestone_id": "M18",
+      "title": "Sanskript can target web without handwritten JavaScript application code",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "std.web.bridge_plan reports host_bridge=true (WASM/JS emit not native)",
+        "web bridge implementation_state is not functional",
+        "generated web shell still embeds handwritten JavaScript handlers",
+        "Phase 20 web-wasm-plan rows remain scaffold-only"
+      ],
+      "evidence_refs": [
+        "web-target-without-handwritten-application-js"
+      ]
+    },
+    {
+      "milestone_id": "M19",
+      "title": "The repo no longer requires Python/Rust for ordinary Sanskript development",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "244 Python modules still required for ordinary development",
+        "5 Rust modules still present (ssk-vm)",
+        "244 Python + 5 Rust modules still inventoried"
+      ],
+      "evidence_refs": [
+        "module-inventory-zero-required-host-modules"
+      ]
+    },
+    {
+      "milestone_id": "M20",
+      "title": "Python/Rust remain only optional bootstrap, compatibility, or contributor convenience paths",
+      "status": "not_met",
+      "claim_allowed": false,
+      "blocked_reasons": [
+        "Python/Rust are still required host paths (M19 not satisfied)",
+        "bootstrap convenience paths are not yet optional-only",
+        "host languages are still mandatory for ordinary development workflows"
+      ],
+      "evidence_refs": [
+        "host-languages-optional-bootstrap-only"
+      ]
+    }
+  ],
+  "honesty_gates": {
+    "seal_ready": true,
+    "empty_corpus_blocks_m14": true,
+    "host_replay_blocks_m13_m14_m15": true,
+    "high_milestones_all_not_met": true,
+    "inflation_issues": [],
+    "policy": "Phase 28 seal-ready means milestone reporting is honest, not that M13\u2013M20 are achieved. Host-replay and empty corpora must never satisfy M13\u2013M15 claims."
+  }
+}

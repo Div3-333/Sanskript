@@ -1,0 +1,3362 @@
+{
+  "phase": 20,
+  "host_target": "x86_64-pc-windows-msvc",
+  "targets": [
+    "x86_64-pc-windows-msvc",
+    "x86_64-unknown-linux-gnu",
+    "x86_64-apple-darwin-gnu",
+    "aarch64-pc-windows-msvc",
+    "aarch64-unknown-linux-gnu",
+    "aarch64-apple-darwin-gnu"
+  ],
+  "rows": [
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "x86_64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "win64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 4,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 5,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+24"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+32"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+40"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\executable\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: host-native"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "x86_64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "win64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 4,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 5,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+24"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+32"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+40"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\shared\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\portable-bytecode\\shared\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: host-native"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "web-wasm-plan",
+      "backend_description": "Web/WASM target planning output with bootstrap-safe WAT skeleton",
+      "target": "x86_64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": true,
+        "supports_executable": true,
+        "supports_shared": false,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "win64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 4,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 5,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+24"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+32"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+40"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\web-wasm-plan\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\web-wasm-plan\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\web-wasm-plan\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\web-wasm-plan\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\web-wasm-plan\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\web-wasm-plan\\executable\\program.wat",
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": true,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: host-native"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": true,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "x86_64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "win64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 4,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 5,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+24"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+32"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+40"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\executable\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\executable\\program.coff.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: host-native",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "x86_64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "win64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 4,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 5,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+24"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+32"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+40"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\shared\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\x86_64-pc-windows-msvc\\native-object\\shared\\program.coff.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: host-native",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "x86_64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\executable\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "x86_64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\shared\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\portable-bytecode\\shared\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "web-wasm-plan",
+      "backend_description": "Web/WASM target planning output with bootstrap-safe WAT skeleton",
+      "target": "x86_64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": true,
+        "supports_executable": true,
+        "supports_shared": false,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\web-wasm-plan\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\web-wasm-plan\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\web-wasm-plan\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\web-wasm-plan\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\web-wasm-plan\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\web-wasm-plan\\executable\\program.wat",
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": true,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": true,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "x86_64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\executable\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\executable\\program.elf.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "x86_64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\shared\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\x86_64-unknown-linux-gnu\\native-object\\shared\\program.elf.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "x86_64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\executable\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "x86_64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\shared\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\portable-bytecode\\shared\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "web-wasm-plan",
+      "backend_description": "Web/WASM target planning output with bootstrap-safe WAT skeleton",
+      "target": "x86_64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": true,
+        "supports_executable": true,
+        "supports_shared": false,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\web-wasm-plan\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\web-wasm-plan\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\web-wasm-plan\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\web-wasm-plan\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\web-wasm-plan\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\web-wasm-plan\\executable\\program.wat",
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": true,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": true,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "x86_64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\executable\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\executable\\program.macho.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "x86_64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "sysv64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "rdi"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "rsi"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "rdx"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "rcx"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "r8"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "r9"
+        },
+        {
+          "arg": 6,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 7,
+          "kind": "stack",
+          "location": "stack+8"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+16"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+24"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\shared\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\x86_64-apple-darwin-gnu\\native-object\\shared\\program.macho.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for x86_64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "aarch64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\executable\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "aarch64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\shared\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\portable-bytecode\\shared\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "web-wasm-plan",
+      "backend_description": "Web/WASM target planning output with bootstrap-safe WAT skeleton",
+      "target": "aarch64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": true,
+        "supports_executable": true,
+        "supports_shared": false,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\web-wasm-plan\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\web-wasm-plan\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\web-wasm-plan\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\web-wasm-plan\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\web-wasm-plan\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\web-wasm-plan\\executable\\program.wat",
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": true,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": true,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "aarch64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\executable\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\executable\\program.coff.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "aarch64-pc-windows-msvc",
+      "format": "coff",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\shared\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\aarch64-pc-windows-msvc\\native-object\\shared\\program.coff.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-pc-windows-msvc",
+        "entrypoint: mainCRTStartup -> _sanskript_main",
+        "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: ucrt/kernel32 bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "aarch64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\executable\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "aarch64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\shared\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\portable-bytecode\\shared\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "web-wasm-plan",
+      "backend_description": "Web/WASM target planning output with bootstrap-safe WAT skeleton",
+      "target": "aarch64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": true,
+        "supports_executable": true,
+        "supports_shared": false,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\web-wasm-plan\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\web-wasm-plan\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\web-wasm-plan\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\web-wasm-plan\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\web-wasm-plan\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\web-wasm-plan\\executable\\program.wat",
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": true,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": true,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "aarch64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\executable\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\executable\\program.elf.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "aarch64-unknown-linux-gnu",
+      "format": "elf",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\shared\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\aarch64-unknown-linux-gnu\\native-object\\shared\\program.elf.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-unknown-linux-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "aarch64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\executable\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "portable-bytecode",
+      "backend_description": "Canonical execution backend via VM bytecode",
+      "target": "aarch64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": true,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\shared\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": null,
+      "bytecode_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\portable-bytecode\\shared\\program.sskbc",
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "functional",
+      "truth_claims": {
+        "produces_vm_executable_artifact": true,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": false,
+        "bytecode": true,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "web-wasm-plan",
+      "backend_description": "Web/WASM target planning output with bootstrap-safe WAT skeleton",
+      "target": "aarch64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": false,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": true,
+        "supports_executable": true,
+        "supports_shared": false,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\web-wasm-plan\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\web-wasm-plan\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\web-wasm-plan\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\web-wasm-plan\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\web-wasm-plan\\executable\\linker-io.json",
+      "object_path": null,
+      "wasm_plan_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\web-wasm-plan\\executable\\program.wat",
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": true,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": false
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": false,
+        "wasm_plan": true,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "aarch64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "executable",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\executable\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\executable\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\executable\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\executable\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\executable\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\executable\\program.macho.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    },
+    {
+      "backend": "native-object",
+      "backend_description": "Native object and linker-plan backend for host/cross targets",
+      "target": "aarch64-apple-darwin-gnu",
+      "format": "macho",
+      "artifact_kind": "shared",
+      "backend_capabilities": {
+        "emits_object": true,
+        "emits_portable_bytecode": false,
+        "emits_wasm_plan": false,
+        "supports_executable": true,
+        "supports_shared": true,
+        "supports_cross_compile": true
+      },
+      "calling_convention": "aapcs64",
+      "calling_convention_layout_preview": [
+        {
+          "arg": 0,
+          "kind": "register",
+          "location": "x0"
+        },
+        {
+          "arg": 1,
+          "kind": "register",
+          "location": "x1"
+        },
+        {
+          "arg": 2,
+          "kind": "register",
+          "location": "x2"
+        },
+        {
+          "arg": 3,
+          "kind": "register",
+          "location": "x3"
+        },
+        {
+          "arg": 4,
+          "kind": "register",
+          "location": "x4"
+        },
+        {
+          "arg": 5,
+          "kind": "register",
+          "location": "x5"
+        },
+        {
+          "arg": 6,
+          "kind": "register",
+          "location": "x6"
+        },
+        {
+          "arg": 7,
+          "kind": "register",
+          "location": "x7"
+        },
+        {
+          "arg": 8,
+          "kind": "stack",
+          "location": "stack+0"
+        },
+        {
+          "arg": 9,
+          "kind": "stack",
+          "location": "stack+8"
+        }
+      ],
+      "stack_map_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\shared\\stack-map.json",
+      "debug_symbols_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\shared\\debug-symbols.json",
+      "symbol_table_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\shared\\symbols.json",
+      "relocations_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\shared\\relocations.json",
+      "linker_io_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\shared\\linker-io.json",
+      "object_path": "artifacts\\phase20\\evidence\\aarch64-apple-darwin-gnu\\native-object\\shared\\program.macho.o",
+      "wasm_plan_path": null,
+      "bytecode_path": null,
+      "linker_command": [],
+      "linked_output_path": null,
+      "linker_stdout_path": null,
+      "linker_stderr_path": null,
+      "implementation_state": "scaffold",
+      "truth_claims": {
+        "produces_vm_executable_artifact": false,
+        "produces_wasm_plan_only": false,
+        "produces_real_linkable_native_object": false,
+        "native_link_success_requires_real_object_writer": true
+      },
+      "notes": [
+        "runtime-startup: planned for aarch64-apple-darwin-gnu",
+        "entrypoint: _start -> _sanskript_main",
+        "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+        "native-runtime-init: initialize heap, symbol table, and std binding table",
+        "native-std-bindings: libc bridge planned",
+        "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+        "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+        "cross-compilation: enabled",
+        "object-emission: scaffold stub only; not a fully linkable object writer yet",
+        "static-linking-path: planned via platform archiver + CRT selection",
+        "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+        "link-skipped: dry-run mode"
+      ],
+      "evidence_files_exist": {
+        "stack_map": true,
+        "debug_symbols": true,
+        "symbol_table": true,
+        "relocations": true,
+        "linker_io": true,
+        "linker_stdout": false,
+        "linker_stderr": false,
+        "object": true,
+        "wasm_plan": false,
+        "bytecode": false,
+        "linked_output": false
+      }
+    }
+  ]
+}

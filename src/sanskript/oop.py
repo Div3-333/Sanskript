@@ -59,6 +59,10 @@ class ClassMetadata:
     abstract: bool
     sealed: bool
     computed_properties: tuple[str, ...]
+    metaclass: str | None
+    declared_methods: tuple[str, ...]
+    declared_static_methods: tuple[str, ...]
+    declared_class_methods: tuple[str, ...]
     mro: tuple[str, ...]
 
 
@@ -92,6 +96,7 @@ def class_metadata_from_decl(decl: ClassDecl, registry: dict[str, ClassDecl]) ->
     abstract = False
     sealed = False
     base_class: str | None = None
+    metaclass: str | None = None
 
     for name in mro:
         current = registry[name]
@@ -99,6 +104,7 @@ def class_metadata_from_decl(decl: ClassDecl, registry: dict[str, ClassDecl]) ->
             base_class = current.base_class
             abstract = current.abstract
             sealed = current.sealed
+            metaclass = current.metaclass
         for field_name, field_type in current.fields:
             fields[field_name] = field_type
             vis = dict(current.field_visibility).get(field_name, "public")
@@ -132,6 +138,10 @@ def class_metadata_from_decl(decl: ClassDecl, registry: dict[str, ClassDecl]) ->
         abstract=abstract,
         sealed=sealed,
         computed_properties=tuple(computed),
+        metaclass=metaclass,
+        declared_methods=tuple(decl.methods),
+        declared_static_methods=tuple(decl.static_methods),
+        declared_class_methods=tuple(decl.class_methods),
         mro=tuple(reversed(mro)),
     )
 
@@ -165,7 +175,7 @@ def resolve_instance_method(
     order = meta.mro if meta is not None else (class_name,)
     for candidate in order:
         sub = metadata.get(candidate)
-        if sub is None or method not in sub.methods:
+        if sub is None or method not in sub.methods or method not in sub.declared_methods:
             continue
         symbol = method_symbol(candidate, method)
         if functions is None or symbol in functions:
@@ -173,18 +183,66 @@ def resolve_instance_method(
     return None
 
 
-def resolve_static_method(class_name: str, method: str, metadata: dict[str, ClassMetadata]) -> str | None:
+def resolve_static_method(
+    class_name: str,
+    method: str,
+    metadata: dict[str, ClassMetadata],
+    *,
+    functions: Iterable[str] | None = None,
+) -> str | None:
     meta = metadata.get(class_name)
-    if meta is None or method not in meta.static_methods:
-        return None
-    return method_symbol(class_name, method, static=True)
+    order = meta.mro if meta is not None else (class_name,)
+    for candidate in order:
+        sub = metadata.get(candidate)
+        if sub is None or method not in sub.static_methods:
+            continue
+        if method not in sub.declared_static_methods:
+            continue
+        symbol = method_symbol(candidate, method, static=True)
+        if functions is None or symbol in functions:
+            return symbol
+    metaclass = _resolve_metaclass(class_name, metadata)
+    if metaclass is not None:
+        return resolve_static_method(metaclass, method, metadata, functions=functions)
+    return None
 
 
-def resolve_class_method(class_name: str, method: str, metadata: dict[str, ClassMetadata]) -> str | None:
+def resolve_class_method(
+    class_name: str,
+    method: str,
+    metadata: dict[str, ClassMetadata],
+    *,
+    functions: Iterable[str] | None = None,
+) -> str | None:
     meta = metadata.get(class_name)
-    if meta is None or method not in meta.class_methods:
-        return None
-    return method_symbol(class_name, method, static=False)
+    order = meta.mro if meta is not None else (class_name,)
+    for candidate in order:
+        sub = metadata.get(candidate)
+        if sub is None or method not in sub.class_methods:
+            continue
+        if method not in sub.declared_class_methods:
+            continue
+        symbol = method_symbol(candidate, method, static=False)
+        if functions is None or symbol in functions:
+            return symbol
+    metaclass = _resolve_metaclass(class_name, metadata)
+    if metaclass is not None:
+        return resolve_class_method(metaclass, method, metadata, functions=functions)
+    return None
+
+
+def _resolve_metaclass(class_name: str, metadata: dict[str, ClassMetadata]) -> str | None:
+    seen: set[str] = set()
+    current = class_name
+    while current and current not in seen:
+        seen.add(current)
+        meta = metadata.get(current)
+        if meta is None:
+            return None
+        if meta.metaclass:
+            return meta.metaclass
+        current = meta.base_class
+    return None
 
 
 def check_field_access(
@@ -222,6 +280,10 @@ def validate_class_decl(decl: ClassDecl, registry: dict[str, ClassDecl]) -> None
     for mixin in decl.mixins:
         if mixin not in registry:
             raise TypeCheckError(f"Unknown mixin {mixin!r} on class {decl.name!r}")
+    if decl.metaclass is not None and decl.metaclass not in registry:
+        raise TypeCheckError(f"Unknown metaclass {decl.metaclass!r} on class {decl.name!r}")
+    if decl.metaclass == decl.name:
+        raise TypeCheckError(f"Class {decl.name!r} cannot be its own metaclass")
     if decl.abstract and not decl.methods and not decl.static_methods:
         raise TypeCheckError(f"Abstract class {decl.name!r} must declare at least one method")
 

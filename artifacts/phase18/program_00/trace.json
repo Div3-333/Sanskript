@@ -1,0 +1,501 @@
+{
+  "trace": [
+    {
+      "ip": 0,
+      "opcode": "push_bigint",
+      "operand": 9007199254740991
+    },
+    {
+      "ip": 1,
+      "opcode": "store_name",
+      "operand": "big"
+    },
+    {
+      "ip": 2,
+      "opcode": "push_i8",
+      "operand": 127
+    },
+    {
+      "ip": 3,
+      "opcode": "store_name",
+      "operand": "byte"
+    },
+    {
+      "ip": 4,
+      "opcode": "push_i32",
+      "operand": 42
+    },
+    {
+      "ip": 5,
+      "opcode": "store_name",
+      "operand": "word"
+    },
+    {
+      "ip": 6,
+      "opcode": "push_int",
+      "operand": 7
+    },
+    {
+      "ip": 7,
+      "opcode": "option_some",
+      "operand": null
+    },
+    {
+      "ip": 8,
+      "opcode": "store_name",
+      "operand": "opt"
+    },
+    {
+      "ip": 9,
+      "opcode": "option_none",
+      "operand": null
+    },
+    {
+      "ip": 10,
+      "opcode": "store_name",
+      "operand": "empty"
+    },
+    {
+      "ip": 11,
+      "opcode": "push_int",
+      "operand": 42
+    },
+    {
+      "ip": 12,
+      "opcode": "result_ok",
+      "operand": null
+    },
+    {
+      "ip": 13,
+      "opcode": "store_name",
+      "operand": "res"
+    },
+    {
+      "ip": 14,
+      "opcode": "push_int",
+      "operand": 1
+    },
+    {
+      "ip": 15,
+      "opcode": "push_int",
+      "operand": 2
+    },
+    {
+      "ip": 16,
+      "opcode": "tuple_new",
+      "operand": 2
+    },
+    {
+      "ip": 17,
+      "opcode": "store_name",
+      "operand": "pair"
+    },
+    {
+      "ip": 18,
+      "opcode": "set_new",
+      "operand": null
+    },
+    {
+      "ip": 19,
+      "opcode": "push_int",
+      "operand": 1
+    },
+    {
+      "ip": 20,
+      "opcode": "set_add",
+      "operand": null
+    },
+    {
+      "ip": 21,
+      "opcode": "push_int",
+      "operand": 2
+    },
+    {
+      "ip": 22,
+      "opcode": "set_add",
+      "operand": null
+    },
+    {
+      "ip": 23,
+      "opcode": "push_int",
+      "operand": 3
+    },
+    {
+      "ip": 24,
+      "opcode": "set_add",
+      "operand": null
+    },
+    {
+      "ip": 25,
+      "opcode": "store_name",
+      "operand": "tags"
+    },
+    {
+      "ip": 26,
+      "opcode": "push_bytes",
+      "operand": "48656c6c6f"
+    },
+    {
+      "ip": 27,
+      "opcode": "store_name",
+      "operand": "buf"
+    },
+    {
+      "ip": 28,
+      "opcode": "bytearray_new",
+      "operand": null
+    },
+    {
+      "ip": 29,
+      "opcode": "store_name",
+      "operand": "mbuf"
+    },
+    {
+      "ip": 30,
+      "opcode": "ordered_map_new",
+      "operand": null
+    },
+    {
+      "ip": 31,
+      "opcode": "push_text",
+      "operand": "k"
+    },
+    {
+      "ip": 32,
+      "opcode": "push_int",
+      "operand": 9
+    },
+    {
+      "ip": 33,
+      "opcode": "ordered_map_set",
+      "operand": null
+    },
+    {
+      "ip": 34,
+      "opcode": "store_name",
+      "operand": "omap"
+    },
+    {
+      "ip": 35,
+      "opcode": "push_int",
+      "operand": 0
+    },
+    {
+      "ip": 36,
+      "opcode": "default_map_new",
+      "operand": null
+    },
+    {
+      "ip": 37,
+      "opcode": "push_text",
+      "operand": "missing"
+    },
+    {
+      "ip": 38,
+      "opcode": "push_int",
+      "operand": 7
+    },
+    {
+      "ip": 39,
+      "opcode": "default_map_set",
+      "operand": null
+    },
+    {
+      "ip": 40,
+      "opcode": "store_name",
+      "operand": "dmap"
+    },
+    {
+      "ip": 41,
+      "opcode": "counter_new",
+      "operand": null
+    },
+    {
+      "ip": 42,
+      "opcode": "push_int",
+      "operand": 1
+    },
+    {
+      "ip": 43,
+      "opcode": "counter_add",
+      "operand": null
+    },
+    {
+      "ip": 44,
+      "opcode": "push_int",
+      "operand": 1
+    },
+    {
+      "ip": 45,
+      "opcode": "counter_add",
+      "operand": null
+    },
+    {
+      "ip": 46,
+      "opcode": "push_int",
+      "operand": 2
+    },
+    {
+      "ip": 47,
+      "opcode": "counter_add",
+      "operand": null
+    },
+    {
+      "ip": 48,
+      "opcode": "store_name",
+      "operand": "cnt"
+    },
+    {
+      "ip": 49,
+      "opcode": "queue_new",
+      "operand": null
+    },
+    {
+      "ip": 50,
+      "opcode": "push_int",
+      "operand": 1
+    },
+    {
+      "ip": 51,
+      "opcode": "queue_enqueue",
+      "operand": null
+    },
+    {
+      "ip": 52,
+      "opcode": "push_int",
+      "operand": 2
+    },
+    {
+      "ip": 53,
+      "opcode": "queue_enqueue",
+      "operand": null
+    },
+    {
+      "ip": 54,
+      "opcode": "store_name",
+      "operand": "q"
+    },
+    {
+      "ip": 55,
+      "opcode": "stack_new",
+      "operand": null
+    },
+    {
+      "ip": 56,
+      "opcode": "push_int",
+      "operand": 5
+    },
+    {
+      "ip": 57,
+      "opcode": "stack_push",
+      "operand": null
+    },
+    {
+      "ip": 58,
+      "opcode": "push_int",
+      "operand": 6
+    },
+    {
+      "ip": 59,
+      "opcode": "stack_push",
+      "operand": null
+    },
+    {
+      "ip": 60,
+      "opcode": "store_name",
+      "operand": "st"
+    },
+    {
+      "ip": 61,
+      "opcode": "push_text",
+      "operand": "ready"
+    },
+    {
+      "ip": 62,
+      "opcode": "push_int",
+      "operand": 0
+    },
+    {
+      "ip": 63,
+      "opcode": "enum_new",
+      "operand": "Status"
+    },
+    {
+      "ip": 64,
+      "opcode": "store_name",
+      "operand": "status"
+    },
+    {
+      "ip": 65,
+      "opcode": "load_name",
+      "operand": "big"
+    },
+    {
+      "ip": 66,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 67,
+      "opcode": "load_name",
+      "operand": "byte"
+    },
+    {
+      "ip": 68,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 69,
+      "opcode": "load_name",
+      "operand": "word"
+    },
+    {
+      "ip": 70,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 71,
+      "opcode": "load_name",
+      "operand": "opt"
+    },
+    {
+      "ip": 72,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 73,
+      "opcode": "load_name",
+      "operand": "empty"
+    },
+    {
+      "ip": 74,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 75,
+      "opcode": "load_name",
+      "operand": "res"
+    },
+    {
+      "ip": 76,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 77,
+      "opcode": "load_name",
+      "operand": "pair"
+    },
+    {
+      "ip": 78,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 79,
+      "opcode": "load_name",
+      "operand": "buf"
+    },
+    {
+      "ip": 80,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 81,
+      "opcode": "load_name",
+      "operand": "mbuf"
+    },
+    {
+      "ip": 82,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 83,
+      "opcode": "load_name",
+      "operand": "omap"
+    },
+    {
+      "ip": 84,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 85,
+      "opcode": "load_name",
+      "operand": "dmap"
+    },
+    {
+      "ip": 86,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 87,
+      "opcode": "load_name",
+      "operand": "cnt"
+    },
+    {
+      "ip": 88,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 89,
+      "opcode": "load_name",
+      "operand": "q"
+    },
+    {
+      "ip": 90,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 91,
+      "opcode": "load_name",
+      "operand": "st"
+    },
+    {
+      "ip": 92,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 93,
+      "opcode": "load_name",
+      "operand": "status"
+    },
+    {
+      "ip": 94,
+      "opcode": "emit",
+      "operand": null
+    },
+    {
+      "ip": 95,
+      "opcode": "halt",
+      "operand": null
+    }
+  ],
+  "output": [
+    "bigint(9007199254740991)",
+    "i8(127)",
+    "i32(42)",
+    "some(7)",
+    "none",
+    "ok(42)",
+    "(1, 2)",
+    "bytes(b'Hello')",
+    "bytearray(b'')",
+    "ordered{k:9}",
+    "defaultmap(0, {missing:7})",
+    "counter{1:2, 2:1}",
+    "queue[1, 2]",
+    "stack[5, 6]",
+    "enum(Status.ready)"
+  ]
+}

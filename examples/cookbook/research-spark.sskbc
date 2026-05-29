@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "citra"
+    },
+    {
+      "op": "load_name",
+      "operand": "citra"
+    },
+    {
+      "op": "call",
+      "operand": "std.plot.sparkline"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "add"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

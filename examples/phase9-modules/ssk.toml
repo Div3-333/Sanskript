@@ -8,6 +8,15 @@ json = true
 [dependencies.local]
 helper = { path = "lib/helper.ssk" }
 
+[security]
+lock_required = true
+signature_required = false
+
+[platform]
+windows = "platform/windows-extra.ssk"
+linux = "platform/linux-extra.ssk"
+macos = "platform/macos-extra.ssk"
+
 [namespace]
 stdlib = "stdlib"
 user = "lib"

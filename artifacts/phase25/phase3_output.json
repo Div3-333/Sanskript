@@ -1,0 +1,17 @@
+[
+  "bigint(9007199254740991)",
+  "i8(127)",
+  "i32(42)",
+  "some(7)",
+  "none",
+  "ok(42)",
+  "(1, 2)",
+  "bytes(b'Hello')",
+  "bytearray(b'')",
+  "ordered{k:9}",
+  "defaultmap(0, {missing:7})",
+  "counter{1:2, 2:1}",
+  "queue[1, 2]",
+  "stack[5, 6]",
+  "enum(Status.ready)"
+]

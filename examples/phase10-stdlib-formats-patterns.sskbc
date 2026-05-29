@@ -1,0 +1,124 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "{\"a\":1}"
+    },
+    {
+      "op": "call",
+      "operand": "std.json.parse"
+    },
+    {
+      "op": "store_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "name age"
+    },
+    {
+      "op": "call",
+      "operand": "std.csv.parse"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "call",
+      "operand": "std.toml.stringify"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "jdata"
+    },
+    {
+      "op": "call",
+      "operand": "std.yaml.stringify"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "load_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "push_text",
+      "operand": "name"
+    },
+    {
+      "op": "push_text",
+      "operand": "mitra"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "push_text",
+      "operand": "namaste {{ name }}"
+    },
+    {
+      "op": "load_name",
+      "operand": "sandarbhe"
+    },
+    {
+      "op": "call",
+      "operand": "std.template.render"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "^\\\\d+$"
+    },
+    {
+      "op": "push_text",
+      "operand": "108"
+    },
+    {
+      "op": "call",
+      "operand": "std.regex.match"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

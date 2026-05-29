@@ -1,0 +1,67 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "vṛddhi"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "functions": [
+    {
+      "name": "vṛddhi",
+      "instructions": [
+        {
+          "op": "push_int",
+          "operand": 10
+        },
+        {
+          "op": "store_name",
+          "operand": "phala"
+        },
+        {
+          "op": "load_name",
+          "operand": "phala"
+        },
+        {
+          "op": "push_int",
+          "operand": 1
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "store_name",
+          "operand": "phala"
+        },
+        {
+          "op": "push_int",
+          "operand": 0
+        },
+        {
+          "op": "return"
+        }
+      ]
+    }
+  ]
+}

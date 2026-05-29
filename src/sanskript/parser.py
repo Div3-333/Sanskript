@@ -102,6 +102,7 @@ from .ast import (
     ClassMethodCall,
     ClassReflect,
     GenericRecordDecl,
+    GroupValue,
     InstanceFinalize,
     LifetimeDecl,
     MethodCall,
@@ -191,6 +192,23 @@ _BINARY_VALUE_OPERATORS = {
     "bhāgena": "divide",
     "bhagena": "divide",
 }
+_PHASE5_DIRECTIVE_PREFIXES: dict[str, str] = {
+    "prasāraḥ": "propagate",
+    "prasarah": "propagate",
+    "vikṣepaḥ": "throw",
+    "viksepah": "throw",
+    "vipattim": "panic",
+    "āgrahītvā": "try/catch",
+    "agrahitva": "try/catch",
+    "pūrvaśartam": "precondition",
+    "purvasartam": "precondition",
+    "purvaśartam": "precondition",
+    "pūrvasartam": "precondition",
+    "uttaraśartam": "postcondition",
+    "uttarasartam": "postcondition",
+    "nityaśartam": "invariant",
+    "nityasartam": "invariant",
+}
 
 
 def parse_program(source: str) -> Program:
@@ -222,6 +240,7 @@ def _parse_program_body(
     prepared=None,
 ) -> Program:
     sentences = split_sentences(source)
+    sentence_starts = _sentence_start_offsets(source, sentences)
     statements: list[Statement] = []
     functions: list[FunctionDef] = []
     pending_decorators: list[str] = []
@@ -360,8 +379,13 @@ def _parse_program_body(
                 index += 1
                 continue
             if kind == "phase3_bind":
-                target, opcode, operand = payload  # type: ignore[misc]
-                statements.append(Phase3Bind(target, opcode, operand))
+                normalized = list(payload)  # type: ignore[arg-type]
+                while len(normalized) < 5:
+                    normalized.append(None)
+                target, opcode, operand, value, items = normalized[:5]
+                if items is None:
+                    items = ()
+                statements.append(Phase3Bind(target, opcode, operand, value=value, items=tuple(items)))
                 index += 1
                 continue
             if kind == "phase3_some":
@@ -430,6 +454,7 @@ def _parse_program_body(
                     params=header.params,
                     param_defaults=header.param_defaults,
                     variadic_param=header.variadic_param,
+                    param_types=header.param_types,
                     effect=header.effect,
                     decorators=tuple(pending_decorators) + header.decorators,
                     capture_mut=header.capture_mut,
@@ -782,6 +807,8 @@ def _parse_program_body(
                 continue
             if kind == "try_catch":
                 error_name = str(payload)
+                header_start = sentence_starts[index] if index < len(sentence_starts) else 0
+                header_span = span_at(source, header_start, header_start + len(sentences[index]))
                 index += 1
                 body, index = _collect_until(
                     sentences,
@@ -793,7 +820,8 @@ def _parse_program_body(
                     source_text=source,
                 )
                 handler: tuple[Statement, ...] = ()
-                if index < len(sentences) and _is_marker_sentence(sentences[index], {"anyathā", "anyatha"}):
+                saw_else = index < len(sentences) and _is_marker_sentence(sentences[index], {"anyathā", "anyatha"})
+                if saw_else:
                     index += 1
                     handler, index = _collect_until(
                         sentences,
@@ -804,8 +832,29 @@ def _parse_program_body(
                         facade=facade,
                         source_text=source,
                     )
+                if not saw_else:
+                    raise ParseError(
+                        "āgrahītvā block requires anyathā handler block before antam.",
+                        hint="Use: āgrahītvā <name>. ... anyathā. ... antam.",
+                        span=header_span,
+                        original_script=_script_label(source),
+                    )
                 if index < len(sentences) and _is_marker_sentence(sentences[index], {"antam", "anta"}):
                     index += 1
+                else:
+                    raise ParseError(
+                        "āgrahītvā block is missing terminating antam.",
+                        hint="Close the try/catch block with antam.",
+                        span=header_span,
+                        original_script=_script_label(source),
+                    )
+                if not handler:
+                    raise ParseError(
+                        "āgrahītvā handler body cannot be empty.",
+                        hint="Add at least one statement between anyathā and antam.",
+                        span=header_span,
+                        original_script=_script_label(source),
+                    )
                 statements.append(TryCatch(body, error_name, handler))
                 continue
             if kind == "precondition":
@@ -826,7 +875,9 @@ def _parse_program_body(
             index += 1
             continue
 
-        statements.append(parse_sentence(sentence, facade=facade, source_text=source))
+        sentence_start = sentence_starts[index] if index < len(sentence_starts) else 0
+        _raise_if_malformed_phase5_directive(sentence, source=source, sentence_start=sentence_start)
+        statements.append(parse_sentence(sentence, facade=facade, source_text=source, sentence_start=sentence_start))
         index += 1
 
     _flush_module()
@@ -851,6 +902,20 @@ def _parse_program_body(
     )
 
 
+def _sentence_start_offsets(source: str, sentences: list[str]) -> list[int]:
+    starts: list[int] = []
+    cursor = 0
+    for sentence in sentences:
+        offset = source.find(sentence, cursor)
+        if offset < 0:
+            offset = source.find(sentence)
+        if offset < 0:
+            offset = cursor
+        starts.append(offset)
+        cursor = offset + len(sentence)
+    return starts
+
+
 def parse_sentence(
     sentence: str,
     *,
@@ -861,6 +926,7 @@ def parse_sentence(
     if facade is None:
         facade = get_default_facade()
     span = span_at(source_text or sentence, sentence_start, sentence_start + len(sentence))
+    script_label = _script_label(source_text)
     try:
         analyses = facade.analyze_sentence(
             sentence,
@@ -876,7 +942,7 @@ def parse_sentence(
         raise ParseError(
             f"Expected exactly one finite verb, found {len(verbs)} in {sentence!r}",
             span=span,
-            original_script=_script_label(source_text),
+            original_script=script_label,
         )
 
     verb = verbs[0]
@@ -887,22 +953,27 @@ def parse_sentence(
             f"No verb frame has been declared for {verb.surface!r}",
             hint="Declare the surface in data/verb_frames.json and rebuild the lexicon.",
             span=span,
-            original_script=_script_label(source_text),
+            original_script=script_label,
         ) from exc
 
-    _validate_verb_analysis(verb, frame)
-    facade.validate_karaka(analyses, verb)
-
-    roles = _roles_by_type(item for item in analyses if item.pos != PartOfSpeech.VERB)
     try:
+        _validate_verb_analysis(verb, frame)
+        facade.validate_karaka(analyses, verb)
+        roles = _roles_by_type(item for item in analyses if item.pos != PartOfSpeech.VERB)
         return FRAME_DISPATCH[frame.operation](frame, roles)
     except KeyError as exc:
         raise ParseError(
             f"No parser operation has been declared for {frame.operation.value!r}",
             hint="Add the operation to parser.FRAME_DISPATCH.",
             span=span,
-            original_script=_script_label(source_text),
+            original_script=script_label,
         ) from exc
+    except ParseError as exc:
+        if exc.span is None:
+            exc.span = span
+        if exc.original_script is None:
+            exc.original_script = script_label
+        raise
 
 
 FrameBuilder = Callable[[VerbFrame, dict[Role, list[Analysis]]], Statement]
@@ -980,11 +1051,12 @@ def _parse_directive_header(
             if value is not None:
                 return ("display", value)
         if len(tokens) >= 2:
-            if len(tokens) >= 3 and tokens[1] in known_modules:
+            module_name, fn_name = _split_qualified_call_target(tokens[1], known_modules=known_modules)
+            if module_name and len(tokens) >= 3 and not fn_name:
                 args, kwargs = parse_call_arg_tokens(tokens[3:], known_modules=known_modules)
-                return ("call", (tokens[1], tokens[2], args, kwargs))
+                return ("call", (module_name, tokens[2], args, kwargs))
             args, kwargs = parse_call_arg_tokens(tokens[2:], known_modules=known_modules)
-            return ("call", (None, tokens[1], args, kwargs))
+            return ("call", (module_name, fn_name, args, kwargs))
         return None
 
     if first in {"pratyāvartanam", "pratyavartanam"}:
@@ -1207,6 +1279,29 @@ def _parse_directive_header(
             except ValueError:
                 pass
 
+    if first in {"rāśi-saṅkhyā", "rashi-sankhya"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        if len(values) == 2:
+            return ("phase3_bind", (target, "push_rational", None, None, values))
+
+    if first in {"daśāṃśa-saṅkhyā", "dashamsha-sankhya"} and len(tokens) >= 4:
+        if tokens[2] in {"asti", "aste"}:
+            return ("phase3_bind", (_identifier_from_token(tokens[1]), "push_decimal", " ".join(tokens[3:])))
+
+    if first in {"saṅkīrṇa-saṅkhyā", "sankirna-sankhya"} and len(tokens) >= 5:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        if len(values) == 2:
+            return ("phase3_bind", (target, "push_complex", None, None, values))
+
+    if first in {"akṣara-bījam", "akshara-bijam"} and len(tokens) >= 4:
+        if tokens[2] in {"asti", "aste"}:
+            try:
+                return ("phase3_bind", (_identifier_from_token(tokens[1]), "push_scalar", int(tokens[3])))
+            except ValueError:
+                pass
+
     if first in {"vikalpam", "vikalpa"}:
         vk = parse_vikalpam(tokens)
         if vk is not None:
@@ -1229,7 +1324,95 @@ def _parse_directive_header(
         return ("phase3_set", (target, values))
 
     if first in {"dviguṇa-samūhaḥ", "dviguna-samuha"} and len(tokens) >= 2:
-        return ("phase3_bind", (_identifier_from_token(tokens[1]), "deque_new", None))
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "deque_new", None, None, values))
+
+    if first in {"nitya-samāhāraḥ", "nitya-samaharah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "frozen_set_new", None, None, values))
+
+    if first in {"krama-kośaḥ", "krama-koshah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "ordered_map_new", None, None, values))
+
+    if first in {"svataḥ-kośaḥ", "svatah-koshah"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        default_value = _value_from_tokens(tokens[2:3], known_modules=known_modules)
+        values = _values_from_tokens(tokens[3:], known_modules=known_modules)
+        if default_value is not None:
+            return ("phase3_bind", (target, "default_map_new", None, default_value, values))
+
+    if first in {"gaṇanā-sañcayaḥ", "ganana-sanchayah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "counter_new", None, None, values))
+
+    if first in {"panktī", "pankti"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "queue_new", None, None, values))
+
+    if first in {"stūpaḥ", "stupah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "stack_new", None, None, values))
+
+    if first in {"nyūna-śikharaḥ", "nyuna-shikharah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "heap_new", None, None, values))
+
+    if first in {"prādhānya-panktī", "pradhanya-pankti"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "pq_new", None, None, values))
+
+    if first in {"vṛkṣaḥ", "vrkshah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "tree_new", None, None, values))
+
+    if first in {"jālakaḥ", "jalakah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "graph_new", None, None, values))
+
+    if first in {"nāma-yuktiḥ", "nama-yuktih"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        return ("phase3_bind", (target, "named_tuple_new", None, None, values))
+
+    if first in {"gaṇavikalpaḥ", "ganavikalpah"} and len(tokens) >= 5:
+        target = _identifier_from_token(tokens[1])
+        type_name = _identifier_from_token(tokens[2])
+        variant = TextLiteral(_identifier_from_token(tokens[3]))
+        payload = _value_from_tokens(tokens[4:], known_modules=known_modules)
+        if payload is not None:
+            return ("phase3_bind", (target, "enum_new", type_name, None, (variant, payload)))
+
+    if first in {"cihna-saṅghaṭaḥ", "cihna-sanghatah"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        tag = _identifier_from_token(tokens[2])
+        payload = _value_from_tokens(tokens[3:], known_modules=known_modules)
+        if payload is not None:
+            return ("phase3_bind", (target, "tagged_union_new", tag, payload))
+
+    if first in {"lakṣita-doṣaḥ", "lakshita-doshah"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        code = _identifier_from_token(tokens[2])
+        message = _value_from_tokens(tokens[3:], known_modules=known_modules)
+        if message is not None:
+            return ("phase3_bind", (target, "typed_error_new", code, message))
+
+    if first in {"sambandha-hastaḥ", "sambandha-hastah"} and len(tokens) >= 4:
+        target = _identifier_from_token(tokens[1])
+        kind = _identifier_from_token(tokens[2])
+        handle = _value_from_tokens(tokens[3:], known_modules=known_modules)
+        if handle is not None:
+            return ("phase3_bind", (target, "handle_new", kind, handle))
 
     if first in _TIER_MARKERS:
         return ("tier", _TIER_MARKERS[first])
@@ -1323,13 +1506,27 @@ def _parse_directive_header(
         if data is not None:
             return ("bytes", (target, data))
 
+    if first in {"akṣara-saṃgrahaḥ", "akshara-sangrahah"} and len(tokens) >= 2:
+        target = _identifier_from_token(tokens[1])
+        return ("phase3_bind", (target, "bytearray_new"))
+
     if first in {"samūhalakṣaṇaḥ", "samuhalakshanah"} and len(tokens) >= 3:
         target = _identifier_from_token(tokens[1])
+        if _has_malformed_grouping(tokens[2:]):
+            raise ParseError(
+                f"Malformed grouping in list literal directive: {sentence!r}",
+                hint="Balance each pariveṣṭanam with a matching antam.",
+            )
         elements = _values_from_tokens(tokens[2:], known_modules=known_modules)
         return ("list_literal", (target, elements))
 
     if first in {"kośalakṣaṇaḥ", "kosalakshanah"} and len(tokens) >= 4:
         target = _identifier_from_token(tokens[1])
+        if _has_malformed_grouping(tokens[2:]):
+            raise ParseError(
+                f"Malformed grouping in map literal directive: {sentence!r}",
+                hint="Balance each pariveṣṭanam with a matching antam.",
+            )
         values = _values_from_tokens(tokens[2:], known_modules=known_modules)
         if len(values) % 2 == 0:
             entries = tuple((values[i], values[i + 1]) for i in range(0, len(values), 2))
@@ -1337,16 +1534,20 @@ def _parse_directive_header(
 
     if first in {"vastulakṣaṇaḥ", "vastulakshanah"} and len(tokens) >= 4:
         target = _identifier_from_token(tokens[1])
-        rest = tokens[2:]
-        # rest must be even: field_key value field_key value …
-        if len(rest) % 2 == 0:
+        if _has_malformed_grouping(tokens[2:]):
+            raise ParseError(
+                f"Malformed grouping in record literal directive: {sentence!r}",
+                hint="Balance each pariveṣṭanam with a matching antam.",
+            )
+        values = _values_from_tokens(tokens[2:], known_modules=known_modules)
+        if len(values) % 2 == 0:
             fields: list[tuple[Value, Value]] = []
-            for i in range(0, len(rest), 2):
-                field_key = _map_key_from_tokens([rest[i]])
-                field_val = _value_from_tokens([rest[i + 1]], known_modules=known_modules)
-                if field_key is not None and field_val is not None:
-                    fields.append((field_key, field_val))
-            if len(fields) == len(rest) // 2:
+            for i in range(0, len(values), 2):
+                field_key = _record_field_key_from_value(values[i])
+                if field_key is None:
+                    break
+                fields.append((field_key, values[i + 1]))
+            if len(fields) == len(values) // 2:
                 return ("record_literal", (target, tuple(fields)))
 
     if first == "nityam" and len(tokens) >= 3:
@@ -1600,12 +1801,23 @@ def _parse_directive_header(
         if field is not None:
             return ("field_contains", (target, record, field))
 
-    if tokens == ["arakṣitaḥ", "adhikāraḥ", "ārabhyate"] or tokens == [
-        "arakshitah",
-        "adhikarah",
-        "arabhyate",
-    ]:
-        return ("unsafe_enter", None)
+    if (
+        tokens[:3] == ["arakṣitaḥ", "adhikāraḥ", "ārabhyate"]
+        or tokens[:3] == ["arakshitah", "adhikarah", "arabhyate"]
+    ):
+        proof: str | None = None
+        if len(tokens) > 3:
+            if tokens[3] not in {"pramāṇam", "pramanam"}:
+                # Proof annotations must be explicit to avoid accidental typos
+                # silently bypassing rakṣita unsafe-proof enforcement.
+                proof = None
+            else:
+                parsed = _text_literal_from_tokens(tokens[4:])
+                if isinstance(parsed, TextLiteral):
+                    proof = parsed.value
+                else:
+                    proof = " ".join(tokens[4:]).strip() or None
+        return ("unsafe_enter", proof)
 
     if tokens == ["arakṣitaḥ", "adhikāraḥ", "samāpyate"] or tokens == [
         "arakshitah",
@@ -1760,7 +1972,7 @@ def _collection_statement_from_directive(
         target, record, field = payload  # type: ignore[misc]
         return (FieldContains(target, record, field),)
     if kind == "unsafe_enter":
-        return (UnsafeEnter(),)
+        return (UnsafeEnter(payload if isinstance(payload, str) else None),)
     if kind == "unsafe_exit":
         return (UnsafeExit(),)
     if kind == "heap_alloc":
@@ -1853,11 +2065,27 @@ def _call_value_from_tokens(
 ) -> CallValue | None:
     if len(tokens) < 2 or tokens[0] not in {"āhvānam", "ahvanam"}:
         return None
-    if len(tokens) >= 3 and tokens[1] in known_modules:
+    module_name, fn_name = _split_qualified_call_target(tokens[1], known_modules=known_modules)
+    if module_name and len(tokens) >= 3 and not fn_name:
         args, kwargs = parse_call_arg_tokens(tokens[3:], known_modules=known_modules)
-        return CallValue(tokens[2], module=tokens[1], args=args, kwargs=kwargs)
+        return CallValue(tokens[2], module=module_name, args=args, kwargs=kwargs)
     args, kwargs = parse_call_arg_tokens(tokens[2:], known_modules=known_modules)
-    return CallValue(tokens[1], args=args, kwargs=kwargs)
+    return CallValue(fn_name, module=module_name, args=args, kwargs=kwargs)
+
+
+def _split_qualified_call_target(
+    token: str,
+    *,
+    known_modules: set[str] | frozenset[str],
+) -> tuple[str | None, str]:
+    if token in known_modules:
+        return token, ""
+    if "." not in token:
+        return None, token
+    parts = [part for part in token.split(".") if part]
+    if len(parts) < 2:
+        return None, token
+    return ".".join(parts[:-1]), parts[-1]
 
 
 def _parse_return_directive(
@@ -1885,6 +2113,7 @@ class _ParsedFunctionHeader:
     params: tuple[str, ...]
     param_defaults: tuple[Value | None, ...]
     variadic_param: str | None
+    param_types: tuple[str | None, ...]
     effect: str | None
     decorators: tuple[str, ...]
     capture_mut: frozenset[str]
@@ -1963,12 +2192,13 @@ def _parse_function_header_tokens(tokens: list[str]) -> _ParsedFunctionHeader | 
 
     name = _identifier_from_token(tokens[idx])
     raw_params = tokens[idx + 1 :]
-    params, param_defaults, variadic_param = _parse_function_params(raw_params)
+    params, param_defaults, variadic_param, param_types = _parse_function_params(raw_params)
     return _ParsedFunctionHeader(
         name=name,
         params=params,
         param_defaults=param_defaults,
         variadic_param=variadic_param,
+        param_types=param_types,
         effect=effect,
         decorators=(),
         capture_mut=frozenset(capture_mut),
@@ -2014,6 +2244,16 @@ def _values_from_tokens(
     index = 0
     while index < len(tokens):
         token = tokens[index]
+        if token in {"pariveṣṭanam", "parivestanam"}:
+            end = _find_group_token_end(tokens, index)
+            if end is None:
+                index += 1
+                continue
+            grouped = parse_value_tokens(tokens[index : end + 1], known_modules=known_modules)
+            if grouped is not None:
+                values.append(grouped)
+                index = end + 1
+                continue
         if token in _TEXT_MARKERS and "iti" in tokens[index + 1 :]:
             end = tokens.index("iti", index + 1)
             text = _text_literal_from_tokens(tokens[index : end + 1])
@@ -2042,6 +2282,65 @@ def _values_from_tokens(
         else:
             index += 1
     return tuple(values)
+
+
+def _find_group_token_end(tokens: list[str], start: int) -> int | None:
+    if start >= len(tokens) or tokens[start] not in {"pariveṣṭanam", "parivestanam"}:
+        return None
+    depth = 0
+    in_text = False
+    for index in range(start, len(tokens)):
+        token = tokens[index]
+        if token in _TEXT_MARKERS:
+            in_text = True
+            continue
+        if token == "iti":
+            in_text = False
+            continue
+        if in_text:
+            continue
+        if token in {"pariveṣṭanam", "parivestanam"}:
+            depth += 1
+            continue
+        if token == "antam":
+            depth -= 1
+            if depth == 0:
+                return index
+            if depth < 0:
+                return None
+    return None
+
+
+def _has_malformed_grouping(tokens: list[str]) -> bool:
+    depth = 0
+    in_text = False
+    for token in tokens:
+        if token in _TEXT_MARKERS:
+            in_text = True
+            continue
+        if token == "iti":
+            in_text = False
+            continue
+        if in_text:
+            continue
+        if token in {"pariveṣṭanam", "parivestanam"}:
+            depth += 1
+            continue
+        if token == "antam":
+            depth -= 1
+            if depth < 0:
+                return True
+    return depth != 0
+
+
+def _record_field_key_from_value(value: Value) -> Value | None:
+    if isinstance(value, GroupValue):
+        return _record_field_key_from_value(value.inner)
+    if isinstance(value, Reference):
+        return TextLiteral(value.name)
+    if isinstance(value, (TextLiteral, Literal, BoolLiteral, FloatLiteral)):
+        return value
+    return None
 
 
 def _identifier_from_token(token: str) -> str:
@@ -2365,9 +2664,35 @@ def _collect_until(
                 index += 1
                 continue
             return tuple(body), index
+        _raise_if_malformed_phase5_directive(
+            sentence,
+            source=source_text or sentence,
+            sentence_start=0,
+        )
         body.append(parse_sentence(sentence, facade=facade, source_text=source_text))
         index += 1
     return tuple(body), index
+
+
+def _raise_if_malformed_phase5_directive(
+    sentence: str,
+    *,
+    source: str,
+    sentence_start: int,
+) -> None:
+    tokens = _directive_tokens(sentence)
+    if not tokens:
+        return
+    directive = _PHASE5_DIRECTIVE_PREFIXES.get(tokens[0])
+    if directive is None:
+        return
+    span = span_at(source, sentence_start, sentence_start + len(sentence))
+    raise ParseError(
+        f"Malformed {directive} directive: {sentence!r}",
+        hint="Check directive syntax and required operands before the sentence terminator.",
+        span=span,
+        original_script=_script_label(source),
+    )
 
 
 def _is_marker_sentence(sentence: str, markers: set[str]) -> bool:
@@ -2445,6 +2770,8 @@ _CLASS_SECTION_MARKERS = frozenset(
         "misra",
         "sādhayati",
         "sadhayati",
+        "adhivarga",
+        "adhi-varga",
         "saha",
         "paribaddha",
     }
@@ -2497,6 +2824,7 @@ def _parse_class_decl(tokens: list[str]) -> ClassDecl | None:
     mixins: list[str] = []
     trait_impls: list[str] = []
     composition: list[str] = []
+    metaclass: str | None = None
     abstract = False
     sealed = False
 
@@ -2547,6 +2875,11 @@ def _parse_class_decl(tokens: list[str]) -> ClassDecl | None:
                 trait_impls.append(tokens[idx + 1])
                 idx += 2
             continue
+        if marker in {"adhivarga", "adhi-varga"}:
+            if idx + 1 < len(tokens):
+                metaclass = tokens[idx + 1]
+                idx += 2
+            continue
         if marker == "saha":
             if idx + 2 < len(tokens):
                 composition.append(tokens[idx + 2])
@@ -2571,6 +2904,7 @@ def _parse_class_decl(tokens: list[str]) -> ClassDecl | None:
         abstract,
         sealed,
         tuple(computed),
+        metaclass,
         tuple(composition),
     )
 
@@ -2656,12 +2990,15 @@ _BUILTIN_TYPE_HINTS = frozenset(
 )
 
 
-def _parse_function_params(tokens: list[str]) -> tuple[tuple[str, ...], tuple[Value | None, ...], str | None]:
-    """Parse params with optional defaults and trailing variadic marker (...name)."""
+def _parse_function_params(
+    tokens: list[str],
+) -> tuple[tuple[str, ...], tuple[Value | None, ...], str | None, tuple[str | None, ...]]:
+    """Parse params with optional defaults, type hints, and trailing variadic (...name)."""
     if not tokens:
-        return (), (), None
+        return (), (), None, ()
     params: list[str] = []
     defaults: list[Value | None] = []
+    param_types: list[str | None] = []
     variadic_param: str | None = None
     i = 0
     while i < len(tokens):
@@ -2682,18 +3019,24 @@ def _parse_function_params(tokens: list[str]) -> tuple[tuple[str, ...], tuple[Va
             # encode as __destruct__name1__name2
             params.append("__destruct__" + "__".join(names))
             defaults.append(None)
+            param_types.append(None)
         else:
+            param_type: str | None = None
             if "=" in tok:
                 raw_name, _, raw_default = tok.partition("=")
                 name = _identifier_from_token(raw_name)
                 default = _value_from_tokens([raw_default])
-                params.append(name)
-                defaults.append(default)
             else:
-                params.append(_identifier_from_token(tok))
-                defaults.append(None)
+                name = _identifier_from_token(tok)
+                default = None
+                if i + 1 < len(tokens) and tokens[i + 1] in _BUILTIN_TYPE_HINTS:
+                    param_type = tokens[i + 1]
+                    i += 1
+            params.append(name)
+            defaults.append(default)
+            param_types.append(param_type)
         i += 1
-    return tuple(params), tuple(defaults), variadic_param
+    return tuple(params), tuple(defaults), variadic_param, tuple(param_types)
 
 
 def _default_import_name(module_path: str) -> str:

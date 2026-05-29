@@ -40,9 +40,29 @@ class PhaseExampleTests(unittest.TestCase):
         self.assertGreaterEqual(len(program.record_types), 1)
 
     def test_phase_examples_compile_via_cli(self) -> None:
-        for name in ("phase3-data-types.ssk", "phase4-types.ssk", "phase7-oop.ssk"):
+        for name in ("phase3-data-types.ssk", "phase4-types.ssk", "phase6-functions.ssk", "phase7-oop.ssk"):
             with self.subTest(example=name):
                 self.assertEqual(main(["compile", str(EXAMPLES / name)]), 0)
+
+    def test_phase6_example_runs(self) -> None:
+        path = EXAMPLES / "phase6-functions.ssk"
+        source = path.read_text(encoding="utf-8")
+        self.assertIn("yogaḥ", source)
+        self.assertIn("kālavyāpāre", source)
+        output = SanskriptVM().execute(compile_source(source))
+        self.assertEqual(
+            output,
+            [
+                "6",
+                "7",
+                "7",
+                "9",
+                "18",
+                "[anuvīkṣaṇam] enter abhivādana",
+                "namaste",
+                "[anuvīkṣaṇam] leave abhivādana",
+            ],
+        )
 
     def test_phase7_example_runs(self) -> None:
         path = EXAMPLES / "phase7-oop.ssk"
@@ -50,7 +70,7 @@ class PhaseExampleTests(unittest.TestCase):
         self.assertIn("vargaḥ", source)
         self.assertIn("nirmāṇam", source)
         output = SanskriptVM().execute(compile_source(source))
-        self.assertEqual(output, ["7"])
+        self.assertEqual(output, ["7", "śūnyam", "6"])
 
 
 if __name__ == "__main__":

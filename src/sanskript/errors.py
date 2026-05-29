@@ -17,15 +17,81 @@ class SanskriptError(Exception):
         *,
         hint: str | None = None,
         code: str | None = None,
+        category: str | None = None,
+        recoverable: bool | None = None,
         span: SourceSpan | None = None,
         original_script: str | None = None,
+        stack_trace: tuple[str, ...] = (),
+        notes: tuple[str, ...] = (),
+        suggestions: tuple[str, ...] = (),
+        fixes: tuple[str, ...] = (),
     ) -> None:
         super().__init__(message)
         self.message = message
         self.hint = hint
         self.code = code or self.code
+        self.category = category or "error"
+        self.recoverable = bool(recoverable) if recoverable is not None else True
         self.span = span
         self.original_script = original_script
+        self.stack_trace = stack_trace
+        self.notes = notes
+        # `fixes` is the canonical remediation field; `suggestions` stays as a
+        # compatibility alias for existing callers.
+        merged_fixes: tuple[str, ...] = fixes or suggestions
+        self.fixes = merged_fixes
+        self.suggestions = merged_fixes
+
+    def with_context(
+        self,
+        *,
+        span: SourceSpan | None = None,
+        original_script: str | None = None,
+        stack_trace: tuple[str, ...] | None = None,
+        notes: tuple[str, ...] | None = None,
+        suggestions: tuple[str, ...] | None = None,
+        fixes: tuple[str, ...] | None = None,
+    ) -> "SanskriptError":
+        if span is not None and self.span is None:
+            self.span = span
+        if original_script is not None and self.original_script is None:
+            self.original_script = original_script
+        if stack_trace is not None:
+            self.stack_trace = stack_trace
+        if notes is not None:
+            self.notes = notes
+        if suggestions is not None:
+            self.suggestions = suggestions
+            self.fixes = suggestions
+        if fixes is not None:
+            self.fixes = fixes
+            self.suggestions = fixes
+        return self
+
+    def to_dict(self) -> dict[str, object]:
+        payload: dict[str, object] = {
+            "code": self.code,
+            "message": self.message,
+            "category": self.category,
+            "recoverable": self.recoverable,
+            "notes": list(self.notes),
+            "stack_trace": list(self.stack_trace),
+            "fixes": list(self.fixes),
+            "suggestions": list(self.suggestions),
+        }
+        if self.hint:
+            payload["hint"] = self.hint
+        if self.original_script:
+            payload["script"] = self.original_script
+        if self.span is not None:
+            payload["span"] = {
+                "start": self.span.start,
+                "end": self.span.end,
+                "line": self.span.line,
+                "column": self.span.column,
+                "snippet": self.span.snippet,
+            }
+        return payload
 
     def __str__(self) -> str:
         text = self.message
@@ -33,6 +99,10 @@ class SanskriptError(Exception):
             text = f"{text} (at {self.span})"
         if self.original_script:
             text = f"{text} [script={self.original_script}]"
+        if self.notes:
+            text = f"{text} Notes: {' | '.join(self.notes)}"
+        if self.stack_trace:
+            text = f"{text} Stack: {' -> '.join(self.stack_trace)}"
         if self.hint:
             text = f"{text} Hint: {self.hint}"
         return f"{text} [{self.code}]"
@@ -62,12 +132,6 @@ class RuntimeSanskriptError(SanskriptError):
     code = "SANSKRIPT_RUNTIME"
 
 
-class CompileError(SanskriptError):
-    """Raised when a program cannot be compiled due to a semantic error."""
-
-    code = "SANSKRIPT_COMPILE"
-
-
 class TypeCheckError(SanskriptError):
     """Raised when static type validation fails before compilation."""
 
@@ -79,8 +143,14 @@ class PanicError(SanskriptError):
 
     code = "SANSKRIPT_PANIC"
 
+    def __init__(self, message: str, **kwargs) -> None:
+        super().__init__(message, recoverable=False, category="panic", **kwargs)
+
 
 class ThrownError(SanskriptError):
     """Raised by vikṣepaḥ — catchable by āgrahītvā."""
 
     code = "SANSKRIPT_THROW"
+
+    def __init__(self, message: str, **kwargs) -> None:
+        super().__init__(message, recoverable=True, category="throw", **kwargs)

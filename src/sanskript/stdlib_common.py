@@ -6,6 +6,7 @@ import json
 from dataclasses import dataclass
 
 from .errors import RuntimeSanskriptError
+from .phase3_values import OrderedMapValue
 from .runtime_values import BytesValue, NIL, NilValue, SanskriptValue
 
 
@@ -46,6 +47,8 @@ def expect_list(value: SanskriptValue, *, fn_name: str) -> list[SanskriptValue]:
 
 
 def expect_map(value: SanskriptValue, *, fn_name: str) -> dict[str, SanskriptValue]:
+    if isinstance(value, OrderedMapValue):
+        return {str(key): item for key, item in value.entries.items()}
     if not isinstance(value, dict):
         raise RuntimeSanskriptError(f"{fn_name} expected map, got {value!r}")
     return value

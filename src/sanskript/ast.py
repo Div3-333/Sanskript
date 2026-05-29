@@ -814,6 +814,7 @@ class ClassDecl:
     abstract: bool = False
     sealed: bool = False
     computed_properties: tuple[str, ...] = ()
+    metaclass: str | None = None
     composition_fields: tuple[str, ...] = ()
 
 
@@ -982,7 +983,7 @@ class Return:
 
 @dataclass(frozen=True)
 class UnsafeEnter:
-    pass
+    proof: str | None = None
 
 
 @dataclass(frozen=True)

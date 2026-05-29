@@ -1,0 +1,10 @@
+samūhaḥ ādeśe.
+yojanam ādeśe vākyam python iti.
+yojanam ādeśe vākyam -c iti.
+yojanam ādeśe vākyam print('phase10') iti.
+āhvānam std.process.run ādeśe phala nidadhāti.
+āharaṇam mūlya phala stdout.
+gaṇakaḥ mūlyaṃ darśayati.
+
+āhvānam std.test.assert_eq ekaṃ ekaṃ.
+āhvānam std.test.assert_true satyam.

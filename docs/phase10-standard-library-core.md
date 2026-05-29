@@ -1,6 +1,6 @@
 # Phase 10 Standard Library Core
 
-Native stdlib functions are registered in `src/sanskript/stdlib_impl.py` and dispatched by the VM through `CALL` with dotted names such as `std.json.parse`. Each namespace below has unit tests (positive and negative) in `tests/test_phase10_stdlib_core.py` and VM integration coverage where stack values are involved.
+Native stdlib functions are registered in `src/sanskript/stdlib_impl.py` and dispatched by the VM through `CALL` with dotted names such as `std.json.parse`. Source programs now reach the same path via natural directive form `āhvānam std.namespace.function ...`, which lowers through parser -> AST -> compiler -> bytecode -> VM without Python-side driver shortcuts.
 
 ## Runtime integration
 
@@ -93,9 +93,24 @@ Native stdlib functions are registered in `src/sanskript/stdlib_impl.py` and dis
 - `std.test.assert_eq`, `assert_true`, `assert_false`
 - `std.bench.now_ms`, `elapsed_ms`
 
-## Example (bytecode)
+## Source syntax and lowering
 
-See `examples/phase10-stdlib-vm.py` and `examples/phase10-stdlib-suite.py`.
+- Source form: `āhvānam std.text.upper vākyam namaste iti darśayati.`
+- Parser: `Call(module="std.text", name="upper", args=[...])`
+- Compiler: lowers to `CALL std.text.upper`
+- VM: resolves through `has_native_function` / `call_native_function`
+
+The same dotted namespace split is generic for any `std.*.*` function and is not hardcoded for a single name.
+
+## Examples
+
+See:
+
+- `examples/phase10-stdlib-source.ssk` (all-in-one source pipeline example)
+- `examples/phase10-stdlib-cli-io.ssk` (CLI/env + file I/O + logging)
+- `examples/phase10-stdlib-formats-patterns.ssk` (JSON/CSV/TOML/YAML + regex + template)
+- `examples/phase10-stdlib-process-testing.ssk` (process utilities + std.test)
+- `examples/phase10-stdlib-vm.py` and `examples/phase10-stdlib-suite.py` (host harness demos)
 
 ```text
 push_text '{"score":9}'
@@ -136,7 +151,7 @@ Expected emitted value: `9`.
 | `unittest` assertions | `std.test.*` |
 | `time.perf_counter` | `std.bench.*` |
 
-Source-level `CALL std.*` from Sanskrit prose is planned; today programs use bytecode `call` or the Python driver examples until the compiler surface wires dotted std names.
+Source-level stdlib usage is available through natural call directives and is exercised by integration tests in `tests/test_phase10_stdlib_core.py`, including generic lowering assertions that validate multiple namespaces compile into `CALL std.*` bytecode through the normal parser/AST/compiler/VM pipeline.
 
 ## Limitations (explicit)
 

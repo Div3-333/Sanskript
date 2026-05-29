@@ -1,0 +1,31 @@
+rakṣitam.
+
+// Phase 23 morphology baseline: sync primitives + blocking host async (rakṣita tier).
+gaṇakaḥ ekaṃ phale nidadhāti.
+āhvānam std.sync.atomic.new phalaṃ a nidadhāti.
+āhvānam std.sync.atomic.fetch_add a dvi phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+āhvānam std.sync.atomic.load a phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.
+
+āhvānam std.sync.channel.new ekaṃ c nidadhāti.
+āhvānam std.sync.channel.send c phalaṃ.
+āhvānam std.sync.channel.recv c daśa darśayati.
+
+āhvānam std.sync.mutex.new mu nidadhāti.
+āhvānam std.sync.mutex.acquire mu pañca darśayati.
+āhvānam std.sync.mutex.release mu darśayati.
+
+āhvānam std.sync.rwlock.new rk nidadhāti.
+āhvānam std.sync.rwlock.acquire_read rk pañca darśayati.
+āhvānam std.sync.rwlock.release rk darśayati.
+
+āhvānam std.sync.semaphore.new ekaṃ sem nidadhāti.
+āhvānam std.sync.semaphore.acquire sem pañca darśayati.
+āhvānam std.sync.semaphore.release sem darśayati.
+
+āhvānam std.sync.queue.new ekaṃ q nidadhāti.
+āhvānam std.sync.queue.enqueue q phalaṃ.
+āhvānam std.sync.queue.dequeue q pañca darśayati.
+
+āhvānam std.async.sleep_ms pañca darśayati.

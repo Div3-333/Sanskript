@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "store_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "load_name",
+      "operand": "mūlya"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+// Phase 22: HTTP micro-service (listen → route → respond).
+kośaḥ mārga-saṃyojane.
+sthāpanam mārga-saṃyojane /health vākyam health iti.
+kośaḥ pratyuttara-saṃyojane.
+sthāpanam pratyuttara-saṃyojane health vākyam ok iti.
+samūhalakṣaṇaḥ madhyavartinaḥ vākyam log iti vākyam cors iti.
+āhvānam std.http.server_route_once vākyam 127.0.0.1 iti __P22_PORT__ mārga-saṃyojane madhyavartinaḥ pratyuttara-saṃyojane phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

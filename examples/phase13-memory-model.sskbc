@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 8
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "push_text",
+      "operand": "abi"
+    },
+    {
+      "op": "push_bool",
+      "operand": 0
+    },
+    {
+      "op": "push_text",
+      "operand": "sysv64"
+    },
+    {
+      "op": "push_text",
+      "operand": "global"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.alloc.heap"
+    },
+    {
+      "op": "store_name",
+      "operand": "block"
+    },
+    {
+      "op": "load_name",
+      "operand": "block"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.layout.describe"
+    },
+    {
+      "op": "store_name",
+      "operand": "varṇanam"
+    },
+    {
+      "op": "load_name",
+      "operand": "block"
+    },
+    {
+      "op": "push_text",
+      "operand": "a"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.borrow.shared"
+    },
+    {
+      "op": "store_name",
+      "operand": "s1"
+    },
+    {
+      "op": "load_name",
+      "operand": "block"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.alias.state"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "s1"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.borrow.release"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "block"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.ref"
+    },
+    {
+      "op": "store_name",
+      "operand": "ptr"
+    },
+    {
+      "op": "load_name",
+      "operand": "ptr"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.store_u8"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "load_name",
+      "operand": "ptr"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.load_u8"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 9
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.atomic.new"
+    },
+    {
+      "op": "store_name",
+      "operand": "atom"
+    },
+    {
+      "op": "load_name",
+      "operand": "atom"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.atomic.fetch_add"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "load_name",
+      "operand": "atom"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.atomic.load"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_text",
+      "operand": "seq_cst"
+    },
+    {
+      "op": "call",
+      "operand": "std.memory.atomic.fence"
+    },
+    {
+      "op": "store_name",
+      "operand": "smṛti-cihnam"
+    },
+    {
+      "op": "halt"
+    }
+  ],
+  "safety_tier": "rakshita"
+}

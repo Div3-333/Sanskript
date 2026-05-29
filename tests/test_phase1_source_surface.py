@@ -10,6 +10,7 @@ from sanskript import run
 from sanskript.comments import strip_comments
 from sanskript.errors import MorphologyError, ParseError
 from sanskript.formatter import format_source
+from sanskript.identifiers import IdentifierError, canonical_identifier
 from sanskript.learning_mode import enrich_error, parse_learning_directive
 from sanskript.linter import lint_source
 from sanskript.parser import parse_program
@@ -89,6 +90,18 @@ class Phase1SourceSurfaceTests(unittest.TestCase):
         prepared = prepare_source("paninianam.\ngaṇakaḥ pañca phale nidadhāti.")
         self.assertTrue(prepared.strict_paninian)
 
+    def test_prepare_source_recovers_joined_sandhi_token(self) -> None:
+        prepared = prepare_source("sandhīnam.\ngaṇakotra nidadhāti.")
+        self.assertIn("gaṇakaḥ atra", prepared.text)
+
+    def test_harvard_kyoto_sandhi_example_runs(self) -> None:
+        source = (EXAMPLES / "phase1-script-sandhi.ssk").read_text(encoding="utf-8")
+        self.assertEqual(run(source), ["1"])
+
+    def test_devanagari_sandhi_example_runs(self) -> None:
+        source = (EXAMPLES / "phase1-broad-script-sandhi.ssk").read_text(encoding="utf-8")
+        self.assertEqual(run(source), ["3"])
+
     def test_morphology_error_in_learning_mode(self) -> None:
         prev = os.environ.pop("SANSKRIPT_LEARNING", None)
         os.environ["SANSKRIPT_LEARNING"] = "1"
@@ -101,6 +114,10 @@ class Phase1SourceSurfaceTests(unittest.TestCase):
                 os.environ.pop("SANSKRIPT_LEARNING", None)
             else:
                 os.environ["SANSKRIPT_LEARNING"] = prev
+
+    def test_identifier_pipeline_rejects_operator_like_names(self) -> None:
+        with self.assertRaises(IdentifierError):
+            canonical_identifier("counter+")
 
 
 class Phase1FormatterReparseTests(unittest.TestCase):

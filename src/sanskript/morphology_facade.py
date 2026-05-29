@@ -13,7 +13,7 @@ from .morphology_lexicon import DEFAULT_LEXICON_PATH, load_controlled_lexicon, m
 from .morphology_synth import MorphologySynthesizer, synthesize
 from .morphology_validate import validate_surface
 from .script_normalize import detect_script, normalize_to_iast
-from .source_context import TokenProvenance, span_at
+from .source_context import SourceSpan, TokenProvenance, span_at
 
 
 MAX_UNKNOWN_CANDIDATES = 64
@@ -43,7 +43,13 @@ class MorphologyFacade:
         self._karaka = KarakaVibhaktiEngine()
         self._register_by_surface = _index_register_by_surface()
 
-    def analyze_token(self, token: str) -> Analysis:
+    def analyze_token(
+        self,
+        token: str,
+        *,
+        span: SourceSpan | None = None,
+        original_script: str | None = None,
+    ) -> Analysis:
         normalized = self.normalize_token(token)
         if normalized in self._session_cache:
             return self._session_cache[normalized]
@@ -57,12 +63,16 @@ class MorphologyFacade:
                 f"Form {normalized!r} is not in the controlled Sanskrit register. "
                 "Add it to the grammar register and rebuild the lexicon.",
                 hint="Run `python scripts/build_controlled_lexicon.py` after adding the form.",
+                span=span,
+                original_script=original_script,
             )
         if len(matches) > 1:
             options = ", ".join(sorted({item.lemma for item in matches}))
             raise MorphologyError(
                 f"Form {normalized!r} is ambiguous in the controlled register ({options}).",
                 hint="Use a less ambiguous registered form or add parser context for this frame.",
+                span=span,
+                original_script=original_script,
             )
         analysis = matches[0]
         self._session_cache[normalized] = analysis
@@ -80,7 +90,18 @@ class MorphologyFacade:
         if self.strict:
             for token in tokens:
                 validate_surface(token)
-        return [self.analyze_token(token) for token in tokens]
+        if source_text is None:
+            return [self.analyze_token(token) for token in tokens]
+        script = detect_script(source_text).value
+        provenance = self.token_provenance(
+            sentence,
+            source_text=source_text,
+            sentence_start=sentence_start,
+        )
+        return [
+            self.analyze_token(item.token, span=item.span, original_script=script)
+            for item in provenance
+        ]
 
     def token_provenance(
         self,

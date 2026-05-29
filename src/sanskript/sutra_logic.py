@@ -197,6 +197,13 @@ def sutra_record(sutra_id: str) -> SutraRecord:
         raise ValueError(f"No canonical sutra record for {sutra_id!r}") from exc
 
 
+def sutra_registry_slice_via_port() -> tuple[int, str]:
+    """Canonical sutra-registry JSON consumer (Phase 27 bytecode port)."""
+    from .phase27_ports import canonical_sutra_registry_slice_summary
+
+    return canonical_sutra_registry_slice_summary()
+
+
 def implemented_logic_ids() -> frozenset[str]:
     return frozenset(SUTRA_LOGIC)
 

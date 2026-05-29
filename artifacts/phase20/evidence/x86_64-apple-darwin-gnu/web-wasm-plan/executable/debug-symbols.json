@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "symbols": [
+    {
+      "name": "_sanskript_main",
+      "kind": "function",
+      "address_hint": 0
+    },
+    {
+      "name": "\u1e63a\u1e6dkam",
+      "kind": "function",
+      "address_hint": 1
+    },
+    {
+      "name": "yoga\u1e25_1",
+      "kind": "function",
+      "address_hint": 2
+    },
+    {
+      "name": "yoga\u1e25_2",
+      "kind": "function",
+      "address_hint": 3
+    },
+    {
+      "name": "tri-yoga",
+      "kind": "function",
+      "address_hint": 4
+    },
+    {
+      "name": "dvigu\u1e47ana",
+      "kind": "function",
+      "address_hint": 5
+    },
+    {
+      "name": "abhiv\u0101dana",
+      "kind": "function",
+      "address_hint": 6
+    },
+    {
+      "name": "punar\u0101vartanam",
+      "kind": "function",
+      "address_hint": 7
+    },
+    {
+      "name": "__partial__tri-yoga__0",
+      "kind": "function",
+      "address_hint": 8
+    }
+  ]
+}

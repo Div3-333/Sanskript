@@ -1,10 +1,14 @@
 import unittest
 
 from sanskript.script_normalize import (
+    Script,
+    detect_script,
     harvard_kyoto_to_iast,
     iast_to_harvard_kyoto,
+    iast_to_slp1,
     normalize_to_iast,
     slp1_to_iast,
+    transliterate_for_diagnostics,
 )
 from sanskript.transliteration import devanagari_to_iast, iast_to_devanagari, tokenize_iast
 
@@ -20,6 +24,15 @@ class TransliterationTests(unittest.TestCase):
         self.assertEqual(devanagari_to_iast("फलं"), "phalaṃ")
         self.assertEqual(devanagari_to_iast("न्यूनयति"), "nyūnayati")
 
+    def test_iast_to_devanagari_handles_vocalic_and_cluster_forms(self) -> None:
+        self.assertEqual(iast_to_devanagari("ṛṣiḥ"), "ऋषिः")
+        self.assertEqual(iast_to_devanagari("kṛṣṇaḥ"), "कृष्णः")
+        self.assertEqual(iast_to_devanagari("lakṣmīḥ"), "लक्ष्मीः")
+
+    def test_devanagari_to_iast_handles_virama_and_chandrabindu(self) -> None:
+        self.assertEqual(devanagari_to_iast("क्"), "k")
+        self.assertEqual(devanagari_to_iast("अँ"), "am̐")
+
     def test_iast_tokenizer_prefers_longest_tokens(self) -> None:
         self.assertEqual(tokenize_iast("ai au kh ṭh"), ["ai", " ", "au", " ", "kh", " ", "ṭh"])
 
@@ -34,6 +47,24 @@ class TransliterationTests(unittest.TestCase):
     def test_slp1_phalaM(self) -> None:
         self.assertEqual(slp1_to_iast("plam"), "plam")
         self.assertIn("ṃ", slp1_to_iast("phala.m") or "phalaṃ")
+
+    def test_slp1_roundtrip_covers_retroflex_and_nasal_forms(self) -> None:
+        iast = "kṛṣṇaḥ śāntiṃ"
+        self.assertEqual(slp1_to_iast(iast_to_slp1(iast)), iast)
+
+    def test_diagnostics_transliteration_roundtrip_across_scripts(self) -> None:
+        iast = "lakṣmīḥ"
+        for target in (Script.DEVANAGARI, Script.HARVARD_KYOTO, Script.SLP1):
+            with self.subTest(target=target):
+                rendered = transliterate_for_diagnostics(iast, target=target)
+                self.assertEqual(normalize_to_iast(rendered, script=target).text, iast)
+
+    def test_slp1_roundtrip_preserves_s_and_sh_distinction(self) -> None:
+        iast = "śaṣaḥ saḥ"
+        self.assertEqual(slp1_to_iast(iast_to_slp1(iast)), iast)
+
+    def test_detect_script_flags_mixed_text(self) -> None:
+        self.assertEqual(detect_script("गणकः gaṇakaḥ"), Script.MIXED)
 
 
 if __name__ == "__main__":

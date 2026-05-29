@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "try_begin",
+      "operand": 6
+    },
+    {
+      "op": "push_text",
+      "operand": "caught"
+    },
+    {
+      "op": "throw"
+    },
+    {
+      "op": "jump",
+      "operand": 9
+    },
+    {
+      "op": "store_name",
+      "operand": "doṣaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "doṣaḥ"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 0
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "try_end"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

@@ -52,7 +52,7 @@ from pathlib import Path
 from sanskript.bytecode import BytecodeProgram, Instruction, OpCode
 from sanskript.compiler import compile_program, compile_source
 from sanskript.source_pipeline import prepare_source
-from sanskript.errors import PanicError, ThrownError
+from sanskript.errors import CompileError, PanicError, ParseError, RuntimeSanskriptError, ThrownError, TypeCheckError
 from sanskript.parser import parse_program
 from sanskript.vm import SanskriptVM
 from sanskript.yantra_patha import program_from_yantra_patha, program_to_yantra_patha
@@ -414,6 +414,8 @@ class ContractTests(unittest.TestCase):
         with self.assertRaises(PanicError) as ctx:
             _run(prog)
         self.assertIn("precondition", ctx.exception.message)
+        self.assertTrue(ctx.exception.stack_trace)
+        self.assertTrue(ctx.exception.notes)
 
     def test_postcondition_passes(self) -> None:
         prog = Program((
@@ -573,6 +575,113 @@ class NegativeTests(unittest.TestCase):
         with self.assertRaises(PanicError):
             _run(prog)
 
+    def test_illegal_break_outside_loop_runtime_error(self) -> None:
+        prog = Program((Break(),))
+        with self.assertRaises(RuntimeSanskriptError) as ctx:
+            compile_program(prog)
+        self.assertIn("outside loop", ctx.exception.message)
+
+    def test_illegal_continue_outside_loop_runtime_error(self) -> None:
+        prog = Program((Continue(),))
+        with self.assertRaises(RuntimeSanskriptError) as ctx:
+            compile_program(prog)
+        self.assertIn("outside loop", ctx.exception.message)
+
+    def test_illegal_labeled_break_runtime_error(self) -> None:
+        prog = Program((
+            While(CompareLt(Literal(0), Literal(1)), (Break(label="missing"),), label="known"),
+        ))
+        with self.assertRaises(RuntimeSanskriptError) as ctx:
+            _run(prog)
+        self.assertIn("No loop with label", ctx.exception.message)
+
+    def test_illegal_labeled_continue_runtime_error(self) -> None:
+        prog = Program((
+            While(CompareLt(Literal(0), Literal(1)), (Continue(label="missing"),), label="known"),
+        ))
+        with self.assertRaises(RuntimeSanskriptError) as ctx:
+            _run(prog)
+        self.assertIn("No loop with label", ctx.exception.message)
+
+    def test_illegal_propagate_outside_function_compile_error(self) -> None:
+        prog = Program((Propagate(Reference("r")),))
+        with self.assertRaises((CompileError, TypeCheckError)):
+            compile_program(prog)
+
+    def test_throw_has_stack_trace_and_notes(self) -> None:
+        prog = Program((Throw(TextLiteral("err")),))
+        with self.assertRaises(ThrownError) as ctx:
+            _run(prog)
+        self.assertTrue(ctx.exception.stack_trace)
+        self.assertTrue(ctx.exception.notes)
+        self.assertEqual(len(ctx.exception.notes), len(set(ctx.exception.notes)))
+
+    def test_panic_has_deduplicated_vm_notes(self) -> None:
+        prog = Program((Panic(TextLiteral("fatal")),))
+        with self.assertRaises(PanicError) as ctx:
+            _run(prog)
+        self.assertTrue(ctx.exception.notes)
+        self.assertEqual(len(ctx.exception.notes), len(set(ctx.exception.notes)))
+
+    def test_runtime_type_mismatch_is_wrapped_with_vm_diagnostics(self) -> None:
+        program = BytecodeProgram((
+            Instruction(OpCode.PUSH_INT, 1),
+            Instruction(OpCode.RESULT_UNWRAP_OK),
+            Instruction(OpCode.HALT),
+        ))
+        with self.assertRaises(RuntimeSanskriptError) as ctx:
+            SanskriptVM().execute(program)
+        self.assertIn("expected result", ctx.exception.message)
+        self.assertTrue(ctx.exception.stack_trace)
+        self.assertTrue(ctx.exception.notes)
+
+    def test_illegal_throw_directive_missing_operand(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("vikṣepaḥ.")
+        self.assertIn("Malformed throw directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+        payload = ctx.exception.to_dict()
+        self.assertEqual(payload["code"], "SANSKRIPT_PARSE")
+        self.assertEqual(payload["category"], "error")
+        self.assertTrue(payload["recoverable"])
+        self.assertIn("span", payload)
+
+    def test_illegal_panic_directive_missing_operand(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("vipattim.")
+        self.assertIn("Malformed panic directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+
+    def test_illegal_precondition_missing_condition(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("pūrvaśartam.")
+        self.assertIn("Malformed precondition directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+
+    def test_illegal_postcondition_missing_condition(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("uttaraśartam.")
+        self.assertIn("Malformed postcondition directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+
+    def test_illegal_invariant_missing_condition(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("nityaśartam.")
+        self.assertIn("Malformed invariant directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+
+    def test_illegal_propagate_directive_missing_operand(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("prasāraḥ.")
+        self.assertIn("Malformed propagate directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+
+    def test_illegal_try_catch_header_missing_error_name(self) -> None:
+        with self.assertRaises(ParseError) as ctx:
+            parse_program("āgrahītvā.")
+        self.assertIn("Malformed try/catch directive", ctx.exception.message)
+        self.assertIsNotNone(ctx.exception.span)
+
 
 # ---------------------------------------------------------------------------
 # 15. Yantra-pāṭha round-trip (throw / panic / try)
@@ -662,7 +771,7 @@ antam."""
 
         self.assertEqual(
             _parse_function_params(["(a", "b)"]),
-            (("__destruct__a__b",), (None,), None),
+            (("__destruct__a__b",), (None,), None, (None,)),
         )
         src = """vidhānam yoga (a b).
 pratyāvartanam a yoga b.

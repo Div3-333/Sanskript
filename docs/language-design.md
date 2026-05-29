@@ -137,15 +137,23 @@ Upasargas are tracked in a separate registry so future verbal derivation can att
 
 ## Metarules
 
-The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. The current truth gate marks 3613 sutras as implemented, each backed by a named handler in `sutra_logic.evaluate_sutra`. The previous generated Adhyaya 1-6 metric is rejected because metadata profiles are not discrete Paninian logic.
+The Aṣṭādhyāyī does not behave like a flat list of rewrite rules. Sanskript therefore has a metarule scaffold for technical markers, optionality, prohibition, domain carry, and late sentence-edge operations. The current truth gate marks 3983 sutras as implemented, each backed by a named handler in `sutra_logic.evaluate_sutra`. The previous generated Adhyaya 1-6 metric is rejected because metadata profiles are not discrete Paninian logic.
 
-## Future Safety Tiers
+## Safety Tiers
 
-The planned memory model can use Sanskrit grammar as the safety surface rather than a borrowed systems-language syntax. A possible split:
+The memory model uses Sanskrit grammar as the safety surface rather than borrowed systems-language syntax:
 
 - `surakṣita` Sanskript: high-level, fully checked ownership, lifetimes, effects, and memory regions.
 - `rakṣita` Sanskript: explicit manual control like Rust/C, with checked declarations for ownership transfer, borrowing, mutation, and release.
 - `arakṣita` Sanskript: raw machine-facing operations for pointers, address arithmetic, layout, and unchecked calls.
+
+Phase 15 status:
+
+- `rakṣita` ownership/borrow/lifetime checks are enforced in the type checker.
+- `rakṣita` unsafe regions require explicit proof annotations at parse/type-check time.
+- Heap and unsafe operations are runtime-gated in the VM.
+- Panic (`vipattim`) and recoverable throw (`vikṣepaḥ`) remain distinct runtime channels.
+- `std.sync.*`, `std.thread.marker.*`, `std.ffi.*`, and `std.net.*` provide baseline systems primitives.
 
 The grammar gives useful handles: genitive for ownership, dative for transfer/recipient, instrumental for pointer-like tools, locative for memory regions, ablative for release/source, and moods/prohibitions for unsafe permission boundaries.
 
@@ -162,7 +170,15 @@ This gives `6.2` through `6.4` useful runtime scaffolding while keeping the trut
 
 ## Sandhi
 
-Sandhi segmentation is available when `sandhīnam.` or `paninianam.` is declared (or `SANSKRIPT_STRICT=1`): `source_pipeline` uses `sandhi.join_words` to split over-joined tokens before morphology. Learning mode (`śikṣām` or `SANSKRIPT_LEARNING=1`) adds hints without relaxing compile rules.
+Sandhi segmentation is available when `sandhīnam.` or `paninianam.` is declared (or `SANSKRIPT_STRICT=1`): `source_pipeline` now performs inverse reconstruction through `sandhi.split_joined_token` so strict mode can recover joined surfaces across vowel, visarga-vowel, and visarga-sibilant joins before morphology.
+
+This remains conservative:
+
+- segmentation runs only for tokens that are *not* already valid registered surfaces;
+- each recovered boundary must re-join through `sandhi.join_words` to the exact original token using a non-identity rule;
+- strict mode prefers boundaries whose parts are valid controlled-register forms.
+
+Learning mode (`śikṣām` or `SANSKRIPT_LEARNING=1`) adds hints without relaxing compile rules.
 
 ## Error Philosophy
 

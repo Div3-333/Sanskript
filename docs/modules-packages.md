@@ -52,7 +52,7 @@ inside the package is imported, initialization modules load first.
 [package]
 name = "demo"
 version = "1.0.0"
-signature = "<hmac-sha256 digest>"
+signature = "hmac-sha256:<digest>:<signature>"
 
 [features]
 json = true
@@ -66,11 +66,17 @@ serde = { version = "0.1.0", registry = "ssk" }
 [dependencies.vendored]
 legacy = { path = "vendor/legacy", locked = true }
 
+[security]
+lock_required = true
+signature_required = true
+
 [profile.release]
 requires = "json"
 
-[platform.windows]
-extra = "win_extra.ssk"
+[platform]
+windows = "platform/windows-extra.ssk"
+linux = "platform/linux-extra.ssk"
+macos = "platform/macos-extra.ssk"
 
 [namespace]
 stdlib = "stdlib"
@@ -89,13 +95,70 @@ viśeṣa json sat.
 
 ## Lockfile (`ssk.lock`)
 
-The lockfile pins resolved dependency paths and `sha256` hashes. The loader
-rejects tampered vendored trees when hashes diverge.
+The lockfile pins resolved dependency paths and deterministic `sha256` hashes
+for files and directory trees. The loader rejects tampered dependencies when
+hashes diverge, rejects lock paths that escape the package root, and rejects
+incomplete lockfiles when lock enforcement is active.
+
+When `signature_required = true`, `ssk.lock` must carry the same signature as
+`[package].signature`; a mismatch is treated as tampering and aborts resolution.
 
 ## Package signing
 
-Set `SANSKRIPT_SIGNING_KEY` and record `signature` in the manifest. The loader
-calls `verify_package_signature` before resolving dependencies.
+Set `SANSKRIPT_SIGNING_KEY` and record `signature` in the manifest using the
+format `hmac-sha256:<digest>:<signature>`. The loader verifies both digest and
+HMAC before resolving dependencies. Digest binding is manifest-aware for both
+`ssk.toml` and `saṃskaraṇa.sskm`/`samskarana.sskm`, so changing security flags,
+dependency declarations, or namespace values invalidates the signature. There is
+no built-in default signing key.
+
+## Platform feature gates
+
+Platform modules under `[platform]` are loaded only for the active platform
+(`windows`, `linux`, `macos`, or exact `sys.platform` tag). Non-active
+platform bindings are not imported. Manifest validation rejects unknown platform
+keys to prevent silent gate bypass through typos.
+
+## Single-file compile proof
+
+Before multi-module manifests, confirm `vidhānam` / `āhvānam` in one file:
+
+```ssk
+vidhānam saṃyojanam a b.
+pratyāvartanam a b.
+samāpanam.
+```
+
+Runnable: [phase6-functions.ssk](../examples/phase6-functions.ssk)
+
+```powershell
+$env:PYTHONPATH='src'
+python -m sanskript compile examples/phase6-functions.ssk
+python -m sanskript run examples/phase6-functions.ssk
+```
+
+## Fresh checkout reproducibility
+
+`examples/phase9-modules/` includes both `ssk.toml` and `ssk.lock`, with
+`lock_required = true`, so dependency resolution is deterministic on a clean
+checkout.
+
+Validation commands:
+
+```bash
+python -m pytest tests/test_phase9_modules.py -q
+python -m pytest tests/test_cli_toolchain.py tests/test_phase_examples.py -q
+python -m sanskript.cli run examples/phase9-modules/main.ssk
+```
+
+Phase 9 hardening evidence includes dedicated failure-mode tests in
+`tests/test_phase9_modules.py` for:
+- prose-manifest signature tamper rejection,
+- lock-signature mismatch rejection under `signature_required`,
+- lock-path/root escape rejection,
+- outside-root lock generation rejection,
+- unsupported `[platform]` key rejection,
+- dependency conflict rejection across case-variants.
 
 ## Dependency kinds
 

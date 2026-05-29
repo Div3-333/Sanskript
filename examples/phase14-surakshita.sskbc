@@ -1,0 +1,357 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase14.txt"
+    },
+    {
+      "op": "push_text",
+      "operand": "namaste"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.write_text"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase14.txt"
+    },
+    {
+      "op": "push_text",
+      "operand": "mitra"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.append_text"
+    },
+    {
+      "op": "pop"
+    },
+    {
+      "op": "push_text",
+      "operand": "./tmp-phase14.txt"
+    },
+    {
+      "op": "call",
+      "operand": "std.file.read_text"
+    },
+    {
+      "op": "store_name",
+      "operand": "pāṭhaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "pāṭhaḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.text.upper"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 7
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṃkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṃkhyāḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.data.describe"
+    },
+    {
+      "op": "store_name",
+      "operand": "saṃkhyā-saṅkṣepaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "saṃkhyā-saṅkṣepaḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "list_new"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 2
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 6
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "push_int",
+      "operand": 3
+    },
+    {
+      "op": "list_append"
+    },
+    {
+      "op": "store_name",
+      "operand": "citra-saṃkhyāḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "citra-saṃkhyāḥ"
+    },
+    {
+      "op": "push_int",
+      "operand": 5
+    },
+    {
+      "op": "push_int",
+      "operand": 4
+    },
+    {
+      "op": "call",
+      "operand": "std.plot.ascii"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "load_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "push_text",
+      "operand": "/users/{id}"
+    },
+    {
+      "op": "push_text",
+      "operand": "user_show"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "push_text",
+      "operand": "/users/108"
+    },
+    {
+      "op": "load_name",
+      "operand": "mārga-saṃyojane"
+    },
+    {
+      "op": "call",
+      "operand": "std.web.route_match"
+    },
+    {
+      "op": "store_name",
+      "operand": "phala"
+    },
+    {
+      "op": "push_text",
+      "operand": "json"
+    },
+    {
+      "op": "load_name",
+      "operand": "phala"
+    },
+    {
+      "op": "call",
+      "operand": "std.serialize"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "title"
+    },
+    {
+      "op": "push_text",
+      "operand": "Surakshita"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "<h1>{{title}}</h1>"
+    },
+    {
+      "op": "load_name",
+      "operand": "pṛṣṭha-sandarbhaḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.web.render"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "map_new"
+    },
+    {
+      "op": "store_name",
+      "operand": "nāma-sandarbhaḥ"
+    },
+    {
+      "op": "load_name",
+      "operand": "nāma-sandarbhaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "name"
+    },
+    {
+      "op": "push_text",
+      "operand": "phase14-demo"
+    },
+    {
+      "op": "map_set"
+    },
+    {
+      "op": "store_name",
+      "operand": "nāma-sandarbhaḥ"
+    },
+    {
+      "op": "push_text",
+      "operand": "package={{name}}"
+    },
+    {
+      "op": "load_name",
+      "operand": "nāma-sandarbhaḥ"
+    },
+    {
+      "op": "call",
+      "operand": "std.template.render"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "call",
+      "operand": "std.async.sleep_ms"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "push_int",
+      "operand": 1
+    },
+    {
+      "op": "push_text",
+      "operand": "build"
+    },
+    {
+      "op": "call",
+      "operand": "std.task.run_after_ms"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

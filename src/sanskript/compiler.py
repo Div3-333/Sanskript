@@ -141,6 +141,7 @@ from .bytecode import (
     qualified_function_name,
 )
 from .errors import CompileError, RuntimeSanskriptError
+from .stdlib_core import has_native_function
 from .ir import (
     IRBoolAnd,
     IRBoolAndCond,
@@ -394,13 +395,7 @@ def _resolve_function_symbol(base: str, *, arity: int) -> str:
     """Map logical name (e.g. Point__sum) to emitted function symbol (overload suffix)."""
     if _COMPILE_PROGRAM is None:
         return base
-    exact: list[str] = []
-    prefixed: list[str] = []
-    for function in _COMPILE_PROGRAM.functions:
-        if function.name == base:
-            exact.append(function.name)
-        elif function.name.startswith(f"{base}_"):
-            prefixed.append(function.name)
+    exact: list[str] = [function.name for function in _COMPILE_PROGRAM.functions if function.name == base]
     if len(exact) == 1:
         return exact[0]
     if len(exact) > 1:
@@ -409,11 +404,7 @@ def _resolve_function_symbol(base: str, *, arity: int) -> str:
             if len(fn.params) == arity:
                 return name
         return exact[0]
-    for name in sorted(prefixed):
-        fn = next(f for f in _COMPILE_PROGRAM.functions if f.name == name)
-        if len(fn.params) == arity:
-            return name
-    return prefixed[0] if len(prefixed) == 1 else base
+    return base
 
 
 def _index_functions(program: Program) -> None:
@@ -465,20 +456,37 @@ def _all_indexed_functions() -> tuple[FunctionDef, ...]:
     return tuple(seen.values())
 
 
-def _find_function_def(name: str) -> FunctionDef | None:
+def _find_function_def(name: str, *, arity: int | None = None) -> FunctionDef | None:
     matches = _COMPILE_FUNCTIONS.get(name, [])
-    return matches[0] if matches else None
+    if not matches:
+        return None
+    if arity is None:
+        return matches[0]
+    exact = [fn for fn in matches if len(fn.params) == arity]
+    if len(exact) == 1:
+        return exact[0]
+    if exact:
+        typed = [fn for fn in exact if len(fn.param_types) == arity and any(fn.param_types)]
+        if len(typed) == 1:
+            return typed[0]
+        return exact[0]
+    expandable = [fn for fn in matches if len(fn.params) >= arity or fn.variadic_param is not None]
+    if len(expandable) == 1:
+        return expandable[0]
+    if expandable:
+        return sorted(expandable, key=lambda fn: len(fn.params))[0]
+    return None
 
 
-def _find_inline_function(name: str, module: str | None) -> FunctionDef | None:
-    fn = _find_function_def(name)
+def _find_inline_function(name: str, *, arity: int) -> FunctionDef | None:
+    fn = _find_function_def(name, arity=arity)
     if fn is not None and fn.is_inline:
         return fn
     return None
 
 
-def _find_compile_time_function(name: str) -> FunctionDef | None:
-    fn = _find_function_def(name)
+def _find_compile_time_function(name: str, *, arity: int) -> FunctionDef | None:
+    fn = _find_function_def(name, arity=arity)
     if fn is not None and fn.is_compile_time:
         return fn
     return None
@@ -536,14 +544,25 @@ def _order_call_arguments(
     if fn is None or not kwargs:
         return positional
     kw_map = dict(kwargs)
+    if len(kw_map) != len(kwargs):
+        raise CompileError(f"Call to {name!r} repeats a keyword argument")
     ordered: list[Value] = []
     pos_index = 0
+    seen_keyword_targets: set[str] = set()
     for param in fn.params:
         if param in kw_map:
+            seen_keyword_targets.add(param)
             ordered.append(kw_map[param])
         elif pos_index < len(positional):
             ordered.append(positional[pos_index])
             pos_index += 1
+    unknown_keywords = [key for key in kw_map if key not in seen_keyword_targets]
+    if unknown_keywords:
+        raise CompileError(
+            f"Call to {name!r} has unknown keyword argument(s): {', '.join(sorted(unknown_keywords))}"
+        )
+    if pos_index != len(positional):
+        raise CompileError(f"Call to {name!r} has too many positional arguments")
     return tuple(ordered)
 
 
@@ -562,12 +581,10 @@ def _substitute_value(value: Value, subst: dict[str, Value]) -> Value:
 def _apply_decorators(function: FunctionDef, body: tuple[IRInstruction, ...]) -> tuple[IRInstruction, ...]:
     items: list[IRInstruction] = []
     for decorator in function.decorators:
-        if decorator in {"trace", "anuvīkṣaṇam", "anuvikshanam"}:
-            items.append(IREmit(IRTextLiteral(f"[trace] enter {function.name}")))
+        items.append(IREmit(IRTextLiteral(f"[{decorator}] enter {function.name}")))
     items.extend(body)
     for decorator in function.decorators:
-        if decorator in {"trace", "anuvīkṣaṇam", "anuvikshanam"}:
-            items.append(IREmit(IRTextLiteral(f"[trace] leave {function.name}")))
+        items.append(IREmit(IRTextLiteral(f"[{decorator}] leave {function.name}")))
     return tuple(items)
 
 
@@ -1040,6 +1057,9 @@ def _validate_condition_visibility(condition: Condition, modules: dict[str, Modu
 def _validate_call_visibility(module_name: str | None, function_name: str, modules: dict[str, ModuleDef]) -> None:
     if module_name is None:
         return
+    qualified_name = qualified_function_name(module_name, function_name)
+    if has_native_function(qualified_name):
+        return
     module = modules.get(module_name)
     if module is None:
         raise CompileError(f"Unknown module {module_name!r} in call to {function_name!r}")
@@ -1102,7 +1122,7 @@ def _compile_function_body(
             prologue.append(IRPhase3Opcode("store_name", statement.name))
             continue
         body_statements.append(statement)
-    return (*prologue, *_compile_statement_block(tuple(body_statements), scope=scope))
+    return (*prologue, *_compile_statement_block(tuple(body_statements), scope=scope, in_function=True))
 
 
 def compile_statements_to_ir(statements: list[Statement]) -> IRProgram:
@@ -1492,12 +1512,25 @@ def _lower_instruction(
             items.extend(
                 (
                     Instruction(OpCode.LOAD_NAME, instruction.target),
-                    Instruction(OpCode.PUSH_TEXT, ",".join(meta.mro)),
                     Instruction(OpCode.PUSH_TEXT, "__mro__"),
+                    Instruction(OpCode.PUSH_TEXT, ",".join(meta.mro)),
                     Instruction(OpCode.RECORD_SET),
                     Instruction(OpCode.STORE_NAME, instruction.target),
                 )
             )
+        if meta is not None and getattr(meta, "field_visibility", None):
+            for field_name, vis in meta.field_visibility.items():
+                if vis == "public":
+                    continue
+                items.extend(
+                    (
+                        Instruction(OpCode.LOAD_NAME, instruction.target),
+                        Instruction(OpCode.PUSH_TEXT, f"__vis__{field_name}"),
+                        Instruction(OpCode.PUSH_TEXT, vis),
+                        Instruction(OpCode.RECORD_SET),
+                        Instruction(OpCode.STORE_NAME, instruction.target),
+                    )
+                )
         items.append(Instruction(OpCode.LOAD_NAME, instruction.target))
         for arg in instruction.args:
             items.extend(_lower_value(arg))
@@ -1527,10 +1560,25 @@ def _lower_instruction(
             Instruction(OpCode.STORE_NAME, instruction.target),
         )
     if isinstance(instruction, IRStaticMethodCall):
-        from .oop import method_symbol
+        from .oop import method_symbol, resolve_static_method
 
+        available = (
+            frozenset(function.name for function in _COMPILE_PROGRAM.functions)
+            if _COMPILE_PROGRAM is not None
+            else None
+        )
+        resolved = resolve_static_method(
+            instruction.class_name,
+            instruction.method,
+            _CLASS_METADATA or {},
+            functions=available,
+        )
+        if resolved is None:
+            raise CompileError(
+                f"Class {instruction.class_name!r} has no static method {instruction.method!r}",
+            )
         symbol = _resolve_function_symbol(
-            method_symbol(instruction.class_name, instruction.method, static=True),
+            resolved,
             arity=len(instruction.args),
         )
         return (
@@ -1539,10 +1587,25 @@ def _lower_instruction(
             Instruction(OpCode.STORE_NAME, instruction.target),
         )
     if isinstance(instruction, IRClassMethodCall):
-        from .oop import method_symbol
+        from .oop import resolve_class_method
 
+        available = (
+            frozenset(function.name for function in _COMPILE_PROGRAM.functions)
+            if _COMPILE_PROGRAM is not None
+            else None
+        )
+        resolved = resolve_class_method(
+            instruction.class_name,
+            instruction.method,
+            _CLASS_METADATA or {},
+            functions=available,
+        )
+        if resolved is None:
+            raise CompileError(
+                f"Class {instruction.class_name!r} has no class method {instruction.method!r}",
+            )
         symbol = _resolve_function_symbol(
-            method_symbol(instruction.class_name, instruction.method),
+            resolved,
             arity=1 + len(instruction.args),
         )
         return (
@@ -1552,22 +1615,11 @@ def _lower_instruction(
             Instruction(OpCode.STORE_NAME, instruction.target),
         )
     if isinstance(instruction, IRPropertyGet):
-        from .oop import method_symbol
-
         getter_method = f"get_{instruction.property_name}"
-        receiver_class = None
-        if _COMPILE_PROGRAM is not None:
-            for decl in _COMPILE_PROGRAM.classes:
-                if instruction.property_name in decl.computed_properties:
-                    receiver_class = decl.name
-                    break
-        symbol_base = (
-            method_symbol(receiver_class, getter_method) if receiver_class else getter_method
-        )
-        symbol = _resolve_function_symbol(symbol_base, arity=1)
         return (
             Instruction(OpCode.LOAD_NAME, instruction.receiver),
-            Instruction(OpCode.CALL, symbol),
+            Instruction(OpCode.PUSH_INT, 0),
+            Instruction(OpCode.METHOD_CALL, getter_method),
             Instruction(OpCode.STORE_NAME, instruction.target),
         )
     if isinstance(instruction, IRInstanceFinalize):
@@ -1602,7 +1654,7 @@ def _lower_instruction(
             return (Instruction(OpCode.PUSH_INT, 0), Instruction(OpCode.RETURN))
         return (*_lower_value(instruction.value), Instruction(OpCode.RETURN))
     if isinstance(instruction, IRUnsafeEnter):
-        return (Instruction(OpCode.UNSAFE_ENTER),)
+        return (Instruction(OpCode.UNSAFE_ENTER, instruction.proof),)
     if isinstance(instruction, IRUnsafeExit):
         return (Instruction(OpCode.UNSAFE_EXIT),)
     if isinstance(instruction, IRHeapAlloc):
@@ -1895,11 +1947,15 @@ def _lower_propagate(instruction: IRPropagate) -> tuple[Instruction, ...]:
     lowerer = _Lowerer()
     lowerer.extend(_lower_value(instruction.value))
     lowerer.instructions.append(Instruction(OpCode.RESULT_IS_OK))
-    jump_ok = lowerer.emit(OpCode.JUMP_IF_ZERO, 0)
+    jump_err = lowerer.emit(OpCode.JUMP_IF_ZERO, 0)
+    # Result is ok -> unwrap value and continue.
+    lowerer.instructions.append(Instruction(OpCode.RESULT_UNWRAP_OK))
+    skip_err = lowerer.emit(OpCode.JUMP, 0)
+    # Result is err -> unwrap error and return early from the function.
+    lowerer.patch(jump_err, len(lowerer.instructions))
     lowerer.instructions.append(Instruction(OpCode.RESULT_UNWRAP_ERR))
     lowerer.instructions.append(Instruction(OpCode.RETURN))
-    lowerer.patch(jump_ok, len(lowerer.instructions))
-    lowerer.instructions.append(Instruction(OpCode.RESULT_UNWRAP_OK))
+    lowerer.patch(skip_err, len(lowerer.instructions))
     return tuple(lowerer.instructions)
 
 
@@ -2141,6 +2197,109 @@ def _lower_phase3_value_ops(value: IRPhase3Value) -> tuple[Instruction, ...]:
         return tuple(items)
     if value.opcode == "deque_new":
         items.append(Instruction(OpCode.DEQUE_NEW))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode.DEQUE_PUSH_BACK))
+        return tuple(items)
+    if value.opcode == "push_rational" and len(value.items) == 2:
+        items.extend(_lower_value(value.items[0]))
+        items.extend(_lower_value(value.items[1]))
+        items.append(Instruction(OpCode("push_rational")))
+        return tuple(items)
+    if value.opcode == "push_complex" and len(value.items) == 2:
+        items.extend(_lower_value(value.items[0]))
+        items.extend(_lower_value(value.items[1]))
+        items.append(Instruction(OpCode("push_complex")))
+        return tuple(items)
+    if value.opcode == "frozen_set_new":
+        items.append(Instruction(OpCode("frozen_set_new")))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode("frozen_set_add")))
+        return tuple(items)
+    if value.opcode == "ordered_map_new":
+        items.append(Instruction(OpCode("ordered_map_new")))
+        if len(value.items) % 2 != 0:
+            raise RuntimeSanskriptError("ordered_map_new initializer requires key/value pairs")
+        for idx in range(0, len(value.items), 2):
+            items.extend(_lower_phase3_text_atom(value.items[idx]))
+            items.extend(_lower_value(value.items[idx + 1]))
+            items.append(Instruction(OpCode("ordered_map_set")))
+        return tuple(items)
+    if value.opcode == "default_map_new" and value.value is not None:
+        items.extend(_lower_value(value.value))
+        items.append(Instruction(OpCode("default_map_new")))
+        if len(value.items) % 2 != 0:
+            raise RuntimeSanskriptError("default_map_new initializer requires key/value pairs")
+        for idx in range(0, len(value.items), 2):
+            items.extend(_lower_phase3_text_atom(value.items[idx]))
+            items.extend(_lower_value(value.items[idx + 1]))
+            items.append(Instruction(OpCode("default_map_set")))
+        return tuple(items)
+    if value.opcode == "counter_new":
+        items.append(Instruction(OpCode("counter_new")))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode("counter_add")))
+        return tuple(items)
+    if value.opcode == "queue_new":
+        items.append(Instruction(OpCode("queue_new")))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode("queue_enqueue")))
+        return tuple(items)
+    if value.opcode == "stack_new":
+        items.append(Instruction(OpCode("stack_new")))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode("stack_push")))
+        return tuple(items)
+    if value.opcode == "heap_new":
+        items.append(Instruction(OpCode("heap_new")))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode("heap_push")))
+        return tuple(items)
+    if value.opcode == "pq_new":
+        items.append(Instruction(OpCode("pq_new")))
+        if len(value.items) % 2 != 0:
+            raise RuntimeSanskriptError("pq_new initializer requires priority/value pairs")
+        for idx in range(0, len(value.items), 2):
+            items.extend(_lower_value(value.items[idx]))
+            items.extend(_lower_value(value.items[idx + 1]))
+            items.append(Instruction(OpCode("pq_push")))
+        return tuple(items)
+    if value.opcode == "tree_new":
+        items.append(Instruction(OpCode("tree_new")))
+        for item in value.items:
+            items.extend(_lower_value(item))
+            items.append(Instruction(OpCode("tree_insert")))
+        return tuple(items)
+    if value.opcode == "graph_new":
+        items.append(Instruction(OpCode("graph_new")))
+        if len(value.items) % 2 != 0:
+            raise RuntimeSanskriptError("graph_new initializer requires edge pairs")
+        for idx in range(0, len(value.items), 2):
+            items.extend(_lower_value(value.items[idx]))
+            items.extend(_lower_value(value.items[idx + 1]))
+            items.append(Instruction(OpCode("graph_add_edge")))
+        return tuple(items)
+    if value.opcode == "named_tuple_new":
+        if len(value.items) % 2 != 0:
+            raise RuntimeSanskriptError("named_tuple_new initializer requires name/value pairs")
+        arity = len(value.items) // 2
+        for idx in range(0, len(value.items), 2):
+            items.extend(_lower_value(value.items[idx + 1]))
+        for idx in range(0, len(value.items), 2):
+            items.extend(_lower_phase3_text_atom(value.items[idx]))
+        items.append(Instruction(OpCode("named_tuple_new"), arity))
+        return tuple(items)
+    if value.opcode == "enum_new":
+        if len(value.items) != 2:
+            raise RuntimeSanskriptError("enum_new initializer requires variant and payload")
+        items.extend(_lower_value(value.items[0]))
+        items.extend(_lower_value(value.items[1]))
+        items.append(Instruction(OpCode("enum_new"), value.operand))
         return tuple(items)
     try:
         opcode = OpCode(value.opcode)
@@ -2153,6 +2312,12 @@ def _lower_phase3_value_ops(value: IRPhase3Value) -> tuple[Instruction, ...]:
     else:
         items.append(Instruction(opcode, value.operand))
     return tuple(items)
+
+
+def _lower_phase3_text_atom(value: IRValue) -> tuple[Instruction, ...]:
+    if isinstance(value, IRReference):
+        return (Instruction(OpCode.PUSH_TEXT, value.name),)
+    return _lower_value(value)
 
 
 def _ir_default_to_operand(value: IRValue | None):
@@ -2176,13 +2341,19 @@ def _compile_statement_block(
     *,
     scope: ScopeStack,
     allow_rebind: bool = False,
+    in_function: bool = False,
 ) -> tuple[IRInstruction, ...]:
     items: list[IRInstruction] = []
     for statement in statements:
         if isinstance(statement, FunctionDef):
             continue
         items.extend(
-            _compile_statement_to_ir(statement, scope=scope, allow_rebind=allow_rebind),
+            _compile_statement_to_ir(
+                statement,
+                scope=scope,
+                allow_rebind=allow_rebind,
+                in_function=in_function,
+            ),
         )
     return tuple(items)
 
@@ -2192,6 +2363,7 @@ def _compile_statement_to_ir(
     *,
     scope: ScopeStack,
     allow_rebind: bool = False,
+    in_function: bool = False,
 ) -> tuple[IRInstruction, ...]:
     if isinstance(statement, Phase3Bind):
         scope.declare(statement.target, immutable=True)
@@ -2215,7 +2387,7 @@ def _compile_statement_to_ir(
         return ()
     if isinstance(statement, Block):
         scope.push()
-        body = _compile_statement_block(statement.body, scope=scope)
+        body = _compile_statement_block(statement.body, scope=scope, in_function=in_function)
         scope.pop()
         return (IRScopeEnter(), *body, IRScopeExit())
     if isinstance(statement, Assign):
@@ -2370,9 +2542,21 @@ def _compile_statement_to_ir(
     if isinstance(statement, MatchExpr):
         scope.declare(statement.target)
         return (
+            IRStore(statement.target, _compile_value_to_ir(statement.subject)),
             IRMatch(
-                _compile_value_to_ir(statement.subject),
-                tuple((arm.pattern, _compile_statement_block(arm.body, scope=scope)) for arm in statement.arms),
+                IRReference(statement.target),
+                tuple(
+                    (
+                        arm.pattern,
+                        _compile_statement_block(
+                            arm.body,
+                            scope=scope,
+                            allow_rebind=True,
+                            in_function=in_function,
+                        ),
+                    )
+                    for arm in statement.arms
+                ),
             ),
         )
     if isinstance(statement, ResultBind):
@@ -2503,12 +2687,12 @@ def _compile_statement_to_ir(
         return (
             IRIf(
                 _compile_condition_to_ir(statement.condition),
-                _compile_statement_block(statement.then_body, scope=scope),
-                _compile_statement_block(statement.else_body, scope=scope),
+                _compile_statement_block(statement.then_body, scope=scope, in_function=in_function),
+                _compile_statement_block(statement.else_body, scope=scope, in_function=in_function),
                 tuple(
                     (
                         _compile_condition_to_ir(condition),
-                        _compile_statement_block(body, scope=scope),
+                        _compile_statement_block(body, scope=scope, in_function=in_function),
                     )
                     for condition, body in statement.elif_branches
                 ),
@@ -2518,7 +2702,12 @@ def _compile_statement_to_ir(
         return (
             IRWhile(
                 _compile_condition_to_ir(statement.condition),
-                _compile_statement_block(statement.body, scope=scope, allow_rebind=True),
+                _compile_statement_block(
+                    statement.body,
+                    scope=scope,
+                    allow_rebind=True,
+                    in_function=in_function,
+                ),
                 label=statement.label,
             ),
         )
@@ -2526,7 +2715,12 @@ def _compile_statement_to_ir(
         return (
             IRUntil(
                 _compile_condition_to_ir(statement.condition),
-                _compile_statement_block(statement.body, scope=scope, allow_rebind=True),
+                _compile_statement_block(
+                    statement.body,
+                    scope=scope,
+                    allow_rebind=True,
+                    in_function=in_function,
+                ),
                 label=statement.label,
             ),
         )
@@ -2536,7 +2730,12 @@ def _compile_statement_to_ir(
                 statement.counter,
                 _compile_value_to_ir(statement.start),
                 _compile_value_to_ir(statement.end),
-                _compile_statement_block(statement.body, scope=scope, allow_rebind=True),
+                _compile_statement_block(
+                    statement.body,
+                    scope=scope,
+                    allow_rebind=True,
+                    in_function=in_function,
+                ),
                 label=statement.label,
             ),
         )
@@ -2546,14 +2745,24 @@ def _compile_statement_to_ir(
             IRForEach(
                 statement.item,
                 statement.container,
-                _compile_statement_block(statement.body, scope=scope, allow_rebind=True),
+                _compile_statement_block(
+                    statement.body,
+                    scope=scope,
+                    allow_rebind=True,
+                    in_function=in_function,
+                ),
                 label=statement.label,
             ),
         )
     if isinstance(statement, InfiniteLoop):
         return (
             IRInfiniteLoop(
-                _compile_statement_block(statement.body, scope=scope, allow_rebind=True),
+                _compile_statement_block(
+                    statement.body,
+                    scope=scope,
+                    allow_rebind=True,
+                    in_function=in_function,
+                ),
                 label=statement.label,
             ),
         )
@@ -2572,12 +2781,20 @@ def _compile_statement_to_ir(
         return (
             IRMatch(
                 _compile_value_to_ir(statement.subject),
-                tuple((arm.pattern, _compile_statement_block(arm.body, scope=scope)) for arm in statement.arms),
+                tuple(
+                    (arm.pattern, _compile_statement_block(arm.body, scope=scope, in_function=in_function))
+                    for arm in statement.arms
+                ),
             ),
         )
     if isinstance(statement, Defer):
-        return _compile_statement_block(statement.body, scope=scope)
+        return _compile_statement_block(statement.body, scope=scope, in_function=in_function)
     if isinstance(statement, Propagate):
+        if not in_function:
+            raise CompileError(
+                "prasāraḥ (propagate) is only valid inside function bodies",
+                hint="Use prasāraḥ within vidhānam ... samāpanam, or handle the result explicitly.",
+            )
         return (IRPropagate(_compile_value_to_ir(statement.value)),)
     if isinstance(statement, TypeConvert):
         scope.declare(statement.target)
@@ -2607,12 +2824,13 @@ def _compile_statement_to_ir(
     ):
         return ()
     if isinstance(statement, Call):
-        resolved = _resolve_compile_target(statement.name, arity=len(statement.args) + len(statement.kwargs))
+        arity = len(statement.args) + len(statement.kwargs)
+        resolved = _resolve_compile_target(statement.name, arity=arity)
         target = qualified_function_name(statement.module, resolved)
-        inline_fn = _find_inline_function(resolved, statement.module)
+        inline_fn = _find_inline_function(resolved, arity=arity)
         if inline_fn is not None and _PROGRAM_SAFETY_TIER == "rakshita":
             return _inline_call_instructions(inline_fn, statement)
-        macro_fn = _find_compile_time_function(resolved)
+        macro_fn = _find_compile_time_function(resolved, arity=arity)
         if macro_fn is not None:
             return _expand_macro_call(macro_fn, statement)
         ordered = _order_call_arguments(resolved, statement.args, statement.kwargs)
@@ -2642,7 +2860,7 @@ def _compile_statement_to_ir(
         value = None if statement.value is None else _compile_value_to_ir(statement.value)
         return (IRReturn(value, name=statement.name),)
     if isinstance(statement, UnsafeEnter):
-        return (IRUnsafeEnter(),)
+        return (IRUnsafeEnter(statement.proof),)
     if isinstance(statement, UnsafeExit):
         return (IRUnsafeExit(),)
     if isinstance(statement, HeapAlloc):
@@ -2666,9 +2884,9 @@ def _compile_statement_to_ir(
     if isinstance(statement, TryCatch):
         return (
             IRTryCatch(
-                _compile_statement_block(statement.body, scope=scope),
+                _compile_statement_block(statement.body, scope=scope, in_function=in_function),
                 statement.error_name,
-                _compile_statement_block(statement.handler, scope=scope),
+                _compile_statement_block(statement.handler, scope=scope, in_function=in_function),
             ),
         )
     if isinstance(statement, PreCondition):
@@ -2684,7 +2902,12 @@ def _compile_statement_to_ir(
             IRForEachDestructure(
                 statement.names,
                 statement.container,
-                _compile_statement_block(statement.body, scope=scope, allow_rebind=True),
+                _compile_statement_block(
+                    statement.body,
+                    scope=scope,
+                    allow_rebind=True,
+                    in_function=in_function,
+                ),
                 label=statement.label,
             ),
         )
@@ -2796,6 +3019,16 @@ def _compile_value_to_ir(value: Value) -> IRValue:
             _compile_value_to_ir(value.left),
             _compile_value_to_ir(value.right),
         )
+    if isinstance(value, CompareEq):
+        return IRCompareEq(_compile_value_to_ir(value.left), _compile_value_to_ir(value.right))
+    if isinstance(value, CompareNe):
+        return IRCompareNe(_compile_value_to_ir(value.left), _compile_value_to_ir(value.right))
+    if isinstance(value, CompareLt):
+        return IRCompareLt(_compile_value_to_ir(value.left), _compile_value_to_ir(value.right))
+    if isinstance(value, CompareGt):
+        return IRCompareGt(_compile_value_to_ir(value.left), _compile_value_to_ir(value.right))
+    if isinstance(value, CompareLe):
+        return IRCompareLe(_compile_value_to_ir(value.left), _compile_value_to_ir(value.right))
     if isinstance(value, TupleLiteral):
         return IRTupleLiteral(tuple(_compile_value_to_ir(item) for item in value.items))
     if isinstance(value, NoneValue):
@@ -2814,7 +3047,8 @@ def _register_partial_wrapper(value: PartialApply) -> str:
         target_module = value.callable.module
     else:
         raise CompileError("Partial application requires a named function reference")
-    base_fn = _find_function_def(target_name)
+    arg_arity = len(value.args) + len(value.kwargs)
+    base_fn = _find_function_def(target_name, arity=arg_arity if arg_arity > 0 else None)
     if base_fn is None:
         raise CompileError(f"Unknown function for partial application: {target_name!r}")
     bind_count = 1 if value.curry else len(value.args)

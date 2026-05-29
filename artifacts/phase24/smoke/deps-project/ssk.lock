@@ -1,0 +1,9 @@
+{
+  "lock_version": 1,
+  "package": {
+    "name": "deps-project",
+    "version": "0.1.0"
+  },
+  "dependencies": {},
+  "signature": null
+}

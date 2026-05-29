@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "target": "x86_64-apple-darwin-gnu",
+  "inputs": [
+    "program.*.o",
+    "symbols.json",
+    "relocations.json"
+  ],
+  "output_kind": "executable",
+  "outputs": [
+    "linked-image"
+  ]
+}

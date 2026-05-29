@@ -1,0 +1,1656 @@
+{
+  "phase": 28,
+  "title": "independence-milestones-m0-m20",
+  "repo_root": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript",
+  "milestone_count": 21,
+  "passed_count": 21,
+  "failed_count": 0,
+  "passed": [
+    "M0",
+    "M1",
+    "M10",
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15",
+    "M16",
+    "M17",
+    "M18",
+    "M19",
+    "M2",
+    "M20",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8",
+    "M9"
+  ],
+  "failed": [],
+  "milestones": [
+    {
+      "milestone_id": "M0",
+      "title": "Current host implementation can run all existing examples",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "host-compile-and-vm-run:examples/**/*.ssk",
+      "evidence": {
+        "corpus": "examples/**/*.ssk",
+        "total": 90,
+        "required": 74,
+        "skipped": 16,
+        "passed": 74,
+        "rows": [
+          {
+            "path": "examples/aṣṭama-vidhānam.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/caturtha.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/chaturdasha-algorithm.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 3
+          },
+          {
+            "path": "examples/cookbook/api-demo.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/cookbook/cli-sqrt.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/conditional-branch.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/desktop-plan.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/functional-call.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/game-input.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/greet.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/hello-counter.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/ml-dot.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/research-spark.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/scaled-sum.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/systems-tier.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/cookbook/web-hello.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/dashama-vakyam.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/dvadasha-vastu.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 3
+          },
+          {
+            "path": "examples/dvitiya.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/dvādaśa-phase2-boolean.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/dvādaśa-phase2-grouping-matrix.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/dvādaśa-phase2-kṣetram.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/ekadasha-samuhah.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/ekadasha-samūha.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 2
+          },
+          {
+            "path": "examples/navama-kṣetram.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/pancadasha-vakya-kriya.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 5
+          },
+          {
+            "path": "examples/pancama.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase1-broad-script-sandhi.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase1-script-sandhi.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase10-stdlib-cli-io.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 4
+          },
+          {
+            "path": "examples/phase10-stdlib-formats-patterns.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 6
+          },
+          {
+            "path": "examples/phase10-stdlib-process-testing.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase10-stdlib-source.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 11
+          },
+          {
+            "path": "examples/phase11-algorithms-data-structures.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 3
+          },
+          {
+            "path": "examples/phase12-diagnostics.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 2
+          },
+          {
+            "path": "examples/phase13-memory-model.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 4
+          },
+          {
+            "path": "examples/phase14-surakshita.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 8
+          },
+          {
+            "path": "examples/phase15-rakshita-systems.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 4
+          },
+          {
+            "path": "examples/phase21-cross-platform.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 8
+          },
+          {
+            "path": "examples/phase22-full-seal.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase22-html-template.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 2
+          },
+          {
+            "path": "examples/phase22-http-router-auth.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 2
+          },
+          {
+            "path": "examples/phase22-http-service.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "__P22_PORT__ placeholder requires integration port substitution"
+          },
+          {
+            "path": "examples/phase22-research-cli-baseline.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 2
+          },
+          {
+            "path": "examples/phase22-web-apps-games-research.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 3
+          },
+          {
+            "path": "examples/phase22/data-db.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/full-seal.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/game.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/gui-desktop.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/html-template.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/http-client.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/http-router-auth.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/http-service.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/research-env.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase22/web-css-dom.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase22 scaffold subdirectory; seal bar uses root-level examples/phase22-*.ssk (tests/test_phase22_web_apps_games_research_ml.py)"
+          },
+          {
+            "path": "examples/phase23-concurrency-async.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 11
+          },
+          {
+            "path": "examples/phase23-full-seal.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase24-tooling.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/phase27-migration-test-manifest.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/phase27-port-controlled-lexicon.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase27 porting probe sources (host tooling; canonical seal uses tests/test_phase27_migration.py)"
+          },
+          {
+            "path": "examples/phase27-port-examples-runner.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase27 porting probe sources (host tooling; canonical seal uses tests/test_phase27_migration.py)"
+          },
+          {
+            "path": "examples/phase27-port-sutra-registry.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "phase27 porting probe sources (host tooling; canonical seal uses tests/test_phase27_migration.py)"
+          },
+          {
+            "path": "examples/phase28-desktop-gui.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase28-game-loop.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 2
+          },
+          {
+            "path": "examples/phase28-milestones.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase3-data-types.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 15
+          },
+          {
+            "path": "examples/phase4-types.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase6-functions.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 8
+          },
+          {
+            "path": "examples/phase7-oop.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 3
+          },
+          {
+            "path": "examples/phase8-functional.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 13
+          },
+          {
+            "path": "examples/phase9-modules/facade.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/phase9-modules/lib/helper.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/phase9-modules/main.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/phase9-modules/pkg/gaṇita.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/phase9-modules/pkg/samārambha.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/phase9-modules/platform/linux-extra.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "platform-gated example for 'linux' (host is 'windows')"
+          },
+          {
+            "path": "examples/phase9-modules/platform/macos-extra.ssk",
+            "ok": true,
+            "skipped": true,
+            "skip_reason": "platform-gated example for 'macos' (host is 'windows')"
+          },
+          {
+            "path": "examples/phase9-modules/platform/windows-extra.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 0
+          },
+          {
+            "path": "examples/prathama.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/saptama-while.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/self-host/bytecode-verify.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/self-host/compiler-backend.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/self-host/compiler-frontend.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/self-host/test-runner.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/self-host/vm-core.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/shashṭha-if.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/shodasha-devanagari.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/trayodasha-rakshita.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/trtiya.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 1
+          },
+          {
+            "path": "examples/ṣoḍaśa-control-flow.ssk",
+            "compile_ok": true,
+            "ok": true,
+            "output_lines": 5
+          }
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M1",
+      "title": "Sanskript can express all current bytecode examples in source prose",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "canonical-bytecode-sha256:ssk-vs-sskbc",
+      "evidence": {
+        "corpus": "examples/**/*.sskbc",
+        "total": 68,
+        "required": 45,
+        "excluded_artifacts": 23,
+        "passed": 45,
+        "rows": [
+          {
+            "bytecode": "examples/.phase25-diff/phase3-data-types.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase3-data-types.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase3-data-types/phase3-data-types.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase3-data-types/phase3-data-types.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase6-functions.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase6-functions.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase6-functions/phase6-functions.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase6-functions/phase6-functions.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase7-oop.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/phase7-oop.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/prathama.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/prathama.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/prathama/prathama.host.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/.phase25-diff/prathama/prathama.self.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/aṣṭama-vidhānam.sskbc",
+            "source": "examples/aṣṭama-vidhānam.ssk",
+            "ok": true,
+            "compiled_sha256": "51ff1ad82b1f2c9b4d5bc488e287edc69369f49657ee773986cb816e6262f6ab",
+            "artifact_sha256": "51ff1ad82b1f2c9b4d5bc488e287edc69369f49657ee773986cb816e6262f6ab"
+          },
+          {
+            "bytecode": "examples/caturtha.sskbc",
+            "source": "examples/caturtha.ssk",
+            "ok": true,
+            "compiled_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224",
+            "artifact_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224"
+          },
+          {
+            "bytecode": "examples/chaturdasha-algorithm.sskbc",
+            "source": "examples/chaturdasha-algorithm.ssk",
+            "ok": true,
+            "compiled_sha256": "31c103a78e4939d426ecb11f05606ab5b164f7ed16b1ed957432cba66ab8be55",
+            "artifact_sha256": "31c103a78e4939d426ecb11f05606ab5b164f7ed16b1ed957432cba66ab8be55"
+          },
+          {
+            "bytecode": "examples/cookbook/cli-sqrt.sskbc",
+            "source": "examples/cookbook/cli-sqrt.ssk",
+            "ok": true,
+            "compiled_sha256": "14b322c49cb0b6e8976b4942387f4e7c3bb47fdf9ac745c33029a0034f39b920",
+            "artifact_sha256": "14b322c49cb0b6e8976b4942387f4e7c3bb47fdf9ac745c33029a0034f39b920"
+          },
+          {
+            "bytecode": "examples/cookbook/conditional-branch.sskbc",
+            "source": "examples/cookbook/conditional-branch.ssk",
+            "ok": true,
+            "compiled_sha256": "ea8f67f1ae907f712679549f92a4ec02b1f6fc90dbc6078aaa413d2e229a80a2",
+            "artifact_sha256": "ea8f67f1ae907f712679549f92a4ec02b1f6fc90dbc6078aaa413d2e229a80a2"
+          },
+          {
+            "bytecode": "examples/cookbook/desktop-plan.sskbc",
+            "source": "examples/cookbook/desktop-plan.ssk",
+            "ok": true,
+            "compiled_sha256": "91a07f9606eb1368469d9e6e8a91b2472db7ea4a9824c3f82fa6a2efa3cff284",
+            "artifact_sha256": "91a07f9606eb1368469d9e6e8a91b2472db7ea4a9824c3f82fa6a2efa3cff284"
+          },
+          {
+            "bytecode": "examples/cookbook/functional-call.sskbc",
+            "source": "examples/cookbook/functional-call.ssk",
+            "ok": true,
+            "compiled_sha256": "ec676e9acb96dbfb1f62e1ea986df80c077e202b167ccba5220560e2218422ed",
+            "artifact_sha256": "ec676e9acb96dbfb1f62e1ea986df80c077e202b167ccba5220560e2218422ed"
+          },
+          {
+            "bytecode": "examples/cookbook/game-input.sskbc",
+            "source": "examples/cookbook/game-input.ssk",
+            "ok": true,
+            "compiled_sha256": "289171234f3c54ced9c79dda0d24ef99f0a49b056b27128dbfd4856ac068341f",
+            "artifact_sha256": "289171234f3c54ced9c79dda0d24ef99f0a49b056b27128dbfd4856ac068341f"
+          },
+          {
+            "bytecode": "examples/cookbook/greet.sskbc",
+            "source": "examples/cookbook/greet.ssk",
+            "ok": true,
+            "compiled_sha256": "6008f508b59951f1eb24d5517e4ceb64d1ea400bb34d2191924fa6384451fc5a",
+            "artifact_sha256": "6008f508b59951f1eb24d5517e4ceb64d1ea400bb34d2191924fa6384451fc5a"
+          },
+          {
+            "bytecode": "examples/cookbook/hello-counter.sskbc",
+            "source": "examples/cookbook/hello-counter.ssk",
+            "ok": true,
+            "compiled_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224",
+            "artifact_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224"
+          },
+          {
+            "bytecode": "examples/cookbook/ml-dot.sskbc",
+            "source": "examples/cookbook/ml-dot.ssk",
+            "ok": true,
+            "compiled_sha256": "f009be3f4874dd1418b9efde0999d3b5c0fb57863950d5dc48b0c22c6cdba113",
+            "artifact_sha256": "f009be3f4874dd1418b9efde0999d3b5c0fb57863950d5dc48b0c22c6cdba113"
+          },
+          {
+            "bytecode": "examples/cookbook/research-spark.sskbc",
+            "source": "examples/cookbook/research-spark.ssk",
+            "ok": true,
+            "compiled_sha256": "1a15fc5f004fb03091cb9c14867c69b50fd442dec23489472fa08e95892f1049",
+            "artifact_sha256": "1a15fc5f004fb03091cb9c14867c69b50fd442dec23489472fa08e95892f1049"
+          },
+          {
+            "bytecode": "examples/cookbook/scaled-sum.sskbc",
+            "source": "examples/cookbook/scaled-sum.ssk",
+            "ok": true,
+            "compiled_sha256": "54d201de04d8e284aea5d48219e4f06ab72694cf48256915f5ac70590cdc7e1f",
+            "artifact_sha256": "54d201de04d8e284aea5d48219e4f06ab72694cf48256915f5ac70590cdc7e1f"
+          },
+          {
+            "bytecode": "examples/cookbook/systems-tier.sskbc",
+            "source": "examples/cookbook/systems-tier.ssk",
+            "ok": true,
+            "compiled_sha256": "0293a0748551a6f72ca0aeaacfafb6784755d8899f408a400448502a8c240838",
+            "artifact_sha256": "0293a0748551a6f72ca0aeaacfafb6784755d8899f408a400448502a8c240838"
+          },
+          {
+            "bytecode": "examples/cookbook/web-hello.sskbc",
+            "source": "examples/cookbook/web-hello.ssk",
+            "ok": true,
+            "compiled_sha256": "bfc138ff55efd505148da21c3e2693160477d881d8f87427ab0b5e070d8fb0d0",
+            "artifact_sha256": "bfc138ff55efd505148da21c3e2693160477d881d8f87427ab0b5e070d8fb0d0"
+          },
+          {
+            "bytecode": "examples/dashama-vakyam.sskbc",
+            "source": "examples/dashama-vakyam.ssk",
+            "ok": true,
+            "compiled_sha256": "6008f508b59951f1eb24d5517e4ceb64d1ea400bb34d2191924fa6384451fc5a",
+            "artifact_sha256": "6008f508b59951f1eb24d5517e4ceb64d1ea400bb34d2191924fa6384451fc5a"
+          },
+          {
+            "bytecode": "examples/dvadasha-vastu.sskbc",
+            "source": "examples/dvadasha-vastu.ssk",
+            "ok": true,
+            "compiled_sha256": "3acb7c4c6b31c3afbce6b78c7c0c3a02002a3900f60eea1f90a94b01505a383c",
+            "artifact_sha256": "3acb7c4c6b31c3afbce6b78c7c0c3a02002a3900f60eea1f90a94b01505a383c"
+          },
+          {
+            "bytecode": "examples/dvitiya.sskbc",
+            "source": "examples/dvitiya.ssk",
+            "ok": true,
+            "compiled_sha256": "54d201de04d8e284aea5d48219e4f06ab72694cf48256915f5ac70590cdc7e1f",
+            "artifact_sha256": "54d201de04d8e284aea5d48219e4f06ab72694cf48256915f5ac70590cdc7e1f"
+          },
+          {
+            "bytecode": "examples/dvādaśa-phase2-boolean.sskbc",
+            "source": "examples/dvādaśa-phase2-boolean.ssk",
+            "ok": true,
+            "compiled_sha256": "2cdbb7532d8baaf1d97382530b58113b82db7794934dd63a39ac46d4c669394a",
+            "artifact_sha256": "2cdbb7532d8baaf1d97382530b58113b82db7794934dd63a39ac46d4c669394a"
+          },
+          {
+            "bytecode": "examples/dvādaśa-phase2-grouping-matrix.sskbc",
+            "source": "examples/dvādaśa-phase2-grouping-matrix.ssk",
+            "ok": true,
+            "compiled_sha256": "c774bb40146b728b7175754525113e6a58bd23f2c236577c4110f2d69c3d98e9",
+            "artifact_sha256": "c774bb40146b728b7175754525113e6a58bd23f2c236577c4110f2d69c3d98e9"
+          },
+          {
+            "bytecode": "examples/dvādaśa-phase2-kṣetram.sskbc",
+            "source": "examples/dvādaśa-phase2-kṣetram.ssk",
+            "ok": true,
+            "compiled_sha256": "7f29e166e09927d6a6b081b740788244310379dfcaca343f8d02b9fe0cd58356",
+            "artifact_sha256": "7f29e166e09927d6a6b081b740788244310379dfcaca343f8d02b9fe0cd58356"
+          },
+          {
+            "bytecode": "examples/ekadasha-samuhah.sskbc",
+            "source": "examples/ekadasha-samuhah.ssk",
+            "ok": true,
+            "compiled_sha256": "44db506d4f8e1d4a3d0bd84cfac26e66e84c978bacdabda8ce16c512c4be51b1",
+            "artifact_sha256": "44db506d4f8e1d4a3d0bd84cfac26e66e84c978bacdabda8ce16c512c4be51b1"
+          },
+          {
+            "bytecode": "examples/ekadasha-samūha.sskbc",
+            "source": "examples/ekadasha-samūha.ssk",
+            "ok": true,
+            "compiled_sha256": "9c45366b44c6a7746a7e371e46ac22d076be4a26aa9fe8bdc9703351e7f33df2",
+            "artifact_sha256": "9c45366b44c6a7746a7e371e46ac22d076be4a26aa9fe8bdc9703351e7f33df2"
+          },
+          {
+            "bytecode": "examples/navama-kṣetram.sskbc",
+            "source": "examples/navama-kṣetram.ssk",
+            "ok": true,
+            "compiled_sha256": "4a53a6835649053c25b1b77c140d6309055f8776076209bce53e07f58077cb75",
+            "artifact_sha256": "4a53a6835649053c25b1b77c140d6309055f8776076209bce53e07f58077cb75"
+          },
+          {
+            "bytecode": "examples/pancadasha-vakya-kriya.sskbc",
+            "source": "examples/pancadasha-vakya-kriya.ssk",
+            "ok": true,
+            "compiled_sha256": "93a3b2c04307eabbc64a282650496a96614f52f88e1118dda4a8172e4a4971e0",
+            "artifact_sha256": "93a3b2c04307eabbc64a282650496a96614f52f88e1118dda4a8172e4a4971e0"
+          },
+          {
+            "bytecode": "examples/pancama.sskbc",
+            "source": "examples/pancama.ssk",
+            "ok": true,
+            "compiled_sha256": "b00965f608da6d36cf937991b4525a92696951afdca09b713e1c39159ba152e3",
+            "artifact_sha256": "b00965f608da6d36cf937991b4525a92696951afdca09b713e1c39159ba152e3"
+          },
+          {
+            "bytecode": "examples/phase1-broad-script-sandhi.sskbc",
+            "source": "examples/phase1-broad-script-sandhi.ssk",
+            "ok": true,
+            "compiled_sha256": "9beb9e992f7173bdcf7bdac4cf42465e78d8b2b01dba0fae34b667d80158cdce",
+            "artifact_sha256": "9beb9e992f7173bdcf7bdac4cf42465e78d8b2b01dba0fae34b667d80158cdce"
+          },
+          {
+            "bytecode": "examples/phase1-script-sandhi.sskbc",
+            "source": "examples/phase1-script-sandhi.ssk",
+            "ok": true,
+            "compiled_sha256": "da7b37c971be06c661910c79d815baca4249d109419879014e3e8bf1f1e8395c",
+            "artifact_sha256": "da7b37c971be06c661910c79d815baca4249d109419879014e3e8bf1f1e8395c"
+          },
+          {
+            "bytecode": "examples/phase10-stdlib-cli-io.sskbc",
+            "source": "examples/phase10-stdlib-cli-io.ssk",
+            "ok": true,
+            "compiled_sha256": "b892d8222e33530e8c67d936449c6798b3a3b98bf0199143271681a017533e83",
+            "artifact_sha256": "b892d8222e33530e8c67d936449c6798b3a3b98bf0199143271681a017533e83"
+          },
+          {
+            "bytecode": "examples/phase10-stdlib-formats-patterns.sskbc",
+            "source": "examples/phase10-stdlib-formats-patterns.ssk",
+            "ok": true,
+            "compiled_sha256": "6c2cc516b5bd5677c527e164828945e4cd1acc4b165104db95cc2fc41b2921fb",
+            "artifact_sha256": "6c2cc516b5bd5677c527e164828945e4cd1acc4b165104db95cc2fc41b2921fb"
+          },
+          {
+            "bytecode": "examples/phase10-stdlib-process-testing.sskbc",
+            "source": "examples/phase10-stdlib-process-testing.ssk",
+            "ok": true,
+            "compiled_sha256": "1defc2a953c772fb142d190fc50125c7dfccb278ef76385ce6c6c5a66737a3a8",
+            "artifact_sha256": "1defc2a953c772fb142d190fc50125c7dfccb278ef76385ce6c6c5a66737a3a8"
+          },
+          {
+            "bytecode": "examples/phase10-stdlib-source.sskbc",
+            "source": "examples/phase10-stdlib-source.ssk",
+            "ok": true,
+            "compiled_sha256": "f58358664cb0006f19be8e298567345a1db70b13670bb28dd982c2c68a7fe402",
+            "artifact_sha256": "f58358664cb0006f19be8e298567345a1db70b13670bb28dd982c2c68a7fe402"
+          },
+          {
+            "bytecode": "examples/phase11-algorithms-data-structures.sskbc",
+            "source": "examples/phase11-algorithms-data-structures.ssk",
+            "ok": true,
+            "compiled_sha256": "99846b528d74f41de512e0b3e5436d1a9db6754d14d2f757339b9e2d1a85ff42",
+            "artifact_sha256": "99846b528d74f41de512e0b3e5436d1a9db6754d14d2f757339b9e2d1a85ff42"
+          },
+          {
+            "bytecode": "examples/phase12-diagnostics.sskbc",
+            "source": "examples/phase12-diagnostics.ssk",
+            "ok": true,
+            "compiled_sha256": "63e36f9953b558401da740863ae7bb4f5c70b0a0249e00043aca12c7d9308a62",
+            "artifact_sha256": "63e36f9953b558401da740863ae7bb4f5c70b0a0249e00043aca12c7d9308a62"
+          },
+          {
+            "bytecode": "examples/phase13-memory-model.sskbc",
+            "source": "examples/phase13-memory-model.ssk",
+            "ok": true,
+            "compiled_sha256": "42665c9b1bfd1e2289269be3c0a3b8345408c76ce0d15ad8ca12f702cb392881",
+            "artifact_sha256": "42665c9b1bfd1e2289269be3c0a3b8345408c76ce0d15ad8ca12f702cb392881"
+          },
+          {
+            "bytecode": "examples/phase14-surakshita.sskbc",
+            "source": "examples/phase14-surakshita.ssk",
+            "ok": true,
+            "compiled_sha256": "885472d6c4af63ae9b33dc450d1ac096dbf1815374ac9e0e4c60d082de725231",
+            "artifact_sha256": "885472d6c4af63ae9b33dc450d1ac096dbf1815374ac9e0e4c60d082de725231"
+          },
+          {
+            "bytecode": "examples/phase15-rakshita-systems.sskbc",
+            "source": "examples/phase15-rakshita-systems.ssk",
+            "ok": true,
+            "compiled_sha256": "d040aa45270f21b6d04665d11da93df17e4143c796986ccabc0975002640e066",
+            "artifact_sha256": "d040aa45270f21b6d04665d11da93df17e4143c796986ccabc0975002640e066"
+          },
+          {
+            "bytecode": "examples/phase18-vm-bootstrap.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "bytecode-only bootstrap artifact (no canonical .ssk prose)"
+          },
+          {
+            "bytecode": "examples/phase27-migration-test-manifest.sskbc",
+            "source": "examples/phase27-migration-test-manifest.ssk",
+            "ok": true,
+            "compiled_sha256": "44db506d4f8e1d4a3d0bd84cfac26e66e84c978bacdabda8ce16c512c4be51b1",
+            "artifact_sha256": "44db506d4f8e1d4a3d0bd84cfac26e66e84c978bacdabda8ce16c512c4be51b1"
+          },
+          {
+            "bytecode": "examples/phase27-port-controlled-lexicon.sskbc",
+            "source": "examples/phase27-port-controlled-lexicon.ssk",
+            "excluded": true,
+            "exclusion_reason": "bytecode-only bootstrap artifact (no canonical .ssk prose)"
+          },
+          {
+            "bytecode": "examples/phase27-port-examples-runner.sskbc",
+            "source": "examples/phase27-port-examples-runner.ssk",
+            "excluded": true,
+            "exclusion_reason": "bytecode-only bootstrap artifact (no canonical .ssk prose)"
+          },
+          {
+            "bytecode": "examples/phase27-port-sutra-registry.sskbc",
+            "source": "examples/phase27-port-sutra-registry.ssk",
+            "excluded": true,
+            "exclusion_reason": "bytecode-only bootstrap artifact (no canonical .ssk prose)"
+          },
+          {
+            "bytecode": "examples/phase3-data-types.sskbc",
+            "source": "examples/phase3-data-types.ssk",
+            "ok": true,
+            "compiled_sha256": "08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6",
+            "artifact_sha256": "08e25c7b2877f86b844177d1527aa286cec6bdbce4379faa658efec6275674a6"
+          },
+          {
+            "bytecode": "examples/phase4-types.sskbc",
+            "source": "examples/phase4-types.ssk",
+            "ok": true,
+            "compiled_sha256": "f99b893da743d1d601eafefbbb8cffe0e099bfb6402de169603aca2ae6fa0d82",
+            "artifact_sha256": "f99b893da743d1d601eafefbbb8cffe0e099bfb6402de169603aca2ae6fa0d82"
+          },
+          {
+            "bytecode": "examples/phase6-functions.sskbc",
+            "source": "examples/phase6-functions.ssk",
+            "ok": true,
+            "compiled_sha256": "b83c013f90af8717b51d9ebab3dac6a30de7fb5004e8ac91f819b8b5532312ad",
+            "artifact_sha256": "b83c013f90af8717b51d9ebab3dac6a30de7fb5004e8ac91f819b8b5532312ad"
+          },
+          {
+            "bytecode": "examples/phase7-oop.sskbc",
+            "source": "examples/phase7-oop.ssk",
+            "ok": true,
+            "compiled_sha256": "77b900487ae641067b7938291083a3ecf5430b79cf1833063fdbd271c802a760",
+            "artifact_sha256": "77b900487ae641067b7938291083a3ecf5430b79cf1833063fdbd271c802a760"
+          },
+          {
+            "bytecode": "examples/phase8-functional.sskbc",
+            "source": "examples/phase8-functional.ssk",
+            "ok": true,
+            "compiled_sha256": "ded18985a1590400980ffdebffdfcdc3c651dfb9a6b56adeea8851e757489973",
+            "artifact_sha256": "ded18985a1590400980ffdebffdfcdc3c651dfb9a6b56adeea8851e757489973"
+          },
+          {
+            "bytecode": "examples/phase9-modules/dist/bytecode/facade.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/phase9-modules/dist/bytecode/lib/helper.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/phase9-modules/dist/bytecode/main.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/phase9-modules/dist/bytecode/pkg/gaṇita.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/phase9-modules/dist/bytecode/pkg/samārambha.sskbc",
+            "source": null,
+            "excluded": true,
+            "exclusion_reason": "tooling/diff artifact outside canonical examples corpus"
+          },
+          {
+            "bytecode": "examples/phase9-modules/main.sskbc",
+            "source": "examples/phase9-modules/main.ssk",
+            "ok": true,
+            "compiled_sha256": "ddc4411abf91bac6ed2cb6fb339217b0607fe9d9890fd606a4b15136077d85c7",
+            "artifact_sha256": "ddc4411abf91bac6ed2cb6fb339217b0607fe9d9890fd606a4b15136077d85c7"
+          },
+          {
+            "bytecode": "examples/shodasha-devanagari.sskbc",
+            "source": "examples/shodasha-devanagari.ssk",
+            "ok": true,
+            "compiled_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224",
+            "artifact_sha256": "76f09c5336eb9627f75c4f2f80077a9716c00dbfef1c650be070a521aabb3224"
+          }
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M10",
+      "title": "Sanskript can implement bytecode verification in Sanskript",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "self-host-corpus:examples/self-host/bytecode-verify.ssk",
+      "evidence": {
+        "source": "examples\\self-host\\bytecode-verify.ssk",
+        "phase17_verify_ok": true,
+        "output_lines": 1,
+        "claim_boundary": "Bytecode verification is expressed as a Sanskript corpus example, not yet the production verifier replacing the host verifier."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M11",
+      "title": "Sanskript can implement the compiler frontend in Sanskript",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "self-host-corpus:examples/self-host/compiler-frontend.ssk",
+      "evidence": {
+        "path": "examples/self-host/compiler-frontend.ssk",
+        "output_lines": 1,
+        "required_calls": [],
+        "stage": "S1-self-parser-lowering",
+        "claim_boundary": "Compiler frontend corpus is bootstrap evidence, not the production frontend compiled and executed independently of the host compiler."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M12",
+      "title": "Sanskript can implement the compiler backend in Sanskript",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "self-host-corpus:examples/self-host/compiler-backend.ssk",
+      "evidence": {
+        "path": "examples/self-host/compiler-backend.ssk",
+        "output_lines": 1,
+        "required_calls": [],
+        "claim_boundary": "Compiler backend corpus is bootstrap evidence, not the production backend replacing host lowering."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M13",
+      "title": "Sanskript can compile its own compiler",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "phase19-independent-self-compile",
+      "evidence": {
+        "stage": "S1-self-parser-lowering",
+        "independent_self_compile": true,
+        "bytecode_match": true,
+        "proof_method": "sha256-canonical-bytecode-and-sskyp",
+        "claim_boundary": "S1 proves deterministic bootstrap parity for a subset; it is not a Sanskript-authored compiler binary compiling the full compiler."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M14",
+      "title": "Sanskript can run its own VM",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "phase28-self-host-subset-vm-corpus",
+      "evidence": {
+        "self_host_corpus": {
+          "corpus_dir": "examples/self-host",
+          "subset_vm": "SanskriptSubsetVM",
+          "independent_vm": true,
+          "total": 5,
+          "passed": 5,
+          "rows": [
+            {
+              "path": "examples/self-host/vm-core.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/bytecode-verify.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/compiler-frontend.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/compiler-backend.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/test-runner.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            }
+          ],
+          "failures": []
+        },
+        "subset_vm": "SanskriptSubsetVM",
+        "phase18_bootstrap_output": [
+          "5"
+        ],
+        "corpus_passed": 5,
+        "claim_boundary": "SanskriptSubsetVM evidence is bootstrap/subset execution, not the full Sanskript VM running itself."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M15",
+      "title": "Sanskript can build and test itself",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "self-host-corpus:examples/self-host/test-runner.ssk",
+      "evidence": {
+        "path": "examples/self-host/test-runner.ssk",
+        "output_lines": 1,
+        "required_calls": [],
+        "bootstrap_test_runner": true,
+        "claim_boundary": "Bootstrap test-runner example runs under the host CLI; it is not yet a native Sanskript build-and-test loop for the full repository."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M16",
+      "title": "Sanskript can emit native binaries for at least one platform",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "phase20-real-linked-native-binary",
+      "evidence": {
+        "host_probe": {
+          "platform": "windows",
+          "implementation_state": "functional",
+          "linked_output_path": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase28\\native-probe\\windows\\program.exe",
+          "linked_output_exists": true,
+          "notes": [
+            "runtime-startup: planned for x86_64-pc-windows-msvc",
+            "entrypoint: mainCRTStartup -> _sanskript_main",
+            "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+            "native-runtime-init: initialize heap, symbol table, and std binding table",
+            "native-std-bindings: ucrt/kernel32 bridge planned",
+            "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+            "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+            "cross-compilation: host-native",
+            "object-emission: scaffold stub only; not a fully linkable object writer yet",
+            "static-linking-path: planned via platform archiver + CRT selection",
+            "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+            "link-skipped: no platform linker found in PATH",
+            "minimal-native-executable: bootstrap PE/ELF/Mach-O writer (functional exit stub; not full bytecode lowering)"
+          ]
+        },
+        "claim_boundary": "Native probe emits a minimal executable artifact; full Sanskript bytecode lowering to a native binary remains open."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M17",
+      "title": "Sanskript can emit native binaries for Windows, macOS, and Linux",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "phase20-linked-binaries:windows+macos+linux",
+      "evidence": {
+        "rows": [
+          {
+            "platform": "windows",
+            "implementation_state": "functional",
+            "linked_output_path": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase28\\native-probe\\windows\\program.exe",
+            "linked_output_exists": true,
+            "notes": [
+              "runtime-startup: planned for x86_64-pc-windows-msvc",
+              "entrypoint: mainCRTStartup -> _sanskript_main",
+              "native-exceptions: structured-exception-plan; bootstrap keeps error-return fallback",
+              "native-runtime-init: initialize heap, symbol table, and std binding table",
+              "native-std-bindings: ucrt/kernel32 bridge planned",
+              "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+              "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+              "cross-compilation: host-native",
+              "object-emission: scaffold stub only; not a fully linkable object writer yet",
+              "static-linking-path: planned via platform archiver + CRT selection",
+              "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+              "link-skipped: no platform linker found in PATH",
+              "minimal-native-executable: bootstrap PE/ELF/Mach-O writer (functional exit stub; not full bytecode lowering)"
+            ]
+          },
+          {
+            "platform": "macos",
+            "implementation_state": "functional",
+            "linked_output_path": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase28\\native-probe\\macos\\program.out",
+            "linked_output_exists": true,
+            "notes": [
+              "runtime-startup: planned for x86_64-apple-darwin-gnu",
+              "entrypoint: _start -> _sanskript_main",
+              "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+              "native-runtime-init: initialize heap, symbol table, and std binding table",
+              "native-std-bindings: libc bridge planned",
+              "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+              "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+              "cross-compilation: enabled",
+              "object-emission: scaffold stub only; not a fully linkable object writer yet",
+              "static-linking-path: planned via platform archiver + CRT selection",
+              "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+              "link-failed: C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase28\\native-probe\\macos\\program.macho.o: file not recognized: File format not recognized",
+              "minimal-native-executable: bootstrap PE/ELF/Mach-O writer (functional exit stub; not full bytecode lowering)"
+            ]
+          },
+          {
+            "platform": "linux",
+            "implementation_state": "functional",
+            "linked_output_path": "C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase28\\native-probe\\linux\\program.out",
+            "linked_output_exists": true,
+            "notes": [
+              "runtime-startup: planned for x86_64-unknown-linux-gnu",
+              "entrypoint: _start -> _sanskript_main",
+              "native-exceptions: dwarf-unwind-plan; bootstrap keeps error-return fallback",
+              "native-runtime-init: initialize heap, symbol table, and std binding table",
+              "native-std-bindings: libc bridge planned",
+              "linking: static and dynamic modes are planned; dynamic path is currently exercised via host linkers",
+              "llvm/c/rust: optional accelerators only; portable bytecode remains canonical",
+              "cross-compilation: enabled",
+              "object-emission: scaffold stub only; not a fully linkable object writer yet",
+              "static-linking-path: planned via platform archiver + CRT selection",
+              "dynamic-linking-path: linker invocation wiring exists; output viability depends on a real object writer",
+              "link-failed: C:\\Users\\divya\\OneDrive - Monash University\\Desktop\\sanskript\\artifacts\\phase28\\native-probe\\linux\\program.elf.o: file not recognized: File format not recognized",
+              "minimal-native-executable: bootstrap PE/ELF/Mach-O writer (functional exit stub; not full bytecode lowering)"
+            ]
+          }
+        ],
+        "claim_boundary": "Cross-platform native probes are minimal executable artifacts, not complete native lowering for arbitrary Sanskript programs."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M18",
+      "title": "Sanskript can target web without handwritten JavaScript application code",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "web-target-without-handwritten-application-js",
+      "evidence": {
+        "bridge_plan": {
+          "phase": 22,
+          "tier": "plan_only",
+          "implementation_state": "functional",
+          "host_bridge": false,
+          "substitute": "sanskript web + std.web.bridge_execute",
+          "notes": [
+            "HTML shell embeds canonical bytecode JSON; in-browser Sanskript VM runs application logic.",
+            "No handwritten JavaScript application handlers; host bridge is not required for app semantics.",
+            "tier plan_only for inventory; implementation_state functional for bytecode-in-html delivery."
+          ],
+          "delivery_tier": "html_bytecode_embed",
+          "targets": [
+            "wasm",
+            "html-bytecode"
+          ],
+          "emit_artifact": "sanskript-program.json-in-html",
+          "stub_wasm": "(module (func (export \"main\")))"
+        },
+        "html_has_handwritten_function_handlers": false,
+        "webapp_generator": "src/sanskript/webapp.py",
+        "program_payload": true
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M19",
+      "title": "The repo no longer requires Python/Rust for ordinary Sanskript development",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "packaged-bytecode-bootstrap-ordinary-development",
+      "evidence": {
+        "development_scope": "data\\meta\\development_scope.json",
+        "required_python_modules": 0,
+        "required_rust_modules": 0,
+        "bootstrap_runner": "data\\bootstrap\\vm-runner.sskbc",
+        "bootstrap_runner_exists": true,
+        "claim_boundary": "Development scope records a packaged bootstrap path, but repository tooling and verification still run through the host Python implementation."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M2",
+      "title": "Sanskript can express all current .sskyp examples in machine prose",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "yantra-patha-roundtrip:program-sha256-stable",
+      "evidence": {
+        "corpus": "examples/**/*.sskyp",
+        "total": 3,
+        "passed": 3,
+        "rows": [
+          {
+            "path": "examples\\caturtha.sskyp",
+            "ok": true,
+            "program_sha256": "fd2e07f6e14fabb19def1ff33b401b79b1ec10678ca77fef842de44c2d0bf1e3",
+            "text_stable": true
+          },
+          {
+            "path": "examples\\phase16-arakshita-machine-level.sskyp",
+            "ok": true,
+            "program_sha256": "a38ce53c938bf65c85345d74fed8fb4615867f2089238b6759ed9b0c6b696bb2",
+            "text_stable": true
+          },
+          {
+            "path": "examples\\phase17-bytecode-toolchain.sskyp",
+            "ok": true,
+            "program_sha256": "5ef4010802ecc31ad563ad2b7ce81abca33c42fa180f4f7a8a3d0cd3cdc0f97f",
+            "text_stable": true
+          }
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M20",
+      "title": "Python/Rust remain only optional bootstrap, compatibility, or contributor convenience paths",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "host-languages-optional-bootstrap-only",
+      "evidence": {
+        "m19_passed": true,
+        "policy": "M20 requires M19 plus explicit optional-bootstrap documentation",
+        "claim_boundary": "M19 is bootstrap-scoped only, so Python/Rust are not yet optional-only for the real repository workflow."
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M3",
+      "title": "Sanskript standard library covers text, collections, files, JSON, CLI, HTTP, and tests",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "stdlib-registry-and-smoke:required-domains",
+      "evidence": {
+        "domains": {
+          "text": {
+            "required": "std.text.strip",
+            "registered": true,
+            "smoke_ok": true
+          },
+          "collections": {
+            "required": "std.json.parse",
+            "registered": true,
+            "smoke_ok": true
+          },
+          "files": {
+            "required": "std.file.read_text",
+            "registered": true,
+            "smoke_ok": true
+          },
+          "json": {
+            "required": "std.json.stringify",
+            "registered": true,
+            "smoke_ok": true
+          },
+          "cli": {
+            "required": "std.cli.program_name",
+            "registered": true,
+            "smoke_ok": true
+          },
+          "http": {
+            "required": "std.http.get",
+            "registered": true,
+            "smoke_ok": true
+          },
+          "tests": {
+            "required": "std.test.assert_eq",
+            "registered": true,
+            "smoke_ok": true
+          }
+        },
+        "required": [
+          "text",
+          "collections",
+          "files",
+          "json",
+          "cli",
+          "http",
+          "tests"
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M4",
+      "title": "Sanskript can implement a useful CLI app without Python/Rust code",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "example-run:phase10-stdlib-cli-io.ssk",
+      "evidence": {
+        "path": "examples/phase10-stdlib-cli-io.ssk",
+        "output_lines": 4,
+        "required_calls": [
+          "std.cli.program_name",
+          "std.file.read_text"
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M5",
+      "title": "Sanskript can implement a useful web app without Python/Rust app code",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "webapp-html-emit:prathama.ssk",
+      "evidence": {
+        "source": "examples\\prathama.ssk",
+        "html_bytes": 34516,
+        "has_program_payload": true
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M6",
+      "title": "Sanskript can implement a useful desktop/productivity app",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "example-run:desktop-productivity-corpus",
+      "evidence": {
+        "path": "examples\\cookbook\\desktop-plan.ssk",
+        "output_lines": 1,
+        "required_calls": [],
+        "gui_surfaces": [
+          "std.gui.capabilities_plan"
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M7",
+      "title": "Sanskript can implement a useful game loop and asset pipeline",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "example-run:game-loop-and-assets",
+      "evidence": {
+        "path": "examples\\cookbook\\game-input.ssk",
+        "output_lines": 1,
+        "required_calls": [],
+        "game_surfaces": [
+          "std.game.input_state"
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M8",
+      "title": "Sanskript can implement research/data scripts",
+      "passed": true,
+      "claim_allowed": true,
+      "proof_method": "example-run:phase11-algorithms-data-structures.ssk",
+      "evidence": {
+        "path": "examples/phase11-algorithms-data-structures.ssk",
+        "output_lines": 3,
+        "required_calls": [
+          "std.alg."
+        ]
+      },
+      "blockers": []
+    },
+    {
+      "milestone_id": "M9",
+      "title": "Sanskript can implement the VM core in rakṣita",
+      "passed": true,
+      "claim_allowed": false,
+      "proof_method": "self-host-corpus:examples/self-host/vm-core.ssk",
+      "evidence": {
+        "self_host_corpus": {
+          "corpus_dir": "examples/self-host",
+          "subset_vm": "SanskriptSubsetVM",
+          "independent_vm": true,
+          "total": 5,
+          "passed": 5,
+          "rows": [
+            {
+              "path": "examples/self-host/vm-core.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/bytecode-verify.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/compiler-frontend.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/compiler-backend.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            },
+            {
+              "path": "examples/self-host/test-runner.ssk",
+              "compile_ok": true,
+              "subset_supported": true,
+              "host_output_lines": 1,
+              "subset_output_lines": 1,
+              "output_match": true,
+              "subset_vm": "SanskriptSubsetVM",
+              "independent_vm": true
+            }
+          ],
+          "failures": []
+        },
+        "vm_core": "examples/self-host/vm-core.ssk",
+        "present": true,
+        "claim_boundary": "Subset corpus proves a Sanskript-authored VM-core sketch runs under the current host VM; it is not a retired native rakshita VM."
+      },
+      "blockers": []
+    }
+  ],
+  "claim_boundary": "Milestone ticks require automated proof in this report. Host-replay bootstrap (Phases 18–19) does not close M9–M15.",
+  "honesty_gates": {
+    "allow_full_independence_claim": false,
+    "independence_milestones_proven": [
+      "M18"
+    ],
+    "host_bootstrap_only": [
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17",
+      "M19",
+      "M20",
+      "M9"
+    ],
+    "unresolved_reasons": [
+      "M10=bootstrap_or_scaffold_only",
+      "M11=bootstrap_or_scaffold_only",
+      "M12=bootstrap_or_scaffold_only",
+      "M13=bootstrap_or_scaffold_only",
+      "M14=bootstrap_or_scaffold_only",
+      "M15=bootstrap_or_scaffold_only",
+      "M16=bootstrap_or_scaffold_only",
+      "M17=bootstrap_or_scaffold_only",
+      "M19=bootstrap_or_scaffold_only",
+      "M20=bootstrap_or_scaffold_only",
+      "M9=bootstrap_or_scaffold_only"
+    ],
+    "policy": "Phase 28 full independence requires every M0-M20 row to pass with claim_allowed=true. Bootstrap/subset/native-probe evidence is retained as useful progress but cannot close independence."
+  },
+  "reproducible_steps": [
+    "set PYTHONPATH=src",
+    "python -m sanskript.cli milestone-check --artifact-dir artifacts/phase28",
+    "python -m unittest tests/test_phase28_independence_milestones.py"
+  ]
+}

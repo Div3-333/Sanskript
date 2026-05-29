@@ -1,0 +1,5 @@
+// Phase 28 M7: game loop + asset pipeline (std.game.* bootstrap).
+krama-kośaḥ st x 0 vx 2.
+samūhaḥ keys.
+āhvānam std.game.loop_run 10 3 st darśayati.
+āhvānam std.game.input_state keys darśayati.

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "target": "aarch64-apple-darwin-gnu",
+  "inputs": [
+    "program.*.o",
+    "symbols.json",
+    "relocations.json"
+  ],
+  "output_kind": "shared",
+  "outputs": [
+    "linked-image"
+  ]
+}

@@ -1,0 +1,8 @@
+// Phase 22: CSS bundle, DOM/events, canvas, WASM/WebGL stubs.
+samūhalakṣaṇaḥ css-āṇḍa vākyam body{color:blue} iti.
+āhvānam std.web.css_bundle css-āṇḍa phalaṃ nidadhāti.
+kośaḥ vṛkṣaḥ.
+sthāpanam vṛkṣaḥ nodes iti kośaḥ.
+āhvānam std.web.dom_dispatch vṛkṣaḥ vākyam #btn iti vākyam click iti phalaṃ nidadhāti.
+āhvānam std.web.bridge_execute vākyam wasm iti vākyam (module) iti phalaṃ nidadhāti.
+gaṇakaḥ phalaṃ darśayati.

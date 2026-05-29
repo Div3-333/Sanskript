@@ -42,7 +42,7 @@ class NativeLanguageLevelTests(unittest.TestCase):
         program = compile_source(
             """
             rakṣitam.
-            arakṣitaḥ adhikāraḥ ārabhyate.
+            arakṣitaḥ adhikāraḥ ārabhyate pramāṇam vākyam heap-boundary-reviewed iti.
             avakāśaḥ sthāna eka.
             smṛtisthāpanam sthāna pañca.
             smṛtyāharaṇam phala sthāna.
@@ -53,7 +53,10 @@ class NativeLanguageLevelTests(unittest.TestCase):
         )
 
         self.assertEqual(program.safety_tier, "rakshita")
-        self.assertIn(Instruction(OpCode.UNSAFE_ENTER), program.instructions)
+        self.assertIn(
+            Instruction(OpCode.UNSAFE_ENTER, "heap-boundary-reviewed"),
+            program.instructions,
+        )
         self.assertIn(Instruction(OpCode.HEAP_ALLOC), program.instructions)
         self.assertEqual(SanskriptVM().execute(program), ["5"])
 

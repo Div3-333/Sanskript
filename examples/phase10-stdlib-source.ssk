@@ -1,0 +1,32 @@
+āhvānam std.cli.program_name darśayati.
+āhvānam std.env.keys darśayati.
+
+āhvānam std.file.write_text vākyam ./tmp-phase10.txt iti vākyam namaste iti.
+āhvānam std.file.append_text vākyam ./tmp-phase10.txt iti vākyam  world iti.
+āhvānam std.file.read_text vākyam ./tmp-phase10.txt iti darśayati.
+āhvānam std.io.read_lines vākyam ./tmp-phase10.txt iti darśayati.
+
+āhvānam std.json.parse vākyam {"a":1} iti jdata nidadhāti.
+āhvānam std.serialize vākyam json iti jdata darśayati.
+
+āhvānam std.csv.parse vākyam name,age iti darśayati.
+āhvānam std.toml.stringify jdata darśayati.
+āhvānam std.yaml.stringify jdata darśayati.
+
+kośaḥ sandarbhe.
+sthāpanam sandarbhe name vākyam mitra iti.
+āhvānam std.template.render vākyam namaste {{ name }} iti sandarbhe darśayati.
+āhvānam std.regex.match vākyam ^\\d+$ iti vākyam 108 iti darśayati.
+
+samūhaḥ ādeśe.
+yojanam ādeśe vākyam python iti.
+yojanam ādeśe vākyam -c iti.
+yojanam ādeśe vākyam print('phase10') iti.
+āhvānam std.process.run ādeśe phala nidadhāti.
+āhvānam std.serialize vākyam json iti phala darśayati.
+
+āhvānam std.log.set_level vākyam INFO iti.
+āhvānam std.log.info vākyam phase10 stdlib source example iti.
+
+āhvānam std.test.assert_eq ekaṃ ekaṃ.
+āhvānam std.test.assert_true satyam.

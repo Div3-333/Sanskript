@@ -9,6 +9,14 @@ phalam res siddha 42.
 yugmam pair 1 2.
 saṅgrahaḥ tags 1 2 3.
 akṣarāṇi buf 48656c6c6f.
+akṣara-saṃgrahaḥ mbuf.
+krama-kośaḥ omap k 9.
+svataḥ-kośaḥ dmap 0 missing 7.
+gaṇanā-sañcayaḥ cnt 1 1 2.
+panktī q 1 2.
+stūpaḥ st 5 6.
+prakāra-vikalpaḥ Status ready.
+gaṇavikalpaḥ status Status ready 0.
 
 darśanam big.
 darśanam byte.
@@ -18,3 +26,10 @@ darśanam empty.
 darśanam res.
 darśanam pair.
 darśanam buf.
+darśanam mbuf.
+darśanam omap.
+darśanam dmap.
+darśanam cnt.
+darśanam q.
+darśanam st.
+darśanam status.

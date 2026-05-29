@@ -578,7 +578,7 @@ class IRReturn:
 
 @dataclass(frozen=True)
 class IRUnsafeEnter:
-    pass
+    proof: str | None = None
 
 
 @dataclass(frozen=True)

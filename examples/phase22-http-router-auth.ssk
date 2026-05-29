@@ -1,0 +1,13 @@
+// Phase 22 seal: router + middleware + cookies + sessions + auth (driver, no listen).
+// Run: python -m sanskript.cli run examples/phase22-http-router-auth.ssk
+kośaḥ mārga-saṃyojane.
+sthāpanam mārga-saṃyojane /users/{id} vākyam show iti.
+samūhalakṣaṇaḥ madhyavartinaḥ vākyam log iti vākyam cors iti.
+āhvānam std.http.cookie_parse vākyam sid=abc iti phala nidadhāti.
+āhvānam std.http.session_create sthāna nidadhāti.
+āhvānam std.http.session_set sthāna vākyam user iti vākyam dev iti.
+āhvānam std.http.session_get sthāna vākyam user iti mūlya nidadhāti.
+āhvānam std.http.auth_basic_header vākyam u iti vākyam p iti antima nidadhāti.
+āhvānam std.http.router_dispatch vākyam /users/9 iti mārga-saṃyojane madhyavartinaḥ phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.
+gaṇakaḥ mūlyaṃ darśayati.

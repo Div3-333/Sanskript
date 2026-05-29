@@ -9,8 +9,10 @@ import unittest
 from pathlib import Path
 
 from sanskript.bytecode import BytecodeProgram, Instruction, OpCode
-from sanskript.errors import RuntimeSanskriptError
+from sanskript.errors import CompileError, RuntimeSanskriptError
 from sanskript.runtime_values import BytesValue, NIL
+from sanskript.compiler import compile_source, compile_program_to_ir, lower_ir_to_bytecode
+from sanskript.parser import parse_program
 from sanskript.stdlib_core import call_native_function, has_native_function, list_native_functions
 from sanskript.vm import SanskriptVM
 
@@ -342,6 +344,144 @@ class StdlibCoreVmIntegrationTests(unittest.TestCase):
             )
         )
         self.assertEqual(SanskriptVM().execute(program), ["Hi dev"])
+
+
+class StdlibSourceIntegrationTests(unittest.TestCase):
+    @staticmethod
+    def _compile_without_typecheck(source: str) -> BytecodeProgram:
+        program = parse_program(source)
+        return lower_ir_to_bytecode(compile_program_to_ir(program))
+
+    @staticmethod
+    def _call_targets(program: BytecodeProgram) -> set[str]:
+        return {
+            str(inst.operand)
+            for inst in program.instructions
+            if inst.opcode == OpCode.CALL and isinstance(inst.operand, str)
+        }
+
+    def test_source_qualified_std_call_parses_and_runs(self) -> None:
+        program = parse_program("āhvānam std.text.upper vākyam namaste iti darśayati.")
+        display = program.statements[0]
+        call_value = display.value
+        self.assertEqual(call_value.module, "std.text")
+        self.assertEqual(call_value.name, "upper")
+
+        bytecode = self._compile_without_typecheck("āhvānam std.text.upper vākyam namaste iti darśayati.")
+        self.assertIn(
+            Instruction(OpCode.CALL, "std.text.upper"),
+            bytecode.instructions,
+        )
+        self.assertEqual(SanskriptVM().execute(bytecode), ["NAMASTE"])
+
+    def test_source_json_regex_template_and_test_utils(self) -> None:
+        source = """
+        āhvānam std.json.parse vākyam {"n":7} iti vastu nidadhāti.
+        āhvānam std.serialize vākyam json iti vastu darśayati.
+        kośaḥ sandarbhe.
+        sthāpanam sandarbhe name vākyam dev iti.
+        āhvānam std.template.render vākyam Hi {{ name }} iti sandarbhe darśayati.
+        āhvānam std.regex.match vākyam ^\\d+$ iti vākyam 42 iti satyam nidadhāti.
+        āhvānam std.test.assert_true satyam.
+        """
+        out = SanskriptVM().execute(self._compile_without_typecheck(source))
+        self.assertEqual(out[0], '{"n":7}')
+        self.assertEqual(out[1], "Hi dev")
+
+    def test_source_file_cli_logging_and_process(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = str(Path(tmp) / "phase10-src.txt").replace("\\", "/")
+            source = f"""
+            āhvānam std.file.write_text vākyam {path} iti vākyam line1 iti.
+            āhvānam std.file.read_text vākyam {path} iti darśayati.
+            āhvānam std.log.set_level vākyam INFO iti.
+            āhvānam std.log.info vākyam phase10-source-log iti.
+            samūhaḥ ādeśe.
+            yojanam ādeśe vākyam python iti.
+            yojanam ādeśe vākyam -c iti.
+            yojanam ādeśe vākyam print('phase10-source') iti.
+            āhvānam std.process.run ādeśe phala nidadhāti.
+            āhvānam std.serialize vākyam json iti phala darśayati.
+            āhvānam std.cli.program_name darśayati.
+            """
+            out = SanskriptVM().execute(self._compile_without_typecheck(source))
+            self.assertIn("line1", out[0])
+            self.assertIn("phase10-source", out[1])
+            self.assertTrue(out[2])
+
+    def test_source_stdlib_call_lowering_is_generic_across_namespaces(self) -> None:
+        source = """
+        āhvānam std.cli.program_name darśayati.
+        āhvānam std.file.write_text vākyam ./phase10-generic.txt iti vākyam ok iti.
+        āhvānam std.file.read_text vākyam ./phase10-generic.txt iti darśayati.
+        āhvānam std.json.parse vākyam {"x":1} iti vastu nidadhāti.
+        āhvānam std.csv.parse vākyam name,age
+        dev,10
+        iti paṅktayaḥ nidadhāti.
+        āhvānam std.toml.parse vākyam [app]\nname = "sanskript"\n iti tdata nidadhāti.
+        āhvānam std.yaml.parse vākyam count: 2 iti ydata nidadhāti.
+        āhvānam std.regex.match vākyam ^\\d+$ iti vākyam 108 iti satyam nidadhāti.
+        kośaḥ sandarbhe.
+        sthāpanam sandarbhe name vākyam mitra iti.
+        āhvānam std.template.render vākyam namaste {{ name }} iti sandarbhe darśayati.
+        samūhaḥ ādeśe.
+        yojanam ādeśe vākyam python iti.
+        yojanam ādeśe vākyam -c iti.
+        yojanam ādeśe vākyam print('phase10-generic') iti.
+        āhvānam std.process.run ādeśe phala nidadhāti.
+        āhvānam std.log.set_level vākyam INFO iti.
+        āhvānam std.log.info vākyam phase10-generic-log iti.
+        āhvānam std.test.assert_true satyam.
+        """
+        bytecode = self._compile_without_typecheck(source)
+        targets = self._call_targets(bytecode)
+        expected = {
+            "std.cli.program_name",
+            "std.file.write_text",
+            "std.file.read_text",
+            "std.json.parse",
+            "std.csv.parse",
+            "std.toml.parse",
+            "std.yaml.parse",
+            "std.regex.match",
+            "std.template.render",
+            "std.process.run",
+            "std.log.set_level",
+            "std.log.info",
+            "std.test.assert_true",
+        }
+        self.assertTrue(expected.issubset(targets))
+        runnable = """
+        āhvānam std.cli.program_name darśayati.
+        āhvānam std.file.write_text vākyam ./phase10-generic.txt iti vākyam ok iti.
+        āhvānam std.file.read_text vākyam ./phase10-generic.txt iti darśayati.
+        āhvānam std.json.parse vākyam {"x":1} iti vastu nidadhāti.
+        āhvānam std.csv.parse vākyam name,age
+        dev,10
+        iti paṅktayaḥ nidadhāti.
+        āhvānam std.regex.match vākyam ^\\d+$ iti vākyam 108 iti satyam nidadhāti.
+        kośaḥ sandarbhe.
+        sthāpanam sandarbhe name vākyam mitra iti.
+        āhvānam std.template.render vākyam namaste {{ name }} iti sandarbhe darśayati.
+        samūhaḥ ādeśe.
+        yojanam ādeśe vākyam python iti.
+        yojanam ādeśe vākyam -c iti.
+        yojanam ādeśe vākyam print('phase10-generic') iti.
+        āhvānam std.process.run ādeśe phala nidadhāti.
+        āhvānam std.log.set_level vākyam INFO iti.
+        āhvānam std.log.info vākyam phase10-generic-log iti.
+        āhvānam std.test.assert_true satyam.
+        """
+        out = SanskriptVM().execute(self._compile_without_typecheck(runnable))
+        self.assertTrue(out)
+
+    def test_source_qualified_target_without_function_rejected(self) -> None:
+        with self.assertRaises(CompileError):
+            compile_source("āhvānam std.file darśayati.")
+
+    def test_source_unknown_std_function_rejected_during_compile(self) -> None:
+        with self.assertRaises(CompileError):
+            compile_source("āhvānam std.ghost.nope darśayati.")
 
 
 class StdlibProcessTests(unittest.TestCase):

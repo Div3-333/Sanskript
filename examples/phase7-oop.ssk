@@ -24,3 +24,19 @@ nirmāṇam dīpaḥ Dīpakaḥ 5.
 paddhati-āhvānam tyaktam dīpaḥ vardhaya 2.
 paddhati-āhvānam phalam dīpaḥ darśaya.
 darśanam phalam.
+
+vargaḥ Mātṛkā sthira metoda śūnyam varga-metoda racaya.
+vargaḥ Yantram saṅkhyā i32 adhivarga Mātṛkā.
+
+vidhānam Mātṛkā__static__śūnyam.
+pratyāvartanam śūnyam.
+samāpanam.
+
+vidhānam Mātṛkā__racaya vargaṃ mātrā.
+pratyāvartanam mātrā.
+samāpanam.
+
+sthira-paddhati-āhvānam m Yantram śūnyam.
+varga-paddhati-āhvānam n Yantram racaya 6.
+darśanam m.
+darśanam n.

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "instructions": [
+    {
+      "op": "push_int",
+      "operand": 16
+    },
+    {
+      "op": "call",
+      "operand": "std.math.sqrt"
+    },
+    {
+      "op": "emit"
+    },
+    {
+      "op": "halt"
+    }
+  ]
+}

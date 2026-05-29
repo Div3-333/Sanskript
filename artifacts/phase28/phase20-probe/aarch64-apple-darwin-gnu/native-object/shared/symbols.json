@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "symbols": [
+    {
+      "name": "_sanskript_main",
+      "section": ".text",
+      "binding": "global"
+    }
+  ]
+}

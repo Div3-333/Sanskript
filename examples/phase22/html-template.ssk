@@ -1,0 +1,7 @@
+// Phase 22: HTML + template engine.
+kośaḥ pṛṣṭha-sandarbhaḥ.
+sthāpanam pṛṣṭha-sandarbhaḥ title vākyam Phase22 iti.
+āhvānam std.web.render vākyam <h1>{{title}}</h1> iti pṛṣṭha-sandarbhaḥ darśayati.
+kośaḥ nāma-sandarbhaḥ.
+sthāpanam nāma-sandarbhaḥ name vākyam phase22-dir iti.
+āhvānam std.template.render vākyam package={{name}} iti nāma-sandarbhaḥ darśayati.

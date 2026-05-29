@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "phase": 27,
+  "authored_surface": "examples/phase27-migration-test-manifest.ssk",
+  "description": "Golden regression sources for migration tracking. Execution remains on the host pytest/CLI until a native runner exists.",
+  "regression_sources": [
+    {
+      "id": "phase1-script-sandhi",
+      "path": "examples/phase1-script-sandhi.ssk",
+      "purpose": "source pipeline + sandhi"
+    },
+    {
+      "id": "phase3-data-types",
+      "path": "examples/phase3-data-types.ssk",
+      "purpose": "value types + VM parity"
+    },
+    {
+      "id": "phase6-functions",
+      "path": "examples/phase6-functions.ssk",
+      "purpose": "calls + closures foundation"
+    },
+    {
+      "id": "phase7-oop",
+      "path": "examples/phase7-oop.ssk",
+      "purpose": "records/classes dispatch"
+    },
+    {
+      "id": "phase10-stdlib-cli-io",
+      "path": "examples/phase10-stdlib-cli-io.ssk",
+      "purpose": "stdlib + CLI I/O"
+    },
+    {
+      "id": "phase12-diagnostics",
+      "path": "examples/phase12-diagnostics.ssk",
+      "purpose": "diagnostics + error paths"
+    },
+    {
+      "id": "phase18-vm-bootstrap",
+      "path": "examples/phase18-vm-bootstrap.sskbc",
+      "purpose": "VM bootstrap bytecode evidence"
+    }
+  ],
+  "host_only_commands": [
+    "migration-report",
+    "compile",
+    "run",
+    "self-host-check"
+  ]
+}

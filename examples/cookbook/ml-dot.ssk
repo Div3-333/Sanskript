@@ -1,0 +1,3 @@
+// Cookbook: vector dot product (ML/linalg host bridge).
+samūhalakṣaṇaḥ a 3 4.
+āhvānam std.linalg.dot a a darśayati.

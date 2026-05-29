@@ -1,0 +1,5 @@
+// Phase 22: desktop GUI simulation (window, widgets, menus, clipboard, notifications, file dialog).
+kośaḥ gui-kriyāḥ.
+sthāpanam gui-kriyāḥ kind vākyam window iti title vākyam P22 iti.
+āhvānam std.gui.simulate gui-kriyāḥ phalaṃ nidadhāti.
+āhvānam std.serialize vākyam json iti phalaṃ darśayati.

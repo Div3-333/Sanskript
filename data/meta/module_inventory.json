@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-27T12:44:21+00:00",
+  "generated_at": "2026-05-29T05:05:30+00:00",
   "generator": "tools/generate_module_inventory.py",
-  "module_count": 212,
-  "python_count": 207,
+  "module_count": 262,
+  "python_count": 257,
   "rust_count": 5,
-  "average_replaceability_score": 28.2,
+  "average_replaceability_score": 28.8,
   "role_counts": {
-    "other": 36,
+    "other": 57,
     "grammar_engine": 58,
     "compiler": 6,
     "vm": 5,
@@ -14,26 +14,26 @@
     "docs": 1,
     "migration": 1,
     "web": 1,
-    "tooling": 28,
-    "tests": 73
+    "tooling": 35,
+    "tests": 95
   },
   "milestone_counts": {
-    "M19": 36,
+    "M19": 57,
     "M11": 64,
     "M9": 4,
     "M3": 3,
     "M26": 1,
     "M27": 1,
     "M5": 1,
-    "M15": 99,
+    "M15": 128,
     "M10": 1,
     "M4": 2
   },
   "migration_label_counts": {
-    "port_directly": 51,
+    "port_directly": 72,
     "redesign": 59,
-    "keep_temporarily": 99,
-    "remove": 3
+    "keep_temporarily": 126,
+    "remove": 5
   },
   "modules": [
     {
@@ -164,7 +164,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 45,
       "notes": "Compiler frontend/backend host implementation.",
-      "lines": 1155
+      "lines": 1156
     },
     {
       "path": "src/sanskript/avyaya.py",
@@ -174,7 +174,7 @@
       "migration_label": "redesign",
       "replaceability_score": 12,
       "notes": "Paninian/morphology subsystem.",
-      "lines": 117
+      "lines": 119
     },
     {
       "path": "src/sanskript/bytecode.py",
@@ -184,7 +184,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 50,
       "notes": "Bytecode VM host implementation.",
-      "lines": 941
+      "lines": 1142
     },
     {
       "path": "src/sanskript/canon_topics.py",
@@ -214,7 +214,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 203
+      "lines": 1573
     },
     {
       "path": "src/sanskript/comments.py",
@@ -234,7 +234,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 45,
       "notes": "Compiler frontend/backend host implementation.",
-      "lines": 2843
+      "lines": 3077
     },
     {
       "path": "src/sanskript/derivation.py",
@@ -247,6 +247,16 @@
       "lines": 295
     },
     {
+      "path": "src/sanskript/diagnostics.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 148
+    },
+    {
       "path": "src/sanskript/errors.py",
       "language": "python",
       "role": "runtime",
@@ -254,7 +264,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 65,
       "notes": "Shared error types.",
-      "lines": 86
+      "lines": 156
     },
     {
       "path": "src/sanskript/fixed_width.py",
@@ -404,7 +414,7 @@
       "migration_label": "redesign",
       "replaceability_score": 12,
       "notes": "Paninian/morphology subsystem.",
-      "lines": 236
+      "lines": 257
     },
     {
       "path": "src/sanskript/morphology_lexicon.py",
@@ -414,7 +424,7 @@
       "migration_label": "redesign",
       "replaceability_score": 12,
       "notes": "Paninian/morphology subsystem.",
-      "lines": 263
+      "lines": 270
     },
     {
       "path": "src/sanskript/morphology_synth.py",
@@ -434,7 +444,7 @@
       "migration_label": "redesign",
       "replaceability_score": 12,
       "notes": "Paninian/morphology subsystem.",
-      "lines": 36
+      "lines": 37
     },
     {
       "path": "src/sanskript/morphology_validate.py",
@@ -447,6 +457,26 @@
       "lines": 85
     },
     {
+      "path": "src/sanskript/native_backends.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 580
+    },
+    {
+      "path": "src/sanskript/native_minimal_exe.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 55
+    },
+    {
       "path": "src/sanskript/oop.py",
       "language": "python",
       "role": "other",
@@ -454,7 +484,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 254
+      "lines": 316
     },
     {
       "path": "src/sanskript/package_lock.py",
@@ -464,7 +494,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 152
+      "lines": 229
     },
     {
       "path": "src/sanskript/package_manifest.py",
@@ -474,7 +504,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 264
+      "lines": 314
     },
     {
       "path": "src/sanskript/package_resolver.py",
@@ -484,7 +514,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 289
+      "lines": 408
     },
     {
       "path": "src/sanskript/package_signing.py",
@@ -494,7 +524,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 78
+      "lines": 155
     },
     {
       "path": "src/sanskript/paninian_effects.py",
@@ -524,7 +554,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 45,
       "notes": "Compiler frontend/backend host implementation.",
-      "lines": 2711
+      "lines": 3054
     },
     {
       "path": "src/sanskript/parser_core.py",
@@ -534,7 +564,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 463
+      "lines": 525
     },
     {
       "path": "src/sanskript/performance.py",
@@ -544,7 +574,177 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 83
+      "lines": 101
+    },
+    {
+      "path": "src/sanskript/phase17_toolchain.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 443
+    },
+    {
+      "path": "src/sanskript/phase18_vm_runtime.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 627
+    },
+    {
+      "path": "src/sanskript/phase20_native_evidence.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 116
+    },
+    {
+      "path": "src/sanskript/phase21_cross_platform.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1324
+    },
+    {
+      "path": "src/sanskript/phase22_web_apps.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1220
+    },
+    {
+      "path": "src/sanskript/phase23_concurrency.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1770
+    },
+    {
+      "path": "src/sanskript/phase24_tooling.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1138
+    },
+    {
+      "path": "src/sanskript/phase25_ast_smoke.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 147
+    },
+    {
+      "path": "src/sanskript/phase25_exhaustive_registry.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 168
+    },
+    {
+      "path": "src/sanskript/phase25_opcode_smoke.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 817
+    },
+    {
+      "path": "src/sanskript/phase25_testing_verification.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1429
+    },
+    {
+      "path": "src/sanskript/phase26_docs.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 443
+    },
+    {
+      "path": "src/sanskript/phase27_migration_report.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1003
+    },
+    {
+      "path": "src/sanskript/phase27_ports.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 369
+    },
+    {
+      "path": "src/sanskript/phase28_independence_milestones.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 540
+    },
+    {
+      "path": "src/sanskript/phase28_milestones.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 1070
+    },
+    {
+      "path": "src/sanskript/phase28_self_host.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 221
     },
     {
       "path": "src/sanskript/phase3_opcodes.py",
@@ -574,7 +774,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 248
+      "lines": 270
     },
     {
       "path": "src/sanskript/phase8_functional.py",
@@ -584,7 +784,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 350
+      "lines": 388
     },
     {
       "path": "src/sanskript/phase8_opcodes.py",
@@ -654,7 +854,7 @@
       "migration_label": "redesign",
       "replaceability_score": 12,
       "notes": "Paninian/morphology subsystem.",
-      "lines": 146
+      "lines": 307
     },
     {
       "path": "src/sanskript/scope.py",
@@ -674,7 +874,17 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 387
+      "lines": 400
+    },
+    {
+      "path": "src/sanskript/self_hosting.py",
+      "language": "python",
+      "role": "other",
+      "milestone": "M19",
+      "migration_label": "port_directly",
+      "replaceability_score": 30,
+      "notes": "Unclassified support module.",
+      "lines": 340
     },
     {
       "path": "src/sanskript/source_context.py",
@@ -694,7 +904,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 99
+      "lines": 114
     },
     {
       "path": "src/sanskript/stdlib_common.py",
@@ -704,7 +914,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 127
+      "lines": 130
     },
     {
       "path": "src/sanskript/stdlib_core.py",
@@ -724,7 +934,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 1304
+      "lines": 3881
     },
     {
       "path": "src/sanskript/subanta.py",
@@ -1004,7 +1214,7 @@
       "migration_label": "redesign",
       "replaceability_score": 12,
       "notes": "Paninian/morphology subsystem.",
-      "lines": 1697
+      "lines": 1704
     },
     {
       "path": "src/sanskript/syntax.py",
@@ -1064,7 +1274,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 30,
       "notes": "Unclassified support module.",
-      "lines": 1100
+      "lines": 1825
     },
     {
       "path": "src/sanskript/vm.py",
@@ -1074,7 +1284,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 50,
       "notes": "Bytecode VM host implementation.",
-      "lines": 1376
+      "lines": 1904
     },
     {
       "path": "src/sanskript/vm_phase3.py",
@@ -1124,7 +1334,7 @@
       "migration_label": "port_directly",
       "replaceability_score": 50,
       "notes": "Bytecode VM host implementation.",
-      "lines": 759
+      "lines": 1171
     },
     {
       "path": "tools/_debug_parse_example.py",
@@ -1135,6 +1345,36 @@
       "replaceability_score": 55,
       "notes": "Build/inventory scripts; replace incrementally.",
       "lines": 11
+    },
+    {
+      "path": "tools/_gen_phase25_exhaustive_registry.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "remove",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 162
+    },
+    {
+      "path": "tools/_gen_phase25_exhaustive_tests.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "remove",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 134
+    },
+    {
+      "path": "tools/adversarial_audit_phases_1_28.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 213
     },
     {
       "path": "tools/build_grammar_canon.py",
@@ -1204,7 +1444,27 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 55,
       "notes": "Build/inventory scripts; replace incrementally.",
-      "lines": 136
+      "lines": 147
+    },
+    {
+      "path": "tools/generate_phase25_golden.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 102
+    },
+    {
+      "path": "tools/generate_phase25_tests.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 203
     },
     {
       "path": "tools/patch_schema_phase3.py",
@@ -1235,6 +1495,26 @@
       "replaceability_score": 55,
       "notes": "Build/inventory scripts; replace incrementally.",
       "lines": 299
+    },
+    {
+      "path": "tools/phase25_coverage_map.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 36
+    },
+    {
+      "path": "tools/phase25_test_matrix.py",
+      "language": "python",
+      "role": "tooling",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 55,
+      "notes": "Build/inventory scripts; replace incrementally.",
+      "lines": 54
     },
     {
       "path": "scripts/_profile_import.py",
@@ -1524,7 +1804,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 72
+      "lines": 198
     },
     {
       "path": "tests/test_collections.py",
@@ -1677,6 +1957,16 @@
       "lines": 217
     },
     {
+      "path": "tests/test_native_backends.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 120
+    },
+    {
       "path": "tests/test_native_levels.py",
       "language": "python",
       "role": "tests",
@@ -1684,7 +1974,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 62
+      "lines": 65
     },
     {
       "path": "tests/test_paninian_adhyaya12_real_effects.py",
@@ -1764,7 +2054,97 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 360
+      "lines": 500
+    },
+    {
+      "path": "tests/test_phase11_algorithms_data_structures.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 275
+    },
+    {
+      "path": "tests/test_phase12_diagnostics.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 223
+    },
+    {
+      "path": "tests/test_phase13_memory_model.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 178
+    },
+    {
+      "path": "tests/test_phase14_surakshita.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 271
+    },
+    {
+      "path": "tests/test_phase15_rakshita_systems.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 172
+    },
+    {
+      "path": "tests/test_phase16_arakshita.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 213
+    },
+    {
+      "path": "tests/test_phase17_toolchain.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 193
+    },
+    {
+      "path": "tests/test_phase18_vm_runtime.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 132
+    },
+    {
+      "path": "tests/test_phase19_self_hosting.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 131
     },
     {
       "path": "tests/test_phase1_source_surface.py",
@@ -1774,7 +2154,127 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 167
+      "lines": 184
+    },
+    {
+      "path": "tests/test_phase20_native_backends.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 82
+    },
+    {
+      "path": "tests/test_phase21_cross_platform.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 384
+    },
+    {
+      "path": "tests/test_phase22_web_apps_games_research.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 271
+    },
+    {
+      "path": "tests/test_phase22_web_apps_games_research_ml.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 234
+    },
+    {
+      "path": "tests/test_phase23_concurrency_async.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 574
+    },
+    {
+      "path": "tests/test_phase24_tooling.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 783
+    },
+    {
+      "path": "tests/test_phase25_borrow_negatives.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 69
+    },
+    {
+      "path": "tests/test_phase25_exhaustive_coverage.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 1323
+    },
+    {
+      "path": "tests/test_phase25_testing_verification.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 293
+    },
+    {
+      "path": "tests/test_phase26_documentation.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 179
+    },
+    {
+      "path": "tests/test_phase27_migration.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 214
+    },
+    {
+      "path": "tests/test_phase28_independence_milestones.py",
+      "language": "python",
+      "role": "tests",
+      "milestone": "M15",
+      "migration_label": "keep_temporarily",
+      "replaceability_score": 25,
+      "notes": "Host test harness until Sanskript test runner (M15).",
+      "lines": 120
     },
     {
       "path": "tests/test_phase2_core_syntax.py",
@@ -1784,7 +2284,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 288
+      "lines": 447
     },
     {
       "path": "tests/test_phase3_data_types.py",
@@ -1794,7 +2294,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 1303
+      "lines": 1389
     },
     {
       "path": "tests/test_phase4_type_system.py",
@@ -1804,7 +2304,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 662
+      "lines": 908
     },
     {
       "path": "tests/test_phase5_control_flow.py",
@@ -1814,7 +2314,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 744
+      "lines": 853
     },
     {
       "path": "tests/test_phase6_functions.py",
@@ -1824,7 +2324,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 445
+      "lines": 561
     },
     {
       "path": "tests/test_phase7_oop.py",
@@ -1834,7 +2334,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 345
+      "lines": 646
     },
     {
       "path": "tests/test_phase8_functional_declarative.py",
@@ -1844,7 +2344,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 323
+      "lines": 556
     },
     {
       "path": "tests/test_phase9_modules.py",
@@ -1854,7 +2354,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 439
+      "lines": 752
     },
     {
       "path": "tests/test_phase_examples.py",
@@ -1864,7 +2364,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 57
+      "lines": 77
     },
     {
       "path": "tests/test_phonology.py",
@@ -1934,7 +2434,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 39
+      "lines": 97
     },
     {
       "path": "tests/test_source_collections.py",
@@ -2044,7 +2544,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 40
+      "lines": 71
     },
     {
       "path": "tests/test_type_catalog.py",
@@ -2064,7 +2564,7 @@
       "migration_label": "keep_temporarily",
       "replaceability_score": 25,
       "notes": "Host test harness until Sanskript test runner (M15).",
-      "lines": 70
+      "lines": 269
     },
     {
       "path": "tests/test_vocabulary_balance.py",
